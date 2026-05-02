@@ -1,0 +1,12 @@
+{
+  "info": {
+    "title": "Dev Room",
+    "description": "This is just a dev room for tests.",
+    "start_scene": "test_room",
+    "order": "1",
+    "travel_scenes": "[\"nombredelarchivodeescena\"]"
+  },
+  "map": {
+    "center": "[ [2,2] ]",
+  }
+}

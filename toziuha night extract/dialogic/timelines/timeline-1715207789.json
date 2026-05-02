@@ -1,0 +1,104 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1676994716.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Angry",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Sabes, desde aquella vez me he estado preguntando en cómo vencerte."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Dominas el Cloro en su forma gaseosa..."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Lo cual hace díficil contrarestar tus ataques."
+		},
+		{
+			"character": "character-1676994716.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "... ... ..."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Pensando en lo complicado de evitar entrar en contacto con el gas, me di cuenta de algo."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Los Alquimistas [color=yellow]no somos inmunes[/color] al elemento que dominamos."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "¡Esa máscara que llevas es para protegerte del gas de cloro!"
+		},
+		{
+			"event_id": "flash_event",
+			"time_flash": 0.5
+		},
+		{
+			"event_id": "shake_dialog_node"
+		},
+		{
+			"character": "character-1676994716.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "¡Nooooo!"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1715207789.json",
+		"name": "eva-phase2-1"
+	}
+}

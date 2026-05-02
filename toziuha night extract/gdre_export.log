@@ -1,0 +1,68 @@
+GDRE Tools v2.5.0-beta.5
+Windows 10.0.19045, Intel(R) UHD Graphics 620, vulkan
+Opening file: C:/Users/Nabig/Downloads/Toziuha-Night-OotA-v0-5-0-8-patched.apk
+Multiple passing candidates for bytecode version 13:
+3.5.0-stable (a7aad78), 3.2.0-stable (5565f55)
+Choosing only one that matches engine version: 3.5.0-stable (a7aad78).
+Loaded 2492 imported files
+Detected Engine Version: 3.6.0.stable
+Detected Bytecode Revision: 3.5.0-stable (a7aad78)
+Extracted 6313 files, no errors detected!
+Recreating plugin configs...
+WARNING: Failed to recreate plugin.cfg for res://addons/texture_fonts
+   at: ImportExporter::recreate_plugin_configs (modules\gdsdecomp\utility\import_exporter.cpp:1790)
+ERROR: Failed to find gdextension libraries for plugin res://addons/steam_api/steam_api.gdnlib
+   at: GDExtensionExporter::export_resource (modules\gdsdecomp\exporters\gdextension_exporter.cpp:195)
+ERROR: Failed to find gdextension libraries for plugin res://addons/native_dialogs/bin/native_dialogs.gdnlib
+   at: GDExtensionExporter::export_resource (modules\gdsdecomp\exporters\gdextension_exporter.cpp:195)
+Loading resource strings, this may take a while!!
+Resource strings loaded!
+Saved project config.
+
+
+********************************EXPORT REPORT********************************
+
+Totals:                                 
+Decompiled scripts:                     849
+Failed scripts:                         0
+Imported resources for export session:  2488
+Successfully converted:                 2486
+Lossy:                                  181
+Rewrote metadata:                       0
+Non-importable conversions:             0
+Not converted:                          0
+Failed conversions:                     2
+-------------
+
+------
+
+The following plugins failed to have their plugin.cfg regenerated:
+texture_fonts
+
+
+
+---------------------------------IMPORTANT NOTES----------------------------------
+
+
+Translation Export Incomplete:
+Could not recover 1/826 keys for res://localization/dialogs.csv
+Could not recover 5/281 keys for res://localization/localizations.csv
+
+
+------
+Incomplete Plugin Export:
+The following addons failed to have their plugin.cfg regenerated
+You may encounter editor errors due to this.
+Tip: Try finding the plugin in the Godot Asset Library or Github.
+
+ - texture_fonts
+
+
+
+------------------------------------------------------------------------------------
+
+Use Godot editor version 3.6.0.stable (Steam edition) to edit the project.
+GodotSteam can be found here: https://github.com/CoaguCo-Industries/GodotSteam/releases 
+
+*******************************************************************************
+

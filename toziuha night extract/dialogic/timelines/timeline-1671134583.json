@@ -1,0 +1,171 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": true,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG1_1671134583"
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_position": true,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "(Don't change)",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 2,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"animation_wait": true,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1676994716.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1676994716.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG4_1671134583"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Angry",
+			"text": "DLG5_1671134583"
+		},
+		{
+			"character": "character-1676994716.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG6_1671134583"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG7_1671134583"
+		},
+		{
+			"character": "character-1676994716.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG8_1671134583"
+		},
+		{
+			"event_id": "shake_dialog_node"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG10_1671134583"
+		},
+		{
+			"character": "character-1676994716.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG11_1671134583"
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"animation_wait": true,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 1,
+			"z_index": 0
+		},
+		{
+			"animation": "[No Animation]",
+			"animation_length": 0,
+			"animation_wait": false,
+			"change_mirror_portrait": false,
+			"change_position": true,
+			"change_z_index": false,
+			"character": "character-1676994716.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "(Don't change)",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": true,
+				"3": false,
+				"4": false
+			},
+			"type": 2,
+			"z_index": 0
+		},
+		{
+			"character": "character-1676994716.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG14_1671134583"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1671134583.json",
+		"name": "grijayla-eva-1st-dialog"
+	}
+}

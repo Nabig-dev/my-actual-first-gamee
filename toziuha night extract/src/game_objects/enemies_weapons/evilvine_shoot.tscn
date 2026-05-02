@@ -1,0 +1,108 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hitbox_enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sprites/enemies/evilvine_green.png" type="Texture" id=2]
+[ext_resource path="res://src/game_objects/enemies_weapons/evilvine_shoot.gd" type="Script" id=3]
+[ext_resource path="res://src/scripts/auto_start_animation_player.gd" type="Script" id=4]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hurtbox_enemy_simple.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/images/vfx/particles/smoke_07.png" type="Texture" id=6]
+[ext_resource path="res://src/game_objects/light2d_custom.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/images/vfx/particles/spotlight_7.png" type="Texture" id=8]
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 8.0
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 35 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "idle"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 35, 36, 37, 38 ]
+}
+
+[node name="EvilvineShoot" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource( 3 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 30
+local_coords = false
+texture = ExtResource( 6 )
+spread = 91.22
+gravity = Vector2( 0, -10 )
+initial_velocity = 1.84
+linear_accel = 3.98
+scale_amount = 0.02
+scale_amount_curve = SubResource( 4 )
+color = Color( 0.85098, 0.0235294, 1, 1 )
+
+[node name="HitboxEnemy" parent="." instance=ExtResource( 1 )]
+identifier = "evilvine"
+hurtbox_node = NodePath("../HurtboxEnemySimple")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxEnemy"]
+shape = SubResource( 1 )
+
+[node name="HurtboxEnemySimple" parent="." instance=ExtResource( 5 )]
+sprite_flash = NodePath("../Sprite")
+max_hits = 1
+damage_sounds = [ "damage_slash" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxEnemySimple"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+flip_h = true
+hframes = 5
+vframes = 8
+frame = 35
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 2 )
+anims/idle = SubResource( 3 )
+script = ExtResource( 4 )
+anim_name_autostart = "idle"
+
+[node name="Light2DCustom" parent="." instance=ExtResource( 7 )]
+texture = ExtResource( 8 )
+texture_scale = 0.19
+color = Color( 0.870588, 0.027451, 0.898039, 1 )
+energy = 3.78
+range_item_cull_mask = 1
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 3.8147e-06, 9.53674e-07 )
+scale = Vector2( 5.6, 4 )
+
+[connection signal="defeated" from="HurtboxEnemySimple" to="." method="_on_HurtboxEnemy_defeated"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

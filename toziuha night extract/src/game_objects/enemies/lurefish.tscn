@@ -1,0 +1,309 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://src/game_objects/light2d_custom.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/images/vfx/light_02.png" type="Texture" id=2]
+[ext_resource path="res://src/game_objects/enemy_base.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game_objects/enemies/lurefish.gd" type="Script" id=4]
+[ext_resource path="res://assets/sprites/enemies/lurefish.png" type="Texture" id=5]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hurtbox_enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/sprites/vfx/circle_radar_x48.png" type="Texture" id=7]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hitbox_enemy.tscn" type="PackedScene" id=8]
+
+[sub_resource type="CircleShape2D" id=3]
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 14.09
+
+[sub_resource type="CanvasItemMaterial" id=5]
+particles_animation = true
+particles_anim_h_frames = 7
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="CircleShape2D" id=7]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/Light2DCustom:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -15 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CPUParticles2DBubbles:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Sprite/Light2DCustom:enabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Sprite/Light2DCustom:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "dead"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CPUParticles2DBubbles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite/Light2DCustom:enabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Sprite/Light2DCustom:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "swim"
+length = 1.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/Light2DCustom:position")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, -15 ), Vector2( 4, -18 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -1 ), Vector2( 0, -2.711 ), Vector2( 0, 1.488 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 208, 10 )
+
+[node name="Lurefish" type="KinematicBody2D"]
+collision_layer = 512
+collision_mask = 4097
+script = ExtResource( 4 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+visible = false
+position = Vector2( 0, -0.499998 )
+scale = Vector2( 4.5, 4.85 )
+process_parent = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 1 )
+shape = SubResource( 3 )
+
+[node name="HurtboxEnemy" parent="." instance=ExtResource( 6 )]
+identifier = "lurefish"
+sprite_flash = NodePath("../Sprite")
+death_sounds = [ "bubble_a" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxEnemy"]
+shape = SubResource( 6 )
+
+[node name="CPUParticles2DBubbles" type="CPUParticles2D" parent="."]
+material = SubResource( 5 )
+emitting = false
+amount = 30
+lifetime = 2.0
+texture = ExtResource( 7 )
+spread = 180.0
+gravity = Vector2( 0, -98 )
+initial_velocity = 29.9
+anim_speed = 5.0
+
+[node name="HitboxEnemy" parent="." instance=ExtResource( 8 )]
+identifier = "lurefish"
+hurtbox_node = NodePath("../HurtboxEnemy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxEnemy"]
+shape = SubResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -1 )
+texture = ExtResource( 5 )
+hframes = 2
+
+[node name="Light2DCustom" parent="Sprite" instance=ExtResource( 1 )]
+position = Vector2( 0, -15 )
+texture = ExtResource( 2 )
+texture_scale = 0.14
+color = Color( 0.0392157, 0.2, 0.74902, 1 )
+energy = 5.85
+range_item_cull_mask = 1
+only_light2d = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/dead = SubResource( 4 )
+anims/swim = SubResource( 2 )
+
+[node name="EnemyBase" parent="." instance=ExtResource( 3 )]
+node_facing = NodePath("../Sprite")
+anim_player = NodePath("../AnimationPlayer")
+hurtbox = NodePath("../HurtboxEnemy")
+
+[node name="AreaDetectPlayer" type="Area2D" parent="."]
+visible = false
+collision_layer = 8
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetectPlayer"]
+shape = SubResource( 8 )
+
+[connection signal="screen_entered" from="VisibilityEnabler2D" to="." method="_on_VisibilityEnabler2D_screen_entered"]
+[connection signal="damaged" from="HurtboxEnemy" to="." method="_on_HurtboxEnemy_damaged"]
+[connection signal="area_entered" from="AreaDetectPlayer" to="." method="_on_AreaDetectPlayer_area_entered"]

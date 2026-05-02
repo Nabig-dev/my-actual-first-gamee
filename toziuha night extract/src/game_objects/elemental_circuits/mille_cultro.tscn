@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/game_objects/elemental_circuit.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/game_objects/elemental_circuits/mille_cultro.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("PositionKnife:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -64 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "move_pos"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PositionKnife:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -8 ), Vector2( 0, 0 ), Vector2( 0, 8 ) ]
+}
+
+[node name="MilleCultro" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="ElementalCircuit" parent="." instance=ExtResource( 1 )]
+circuit_mode = 0
+custom_color = Color( 0, 0.298039, 1, 1 )
+is_for_ui = true
+
+[node name="PositionKnife" type="Position2D" parent="."]
+position = Vector2( 0, -64 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/move_pos = SubResource( 2 )
+
+[node name="TimerSpawnKnife" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="TimerSpawnKnife" to="." method="_on_TimerSpawnKnife_timeout"]

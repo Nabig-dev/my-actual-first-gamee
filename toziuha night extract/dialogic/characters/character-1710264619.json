@@ -1,0 +1,21 @@
+{
+	"color": "#ffffffff",
+	"description": "",
+	"display_name": "Aura",
+	"display_name_bool": true,
+	"id": "character-1710264619.json",
+	"mirror_portraits": false,
+	"name": "sophia-char",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": -47,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://assets/sprites/art_dialog_chars/sophia_default.png"
+		}
+	],
+	"scale": 16,
+	"theme": ""
+}

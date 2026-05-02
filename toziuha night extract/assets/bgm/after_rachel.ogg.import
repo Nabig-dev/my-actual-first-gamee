@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/after_rachel.ogg-a44d60c9899a544a2ffcb16f0a133dd0.oggstr"
+
+[deps]
+
+source_file="res://assets/bgm/after_rachel.ogg"
+dest_files=[ "res://.import/after_rachel.ogg-a44d60c9899a544a2ffcb16f0a133dd0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

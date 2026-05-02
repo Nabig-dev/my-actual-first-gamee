@@ -1,0 +1,342 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/ui_elements/spectre.gd" type="Script" id=1]
+
+[node name="Spectre" type="HBoxContainer"]
+margin_right = 148.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 148, 16 )
+custom_constants/separation = 0
+script = ExtResource( 1 )
+
+[node name="Rect" type="ColorRect" parent="."]
+margin_right = 4.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="ClrRect2" type="ColorRect" parent="."]
+margin_left = 4.0
+margin_right = 8.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="Rect3" type="ColorRect" parent="."]
+margin_left = 8.0
+margin_right = 12.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="ClrRect4" type="ColorRect" parent="."]
+margin_left = 12.0
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="Rect5" type="ColorRect" parent="."]
+margin_left = 16.0
+margin_right = 20.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="ClrRect6" type="ColorRect" parent="."]
+margin_left = 20.0
+margin_right = 24.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="Rect7" type="ColorRect" parent="."]
+margin_left = 24.0
+margin_right = 28.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="ClrRect8" type="ColorRect" parent="."]
+margin_left = 28.0
+margin_right = 32.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="Rect9" type="ColorRect" parent="."]
+margin_left = 32.0
+margin_right = 36.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="ClrRect10" type="ColorRect" parent="."]
+margin_left = 36.0
+margin_right = 40.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="Rect11" type="ColorRect" parent="."]
+margin_left = 40.0
+margin_right = 44.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="ClrRect12" type="ColorRect" parent="."]
+margin_left = 44.0
+margin_right = 48.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="Rect13" type="ColorRect" parent="."]
+margin_left = 48.0
+margin_right = 52.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="ClrRect14" type="ColorRect" parent="."]
+margin_left = 52.0
+margin_right = 56.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="Rect15" type="ColorRect" parent="."]
+margin_left = 56.0
+margin_right = 60.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="ClrRect16" type="ColorRect" parent="."]
+margin_left = 60.0
+margin_right = 64.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="Rect17" type="ColorRect" parent="."]
+margin_left = 64.0
+margin_right = 68.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="ClrRect18" type="ColorRect" parent="."]
+margin_left = 68.0
+margin_right = 72.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="Rect19" type="ColorRect" parent="."]
+margin_left = 72.0
+margin_right = 76.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="ClrRect20" type="ColorRect" parent="."]
+margin_left = 76.0
+margin_right = 80.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="Rect21" type="ColorRect" parent="."]
+margin_left = 80.0
+margin_right = 84.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="ClrRect22" type="ColorRect" parent="."]
+margin_left = 84.0
+margin_right = 88.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="Rect23" type="ColorRect" parent="."]
+margin_left = 88.0
+margin_right = 92.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="ClrRect24" type="ColorRect" parent="."]
+margin_left = 92.0
+margin_right = 96.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="Rect25" type="ColorRect" parent="."]
+margin_left = 96.0
+margin_right = 100.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="ClrRect26" type="ColorRect" parent="."]
+margin_left = 100.0
+margin_right = 104.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="Rect27" type="ColorRect" parent="."]
+margin_left = 104.0
+margin_right = 108.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="ClrRect28" type="ColorRect" parent="."]
+margin_left = 108.0
+margin_right = 112.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="Rect29" type="ColorRect" parent="."]
+margin_left = 112.0
+margin_right = 116.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="ClrRect30" type="ColorRect" parent="."]
+margin_left = 116.0
+margin_right = 120.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="Rect31" type="ColorRect" parent="."]
+margin_left = 120.0
+margin_right = 124.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="ClrRect32" type="ColorRect" parent="."]
+margin_left = 124.0
+margin_right = 128.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="Rect33" type="ColorRect" parent="."]
+margin_left = 128.0
+margin_right = 132.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="ClrRect34" type="ColorRect" parent="."]
+margin_left = 132.0
+margin_right = 136.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="Rect35" type="ColorRect" parent="."]
+margin_left = 136.0
+margin_right = 140.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="ClrRect36" type="ColorRect" parent="."]
+margin_left = 140.0
+margin_right = 144.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="Rect37" type="ColorRect" parent="."]
+margin_left = 144.0
+margin_right = 148.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )

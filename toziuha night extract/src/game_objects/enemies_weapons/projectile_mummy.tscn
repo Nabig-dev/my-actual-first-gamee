@@ -1,0 +1,171 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/sprites/enemies/mummy.png" type="Texture" id=1]
+[ext_resource path="res://src/game_objects/enemies_weapons/projectile_mummy.gd" type="Script" id=2]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hitbox_enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hurtbox_enemy_simple.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/game_objects/vfx/explosions_small_particles.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Mummy:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 14 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Mummy:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ExplosionParticlesSmall:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "destroyed"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Mummy:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 14 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Mummy:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ExplosionParticlesSmall:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "fly"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Mummy:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 14, 15, 16 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 3.0
+height = 18.0
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 6.0
+
+[node name="ProjectileMummy" type="KinematicBody2D"]
+z_index = 2
+script = ExtResource( 2 )
+
+[node name="Mummy" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 5
+vframes = 6
+frame = 14
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/destroyed = SubResource( 3 )
+anims/fly = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 0, -1.43051e-06 )
+scale = Vector2( 4, 2.4 )
+
+[node name="HitboxEnemy" parent="." instance=ExtResource( 3 )]
+identifier = "mummy"
+hurtbox_node = NodePath("../HurtboxEnemySimple")
+curse = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxEnemy"]
+rotation = 1.5708
+shape = SubResource( 4 )
+
+[node name="HurtboxEnemySimple" parent="." instance=ExtResource( 4 )]
+sprite_flash = NodePath("../Mummy")
+max_hits = 1
+damage_sounds = [ "damage_slash" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxEnemySimple"]
+rotation = 1.5708
+shape = SubResource( 5 )
+
+[node name="ExplosionParticlesSmall" parent="." instance=ExtResource( 5 )]
+amount = 10
+gravity = Vector2( 0, -50 )
+initial_velocity = 13.3
+linear_accel = 2.29
+anim_speed = 3.0
+
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="defeated" from="HurtboxEnemySimple" to="." method="_on_HurtboxEnemySimple_defeated"]

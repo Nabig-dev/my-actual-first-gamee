@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://addons/multidir_joystick/scripts/joystick.gd" type="Script" id=1]
+[ext_resource path="res://addons/multidir_joystick/icons/bigger.svg" type="Texture" id=2]
+[ext_resource path="res://addons/multidir_joystick/icons/smaller.svg" type="Texture" id=3]
+
+[node name="VirtualJoystick" type="Node2D"]
+script = ExtResource( 1 )
+bigger_texture = ExtResource( 2 )
+small_texture = ExtResource( 3 )
+draw_line = true

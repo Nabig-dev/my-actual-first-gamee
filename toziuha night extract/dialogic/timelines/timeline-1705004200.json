@@ -1,0 +1,470 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1704466423.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Sad2",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"condition": "",
+			"definition": "1705007986-686",
+			"event_id": "dialogic_012",
+			"value": "0"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG3_1705004200"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG4_1705004200"
+		},
+		{
+			"character": "character-1704466423.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG5_1705004200"
+		},
+		{
+			"character": "character-1704466423.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG6_1705004200"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG7_1705004200"
+		},
+		{
+			"character": "character-1704466423.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG8_1705004200"
+		},
+		{
+			"character": "character-1704466423.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG9_1705004200"
+		},
+		{
+			"character": "character-1704466423.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG10_1705004200"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG11_1705004200"
+		},
+		{
+			"character": "character-1704466423.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG12_1705004200"
+		},
+		{
+			"character": "character-1704466423.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG13_1705004200"
+		},
+		{
+			"character": "character-1704466423.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG14_1705004200"
+		},
+		{
+			"character": "character-1704466423.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG15_1705004200"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Meh",
+			"text": "..."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Meh",
+			"text": "DLG17_1705004200"
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_position": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 2,
+			"z_index": 0
+		},
+		{
+			"character": "character-1704466423.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG19_1705004200"
+		},
+		{
+			"character": "character-1704466423.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG20_1705004200"
+		},
+		{
+			"character": "character-1704466423.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG21_1705004200"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG22_1705004200"
+		},
+		{
+			"character": "character-1704466423.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG23_1705004200"
+		},
+		{
+			"animation": "4-fade_out.gd",
+			"animation_length": 0.5,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1704466423.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 1,
+			"z_index": 0
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG25_1705004200"
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1704466423.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Sad2",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1704466423.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG27_1705004200"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG28_1705004200"
+		},
+		{
+			"character": "character-1704466423.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG29_1705004200"
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1718829161-648",
+			"event_id": "dialogic_012",
+			"value": "0"
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_position": false,
+			"change_z_index": false,
+			"character": "character-1704466423.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Sad2",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 2,
+			"z_index": 0
+		},
+		{
+			"character": "character-1704466423.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG34_1705004200"
+		},
+		{
+			"condition": "",
+			"definition": "1718830688-787",
+			"event_id": "dialogic_012",
+			"value": "0"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG36_1705004200"
+		},
+		{
+			"character": "character-1704466423.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG37_1705004200"
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1718830688-787",
+			"event_id": "dialogic_012",
+			"value": "1"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG41_1705004200"
+		},
+		{
+			"character": "character-1704466423.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG42_1705004200"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Meh",
+			"text": "DLG43_1705004200"
+		},
+		{
+			"character": "character-1704466423.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG44_1705004200"
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1634488067",
+			"index": 0,
+			"name": "store_start"
+		},
+		{
+			"condition": "",
+			"definition": "1718829161-648",
+			"event_id": "dialogic_012",
+			"value": "1"
+		},
+		{
+			"event_id": "noskip_dialog",
+			"skip_disabled": true
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_position": false,
+			"change_z_index": false,
+			"character": "character-1704466423.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 2,
+			"z_index": 0
+		},
+		{
+			"condition": "",
+			"definition": "1718894711-146",
+			"event_id": "dialogic_012",
+			"value": "0"
+		},
+		{
+			"character": "character-1704466423.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG53_1705004200"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG54_1705004200"
+		},
+		{
+			"character": "character-1704466423.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG55_1705004200"
+		},
+		{
+			"character": "character-1704466423.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG56_1705004200"
+		},
+		{
+			"emit_signal": "reward_gabriel_obtained",
+			"event_id": "dialogic_040"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG58_1705004200"
+		},
+		{
+			"character": "character-1704466423.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG59_1705004200"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG60_1705004200"
+		},
+		{
+			"emit_signal": "gabriel_thanked",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"character": "character-1704466423.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG64_1705004200"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1705004200.json",
+		"name": "gabriel-store"
+	}
+}

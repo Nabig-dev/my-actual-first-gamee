@@ -1,0 +1,205 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://src/game_objects/levelup_item.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/levelup_items.png" type="Texture" id=2]
+[ext_resource path="res://src/game_objects/light2d_custom.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/images/vfx/light_02.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Particles:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/Shine:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Light2DCustom:energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 3.55 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+length = 1.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Particles:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/Shine:self_modulate")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.513726 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Light2DCustom:energy")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 3.55, 1.29 ]
+}
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 16.0
+
+[sub_resource type="CanvasItemMaterial" id=4]
+blend_mode = 1
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CanvasItemMaterial" id=3]
+blend_mode = 1
+
+[node name="LevelUpItem" type="Node2D"]
+z_index = 3
+script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/idle = SubResource( 2 )
+
+[node name="AreaDetectPlayer" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetectPlayer"]
+position = Vector2( 0, -1 )
+shape = SubResource( 6 )
+
+[node name="Particles" type="CPUParticles2D" parent="."]
+material = SubResource( 4 )
+emitting = false
+amount = 50
+lifetime = 5.0
+randomness = 1.0
+local_coords = false
+emission_shape = 2
+emission_rect_extents = Vector2( 1, 5 )
+spread = 12.12
+gravity = Vector2( 0, 0 )
+initial_velocity = 25.0
+initial_velocity_random = 1.0
+scale_amount = 4.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 5 )
+color = Color( 0.898039, 0, 0, 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+hframes = 5
+vframes = 2
+
+[node name="Shine" type="Sprite" parent="Sprite"]
+modulate = Color( 0.898039, 0, 0, 1 )
+show_behind_parent = true
+light_mask = 0
+material = SubResource( 3 )
+position = Vector2( 0, 0.571268 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 4 )
+
+[node name="Light2DCustom" parent="." instance=ExtResource( 3 )]
+light_mask = 1
+position = Vector2( 0, 1.55533 )
+texture = ExtResource( 4 )
+texture_scale = 0.3
+color = Color( 0.898039, 0, 0, 1 )
+energy = 3.55
+range_item_cull_mask = 1
+
+[connection signal="area_entered" from="AreaDetectPlayer" to="." method="_on_AreaDetectPlayer_area_entered" flags=6]

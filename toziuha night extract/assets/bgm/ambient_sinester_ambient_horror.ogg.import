@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ambient_sinester_ambient_horror.ogg-fc86f84ddfb8c8b0ad91b28d9574595c.oggstr"
+
+[deps]
+
+source_file="res://assets/bgm/ambient_sinester_ambient_horror.ogg"
+dest_files=[ "res://.import/ambient_sinester_ambient_horror.ogg-fc86f84ddfb8c8b0ad91b28d9574595c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

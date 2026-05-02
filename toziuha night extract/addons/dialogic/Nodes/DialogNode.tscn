@@ -1,0 +1,282 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://addons/dialogic/Nodes/TextBubble.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/dialogic/Example Assets/backgrounds/GlossaryBackground.tres" type="StyleBox" id=2]
+[ext_resource path="res://addons/dialogic/Nodes/CharacterVoice.gd" type="Script" id=3]
+[ext_resource path="res://addons/dialogic/Example Assets/Fonts/GlossaryFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://addons/dialogic/Nodes/glossary_info.gd" type="Script" id=5]
+[ext_resource path="res://addons/dialogic/Nodes/DialogNode.gd" type="Script" id=6]
+[ext_resource path="res://addons/dialogic/Nodes/BackgroundMusic.tscn" type="PackedScene" id=7]
+[ext_resource path="res://addons/dialogic/Nodes/random_audio_stream_player.gd" type="Script" id=8]
+[ext_resource path="res://addons/dialogic/Example Assets/Sound Effects/Beep.wav" type="AudioStream" id=9]
+[ext_resource path="res://addons/dialogic/Nodes/DialogicCustomEvents.gd" type="Script" id=10]
+[ext_resource path="res://addons/dialogic/Nodes/History.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/sfx/ui_text_bip.wav" type="AudioStream" id=12]
+[ext_resource path="res://assets/tres/ThemeBasic.tres" type="Theme" id=13]
+[ext_resource path="res://src/ui_elements/helper_icon_btn.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/sfx/ui_btn_focused.wav" type="AudioStream" id=15]
+[ext_resource path="res://assets/sfx/ui_btn_accept.wav" type="AudioStream" id=16]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 0 )
+expand_margin_left = 10.0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 1414, 170 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "shake"
+length = 0.26
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.02, 0.04, 0.06, 0.08, 0.1, 0.12, 0.14, 0.16, 0.18, 0.2, 0.22, 0.26 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -11, -6 ), Vector2( 0, 0 ), Vector2( 11, 6 ), Vector2( 0, 0 ), Vector2( -11, -6 ), Vector2( 0, 0 ), Vector2( 11, 6 ), Vector2( 0, 0 ), Vector2( -11, -6 ), Vector2( 0, 0 ), Vector2( 11, 6 ), Vector2( 0, 0 ) ]
+}
+
+[node name="DialogNode" type="Control" groups=["dialogic_dialognode"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 13 )
+script = ExtResource( 6 )
+
+[node name="Portraits" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 160.0
+margin_top = 180.0
+margin_right = 160.0
+margin_bottom = 180.0
+
+[node name="BG" type="ColorRect" parent="."]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.478431 )
+
+[node name="ScreenFilterLayer" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TextBubble" parent="." instance=ExtResource( 1 )]
+margin_left = -170.5
+margin_top = -40.0
+margin_right = 170.5
+margin_bottom = 0.0
+
+[node name="Options" type="VBoxContainer" parent="."]
+visible = false
+margin_right = 320.0
+margin_bottom = 180.0
+grow_vertical = 2
+mouse_filter = 2
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FX" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundMusic" parent="FX" instance=ExtResource( 7 )]
+
+[node name="CharacterVoice" type="AudioStreamPlayer" parent="FX"]
+script = ExtResource( 3 )
+
+[node name="Audio" type="Node" parent="FX"]
+
+[node name="Typing" type="AudioStreamPlayer" parent="FX/Audio"]
+volume_db = -5.0
+bus = "Effects"
+script = ExtResource( 8 )
+samples = [ ExtResource( 12 ) ]
+random_strategy = 2
+
+[node name="Waiting" type="AudioStreamPlayer" parent="FX/Audio"]
+script = ExtResource( 8 )
+samples = [ ExtResource( 9 ) ]
+random_strategy = 2
+
+[node name="Passing" type="AudioStreamPlayer" parent="FX/Audio"]
+pitch_scale = 0.8
+script = ExtResource( 8 )
+samples = [ ExtResource( 15 ) ]
+random_strategy = 2
+
+[node name="Hovering" type="AudioStreamPlayer" parent="FX/Audio"]
+script = ExtResource( 8 )
+samples = [ ExtResource( 15 ) ]
+random_strategy = 2
+
+[node name="Selecting" type="AudioStreamPlayer" parent="FX/Audio"]
+volume_db = 3.0
+pitch_scale = 0.8
+bus = "Effects"
+script = ExtResource( 8 )
+samples = [ ExtResource( 16 ) ]
+random_strategy = 2
+
+[node name="DefinitionInfo" type="PanelContainer" parent="."]
+visible = false
+margin_right = 208.0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 2 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DefinitionInfo"]
+margin_right = 208.0
+margin_bottom = 143.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="RichTextLabel" parent="DefinitionInfo/VBoxContainer"]
+margin_right = 208.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_fonts/normal_font = ExtResource( 4 )
+custom_styles/normal = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "This is the title"
+text = "This is the title"
+fit_content_height = true
+scroll_active = false
+
+[node name="Content" type="RichTextLabel" parent="DefinitionInfo/VBoxContainer"]
+margin_top = 31.0
+margin_right = 208.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+custom_colors/default_color = Color( 0.756863, 0.756863, 0.756863, 1 )
+custom_fonts/normal_font = ExtResource( 4 )
+custom_styles/normal = SubResource( 1 )
+bbcode_enabled = true
+fit_content_height = true
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Extra" type="RichTextLabel" parent="DefinitionInfo/VBoxContainer"]
+margin_top = 116.0
+margin_right = 208.0
+margin_bottom = 143.0
+size_flags_horizontal = 3
+custom_colors/default_color = Color( 0.756863, 0.756863, 0.756863, 1 )
+custom_fonts/normal_font = ExtResource( 4 )
+custom_styles/normal = SubResource( 1 )
+bbcode_enabled = true
+fit_content_height = true
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="DefinitionInfo"]
+
+[node name="OptionsDelayedInput" type="Timer" parent="."]
+
+[node name="DialogicTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CustomEvents" type="Node" parent="."]
+script = ExtResource( 10 )
+
+[node name="History" parent="." instance=ExtResource( 11 )]
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2( -152, 21 )
+shape = SubResource( 2 )
+shape_visible = false
+action = "ui_accept"
+visibility_mode = 1
+
+[node name="ControlSkip" type="MarginContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -320.0
+margin_bottom = 19.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 3
+
+[node name="HBx" type="HBoxContainer" parent="ControlSkip"]
+modulate = Color( 1, 1, 1, 0.227451 )
+margin_left = 272.0
+margin_top = 3.0
+margin_right = 315.0
+margin_bottom = 19.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+custom_constants/separation = 8
+alignment = 2
+
+[node name="ButtonSkip" type="Button" parent="ControlSkip/HBx"]
+margin_right = 19.0
+margin_bottom = 16.0
+grow_horizontal = 0
+focus_mode = 0
+size_flags_horizontal = 8
+theme = ExtResource( 13 )
+enabled_focus_mode = 0
+text = "SKIP"
+
+[node name="HelperIconBtn" parent="ControlSkip/HBx" instance=ExtResource( 14 )]
+margin_left = 27.0
+margin_right = 43.0
+
+[node name="AnimationPlayerShake" type="AnimationPlayer" parent="."]
+playback_speed = 0.7
+anims/RESET = SubResource( 3 )
+anims/shake = SubResource( 4 )
+
+[node name="TimerWait" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="dialogic_signal" from="." to="." method="_on_DialogNode_dialogic_signal"]
+[connection signal="timeout" from="DefinitionInfo/Timer" to="." method="_on_Definition_Timer_timeout"]
+[connection signal="pressed" from="ControlSkip/HBx/ButtonSkip" to="." method="_on_ButtonSkip_pressed" flags=6]

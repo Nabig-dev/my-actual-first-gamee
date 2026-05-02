@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/game_objects/vfx/particles_blood_smash.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/vfx/particle_blood_spurt.png" type="Texture" id=2]
+
+[sub_resource type="CanvasItemMaterial" id=3]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), -0.044542, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.380682, 0.787709, 1 )
+colors = PoolColorArray( 0.335938, 0.0695496, 0.0695496, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0 )
+
+[node name="ParticlesBloodSmash" type="CPUParticles2D"]
+material = SubResource( 3 )
+z_index = 6
+emitting = false
+amount = 80
+lifetime = 0.45
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+local_coords = false
+texture = ExtResource( 2 )
+emission_shape = 1
+emission_sphere_radius = 2.3
+direction = Vector2( 1, -41 )
+spread = 51.06
+gravity = Vector2( 0, 100 )
+initial_velocity = 93.14
+initial_velocity_random = 1.0
+angle = 720.0
+angle_random = 1.0
+scale_amount = 0.2
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 1 )
+color_ramp = SubResource( 2 )
+anim_speed = 1.0
+anim_speed_random = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}

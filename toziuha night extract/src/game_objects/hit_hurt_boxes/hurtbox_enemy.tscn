@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hurtbox_enemy.gd" type="Script" id=1]
+[ext_resource path="res://src/scripts/item_drop.gd" type="Script" id=2]
+
+[node name="HurtboxEnemy" type="Area2D" groups=["enemy_hurtboxes"]]
+modulate = Color( 0.0470588, 1, 0.643137, 1 )
+collision_layer = 128
+collision_mask = 16
+script = ExtResource( 1 )
+blood_drop = 1
+
+[node name="TimeContinuedDamage" type="Timer" parent="."]
+
+[node name="TimeRepeatDamage" type="Timer" parent="."]
+wait_time = 0.3
+
+[node name="TimerFlashHit" type="Timer" parent="."]
+pause_mode = 2
+wait_time = 0.1
+one_shot = true
+
+[node name="TimerAfterHit" type="Timer" parent="."]
+one_shot = true
+
+[node name="Drop" type="Node2D" parent="."]
+position = Vector2( 0, -48 )
+script = ExtResource( 2 )
+
+[connection signal="area_entered" from="." to="." method="_on_HurtBoxEnemy_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_HurtboxEnemy_area_exited"]
+[connection signal="timeout" from="TimeContinuedDamage" to="." method="_on_TimeContinuedDamage_timeout"]
+[connection signal="timeout" from="TimeRepeatDamage" to="." method="_on_TimeRepeatDamage_timeout"]
+[connection signal="timeout" from="TimerFlashHit" to="." method="_on_TimerFlashHit_timeout"]

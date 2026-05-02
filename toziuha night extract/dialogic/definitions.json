@@ -1,0 +1,127 @@
+{
+	"glossary": [
+
+	],
+	"variables": [
+		{
+			"id": "1705007986-686",
+			"name": "gabriel_talk1_store",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1705010857-524",
+			"name": "rachel_rnd_lines",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1705075637-874",
+			"name": "ahuizotes_item_research_obtained1",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1710793677-787",
+			"name": "birstall_problem_discovered",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1710793307-648",
+			"name": "birstall_1st_talk_evelyn",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1710800196-366",
+			"name": "birstall_problem_resolve",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1705096192-504",
+			"name": "alessa_talk_office1",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1711562570-458",
+			"name": "eztilia_1st_talk_kalev",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1718829161-648",
+			"name": "aura_rescue_accepted",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1718830688-787",
+			"name": "aura_meeted",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1718894711-146",
+			"name": "gabriel_thanked_rescue",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1686842453-115",
+			"name": "margaret_rescue_ignored",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1718900610-187",
+			"name": "aura_cats_accepted_rescue",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1722371370-882",
+			"name": "cats_need_rescue",
+			"type": 0,
+			"value": "3"
+		},
+		{
+			"id": "1718916749-729",
+			"name": "train_event_finished",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1722373157-125",
+			"name": "aura_cats_rescue_rewarded",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1725637973-338",
+			"name": "has_sulfuric_acid",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1725641264-335",
+			"name": "rachel_ec_improv_introduction",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1725641245-955",
+			"name": "rachel_nacatamal_received",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1725641029-704",
+			"name": "has_nacatamal_pan_cafe",
+			"type": 0,
+			"value": "0"
+		}
+	]
+}

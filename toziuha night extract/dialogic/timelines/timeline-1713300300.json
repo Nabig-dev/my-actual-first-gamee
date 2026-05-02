@@ -1,0 +1,109 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Angry",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1710264530.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1710264530.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ohh, has logrado llegar hasta aquí."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Angry",
+			"text": "Sheal Avicena, Adeptis del Nitrogeno..."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Era de esperarse que una rata rastrera haya hecho todo esto con tal de esconderse."
+		},
+		{
+			"character": "character-1710264530.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "La realidad es que soy el tesorero de los Ahuizotes. Mi fuerte no es la pelea."
+		},
+		{
+			"character": "character-1710264530.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Toda nuestra organización no puede sostenerse con la fe de nuestros seguidores."
+		},
+		{
+			"character": "character-1710264530.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Mi función es recolectar el diezmo, necesario para que podamos continuar con nuestra sagrada misión."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Tonterías, solo eres un traficante que encontró un negocio con la fe de inocentes."
+		},
+		{
+			"character": "character-1710264530.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "..."
+		},
+		{
+			"character": "character-1710264530.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "No es mi culpa que ellos sean unos imbéciles."
+		},
+		{
+			"character": "character-1710264530.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Suficiente de charla. ¡Con este frío te cortaré la carne y congelaré tus huesos!"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1713300300.json",
+		"name": "sheal-prebattle"
+	}
+}

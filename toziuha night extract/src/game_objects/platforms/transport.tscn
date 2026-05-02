@@ -1,0 +1,164 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/sprites/platforms/transport.png" type="Texture" id=1]
+[ext_resource path="res://src/game_objects/platforms/transport.gd" type="Script" id=3]
+[ext_resource path="res://src/ui_elements/helper_icon_btn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/gdshaders/outline.gdshader" type="Shader" id=6]
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Platform/Gear1:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "spin"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Platform/Gear1:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 56, 2.5 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 56, 5 )
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 6 )
+shader_param/line_color = Color( 1, 1, 1, 0.658824 )
+shader_param/line_thickness = 1.0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 16, 12 )
+
+[node name="TransportPlatform" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="TransportPlatform" type="Path2D" parent="."]
+curve = null
+
+[node name="PathFollow2D" type="PathFollow2D" parent="TransportPlatform"]
+rotate = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="TransportPlatform/PathFollow2D"]
+remote_path = NodePath("../../../Platform")
+update_rotation = false
+
+[node name="Tween" type="Tween" parent="TransportPlatform"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TransportPlatform"]
+anims/RESET = SubResource( 4 )
+anims/spin = SubResource( 5 )
+
+[node name="Platform" type="KinematicBody2D" parent="."]
+collision_layer = 4
+collision_mask = 522
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2( 0, 86.5 )
+shape = SubResource( 2 )
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platform"]
+position = Vector2( 0, 14 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="TransportBG" type="Sprite" parent="Platform"]
+position = Vector2( 0, 49 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 80, 128, 112, 80 )
+
+[node name="SwitchBase" type="Sprite" parent="Platform"]
+material = SubResource( 6 )
+position = Vector2( 0, 74 )
+z_index = 2
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 48, 208, 16, 16 )
+
+[node name="Switch" type="Sprite" parent="Platform"]
+material = SubResource( 6 )
+position = Vector2( 0, 59 )
+z_index = 2
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 80, 224, 16, 16 )
+
+[node name="Transport" type="Sprite" parent="Platform"]
+position = Vector2( 0, 43 )
+z_index = 6
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 80, 20, 112, 92 )
+
+[node name="Gear1" type="Sprite" parent="Platform"]
+position = Vector2( 0, 1 )
+z_index = 6
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 48, 16, 16, 16 )
+
+[node name="Gear1Light" type="Sprite" parent="Platform"]
+visible = false
+position = Vector2( 0, 1 )
+z_index = 6
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 16, 6, 6 )
+
+[node name="AreaDetectPlayer" type="Area2D" parent="Platform"]
+position = Vector2( 0, 69 )
+collision_layer = 8
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform/AreaDetectPlayer"]
+position = Vector2( 0, 7 )
+shape = SubResource( 3 )
+
+[node name="HelperIconBtn" parent="Platform" instance=ExtResource( 4 )]
+margin_left = -8.0
+margin_top = 22.0
+margin_right = 8.0
+margin_bottom = 38.0
+animated = true
+action = "ui_down"
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="Platform"]
+position = Vector2( 0, 48 )
+scale = Vector2( 10.9, 7.7 )
+
+[node name="TimerCheckPlayerPosition" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[node name="TimerReachedLimit" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="area_entered" from="Platform/AreaDetectPlayer" to="." method="_on_AreaDetectPlayer_area_entered"]
+[connection signal="area_exited" from="Platform/AreaDetectPlayer" to="." method="_on_AreaDetectPlayer_area_exited"]
+[connection signal="screen_entered" from="Platform/VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="screen_exited" from="Platform/VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="timeout" from="TimerCheckPlayerPosition" to="." method="_on_TimerCheckPlayerPosition_timeout"]

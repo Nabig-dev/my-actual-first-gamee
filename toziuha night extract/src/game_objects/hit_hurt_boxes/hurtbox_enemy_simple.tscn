@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hurtbox_enemy_simple.gd" type="Script" id=1]
+
+[node name="HurtboxEnemySimple" type="Area2D" groups=["enemy_hurtboxes"]]
+modulate = Color( 0.0470588, 1, 0.643137, 1 )
+collision_layer = 128
+collision_mask = 16
+script = ExtResource( 1 )
+
+[node name="TimeContinuedDamage" type="Timer" parent="."]
+
+[node name="TimeRepeatDamage" type="Timer" parent="."]
+wait_time = 0.3
+
+[node name="TimerFlashHit" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="area_entered" from="." to="." method="_on_HurtBoxEnemy_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_HurtboxEnemy_area_exited"]
+[connection signal="timeout" from="TimeContinuedDamage" to="." method="_on_TimeContinuedDamage_timeout"]
+[connection signal="timeout" from="TimeRepeatDamage" to="." method="_on_TimeRepeatDamage_timeout"]
+[connection signal="timeout" from="TimerFlashHit" to="." method="_on_TimerFlashHit_timeout"]

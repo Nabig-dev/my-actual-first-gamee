@@ -1,0 +1,98 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/tres/ThemeBasic.tres" type="Theme" id=1]
+[ext_resource path="res://assets/tres/fonts/alkemikal_small.tres" type="DynamicFont" id=2]
+[ext_resource path="res://src/ui_elements/spectre.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/ui_elements/spectrum_num_btn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/ui_elements/spectrum_puzzle_line.gd" type="Script" id=5]
+[ext_resource path="res://addons/godot-next/gui/debug_label.gd" type="Script" id=6]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+margin_right = 305.0
+margin_bottom = 16.0
+theme = ExtResource( 1 )
+custom_constants/separation = 9
+script = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="."]
+margin_right = 20.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 20, 0 )
+custom_fonts/font = ExtResource( 2 )
+text = "99"
+
+[node name="ColorRect" type="Control" parent="."]
+margin_left = 29.0
+margin_right = 177.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 148, 16 )
+
+[node name="Spectre" parent="ColorRect" instance=ExtResource( 3 )]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 0.0
+margin_bottom = 0.0
+custom_spectre = true
+
+[node name="ClrRectGr" type="ColorRect" parent="ColorRect"]
+unique_name_in_owner = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 14.0
+color = Color( 0.054902, 1, 0, 0.564706 )
+
+[node name="ClrRectGr2" type="ColorRect" parent="ColorRect"]
+unique_name_in_owner = true
+visible = false
+anchor_right = 1.0
+margin_bottom = 2.0
+color = Color( 0.054902, 1, 0, 0.564706 )
+
+[node name="DebugLabel" type="Label" parent="ColorRect"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 15.0
+text = "element = \"PB\"
+"
+align = 1
+script = ExtResource( 6 )
+update_debug_info = false
+target_path = NodePath("../..")
+properties = PoolStringArray( "element" )
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+margin_left = 186.0
+margin_right = 311.0
+margin_bottom = 16.0
+custom_constants/separation = 13
+
+[node name="RD" parent="HBoxContainer2" instance=ExtResource( 4 )]
+modulate = Color( 0.890196, 0, 0.0745098, 1 )
+
+[node name="OR" parent="HBoxContainer2" instance=ExtResource( 4 )]
+modulate = Color( 1, 0.541176, 0, 1 )
+margin_left = 23.0
+margin_right = 33.0
+
+[node name="YE" parent="HBoxContainer2" instance=ExtResource( 4 )]
+modulate = Color( 0.964706, 1, 0, 1 )
+margin_left = 46.0
+margin_right = 56.0
+
+[node name="GR" parent="HBoxContainer2" instance=ExtResource( 4 )]
+modulate = Color( 0.227451, 1, 0.0901961, 1 )
+margin_left = 69.0
+margin_right = 79.0
+
+[node name="CY" parent="HBoxContainer2" instance=ExtResource( 4 )]
+modulate = Color( 0.0196078, 1, 1, 1 )
+margin_left = 92.0
+margin_right = 102.0
+
+[node name="PR" parent="HBoxContainer2" instance=ExtResource( 4 )]
+modulate = Color( 0.498039, 0.392157, 1, 1 )
+margin_left = 115.0
+margin_right = 125.0

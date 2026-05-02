@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/before_alessa.ogg-3fc566272dc66a08931e1289b154ddb6.oggstr"
+
+[deps]
+
+source_file="res://assets/bgm/before_alessa.ogg"
+dest_files=[ "res://.import/before_alessa.ogg-3fc566272dc66a08931e1289b154ddb6.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

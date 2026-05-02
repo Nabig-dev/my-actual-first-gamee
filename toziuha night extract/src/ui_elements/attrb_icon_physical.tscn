@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/sprites/attributes/physical_color.png" type="Texture" id=1]
+[ext_resource path="res://src/ui_elements/attrb_icon_physical.gd" type="Script" id=2]
+[ext_resource path="res://assets/sprites/attributes/physical_gray.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/attributes/physical_color_icon.png" type="Texture" id=4]
+
+[node name="AttrbIconPhysical" type="TextureRect"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+stretch_mode = 4
+script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Color" type="Sprite" parent="."]
+position = Vector2( 8, 8 )
+texture = ExtResource( 1 )
+hframes = 6
+
+[node name="Gray" type="Sprite" parent="."]
+position = Vector2( 8, 8 )
+texture = ExtResource( 3 )
+hframes = 6
+
+[node name="ColorIcon" type="Sprite" parent="."]
+position = Vector2( 8, 8 )
+texture = ExtResource( 4 )
+hframes = 6

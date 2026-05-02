@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/juicy_shoot.wav-d9ed4a602bd8a0afbc3fa7fb741cdb3b.sample"
+
+[deps]
+
+source_file="res://assets/sfx/juicy_shoot.wav"
+dest_files=[ "res://.import/juicy_shoot.wav-d9ed4a602bd8a0afbc3fa7fb741cdb3b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,297 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://src/autoload/debug_menu.gd" type="Script" id=1]
+[ext_resource path="res://assets/tres/ThemeBasic.tres" type="Theme" id=2]
+[ext_resource path="res://src/autoload/fps_monitor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/ui_elements/gamepad_input.tscn" type="PackedScene" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+bg_color = Color( 0, 0, 0, 0.572549 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 0.364706 )
+
+[sub_resource type="StyleBoxLine" id=2]
+color = Color( 1, 1, 1, 0.12549 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+content_margin_left = 5.0
+content_margin_right = 5.0
+bg_color = Color( 0, 0, 0, 0.360784 )
+
+[node name="DebugMenu" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="BtnOpenMenu" type="Button" parent="."]
+unique_name_in_owner = true
+modulate = Color( 1, 1, 1, 0.376471 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -7.0
+margin_top = -25.0
+margin_right = 7.0
+margin_bottom = -11.0
+rect_min_size = Vector2( 14, 14 )
+focus_mode = 0
+theme = ExtResource( 2 )
+text = ""
+
+[node name="Menu" type="Control" parent="."]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource( 2 )
+
+[node name="PanelContainer" type="PanelContainer" parent="Menu"]
+anchor_right = 1.0
+margin_bottom = 80.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/PanelContainer"]
+margin_left = 10.0
+margin_top = 5.0
+margin_right = 331.0
+margin_bottom = 98.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/PanelContainer/VBoxContainer"]
+margin_right = 321.0
+margin_bottom = 14.0
+custom_constants/separation = 12
+alignment = 2
+
+[node name="LblCurrentScene" type="Label" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+margin_right = 224.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.713726, 0.713726, 0.713726, 1 )
+text = "SceneName"
+align = 1
+
+[node name="LblPathTo" type="Label" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+margin_left = 186.0
+margin_right = 224.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0.364706, 0.278431, 1 )
+text = "path to..."
+align = 2
+
+[node name="LineChangeToPath" type="LineEdit" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+margin_left = 118.0
+margin_right = 224.0
+margin_bottom = 24.0
+focus_mode = 0
+size_flags_horizontal = 3
+custom_styles/read_only = SubResource( 3 )
+editable = false
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="BtnSelectScenarioToChange" type="Button" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 257.0
+margin_right = 289.0
+margin_bottom = 14.0
+focus_mode = 0
+custom_colors/font_color = Color( 0.137255, 0.658824, 0.741176, 1 )
+text = "Explore"
+
+[node name="BtnGoToPath" type="Button" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 301.0
+margin_right = 321.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 20, 0 )
+focus_mode = 0
+text = "Go"
+
+[node name="HSeparator" type="HSeparator" parent="Menu/PanelContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 321.0
+margin_bottom = 22.0
+custom_styles/separator = SubResource( 2 )
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Menu/PanelContainer/VBoxContainer"]
+margin_top = 26.0
+margin_right = 321.0
+margin_bottom = 42.0
+custom_constants/separation = 15
+alignment = 1
+
+[node name="ChkBxNoDeath" type="CheckBox" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 19.0
+margin_right = 76.0
+margin_bottom = 16.0
+focus_mode = 0
+text = "Invincible"
+
+[node name="BtnFullHP" type="Button" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 91.0
+margin_right = 119.0
+margin_bottom = 16.0
+focus_mode = 0
+text = "Full HP"
+
+[node name="BtnFullMP" type="Button" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 134.0
+margin_right = 164.0
+margin_bottom = 16.0
+focus_mode = 0
+text = "Full MP"
+
+[node name="BtnFullBL" type="Button" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 179.0
+margin_right = 207.0
+margin_bottom = 16.0
+focus_mode = 0
+text = "Full BL"
+
+[node name="BtnFullClearNegativeStatus" type="Button" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 222.0
+margin_right = 301.0
+margin_bottom = 16.0
+focus_mode = 0
+text = "Clear Negative St."
+
+[node name="HSeparator2" type="HSeparator" parent="Menu/PanelContainer/VBoxContainer"]
+margin_top = 46.0
+margin_right = 321.0
+margin_bottom = 50.0
+custom_styles/separator = SubResource( 2 )
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Menu/PanelContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 321.0
+margin_bottom = 70.0
+custom_constants/separation = 12
+alignment = 1
+
+[node name="ChkBxShowFPS" type="CheckBox" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+margin_left = 19.0
+margin_right = 55.0
+margin_bottom = 16.0
+focus_mode = 0
+text = "FPS"
+
+[node name="ChkBxShowInput" type="CheckBox" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+margin_left = 67.0
+margin_right = 108.0
+margin_bottom = 16.0
+focus_mode = 0
+text = "Input"
+
+[node name="ChkBxPause" type="CheckBox" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+margin_left = 120.0
+margin_right = 166.0
+margin_bottom = 16.0
+focus_mode = 0
+text = "Pause"
+
+[node name="ChkBxDebugLabel" type="CheckBox" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+margin_left = 178.0
+margin_right = 226.0
+margin_bottom = 16.0
+focus_mode = 0
+text = "DbgLbl"
+
+[node name="ChkBxMovePlayer" type="CheckBox" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+margin_left = 238.0
+margin_right = 302.0
+margin_bottom = 16.0
+focus_mode = 0
+text = "MoveChar"
+
+[node name="HSeparator3" type="HSeparator" parent="Menu/PanelContainer/VBoxContainer"]
+margin_top = 74.0
+margin_right = 321.0
+margin_bottom = 78.0
+custom_styles/separator = SubResource( 2 )
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Menu/PanelContainer/VBoxContainer"]
+margin_top = 82.0
+margin_right = 321.0
+margin_bottom = 93.0
+custom_constants/separation = 7
+
+[node name="Button" type="Button" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer4"]
+visible = false
+margin_right = 20.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 20, 0 )
+focus_mode = 0
+text = "?"
+
+[node name="LnCommandConsole" type="LineEdit" parent="Menu/PanelContainer/VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+margin_right = 321.0
+margin_bottom = 11.0
+size_flags_horizontal = 3
+custom_styles/normal = SubResource( 4 )
+placeholder_text = "Command console..."
+caret_blink = true
+
+[node name="FileDialogOpenScenario" type="FileDialog" parent="Menu"]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 320, 180 )
+rect_pivot_offset = Vector2( 160, 90 )
+popup_exclusive = true
+window_title = "Open a File"
+mode = 0
+filters = PoolStringArray( "*.tscn ; Scenario" )
+
+[node name="GamepadInput" parent="." instance=ExtResource( 4 )]
+unique_name_in_owner = true
+visible = false
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -68.0
+margin_top = -38.0
+margin_right = 5.0
+margin_bottom = 11.0
+
+[node name="FPSMonitor" parent="." instance=ExtResource( 3 )]
+unique_name_in_owner = true
+visible = false
+show_behind_parent = true
+light_mask = 0
+margin_top = 160.0
+margin_right = -264.0
+
+[connection signal="pressed" from="BtnOpenMenu" to="." method="_on_BtnOpenMenu_pressed"]
+[connection signal="pressed" from="Menu/PanelContainer/VBoxContainer/HBoxContainer/BtnSelectScenarioToChange" to="." method="_on_BtnSelectScenarioToChange_pressed"]
+[connection signal="pressed" from="Menu/PanelContainer/VBoxContainer/HBoxContainer/BtnGoToPath" to="." method="_on_BtnGoToPath_pressed"]
+[connection signal="toggled" from="Menu/PanelContainer/VBoxContainer/HBoxContainer2/ChkBxNoDeath" to="." method="_on_ChkBxNoDeath_toggled"]
+[connection signal="pressed" from="Menu/PanelContainer/VBoxContainer/HBoxContainer2/BtnFullHP" to="." method="_on_BtnFullHP_pressed"]
+[connection signal="pressed" from="Menu/PanelContainer/VBoxContainer/HBoxContainer2/BtnFullMP" to="." method="_on_BtnFullMP_pressed"]
+[connection signal="pressed" from="Menu/PanelContainer/VBoxContainer/HBoxContainer2/BtnFullBL" to="." method="_on_BtnFullBL_pressed"]
+[connection signal="pressed" from="Menu/PanelContainer/VBoxContainer/HBoxContainer2/BtnFullClearNegativeStatus" to="." method="_on_BtnFullClearNegativeStatus_pressed"]
+[connection signal="toggled" from="Menu/PanelContainer/VBoxContainer/HBoxContainer3/ChkBxShowFPS" to="." method="_on_ChkBxShowFPS_toggled"]
+[connection signal="toggled" from="Menu/PanelContainer/VBoxContainer/HBoxContainer3/ChkBxShowInput" to="." method="_on_ChkBxShowInput_toggled"]
+[connection signal="toggled" from="Menu/PanelContainer/VBoxContainer/HBoxContainer3/ChkBxPause" to="." method="_on_ChkBxPause_toggled"]
+[connection signal="toggled" from="Menu/PanelContainer/VBoxContainer/HBoxContainer3/ChkBxDebugLabel" to="." method="_on_ChkBxDebugLabel_toggled"]
+[connection signal="toggled" from="Menu/PanelContainer/VBoxContainer/HBoxContainer3/ChkBxMovePlayer" to="." method="_on_ChkBxMovePlayer_toggled"]
+[connection signal="focus_entered" from="Menu/PanelContainer/VBoxContainer/HBoxContainer4/LnCommandConsole" to="." method="_on_LnCommandConsole_focus_entered"]
+[connection signal="focus_exited" from="Menu/PanelContainer/VBoxContainer/HBoxContainer4/LnCommandConsole" to="." method="_on_LnCommandConsole_focus_exited"]
+[connection signal="text_entered" from="Menu/PanelContainer/VBoxContainer/HBoxContainer4/LnCommandConsole" to="." method="_on_LnCommandConsole_text_entered"]
+[connection signal="file_selected" from="Menu/FileDialogOpenScenario" to="." method="_on_FileDialogOpenScenario_file_selected"]

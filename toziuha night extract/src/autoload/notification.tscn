@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/images/shadow_gradient_0.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/panels/notification_in_game.png" type="Texture" id=3]
+[ext_resource path="res://src/autoload/notification.gd" type="Script" id=4]
+[ext_resource path="res://assets/tres/ThemeBasic.tres" type="Theme" id=5]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 57, 19 )
+margin_left = 16.0
+margin_right = 17.0
+
+[node name="Notification" type="CanvasLayer"]
+pause_mode = 2
+layer = 9
+script = ExtResource( 4 )
+
+[node name="ShadowTexture" type="TextureRect" parent="."]
+anchor_right = 1.0
+margin_top = -56.0
+margin_bottom = 32.0
+mouse_filter = 2
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource( 5 )
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -57.5
+margin_right = 57.5
+margin_bottom = 16.0
+grow_horizontal = 2
+mouse_filter = 2
+size_flags_horizontal = 4
+custom_styles/panel = SubResource( 1 )
+
+[node name="Label" type="Label" parent="Control/PanelContainer"]
+margin_left = 16.0
+margin_top = 1.0
+margin_right = 98.0
+margin_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 5
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 1
+text = "NOTIFICATIONTEXT"
+align = 1
+valign = 1
+
+[node name="Timer" type="Timer" parent="Control"]
+one_shot = true
+
+[node name="Tween" type="Tween" parent="Control"]
+
+[connection signal="timeout" from="Control/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="tween_all_completed" from="Control/Tween" to="." method="_on_Tween_tween_all_completed"]

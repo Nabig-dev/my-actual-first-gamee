@@ -1,0 +1,21 @@
+{
+	"color": "#ffc9e40e",
+	"description": "",
+	"display_name": "Eva",
+	"display_name_bool": true,
+	"id": "character-1676994716.json",
+	"mirror_portraits": false,
+	"name": "eva-char",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": -47,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://assets/sprites/art_dialog_chars/eva_default.png"
+		}
+	],
+	"scale": 15,
+	"theme": ""
+}

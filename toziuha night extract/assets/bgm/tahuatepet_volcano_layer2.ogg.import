@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/tahuatepet_volcano_layer2.ogg-5d8007fd5134b1010ddc49955e18fc7e.oggstr"
+
+[deps]
+
+source_file="res://assets/bgm/tahuatepet_volcano_layer2.ogg"
+dest_files=[ "res://.import/tahuatepet_volcano_layer2.ogg-5d8007fd5134b1010ddc49955e18fc7e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=17.281

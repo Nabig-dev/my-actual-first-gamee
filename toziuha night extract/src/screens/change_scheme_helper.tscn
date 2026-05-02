@@ -1,0 +1,198 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/sprites/ui_icons/gamepad_tester.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/ui_icons/btn_helper_icons_normal.png" type="Texture" id=2]
+[ext_resource path="res://src/ui_elements/bg_parallax_demon_forest.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/ui_elements/button_options_menu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/tres/ThemeBasic.tres" type="Theme" id=5]
+[ext_resource path="res://src/screens/change_scheme_helper.gd" type="Script" id=6]
+
+[node name="ChangeSchemeHelper" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 5 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 96.0 ],
+"_edit_vertical_guides_": [ 171.0 ]
+}
+
+[node name="BgParallaxDemonForest" parent="." instance=ExtResource( 3 )]
+modulate = Color( 0.772549, 0.0196078, 0.854902, 1 )
+
+[node name="ControlGamepad" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_top = -2.0
+margin_bottom = -2.0
+
+[node name="GamepadTester" type="Sprite" parent="ControlGamepad"]
+self_modulate = Color( 0.133333, 0.133333, 0.133333, 1 )
+position = Vector2( -120.5, -81 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 1 )
+centered = false
+hframes = 5
+vframes = 5
+frame = 24
+__meta__ = {
+"_editor_description_": "x -16
+y -6"
+}
+
+[node name="b" type="Sprite" parent="ControlGamepad/GamepadTester"]
+position = Vector2( 127.333, 36 )
+scale = Vector2( 0.666667, 0.666667 )
+texture = ExtResource( 2 )
+hframes = 5
+vframes = 20
+
+[node name="x" type="Sprite" parent="ControlGamepad/GamepadTester"]
+position = Vector2( 108.667, 36 )
+scale = Vector2( 0.666667, 0.666667 )
+texture = ExtResource( 2 )
+hframes = 5
+vframes = 20
+
+[node name="y" type="Sprite" parent="ControlGamepad/GamepadTester"]
+position = Vector2( 118, 28 )
+scale = Vector2( 0.666667, 0.666667 )
+texture = ExtResource( 2 )
+hframes = 5
+vframes = 20
+
+[node name="a" type="Sprite" parent="ControlGamepad/GamepadTester"]
+position = Vector2( 118.667, 44.6667 )
+scale = Vector2( 0.666667, 0.666667 )
+texture = ExtResource( 2 )
+hframes = 5
+vframes = 20
+
+[node name="start" type="Sprite" parent="ControlGamepad/GamepadTester"]
+position = Vector2( 88, 39.3333 )
+scale = Vector2( 0.666667, 0.666667 )
+texture = ExtResource( 2 )
+hframes = 5
+vframes = 20
+
+[node name="back" type="Sprite" parent="ControlGamepad/GamepadTester"]
+position = Vector2( 71.3333, 39.3333 )
+scale = Vector2( 0.666667, 0.666667 )
+texture = ExtResource( 2 )
+hframes = 5
+vframes = 20
+
+[node name="rightshoulder" type="Sprite" parent="ControlGamepad/GamepadTester"]
+position = Vector2( 110.667, 12 )
+scale = Vector2( 0.666667, 0.666667 )
+texture = ExtResource( 2 )
+hframes = 5
+vframes = 20
+
+[node name="leftshoulder" type="Sprite" parent="ControlGamepad/GamepadTester"]
+position = Vector2( 49.3333, 12 )
+scale = Vector2( 0.666667, 0.666667 )
+texture = ExtResource( 2 )
+hframes = 5
+vframes = 20
+
+[node name="righttrigger" type="Sprite" parent="ControlGamepad/GamepadTester"]
+position = Vector2( 122, 4.66667 )
+scale = Vector2( 0.666667, 0.666667 )
+texture = ExtResource( 2 )
+hframes = 5
+vframes = 20
+
+[node name="lefttrigger" type="Sprite" parent="ControlGamepad/GamepadTester"]
+position = Vector2( 38, 4.66667 )
+scale = Vector2( 0.666667, 0.666667 )
+texture = ExtResource( 2 )
+hframes = 5
+vframes = 20
+
+[node name="dpup" type="Sprite" parent="ControlGamepad/GamepadTester"]
+position = Vector2( 61.3333, 48.6667 )
+scale = Vector2( 0.666667, 0.666667 )
+texture = ExtResource( 2 )
+hframes = 5
+vframes = 20
+
+[node name="dpdown" type="Sprite" parent="ControlGamepad/GamepadTester"]
+position = Vector2( 61.3333, 64 )
+scale = Vector2( 0.666667, 0.666667 )
+texture = ExtResource( 2 )
+hframes = 5
+vframes = 20
+
+[node name="dpleft" type="Sprite" parent="ControlGamepad/GamepadTester"]
+position = Vector2( 54, 56.6667 )
+scale = Vector2( 0.666667, 0.666667 )
+texture = ExtResource( 2 )
+hframes = 5
+vframes = 20
+
+[node name="dpright" type="Sprite" parent="ControlGamepad/GamepadTester"]
+position = Vector2( 69.3333, 56.6667 )
+scale = Vector2( 0.666667, 0.666667 )
+texture = ExtResource( 2 )
+hframes = 5
+vframes = 20
+
+[node name="leftstick" type="Sprite" parent="ControlGamepad/GamepadTester"]
+position = Vector2( 42, 40 )
+scale = Vector2( 0.666667, 0.666667 )
+texture = ExtResource( 2 )
+hframes = 5
+vframes = 20
+
+[node name="rightstick" type="Sprite" parent="ControlGamepad/GamepadTester"]
+position = Vector2( 98.6667, 56 )
+scale = Vector2( 0.666667, 0.666667 )
+texture = ExtResource( 2 )
+hframes = 5
+vframes = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -95.5
+margin_top = -57.0
+margin_right = 95.5
+grow_horizontal = 2
+custom_constants/separation = 13
+alignment = 1
+
+[node name="BtnScheme" parent="VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 7.0
+margin_right = 191.0
+margin_bottom = 23.0
+title_btn = "SCHEME"
+items_values = [ "nochange", "xbox", "xbox2", "ps", "psb", "psc", "switch", "deck", "generic" ]
+items_text = [ "- - -", "XB-A", "XB-B", "PS-A", "PS-B", "PS-C", "SW", "DCK", "G" ]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 36.0
+margin_right = 191.0
+margin_bottom = 50.0
+custom_constants/separation = 29
+
+[node name="BtnReturn" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_right = 81.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "RETURN"
+
+[node name="BtnSave" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 110.0
+margin_right = 191.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "SAVE_CHANGES"
+
+[connection signal="value_changed" from="VBoxContainer/BtnScheme" to="." method="_on_BtnScheme_value_changed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnReturn" to="." method="_on_BtnReturn_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BtnSave" to="." method="_on_BtnSave_pressed"]

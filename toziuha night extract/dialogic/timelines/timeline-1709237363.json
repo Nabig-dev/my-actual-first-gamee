@@ -1,0 +1,665 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "¿Señora Alessa?"
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1702344268.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1702344268.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Xandria, qué gusto verte."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "No esperaba que construyeran una estación de tren aquí..."
+		},
+		{
+			"character": "character-1702344268.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Se ha invertido bastante dinero para la construcción del puente que permite el paso del tren hasta estas isletas."
+		},
+		{
+			"character": "character-1702344268.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Todavía no se ha abierto al público debido a que los lugareños no parecen estar conformes."
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 1,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1709238012.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Bother",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_position": true,
+			"change_z_index": false,
+			"character": "character-1702344268.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "(Don't change)",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 2,
+			"z_index": 0
+		},
+		{
+			"character": "character-1709238012.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "No se haga la desentendida. Sabemos muy bien que ustedes piensan que somos criminales."
+		},
+		{
+			"character": "character-1709238012.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Esa maquina la han hecho para venir a invadirnos."
+		},
+		{
+			"character": "character-1702344268.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Oh querida... Me pregunto quién le ha dicho esas cosas malas de nosotros."
+		},
+		{
+			"character": "character-1702344268.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ah, Xandria. Permíteme presentarte a [color=yellow]Isabel Nochari[/color]. Ella es la jefa de la comunidad que habita estas isletas."
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1709238012.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 1,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_position": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_position": true,
+			"change_z_index": false,
+			"character": "character-1702344268.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "(Don't change)",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 2,
+			"z_index": 0
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "¿A qué se refiere ella con que \"quieren invadirlos\"?"
+		},
+		{
+			"character": "character-1702344268.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Nuestros investigadores han descubierto que uno de los adeptis que están bajo las órdenes de Johannes, es nativo de este lugar."
+		},
+		{
+			"character": "character-1702344268.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Por lo que hace un par de días venimos en búsqueda del hombre llamado [color=yellow]Dirián Razhes[/color] para hablar con él."
+		},
+		{
+			"character": "character-1702344268.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Pero el trabajo de La Orden de proteger a las personas de Los Ahuizotes, no tiene ninguna relación con el proyecto ferroviario."
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 1,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_position": true,
+			"change_z_index": false,
+			"character": "character-1702344268.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "(Don't change)",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 2,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1709238012.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Bother",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1709238012.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Dirián no es una mala persona."
+		},
+		{
+			"character": "character-1709238012.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Él debe tener sus razones para haberse ido con ese hombre rubio..."
+		},
+		{
+			"character": "character-1709238012.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Dijo que todo lo está haciendo por el bien de nuestra comunidad y que no debíamos confiar en La Orden..."
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_position": false,
+			"change_z_index": false,
+			"character": "character-1702344268.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "(Don't change)",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 1,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_position": false,
+			"change_z_index": false,
+			"character": "character-1709238012.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "(Don't change)",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 1,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_position": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": true,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "(Esto es extraño... no parece que esté mintiendo, y además se mira preocupada)."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "(Y esa persona, Dirián, realmente era un Adeptis...)"
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_position": true,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "(Don't change)",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 2,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_position": true,
+			"change_z_index": false,
+			"character": "character-1702344268.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1702344268.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "¿Xandria? ¿qué pasa?"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "No es nada."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Si ese hombre es un adeptis, debo encontrarlo."
+		},
+		{
+			"character": "character-1702344268.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Por supuesto, aunque la señora Nochari no quiere ayudarnos."
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 1,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_position": true,
+			"change_z_index": false,
+			"character": "character-1702344268.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "(Don't change)",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 2,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_position": true,
+			"change_z_index": false,
+			"character": "character-1709238012.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Bother",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1709238012.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ya les he dicho que aquí nadie sabe dónde se ha ido Dirián."
+		},
+		{
+			"character": "character-1709238012.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Y será mejor que ustedes se vayan, no queremos ver nada con ustedes."
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1709238012.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 1,
+			"z_index": 0
+		},
+		{
+			"character": "character-1702344268.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "..."
+		},
+		{
+			"character": "character-1702344268.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Vaya, sí que es una mujer de fuerte cáracter..."
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_position": true,
+			"change_z_index": false,
+			"character": "character-1702344268.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "(Don't change)",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 2,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Así que no hay forma de saber el paradero de ese adeptis."
+		},
+		{
+			"character": "character-1702344268.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "He enviado a varios alquimistas a investigar los alrededores, por mar y tierra."
+		},
+		{
+			"character": "character-1702344268.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Aunque hay un lugar del que no he recibido noticias todavía..."
+		},
+		{
+			"character": "character-1702344268.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Es un área bastante peligrosa, donde alguien que conozca bien el territorio podría esconderse."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Dígame dónde es."
+		},
+		{
+			"character": "character-1702344268.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Me refiero a la isla mayor, donde está ubicado el [color=yellow]gran volcán[/color]. Se encuentra al oeste de esta isleta."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Entiendo, iré a ver qué puedo encontrar."
+		},
+		{
+			"character": "character-1702344268.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Muchas gracias querida, espero noticias tuyas."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1709237363.json",
+		"name": "train-event-tahua-alessa"
+	}
+}

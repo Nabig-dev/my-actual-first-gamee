@@ -1,0 +1,33 @@
+{
+	"color": "#ffbb3e6d",
+	"description": "Johannes Trithemius. Antagonista",
+	"display_name": "Johannes",
+	"display_name_bool": true,
+	"id": "character-1677081398.json",
+	"mirror_portraits": false,
+	"name": "johannes-char",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": -47,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://assets/sprites/art_dialog_chars/johannes_default.png"
+		},
+		{
+			"name": "Angry",
+			"path": "res://assets/sprites/art_dialog_chars/johannes_angry.png"
+		},
+		{
+			"name": "Angry2",
+			"path": "res://assets/sprites/art_dialog_chars/johannes2_angry.png"
+		},
+		{
+			"name": "Default2",
+			"path": "res://assets/sprites/art_dialog_chars/johannes2_default.png"
+		}
+	],
+	"scale": 17,
+	"theme": ""
+}

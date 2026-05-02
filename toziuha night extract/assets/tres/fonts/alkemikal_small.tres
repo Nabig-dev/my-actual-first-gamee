@@ -1,0 +1,18 @@
+[gd_resource type="DynamicFont" load_steps=8 format=2]
+
+[ext_resource path="res://assets/fonts/alkhemikal.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/fonts/non-pixel/DroidSansFallback.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/fonts/LanaPixel.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/fonts/non-pixel/NotoNaskhArabicUI_Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/fonts/non-pixel/NotoSans-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://assets/fonts/non-pixel/NotoSansHebrew_Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://assets/fonts/non-pixel/NotoSansThaiUI_Regular.ttf" type="DynamicFontData" id=10]
+
+[resource]
+font_data = ExtResource( 1 )
+fallback/0 = ExtResource( 3 )
+fallback/1 = ExtResource( 2 )
+fallback/2 = ExtResource( 4 )
+fallback/3 = ExtResource( 5 )
+fallback/4 = ExtResource( 6 )
+fallback/5 = ExtResource( 10 )

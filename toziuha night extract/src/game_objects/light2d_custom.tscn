@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/game_objects/light2d_custom.gd" type="Script" id=1]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+
+[node name="Light2DCustom" type="Light2D"]
+light_mask = 0
+z_index = 3
+range_item_cull_mask = 0
+script = ExtResource( 1 )
+
+[node name="AdditiveLight" type="Sprite" parent="."]
+material = SubResource( 1 )

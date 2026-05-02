@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/sprites/tiles/background/snow_wall.png" type="Texture" id=1]
+
+[sub_resource type="TileSet" id=1]
+0/name = "snow_wall.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 16, 16, 112, 112 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 1
+0/autotile/bitmask_flags = [ Vector2( 0, 0 ), 432, Vector2( 0, 1 ), 438, Vector2( 0, 2 ), 54, Vector2( 0, 4 ), 511, Vector2( 0, 5 ), 511, Vector2( 0, 6 ), 511, Vector2( 1, 0 ), 504, Vector2( 1, 2 ), 63, Vector2( 1, 4 ), 511, Vector2( 1, 5 ), 511, Vector2( 1, 6 ), 511, Vector2( 2, 0 ), 504, Vector2( 2, 2 ), 63, Vector2( 3, 0 ), 216, Vector2( 3, 1 ), 219, Vector2( 3, 2 ), 27, Vector2( 4, 4 ), 254, Vector2( 4, 5 ), 443, Vector2( 5, 0 ), 255, Vector2( 5, 1 ), 507, Vector2( 5, 4 ), 443, Vector2( 5, 5 ), 254, Vector2( 6, 0 ), 447, Vector2( 6, 1 ), 510 ]
+0/autotile/icon_coordinate = Vector2( 1, 0 )
+0/autotile/tile_size = Vector2( 16, 16 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/autotile/fallback_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[node name="SnowWallTileMap" type="TileMap"]
+modulate = Color( 0.356863, 0.427451, 0.639216, 1 )
+tile_set = SubResource( 1 )
+cell_size = Vector2( 16, 16 )
+cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
+collision_layer = 0
+collision_mask = 0
+format = 1

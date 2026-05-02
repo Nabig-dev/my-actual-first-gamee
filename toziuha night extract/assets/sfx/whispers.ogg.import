@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/whispers.ogg-764003e7e12bfe9b7ac3ea4240322d39.oggstr"
+
+[deps]
+
+source_file="res://assets/sfx/whispers.ogg"
+dest_files=[ "res://.import/whispers.ogg-764003e7e12bfe9b7ac3ea4240322d39.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

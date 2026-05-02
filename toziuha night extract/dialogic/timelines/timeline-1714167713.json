@@ -1,0 +1,91 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1706221744.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1706221744.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hola."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Dirián..."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "No sé en qué rayos pensabas cuando te uniste a los Ahuizotes..."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Angry",
+			"text": "Pero te puedo asegurar, que esa es la peor y última decision que has tomado en tu vida."
+		},
+		{
+			"character": "character-1706221744.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Vaya... ese carácter me gusta mucho."
+		},
+		{
+			"character": "character-1706221744.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Es una lástima que nos hayamos conocido de esta manera."
+		},
+		{
+			"character": "character-1706221744.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Es mejor que tengas cuidado preciosa, sería una lástima que esa bella piel se quemara."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1714167713.json",
+		"name": "dirian-prebattle"
+	}
+}

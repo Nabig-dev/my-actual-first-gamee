@@ -1,0 +1,21 @@
+{
+	"color": "#ff339b11",
+	"description": "",
+	"display_name": "Atreu",
+	"display_name_bool": true,
+	"id": "character-1676994744.json",
+	"mirror_portraits": false,
+	"name": "atreu-char",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": -47,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://assets/sprites/art_dialog_chars/atreu_default.png"
+		}
+	],
+	"scale": 17,
+	"theme": ""
+}

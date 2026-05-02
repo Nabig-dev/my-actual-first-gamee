@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/sprites/quick_menu.png" type="Texture" id=1]
+[ext_resource path="res://src/ui_elements/_buttonequip_quick_menu.gd" type="Script" id=2]
+[ext_resource path="res://assets/fonts/venice.fnt" type="BitmapFont" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 70, 5, 18, 21 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 70, 38, 18, 21 )
+
+[node name="ButtonEquip" type="TextureButton"]
+margin_right = 18.0
+margin_bottom = 21.0
+rect_min_size = Vector2( 18, 21 )
+rect_pivot_offset = Vector2( 9, 10 )
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+texture_normal = SubResource( 1 )
+script = ExtResource( 2 )
+
+[node name="BGUnfocused" type="TextureRect" parent="."]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 2 )
+
+[node name="LblEquip" type="Label" parent="."]
+unique_name_in_owner = true
+modulate = Color( 1, 1, 1, 0.5 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -9.0
+margin_top = -9.0
+margin_right = 9.0
+margin_bottom = 9.0
+rect_pivot_offset = Vector2( 9, 9 )
+custom_fonts/font = ExtResource( 3 )
+text = "A"
+align = 1
+valign = 1
+
+[connection signal="focus_entered" from="." to="." method="_on_ButtonEquip_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_ButtonEquip_focus_exited"]

@@ -1,0 +1,409 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://assets/sprites/enemies/goblin_mage.png" type="Texture" id=1]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hurtbox_enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/game_objects/enemy_base.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hitbox_enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/game_objects/enemies/goblin_mage.gd" type="Script" id=5]
+[ext_resource path="res://src/game_objects/visibility_notifier_camera_area.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/images/vfx/flare.png" type="Texture" id=7]
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 13, 20 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 5, 16 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 5, 15 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10, 18.5 )
+
+[sub_resource type="CanvasItemMaterial" id=9]
+blend_mode = 1
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Flare:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/Flare:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 12, -1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite/Flare:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Sprite/Flare:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "attack"
+length = 3.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 13, 15, 16, 17, 18, 19, 0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.6, 2.3, 3.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "prepare_snd"
+}, {
+"args": [  ],
+"method": "spawn_atk"
+}, {
+"args": [  ],
+"method": "_on_TimerMakeAtk_timeout"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Flare:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.8, 2.3, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.8 ), Color( 1, 1, 1, 0.8 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/Flare:position")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.8, 2.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 12, -1 ), Vector2( 6, -13 ), Vector2( 24, 2 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite/Flare:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1, 2.2, 2.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 0.599, 0.599 ), Vector2( 0.599, 0.599 ), Vector2( 1.061, 1.061 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Sprite/Flare:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "dead"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/Flare:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "idle"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "thunder"
+length = 2.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 13, 0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.6, 2.4, 2.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "prepare_snd"
+}, {
+"args": [  ],
+"method": "spawn_thunder"
+}, {
+"args": [  ],
+"method": "_on_TimerMakeAtk_timeout"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Flare:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.8, 1.9, 2.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.8 ), Color( 1, 1, 1, 0.8 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/Flare:position")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 12, -1 ), Vector2( 6, -13 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite/Flare:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1, 2, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 0.599, 0.599 ), Vector2( 0.599, 0.599 ), Vector2( 1.061, 1.061 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Sprite/Flare:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0.741176, 1, 1 ) ]
+}
+
+[node name="GoblinMage" type="RigidBody2D"]
+collision_layer = 512
+collision_mask = 5
+mode = 2
+gravity_scale = 4.0
+script = ExtResource( 5 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="VisibilityNotifierCameraArea" parent="." instance=ExtResource( 6 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisibilityNotifierCameraArea"]
+position = Vector2( 0, -20 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -16 )
+shape = SubResource( 1 )
+
+[node name="EnemyBase" parent="." instance=ExtResource( 3 )]
+node_facing = NodePath("../Sprite")
+anim_player = NodePath("../AnimationPlayer")
+hurtbox = NodePath("../HurtboxEnemy")
+
+[node name="HitboxEnemy" parent="." instance=ExtResource( 4 )]
+identifier = "goblin_mage"
+hurtbox_node = NodePath("../HurtboxEnemy")
+curse = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxEnemy"]
+position = Vector2( 0, -17 )
+shape = SubResource( 2 )
+
+[node name="HurtboxEnemy" parent="." instance=ExtResource( 2 )]
+identifier = "goblin_mage"
+sprite_flash = NodePath("../Sprite")
+death_sounds = [ "death_goblin" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxEnemy"]
+position = Vector2( 0, -18.5 )
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -24 )
+texture = ExtResource( 1 )
+hframes = 5
+vframes = 7
+
+[node name="Flare" type="Sprite" parent="Sprite"]
+modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 9 )
+position = Vector2( 12, -1 )
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 4 )
+anims/attack = SubResource( 5 )
+anims/dead = SubResource( 6 )
+anims/idle = SubResource( 7 )
+anims/thunder = SubResource( 10 )
+
+[node name="TimerMakeAtk" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="defeated" from="HurtboxEnemy" to="." method="_on_HurtboxEnemy_defeated"]
+[connection signal="timeout" from="TimerMakeAtk" to="." method="_on_TimerMakeAtk_timeout"]

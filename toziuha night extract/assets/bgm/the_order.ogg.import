@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/the_order.ogg-ce8bc147b8093550ddb620b37d877b93.oggstr"
+
+[deps]
+
+source_file="res://assets/bgm/the_order.ogg"
+dest_files=[ "res://.import/the_order.ogg-ce8bc147b8093550ddb620b37d877b93.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=10.711

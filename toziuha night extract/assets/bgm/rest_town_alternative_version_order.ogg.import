@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/rest_town_alternative_version_order.ogg-599d8f874037aabf41371e85b27346f6.oggstr"
+
+[deps]
+
+source_file="res://assets/bgm/rest_town_alternative_version_order.ogg"
+dest_files=[ "res://.import/rest_town_alternative_version_order.ogg-599d8f874037aabf41371e85b27346f6.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

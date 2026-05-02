@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/flashback_theme_1.ogg-907950d91aca81791236d0da1d31e07e.oggstr"
+
+[deps]
+
+source_file="res://assets/bgm/flashback_theme_1.ogg"
+dest_files=[ "res://.import/flashback_theme_1.ogg-907950d91aca81791236d0da1d31e07e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

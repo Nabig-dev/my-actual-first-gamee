@@ -1,0 +1,280 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://assets/sprites/enemies/eyebulet.png" type="Texture" id=1]
+[ext_resource path="res://src/game_objects/enemy_base.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hurtbox_enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game_objects/enemies/eyebullet.gd" type="Script" id=4]
+[ext_resource path="res://assets/images/vfx/particles/spotlight_7.png" type="Texture" id=5]
+[ext_resource path="res://src/game_objects/area2d_cast.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/sprites/vfx/circle_radar_x48.png" type="Texture" id=7]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hitbox_enemy.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/game_objects/visibility_notifier_camera_area.tscn" type="PackedScene" id=9]
+
+[sub_resource type="CircleShape2D" id=11]
+radius = 28.27
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Eyebulet:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CPUParticles2DBubbles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Eyebulet:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "dead"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CPUParticles2DBubbles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Eyebulet:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Eyebulet/Light02:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Eyebulet:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+
+[sub_resource type="CanvasItemMaterial" id=3]
+blend_mode = 1
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 101, 48 )
+
+[sub_resource type="CircleShape2D" id=9]
+radius = 18.85
+
+[sub_resource type="CircleShape2D" id=10]
+radius = 16.18
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Eyebulet/Light02:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "shoot"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Eyebulet/Light02:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6, 0.9, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 0.3, 0.463 ), Vector2( 0.3, 0.463 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.9, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "_spawn_shoot"
+}, {
+"args": [  ],
+"method": "_on_after_shoot"
+} ]
+}
+
+[sub_resource type="CanvasItemMaterial" id=8]
+particles_animation = true
+particles_anim_h_frames = 7
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[node name="EyeBullet" type="KinematicBody2D"]
+script = ExtResource( 4 )
+
+[node name="VisibilityNotifierCameraArea" parent="." instance=ExtResource( 9 )]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisibilityNotifierCameraArea"]
+shape = SubResource( 11 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/dead = SubResource( 7 )
+anims/idle = SubResource( 2 )
+
+[node name="Eyebulet" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 5
+
+[node name="Light02" type="Sprite" parent="Eyebulet"]
+modulate = Color( 1, 0, 0.772549, 1 )
+material = SubResource( 3 )
+position = Vector2( 6, -12 )
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 5 )
+
+[node name="AreaSeePlayer" parent="Eyebulet" instance=ExtResource( 6 )]
+visible = false
+position = Vector2( 0, -10 )
+collision_layer = 8
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Eyebulet/AreaSeePlayer"]
+position = Vector2( 91, 10 )
+shape = SubResource( 6 )
+
+[node name="PositionShoot" type="Position2D" parent="Eyebulet"]
+position = Vector2( 4, -12 )
+
+[node name="PositionTarget" type="Position2D" parent="Eyebulet"]
+position = Vector2( 79, -12 )
+
+[node name="EnemyBase" parent="." instance=ExtResource( 2 )]
+node_facing = NodePath("../Eyebulet")
+anim_player = NodePath("../AnimationPlayer")
+hurtbox = NodePath("../HurtboxEnemy")
+auto_facing_on_ready = false
+
+[node name="TimerMove" type="Timer" parent="."]
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="HurtboxEnemy" parent="." instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 0, -8 )
+identifier = "eyebullet"
+sprite_flash = NodePath("../Eyebulet")
+death_sounds = [ "bubble_a" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxEnemy"]
+shape = SubResource( 9 )
+
+[node name="HitboxEnemy" parent="." instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 0, -9 )
+identifier = "eyebullet"
+hurtbox_node = NodePath("../HurtboxEnemy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxEnemy"]
+shape = SubResource( 10 )
+
+[node name="AnimShoot" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 4 )
+anims/shoot = SubResource( 5 )
+
+[node name="CPUParticles2DBubbles" type="CPUParticles2D" parent="."]
+material = SubResource( 8 )
+position = Vector2( 0, -10 )
+emitting = false
+amount = 30
+lifetime = 2.0
+texture = ExtResource( 7 )
+spread = 180.0
+gravity = Vector2( 0, -98 )
+initial_velocity = 29.9
+anim_speed = 5.0
+
+[connection signal="object_entered" from="Eyebulet/AreaSeePlayer" to="." method="_on_AreaSeePlayer_object_entered"]
+[connection signal="timeout" from="TimerMove" to="." method="_on_TimerMove_timeout"]
+[connection signal="defeated" from="HurtboxEnemy" to="." method="_on_HurtboxEnemy_defeated"]

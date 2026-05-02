@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/images/texture_old_paper.jpg" type="Texture" id=1]
+[ext_resource path="res://stages/oota/prologue/_begin.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/tres/ThemeBasic.tres" type="Theme" id=4]
+
+[node name="BeginScene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+
+[node name="TextureBG" type="TextureRect" parent="."]
+modulate = Color( 0.498039, 0.498039, 0.498039, 1 )
+light_mask = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 7
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+light_mask = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -170.5
+margin_top = -96.0
+margin_right = 170.5
+margin_bottom = 96.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+pause_mode = 1
+size = Vector2( 341, 192 )
+handle_input_locally = false
+hdr = false
+usage = 0
+render_target_update_mode = 3
+audio_listener_enable_2d = true
+
+[node name="Node" parent="ViewportContainer/Viewport" instance=ExtResource( 2 )]

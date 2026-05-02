@@ -1,0 +1,120 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/tres/ThemeBasic.tres" type="Theme" id=1]
+[ext_resource path="res://assets/sprites/social_icons/youtube.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/social_icons/playstore.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/social_icons/facebook.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/social_icons/twitter.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/social_icons/kofi.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/social_icons/discord.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/social_icons/steam.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/social_icons/itchio.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/social_icons/web.png" type="Texture" id=10]
+[ext_resource path="res://src/ui_elements/social_buttons.gd" type="Script" id=11]
+
+[node name="SocialButtons" type="VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+theme = ExtResource( 1 )
+script = ExtResource( 11 )
+
+[node name="HbxMain" type="HBoxContainer" parent="."]
+margin_right = 270.0
+margin_bottom = 32.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Btnweb" type="Button" parent="HbxMain"]
+margin_right = 24.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+focus_neighbour_left = NodePath("../../HbxSocial/Btnkf")
+focus_neighbour_right = NodePath("../Btnsteam")
+icon = ExtResource( 10 )
+
+[node name="Btnsteam" type="Button" parent="HbxMain"]
+margin_left = 44.0
+margin_right = 110.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+focus_neighbour_left = NodePath("../Btnweb")
+focus_neighbour_right = NodePath("../Btnitchio")
+text = " Get Now!"
+icon = ExtResource( 8 )
+
+[node name="Btnitchio" type="Button" parent="HbxMain"]
+margin_left = 130.0
+margin_right = 184.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+focus_neighbour_left = NodePath("../Btnsteam")
+focus_neighbour_right = NodePath("../Btnplaystore")
+text = " Follow"
+icon = ExtResource( 9 )
+
+[node name="Btnplaystore" type="Button" parent="HbxMain"]
+margin_left = 204.0
+margin_right = 270.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+focus_neighbour_left = NodePath("../Btnitchio")
+focus_neighbour_right = NodePath("../../HbxSocial/Btnfb")
+text = " Get Now!"
+icon = ExtResource( 3 )
+
+[node name="HbxSocial" type="HBoxContainer" parent="."]
+margin_top = 36.0
+margin_right = 270.0
+margin_bottom = 68.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Btnfb" type="Button" parent="HbxSocial"]
+margin_left = 6.0
+margin_right = 30.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+focus_neighbour_left = NodePath("../../HbxMain/Btnplaystore")
+focus_neighbour_right = NodePath("../Btntw")
+icon = ExtResource( 4 )
+
+[node name="Btntw" type="Button" parent="HbxSocial"]
+margin_left = 50.0
+margin_right = 74.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+focus_neighbour_left = NodePath("../Btnfb")
+focus_neighbour_right = NodePath("../Btnds")
+icon = ExtResource( 5 )
+
+[node name="Btnds" type="Button" parent="HbxSocial"]
+margin_left = 94.0
+margin_right = 118.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+focus_neighbour_left = NodePath("../Btntw")
+focus_neighbour_right = NodePath("../Btnyt")
+icon = ExtResource( 7 )
+
+[node name="Btnyt" type="Button" parent="HbxSocial"]
+margin_left = 138.0
+margin_right = 162.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+focus_neighbour_left = NodePath("../Btnds")
+focus_neighbour_right = NodePath("../Btnkf")
+icon = ExtResource( 2 )
+
+[node name="Btnkf" type="Button" parent="HbxSocial"]
+margin_left = 182.0
+margin_right = 264.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+focus_neighbour_left = NodePath("../Btnyt")
+focus_neighbour_right = NodePath("../../HbxMain/Btnweb")
+text = " Support me!"
+icon = ExtResource( 6 )
+
+[node name="TimerURL" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true

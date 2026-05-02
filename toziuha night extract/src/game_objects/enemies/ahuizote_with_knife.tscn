@@ -1,0 +1,448 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://assets/sprites/enemies/ahuizote_with_knife.png" type="Texture" id=1]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hitbox_enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hurtbox_enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game_objects/enemy_base.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/game_objects/enemies/ahuizote_with_knife.gd" type="Script" id=6]
+[ext_resource path="res://src/game_objects/ghost_trail.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/game_objects/area2d_cast.tscn" type="PackedScene" id=8]
+
+[sub_resource type="RectangleShape2D" id=207]
+extents = Vector2( 2, 24 )
+
+[sub_resource type="RectangleShape2D" id=209]
+extents = Vector2( 12.625, 27.7815 )
+
+[sub_resource type="RectangleShape2D" id=206]
+extents = Vector2( 7.063, 23 )
+
+[sub_resource type="RectangleShape2D" id=214]
+extents = Vector2( 15, 2.5 )
+
+[sub_resource type="Curve" id=201]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), -0.044542, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=200]
+offsets = PoolRealArray( 0, 0.380682 )
+colors = PoolColorArray( 0.335938, 0.0695496, 0.0695496, 1, 1, 0, 0, 1 )
+
+[sub_resource type="RectangleShape2D" id=210]
+extents = Vector2( 2.5, 8 )
+
+[sub_resource type="RectangleShape2D" id=211]
+extents = Vector2( 23, 2.875 )
+
+[sub_resource type="RectangleShape2D" id=212]
+extents = Vector2( 58, 28 )
+
+[sub_resource type="RectangleShape2D" id=215]
+extents = Vector2( 56, 11.5 )
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite/Particles2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/Particles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite/HitboxEnemy/CollisionKnife:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "attack"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 6, 7, 8 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "dead"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite/Particles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/Particles2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -8 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 15, 16 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.7, 1.1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.407843, 0.407843, 0.407843, 1 ), Color( 0.407843, 0.407843, 0.407843, 0 ) ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("GhostTrail")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ 0.0, 0.0 ],
+"method": "start_trail"
+}, {
+"args": [  ],
+"method": "stop_trail"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite/Particles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("GhostTrail")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stop_trail"
+} ]
+}
+
+[sub_resource type="Animation" id=213]
+resource_name = "pre-atk"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5, 0.7, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 18, 19, 20, 21 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("EnemyBase")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "attack", false, false ],
+"method": "change_state"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/HitboxEnemy/CollisionKnife:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "walk"
+length = 1.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("GhostTrail")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stop_trail"
+} ]
+}
+
+[node name="AhuizoteWithKnife" type="KinematicBody2D"]
+collision_layer = 512
+collision_mask = 5
+script = ExtResource( 6 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+visible = false
+position = Vector2( 0.750013, -28 )
+scale = Vector2( 5.525, 2.8 )
+pause_particles = false
+process_parent = true
+physics_process_parent = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -24 )
+shape = SubResource( 207 )
+
+[node name="HurtboxEnemy" parent="." instance=ExtResource( 3 )]
+identifier = "ahuitoze_knife"
+sprite_flash = NodePath("../Sprite")
+death_sounds = [ "enemy_ahuizot_death" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxEnemy"]
+position = Vector2( 0, -28.2185 )
+shape = SubResource( 209 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -32 )
+texture = ExtResource( 1 )
+hframes = 5
+vframes = 6
+frame = 1
+
+[node name="HitboxEnemy" parent="Sprite" instance=ExtResource( 2 )]
+position = Vector2( 0, 32 )
+identifier = "ahuitoze_knife"
+hurtbox_node = NodePath("../../HurtboxEnemy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/HitboxEnemy"]
+visible = false
+position = Vector2( 0, -24 )
+shape = SubResource( 206 )
+
+[node name="CollisionKnife" type="CollisionShape2D" parent="Sprite/HitboxEnemy"]
+visible = false
+position = Vector2( 22, -40.5 )
+shape = SubResource( 214 )
+disabled = true
+
+[node name="Particles2D" type="CPUParticles2D" parent="Sprite"]
+scale = Vector2( 0.25, 0.25 )
+emitting = false
+amount = 30
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 33.83
+direction = Vector2( 1, 1 )
+spread = 161.2
+gravity = Vector2( 0, 100 )
+initial_velocity = 31.96
+initial_velocity_random = 1.0
+scale_amount = 5.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 201 )
+color_ramp = SubResource( 200 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="DetectNoFloor" parent="Sprite" instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 13, 32 )
+collision_layer = 512
+collision_mask = 5
+detect = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/DetectNoFloor"]
+position = Vector2( -1.5, 4 )
+shape = SubResource( 210 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite/DetectNoFloor"]
+position = Vector2( -13, -6.875 )
+shape = SubResource( 211 )
+
+[node name="SeePlayer" parent="Sprite" instance=ExtResource( 8 )]
+collision_layer = 8
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/SeePlayer"]
+visible = false
+position = Vector2( 48, 4 )
+shape = SubResource( 212 )
+
+[node name="DetectPlayerBack" parent="Sprite" instance=ExtResource( 8 )]
+collision_layer = 8
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/DetectPlayerBack"]
+visible = false
+position = Vector2( -66, 20.5 )
+shape = SubResource( 215 )
+
+[node name="EnemyBase" parent="." instance=ExtResource( 4 )]
+node_facing = NodePath("../Sprite")
+anim_player = NodePath("../AnimationPlayer")
+hurtbox = NodePath("../HurtboxEnemy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 4 )
+anims/attack = SubResource( 8 )
+anims/dead = SubResource( 5 )
+anims/idle = SubResource( 6 )
+anims/pre-atk = SubResource( 213 )
+anims/walk = SubResource( 7 )
+
+[node name="GhostTrail" parent="." instance=ExtResource( 7 )]
+parent_sprite_path = NodePath("..")
+sprite_path = NodePath("../Sprite")
+scale_from_parent = false
+
+[node name="TimerPatrolWait" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="screen_exited" from="VisibilityEnabler2D" to="." method="_on_VisibilityEnabler2D_screen_exited"]
+[connection signal="damaged" from="HurtboxEnemy" to="." method="_on_HurtboxEnemy_damaged"]
+[connection signal="object_exited" from="Sprite/DetectNoFloor" to="." method="_on_DetectNoFloor_object_exited"]
+[connection signal="object_entered" from="Sprite/SeePlayer" to="." method="_on_SeePlayer_object_entered"]
+[connection signal="object_entered" from="Sprite/DetectPlayerBack" to="." method="_on_DetectPlayerBack_object_entered"]
+[connection signal="timeout" from="TimerPatrolWait" to="." method="_on_TimerPatrolWait_timeout"]

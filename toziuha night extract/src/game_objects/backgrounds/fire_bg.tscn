@@ -1,0 +1,393 @@
+[gd_scene load_steps=70 format=2]
+
+[ext_resource path="res://assets/images/vfx/particles/smoke_07.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/vfx/fire.png" type="Texture" id=2]
+[ext_resource path="res://src/gdshaders/fire_wave.gdshader" type="Shader" id=3]
+[ext_resource path="res://src/gdshaders/water_waves.gdshader" type="Shader" id=4]
+[ext_resource path="res://src/game_objects/backgrounds/fire_bg.gd" type="Script" id=5]
+[ext_resource path="res://assets/sprites/vfx/fire2.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/vfx/fire_gif.png" type="Texture" id=7]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 4 )
+shader_param/wave_speed = 1.5
+shader_param/wave_freq = 5.0
+shader_param/wave_width = 1.0
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 3 )
+shader_param/amplitude = 0.075
+shader_param/frequency = -2.0
+shader_param/speed = 0.0
+shader_param/amplitude_vertical = 0.2
+shader_param/frequency_vertical = 10.0
+shader_param/speed_vertical = 1.0
+shader_param/scroll_direction = Vector2( 0, 0 )
+shader_param/scrolling_speed = 0.08
+shader_param/enable_palette_cycling = false
+shader_param/palette_speed = 0.1
+
+[sub_resource type="ShaderMaterial" id=66]
+shader = ExtResource( 3 )
+shader_param/amplitude = 0.075
+shader_param/frequency = -4.0
+shader_param/speed = 0.5
+shader_param/amplitude_vertical = 0.1
+shader_param/frequency_vertical = 20.0
+shader_param/speed_vertical = 2.0
+shader_param/scroll_direction = Vector2( 0, 0 )
+shader_param/scrolling_speed = 0.08
+shader_param/enable_palette_cycling = false
+shader_param/palette_speed = 0.1
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 3 )
+shader_param/amplitude = 0.01
+shader_param/frequency = 20.0
+shader_param/speed = -3.0
+shader_param/amplitude_vertical = 0.0
+shader_param/frequency_vertical = 0.0
+shader_param/speed_vertical = 0.0
+shader_param/scroll_direction = Vector2( 0.3, 0 )
+shader_param/scrolling_speed = 0.08
+shader_param/enable_palette_cycling = false
+shader_param/palette_speed = 0.1
+
+[sub_resource type="ShaderMaterial" id=74]
+shader = ExtResource( 3 )
+shader_param/amplitude = 0.01
+shader_param/frequency = 30.0
+shader_param/speed = -3.0
+shader_param/amplitude_vertical = 0.3
+shader_param/frequency_vertical = 10.0
+shader_param/speed_vertical = 0.0
+shader_param/scroll_direction = Vector2( -0.5, 0 )
+shader_param/scrolling_speed = 0.08
+shader_param/enable_palette_cycling = false
+shader_param/palette_speed = 0.1
+
+[sub_resource type="ShaderMaterial" id=67]
+shader = ExtResource( 3 )
+shader_param/amplitude = 0.01
+shader_param/frequency = 10.0
+shader_param/speed = -3.0
+shader_param/amplitude_vertical = 0.0
+shader_param/frequency_vertical = 100.0
+shader_param/speed_vertical = 0.0
+shader_param/scroll_direction = Vector2( 0.3, 0 )
+shader_param/scrolling_speed = 0.08
+shader_param/enable_palette_cycling = false
+shader_param/palette_speed = 0.1
+
+[sub_resource type="CanvasItemMaterial" id=64]
+blend_mode = 1
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 7 )
+region = Rect2( 150, 0, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 7 )
+region = Rect2( 300, 0, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 7 )
+region = Rect2( 450, 0, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 7 )
+region = Rect2( 600, 0, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 7 )
+region = Rect2( 750, 0, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 7 )
+region = Rect2( 900, 0, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 7 )
+region = Rect2( 1050, 0, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 7 )
+region = Rect2( 1200, 0, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 7 )
+region = Rect2( 1350, 0, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 86, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 7 )
+region = Rect2( 150, 86, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 7 )
+region = Rect2( 300, 86, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 7 )
+region = Rect2( 450, 86, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 7 )
+region = Rect2( 600, 86, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 7 )
+region = Rect2( 750, 86, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 7 )
+region = Rect2( 900, 86, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 7 )
+region = Rect2( 1050, 86, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 7 )
+region = Rect2( 1200, 86, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 7 )
+region = Rect2( 1350, 86, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 172, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 7 )
+region = Rect2( 150, 172, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 7 )
+region = Rect2( 300, 172, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 7 )
+region = Rect2( 450, 172, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 7 )
+region = Rect2( 600, 172, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 7 )
+region = Rect2( 750, 172, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 7 )
+region = Rect2( 900, 172, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=41]
+atlas = ExtResource( 7 )
+region = Rect2( 1050, 172, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=42]
+atlas = ExtResource( 7 )
+region = Rect2( 1200, 172, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=43]
+atlas = ExtResource( 7 )
+region = Rect2( 1350, 172, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=44]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 258, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=45]
+atlas = ExtResource( 7 )
+region = Rect2( 150, 258, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=46]
+atlas = ExtResource( 7 )
+region = Rect2( 300, 258, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=47]
+atlas = ExtResource( 7 )
+region = Rect2( 450, 258, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=48]
+atlas = ExtResource( 7 )
+region = Rect2( 600, 258, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=49]
+atlas = ExtResource( 7 )
+region = Rect2( 750, 258, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=50]
+atlas = ExtResource( 7 )
+region = Rect2( 900, 258, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=51]
+atlas = ExtResource( 7 )
+region = Rect2( 1050, 258, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=52]
+atlas = ExtResource( 7 )
+region = Rect2( 1200, 258, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=53]
+atlas = ExtResource( 7 )
+region = Rect2( 1350, 258, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=54]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 344, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=55]
+atlas = ExtResource( 7 )
+region = Rect2( 150, 344, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=56]
+atlas = ExtResource( 7 )
+region = Rect2( 300, 344, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=57]
+atlas = ExtResource( 7 )
+region = Rect2( 450, 344, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=58]
+atlas = ExtResource( 7 )
+region = Rect2( 600, 344, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=59]
+atlas = ExtResource( 7 )
+region = Rect2( 750, 344, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=60]
+atlas = ExtResource( 7 )
+region = Rect2( 900, 344, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=61]
+atlas = ExtResource( 7 )
+region = Rect2( 1050, 344, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=62]
+atlas = ExtResource( 7 )
+region = Rect2( 1200, 344, 150, 86 )
+
+[sub_resource type="AtlasTexture" id=63]
+atlas = ExtResource( 7 )
+region = Rect2( 1350, 344, 150, 86 )
+
+[sub_resource type="SpriteFrames" id=65]
+animations = [ {
+"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
+
+[sub_resource type="CanvasItemMaterial" id=77]
+blend_mode = 1
+
+[sub_resource type="Curve" id=78]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=79]
+offsets = PoolRealArray( 0, 0.483516, 1 )
+colors = PoolColorArray( 0.980469, 0.321716, 0, 1, 1, 0.862213, 0.496094, 1, 0.867188, 0.350601, 0.0406494, 1 )
+
+[node name="FireBG" type="ParallaxBackground"]
+scroll_ignore_camera_zoom = true
+script = ExtResource( 5 )
+
+[node name="ParallaxFire" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0, 0 )
+
+[node name="Light" type="TextureRect" parent="ParallaxFire"]
+visible = false
+modulate = Color( 1, 0.631373, 0, 1 )
+material = SubResource( 1 )
+margin_left = -264.0
+margin_top = 136.0
+margin_right = 296.0
+margin_bottom = 283.0
+rect_scale = Vector2( 1, -1 )
+mouse_filter = 2
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Waves" type="ColorRect" parent="ParallaxFire"]
+material = SubResource( 3 )
+margin_left = -184.0
+margin_top = -120.0
+margin_right = 192.0
+margin_bottom = 120.0
+mouse_filter = 2
+
+[node name="Fire2" type="Sprite" parent="ParallaxFire"]
+modulate = Color( 1, 1, 1, 0.192157 )
+material = SubResource( 4 )
+position = Vector2( 4.22659, 0.411067 )
+scale = Vector2( 0.453228, 0.822134 )
+texture = ExtResource( 6 )
+
+[node name="Fire2B" type="Sprite" parent="ParallaxFire"]
+modulate = Color( 1, 1, 1, 0.337255 )
+material = SubResource( 66 )
+position = Vector2( 8.07401, 1.88534 )
+scale = Vector2( 0.464185, 0.770751 )
+texture = ExtResource( 6 )
+
+[node name="Fire1" type="Sprite" parent="ParallaxFire"]
+modulate = Color( 1, 1, 1, 0.301961 )
+material = SubResource( 2 )
+position = Vector2( 0, 36 )
+scale = Vector2( 0.5, 0.65625 )
+texture = ExtResource( 2 )
+
+[node name="Fire1C" type="Sprite" parent="ParallaxFire"]
+visible = false
+modulate = Color( 1, 1, 1, 0.215686 )
+material = SubResource( 74 )
+position = Vector2( 88.0001, -8.00002 )
+scale = Vector2( 0.864582, 1.18786 )
+texture = ExtResource( 2 )
+
+[node name="Fire1B" type="Sprite" parent="ParallaxFire"]
+modulate = Color( 1, 1, 1, 0.486275 )
+material = SubResource( 67 )
+position = Vector2( -0.18138, 50.0166 )
+scale = Vector2( -0.500075, 0.537958 )
+texture = ExtResource( 2 )
+
+[node name="FireGif" type="AnimatedSprite" parent="ParallaxFire"]
+visible = false
+modulate = Color( 1, 1, 1, 0.211765 )
+material = SubResource( 64 )
+position = Vector2( -6.67572e-06, 9.43753 )
+scale = Vector2( 2.56, 2.45204 )
+frames = SubResource( 65 )
+
+[node name="ParticlesFire" type="CPUParticles2D" parent="ParallaxFire"]
+material = SubResource( 77 )
+position = Vector2( 0, 120 )
+rotation = -1.5708
+amount = 200
+lifetime = 10.0
+randomness = 1.0
+emission_shape = 2
+emission_rect_extents = Vector2( 1, 200 )
+gravity = Vector2( 0, 0 )
+initial_velocity = 80.0
+initial_velocity_random = 1.0
+scale_amount = 4.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 78 )
+color_ramp = SubResource( 79 )

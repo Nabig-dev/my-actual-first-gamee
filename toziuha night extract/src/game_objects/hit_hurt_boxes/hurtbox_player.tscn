@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hurtbox_player.gd" type="Script" id=1]
+
+[node name="HurtBoxPlayer" type="Area2D"]
+collision_layer = 64
+collision_mask = 32
+script = ExtResource( 1 )
+
+[node name="TimerCoolDownDamage" type="Timer" parent="."]
+one_shot = true
+
+[node name="TimerFloorDamage" type="Timer" parent="."]
+
+[node name="AreaFoo" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+__meta__ = {
+"_editor_description_": "area vacia para usar en apply damage floor"
+}
+
+[connection signal="area_entered" from="." to="." method="_on_HurtBoxPlayer_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_HurtBoxPlayer_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_HurtBoxPlayer_body_exited"]
+[connection signal="timeout" from="TimerFloorDamage" to="." method="_on_TimerFloorDamage_timeout"]

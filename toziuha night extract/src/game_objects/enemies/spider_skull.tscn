@@ -1,0 +1,195 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hitbox_enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hurtbox_enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/game_objects/enemy_base.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sprites/enemies/skull_spider.png" type="Texture" id=4]
+[ext_resource path="res://src/game_objects/enemies/spider_skull.gd" type="Script" id=5]
+[ext_resource path="res://src/game_objects/area2d_cast.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/game_objects/vfx/explosions_small_particles.tscn" type="PackedScene" id=7]
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 10, 16 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 16, 16 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 16, 20 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 3.5, 12 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 36.039, 2.875 )
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("SkullSpider:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SkullSpider:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SkullSpider/ExplosionParticlesSmall:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "dead"
+tracks/0/type = "value"
+tracks/0/path = NodePath("SkullSpider:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SkullSpider/ExplosionParticlesSmall:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "walk"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("SkullSpider:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[node name="SpiderSkull" type="KinematicBody2D"]
+collision_layer = 512
+collision_mask = 5
+script = ExtResource( 5 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+visible = false
+position = Vector2( 4.76837e-06, -16 )
+scale = Vector2( 5.6, 3.2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -16 )
+shape = SubResource( 8 )
+
+[node name="HitboxEnemy" parent="." instance=ExtResource( 1 )]
+visible = false
+position = Vector2( 0, -21 )
+identifier = "spider_skull"
+hurtbox_node = NodePath("../HurtboxEnemy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxEnemy"]
+position = Vector2( 0, 2 )
+shape = SubResource( 4 )
+
+[node name="HurtboxEnemy" parent="." instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 0, -21 )
+identifier = "spider_skull"
+sprite_flash = NodePath("../SkullSpider")
+damage_sounds = [ "enemy_damage_stab", "enemy_damage_skeleton" ]
+death_sounds = [ "enemy_death_woosh", "rat_death" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxEnemy"]
+position = Vector2( 0, 1 )
+shape = SubResource( 5 )
+
+[node name="SkullSpider" type="Sprite" parent="."]
+position = Vector2( 0, -22 )
+texture = ExtResource( 4 )
+hframes = 4
+
+[node name="DetectNoFloor" parent="SkullSpider" instance=ExtResource( 6 )]
+visible = false
+position = Vector2( 13, 26 )
+collision_layer = 512
+collision_mask = 5
+detect = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SkullSpider/DetectNoFloor"]
+position = Vector2( -0.5, 8 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SkullSpider/DetectNoFloor"]
+position = Vector2( -13, -6.875 )
+shape = SubResource( 7 )
+
+[node name="ExplosionParticlesSmall" parent="SkullSpider" instance=ExtResource( 7 )]
+amount = 100
+emission_sphere_radius = 6.59
+scale_amount = 0.95
+
+[node name="EnemyBase" parent="." instance=ExtResource( 3 )]
+node_facing = NodePath("../SkullSpider")
+anim_player = NodePath("../AnimationPlayer")
+hurtbox = NodePath("../HurtboxEnemy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/dead = SubResource( 2 )
+anims/walk = SubResource( 3 )
+
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="object_exited" from="SkullSpider/DetectNoFloor" to="." method="_on_DetectNoFloor_object_exited"]

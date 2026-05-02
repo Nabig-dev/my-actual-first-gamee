@@ -1,0 +1,298 @@
+{
+	"events": [
+		{
+			"condition": "",
+			"definition": "1725641029-704",
+			"event_id": "dialogic_012",
+			"value": "1"
+		},
+		{
+			"condition": "",
+			"definition": "1725641245-955",
+			"event_id": "dialogic_012",
+			"value": "0"
+		},
+		{
+			"event_id": "noskip_dialog",
+			"skip_disabled": true
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1702344537.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1634488067",
+			"index": 0,
+			"name": "circuit_menu_start"
+		},
+		{
+			"definition": "1705010857-524",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_lower_limit": 1,
+			"random_upper_limit": 4,
+			"set_random": true,
+			"set_value": ""
+		},
+		{
+			"condition": "",
+			"definition": "1705010857-524",
+			"event_id": "dialogic_012",
+			"value": "1"
+		},
+		{
+			"character": "character-1702344537.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG10_1705010680"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1705010857-524",
+			"event_id": "dialogic_012",
+			"value": "2"
+		},
+		{
+			"character": "character-1702344537.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG13_1705010680"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1705010857-524",
+			"event_id": "dialogic_012",
+			"value": "3"
+		},
+		{
+			"character": "character-1702344537.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG16_1705010680"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1725641264-335",
+			"event_id": "dialogic_012",
+			"value": "0"
+		},
+		{
+			"character": "character-1702344537.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG19_1705010680"
+		},
+		{
+			"character": "character-1702344537.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG20_1705010680"
+		},
+		{
+			"character": "character-1702344537.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG21_1705010680"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG22_1705010680"
+		},
+		{
+			"character": "character-1702344537.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG23_1705010680"
+		},
+		{
+			"character": "character-1702344537.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG24_1705010680"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1725641029-704",
+			"event_id": "dialogic_012",
+			"value": "0"
+		},
+		{
+			"character": "character-1702344537.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG27_1705010680"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Meh",
+			"text": "DLG28_1705010680"
+		},
+		{
+			"character": "character-1702344537.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG29_1705010680"
+		},
+		{
+			"character": "character-1702344537.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG30_1705010680"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "(Don't change)",
+			"text": "DLG31_1705010680"
+		},
+		{
+			"character": "character-1702344537.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG32_1705010680"
+		},
+		{
+			"character": "character-1702344537.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG33_1705010680"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "(Don't change)",
+			"text": "DLG34_1705010680"
+		},
+		{
+			"character": "character-1702344537.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG35_1705010680"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1725641029-704",
+			"event_id": "dialogic_012",
+			"value": "1"
+		},
+		{
+			"condition": "",
+			"definition": "1725641245-955",
+			"event_id": "dialogic_012",
+			"value": "0"
+		},
+		{
+			"definition": "1725641245-955",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "1"
+		},
+		{
+			"character": "character-1702344537.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG40_1705010680"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "(Don't change)",
+			"text": "DLG41_1705010680"
+		},
+		{
+			"character": "character-1702344537.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG42_1705010680"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1725641245-955",
+			"event_id": "dialogic_012",
+			"value": "1"
+		},
+		{
+			"character": "character-1702344537.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG46_1705010680"
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1705010680.json",
+		"name": "rachel-library-garden"
+	}
+}

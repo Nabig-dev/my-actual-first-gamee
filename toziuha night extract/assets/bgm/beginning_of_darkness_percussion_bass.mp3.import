@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/beginning_of_darkness_percussion_bass.mp3-523c826c649f8cd0e6d5b8b628fccfbf.mp3str"
+
+[deps]
+
+source_file="res://assets/bgm/beginning_of_darkness_percussion_bass.mp3"
+dest_files=[ "res://.import/beginning_of_darkness_percussion_bass.mp3-523c826c649f8cd0e6d5b8b628fccfbf.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

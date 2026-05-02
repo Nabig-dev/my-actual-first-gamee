@@ -1,0 +1,750 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://src/game_objects/enemies/_giant_worm_parts.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/game_objects/vfx/rock_particles.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/game_objects/enemies/giant_worm_l.gd" type="Script" id=3]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hitbox_enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hurtbox_enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/game_objects/enemy_base.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/game_objects/vfx/explosions_small_particles.tscn" type="PackedScene" id=7]
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 40.0
+height = 128.0
+
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 32.0
+height = 112.0
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Worm/_Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -147 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Worm/_Body2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -104 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Worm/_Body3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -68 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Worm/_Body4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -30 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Worm/_Body5:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 4 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("RockParticles:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("RockParticles2:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Worm:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1e-05 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath(".:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Worm/HurtboxEnemy/CollisionShape2D:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Worm/HitboxEnemy/CollisionShape2D:disabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("ExplosionParticlesSmall:emitting")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "appear"
+tracks/0/type = "value"
+tracks/0/path = NodePath("RockParticles2:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_on_appear_anim_end"
+} ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "dead"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ExplosionParticlesSmall:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Worm:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1e-05 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Worm/_Head:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -147 ), Vector2( 0, -23 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Worm/_Body2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -104 ), Vector2( 0, 4 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Worm/_Body3:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -68 ), Vector2( 0, 4 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Worm/_Body4:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -30 ), Vector2( 0, 4 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Worm/_Body5:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 4 ), Vector2( 0, 4 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("RockParticles3:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "method"
+tracks/7/path = NodePath("Worm/_Head")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "trail_off"
+} ]
+}
+tracks/8/type = "method"
+tracks/8/path = NodePath("Worm/_Body2")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "trail_off"
+} ]
+}
+tracks/9/type = "method"
+tracks/9/path = NodePath("Worm/_Body3")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "trail_off"
+} ]
+}
+tracks/10/type = "method"
+tracks/10/path = NodePath("Worm/_Body4")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "trail_off"
+} ]
+}
+tracks/11/type = "method"
+tracks/11/path = NodePath("Worm/_Body5")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "trail_off"
+} ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Worm/HurtboxEnemy/CollisionShape2D:disabled")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Worm/HitboxEnemy/CollisionShape2D:disabled")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "inactive"
+tracks/0/type = "value"
+tracks/0/path = NodePath("RockParticles2:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "show"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Worm/_Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -23 ), Vector2( 0, -147 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Worm/_Body2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 4 ), Vector2( 0, -104 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Worm/_Body3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 4 ), Vector2( 0, -68 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Worm/_Body4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 4 ), Vector2( 0, -30 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Worm/_Body5:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 4 ), Vector2( 0, 4 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Worm:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("RockParticles:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("RockParticles2:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/8/type = "method"
+tracks/8/path = NodePath("Worm/_Head")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "trail_on"
+} ]
+}
+tracks/9/type = "method"
+tracks/9/path = NodePath("Worm/_Body2")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "trail_on"
+} ]
+}
+tracks/10/type = "method"
+tracks/10/path = NodePath("Worm/_Body3")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "trail_on"
+} ]
+}
+tracks/11/type = "method"
+tracks/11/path = NodePath("Worm/_Body4")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "trail_on"
+} ]
+}
+tracks/12/type = "method"
+tracks/12/path = NodePath("Worm/_Body5")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "trail_on"
+} ]
+}
+tracks/13/type = "method"
+tracks/13/path = NodePath(".")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_on_start_show"
+} ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Worm/HurtboxEnemy/CollisionShape2D:disabled")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Worm/HitboxEnemy/CollisionShape2D:disabled")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[node name="GiantWormL" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Worm" type="Node2D" parent="."]
+scale = Vector2( 1, 1e-05 )
+
+[node name="_Head" parent="Worm" instance=ExtResource( 1 )]
+position = Vector2( 0, -147 )
+play_backwards = true
+
+[node name="_GiantWormParts6" parent="Worm/_Head" instance=ExtResource( 1 )]
+modulate = Color( 0.333333, 0.333333, 0.333333, 1 )
+show_behind_parent = true
+position = Vector2( 0, 29 )
+is_head = false
+play_backwards = true
+
+[node name="_Body3" parent="Worm" instance=ExtResource( 1 )]
+position = Vector2( 0, -68 )
+is_head = false
+
+[node name="_Body2" parent="Worm" instance=ExtResource( 1 )]
+position = Vector2( 0, -104 )
+is_head = false
+play_backwards = true
+
+[node name="_Body5" parent="Worm" instance=ExtResource( 1 )]
+position = Vector2( 0, 4 )
+is_head = false
+
+[node name="_Body4" parent="Worm" instance=ExtResource( 1 )]
+position = Vector2( 0, -30 )
+is_head = false
+play_backwards = true
+
+[node name="HurtboxEnemy" parent="Worm" instance=ExtResource( 5 )]
+position = Vector2( 0, -104 )
+identifier = "giant_worm"
+sprite_flash = NodePath("../_Head")
+death_sounds = [ "enemy_death_woosh", "worm_rumble" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Worm/HurtboxEnemy"]
+position = Vector2( 0, 4 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="HitboxEnemy" parent="Worm" instance=ExtResource( 4 )]
+position = Vector2( 0, -104 )
+identifier = "giant_worm"
+hurtbox_node = NodePath("../HurtboxEnemy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Worm/HitboxEnemy"]
+shape = SubResource( 7 )
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/appear = SubResource( 2 )
+anims/dead = SubResource( 8 )
+anims/hide = SubResource( 3 )
+anims/inactive = SubResource( 4 )
+anims/show = SubResource( 5 )
+
+[node name="RockParticles" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -48 )
+z_index = 3
+scale_amount = 2.43
+
+[node name="RockParticles3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -48 )
+z_index = 3
+scale_amount = 2.43
+
+[node name="RockParticles2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -7 )
+z_index = 3
+one_shot = false
+explosiveness = 0.0
+emission_shape = 2
+emission_rect_extents = Vector2( 25, 1 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="TimerActive" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="EnemyBase" parent="." instance=ExtResource( 6 )]
+anim_player = NodePath("../AnimationPlayer")
+hurtbox = NodePath("../Worm/HurtboxEnemy")
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 9.53674e-07, -24 )
+scale = Vector2( 4, 2.4 )
+
+[node name="ExplosionParticlesSmall" parent="." instance=ExtResource( 7 )]
+position = Vector2( 8, -118 )
+z_index = 1
+emission_shape = 2
+emission_rect_extents = Vector2( 10, 100 )
+spread = 94.67
+gravity = Vector2( 0, -100 )
+initial_velocity = 160.1
+scale_amount = 1.81
+anim_speed = 3.0
+
+[connection signal="defeated" from="Worm/HurtboxEnemy" to="." method="_on_HurtboxEnemy_defeated"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="TimerActive" to="." method="_on_TimerActive_timeout"]

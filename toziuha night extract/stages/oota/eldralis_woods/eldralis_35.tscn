@@ -1,0 +1,200 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://src/game_objects/tilemaps/eldralis_woods.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/game_objects/characters/playable_character.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/game_objects/game_interface.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game_objects/game_scenario.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/game_objects/camera_limit.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/game_objects/backgrounds/eldralis_woods_bg.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/sprites/props/herb.png" type="Texture" id=7]
+[ext_resource path="res://src/game_objects/door.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/sprites/props/eldralis_tree.png" type="Texture" id=9]
+[ext_resource path="res://addons/nklbdev.parallax/Parallax.gd" type="Script" id=10]
+[ext_resource path="res://assets/sprites/props/eldralis_tree2.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/props/grass_and_rocks.png" type="Texture" id=12]
+[ext_resource path="res://src/game_objects/destructibles/torch_floor.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/game_objects/room_changer.tscn" type="PackedScene" id=16]
+[ext_resource path="res://src/game_objects/backgrounds/fog_parallax.tscn" type="PackedScene" id=17]
+
+[node name="Node" type="Node"]
+
+[node name="GameInterface" parent="." instance=ExtResource( 3 )]
+
+[node name="GameScenario" parent="." instance=ExtResource( 4 )]
+music = "eldralis_woods"
+
+[node name="EldralisWoodsParallaxBackground" parent="GameScenario" instance=ExtResource( 6 )]
+
+[node name="FogParallax" parent="GameScenario" instance=ExtResource( 17 )]
+
+[node name="CameraLimit" parent="GameScenario" instance=ExtResource( 5 )]
+margin_left = -386.0
+margin_top = -500.0
+margin_right = -45.0
+margin_bottom = -308.0
+
+[node name="BG" type="Node2D" parent="GameScenario"]
+visible = false
+
+[node name="Parallax" type="Node2D" parent="GameScenario/BG"]
+modulate = Color( 0.482353, 0.737255, 0.847059, 1 )
+position = Vector2( 20.7821, 0 )
+script = ExtResource( 10 )
+enabled_in_editor = true
+motion_scale = Vector2( 0.3, 0 )
+
+[node name="EldralisTree" type="Sprite" parent="GameScenario/BG/Parallax"]
+modulate = Color( 0.682353, 0.776471, 0.682353, 1 )
+position = Vector2( -44.262, -248 )
+texture = ExtResource( 9 )
+
+[node name="EldralisTree2" type="Sprite" parent="GameScenario/BG/Parallax"]
+modulate = Color( 0.682353, 0.776471, 0.682353, 1 )
+position = Vector2( -162.939, -256 )
+texture = ExtResource( 9 )
+flip_h = true
+
+[node name="EldralisTree3" type="Sprite" parent="GameScenario/BG/Parallax"]
+modulate = Color( 0.682353, 0.776471, 0.682353, 1 )
+position = Vector2( 333.019, -264 )
+texture = ExtResource( 9 )
+
+[node name="EldralisTree4" type="Sprite" parent="GameScenario/BG/Parallax"]
+modulate = Color( 0.682353, 0.776471, 0.682353, 1 )
+position = Vector2( -282.939, -267 )
+texture = ExtResource( 9 )
+
+[node name="EldralisTree5" type="Sprite" parent="GameScenario/BG/Parallax"]
+modulate = Color( 0.682353, 0.776471, 0.682353, 1 )
+position = Vector2( 120.546, -320 )
+texture = ExtResource( 9 )
+
+[node name="EldralisTree6" type="Sprite" parent="GameScenario/BG/Parallax"]
+modulate = Color( 0.682353, 0.776471, 0.682353, 1 )
+position = Vector2( 235.929, -392 )
+texture = ExtResource( 9 )
+
+[node name="Parallax2" type="Node2D" parent="GameScenario/BG"]
+modulate = Color( 0.482353, 0.737255, 0.847059, 1 )
+position = Vector2( 13.8547, 0 )
+script = ExtResource( 10 )
+enabled_in_editor = true
+motion_scale = Vector2( 0.2, 0 )
+
+[node name="EldralisTree2" type="Sprite" parent="GameScenario/BG/Parallax2"]
+position = Vector2( -160, -400 )
+texture = ExtResource( 11 )
+
+[node name="EldralisTree3" type="Sprite" parent="GameScenario/BG/Parallax2"]
+position = Vector2( -212.837, -392 )
+texture = ExtResource( 11 )
+
+[node name="EldralisTree4" type="Sprite" parent="GameScenario/BG/Parallax2"]
+position = Vector2( -76.8372, -376 )
+texture = ExtResource( 11 )
+
+[node name="EldralisTree5" type="Sprite" parent="GameScenario/BG/Parallax2"]
+position = Vector2( 225.999, -400 )
+texture = ExtResource( 11 )
+
+[node name="Parallax3" type="Node2D" parent="GameScenario/BG"]
+modulate = Color( 0.482353, 0.737255, 0.847059, 1 )
+position = Vector2( 6.92735, 0 )
+script = ExtResource( 10 )
+enabled_in_editor = true
+motion_scale = Vector2( 0.1, 0 )
+
+[node name="GrassAndRocks" type="Sprite" parent="GameScenario/BG/Parallax3"]
+position = Vector2( -106.687, -352 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 48, 0, 48, 32 )
+
+[node name="GrassAndRocks2" type="Sprite" parent="GameScenario/BG/Parallax3"]
+position = Vector2( -228.391, -352 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 48, 32 )
+
+[node name="GrassAndRocks3" type="Sprite" parent="GameScenario/BG/Parallax3"]
+position = Vector2( -186.953, -344 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 48, 32 )
+
+[node name="GrassAndRocks4" type="Sprite" parent="GameScenario/BG/Parallax3"]
+position = Vector2( 240.72, -352 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 48, 0, 48, 32 )
+
+[node name="EldralisTree" type="Sprite" parent="GameScenario"]
+visible = false
+modulate = Color( 0.545098, 1, 0.882353, 1 )
+position = Vector2( 11, -395 )
+texture = ExtResource( 9 )
+
+[node name="EldralisTree2" type="Sprite" parent="GameScenario"]
+visible = false
+modulate = Color( 0.545098, 1, 0.882353, 1 )
+position = Vector2( 340, -425 )
+texture = ExtResource( 9 )
+
+[node name="EldralisTree3" type="Sprite" parent="GameScenario"]
+visible = false
+modulate = Color( 0.545098, 1, 0.882353, 1 )
+position = Vector2( -204, -440 )
+texture = ExtResource( 9 )
+
+[node name="EldralisTree4" type="Sprite" parent="GameScenario"]
+visible = false
+modulate = Color( 0.545098, 1, 0.882353, 1 )
+position = Vector2( 516, -400 )
+texture = ExtResource( 9 )
+
+[node name="DecoTileMapEldralisWoods2" parent="GameScenario" instance=ExtResource( 1 )]
+tile_data = PoolIntArray( -2162701, 20, 131073, -2162700, 20, 131073, -2162699, 20, 131073, -2162698, 20, 131073, -2162697, 20, 131073, -2097167, 20, 0, -2097166, 20, 1, -2097165, 20, 1, -2097164, 20, 1, -2097163, 20, 1, -2097162, 20, 1, -2097161, 20, 1, -2097160, 20, 1, -2097159, 20, 1, -2097158, 20, 1, -2097157, 20, 1, -2097156, 20, 1, -2097155, 20, 1, -2097154, 20, 1, -2097153, 20, 1, -2031631, 20, 0, -2031630, 20, 1, -2031629, 20, 1, -2031628, 20, 1, -2031627, 20, 1, -2031626, 20, 1, -2031625, 20, 1, -2031624, 20, 1, -2031623, 20, 1, -2031622, 20, 1, -2031621, 20, 1, -2031620, 20, 1, -2031619, 20, 1, -2031618, 20, 1, -2031617, 20, 1, -1966095, 20, 0, -1966094, 20, 1, -1966093, 20, 1, -1966092, 20, 1, -1966091, 20, 1, -1966090, 20, 1, -1966089, 20, 1, -1966088, 20, 1, -1966087, 20, 1, -1966086, 20, 1, -1966085, 20, 1, -1966084, 20, 1, -1966083, 20, 1, -1966082, 20, 1, -1966081, 20, 1, -1900559, 20, 65536, -1900558, 20, 65537, -1900557, 20, 65537, -1900556, 20, 65537, -1900555, 20, 65537, -1900554, 20, 65537, -1900553, 20, 65537, -1900552, 20, 65537, -1900551, 20, 65537, -1900550, 20, 65537, -1900549, 20, 65537, -1900548, 20, 65537, -1900547, 20, 65537, -1900546, 20, 65537, -1900545, 20, 65537, -1835023, 20, 131072, -1835022, 20, 131073, -1835021, 20, 131073, -1835020, 20, 131073, -1835019, 20, 131073, -1835018, 20, 131073, -1835017, 20, 131073, -1835016, 20, 131073, -1835015, 20, 131073, -1835014, 20, 131073, -1835013, 20, 131073, -1835012, 20, 131073, -1835011, 20, 131073, -1835010, 20, 131073, -1835009, 20, 131073, -1769487, 20, 131072, -1769486, 20, 131073, -1769485, 20, 131073, -1769484, 20, 131073, -1769483, 20, 131073, -1769482, 20, 131073, -1769481, 20, 131073, -1769480, 20, 131073, -1769479, 20, 131073, -1769478, 20, 131073, -1769477, 20, 131073, -1769476, 20, 131073, -1769475, 20, 131073, -1769474, 20, 131073, -1769473, 20, 131073, -1703951, 20, 131072, -1703950, 20, 131073, -1703949, 20, 131073, -1703948, 20, 131073, -1703947, 20, 131073, -1703946, 20, 131073, -1703945, 20, 131073, -1703944, 20, 131073, -1703943, 20, 131073, -1703942, 20, 131073, -1703941, 20, 131073, -1703940, 20, 131073, -1703939, 20, 131073, -1703938, 20, 131073, -1703937, 20, 131073, -1638415, 20, 131072, -1638414, 20, 131073, -1638413, 20, 131073, -1638412, 20, 131073, -1638411, 20, 131073, -1638410, 20, 131073, -1638409, 20, 131073, -1638408, 20, 131073, -1638407, 20, 131073, -1638406, 20, 131073, -1638405, 20, 131073, -1638404, 20, 131073, -1638403, 20, 131073, -1638402, 20, 131073, -1572885, 15, 0, -1572884, 15, 0, -1572883, 15, 0, -1572882, 15, 0, -1572881, 15, 0, -1572879, 20, 65536, -1572878, 20, 65537, -1572877, 20, 65537, -1572876, 20, 65537, -1572875, 20, 65537, -1572874, 20, 65537, -1572873, 20, 65537, -1572872, 20, 65537, -1572871, 20, 65537, -1572870, 20, 65537, -1572869, 20, 65537, -1572868, 20, 65537, -1572867, 20, 65537, -1572866, 20, 65537, -1507349, 16, 0, -1507348, 16, 0, -1507347, 16, 0, -1507346, 16, 0, -1507345, 16, 0, -1507343, 20, 0, -1507342, 20, 1, -1507341, 20, 1, -1507340, 20, 1, -1507339, 20, 1, -1507338, 20, 1, -1507337, 20, 1, -1507336, 20, 1, -1507335, 20, 1, -1507334, 20, 1, -1507333, 20, 1, -1507332, 20, 1, -1507331, 20, 1, -1507330, 20, 1, -1441813, 16, 0, -1441812, 16, 0, -1441811, 16, 0, -1441810, 16, 0, -1441809, 16, 0, -1441807, 20, 0, -1441806, 20, 1, -1441805, 20, 1, -1441804, 20, 1, -1441803, 20, 1, -1441802, 20, 1, -1441801, 20, 1, -1441800, 20, 1, -1441799, 20, 1, -1441798, 20, 1, -1441797, 20, 1, -1441796, 20, 1, -1441795, 20, 1, -1441794, 20, 1, -1376277, 16, 0, -1376276, 16, 0, -1376275, 16, 0, -1376274, 16, 0, -1376273, 16, 0, -1376271, 20, 0, -1376270, 20, 1, -1376269, 20, 1, -1376268, 20, 1, -1376267, 20, 1, -1376266, 20, 1, -1376265, 20, 1, -1376264, 20, 1, -1376263, 20, 1, -1376262, 20, 1, -1376261, 20, 1, -1376260, 20, 1, -1376259, 20, 1, -1376258, 20, 1, -1310741, 16, 0, -1310740, 16, 0, -1310739, 16, 0, -1310738, 16, 0, -1310737, 16, 0, -1310735, 20, 131072, -1310734, 20, 131073, -1310733, 20, 131073, -1310732, 20, 131073, -1310731, 20, 131073, -1310730, 20, 131073, -1310729, 20, 131073, -1310728, 20, 131073, -1310727, 20, 131073, -1310726, 20, 131073, -1310725, 20, 131073, -1310724, 20, 131073, -1310723, 20, 131073, -1310722, 20, 131073, -1245205, 16, 0, -1245204, 16, 0, -1245203, 16, 0, -1245202, 16, 0, -1245201, 16, 0 )
+
+[node name="DoorSilverKey" parent="GameScenario" instance=ExtResource( 8 )]
+position = Vector2( -200, -336 )
+z_index = 0
+type_door = 3
+
+[node name="TileMapEldralisWoods" parent="GameScenario" instance=ExtResource( 1 )]
+tile_data = PoolIntArray( -2162719, 6, 0, -2162718, 6, 1, -2162717, 6, 1, -2162716, 6, 1, -2162715, 6, 2, -2162714, 6, 1, -2162713, 6, 1, -2162712, 6, 2, -2162711, 6, 2, -2162710, 6, 2, -2162709, 6, 1, -2162708, 6, 2, -2162707, 6, 2, -2162706, 6, 2, -2162705, 6, 1, -2162704, 6, 2, -2162703, 6, 1, -2162702, 6, 1, -2162701, 6, 1, -2162700, 6, 2, -2162699, 6, 2, -2162698, 6, 1, -2162697, 6, 1, -2162696, 6, 2, -2162695, 6, 2, -2162694, 6, 1, -2162693, 6, 1, -2162692, 6, 1, -2162691, 6, 1, -2162690, 6, 1, -2162689, 6, 1, -2228224, 6, 1, -2228223, 6, 2, -2228222, 6, 2, -2228221, 6, 1, -2228220, 6, 3, -2097183, 6, 131072, -2097182, 6, 131073, -2097181, 6, 131074, -2097180, 6, 131074, -2097179, 6, 131073, -2097178, 6, 131073, -2097177, 6, 131074, -2097176, 6, 131073, -2097175, 6, 131074, -2097174, 6, 131074, -2097173, 6, 131074, -2097172, 6, 131074, -2097171, 6, 131073, -2097170, 6, 131074, -2097169, 6, 131074, -2097168, 6, 131074, -2097167, 6, 131074, -2097166, 6, 196611, -2097165, 6, 65538, -2097164, 6, 65538, -2097163, 6, 65538, -2097162, 6, 65537, -2097161, 6, 65538, -2097160, 6, 65538, -2097159, 6, 196609, -2097158, 6, 131074, -2097157, 6, 131074, -2097156, 6, 131073, -2097155, 6, 131074, -2097154, 6, 131074, -2097153, 6, 131074, -2162688, 6, 131074, -2162687, 6, 131074, -2162686, 6, 131074, -2162685, 6, 131073, -2162684, 6, 131075, -2031630, 6, 65536, -2031629, 6, 65537, -2031628, 6, 65538, -2031627, 6, 65538, -2031626, 6, 65537, -2031625, 6, 196609, -2031624, 6, 131073, -2031623, 6, 131075, -1966094, 6, 65536, -1966093, 6, 65537, -1966092, 6, 65537, -1966091, 6, 65538, -1966090, 6, 65537, -1966089, 6, 65539, -1900558, 6, 65536, -1900557, 6, 65538, -1900556, 6, 65537, -1900555, 6, 65537, -1900554, 6, 196609, -1900553, 6, 131075, -1835022, 6, 65536, -1835021, 6, 65538, -1835020, 6, 65537, -1835019, 6, 196609, -1835018, 6, 131075, -1769486, 6, 65536, -1769485, 6, 65538, -1769484, 6, 196609, -1769483, 6, 131075, -1703950, 6, 65536, -1703949, 6, 65537, -1703948, 6, 65539, -1638414, 6, 65536, -1638413, 6, 196609, -1638412, 6, 131075, -1572878, 6, 131072, -1572877, 6, 131075, -1376284, 7, 0, -1376283, 7, 1, -1376282, 7, 1, -1376281, 7, 2, -1376280, 7, 2, -1376279, 7, 1, -1376278, 7, 1, -1376277, 7, 2, -1376276, 7, 2, -1376275, 7, 2, -1376274, 7, 2, -1376273, 7, 1, -1376272, 7, 2, -1376271, 7, 1, -1376270, 7, 1, -1376269, 7, 2, -1376268, 7, 2, -1376267, 7, 2, -1376266, 7, 2, -1376265, 7, 2, -1376264, 7, 1, -1376263, 7, 2, -1376262, 7, 2, -1376261, 7, 2, -1376260, 7, 1, -1376259, 7, 1, -1376258, 7, 2, -1376257, 7, 2, -1441792, 7, 1, -1441791, 7, 1, -1441790, 7, 2, -1441789, 7, 3, -1310748, 6, 0, -1310747, 6, 2, -1310746, 6, 1, -1310745, 6, 2, -1310744, 6, 2, -1310743, 6, 2, -1310742, 6, 1, -1310741, 6, 2, -1310740, 6, 1, -1310739, 6, 1, -1310738, 6, 2, -1310737, 6, 1, -1310736, 6, 1, -1310735, 6, 1, -1310734, 6, 1, -1310733, 6, 1, -1310732, 6, 2, -1310731, 6, 2, -1310730, 6, 1, -1310729, 6, 2, -1310728, 6, 1, -1310727, 6, 2, -1310726, 6, 2, -1310725, 6, 1, -1310724, 6, 2, -1310723, 6, 2, -1310722, 6, 1, -1310721, 6, 1, -1376256, 6, 2, -1376255, 6, 2, -1376254, 6, 1, -1376253, 6, 3, -1245212, 6, 65536, -1245211, 6, 65538, -1245210, 6, 65537, -1245209, 6, 65537, -1245208, 6, 65537, -1245207, 6, 65538, -1245206, 6, 65538, -1245205, 6, 65537, -1245204, 6, 65538, -1245203, 6, 65538, -1245202, 6, 65537, -1245201, 6, 65537, -1245200, 6, 65537, -1245199, 6, 65537, -1245198, 6, 65538, -1245197, 6, 65538, -1245196, 6, 65537, -1245195, 6, 65538, -1245194, 6, 65537, -1245193, 6, 65537, -1245192, 6, 65537, -1245191, 6, 65538, -1245190, 6, 65537, -1245189, 6, 65538, -1245188, 6, 65537, -1245187, 6, 65537, -1245186, 6, 65537, -1245185, 6, 65537, -1310720, 6, 65537, -1310719, 6, 65538, -1310718, 6, 65537, -1310717, 6, 65539, -1179676, 6, 65536, -1179675, 6, 65538, -1179674, 6, 65537, -1179673, 6, 65537, -1179672, 6, 65538, -1179671, 6, 65537, -1179670, 6, 65538, -1179669, 6, 65538, -1179668, 6, 65538, -1179667, 6, 65538, -1179666, 6, 65538, -1179665, 6, 65538, -1179664, 6, 65537, -1179663, 6, 65538, -1179662, 6, 65537, -1179661, 6, 65537, -1179660, 6, 65538, -1179659, 6, 65537, -1179658, 6, 65538, -1179657, 6, 65537, -1179656, 6, 65537, -1179655, 6, 65537, -1179654, 6, 65537, -1179653, 6, 65537, -1179652, 6, 65538, -1179651, 6, 65538, -1179650, 6, 65537, -1179649, 6, 65538, -1245184, 6, 65538, -1245183, 6, 65537, -1245182, 6, 65537, -1245181, 6, 65539, -1114140, 6, 131072, -1114139, 6, 131073, -1114138, 6, 131074, -1114137, 6, 131073, -1114136, 6, 131073, -1114135, 6, 131074, -1114134, 6, 131074, -1114133, 6, 131073, -1114132, 6, 131074, -1114131, 6, 131073, -1114130, 6, 131074, -1114129, 6, 131074, -1114128, 6, 131073, -1114127, 6, 131074, -1114126, 6, 131073, -1114125, 6, 131074, -1114124, 6, 131073, -1114123, 6, 131074, -1114122, 6, 131074, -1114121, 6, 131073, -1114120, 6, 131074, -1114119, 6, 131074, -1114118, 6, 131073, -1114117, 6, 131074, -1114116, 6, 131073, -1114115, 6, 131074, -1114114, 6, 131074, -1114113, 6, 131074, -1179648, 6, 131073, -1179647, 6, 131074, -1179646, 6, 131073, -1179645, 6, 131075 )
+
+[node name="RoomChanger" parent="GameScenario" instance=ExtResource( 16 )]
+position = Vector2( -386, -336 )
+scale = Vector2( -1, 1 )
+direction = 2
+identifier = "dl"
+id_destination = "dr"
+path_destination = "res://stages/oota/eldralis_woods/eldralis_34.tscn"
+offset_area = -92
+
+[node name="RoomChanger2" parent="GameScenario" instance=ExtResource( 16 )]
+position = Vector2( -45, -336 )
+identifier = "dr"
+id_destination = "dl"
+path_destination = "res://stages/oota/eldralis_woods/eldralis_36.tscn"
+offset_area = -85
+
+[node name="PlayableCharacter" parent="GameScenario" instance=ExtResource( 2 )]
+position = Vector2( -370, -336 )
+
+[node name="Herb3" type="Sprite" parent="GameScenario"]
+position = Vector2( 207, -360 )
+texture = ExtResource( 7 )
+hframes = 6
+vframes = 9
+frame = 53
+region_rect = Rect2( 128, 160, 64, 32 )
+
+[node name="TorchFloor" parent="GameScenario" instance=ExtResource( 13 )]
+position = Vector2( -103, 127 )
+
+[node name="TorchFloor2" parent="GameScenario" instance=ExtResource( 13 )]
+position = Vector2( -298, 127 )
+
+[node name="TorchFloor3" parent="GameScenario" instance=ExtResource( 13 )]
+position = Vector2( -512, 128 )

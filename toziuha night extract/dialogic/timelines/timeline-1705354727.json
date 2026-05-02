@@ -1,0 +1,218 @@
+{
+	"events": [
+		{
+			"bg_visible": false,
+			"event_id": "hideshow_bgblack"
+		},
+		{
+			"event_id": "dialogic_024",
+			"set_theme": "theme-1677182817.cfg"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG2_1705354727"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG3_1705354727"
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": true,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"event_id": "dialogic_024",
+			"set_theme": "theme-1666885025.cfg"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Meh",
+			"text": "DLG6_1705354727"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG7_1705354727"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG8_1705354727"
+		},
+		{
+			"animation": "4-fade_out.gd",
+			"animation_length": 0.5,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 1,
+			"z_index": 0
+		},
+		{
+			"event_id": "disable_advance",
+			"input_enabled": false
+		},
+		{
+			"event_id": "noskip_dialog",
+			"skip_disabled": true
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 2.5
+		},
+		{
+			"emit_signal": "explosion",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 3
+		},
+		{
+			"event_id": "noskip_dialog",
+			"skip_disabled": false
+		},
+		{
+			"event_id": "disable_advance",
+			"input_enabled": true
+		},
+		{
+			"event_id": "dialogic_024",
+			"set_theme": "theme-1677182817.cfg"
+		},
+		{
+			"character": "character-1677183999.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG18_1705354727"
+		},
+		{
+			"character": "character-1677183999.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG19_1705354727"
+		},
+		{
+			"character": "character-1677183999.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG20_1705354727"
+		},
+		{
+			"event_id": "noskip_dialog",
+			"skip_disabled": true
+		},
+		{
+			"event_id": "disable_advance",
+			"input_enabled": false
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 1.5
+		},
+		{
+			"event_id": "noskip_dialog",
+			"skip_disabled": false
+		},
+		{
+			"event_id": "disable_advance",
+			"input_enabled": true
+		},
+		{
+			"event_id": "dialogic_024",
+			"set_theme": "theme-1666885025.cfg"
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": true,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default",
+			"text": "DLG28_1705354727"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "(Don't change)",
+			"text": "DLG29_1705354727"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "(Don't change)",
+			"text": "DLG30_1705354727"
+		},
+		{
+			"event_id": "disable_advance",
+			"input_enabled": false
+		},
+		{
+			"event_id": "noskip_dialog",
+			"skip_disabled": true
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1705354727.json",
+		"name": "xandria-in-train1"
+	}
+}

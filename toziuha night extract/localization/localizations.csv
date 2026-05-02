@@ -1,0 +1,285 @@
+﻿key,en,es,pt_BR
+ACH2TITLE,The Radium Witch,La bruja del radium,A Bruxa de Rádio
+SAVE,Save,Guardar,Salvar
+TEST_GAMEPAD,Test Gamepad,Probar Mando,Testar Controle
+SELL,Sell,Vender,Vender
+AGAMEPADDETECTED,"A connected gamepad has been detected, do you want to configure it now?",Se ha detectado un control conectado. ¿Desea configurarlo ahora?,"Um controle conectado foi detectado, Quer configurá-lo agora?"
+GAMEPLAY,Gameplay,Jugabilidad,Jogabilidade
+ACTION_QUICKMENU,Quick Menu,Menú Rápido,Menu Rápido
+HANDFAN,Hand Fan,Abanico de mano,Leque de Mão
+ACCESORY,Accessory,Accesorio,Acessório
+AUDIO,Audio,Audio,Áudio
+LANGUAGE,Language,Idioma,Idioma
+ACTION_UI_FOCUS_NEXT,Next page,Página siguiente,Próxima página
+GAMEPAD_VIBRTN,Gamepad vibration,Vibración de mando,Vibração do controle
+TREASURES,Treasures,Tesoros,Tesouros
+ABILITY,Skill,Habilidad,Habilidade
+WALL_SLIDE,Wall Slide,Deslizamiento en pared,Deslizar na parede
+BLADE_WHIP,Blood Whip,Látigo de Sangre,Chicote de sangue
+RESTAURANT,Restaurant,Restaurante,Restaurante
+LOADING,Loading...,Cargando...,Carregando…
+RESTORE,Restore,Restaurar,
+RESTORING_DATA,Restoring data...,Restaurando datos...,
+KEYBOARD,Keyboard,Teclado,Teclado
+CHANGE_SCHEME_ICONS,Change Scheme icons,Cambiar esquema de íconos,Mudar ícones do esquema
+ALCHEMY,Alchemy,Alquimia,Alquimia
+MOVE_WITH_JOYSTICK,Move character with left joystick,Mover personaje con joystick izquierdo,Mover personagem com o joystick esquerdo
+GAMEPAD,Gamepad,Mando,Controle
+PRESS_ESCAPE,Press [Escape],Presiona [Escape],Pressione [Esc]
+GAME_SAVED,Game Saved,Partida Guardada,Jogo Salvo
+SUBWEAPON,Sub-Weapon,Subarma,Arma secundária
+MAPPING_UPDATED,Mapping updated,Mapeo actualizado,Mapeamento atualizado
+EMPTY_INVENTORY,Empty Inventory,Inventario Vacío,Inventário Vazio
+RETURN,Return,Regresar,Voltar
+DELETE_MARKER,Delete Marker,Eliminar Marcador,Apagar Marcador
+QUICKSAVE_DETECTED,Quicksave file found,Archivo de guardado rápido encontrado,Arquivo de salvamento rápido encontrado
+AMPHIBIOUS_BREATHING,Amphibious Breathing,Respiración Anfibia,Respiração Anfíbia
+START,Start,Iniciar,Começar
+ACH4TITLE,Oxygenium Adeptis,,Adeptis de Oxigênio
+HP_TITLE,Health,Salud,Saúde
+ABOUTDESPERATIONATTACK,"When an Adeptis is defeated, it will make a last attack.","Al vencer a un Adeptis, este realizará un último ataque.","Quando um Adeptis é derrotado, fará um último ataque."
+QUANTITY,Quantity,Cantidad,Quantidade
+NONE,None,Ninguno,Nenhum
+SELECT_DIFFICULTY,Select difficulty,Seleccione dificultad,Selecione a dificuldade
+ELEMENT,Element,Elemento,Elemento
+SELECT_ICON_TO_CHANGE,Select the icon to be changed,Selecciona el ícono a cambiar,Selecione o ícone para trocar
+WEBSITE,Website,Sitio web,Website
+RESTARTMAYBEREQUIRED,Restart the game to apply changes.,Reinicie el juego para aplicar cambios.,Reinicie o game para aplicar as mudanças.
+RESTORE_DATA,Restore data,Restaurar datos,
+CALIBRATIONFINISHED,Calibration finished,Calibración finalizada,Calibragem finalizada
+DATA_ERASE,Deleted data,Datos eliminados,Dados Deletados
+SHADERS_SIMPLE_LIGHTS,Shaders and simple lights (Medium),Shaders y luces simples (Medio),Shaders e luzes simples (Média)
+SIZE,Size,Escala,Tamanho
+ACH3TITLE,Travel on the Orient Express,Viaje en el Expreso Oriental,Viagem no Expresso do Oriente
+ACCEPT_CANCEL_CONFLICT,Conflicting Accept and Cancel buttons,Botones Aceptar y Cancelar en conflicto,Botões de Aceitar e Cancelar em conflito
+DEVROOM,Hall of Tortured Souls,La sala de las almas torturadas,Salão das Almas Torturadas
+MULTIPLE_EQUIPMENT,Multiple Equipment,Equipamiento Múltiple,Equipamento Múltiplo
+XANDRIASHOUSE,Xandria's House,Casa de Xandria,Casa da Xandria
+DEATHS,Deaths,Muertes,Mortes
+POTIONMAX_TITLE,Potions Max,Maximo de pociones,Máximo de Poções
+OPACITY,Opacity,Opacidad,Opacidade
+EDIT_TOUCH_BTNS,Edit Touch Buttons,Editar Botones Táctiles,Editar Botões de Toque
+PRESS,Press,Presiona,Pressionar
+DELETE_DATA,Delete data,Eliminar datos,Apagar dados
+SAVEDATABACKED,Backed up data,Datos respaldados,
+OBJECT_KEY,Key item,Objeto clave,Objeto Chave
+SAVE_MARKER,Save Marker,Guardar Marcador,Salvar Marcador
+ABOUTDYNAMICKNOCKBACK,The player will experience knockback corresponding to the damage taken.,El jugador recibirá un empuje de acuerdo al daño recibido.,O jogador sofrerá um empurrão correspondendo ao dano recebido.
+USEITEM,Use item,Usar item,Usar item
+EXIT,Exit,Salir,Sair
+ACTION_CIRCUIT,Elemental Circuit,Circuito Elemental,Circuito Elemental
+WHILECIRUITBTNPRESSED,Holding [Circuit] button,Manteniendo botón [Circuito],Segurando o botão de [Circuito]
+PRESS_NEW_KEY,Press new key (keyboard) or %s,Presiona la nueva tecla (teclado) o %s,Pressione uma nova tecla (teclado) ou %s
+SELECT_NEW_ICON_FOR_ACTION,"Select new icon for:
+%s","Selecciona el nuevo ícono para:
+%s","Selecione novo ícone para:
+%s "
+ABOUTEABARRIER,The fire barriers will only disappear when [Early Access] ends.,Las barreras de fuego celeste solo desaparecerán cuando el [Early Access] termine.,
+WORK_IN_PROGRESS,Work in progress...,Trabajo en progreso...,Trabalho em progresso…
+ALLOY,Alloy,Aleación,Liga
+ACTION,Action,Acción,Ação
+ARESURETORESTOREDATA,Are you sure to restore the game data in the selected slot?,¿Está seguro de restaurar los datos de juego en el slot seleccionado?,
+AERIAL_DASH,Aerial Dash,Dash aéreo,Dash aéreo
+WHIP_CRUSH,Whip Crush,Ataque Crush,Chicotada Esmagadora
+INPUT_DEVICE_INCORRECT,Input from incorrect device,Se usó el dispositivo incorrecto,Uso de dispositivo incorreto
+SELECT_STATION,Select Station,Seleccionar Estación,Selecionar Estação
+CHAINED_ATTACK,Chained Attack,Ataque Encadenado,Ataque em Sequência
+ABOUT_QUICKSAVE_EXISTS,Loading game will delete the quick save file,Al cargar partida se eliminará el archivo de guardado rápido,Carregar o jogo irá apagar o arquivo de salvamento rápido
+TORNADO_BLADES,Tornado Blades,Tornado de Cuchillas,Tornado de Lâminas
+ACTION_ATTACK,Attack,Atacar,Atacar
+ACTION_UI_START,Pause / Equipment,Pausa / Equipamiento,Pausar/ Equipamento
+INT_TITLE,Intelligence,Inteligencia,Inteligência
+ONSCREENBUTTONSALWAYSVISIBLE,On-screen buttons always visible,Botones en pantalla siempre visibles,Botões na tela sempre visíveis
+GOOD,Good,Bueno,Bem
+PRESSTHEBUTTONINGAMEPAD,Press the button corresponding to the indicated position.,Presione el botón correspondiente a la posición señalada.,Pressione o botão correspondente a posição indicada.
+LEARNMORE,Learn more,Conocer más,Saiba mais
+SEE_HELP,See help,Ver la ayuda,Ver Ajuda
+EDIT_MARKER,Edit Marker,Editar Marcador,Editar Marcador
+PRESS_BACK_ANDROID,Press [Back] (Mobile),Presiona [Atrás] (Móvil),Pressione [Voltar] (Mobile)
+SHADERS_NOT_SIMPLE_LIGHTS,Just simple lights (Low),Solo luces simples (Bajo),Apenas luzes simples (Baixa)
+TO_CONTINUE,to continue,para continuar,Para continuar
+SHOP,Shop,Tienda,Loja
+WINDOWED,Window,Ventana,Janela
+LOGINPLAYGAMES,Login GooglePlayGames,Entrar en GooglePlayGames,
+ACTION_UI_SELECT,Open map,Abrir mapa,Abrir mapa
+USE,Use,Usar,Usar
+GETTHEPREQUEL,Play the Prequel,Jugar la Precuela,Jogar prólogo
+OBJECT,Item,Objeto,Objeto
+INTHENEXTUPDATE,In the next update...,En la próxima actualización...,Na próxima atualização…
+DIFFICULTY_OPTIONS,Difficulty Options,Opciones de Dificultad,Opções de Dificuldade
+DETAILS_QUICKMENU,Extra info on Quick Menu,Info extra en Menú Rápido,Info extra no Menu Rápido
+ACH5TITLE,Crux simplex ad infixionem,,Crux simplex ad infixionem 
+ACH2DESC,Rescue the chemistry lab manager.,Rescata a la responsable del laboratorio de química.,Resgate a responsável pelo laboratório de química.
+ACTION_UI_LEFT,Left,Izquierda,Esquerda
+ACTION_UI_RIGHT,Right,Derecha,Direita
+EXIT_N_GOTO_MMENU,Exit & go to Main menu,Salir e ir al Menú Principal,Sair & Ir até o Menu Principal
+MOVE,Move,Mover,Mover
+THISLANGISFANMADE,Fan-made Translation,Traducción hecha por fans,Tradução feita por fãs
+SAVE_CHANGES,Save Changes,Guardar Cambios,Salvar alterações
+BLOOD_CONTROL,Blood Control,Control Sanguíneo,Controle Sanguíneo
+ELEMENTAL_CIRCUIT,Elemental Circuit,Circuito Elemental,Circuito Elemental
+WINDOW_BORDERLESS,Borderless screen,Pantalla sin bordes,Tela sem bordas
+VOICES,Voices,Voces,Vozes
+SHAKE_CMR_DAMAGE,Shake camera on damage,Sacudir cámara al recibir daño,Vibrar a câmera durante o dano
+KNIFES,Knives,Cuchillos,Facas
+TAHUATEPETL_VOLCANO,Tahutatepetl Volcano ,Volcán Tahuatepetl,Vulcão Tahutatepetl
+PRESS_NEW_BTN,Press new button (gamepad) or %s,Presiona el nuevo botón (mando) o %s,Pressione um novo botão (controle) ou %s
+<!MissingKey:122:Backdash / Dodge>,Backdash / Dodge,Retroceder / Esquivar,Recuar / Esquivar
+SELECTADEVICE,Select a device,Seleccione un dispositivo,Selecione um dispositivo
+AREA,Area,Área,Área
+LOAD_GAME,Load game (Statue),Cargar partida (Estatuas),Carregar o jogo (Estátua)
+DODGE,Dodge,Esquivar,Esquivar
+SELECT_GAMESAVE_TO_RESTORE,Select savegame to restore,Seleccione partida a restaurar,
+FPS_LIMIT,FPS Limit (debug),Límite de FPS (depuración),Limite de FPS (debug)
+USE_CARPATITIAX2,Use Carpatitia x2,Usar Carpatitia x2,Usar Carpatithia x2
+ACH3DESC,Protect the train on behalf of Alessa.,Protege al tren por encargo de Alessa.,Proteja o trem em nome de Alessa.
+ABOUT_RESTORE_PLAYGAMES,Using your Google PlayGames account you will be able to restore games that were automatically backed up when saving.,Utilizando su cuenta de Google PlayGames podrá restaurar partidas que se respaldaron automáticamente al guardar.,
+TAHUATEPETL_ISLETS,Tahuatepetl Islets,Isletas de Tahuatepetl,Ilhotas Tahuatepetl
+DOUBLE_JUMP,Double Jump,Doble Salto,Pulo duplo
+MAP,Map,Mapa,Mapa
+WINDOW_RESOLUTION,Window Resolution,Resolución en modo ventana,Resolução de janela
+ATK_TITLE,Attack,Ataque,Ataque
+CONF_BY_DEFAULT_DONE,Default configuration complete,Configuración por defecto realizado,Configuração inicial realizado
+ACHIEVEMENT_OBTAINED,Achievement obtained,Logro obtenido,Conquista obtida
+DELETE,Delete,Eliminar,Apagar
+CURSED,Cursed,Maldito,Amaldiçoada
+TO_START,to start,para comenzar,Para começar
+VISUALIZATION_MODE,Display Mode,Modo de visualización,Modo de visualização
+GETREWARD,Get reward,Obtener recompensa,Receber recompensa
+ACH4DESC,Defeat the Oxygen controlling Adeptis.,Vence al Adeptis controlador del Oxígeno.,Derrote o Adeptis controlador de Oxigênio.
+ELEMENTALSAMPLENEEDED,An elemental sample is required,Se necesita una muestra elemental,Uma amostra elemental é necessária
+TOBECONTINUED,To be continued...,Esta historia continuará...,Continua…
+FOCUS_BTN_CONFLICT,Conflicting Previous Page and Next Page buttons,Conflicting Previous Page and Next Page buttons,Botões de Página Anterior e Próxima Página em conflito
+START_CALIBRATION,Start calibration,Iniciar calibración,Começar calibragem
+ICONS_BTNS,Button icons,Íconos de botones,Ícones dos botões
+ELDRALIS_WOODS,Eldralis Woods,Bosque de Eldralis,Floresta de Eldralis
+PRESS_DIR_TO_USE_QUICKMENU,Press any direction to use the desired item,Mantén presionado cualquier dirección para usar el item,Pressione qualquer direção para usar o item desejado
+ACH6DESC,Destroy the [ultimate weapon] of the Ahuizotes.,Destruye el [arma definitiva] de los Ahuizotes.,Destrua a [arma definitiva] dos Ahuizotes.
+ACHIEVEMENTS,Achievements,Logros,Conquistas
+ZOOMOUT,Zoom out,Alejar,Diminuir
+ACH1DESC,Face the Chlorine Alchemist for the first time.,Enfrentate por primera vez a la Alquimista de Cloro.,Enfrente a alquimista de Cloro pela primeira vez.
+OPTIONS,Options,Opciones,Opções
+EMPTY_LIST,Empty List,Lista Vacía,Lista Vazia
+THIS_ACTION_CANT_BE_UNDO,This action cannot be undone,Esta acción no podrá deshacerse,Essa ação não pode ser desfeita
+MONITOR_RES,Monitor Resolution,Resolución del monitor,Resolução do monitor
+RESET,Reset,Reestablecer,Recomeçar
+LOAD_QUICKSAVE,Load quicksave file,Cargar archivo de guardado rápido,Carregar arquivo de salvamento rápido
+CENTER_MAP,Center,Centrar,Centro
+QUICKSAVE_AND_EXIT,Quicksave & Exit,Guardado rápido y Salir,Salvamento rápido & Sair
+THE_ORDER_HEADQUARTERS,The Order headquarters ,Sede de La Orden,Sede d’A Ordem
+FULLSCREEN,Fullscreen,Pantalla completa,Tela inteira
+ACH5DESC,Rescue Gabriel's daughter.,Rescata a la hija de Gabriel.,Resgate a filha do Gabriel.
+NEUMANPUZZLELABHINT,"Of the seven metals, there is the one that shines like the day star. Next to it, reflecting that light, the guardian of the night.","De los siete metales, se encuentra aquella que resplandece como la estrella del día. A su lado, reflejando aquella luz, la guardiana de la noche.","Dos sete metais, tem um que brilha como a estrela do dia. Ao seu lado, refletindo aquela luz, a guardiã da noite."
+MUSIC,Music,Música,Música
+PRESSFORWASDSETTING,"Press ""W"" for Keyboard WASD+Mouse mode","Presiona ""W"" para usar modo WASD en teclado",Pressione “W” para o modo WASD do teclado + mouse
+PRESSFORKEYBOARDARROWSETTING,"Press ""Enter"" for Arrow keyboard mode","Presiona ""Enter"" para usar flechas en teclado",Pressione “Enter” para o modo setas do teclado
+AXE,Axe,Hacha,Machado
+SPECTROSCOPE,Spectroscope,Espectroscopio,Espectrômetro
+SCHEME,Scheme,Esquema,Esquema
+SOUND_EFFECTS,Sound effects,Efectos de sonido,Efeitos de som
+SWING,Whip Swing,Balanceo de látigo,Chicotada
+OBTAINED,Obtained,Obtenido,Obtido
+ACTION_UI_DOWN,Down,Abajo,Baixo
+CHANGE,Change,Cambiar,Trocar
+GAMEPAD_DISCONNECTED,Gamepad disconnected,Mando desconectado,Controle desconectado
+MINIMAP_VISIBILITY,Minimap visibility,Visibilidad de Minimapa,Visibilidade do mini-mapa
+INVENTORY,Inventory,Inventario,Inventário
+INJURED,Injured,Lesionado,Ferida
+ACTION_UI_CANCEL,Cancel,Cancelar,Cancelar
+ATHOS_ABBEY,Athos Abbey,Abadía de Athos,Abadia de Athos
+FINDINGS,Findings,Textos,Achados
+ACTION_JUMP,Jump,Saltar,Pular
+VIDEO,Video,Video,Vídeo
+EQUIP_BOTTOM,Bottom Equip,Equipo Inferior,Equipamento Inferior
+INCREASE,Increase,Incrementar,Aumentar
+GAMEPAD_CONNECTED,Gamepad connected,Mando conectado,Controle conectado
+WAITRESS,Waitress,Camarera,Garçonete
+PROLOGUEFINISHED,Prologue finished,Prólogo finalizado,Prólogo finalizado.
+PRESSLETTERFILTERSCREEN,Press the letter option for screen filter,Presiona la letra del filtro de pantalla deseado,Pressione a opção de letra para o filtro de tela
+STRALSUND_RUINS,Stralsund Ruins,Ruinas de Stralsund,Ruínas de Stralsund
+ENEMIES,Enemies,Enemigos,Inimigos
+CUSTOM_GAMEPAD_ICONS,Customize button icons,Personalizar íconos de botones,Personalizar os ícones dos botões
+MP_TITLE,Mana,Mana,Mana
+YES,Yes,Sí,Sim
+TAP_TO_START,Tap to start,Toca para comenzar,Aperte para começar
+CLOSE,Close,Cerrar,Fechar
+<!MissingKey:201:CRT filter>,CRT filter,Filtro CRT,Filtro CRT
+DESPERATIONATTACK,Desperation Attack,Ataque de Desesperación,Ataque Dramático
+HEALTH_RECOVERED,Restored Health,Salud Recuperada,Saúde recuperada
+WRITE_NAME_FOR_SAVE,Type a name for the save...,Escriba un nombre para el guardado...,Escreva um nome para salvar
+SEE_SOCIAL_LINKS,See social links,Ver redes sociales,Ver redes sociais
+PRESSSPACETOSTART,"Press ""Space"" to start","Presiona ""Espacio"" para comenzar",Pressione “Espaço” para começar
+<!MissingKey:207:Fix compatibility issues>,Fix compatibility issues,Solucionar problemas de compatibilidad,Solucionar problemas de compatibilidade
+PRESSSESCTOEXIT,"Press ""Escape"" key to exit from calibration menu.","Presione la tecla ""Escape"" para salir del menú de calibración.",Pressione “Escape” para sair do menu de calibragem.
+CONTINUE,Continue,Continuar,Continuar
+PREVIOUS,Previous,Anterior,Anterior
+SHOW_DEATH_COUNTER,Show death counter,Mostrar contador de muertes,Mostrar contador de mortes
+<!MissingKey:212:Birstall City>,Birstall City,Ciudad de Birstall,Cidade de Birstall
+DEF_TITLE,Defense,Defensa,Defesa
+ABOUTUNBREAKABLEWILL,"If the player has more than 20% health, then will not die when critically hit.","Teniendo más del 20% de vida, al recibir daño critico el jugador todavía no morirá.","Se o jogador tem menos de 20% de saúde, não morrerá quando receber dano crítico."
+PLAYER_AFTERIMAGE,Player Afterimage,Estela fantasma del jugador,Pós-imagem do jogador
+CONF_DEFAULT,Reset to default settings,Reestablecer configuración por defecto,Restaurar configuração inicial
+ABOUT_CARPATITIA_DEATH,The Carpatitia allows you to return to the last save statue without losing progress.,La Carpatitia permite regresar a la última estatua de guardado sin perder el progreso alcanzado.,Permite retornar à última estátua de salvamento sem perder o seu progresso
+LIBRARY_ARCHIVES,Library archives,Archivos de la biblioteca,Arquivos da biblioteca
+MAIN_MENU,Main menu,Menú principal,Menu principal
+AIR_KICK,Dive Kick,Patada Aérea,Voadora
+GALLERY,Gallery,Galería,Galeria
+STORE,Store,Tienda,Loja
+KEYSOBJECTS,Key Items,Objetos Clave,Objetos Chave
+ACH1TITLE,Attack of the Dead Men,El ataque de los hombres muertos,Ataque dos Mortos Vivos
+NEW_GAME,New Game,Nueva Partida,Novo Jogo
+CREDITS,Credits,Créditos,Créditos
+QUALITY,Quality,Calidad,Qualidade
+DIFFICULTY_DESCRIPTION_2,Prepare to die.,Prepárate para morir.,Prepare para morrer.
+ABOUTFANMADETRANSLATIONS,This is a fan-made translation. Anyone is welcome to help translate the game voluntarily.,"Esta es una traducción hecha por fans, cualquier persona es bienvenida a ayudar a traducir el juego voluntariamente.",Esta é uma tradução feita por fã. Todos são bem vindos a ajudar a traduzir o jogo de forma voluntária.
+EQUIP_TOP,Top Equip,Equipo Superior,Equipamento Superior
+DIFFICULTY_DESCRIPTION_0,I don't want to stress.,No quiero estresarme.,Eu não quero me estressar.
+DIFFICULTY_DESCRIPTION_1,I will do my best to any challenge.,Daré lo mejor de mí ante cualquier reto.,Eu farei o meu melhor em qualquer desafio.
+HERECANMAPYOURCONTROL,Here you can assign the buttons of your control.,Aquí podrá asignar los botones de su control.,Aqui você pode atribuir os botões do seu controle.
+LIBRARY,Library ,Biblioteca,Biblioteca
+TIME,Time,Tiempo,Tempo
+SHOW_MINIMAP,Show Minimap,Mostrar Minimapa,Mostrar mini-mapa
+<!MissingKey:237:Previous page>,Previous page,Página previa,Página anterior
+SELECT,Select,Seleccionar,Selecionar
+ALCHEMY_LABORATORY,Alchemy Laboratory,Laboratorio de Alquimia,Laboratório de Alquimia
+STATUS,Status,Estado,Estado
+GRIJAYLA_TOWN,Grijayla Town,Ciudad de Grijayla,Cidade de Grijayla
+CHANGESSAVED,Changes saved,Cambios guardados,Mudanças salvas
+SELECT_SLOT_TO_DELETE,Select save slot to delete,Seleccione Slot para eliminar,Selecione arquivo salvo para apagar
+DIFFCHANGEDTOEASY,"Difficulty changed to ""easy""","Dificultad cambiada a ""fácil""",Dificuldade modificada para “fácil”
+SLIDE,Slide,Deslizarse,Deslizar
+SHADERS_DYNAMIC_LIGHTS,Shaders and dynamic lights (High),Shaders y luces dinámicas (Alto),Shaders e luzes dinâmicas (Alta)
+RETURNAMERITHIA,Return to Amerithia?,¿Regresar a Amerithia?,Retornar a Amerithia?
+DYNAMICKNOCKBACK,Dynamic Knockback,Knockback Dinamico,Empurrão Dinâmico
+SWAPSET,Change Set,Cambiar Set,Mudar Set
+OPENING_LINK_WEB,Opening weblink,Abriendo enlace web,Abrindo link
+BUY,Buy,Comprar,Comprar
+GETFULLGAME,Get full game,Juego completo,
+SKIP,Skip,Omitir,Pular
+DATA_RESTORED,Data has been restored.,Los datos han sido restaurados.,
+ARIDIAH_DESERT,Aridiah Desert,Desierto de Aridiah,Deserto de Aridiah
+ACTION_UI_UP,Up,Arriba,Cima
+EQUIP,Equip,Equipo,Equipar
+THEBUTTONALREADYADDED,The button has already been assigned,El botón ya ha sido asignado,O botão já foi atribuído
+MINIMAP,Minimap,Minimapa,Mini-mapa
+SOLD,Sold,Vendido,Vendido
+UNBREAKABLEWILL,Unbreakable Will,Voluntad Inquebrantable,Vontade Indomável
+USEVIRTUALJOYSTICK,Use Virtual Joystick,Usar Joystick Virtual,Usar Controle Virtual
+ZOOMIN,Zoom in,Acercar,Ampliar
+ERASE,Erase,Borrar,Apagar
+NO,No,No,Não
+TREASURE,Treasure,Tesoro,Tesouro
+POISONED,Poisoned,Envenenado,Envenenada
+ACH6TITLE,Critical mass,Masa crítica,Massa crítica
+EQUIP_MID,Mid Equip,Equipo Medio,Equipamento Médio
+ADD_MARKER,Add Marker,Añadir Marcador,Adicionar Marcador
+ACTION_UI_ACCEPT,Accept,Aceptar,Aceitar
+SHURIKEN,Shuriken,Shuriken,Shuriken
+SCS,scs,sgs,Segundos
+YOUWANTGOWAGON,Back to the initial car of the train?,¿Regresar al vagón inicial del tren?,Voltar ao vagão inicial do trem?
+CALIBRATEGAMEPAD,Calibrate Gamepad,Calibrar Mando,Calibrar Gamepad
+IGOTYOU,I got you!,¡Te tengo!,Te peguei!
+SP_TITLE,Stamina,Estamina,Vigor
+SCREEN_FILTER,Screen Filter,Filtro de pantalla,Filtro de tela
+NEXT,Next,Siguiente,Próximo
+LOCKED,Locked,Bloqueado,Bloqueado

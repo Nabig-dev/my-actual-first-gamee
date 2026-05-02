@@ -1,0 +1,29 @@
+se modificó el archivo addons/dialogic/Nodes/DialogNode.tscn
+    $ButtonSkip.visible
+    fin del _process
+    on_timeline_start()
+    on_timeline_start() - ## activar / desactivar autofocus
+    get_classic_choice_button() - ## usar el theme del juego para los botones
+    ## colocar custom styleboxes
+    se agregó variables
+	input_enable
+	AnimationPlayerShake
+
+
+
+se modificó el archivo addons/dialogic/Nodes/TextBubble.tscn
+    ready
+
+se modificó el archivo addons/dialogic/Nodes/Portrait.tscn
+    move_to_position() reducido entre 4 los valores originales
+
+se modificó el archivo addons/dialogic/Nodes/Background.tscn
+    cambiado el strech scale
+
+
+se deshabilitó el for en linea 13
+res://addons/dialogic/Parser/DialogicParser.gd
+para evitar colorear los nombres de los personajes dentro de dialogos
+
+modificado linea 1147 # Selecting the first button added
+para dar focus al boton de eleccion en android cuando haya gamepad

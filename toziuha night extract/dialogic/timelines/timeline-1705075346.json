@@ -1,0 +1,110 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1686776723.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"condition": "",
+			"definition": "1705075637-874",
+			"event_id": "dialogic_012",
+			"value": "0"
+		},
+		{
+			"character": "character-1686776723.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG3_1705075346"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG4_1705075346"
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1634488067",
+			"index": 0,
+			"name": "alchemy_menu_start"
+		},
+		{
+			"character": "character-1686776723.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default",
+			"text": "DLG8_1705075346"
+		},
+		{
+			"condition": "",
+			"definition": "1725637973-338",
+			"event_id": "dialogic_012",
+			"value": "0"
+		},
+		{
+			"character": "character-1686776723.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default",
+			"text": "DLG10_1705075346"
+		},
+		{
+			"character": "character-1686776723.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default",
+			"text": "DLG11_1705075346"
+		},
+		{
+			"character": "character-1686776723.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default",
+			"text": "DLG12_1705075346"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1705075346.json",
+		"name": "margaret-labo-alchemy"
+	}
+}

@@ -1,0 +1,1 @@
+el camerasjakeevent causa problema, no muestra fondo de gameplay al usar el shake

@@ -1,0 +1,36 @@
+[gd_resource type="BitmapFont" load_steps=7 format=2]
+
+[ext_resource path="res://addons/texture_fonts/Classes/TextureFont.gd" type="Script" id=1]
+[ext_resource path="res://addons/texture_fonts/Classes/TextureFontSettings.gd" type="Script" id=2]
+[ext_resource path="res://assets/fonts/super_small_letters_white.png" type="Texture" id=3]
+[ext_resource path="res://addons/texture_fonts/Classes/TextureFontMapping.gd" type="Script" id=4]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 2 )
+char_settings = {
+}
+kerning_pairs = [  ]
+gap = 0
+horizontal_align = 1
+vertical_align = 0
+monospace = true
+preview_color = Color( 0.12549, 0.141176, 0.192157, 1 )
+preview_chars = ""
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 4 )
+source_texture = ExtResource( 3 )
+scaled_texture = ExtResource( 3 )
+rect_size = Vector2( 5, 7 )
+rect_gap = Vector2( 0, 0 )
+texture_offset = Vector2( 0, 0 )
+scale = 1
+interpolation = 0
+chars = "ABCD"
+
+[resource]
+textures = [ ExtResource( 3 ) ]
+chars = PoolIntArray( 32, 0, 0, 0, 0, 0, 0, 0, 5, 65, 0, 0, 0, 5, 7, 1, 0, 5, 66, 0, 5, 0, 5, 7, 1, 0, 5, 67, 0, 10, 0, 5, 7, 1, 0, 5, 68, 0, 15, 0, 5, 7, 1, 0, 5 )
+script = ExtResource( 1 )
+texture_mappings = [ SubResource( 2 ) ]
+font_settings = SubResource( 1 )

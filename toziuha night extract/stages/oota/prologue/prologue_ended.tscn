@@ -1,0 +1,134 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://assets/tres/fonts/alkemikal_small.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/tres/ThemeBasic.tres" type="Theme" id=2]
+[ext_resource path="res://assets/images/logos/logo_revamped_outline.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/artwork/bloody_xandria.png" type="Texture" id=4]
+[ext_resource path="res://src/ui_elements/social_buttons.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/ui_elements/helper_icon_btn.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/sprites/social_icons/playstore.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/btn_close_focus.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/btn_close_pressed.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/btn_close_normal.png" type="Texture" id=16]
+[ext_resource path="res://assets/sprites/btn_close_hover.png" type="Texture" id=17]
+[ext_resource path="res://stages/oota/prologue/prologue_ended.gd" type="Script" id=18]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 3 )
+region = Rect2( 48, 96, 1056, 272 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 18 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.270588 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -365.0
+margin_top = -177.0
+margin_right = 195.0
+margin_bottom = 319.0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+
+[node name="Logo" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -112.0
+margin_top = -81.0
+margin_right = 112.0
+margin_bottom = -25.0
+texture = SubResource( 1 )
+expand = true
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Logo"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -9.0
+margin_top = 5.0
+margin_right = 9.0
+margin_bottom = 33.0
+grow_horizontal = 2
+custom_constants/separation = -2
+
+[node name="Label" type="Label" parent="Logo/VBoxContainer"]
+margin_right = 242.0
+margin_bottom = 16.0
+grow_horizontal = 2
+custom_fonts/font = ExtResource( 1 )
+text = "DLG1_1679006366"
+align = 1
+
+[node name="Label2" type="Label" parent="Logo/VBoxContainer"]
+visible = false
+modulate = Color( 1, 1, 1, 0.643137 )
+margin_top = 14.0
+margin_right = 242.0
+margin_bottom = 28.0
+text = "Estimated full version: 2024"
+align = 1
+
+[node name="BtnClose" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -28.0
+margin_top = 3.0
+margin_right = -4.0
+margin_bottom = 27.0
+focus_mode = 0
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 15 )
+texture_hover = ExtResource( 17 )
+texture_focused = ExtResource( 14 )
+
+[node name="HelperIconBtn" parent="BtnClose" instance=ExtResource( 6 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.0
+margin_top = -8.0
+margin_right = -15.0
+margin_bottom = 8.0
+hide_method_touch = "visible"
+animated = true
+action = "ui_cancel"
+
+[node name="SocialButtons" parent="." instance=ExtResource( 5 )]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -75.0
+margin_right = 0.0
+margin_bottom = -7.0
+auto_focus = true
+
+[node name="BtnBuyGame" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -82.5
+margin_top = -62.0
+margin_right = 82.5
+margin_bottom = -30.0
+text = "Buy Full-Game version"
+icon = ExtResource( 7 )
+
+[connection signal="pressed" from="BtnClose" to="." method="_on_BtnClose_pressed"]
+[connection signal="pressed" from="BtnBuyGame" to="." method="_on_BtnBuyGame_pressed"]

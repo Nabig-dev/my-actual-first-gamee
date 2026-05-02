@@ -1,0 +1,29 @@
+{
+	"events": [
+		{
+			"event_id": "showimage",
+			"image_path": "res://assets/images/vlad_tepes_portrait.png"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "ff"
+		},
+		{
+			"event_id": "showimage",
+			"image_path": "*"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "rrr"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1706908925.json",
+		"name": "timeline-1706908925.json"
+	}
+}

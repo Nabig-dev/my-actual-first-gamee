@@ -1,0 +1,85 @@
+{
+	"events": [
+		{
+			"event_id": "dialogic_024",
+			"set_theme": "theme-1677182817.cfg"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG1_1725643091"
+		},
+		{
+			"character": "character-1725643444.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG2_1725643091"
+		},
+		{
+			"character": "character-1725643444.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG3_1725643091"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG4_1725643091"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG5_1725643091"
+		},
+		{
+			"character": "character-1725643444.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG6_1725643091"
+		},
+		{
+			"character": "character-1725643444.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG7_1725643091"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG8_1725643091"
+		},
+		{
+			"character": "character-1725643444.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG9_1725643091"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG10_1725643091"
+		},
+		{
+			"character": "character-1725643444.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG11_1725643091"
+		},
+		{
+			"character": "character-1725643444.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG12_1725643091"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1725643091.json",
+		"name": "waitress-restaurant-help"
+	}
+}

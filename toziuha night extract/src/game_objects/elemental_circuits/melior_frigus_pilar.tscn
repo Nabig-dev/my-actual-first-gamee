@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/game_objects/elemental_circuit.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/game_objects/elemental_circuits/melior_frigus_pilar.gd" type="Script" id=2]
+
+[node name="MeliorFrigusPilar" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="ElementalCircuit" parent="." instance=ExtResource( 1 )]
+is_for_ui = true
+
+[node name="TimerSpawnPilar" type="Timer" parent="."]
+wait_time = 0.4
+autostart = true
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="TimerFree" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="TimerSpawnPilar" to="." method="_on_TimerSpawnPilar_timeout"]
+[connection signal="timeout" from="TimerFree" to="." method="_on_TimerFree_timeout"]

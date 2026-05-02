@@ -1,0 +1,34 @@
+﻿key,en,es,pt_BR
+HOWTO_ABSORB,Press and hold ↑ when near an [Elemental Circuit] to get new attacks or abilities.,Mantén presionado ↑ cuando estés cerca de un [Circuito Elemental] para obtener nuevos ataques o habilidades.,Pressione e segure ↑ próximo de um [Circuito Elemental] para conseguir novos ataques e habilidades.
+HOWTO_OPEN_MAPMENU,"From the [Map] button, you get access to the overview map, list of key objects, found texts, and other useful information.","Desde el botón [Mapa] obtienes acceso al mapa general, lista de objetos clave, textos encontrados y otra información útil.","Do botão de [Mapa] você tem acesso ao mapa inteiro, lista de objetos chave, textos encontrados e outra informação útil."
+THROW_SUBWEAPON,Throw secondary weapons with [Circuit] button (this will spend mana).,Arroja armas secundarias con el botón [Circuito] (esto gastará maná).,Lance armas secundárias com o botão de [Circuito] (Gasta mana).
+HOWTO_CHARGE_CIRCUIT,"When you have an Elemental Circuit [Action] equipped, keep the [Circuit] button pressed for the time required for its use.","Cuando tengas equipado un Circuito Elemental de [Acción], mantén presionado el botón de [Circuito] durante el tiempo requerido para su uso.","Quando você tem um Circuito Elemental de [Ação] equipado, mantenha pressionado o botão de [Circuito] pelo tempo necessário de seu uso."
+USE_DODGE,"Pressing [Dodge] while walking allows you to roll forward to dodge enemies.
+
+This move grants some invulnerability frames and will use [Stamina].","Al presionar [Esquivar] mientras estés caminando te permite rodar hacia adelante para esquivar enemigos.
+
+Este movimiento otorga algunos frames de invulnerabilidad y gastará [Estamina].","Pressionando [Esquiva] enquanto caminha te permite rolar para se esquivar dos inimigos. 
+
+Esse movimento garante breve invulnerabilidade e usa [Vigor]."
+HOWTO_HIDEMINIMAP_B,"Using the right joystick up/down, you can look away a little (Gamepad only).",Usando Joystick derecho hacia arriba/abajo puedes alejar un poco la mirada. (Solo con Gamepad).,"Se usar para cima ou para baixo no analógico direito, você pode dar um pequeno zoom (Apenas no Controle)"
+USE_QUICKMENU,"By holding down the [Quick Menu] button, you can change equipment sets by pressing [Prev Pag] or [Next Pag].
+
+It will be useful when you want to use different alloys and circuits to attack the elemental weaknesses of enemies.","Al mantener presionado el botón [Menú rápido] podrás cambiar sets de equipamiento presionando [Pág Prev] o [Pág Sig].
+
+Será util cuando quieras usar diferentes aleaciones y circuitos para atacar las debilidades elementales de los enemigos.","Ao segurar o botão [Menu Rápido], você pode mudar o equipamento ao pressionar [Página Anterior] ou [Próxima Página]
+
+Isso será útil quando você quer usar diferentes ligas e circuitos para atacar as fraquezas elementais dos inimigos."
+USE_QUICKMENU2,"Hold down the button and slide to the equipment set you want to use (Requires Skill Circuit).
+
+It will be useful when you want to use different alloys and circuits to attack the elemental weaknesses of enemies.","Mantén presionado el botón y desliza hacia el set de equipamiento que quieras usar. (Requiere Circuito de habilidad).
+
+Será util cuando quieras usar diferentes aleaciones y circuitos para atacar las debilidades elementales de los enemigos.","Segure o botão e passe ao equipamento que você deseja usar (Exige a Habilidade Circuito).
+
+Isso será útil quando você quer usar diferentes ligas e circuitos para atacar as fraquezas elementais dos inimigos."
+HOWTO_HIDEMINIMAP,Press ↓ + [Backdash] to show or hide the minimap in real time.,Presiona ↓ + [Backdash] para mostrar u ocultar el minimapa en tiempo real.,Pressione ↓ + [Recuo] para mostrar ou esconder o mini-mapa em tempo real.
+HOWTO_STATUEMANA,You can kneel in front of a statue to recover mana.,Puedes arrodillarte frente a una estatua para recuperar maná.,Você pode se ajoelhar em frente a uma estátua para recuperar mana.
+EVADE_WITH_BACKDASH,Avoid enemy attacks with [Dodge].,Evade ataques enemigos con [Esquivar].,Desvia de ataques inimigos com [Recuar]
+HOWTO_EQUIP_CIRCUIT,Press [Pause] and go to the [Alchemy] system to equip an [Action] circuit.,Presiona [Pausa] y ve al sistema de [Alquimia] para equipar un circuito de [Acción].,Pressione [Pausa] e vá ao sistema de [Alquimia] para equipar um circuito de [Ação]
+HOWTO_EQUIP,"Press the [Pause] button to access the Inventory, Equipment, and Alchemy system.","Presiona el botón [Pausa] para poder acceder al Inventario, Equipamiento y al sistema de Alquimia.","Pressione o botão de [Pausa] para acessar o Inventário, Equipamento e o Sistema de Alquimia."
+USE_WHIP_M2,"This attack requires spending [Blood], which is recovered by attacking enemies with the normal whip.",Este ataque requiere gasto de [Sangre] el cual se recupera atacando a enemigos con el látigo normal.,Este ataque exige gasto de [Sangue] que é recuperado ao atacar os inimigos com o chicote normal.
+MAKE_FAST_ATKS,Perform quick attacks with the [Attack] button.,Haz ataques rápidos con el botón [Ataque].,Faz ataques rápidos com o botão de [Ataque]

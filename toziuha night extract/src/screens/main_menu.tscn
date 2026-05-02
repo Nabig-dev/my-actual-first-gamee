@@ -1,0 +1,921 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://assets/images/logos/logo_revamped_outline.png" type="Texture" id=1]
+[ext_resource path="res://src/gdshaders/player_vignette.gdshader" type="Shader" id=2]
+[ext_resource path="res://src/ui_elements/button_list_vertical_scroll.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/tres/ThemeBasic.tres" type="Theme" id=4]
+[ext_resource path="res://assets/sprites/bg/bg_sky_main_menu.png" type="Texture" id=5]
+[ext_resource path="res://src/ui_elements/helper_icon_btn.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/ui_elements/show_hide_elements_with_gamepad_and_touch.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/sprites/bg/bg_city_main menu.png" type="Texture" id=8]
+[ext_resource path="res://src/scripts/auto_start_animation_player.gd" type="Script" id=9]
+[ext_resource path="res://assets/images/vfx/light4_cut.png" type="Texture" id=10]
+[ext_resource path="res://src/screens/main_menu.gd" type="Script" id=11]
+[ext_resource path="res://src/game_objects/light2d_custom.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/images/vfx/light_02.png" type="Texture" id=13]
+[ext_resource path="res://assets/images/shadow_gradient_0.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/bg/bg_clouds_main_menu.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/social_icons/playgames.png" type="Texture" id=16]
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 2 )
+shader_param/player_position = Vector2( 0.468, -0.486 )
+shader_param/color = Color( 0, 0, 0, 1 )
+shader_param/MULTIPLIER = 0.007
+shader_param/SCALE = 1.26
+shader_param/SOFTNESS = 0.399
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BG/City:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BG/Sky:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BG/Light2DCustom:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("BG/Light2DCustom2:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Logo:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CtrlHelpers:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Vignette:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("ButtonListVerticalScroll:input_enabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("ButtonListVerticalScroll:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Control/TouchScreenButton:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("HBxAndroidPlayGamesLogin:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("BG/City:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BG/Sky:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7, 2.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BG/Light2DCustom:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2.1, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.52 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("BG/Light2DCustom2:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2.1, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 6.21 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Logo:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 3.2, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CtrlHelpers:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 4.1, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Vignette:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 5.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("ButtonListVerticalScroll:input_enabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("ButtonListVerticalScroll:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 4.4, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Control/TouchScreenButton:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("HBxAndroidPlayGamesLogin:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 4.5, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BG/Cloud:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -96, 16 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BG/Cloud2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 157, 16 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BG/Cloud:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.6 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("BG/Cloud2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.6 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("BG/Mist:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.317647, 0.317647, 0.317647, 0.564706 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("BG/Mist:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 211, 200 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("BG/Light2DCustom:energy")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.52 ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("BG/Cloud:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -96, 16 ), Vector2( 416, 24 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BG/Cloud2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 464, 16 ), Vector2( 64, 17 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BG/Cloud:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.6 ), Color( 1, 1, 1, 0.6 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("BG/Cloud2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.4, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.6 ), Color( 1, 1, 1, 0.6 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("BG/Mist:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3, 1, 1.7, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.317647, 0.317647, 0.317647, 0 ), Color( 0.647059, 0.647059, 0.647059, 0.564706 ), Color( 0.647059, 0.647059, 0.647059, 0.564706 ), Color( 0.317647, 0.317647, 0.317647, 0 ), Color( 0.317647, 0.317647, 0.317647, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("BG/Mist:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 211, 200 ), Vector2( 39, 143 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("BG/Light2DCustom:energy")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.4, 1.8, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 2.39, 0.52, 0.52, 2.39 ]
+}
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 160, 90 )
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+script = ExtResource( 11 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 7
+
+[node name="BG" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -170.5
+margin_top = -96.0
+margin_right = 170.5
+margin_bottom = 96.0
+mouse_filter = 2
+
+[node name="Sky" type="TextureRect" parent="BG"]
+modulate = Color( 0, 0, 0, 1 )
+light_mask = 4
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+
+[node name="City" type="TextureRect" parent="BG"]
+modulate = Color( 0, 0, 0, 1 )
+light_mask = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 8 )
+
+[node name="Cloud" type="Sprite" parent="BG"]
+modulate = Color( 1, 1, 1, 0.6 )
+position = Vector2( -96, 16 )
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 139, 7, 181, 66 )
+
+[node name="Cloud2" type="Sprite" parent="BG/Cloud"]
+position = Vector2( 125.6, 20.4 )
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 4, 120, 161, 54 )
+
+[node name="Cloud3" type="Sprite" parent="BG/Cloud"]
+position = Vector2( -102.4, -19.6 )
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 173, 123, 147, 54 )
+
+[node name="Cloud4" type="Sprite" parent="BG/Cloud"]
+position = Vector2( -118.4, 12.4 )
+texture = ExtResource( 15 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 173, 123, 147, 54 )
+
+[node name="Cloud5" type="Sprite" parent="BG/Cloud"]
+position = Vector2( 111.6, -19.6 )
+texture = ExtResource( 15 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 173, 123, 147, 54 )
+
+[node name="Cloud2" type="Sprite" parent="BG"]
+modulate = Color( 1, 1, 1, 0.6 )
+position = Vector2( 157, 16 )
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 139, 7, 181, 66 )
+
+[node name="Cloud2" type="Sprite" parent="BG/Cloud2"]
+position = Vector2( 125.6, 20.4 )
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 4, 120, 161, 54 )
+
+[node name="Cloud3" type="Sprite" parent="BG/Cloud2"]
+position = Vector2( -102.4, -19.6 )
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 173, 123, 147, 54 )
+
+[node name="Cloud4" type="Sprite" parent="BG/Cloud2"]
+position = Vector2( -118.4, 12.4 )
+texture = ExtResource( 15 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 173, 123, 147, 54 )
+
+[node name="Cloud5" type="Sprite" parent="BG/Cloud2"]
+position = Vector2( 111.6, -19.6 )
+texture = ExtResource( 15 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 173, 123, 147, 54 )
+
+[node name="Mist" type="Sprite" parent="BG"]
+modulate = Color( 0.317647, 0.317647, 0.317647, 0.564706 )
+position = Vector2( 211, 200 )
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 139, 7, 181, 66 )
+
+[node name="Cloud2" type="Sprite" parent="BG/Mist"]
+position = Vector2( 123, -40 )
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 4, 120, 161, 54 )
+
+[node name="Cloud3" type="Sprite" parent="BG/Mist"]
+position = Vector2( -96, -24 )
+texture = ExtResource( 15 )
+region_enabled = true
+region_rect = Rect2( 173, 123, 147, 54 )
+
+[node name="Cloud4" type="Sprite" parent="BG/Mist"]
+position = Vector2( -112, -64 )
+texture = ExtResource( 15 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 173, 123, 147, 54 )
+
+[node name="Cloud5" type="Sprite" parent="BG/Mist"]
+position = Vector2( 129, -80 )
+texture = ExtResource( 15 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 173, 123, 147, 54 )
+
+[node name="Cloud6" type="Sprite" parent="BG/Mist"]
+position = Vector2( 86, -107 )
+texture = ExtResource( 15 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 15, 30, 100, 42 )
+
+[node name="Cloud7" type="Sprite" parent="BG/Mist"]
+position = Vector2( -104, -96 )
+texture = ExtResource( 15 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 15, 30, 100, 42 )
+
+[node name="Cloud8" type="Sprite" parent="BG/Mist"]
+position = Vector2( -176, -88 )
+texture = ExtResource( 15 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 15, 30, 100, 42 )
+
+[node name="Cloud9" type="Sprite" parent="BG/Mist"]
+position = Vector2( -168, -117 )
+texture = ExtResource( 15 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 15, 30, 100, 42 )
+
+[node name="Cloud10" type="Sprite" parent="BG/Mist"]
+position = Vector2( 112, 0 )
+texture = ExtResource( 15 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 15, 30, 100, 42 )
+
+[node name="Cloud11" type="Sprite" parent="BG/Mist"]
+position = Vector2( 184, -8 )
+texture = ExtResource( 15 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 15, 30, 100, 42 )
+
+[node name="Cloud12" type="Sprite" parent="BG/Mist"]
+position = Vector2( 65, 33 )
+texture = ExtResource( 15 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 15, 30, 100, 42 )
+
+[node name="Cloud13" type="Sprite" parent="BG/Mist"]
+position = Vector2( -120, 21 )
+texture = ExtResource( 15 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 15, 30, 100, 42 )
+
+[node name="Light2DCustom" parent="BG" instance=ExtResource( 12 )]
+position = Vector2( 211, 43 )
+texture = ExtResource( 13 )
+texture_scale = 1.85
+color = Color( 0.694118, 0.898039, 0.45098, 1 )
+energy = 0.52
+range_item_cull_mask = 4
+
+[node name="Light2DCustom2" parent="BG" instance=ExtResource( 12 )]
+position = Vector2( 163, 180 )
+scale = Vector2( 1, -1 )
+texture = ExtResource( 10 )
+texture_scale = 1.19
+color = Color( 0.694118, 0.898039, 0.45098, 1 )
+energy = 0.0
+range_item_cull_mask = 2
+
+[node name="ShadowBottom" type="TextureRect" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -84.0
+texture = ExtResource( 14 )
+expand = true
+flip_v = true
+
+[node name="ShadowBottom2" type="TextureRect" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -70.0
+texture = ExtResource( 14 )
+expand = true
+flip_v = true
+
+[node name="ShadowBottom3" type="TextureRect" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -64.0
+texture = ExtResource( 14 )
+expand = true
+flip_v = true
+
+[node name="ShadowBottom4" type="TextureRect" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -32.0
+texture = ExtResource( 14 )
+expand = true
+flip_v = true
+
+[node name="ShadowBottom5" type="TextureRect" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -59.0
+texture = ExtResource( 14 )
+expand = true
+flip_v = true
+
+[node name="Vignette" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 3 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -170.5
+margin_top = -96.0
+margin_right = 170.5
+margin_bottom = 96.0
+mouse_filter = 2
+
+[node name="Vignette2" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -511.0
+margin_top = -96.0
+margin_right = -170.0
+margin_bottom = 96.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+
+[node name="Vignette3" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 160.5
+margin_top = -96.0
+margin_right = 501.5
+margin_bottom = 96.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+
+[node name="CtrlHelpers" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Margin" type="MarginContainer" parent="CtrlHelpers"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -19.0
+size_flags_vertical = 8
+custom_constants/margin_right = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 3
+
+[node name="Hbox" type="HBoxContainer" parent="CtrlHelpers/Margin"]
+margin_left = 214.0
+margin_right = 336.0
+margin_bottom = 16.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+custom_constants/separation = 4
+alignment = 2
+
+[node name="HbxAccept" type="HBoxContainer" parent="CtrlHelpers/Margin/Hbox"]
+margin_right = 53.0
+margin_bottom = 16.0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+alignment = 1
+
+[node name="Icon" parent="CtrlHelpers/Margin/Hbox/HbxAccept" instance=ExtResource( 6 )]
+action = "ui_accept"
+
+[node name="Label" type="Label" parent="CtrlHelpers/Margin/Hbox/HbxAccept"]
+margin_left = 20.0
+margin_top = 1.0
+margin_right = 53.0
+margin_bottom = 15.0
+text = "SELECT"
+
+[node name="HbxMoveUD" type="HBoxContainer" parent="CtrlHelpers/Margin/Hbox"]
+margin_left = 57.0
+margin_right = 122.0
+margin_bottom = 16.0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+alignment = 1
+
+[node name="Icon" parent="CtrlHelpers/Margin/Hbox/HbxMoveUD" instance=ExtResource( 6 )]
+action = "ui_up"
+
+[node name="Icon2" parent="CtrlHelpers/Margin/Hbox/HbxMoveUD" instance=ExtResource( 6 )]
+margin_left = 20.0
+margin_right = 36.0
+action = "ui_down"
+
+[node name="Label" type="Label" parent="CtrlHelpers/Margin/Hbox/HbxMoveUD"]
+margin_left = 40.0
+margin_top = 1.0
+margin_right = 65.0
+margin_bottom = 15.0
+text = "MOVE"
+
+[node name="Logo" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -111.0
+margin_top = -90.5
+margin_right = 111.0
+margin_bottom = -1.5
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+
+[node name="ButtonListVerticalScroll" parent="." instance=ExtResource( 3 )]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.0
+margin_top = -18.0
+margin_right = 80.0
+margin_bottom = 62.0
+input_enabled = false
+items = [ [ "start", "START" ], [ "prequel", "GETTHEPREQUEL" ], [ "fullgame", "GETFULLGAME" ], [ "dev_room", "Dev Room" ], [ "website", "WEBSITE" ], [ "gallery", "GALLERY" ], [ "achievements", "ACHIEVEMENTS" ], [ "credits", "CREDITS" ], [ "options", "OPTIONS" ], [ "exit", "EXIT" ] ]
+
+[node name="HBxAndroidPlayGamesLogin" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+modulate = Color( 1, 1, 1, 0 )
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = -30.0
+margin_right = 115.0
+margin_bottom = -6.0
+
+[node name="TextureRect" type="TextureRect" parent="HBxAndroidPlayGamesLogin"]
+margin_right = 24.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 24, 24 )
+texture = ExtResource( 16 )
+stretch_mode = 3
+
+[node name="BtnLoginPlaygamesAndroid" type="Button" parent="HBxAndroidPlayGamesLogin"]
+unique_name_in_owner = true
+margin_left = 28.0
+margin_top = 5.0
+margin_right = 105.0
+margin_bottom = 19.0
+focus_mode = 0
+size_flags_vertical = 4
+text = "LOGINPLAYGAMES"
+
+[node name="ShowHideElementsWithGamepadAndTouch" parent="." instance=ExtResource( 7 )]
+objs = [ NodePath("../CtrlHelpers") ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 4 )
+anims/show = SubResource( 5 )
+script = ExtResource( 9 )
+anim_name_autostart = "show"
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+playback_speed = 0.05
+anims/RESET = SubResource( 6 )
+anims/clouds = SubResource( 7 )
+script = ExtResource( 9 )
+anim_name_autostart = "clouds"
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+mouse_filter = 1
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Control"]
+position = Vector2( -140, -70 )
+shape = SubResource( 8 )
+action = "ui_start"
+
+[connection signal="pressed" from="HBxAndroidPlayGamesLogin/BtnLoginPlaygamesAndroid" to="." method="_on_BtnLoginPlaygamesAndroid_pressed"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ec_charging.ogg-a9a7bdd67ce888ff7689510cd8918d5a.oggstr"
+
+[deps]
+
+source_file="res://assets/sfx/ec_charging.ogg"
+dest_files=[ "res://.import/ec_charging.ogg-a9a7bdd67ce888ff7689510cd8918d5a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

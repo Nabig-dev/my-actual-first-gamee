@@ -1,0 +1,96 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"animation_wait": false,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1710264325.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": true,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1677183999.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "..."
+		},
+		{
+			"event_id": "renamename_001",
+			"my_text_key": "???"
+		},
+		{
+			"character": "character-1710264325.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG3_1718311861"
+		},
+		{
+			"event_id": "renamename_001",
+			"my_text_key": "???"
+		},
+		{
+			"character": "character-1710264325.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG5_1718311861"
+		},
+		{
+			"event_id": "renamename_001",
+			"my_text_key": "???"
+		},
+		{
+			"character": "character-1710264325.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG7_1718311861"
+		},
+		{
+			"event_id": "renamename_001",
+			"my_text_key": "???"
+		},
+		{
+			"character": "character-1710264325.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG9_1718311861"
+		},
+		{
+			"event_id": "renamename_001",
+			"my_text_key": "???"
+		},
+		{
+			"character": "character-1710264325.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG11_1718311861"
+		},
+		{
+			"event_id": "renamename_001",
+			"my_text_key": "???"
+		},
+		{
+			"character": "character-1710264325.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG13_1718311861"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1718311861.json",
+		"name": "elisia-event-a"
+	}
+}

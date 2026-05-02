@@ -1,0 +1,261 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1710264048.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": true,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1677183999.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "..."
+		},
+		{
+			"event_id": "renamename_001",
+			"my_text_key": "???"
+		},
+		{
+			"character": "character-1710264048.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG3_1712163955"
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_position": true,
+			"change_z_index": false,
+			"character": "character-1710264048.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "(Don't change)",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 2,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1710264174.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1710264174.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG6_1712163955"
+		},
+		{
+			"character": "character-1710264048.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG7_1712163955"
+		},
+		{
+			"character": "character-1710264048.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG8_1712163955"
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_position": true,
+			"change_z_index": false,
+			"character": "character-1710264048.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "(Don't change)",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 2,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1710264174.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 1,
+			"z_index": 0
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Angry",
+			"text": "DLG12_1712163955"
+		},
+		{
+			"character": "character-1710264048.json",
+			"event_id": "dialogic_001",
+			"portrait": "(Don't change)",
+			"text": "DLG13_1712163955"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Angry",
+			"text": "DLG14_1712163955"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Angry",
+			"text": "DLG15_1712163955"
+		},
+		{
+			"character": "character-1710264048.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "..."
+		},
+		{
+			"character": "character-1710264048.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG17_1712163955"
+		},
+		{
+			"character": "character-1710264048.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG18_1712163955"
+		},
+		{
+			"character": "character-1710264048.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG19_1712163955"
+		},
+		{
+			"character": "character-1710264048.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG20_1712163955"
+		},
+		{
+			"character": "character-1710264048.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG21_1712163955"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG22_1712163955"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG23_1712163955"
+		},
+		{
+			"character": "character-1710264048.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG24_1712163955"
+		},
+		{
+			"character": "character-1710264048.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG25_1712163955"
+		},
+		{
+			"character": "character-1710264048.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG26_1712163955"
+		},
+		{
+			"character": "character-1710264048.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG27_1712163955"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1712163955.json",
+		"name": "annette_appear"
+	}
+}

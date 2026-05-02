@@ -1,0 +1,1869 @@
+[gd_scene load_steps=40 format=2]
+
+[ext_resource path="res://src/ui_elements/bg_parallax_demon_forest.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/tres/ThemeBasic.tres" type="Theme" id=2]
+[ext_resource path="res://src/screens/manage_savegame.gd" type="Script" id=3]
+[ext_resource path="res://src/ui_elements/button_savegame.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/sprites/box_square_focus.png" type="Texture" id=5]
+[ext_resource path="res://assets/tres/fonts/alkemikal_small.tres" type="DynamicFont" id=6]
+[ext_resource path="res://assets/sprites/panels/dialog_red_light.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/panels/dialog_purple_light.png" type="Texture" id=8]
+[ext_resource path="res://src/ui_elements/helper_icon_btn.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/sprites/blood_slash_bg/blood_slash_bg_1.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/blood_slash_bg/blood_slash_bg_2.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/enemies/skull_flame_red.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/panel_corner.png" type="Texture" id=13]
+[ext_resource path="res://addons/carrousel_menu/CarrouselMenu.gd" type="Script" id=14]
+[ext_resource path="res://src/ui_elements/difficulty_frame.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/images/texture_old_paper.jpg" type="Texture" id=16]
+[ext_resource path="res://assets/sprites/arrow.png" type="Texture" id=17]
+[ext_resource path="res://assets/sprites/arrow_b.png" type="Texture" id=18]
+[ext_resource path="res://assets/sprites/social_icons/playgames.png" type="Texture" id=19]
+[ext_resource path="res://src/ui_elements/custom_spin_box.tscn" type="PackedScene" id=20]
+
+[sub_resource type="StyleBoxEmpty" id=16]
+
+[sub_resource type="StyleBoxLine" id=15]
+color = Color( 1, 1, 1, 0.352941 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 16, 16 )
+margin_top = 2.0
+margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 16, 16 )
+margin_top = 2.0
+margin_bottom = 2.0
+
+[sub_resource type="CanvasItemMaterial" id=5]
+blend_mode = 1
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 12 )
+region = Rect2( 63, 0, 63, 75 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 12 )
+region = Rect2( 126, 0, 63, 75 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 12 )
+region = Rect2( 189, 0, 63, 75 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 12 )
+region = Rect2( 252, 0, 63, 75 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 12 )
+region = Rect2( 315, 0, 63, 75 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 12 )
+region = Rect2( 378, 0, 63, 75 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 12 )
+region = Rect2( 441, 0, 63, 75 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 12 )
+region = Rect2( 504, 0, 63, 75 )
+
+[sub_resource type="SpriteFrames" id=14]
+animations = [ {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ColorRect3:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ColorRect3:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 4.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="StyleBoxTexture" id=17]
+texture = ExtResource( 16 )
+region_rect = Rect2( 0, 0, 1800, 1350 )
+modulate_color = Color( 0.65098, 0.65098, 0.65098, 1 )
+
+[sub_resource type="StyleBoxLine" id=18]
+color = Color( 0.713726, 0.713726, 0.713726, 1 )
+
+[sub_resource type="StyleBoxLine" id=19]
+color = Color( 0.686275, 0.686275, 0.686275, 1 )
+
+[node name="MainStorySavegame" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+theme = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="BgParallaxDemonForest" parent="." instance=ExtResource( 1 )]
+modulate = Color( 0.772549, 0.0196078, 0.854902, 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+custom_constants/margin_right = 12
+custom_constants/margin_top = 2
+custom_constants/margin_left = 12
+custom_constants/margin_bottom = 7
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 12.0
+margin_top = 2.0
+margin_right = 329.0
+margin_bottom = 185.0
+alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+margin_right = 317.0
+custom_constants/separation = -1
+custom_styles/separator = SubResource( 16 )
+
+[node name="LblStageTitle" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+modulate = Color( 1, 1, 1, 0.521569 )
+margin_top = 4.0
+margin_right = 317.0
+margin_bottom = 18.0
+text = "NAME GAME"
+align = 1
+valign = 1
+
+[node name="BtnSave0" parent="MarginContainer/VBoxContainer" instance=ExtResource( 4 )]
+unique_name_in_owner = true
+margin_top = 22.0
+margin_right = 317.0
+margin_bottom = 62.0
+focus_neighbour_top = NodePath("../HBoxContainer/BtnReturn")
+
+[node name="BtnSave1" parent="MarginContainer/VBoxContainer" instance=ExtResource( 4 )]
+unique_name_in_owner = true
+margin_top = 66.0
+margin_right = 317.0
+margin_bottom = 106.0
+save_slot = 1
+
+[node name="BtnSave2" parent="MarginContainer/VBoxContainer" instance=ExtResource( 4 )]
+unique_name_in_owner = true
+margin_top = 110.0
+margin_right = 317.0
+margin_bottom = 150.0
+save_slot = 2
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+margin_top = 154.0
+margin_right = 317.0
+margin_bottom = 154.0
+custom_constants/separation = -1
+custom_styles/separator = SubResource( 15 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 158.0
+margin_right = 317.0
+margin_bottom = 183.0
+size_flags_vertical = 3
+custom_constants/separation = 21
+
+[node name="BtnReturn" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 91.0
+margin_bottom = 25.0
+focus_neighbour_bottom = NodePath("../../BtnSave0")
+size_flags_horizontal = 3
+text = "RETURN"
+
+[node name="BtnDeleteSaveData" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 112.0
+margin_right = 203.0
+margin_bottom = 25.0
+focus_neighbour_bottom = NodePath("../../BtnSave0")
+size_flags_horizontal = 3
+text = "DELETE_DATA"
+
+[node name="BtnRestoreData" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 224.0
+margin_right = 317.0
+margin_bottom = 25.0
+focus_neighbour_bottom = NodePath("../../BtnSave0")
+size_flags_horizontal = 3
+text = "RESTORE_DATA"
+icon = ExtResource( 19 )
+
+[node name="PopupKeyboard" type="Popup" parent="."]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="PopupKeyboard"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.890196 )
+
+[node name="TextureRect" type="TextureRect" parent="PopupKeyboard"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -159.0
+margin_top = -76.0
+margin_right = -143.0
+margin_bottom = -60.0
+texture = ExtResource( 13 )
+
+[node name="TextureRect2" type="TextureRect" parent="PopupKeyboard"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 42.0
+margin_top = -76.0
+margin_right = 58.0
+margin_bottom = -60.0
+rect_scale = Vector2( -1, 1 )
+texture = ExtResource( 13 )
+
+[node name="TextureRect3" type="TextureRect" parent="PopupKeyboard"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -159.0
+margin_top = 51.0
+margin_right = -143.0
+margin_bottom = 67.0
+rect_scale = Vector2( 1, -1 )
+texture = ExtResource( 13 )
+
+[node name="TextureRect4" type="TextureRect" parent="PopupKeyboard"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 42.0
+margin_top = 51.0
+margin_right = 58.0
+margin_bottom = 67.0
+rect_min_size = Vector2( 0, -1 )
+rect_scale = Vector2( -1, -1 )
+texture = ExtResource( 13 )
+
+[node name="PanelContainer2" type="PanelContainer" parent="PopupKeyboard"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.5
+margin_top = -67.5
+margin_right = 32.5
+margin_bottom = -40.5
+custom_styles/panel = SubResource( 2 )
+
+[node name="CenterContainer" type="CenterContainer" parent="PopupKeyboard/PanelContainer2"]
+margin_top = 2.0
+margin_right = 183.0
+margin_bottom = 25.0
+
+[node name="LblSaveNameTitle" type="Label" parent="PopupKeyboard/PanelContainer2/CenterContainer"]
+unique_name_in_owner = true
+margin_left = 57.0
+margin_top = 3.0
+margin_right = 125.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 6 )
+text = "SAVENAME"
+
+[node name="PanelContainer" type="PanelContainer" parent="PopupKeyboard"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.5
+margin_top = -41.5
+margin_right = 32.5
+margin_bottom = 41.5
+custom_styles/panel = SubResource( 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="PopupKeyboard/PanelContainer"]
+margin_top = 2.0
+margin_right = 183.0
+margin_bottom = 81.0
+
+[node name="KeyboardGridContainer" type="GridContainer" parent="PopupKeyboard/PanelContainer/CenterContainer"]
+unique_name_in_owner = true
+margin_left = 3.0
+margin_top = 1.0
+margin_right = 179.0
+margin_bottom = 77.0
+columns = 9
+
+[node name="TextureButton" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "A"
+align = 1
+valign = 1
+
+[node name="TextureButton2" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 20.0
+margin_right = 36.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "B"
+align = 1
+valign = 1
+
+[node name="TextureButton3" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 40.0
+margin_right = 56.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "C"
+align = 1
+valign = 1
+
+[node name="TextureButton4" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 60.0
+margin_right = 76.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "D"
+align = 1
+valign = 1
+
+[node name="TextureButton5" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "E"
+align = 1
+valign = 1
+
+[node name="TextureButton6" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 100.0
+margin_right = 116.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton6"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "F"
+align = 1
+valign = 1
+
+[node name="TextureButton7" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 120.0
+margin_right = 136.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton7"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "G"
+align = 1
+valign = 1
+
+[node name="TextureButton8" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 140.0
+margin_right = 156.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton8"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "H"
+align = 1
+valign = 1
+
+[node name="TextureButton9" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 160.0
+margin_right = 176.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton9"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "I"
+align = 1
+valign = 1
+
+[node name="TextureButton10" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_top = 20.0
+margin_right = 16.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton10"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "J"
+align = 1
+valign = 1
+
+[node name="TextureButton11" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 36.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton11"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "K"
+align = 1
+valign = 1
+
+[node name="TextureButton12" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 40.0
+margin_top = 20.0
+margin_right = 56.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton12"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "L"
+align = 1
+valign = 1
+
+[node name="TextureButton13" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 60.0
+margin_top = 20.0
+margin_right = 76.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton13"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "M"
+align = 1
+valign = 1
+
+[node name="TextureButton14" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 80.0
+margin_top = 20.0
+margin_right = 96.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton14"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "N"
+align = 1
+valign = 1
+
+[node name="TextureButton15" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 100.0
+margin_top = 20.0
+margin_right = 116.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton15"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "Ñ"
+align = 1
+valign = 1
+
+[node name="TextureButton16" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 120.0
+margin_top = 20.0
+margin_right = 136.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton16"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "O"
+align = 1
+valign = 1
+
+[node name="TextureButton17" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 140.0
+margin_top = 20.0
+margin_right = 156.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton17"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "P"
+align = 1
+valign = 1
+
+[node name="TextureButton18" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 160.0
+margin_top = 20.0
+margin_right = 176.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton18"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "Q"
+align = 1
+valign = 1
+
+[node name="TextureButton19" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_top = 40.0
+margin_right = 16.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton19"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "R"
+align = 1
+valign = 1
+
+[node name="TextureButton20" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 20.0
+margin_top = 40.0
+margin_right = 36.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton20"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "S"
+align = 1
+valign = 1
+
+[node name="TextureButton21" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 56.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton21"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "T"
+align = 1
+valign = 1
+
+[node name="TextureButton22" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 60.0
+margin_top = 40.0
+margin_right = 76.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton22"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "U"
+align = 1
+valign = 1
+
+[node name="TextureButton23" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 80.0
+margin_top = 40.0
+margin_right = 96.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton23"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "V"
+align = 1
+valign = 1
+
+[node name="TextureButton24" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 100.0
+margin_top = 40.0
+margin_right = 116.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton24"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "W"
+align = 1
+valign = 1
+
+[node name="TextureButton25" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 120.0
+margin_top = 40.0
+margin_right = 136.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton25"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "X"
+align = 1
+valign = 1
+
+[node name="TextureButton26" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 140.0
+margin_top = 40.0
+margin_right = 156.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton26"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "Y"
+align = 1
+valign = 1
+
+[node name="TextureButton27" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 160.0
+margin_top = 40.0
+margin_right = 176.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton27"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "Z"
+align = 1
+valign = 1
+
+[node name="TextureButton28" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_top = 60.0
+margin_right = 16.0
+margin_bottom = 76.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton28"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "@"
+align = 1
+valign = 1
+
+[node name="TextureButton29" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 20.0
+margin_top = 60.0
+margin_right = 36.0
+margin_bottom = 76.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton29"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "."
+align = 1
+valign = 1
+
+[node name="TextureButton30" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 40.0
+margin_top = 60.0
+margin_right = 56.0
+margin_bottom = 76.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton30"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "-"
+align = 1
+valign = 1
+
+[node name="TextureButton31" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 60.0
+margin_top = 60.0
+margin_right = 76.0
+margin_bottom = 76.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton31"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "'"
+align = 1
+valign = 1
+
+[node name="TextureButton32" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 80.0
+margin_top = 60.0
+margin_right = 96.0
+margin_bottom = 76.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton32"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "!"
+align = 1
+valign = 1
+
+[node name="TextureButton33" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 100.0
+margin_top = 60.0
+margin_right = 116.0
+margin_bottom = 76.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton33"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "?"
+align = 1
+valign = 1
+
+[node name="TextureButton34" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 120.0
+margin_top = 60.0
+margin_right = 136.0
+margin_bottom = 76.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton34"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "*"
+align = 1
+valign = 1
+
+[node name="TextureButton35" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 140.0
+margin_top = 60.0
+margin_right = 156.0
+margin_bottom = 76.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton35"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "$"
+align = 1
+valign = 1
+
+[node name="TextureButton36" type="TextureButton" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer"]
+margin_left = 160.0
+margin_top = 60.0
+margin_right = 176.0
+margin_bottom = 76.0
+rect_min_size = Vector2( 16, 16 )
+texture_focused = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="PopupKeyboard/PanelContainer/CenterContainer/KeyboardGridContainer/TextureButton36"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "_"
+align = 1
+valign = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupKeyboard"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 51.0
+margin_top = -38.0
+margin_right = 148.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+
+[node name="BtnCreatedSaveName" type="Button" parent="PopupKeyboard/VBoxContainer"]
+margin_right = 97.0
+margin_bottom = 36.0
+focus_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "START"
+
+[node name="HelperIconBtn" parent="PopupKeyboard/VBoxContainer/BtnCreatedSaveName" instance=ExtResource( 9 )]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -9.0
+margin_bottom = 7.0
+hide_method_touch = "visible"
+
+[node name="BtnCancelSaveName" type="Button" parent="PopupKeyboard/VBoxContainer"]
+margin_top = 40.0
+margin_right = 97.0
+margin_bottom = 76.0
+focus_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "ACTION_UI_CANCEL"
+
+[node name="HelperIconBtn" parent="PopupKeyboard/VBoxContainer/BtnCancelSaveName" instance=ExtResource( 9 )]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -9.0
+margin_bottom = 7.0
+hide_method_touch = "visible"
+action = "ui_select"
+
+[node name="Label" type="Label" parent="PopupKeyboard"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -112.0
+margin_top = 5.0
+margin_right = -7.0
+margin_bottom = 19.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+text = "WRITE_NAME_FOR_SAVE"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PopupKeyboard"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -149.5
+margin_top = 46.0
+margin_right = -38.5
+margin_bottom = 62.0
+custom_constants/separation = 11
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PopupKeyboard/HBoxContainer2"]
+margin_right = 47.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+
+[node name="HelperIconBtn" parent="PopupKeyboard/HBoxContainer2/HBoxContainer" instance=ExtResource( 9 )]
+hide_method_touch = "visible"
+action = "ui_cancel"
+
+[node name="BtnEraseLetter" type="Button" parent="PopupKeyboard/HBoxContainer2/HBoxContainer"]
+margin_left = 20.0
+margin_right = 47.0
+margin_bottom = 16.0
+focus_mode = 0
+size_flags_horizontal = 3
+text = "ERASE"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PopupKeyboard/HBoxContainer2"]
+margin_left = 58.0
+margin_right = 111.0
+margin_bottom = 16.0
+
+[node name="HelperIconBtnSelectKybrd" parent="PopupKeyboard/HBoxContainer2/HBoxContainer2" instance=ExtResource( 9 )]
+hide_method_touch = "visible"
+action = "ui_accept"
+
+[node name="Label" type="Label" parent="PopupKeyboard/HBoxContainer2/HBoxContainer2"]
+margin_left = 20.0
+margin_top = 1.0
+margin_right = 53.0
+margin_bottom = 15.0
+text = "SELECT"
+
+[node name="PopupQuicksaveExists" type="Popup" parent="."]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="PopupQuicksaveExists"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.745098 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupQuicksaveExists"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -61.5
+margin_top = -25.0
+margin_right = 61.5
+margin_bottom = 25.0
+grow_horizontal = 2
+
+[node name="BtnQuickLoad" type="Button" parent="PopupQuicksaveExists/VBoxContainer"]
+unique_name_in_owner = true
+margin_right = 123.0
+margin_bottom = 14.0
+text = "LOAD_QUICKSAVE"
+
+[node name="BtnNormalLoad" type="Button" parent="PopupQuicksaveExists/VBoxContainer"]
+margin_top = 18.0
+margin_right = 123.0
+margin_bottom = 32.0
+text = "LOAD_GAME"
+
+[node name="BtnExitQuickSaveMenu" type="Button" parent="PopupQuicksaveExists/VBoxContainer"]
+margin_top = 36.0
+margin_right = 123.0
+margin_bottom = 50.0
+text = "RETURN"
+
+[node name="Label" type="Label" parent="PopupQuicksaveExists"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = -19.0
+margin_right = 125.0
+margin_bottom = -5.0
+text = "ABOUT_QUICKSAVE_EXISTS"
+
+[node name="Label2" type="Label" parent="PopupQuicksaveExists"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -72.5
+margin_top = -60.0
+margin_right = 72.5
+margin_bottom = -44.0
+grow_horizontal = 2
+custom_fonts/font = ExtResource( 6 )
+text = "QUICKSAVE_DETECTED"
+align = 1
+
+[node name="PopupDeleteData" type="Popup" parent="."]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="PopupDeleteData"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.745098 )
+
+[node name="Label" type="Label" parent="PopupDeleteData"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -87.0
+margin_top = -63.0
+margin_right = 87.0
+margin_bottom = -47.0
+custom_fonts/font = ExtResource( 6 )
+text = "SELECT_SLOT_TO_DELETE"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupDeleteData"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -88.0
+margin_top = -30.5
+margin_right = 88.0
+margin_bottom = 46.5
+grow_horizontal = 2
+custom_constants/separation = 7
+
+[node name="BtnReturnFromDeleteMenu" type="Button" parent="PopupDeleteData/VBoxContainer"]
+unique_name_in_owner = true
+margin_right = 176.0
+margin_bottom = 14.0
+text = "RETURN"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PopupDeleteData/VBoxContainer"]
+margin_top = 21.0
+margin_right = 176.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="PopupDeleteData/VBoxContainer/HBoxContainer"]
+margin_right = 86.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Slot: 1"
+
+[node name="BtnDeleteSlot0" type="Button" parent="PopupDeleteData/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 90.0
+margin_right = 176.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "DELETE"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PopupDeleteData/VBoxContainer"]
+margin_top = 42.0
+margin_right = 176.0
+margin_bottom = 56.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="PopupDeleteData/VBoxContainer/HBoxContainer2"]
+margin_right = 86.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Slot: 2"
+
+[node name="BtnDeleteSlot1" type="Button" parent="PopupDeleteData/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+margin_left = 90.0
+margin_right = 176.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "DELETE"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PopupDeleteData/VBoxContainer"]
+margin_top = 63.0
+margin_right = 176.0
+margin_bottom = 77.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="PopupDeleteData/VBoxContainer/HBoxContainer3"]
+margin_right = 86.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Slot: 3"
+
+[node name="BtnDeleteSlot2" type="Button" parent="PopupDeleteData/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+margin_left = 90.0
+margin_right = 176.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "DELETE"
+
+[node name="Label2" type="Label" parent="PopupDeleteData"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = -19.0
+margin_right = 141.0
+margin_bottom = -5.0
+text = "THIS_ACTION_CANT_BE_UNDO"
+
+[node name="ControlGameLoaded" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="ControlGameLoaded"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="ControlGameLoaded"]
+visible = false
+modulate = Color( 1, 1, 1, 0.54902 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="ControlGameLoaded"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -120.0
+margin_top = -15.0
+margin_right = 94.0
+margin_bottom = 108.0
+rect_rotation = -26.5
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="ControlGameLoaded"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 136.0
+margin_top = -13.0
+margin_right = 350.0
+margin_bottom = 110.0
+rect_rotation = 27.5
+rect_scale = Vector2( -1, 1 )
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="ControlGameLoaded"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+rect_min_size = Vector2( 16, 16 )
+rect_pivot_offset = Vector2( 8, 8 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="ControlGameLoaded/TextureRect4"]
+modulate = Color( 1, 1, 1, 0.556863 )
+material = SubResource( 5 )
+position = Vector2( 10, -12 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 14 )
+playing = true
+
+[node name="ColorRect2" type="ColorRect" parent="ControlGameLoaded"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0 )
+
+[node name="ColorRect3" type="ColorRect" parent="ControlGameLoaded"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+
+[node name="TimerGoToScene" type="Timer" parent="ControlGameLoaded"]
+unique_name_in_owner = true
+wait_time = 4.0
+one_shot = true
+
+[node name="PreGoToSceneAnim" type="AnimationPlayer" parent="ControlGameLoaded"]
+unique_name_in_owner = true
+anims/RESET = SubResource( 3 )
+anims/show = SubResource( 4 )
+
+[node name="PopupDifficulty" type="PopupPanel" parent="."]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 2
+custom_styles/panel = SubResource( 17 )
+
+[node name="DifficultyFrame" parent="PopupDifficulty" instance=ExtResource( 15 )]
+position = Vector2( 43, -120 )
+
+[node name="DifficultyFrame2" parent="PopupDifficulty" instance=ExtResource( 15 )]
+position = Vector2( 171, -120 )
+diff = 1
+
+[node name="DifficultyFrame3" parent="PopupDifficulty" instance=ExtResource( 15 )]
+position = Vector2( 298, -120 )
+diff = 2
+
+[node name="Control" type="Control" parent="PopupDifficulty"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="PopupDifficulty/Control"]
+anchor_right = 1.0
+margin_top = 6.0
+margin_bottom = 22.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_fonts/font = ExtResource( 6 )
+text = "SELECT_DIFFICULTY"
+align = 1
+valign = 1
+
+[node name="HBxHelpers" type="HBoxContainer" parent="PopupDifficulty/Control"]
+unique_name_in_owner = true
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = -20.0
+margin_right = 69.0
+margin_bottom = -4.0
+
+[node name="HelperIconBtn" parent="PopupDifficulty/Control/HBxHelpers" instance=ExtResource( 9 )]
+unique_name_in_owner = true
+hide_method_touch = "visible"
+action = "ui_left"
+
+[node name="HelperIconBtn2" parent="PopupDifficulty/Control/HBxHelpers" instance=ExtResource( 9 )]
+margin_left = 20.0
+margin_right = 36.0
+hide_method_touch = "visible"
+action = "ui_right"
+
+[node name="Label" type="Label" parent="PopupDifficulty/Control/HBxHelpers"]
+margin_left = 40.0
+margin_top = 1.0
+margin_right = 65.0
+margin_bottom = 15.0
+text = "MOVE"
+
+[node name="LblDiffDesc" type="Label" parent="PopupDifficulty/Control"]
+unique_name_in_owner = true
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = 47.0
+margin_bottom = 61.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+text = "DIFFICULTY_DESCRIPTION_0"
+align = 1
+autowrap = true
+
+[node name="LblDiffDesc2" type="Label" parent="PopupDifficulty/Control"]
+unique_name_in_owner = true
+visible = false
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = 41.0
+margin_bottom = 55.0
+text = "Mas detalles acerca de dificultad...."
+align = 1
+autowrap = true
+
+[node name="BtnDiffSelected" type="Button" parent="PopupDifficulty/Control"]
+unique_name_in_owner = true
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -41.5
+margin_top = -30.0
+margin_right = 42.5
+margin_bottom = -10.0
+focus_mode = 0
+text = "ACTION_UI_ACCEPT"
+
+[node name="HelperIconBtn" parent="PopupDifficulty/Control/BtnDiffSelected" instance=ExtResource( 9 )]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -2.0
+margin_top = -8.0
+margin_right = 14.0
+margin_bottom = 8.0
+hide_method_touch = "visible"
+action = "ui_accept"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PopupDifficulty/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -82.0
+margin_top = -32.0
+margin_right = 82.0
+margin_bottom = 8.0
+grow_horizontal = 2
+custom_constants/separation = 100
+
+[node name="BtnDiffL" type="TextureButton" parent="PopupDifficulty/Control/HBoxContainer"]
+margin_right = 32.0
+margin_bottom = 40.0
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 18 )
+texture_hover = ExtResource( 18 )
+flip_h = true
+
+[node name="BtnDiffR" type="TextureButton" parent="PopupDifficulty/Control/HBoxContainer"]
+margin_left = 132.0
+margin_right = 164.0
+margin_bottom = 40.0
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 18 )
+texture_hover = ExtResource( 18 )
+
+[node name="CtrlCenter" type="Control" parent="PopupDifficulty/Control"]
+unique_name_in_owner = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_top = -13.0
+margin_bottom = -13.0
+mouse_filter = 2
+
+[node name="CarouselMenu" type="Node2D" parent="PopupDifficulty/Control/CtrlCenter"]
+unique_name_in_owner = true
+script = ExtResource( 14 )
+active = false
+key_select = "ui_accept"
+separation = 180.0
+scale_focused = 0.9
+scale_unfocused = 0.8
+unfocused_position_y_offset = 0.0
+minimum_for_infinite_list = 3
+items = [ NodePath("../../../DifficultyFrame"), NodePath("../../../DifficultyFrame2"), NodePath("../../../DifficultyFrame3") ]
+
+[node name="PopupRestoreData" type="Popup" parent="."]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="PopupRestoreData"]
+modulate = Color( 0.435294, 0.435294, 0.435294, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 0
+texture = ExtResource( 16 )
+expand = true
+
+[node name="MarginContainer" type="MarginContainer" parent="PopupRestoreData"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupRestoreData/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 331.0
+margin_bottom = 182.0
+
+[node name="Label" type="Label" parent="PopupRestoreData/MarginContainer/VBoxContainer"]
+margin_right = 321.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 6 )
+text = "RESTORE_DATA"
+align = 1
+
+[node name="Label2" type="Label" parent="PopupRestoreData/MarginContainer/VBoxContainer"]
+margin_top = 20.0
+margin_right = 321.0
+margin_bottom = 34.0
+custom_constants/line_spacing = -3
+text = "ABOUT_RESTORE_PLAYGAMES"
+align = 1
+autowrap = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PopupRestoreData/MarginContainer/VBoxContainer"]
+margin_top = 38.0
+margin_right = 321.0
+margin_bottom = 62.0
+size_flags_vertical = 4
+custom_constants/separation = 21
+alignment = 1
+
+[node name="BtnSelectSnapshotPlaystore" type="Button" parent="PopupRestoreData/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 74.0
+margin_right = 246.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 20 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "SELECT_GAMESAVE_TO_RESTORE"
+icon = ExtResource( 19 )
+
+[node name="SpinBoxSlotSnapshotLoad" parent="PopupRestoreData/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 20 )]
+unique_name_in_owner = true
+visible = false
+margin_left = 201.0
+margin_top = 2.0
+margin_right = 287.0
+margin_bottom = 18.0
+min_value = 1
+max_value = 3
+current_value = 1
+
+[node name="HSeparator2" type="HSeparator" parent="PopupRestoreData/MarginContainer/VBoxContainer"]
+margin_top = 66.0
+margin_right = 321.0
+margin_bottom = 70.0
+custom_styles/separator = SubResource( 18 )
+
+[node name="HBxRestoreInfo" type="HBoxContainer" parent="PopupRestoreData/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 74.0
+margin_right = 321.0
+margin_bottom = 111.0
+
+[node name="LblResultSavegameRestore" type="Label" parent="PopupRestoreData/MarginContainer/VBoxContainer/HBxRestoreInfo"]
+unique_name_in_owner = true
+margin_right = 163.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_constants/line_spacing = -3
+text = "NO_DATA"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="LblResultSavegameRestore2" type="Label" parent="PopupRestoreData/MarginContainer/VBoxContainer/HBxRestoreInfo"]
+unique_name_in_owner = true
+margin_left = 167.0
+margin_right = 207.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 40, 0 )
+size_flags_vertical = 7
+custom_constants/line_spacing = -3
+text = ">>>>>>>"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupRestoreData/MarginContainer/VBoxContainer/HBxRestoreInfo"]
+margin_left = 211.0
+margin_right = 321.0
+margin_bottom = 37.0
+
+[node name="SpinBoxSlotSnapshotSave" parent="PopupRestoreData/MarginContainer/VBoxContainer/HBxRestoreInfo/VBoxContainer" instance=ExtResource( 20 )]
+unique_name_in_owner = true
+margin_right = 110.0
+margin_bottom = 18.0
+min_value = 1
+max_value = 3
+current_value = 1
+
+[node name="BtnStartRestoreSnapshot" type="Button" parent="PopupRestoreData/MarginContainer/VBoxContainer/HBxRestoreInfo/VBoxContainer"]
+unique_name_in_owner = true
+modulate = Color( 0.584314, 1, 0.419608, 1 )
+margin_top = 22.0
+margin_right = 110.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 0, 15 )
+text = "RESTORE"
+
+[node name="HSeparator" type="HSeparator" parent="PopupRestoreData/MarginContainer/VBoxContainer"]
+margin_top = 115.0
+margin_right = 321.0
+margin_bottom = 119.0
+custom_styles/separator = SubResource( 18 )
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PopupRestoreData/MarginContainer/VBoxContainer"]
+margin_top = 123.0
+margin_right = 321.0
+margin_bottom = 147.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="BtnCloseRestoreDataPopup" type="Button" parent="PopupRestoreData/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+margin_right = 321.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 64, 24 )
+size_flags_horizontal = 3
+text = "CLOSE"
+
+[node name="PopupRestoreDataConfirmation" type="Popup" parent="."]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="PopupRestoreDataConfirmation"]
+modulate = Color( 0.435294, 0.435294, 0.435294, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 0
+texture = ExtResource( 16 )
+expand = true
+
+[node name="MarginContainer" type="MarginContainer" parent="PopupRestoreDataConfirmation"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupRestoreDataConfirmation/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 331.0
+margin_bottom = 182.0
+alignment = 1
+
+[node name="Label" type="Label" parent="PopupRestoreDataConfirmation/MarginContainer/VBoxContainer"]
+margin_top = 40.0
+margin_right = 321.0
+margin_bottom = 56.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 6 )
+text = "ARESURETORESTOREDATA"
+align = 1
+autowrap = true
+
+[node name="Label2" type="Label" parent="PopupRestoreDataConfirmation/MarginContainer/VBoxContainer"]
+modulate = Color( 0.933333, 0.541176, 0.541176, 1 )
+margin_top = 60.0
+margin_right = 321.0
+margin_bottom = 74.0
+size_flags_horizontal = 3
+text = "THIS_ACTION_CANT_BE_UNDO"
+align = 1
+autowrap = true
+
+[node name="HSeparator" type="HSeparator" parent="PopupRestoreDataConfirmation/MarginContainer/VBoxContainer"]
+margin_top = 78.0
+margin_right = 321.0
+margin_bottom = 82.0
+custom_styles/separator = SubResource( 19 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PopupRestoreDataConfirmation/MarginContainer/VBoxContainer"]
+modulate = Color( 0.929412, 1, 0.0431373, 1 )
+margin_top = 86.0
+margin_right = 321.0
+margin_bottom = 100.0
+alignment = 1
+
+[node name="LblSnapshotResume" type="Label" parent="PopupRestoreDataConfirmation/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 85.0
+margin_right = 144.0
+margin_bottom = 14.0
+text = "DATARESUME"
+
+[node name="Label2" type="Label" parent="PopupRestoreDataConfirmation/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 148.0
+margin_right = 196.0
+margin_bottom = 14.0
+text = "    >>>>>>    "
+
+[node name="Label3" type="Label" parent="PopupRestoreDataConfirmation/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 200.0
+margin_right = 225.0
+margin_bottom = 14.0
+text = "SLOT:"
+
+[node name="LblSlotNumConfirm" type="Label" parent="PopupRestoreDataConfirmation/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 229.0
+margin_right = 235.0
+margin_bottom = 14.0
+text = "0"
+
+[node name="HSeparator2" type="HSeparator" parent="PopupRestoreDataConfirmation/MarginContainer/VBoxContainer"]
+margin_top = 104.0
+margin_right = 321.0
+margin_bottom = 108.0
+custom_styles/separator = SubResource( 19 )
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PopupRestoreDataConfirmation/MarginContainer/VBoxContainer"]
+margin_top = 112.0
+margin_right = 321.0
+margin_bottom = 132.0
+custom_constants/separation = 41
+alignment = 1
+
+[node name="BtnConfirmedRestoreSnapshot" type="Button" parent="PopupRestoreDataConfirmation/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+margin_left = 90.0
+margin_right = 140.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 50, 20 )
+text = "YES"
+
+[node name="BtnCancelRestoreSnapshot" type="Button" parent="PopupRestoreDataConfirmation/MarginContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 181.0
+margin_right = 231.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 50, 20 )
+text = "NO"
+
+[node name="PopupRestoreDataProccess" type="Popup" parent="."]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="PopupRestoreDataProccess"]
+modulate = Color( 0.435294, 0.435294, 0.435294, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 0
+texture = ExtResource( 16 )
+expand = true
+
+[node name="MarginContainer" type="MarginContainer" parent="PopupRestoreDataProccess"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupRestoreDataProccess/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 331.0
+margin_bottom = 182.0
+alignment = 1
+
+[node name="Label" type="Label" parent="PopupRestoreDataProccess/MarginContainer/VBoxContainer"]
+margin_top = 53.0
+margin_right = 321.0
+margin_bottom = 69.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 6 )
+text = "RESTORING_DATA"
+align = 1
+autowrap = true
+
+[node name="LblFinalSnapshotRestoreResult" type="Label" parent="PopupRestoreDataProccess/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 73.0
+margin_right = 321.0
+margin_bottom = 87.0
+size_flags_horizontal = 3
+text = "LOADING"
+align = 1
+autowrap = true
+
+[node name="HSeparator" type="HSeparator" parent="PopupRestoreDataProccess/MarginContainer/VBoxContainer"]
+margin_top = 91.0
+margin_right = 321.0
+margin_bottom = 95.0
+custom_styles/separator = SubResource( 19 )
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PopupRestoreDataProccess/MarginContainer/VBoxContainer"]
+margin_top = 99.0
+margin_right = 321.0
+margin_bottom = 119.0
+custom_constants/separation = 41
+alignment = 1
+
+[node name="BtnAcceptDataRestored" type="Button" parent="PopupRestoreDataProccess/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+margin_left = 118.0
+margin_right = 202.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 50, 20 )
+text = "ACTION_UI_ACCEPT"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BtnSave0" to="." method="_on_LoadSaveGame" binds= [ 0 ]]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BtnSave1" to="." method="_on_LoadSaveGame" binds= [ 1 ]]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BtnSave2" to="." method="_on_LoadSaveGame" binds= [ 2 ]]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/BtnReturn" to="." method="_on_BtnReturn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/BtnDeleteSaveData" to="." method="_on_BtnDeleteSaveData_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/BtnRestoreData" to="." method="_on_BtnRestoreData_pressed"]
+[connection signal="pressed" from="PopupKeyboard/VBoxContainer/BtnCreatedSaveName" to="." method="_on_BtnCreatedSaveName_pressed"]
+[connection signal="pressed" from="PopupKeyboard/VBoxContainer/BtnCancelSaveName" to="." method="_on_BtnCancelSaveName_pressed"]
+[connection signal="pressed" from="PopupKeyboard/HBoxContainer2/HBoxContainer/BtnEraseLetter" to="." method="_on_BtnEraseLetter_pressed"]
+[connection signal="visibility_changed" from="PopupKeyboard/HBoxContainer2/HBoxContainer2/HelperIconBtnSelectKybrd" to="." method="_on_HelperIconBtnSelectKybrd_visibility_changed"]
+[connection signal="pressed" from="PopupQuicksaveExists/VBoxContainer/BtnQuickLoad" to="." method="_on_BtnQuickLoad_pressed"]
+[connection signal="pressed" from="PopupQuicksaveExists/VBoxContainer/BtnNormalLoad" to="." method="_on_BtnNormalLoad_pressed"]
+[connection signal="pressed" from="PopupQuicksaveExists/VBoxContainer/BtnExitQuickSaveMenu" to="." method="_on_BtnExitQuickSaveMenu_pressed"]
+[connection signal="pressed" from="PopupDeleteData/VBoxContainer/BtnReturnFromDeleteMenu" to="." method="_on_BtnReturnFromDeleteMenu_pressed"]
+[connection signal="pressed" from="PopupDeleteData/VBoxContainer/HBoxContainer/BtnDeleteSlot0" to="." method="_on_EraseGameData" binds= [ 0 ]]
+[connection signal="pressed" from="PopupDeleteData/VBoxContainer/HBoxContainer2/BtnDeleteSlot1" to="." method="_on_EraseGameData" binds= [ 1 ]]
+[connection signal="pressed" from="PopupDeleteData/VBoxContainer/HBoxContainer3/BtnDeleteSlot2" to="." method="_on_EraseGameData" binds= [ 2 ]]
+[connection signal="visibility_changed" from="PopupDifficulty/Control/HBxHelpers/HelperIconBtn" to="." method="_on_HelperIconBtn_visibility_changed"]
+[connection signal="pressed" from="PopupDifficulty/Control/BtnDiffSelected" to="." method="_on_BtnDiffSelected_pressed"]
+[connection signal="pressed" from="PopupDifficulty/Control/HBoxContainer/BtnDiffL" to="." method="_on_BtnDiffL_pressed"]
+[connection signal="pressed" from="PopupDifficulty/Control/HBoxContainer/BtnDiffR" to="." method="_on_BtnDiffR_pressed"]
+[connection signal="focused_to" from="PopupDifficulty/Control/CtrlCenter/CarouselMenu" to="." method="_on_CarouselMenu_focused_to"]
+[connection signal="pressed" from="PopupRestoreData/MarginContainer/VBoxContainer/HBoxContainer/BtnSelectSnapshotPlaystore" to="." method="_on_BtnSelectSnapshotPlaystore_pressed"]
+[connection signal="value_changed" from="PopupRestoreData/MarginContainer/VBoxContainer/HBoxContainer/SpinBoxSlotSnapshotLoad" to="." method="_on_SpinBoxSlotSnapshotLoad_value_changed"]
+[connection signal="value_changed" from="PopupRestoreData/MarginContainer/VBoxContainer/HBxRestoreInfo/VBoxContainer/SpinBoxSlotSnapshotSave" to="." method="_on_SpinBoxSlotSnapshotSave_value_changed"]
+[connection signal="pressed" from="PopupRestoreData/MarginContainer/VBoxContainer/HBxRestoreInfo/VBoxContainer/BtnStartRestoreSnapshot" to="." method="_on_BtnStartRestoreSnapshot_pressed"]
+[connection signal="pressed" from="PopupRestoreData/MarginContainer/VBoxContainer/HBoxContainer2/BtnCloseRestoreDataPopup" to="." method="_on_BtnCloseRestoreDataPopup_pressed"]
+[connection signal="pressed" from="PopupRestoreDataConfirmation/MarginContainer/VBoxContainer/HBoxContainer2/BtnConfirmedRestoreSnapshot" to="." method="_on_BtnConfirmedRestoreSnapshot_pressed"]
+[connection signal="pressed" from="PopupRestoreDataConfirmation/MarginContainer/VBoxContainer/HBoxContainer2/BtnCancelRestoreSnapshot" to="." method="_on_BtnCancelRestoreSnapshot_pressed"]
+[connection signal="pressed" from="PopupRestoreDataProccess/MarginContainer/VBoxContainer/HBoxContainer2/BtnAcceptDataRestored" to="." method="_on_BtnAcceptDataRestored_pressed"]

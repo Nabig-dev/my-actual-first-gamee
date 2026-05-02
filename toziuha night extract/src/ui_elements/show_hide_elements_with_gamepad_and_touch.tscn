@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/ui_elements/show_hide_elements_with_gamepad_and_touch.gd" type="Script" id=1]
+
+[node name="ShowHideElementsWithGamepadAndTouch" type="Node"]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "los objetos que se añadan se ocultarán o mostrarán cuando se conecte o no un gamepad teniendo el virtualpad visible"
+}

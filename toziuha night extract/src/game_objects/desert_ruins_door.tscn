@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/game_objects/interactable_area2d_indicator.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sprites/bg_decoration/red_thomb_door.png" type="Texture" id=2]
+[ext_resource path="res://src/game_objects/desert_ruins_door.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 27, 10 )
+
+[node name="DesertRuinsDoor" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Shadow" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 1, 1, 1, 0.290196 )
+position = Vector2( 0, -40 )
+scale = Vector2( 1.3, 1.3 )
+texture = ExtResource( 2 )
+
+[node name="Shadow2" type="Sprite" parent="Shadow"]
+modulate = Color( 0, 0, 0, 0.490196 )
+position = Vector2( 0, -3.07693 )
+scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 2 )
+
+[node name="Shadow3" type="Sprite" parent="Shadow"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 0, -6.15384 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 2 )
+
+[node name="RedThombDoor" type="Sprite" parent="."]
+position = Vector2( 0, -48 )
+texture = ExtResource( 2 )
+
+[node name="InteractableArea2DIndicator" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableArea2DIndicator"]
+position = Vector2( 0, -14 )
+shape = SubResource( 1 )
+
+[connection signal="interact_requested" from="InteractableArea2DIndicator" to="." method="_on_InteractableArea2DIndicator_interact_requested"]

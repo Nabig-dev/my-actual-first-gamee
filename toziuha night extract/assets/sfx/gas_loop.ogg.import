@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/gas_loop.ogg-d27372ac7dd87ffe93f7643c56500c91.oggstr"
+
+[deps]
+
+source_file="res://assets/sfx/gas_loop.ogg"
+dest_files=[ "res://.import/gas_loop.ogg-d27372ac7dd87ffe93f7643c56500c91.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

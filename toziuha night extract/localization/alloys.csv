@@ -1,0 +1,17 @@
+﻿key,en,es,pt_BR
+O_DESC,Concentrates Oxygen atoms in a small space at high pressure to create an air whip.,Concentra átomos de Oxígeno en un espacio pequeño a una alta presión para crear un látigo de aire.,Concentra os átomos de Oxigênio num espaço pequeno em alta pressão para criar um chicote de ar.
+MG_DESC,Magnesium powder can produce a strong white light that can be blinding.,El polvo de Magnesio puede producir una luz blanca fuerte que puede ser cegadora.,Magnésio em pó pode produzir uma forte luz branca que pode cegar.
+XE_DESC,Reverses the charges of the Xenon particles to create 0.5 micrograms of Antimatter.,Invierte las cargas de las partículas de Xenon para crear 0.5 microgramos de Antimateria.,Reverte as cargas das partículas de Xenônio para criar 0.5 microgramas de Antimatéria.
+P_DESC,Creates Iron Phosphide. Releases fire when using the whip.,Crea Fosfuro de Hierro. Libera fuego al usar el látigo.,Cria o Fosfeto de Ferro. Libera fogo quando usado no chicote.
+O_TITLE,Oxigen,Oxígeno,Oxigênio
+H_DESC,From hydrogen atoms and oxygen from air it canalizes a water whip.,A partir de átomos de hidrógeno y oxigeno del aire canaliza un látigo de agua.,Dos átomos de hidrogênio e oxigênio (previamente adquiridas) canaliza um chicote de água.
+MG_TITLE,Magnesium,Magnesio,Magnésio
+AG_TITLE,Silver,Plata,Prata
+N_DESC,Freezes the air around the whip to -200°C.,Congela el aire alrededor del látigo a -200°C.,Congela o ar em volta do chicote para -200°C.
+AG_DESC,"Iron+Silver alloy has a high electrical conductivity index. Additionally, this alloy allows for the detection of sulfur dioxide, a gas abundant in active volcanoes.","La aleación de Hierro+Plata tiene un alto índice de conductividad eléctrica. Además, permite detectar el dióxido de azufre, un gas abundante en volcanes activos.","A Liga Ferro+Prata tem uma fórmula com alta condutividade elétrica. Adicionalmente, essa liga permite a detecção de dióxido de enxofre, um gás abundante em vulcões ativos."
+N_TITLE,Nitrogen,Nitrógeno,Nitrogênio
+C_TITLE,Carbon,Carbono,Carbono
+C_DESC,Increases the hardness of Iron. This will allow you to destroy certain objects with a higher hardness than natural Iron.,"Aumenta la dureza del Hierro, esto permitirá destruir ciertos objetos con una dureza mayor al del Hierro natural.","Aumenta a solidez do ferro, te permitindo destruir certos objetos com uma solidez maior que o ferro normal."
+P_TITLE,Phosphorus,Fósforo,Fósforo
+H_TITLE,Hidrogen,Hidrógeno,Hidrogênio
+XE_TITLE,Xenon,Xenón,Xenônio

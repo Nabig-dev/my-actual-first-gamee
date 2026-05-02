@@ -1,0 +1,115 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1676994744.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1676994744.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG2_1723844799"
+		},
+		{
+			"character": "character-1676994744.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG3_1723844799"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG4_1723844799"
+		},
+		{
+			"character": "character-1676994744.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG5_1723844799"
+		},
+		{
+			"character": "character-1676994744.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG6_1723844799"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG7_1723844799"
+		},
+		{
+			"character": "character-1676994744.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG8_1723844799"
+		},
+		{
+			"character": "character-1676994744.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG9_1723844799"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Meh",
+			"text": "DLG10_1723844799"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default",
+			"text": "DLG11_1723844799"
+		},
+		{
+			"character": "character-1676994744.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG12_1723844799"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1723844799.json",
+		"name": "atreu-defeatingdemon"
+	}
+}

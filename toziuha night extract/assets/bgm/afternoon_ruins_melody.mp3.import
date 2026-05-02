@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/afternoon_ruins_melody.mp3-448664cf680c6be878de252f9cf16648.mp3str"
+
+[deps]
+
+source_file="res://assets/bgm/afternoon_ruins_melody.mp3"
+dest_files=[ "res://.import/afternoon_ruins_melody.mp3-448664cf680c6be878de252f9cf16648.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

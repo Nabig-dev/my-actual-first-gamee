@@ -1,0 +1,105 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/tres/ThemeBasic.tres" type="Theme" id=1]
+[ext_resource path="res://assets/fonts/alkhemikal.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/images/texture_chemical_links.jpg" type="Texture" id=3]
+[ext_resource path="res://src/ui_elements/button_savegame.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
+
+[node name="ButtonSavegame" type="Button"]
+margin_right = 214.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 214, 40 )
+theme = ExtResource( 1 )
+script = ExtResource( 4 )
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_right = 5
+custom_constants/margin_top = 1
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 1
+
+[node name="HBx" type="HBoxContainer" parent="Margin"]
+margin_left = 5.0
+margin_top = 1.0
+margin_right = 209.0
+margin_bottom = 39.0
+
+[node name="VBx" type="VBoxContainer" parent="Margin/HBx"]
+margin_right = 94.0
+margin_bottom = 38.0
+custom_constants/separation = -4
+alignment = 1
+
+[node name="LblName" type="Label" parent="Margin/HBx/VBx"]
+unique_name_in_owner = true
+margin_top = 1.0
+margin_right = 94.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 1 )
+text = "Savegame Name"
+align = 1
+
+[node name="LblScenarioName" type="Label" parent="Margin/HBx/VBx"]
+unique_name_in_owner = true
+margin_top = 13.0
+margin_right = 94.0
+margin_bottom = 27.0
+text = "- name escenario -"
+align = 1
+
+[node name="LblTime" type="Label" parent="Margin/HBx/VBx"]
+unique_name_in_owner = true
+margin_top = 23.0
+margin_right = 94.0
+margin_bottom = 37.0
+text = "Time: 00:00:00"
+align = 1
+
+[node name="HSplit" type="HSplitContainer" parent="Margin/HBx"]
+margin_left = 98.0
+margin_right = 111.0
+margin_bottom = 38.0
+mouse_filter = 2
+size_flags_horizontal = 3
+
+[node name="ImgStage" type="TextureRect" parent="Margin/HBx"]
+unique_name_in_owner = true
+margin_left = 115.0
+margin_top = 4.0
+margin_right = 204.0
+margin_bottom = 34.0
+rect_min_size = Vector2( 89, 30 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource( 3 )
+expand = true
+
+[node name="LblPercent" type="Label" parent="Margin/HBx/ImgStage"]
+unique_name_in_owner = true
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -39.0
+margin_top = -14.0
+grow_horizontal = 0
+size_flags_vertical = 1
+text = "100.00 % "
+align = 2
+valign = 2
+
+[node name="LblNewGame" type="Label" parent="Margin"]
+visible = false
+margin_left = 5.0
+margin_top = 12.0
+margin_right = 209.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 1 )
+text = "NEW_GAME"
+align = 1

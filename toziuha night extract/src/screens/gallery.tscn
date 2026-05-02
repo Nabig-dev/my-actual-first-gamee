@@ -1,0 +1,337 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://src/ui_elements/bg_parallax_demon_forest.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/tres/ThemeBasic.tres" type="Theme" id=2]
+[ext_resource path="res://src/screens/gallery.gd" type="Script" id=3]
+[ext_resource path="res://assets/images/subtitle_dialogbox.png" type="Texture" id=4]
+[ext_resource path="res://src/ui_elements/helper_icon_btn.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/tres/fonts/alkemikal_small.tres" type="DynamicFont" id=6]
+[ext_resource path="res://art_gallery/fanarts/Psycho Loli.jpg" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/ui_icons/btn_switch_set.png" type="Texture" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 80, 80 )
+
+[node name="Gallery" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="BgParallaxDemonForest" parent="." instance=ExtResource( 1 )]
+modulate = Color( 0.0235294, 0.933333, 0.870588, 1 )
+
+[node name="HelperIconBtn" parent="." instance=ExtResource( 5 )]
+margin_left = 5.0
+margin_top = 2.0
+margin_right = 21.0
+margin_bottom = 18.0
+hide_method_touch = "visible"
+action = "ui_focus_prev"
+
+[node name="HelperIconBtn2" parent="." instance=ExtResource( 5 )]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -21.0
+margin_top = 2.0
+margin_right = -5.0
+margin_bottom = 19.0
+hide_method_touch = "visible"
+action = "ui_focus_next"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -170.5
+margin_top = -96.0
+margin_right = 170.5
+margin_bottom = 96.0
+custom_constants/margin_right = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 5.0
+margin_right = 336.0
+margin_bottom = 187.0
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/VBoxContainer"]
+margin_right = 331.0
+margin_bottom = 169.0
+size_flags_vertical = 3
+
+[node name="OFFICIAL" type="Tabs" parent="MarginContainer/VBoxContainer/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 29.0
+margin_right = -5.0
+margin_bottom = -5.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/TabContainer/OFFICIAL"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+follow_focus = true
+
+[node name="Grid" type="GridContainer" parent="MarginContainer/VBoxContainer/TabContainer/OFFICIAL/ScrollContainer"]
+margin_bottom = 135.0
+size_flags_vertical = 3
+custom_constants/vseparation = 10
+custom_constants/hseparation = 1
+columns = 5
+
+[node name="FANARTS" type="Tabs" parent="MarginContainer/VBoxContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 29.0
+margin_right = -5.0
+margin_bottom = -5.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/TabContainer/FANARTS"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+follow_focus = true
+
+[node name="Grid" type="GridContainer" parent="MarginContainer/VBoxContainer/TabContainer/FANARTS/ScrollContainer"]
+margin_bottom = 135.0
+size_flags_vertical = 3
+custom_constants/vseparation = 10
+custom_constants/hseparation = 1
+columns = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 173.0
+margin_right = 331.0
+margin_bottom = 187.0
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 20.0
+margin_bottom = 14.0
+custom_constants/separation = 20
+custom_styles/separator = SubResource( 1 )
+
+[node name="BtnReturn" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 24.0
+margin_right = 78.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 54, 0 )
+focus_mode = 0
+text = "RETURN"
+
+[node name="HelperIconBtn" parent="MarginContainer/VBoxContainer/HBoxContainer/BtnReturn" instance=ExtResource( 5 )]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -23.0
+margin_top = -8.0
+margin_right = -7.0
+margin_bottom = 8.0
+hide_method_touch = "visible"
+action = "ui_cancel"
+
+[node name="ImageFull" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 2
+mouse_filter = 1
+color = Color( 0.0431373, 0.145098, 0.243137, 0.756863 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ImageFull"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -153.0
+margin_top = -19.0
+margin_right = 153.0
+margin_bottom = -3.0
+alignment = 1
+
+[node name="LblImageName" type="Label" parent="ImageFull/HBoxContainer"]
+unique_name_in_owner = true
+margin_right = 129.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "FileName"
+clip_text = true
+
+[node name="BtnRotateImage" type="TextureButton" parent="ImageFull/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 133.0
+margin_right = 262.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 32, 0 )
+focus_mode = 0
+size_flags_horizontal = 3
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 3
+
+[node name="HelperIconBtn" parent="ImageFull/HBoxContainer/BtnRotateImage" instance=ExtResource( 5 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -9.0
+margin_right = 8.0
+margin_bottom = 7.0
+action = "ui_select"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ImageFull/HBoxContainer"]
+margin_left = 266.0
+margin_right = 306.0
+margin_bottom = 16.0
+
+[node name="BtnCloseFullView" type="Button" parent="ImageFull/HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_right = 40.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 40, 0 )
+focus_neighbour_left = NodePath(".")
+focus_neighbour_top = NodePath(".")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+text = "CLOSE"
+
+[node name="HelperIconBtn" parent="ImageFull/HBoxContainer/HBoxContainer/BtnCloseFullView" instance=ExtResource( 5 )]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -23.0
+margin_top = -9.0
+margin_right = -7.0
+margin_bottom = 7.0
+hide_method_touch = "visible"
+action = "ui_cancel"
+
+[node name="ImageTextureFull" type="TextureRect" parent="ImageFull"]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -22.0
+rect_pivot_offset = Vector2( 160, 79 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+
+[node name="RectCtrlFullRotated" type="ColorRect" parent="ImageFull"]
+unique_name_in_owner = true
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -96.0
+margin_top = -170.5
+margin_right = 96.0
+margin_bottom = 170.5
+rect_rotation = 90.0
+rect_pivot_offset = Vector2( 96, 170 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="ImageTextureFullRotated" type="TextureRect" parent="ImageFull/RectCtrlFullRotated"]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 160, 79 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+
+[node name="ChangeImgCtrlL" type="Control" parent="ImageFull"]
+margin_left = 39.0
+margin_right = 207.0
+margin_bottom = 39.0
+rect_rotation = 90.0
+mouse_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="ImageFull/ChangeImgCtrlL"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="ImageFull/ChangeImgCtrlL"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -14.0
+text = ""
+align = 1
+valign = 1
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="ImageFull/ChangeImgCtrlL"]
+position = Vector2( 80, -41 )
+rotation = -1.5708
+shape = SubResource( 2 )
+shape_centered = false
+action = "ui_left"
+
+[node name="ChangeImgCtrlR" type="Control" parent="ImageFull"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -38.0
+margin_top = 168.0
+margin_right = 130.0
+margin_bottom = 206.0
+rect_rotation = -90.0
+mouse_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="ImageFull/ChangeImgCtrlR"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="ImageFull/ChangeImgCtrlR"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -14.0
+text = ""
+align = 1
+valign = 1
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="ImageFull/ChangeImgCtrlR"]
+position = Vector2( 88, -41 )
+rotation = -1.5708
+shape = SubResource( 2 )
+shape_centered = false
+action = "ui_right"
+
+[node name="ClrRectLoading" type="ColorRect" parent="."]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="ClrRectLoading"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -26.5
+margin_top = -8.0
+margin_right = 26.5
+margin_bottom = 8.0
+custom_fonts/font = ExtResource( 6 )
+text = "LOADING"
+align = 1
+
+[connection signal="tab_changed" from="MarginContainer/VBoxContainer/TabContainer" to="." method="_on_TabContainer_tab_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/BtnReturn" to="." method="_on_BtnReturn_pressed"]
+[connection signal="pressed" from="ImageFull/HBoxContainer/BtnRotateImage" to="." method="_on_BtnRotateImage_pressed"]
+[connection signal="pressed" from="ImageFull/HBoxContainer/HBoxContainer/BtnCloseFullView" to="." method="_on_BtnCloseFullView_pressed"]

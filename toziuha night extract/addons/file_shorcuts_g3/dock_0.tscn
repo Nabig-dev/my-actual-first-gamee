@@ -1,0 +1,96 @@
+[gd_scene format=2]
+
+[node name="Dock" type="PanelContainer"]
+margin_right = 294.0
+margin_bottom = 141.0
+
+[node name="VBx" type="VBoxContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 287.0
+margin_bottom = 239.0
+
+[node name="TitleBar" type="HBoxContainer" parent="VBx"]
+margin_right = 280.0
+margin_bottom = 20.0
+
+[node name="Button" type="Button" parent="VBx/TitleBar"]
+margin_right = 20.0
+margin_bottom = 20.0
+text = "+"
+
+[node name="Label" type="Label" parent="VBx/TitleBar"]
+margin_left = 24.0
+margin_top = 3.0
+margin_right = 256.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+text = "Shortcuts 1.0"
+align = 1
+
+[node name="Button2" type="Button" parent="VBx/TitleBar"]
+margin_left = 260.0
+margin_right = 280.0
+margin_bottom = 20.0
+text = "X"
+
+[node name="HSeparator" type="HSeparator" parent="VBx"]
+margin_top = 24.0
+margin_right = 280.0
+margin_bottom = 28.0
+
+[node name="Scroll" type="ScrollContainer" parent="VBx"]
+margin_top = 32.0
+margin_right = 280.0
+margin_bottom = 232.0
+rect_min_size = Vector2( 0, 200 )
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBx/Scroll"]
+margin_right = 268.0
+margin_bottom = 212.0
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="VBx/Scroll/VBoxContainer"]
+margin_right = 268.0
+margin_bottom = 20.0
+
+[node name="Button2" type="Button" parent="VBx/Scroll/VBoxContainer"]
+margin_top = 24.0
+margin_right = 268.0
+margin_bottom = 44.0
+
+[node name="Button3" type="Button" parent="VBx/Scroll/VBoxContainer"]
+margin_top = 48.0
+margin_right = 268.0
+margin_bottom = 68.0
+
+[node name="Button4" type="Button" parent="VBx/Scroll/VBoxContainer"]
+margin_top = 72.0
+margin_right = 268.0
+margin_bottom = 92.0
+
+[node name="Button5" type="Button" parent="VBx/Scroll/VBoxContainer"]
+margin_top = 96.0
+margin_right = 268.0
+margin_bottom = 116.0
+
+[node name="Button6" type="Button" parent="VBx/Scroll/VBoxContainer"]
+margin_top = 120.0
+margin_right = 268.0
+margin_bottom = 140.0
+
+[node name="Button7" type="Button" parent="VBx/Scroll/VBoxContainer"]
+margin_top = 144.0
+margin_right = 268.0
+margin_bottom = 164.0
+
+[node name="Button8" type="Button" parent="VBx/Scroll/VBoxContainer"]
+margin_top = 168.0
+margin_right = 268.0
+margin_bottom = 188.0
+
+[node name="Button9" type="Button" parent="VBx/Scroll/VBoxContainer"]
+margin_top = 192.0
+margin_right = 268.0
+margin_bottom = 212.0

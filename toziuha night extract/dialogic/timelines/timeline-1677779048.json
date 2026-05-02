@@ -1,0 +1,196 @@
+{
+	"events": [
+		{
+			"event_id": "noskip_dialog",
+			"skip_disabled": true
+		},
+		{
+			"event_id": "flash_event",
+			"time_flash": 0.5
+		},
+		{
+			"event_id": "screen_dialog_filter",
+			"filter_idx": 1
+		},
+		{
+			"event_id": "dialogic_024",
+			"set_theme": "theme-1666884860.cfg"
+		},
+		{
+			"background": "res://assets/sprites/art_dialog_bg/black.png",
+			"event_id": "dialogic_021",
+			"fade_duration": 0
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 1
+		},
+		{
+			"event_id": "noskip_dialog",
+			"skip_disabled": false
+		},
+		{
+			"character": "character-1677081398.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG7_1677779048"
+		},
+		{
+			"background": "res://assets/sprites/art_dialog_bg/xandria_chains.png",
+			"event_id": "dialogic_021",
+			"fade_duration": 3
+		},
+		{
+			"character": "character-1677081398.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG9_1677779048"
+		},
+		{
+			"character": "character-1677081398.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG10_1677779048"
+		},
+		{
+			"background": "res://assets/sprites/art_dialog_bg/grijayla_prologue_flashback_15.png",
+			"event_id": "dialogic_021",
+			"fade_duration": 0.5
+		},
+		{
+			"character": "character-1677081398.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG13_1677779048"
+		},
+		{
+			"character": "character-1677081398.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG14_1677779048"
+		},
+		{
+			"character": "character-1677081398.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG15_1677779048"
+		},
+		{
+			"character": "character-1677081398.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG16_1677779048"
+		},
+		{
+			"emit_signal": "firesnd",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 2
+		},
+		{
+			"background": "res://assets/sprites/art_dialog_bg/grijayla_prologue_flashback_14.png",
+			"event_id": "dialogic_021",
+			"fade_duration": 0.5
+		},
+		{
+			"character": "character-1677081398.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG20_1677779048"
+		},
+		{
+			"emit_signal": "ironsnd",
+			"event_id": "dialogic_040"
+		},
+		{
+			"character": "character-1677081398.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG22_1677779048"
+		},
+		{
+			"event_id": "flash_event",
+			"time_flash": 0.1
+		},
+		{
+			"action": 0,
+			"audio_name": "skin_burn_a",
+			"event_id": "audio_event_custom",
+			"type": 0
+		},
+		{
+			"background": "res://assets/sprites/art_dialog_bg/black.png",
+			"event_id": "dialogic_021",
+			"fade_duration": 0
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 2
+		},
+		{
+			"background": "res://assets/sprites/art_dialog_bg/xandria_chains_closeup.png",
+			"event_id": "dialogic_021",
+			"fade_duration": 1
+		},
+		{
+			"character": "character-1677081398.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG27_1677779048"
+		},
+		{
+			"character": "character-1677081398.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG28_1677779048"
+		},
+		{
+			"character": "character-1677081398.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG29_1677779048"
+		},
+		{
+			"event_id": "flash_event",
+			"time_flash": 0.1
+		},
+		{
+			"action": 0,
+			"audio_name": "skin_burn_a",
+			"event_id": "audio_event_custom",
+			"type": 0
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 2
+		},
+		{
+			"event_id": "flash_event",
+			"time_flash": 0.5
+		},
+		{
+			"background": "",
+			"event_id": "dialogic_021"
+		},
+		{
+			"event_id": "screen_dialog_filter",
+			"filter_idx": 0
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 1
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1677779048.json",
+		"name": "grijayla-last-flashback"
+	}
+}

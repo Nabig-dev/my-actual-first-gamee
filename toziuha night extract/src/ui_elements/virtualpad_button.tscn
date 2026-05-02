@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/ui_elements/virtualpad_button.gd" type="Script" id=1]
+
+[node name="VirtualPadButton" type="TouchScreenButton" groups=["vpad_button"]]
+shape_centered = false
+passby_press = true
+script = ExtResource( 1 )

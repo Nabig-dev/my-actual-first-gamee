@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/ui_elements/bg_parallax_demon_forest.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/bg/demon_forest/bg_demon_forest_2.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/bg/demon_forest/bg_demon_forest_1.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/bg/demon_forest/bg_demon_forest_0.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/bg/demon_forest/bg_demon_forest_3.png" type="Texture" id=5]
+
+[node name="BgParallaxDemonForest" type="ParallaxBackground"]
+script = ExtResource( 1 )
+modulate = Color( 0.921569, 0, 0, 1 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+modulate = Color( 0.921569, 0, 0, 1 )
+motion_scale = Vector2( 0, 1 )
+motion_mirroring = Vector2( 480, 0 )
+
+[node name="BgDemonForest0" type="Sprite" parent="ParallaxLayer"]
+position = Vector2( 0, -27 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+modulate = Color( 0.921569, 0, 0, 1 )
+motion_scale = Vector2( 0.4, 1 )
+motion_mirroring = Vector2( 480, 0 )
+
+[node name="BgDemonForest1" type="Sprite" parent="ParallaxLayer2"]
+position = Vector2( 0, -27 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+modulate = Color( 0.921569, 0, 0, 1 )
+motion_scale = Vector2( 0.6, 1 )
+motion_mirroring = Vector2( 480, 0 )
+
+[node name="BgDemonForest2" type="Sprite" parent="ParallaxLayer3"]
+position = Vector2( 0, -27 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+modulate = Color( 0.921569, 0, 0, 1 )
+motion_mirroring = Vector2( 480, 0 )
+
+[node name="BgDemonForest3" type="Sprite" parent="ParallaxLayer4"]
+position = Vector2( 0, -27 )
+texture = ExtResource( 5 )
+centered = false

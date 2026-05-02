@@ -1,0 +1,449 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://assets/sprites/enemies/fenrok.png" type="Texture" id=1]
+[ext_resource path="res://src/game_objects/enemy_base.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/game_objects/enemies/fenrok.gd" type="Script" id=3]
+[ext_resource path="res://src/game_objects/area2d_cast.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hurtbox_enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hitbox_enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/game_objects/vfx/particles_blood_smash.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/game_objects/visibility_notifier_camera_area.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/game_objects/ghost_trail.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/game_objects/vfx/explosions_small_particles.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/images/vfx/particles/spotlight_1.png" type="Texture" id=11]
+[ext_resource path="res://assets/images/vfx/particles/spotlight_4.png" type="Texture" id=12]
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 7, 10 )
+
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 22, 16 )
+
+[sub_resource type="CircleShape2D" id=11]
+radius = 16.2788
+
+[sub_resource type="CircleShape2D" id=12]
+radius = 13.0
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 192, 28.5 )
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 29.5, 89.5 )
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 2.5, 4.0625 )
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 32.2045, 2.875 )
+
+[sub_resource type="RectangleShape2D" id=19]
+extents = Vector2( 17, 9.5 )
+
+[sub_resource type="CanvasItemMaterial" id=20]
+blend_mode = 1
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/ParticlesBlood:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/ExplosionParticlesSmall:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite/Spotlight4:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 12 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "dead"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 26 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/ParticlesBlood:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/ExplosionParticlesSmall:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite/Spotlight4:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 12 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+length = 2.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4, 0.5, 0.6, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 2, 3, 4, 5, 1, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/Spotlight4:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 12 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "jump"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 26, 27, 28, 29, 30, 31 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "jump"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Spotlight4/Spotlight5:position")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/Spotlight4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 12 ), Vector2( 0, -4 ), Vector2( 0, -4 ), Vector2( 0, 12 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "run"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 7, 8, 9, 10, 11 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/Spotlight4:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 12 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "walk"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 ]
+}
+
+[node name="Fenrok" type="KinematicBody2D"]
+collision_layer = 512
+collision_mask = 5
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -10 )
+shape = SubResource( 7 )
+
+[node name="VisibilityNotifierCameraArea" parent="." instance=ExtResource( 8 )]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisibilityNotifierCameraArea"]
+position = Vector2( 0, -16 )
+shape = SubResource( 16 )
+
+[node name="HurtboxEnemy" parent="." instance=ExtResource( 5 )]
+visible = false
+identifier = "fenrok"
+sprite_flash = NodePath("../Sprite")
+death_sounds = [ "death_hound" ]
+blood_drop = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxEnemy"]
+position = Vector2( 0, -12 )
+shape = SubResource( 11 )
+
+[node name="HitboxEnemy" parent="." instance=ExtResource( 6 )]
+visible = false
+identifier = "fenrok"
+hurtbox_node = NodePath("../HurtboxEnemy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxEnemy"]
+position = Vector2( 0, -12 )
+shape = SubResource( 12 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -23 )
+z_index = 1
+texture = ExtResource( 1 )
+flip_h = true
+hframes = 10
+vframes = 4
+
+[node name="ParticlesBlood" parent="Sprite" instance=ExtResource( 7 )]
+position = Vector2( 0, 11 )
+amount = 40
+lifetime = 1.27
+one_shot = false
+explosiveness = 0.0
+emission_shape = 2
+emission_rect_extents = Vector2( 10, 1 )
+direction = Vector2( 1, -10 )
+spread = 17.23
+gravity = Vector2( 0, 400 )
+initial_velocity = 141.92
+script = null
+
+[node name="ExplosionParticlesSmall" parent="Sprite" instance=ExtResource( 10 )]
+position = Vector2( 0, 11 )
+amount = 100
+emission_sphere_radius = 6.59
+
+[node name="AreaDetectPlayer" parent="Sprite" instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 0, -5 )
+collision_layer = 8
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/AreaDetectPlayer"]
+position = Vector2( 0, 8.5 )
+shape = SubResource( 14 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite/AreaDetectPlayer"]
+position = Vector2( -0.5, 125.5 )
+shape = SubResource( 15 )
+
+[node name="DetectNoFloor" parent="Sprite" instance=ExtResource( 4 )]
+visible = false
+collision_layer = 512
+collision_mask = 5
+detect = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/DetectNoFloor"]
+position = Vector2( 4.5, 27.9375 )
+shape = SubResource( 17 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite/DetectNoFloor"]
+position = Vector2( 7.7955, 19 )
+shape = SubResource( 18 )
+disabled = true
+
+[node name="DetectRampFront" parent="Sprite" instance=ExtResource( 4 )]
+visible = false
+collision_layer = 512
+collision_mask = 5
+detect = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/DetectRampFront"]
+position = Vector2( 17, 13.5 )
+shape = SubResource( 19 )
+
+[node name="Spotlight4" type="Sprite" parent="Sprite"]
+modulate = Color( 1, 0, 0, 1 )
+show_behind_parent = true
+material = SubResource( 20 )
+position = Vector2( 0, 12 )
+scale = Vector2( 0.17, 0.17 )
+texture = ExtResource( 12 )
+
+[node name="Spotlight5" type="Sprite" parent="Sprite/Spotlight4"]
+modulate = Color( 1, 0, 0, 1 )
+show_behind_parent = true
+material = SubResource( 20 )
+scale = Vector2( 1.75882, 1.75882 )
+texture = ExtResource( 11 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/dead = SubResource( 3 )
+anims/idle = SubResource( 2 )
+anims/jump = SubResource( 4 )
+anims/run = SubResource( 5 )
+anims/walk = SubResource( 6 )
+
+[node name="EnemyBase" parent="." instance=ExtResource( 2 )]
+node_facing = NodePath("../Sprite")
+anim_player = NodePath("../AnimationPlayer")
+hurtbox = NodePath("../HurtboxEnemy")
+
+[node name="TimerStartRun" type="Timer" parent="."]
+one_shot = true
+
+[node name="TimerAfterJump" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="GhostTrail" parent="." instance=ExtResource( 9 )]
+parent_sprite_path = NodePath("..")
+sprite_path = NodePath("../Sprite")
+modulate_ghost = Color( 0.54902, 0.184314, 0.729412, 0.694118 )
+scale_from_parent = false
+use_custom_z_index = true
+
+[connection signal="screen_entered" from="VisibilityNotifierCameraArea" to="." method="_on_VisibilityNotifierCameraArea_screen_entered"]
+[connection signal="screen_exited" from="VisibilityNotifierCameraArea" to="." method="_on_VisibilityNotifierCameraArea_screen_exited"]
+[connection signal="defeated" from="HurtboxEnemy" to="." method="_on_HurtboxEnemy_defeated"]
+[connection signal="object_entered" from="Sprite/AreaDetectPlayer" to="." method="_on_AreaDetectPlayer_object_entered"]
+[connection signal="object_entered" from="Sprite/DetectNoFloor" to="." method="_on_DetectNoFloor_object_entered"]
+[connection signal="object_exited" from="Sprite/DetectNoFloor" to="." method="_on_DetectNoFloor_object_exited"]

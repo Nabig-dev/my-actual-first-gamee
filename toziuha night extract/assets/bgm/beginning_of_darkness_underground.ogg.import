@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/beginning_of_darkness_underground.ogg-0c72bd4c0970ddfd6040bb4ec0c67ee3.oggstr"
+
+[deps]
+
+source_file="res://assets/bgm/beginning_of_darkness_underground.ogg"
+dest_files=[ "res://.import/beginning_of_darkness_underground.ogg-0c72bd4c0970ddfd6040bb4ec0c67ee3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

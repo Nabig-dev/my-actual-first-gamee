@@ -1,0 +1,183 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Meh",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1686776723.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"condition": "==",
+			"definition": "1686842453-115",
+			"event_id": "dialogic_012",
+			"value": "1"
+		},
+		{
+			"character": "character-1686776723.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG3_1686779687"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG4_1686779687"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG5_1686779687"
+		},
+		{
+			"character": "character-1686776723.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG6_1686779687"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG7_1686779687"
+		},
+		{
+			"character": "character-1686776723.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG8_1686779687"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_position": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 2,
+			"z_index": 0
+		},
+		{
+			"character": "character-1686776723.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG11_1686779687"
+		},
+		{
+			"character": "character-1686776723.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG12_1686779687"
+		},
+		{
+			"character": "character-1686776723.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG13_1686779687"
+		},
+		{
+			"event_id": "showimage",
+			"image_path": "res://assets/sprites/misc/magnesium_dialog_img.png"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG15_1686779687"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG16_1686779687"
+		},
+		{
+			"character": "character-1686776723.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG17_1686779687"
+		},
+		{
+			"event_id": "showimage",
+			"image_path": "*"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Meh",
+			"text": "DLG19_1686779687"
+		},
+		{
+			"character": "character-1686776723.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG20_1686779687"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default",
+			"text": "DLG21_1686779687"
+		},
+		{
+			"character": "character-1686776723.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG22_1686779687"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1686779687.json",
+		"name": "margaret-rescued"
+	}
+}

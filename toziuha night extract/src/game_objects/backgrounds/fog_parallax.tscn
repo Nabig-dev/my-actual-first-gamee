@@ -1,0 +1,146 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/game_objects/backgrounds/fog_parallax.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/vfx/fog.jpg" type="Texture" id=2]
+[ext_resource path="res://src/scripts/auto_start_animation_player.gd" type="Script" id=3]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("MistDown/Fog:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MistUp/Fog:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.447059 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MistUp/Fog:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 256, 29 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("MistDown/Fog:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 256, -31 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "show"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("MistDown/Fog:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.447059 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MistUp/Fog:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.447059 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MistUp/Fog:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 256, 29 ), Vector2( 256, 10 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("MistDown/Fog:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 256, -31 ), Vector2( 256, -16 ) ]
+}
+
+[node name="FogParallax" type="ParallaxBackground"]
+layer = 1
+script = ExtResource( 1 )
+modulate = Color( 1, 1, 1, 0.392157 )
+
+[node name="MistDown" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.1, 0 )
+motion_mirroring = Vector2( 512, 0 )
+
+[node name="Fog" type="Sprite" parent="MistDown"]
+modulate = Color( 1, 1, 1, 0.392157 )
+material = SubResource( 1 )
+position = Vector2( 256, -31 )
+texture = ExtResource( 2 )
+
+[node name="MistUp" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.1, 0 )
+motion_mirroring = Vector2( 512, 0 )
+
+[node name="Fog" type="Sprite" parent="MistUp"]
+modulate = Color( 1, 1, 1, 0.392157 )
+self_modulate = Color( 1, 1, 1, 0.447059 )
+material = SubResource( 1 )
+position = Vector2( 256, 29 )
+texture = ExtResource( 2 )
+flip_v = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 0.5
+anims/RESET = SubResource( 3 )
+anims/show = SubResource( 2 )
+script = ExtResource( 3 )
+anim_name_autostart = "show"

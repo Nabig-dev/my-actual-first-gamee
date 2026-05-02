@@ -1,0 +1,4058 @@
+[gd_scene load_steps=135 format=2]
+
+[ext_resource path="res://assets/images/texture_old_paper.jpg" type="Texture" id=1]
+[ext_resource path="res://src/game_objects/game_interface.gd" type="Script" id=2]
+[ext_resource path="res://assets/tres/ThemeBasic.tres" type="Theme" id=3]
+[ext_resource path="res://src/ui_elements/virtual_gamepad.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/game_objects/minimap.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/sprites/panels/main_purple_darker.png" type="Texture" id=6]
+[ext_resource path="res://assets/fonts/super_small_numbers.tres" type="BitmapFont" id=7]
+[ext_resource path="res://src/ui_elements/area_title.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/sprites/ui_hud_sp_fill.png" type="Texture" id=9]
+[ext_resource path="res://src/gdshaders/outline.gdshader" type="Shader" id=10]
+[ext_resource path="res://assets/sprites/ui_hud_full.png" type="Texture" id=11]
+[ext_resource path="res://assets/images/shadow_gradient_0.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/keys_objects.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/treasures.png" type="Texture" id=14]
+[ext_resource path="res://src/ui_elements/helper_icon_btn.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/tres/fonts/alkemikal_small.tres" type="DynamicFont" id=16]
+[ext_resource path="res://src/game_objects/elemental_circuit.tscn" type="PackedScene" id=17]
+[ext_resource path="res://src/ui_elements/attrb_icon_elemental.tscn" type="PackedScene" id=18]
+[ext_resource path="res://assets/sprites/box_square_focus.png" type="Texture" id=19]
+[ext_resource path="res://assets/sprites/tiles/map.png" type="Texture" id=20]
+[ext_resource path="res://src/game_objects/node_map.tscn" type="PackedScene" id=21]
+[ext_resource path="res://src/ui_elements/attrb_icon_physical.tscn" type="PackedScene" id=22]
+[ext_resource path="res://assets/sprites/alloys_elements.png" type="Texture" id=23]
+[ext_resource path="res://src/ui_elements/dramatic_title.tscn" type="PackedScene" id=24]
+[ext_resource path="res://assets/fonts/venice_red_outline.fnt" type="BitmapFont" id=25]
+[ext_resource path="res://assets/sprites/blood_slash_bg/blood_slash_bg_1.png" type="Texture" id=26]
+[ext_resource path="res://assets/sprites/blood_slash_bg/blood_slash_bg_2.png" type="Texture" id=27]
+[ext_resource path="res://assets/sprites/blood_slash_bg/blood_slash_bg_3.png" type="Texture" id=28]
+[ext_resource path="res://src/gdshaders/dissolve_simple.gdshader" type="Shader" id=29]
+[ext_resource path="res://src/ui_elements/levelup_message.tscn" type="PackedScene" id=30]
+[ext_resource path="res://assets/sprites/inventory_bar_stat_under.png" type="Texture" id=31]
+[ext_resource path="res://assets/fonts/super_small_letters.tres" type="BitmapFont" id=32]
+[ext_resource path="res://src/ui_elements/button_switch_set.tscn" type="PackedScene" id=33]
+[ext_resource path="res://assets/sprites/ui_icons/equipment_buttons_menu.png" type="Texture" id=34]
+[ext_resource path="res://assets/sprites/equipment_objects.png" type="Texture" id=35]
+[ext_resource path="res://assets/sprites/ui_icons/buffs_icons.png" type="Texture" id=36]
+[ext_resource path="res://assets/sprites/blood_layout.png" type="Texture" id=37]
+[ext_resource path="res://assets/sprites/attributes/elemental_color.png" type="Texture" id=38]
+[ext_resource path="res://assets/sprites/ui_icons/air_icon.png" type="Texture" id=39]
+[ext_resource path="res://src/ui_elements/boss_bar.tscn" type="PackedScene" id=40]
+[ext_resource path="res://src/ui_elements/boss_title.tscn" type="PackedScene" id=41]
+[ext_resource path="res://assets/tres/fonts/lana_pixel.tres" type="DynamicFont" id=42]
+[ext_resource path="res://assets/sprites/panels/notification_in_game_panel_purple.png" type="Texture" id=43]
+[ext_resource path="res://assets/fonts/super_small_letters_black.tres" type="BitmapFont" id=44]
+[ext_resource path="res://assets/sprites/elemental_circuit_subweapon_icons.png" type="Texture" id=45]
+[ext_resource path="res://assets/images/vfx/light_02.png" type="Texture" id=46]
+[ext_resource path="res://assets/sprites/inventory_bar_stat_progress.png" type="Texture" id=47]
+[ext_resource path="res://assets/images/vfx/magic_03.png" type="Texture" id=48]
+[ext_resource path="res://src/ui_elements/achievement_notif.tscn" type="PackedScene" id=49]
+[ext_resource path="res://assets/tres/crt_vhs_add.tres" type="Material" id=50]
+[ext_resource path="res://src/ui_elements/button_options_menu.tscn" type="PackedScene" id=51]
+[ext_resource path="res://src/gdshaders/vignette_color.gdshader" type="Shader" id=52]
+[ext_resource path="res://addons/multidir_joystick/scripts/joystick.gd" type="Script" id=57]
+[ext_resource path="res://addons/multidir_joystick/icons/smaller.svg" type="Texture" id=58]
+[ext_resource path="res://addons/multidir_joystick/icons/bigger.svg" type="Texture" id=59]
+
+[sub_resource type="StyleBoxTexture" id=68]
+content_margin_top = 1.0
+texture = ExtResource( 43 )
+region_rect = Rect2( 0, 0, 57, 19 )
+margin_left = 15.0
+margin_right = 15.0
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 11 )
+region = Rect2( 80, 48, 80, 40 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 11 )
+region = Rect2( 48, 64, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 11 )
+region = Rect2( 160, 80, 16, 48 )
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 10 )
+shader_param/line_color = Color( 1, 0, 0, 1 )
+shader_param/line_thickness = 0.0
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 11 )
+region = Rect2( 160, 16, 16, 48 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 11 )
+region = Rect2( 96, 8, 48, 4 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 11 )
+region = Rect2( 96, 12, 32, 4 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 11 )
+region = Rect2( 96, 20, 44, 4 )
+
+[sub_resource type="ShaderMaterial" id=9]
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 11 )
+region = Rect2( 96, 24, 44, 4 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 11 )
+region = Rect2( 96, 28, 44, 4 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 11 )
+region = Rect2( 96, 32, 32, 4 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 11 )
+region = Rect2( 96, 36, 32, 4 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 11 )
+region = Rect2( 96, 96, 12, 16 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 11 )
+region = Rect2( 128, 96, 12, 16 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 11 )
+region = Rect2( 112, 96, 12, 16 )
+
+[sub_resource type="ShaderMaterial" id=73]
+shader = ExtResource( 10 )
+shader_param/line_color = Color( 0.423529, 0, 0.847059, 1 )
+shader_param/line_thickness = 1.0
+
+[sub_resource type="CanvasItemMaterial" id=74]
+blend_mode = 1
+
+[sub_resource type="AtlasTexture" id=72]
+atlas = ExtResource( 11 )
+region = Rect2( 48, 80, 10, 10 )
+
+[sub_resource type="AtlasTexture" id=59]
+atlas = ExtResource( 11 )
+region = Rect2( 95, 12, 31, 5 )
+
+[sub_resource type="AtlasTexture" id=60]
+atlas = ExtResource( 11 )
+region = Rect2( 104, 62, 37, 5 )
+
+[sub_resource type="AtlasTexture" id=61]
+atlas = ExtResource( 11 )
+region = Rect2( 96, 40, 29, 5 )
+
+[sub_resource type="AtlasTexture" id=63]
+atlas = ExtResource( 38 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=65]
+atlas = ExtResource( 11 )
+region = Rect2( 96, 44, 29, 5 )
+
+[sub_resource type="AtlasTexture" id=66]
+atlas = ExtResource( 38 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=64]
+atlas = ExtResource( 11 )
+region = Rect2( 127, 44, 29, 5 )
+
+[sub_resource type="Animation" id=17]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Base/Blade:material:shader_param/line_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Base/Blade:material:shader_param/line_thickness")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=19]
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Base/Blade:material:shader_param/line_thickness")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Base/Blade:material:shader_param/line_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.25, 0.35, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.988235, 0.560784, 0, 1 ), Color( 1, 0.670588, 0.290196, 1 ), Color( 1, 0, 0, 1 ), Color( 0.988235, 0.560784, 0, 1 ), Color( 0.992157, 0.627451, 0.156863, 1 ) ]
+}
+
+[sub_resource type="StyleBoxFlat" id=20]
+bg_color = Color( 0, 0, 0, 0.203922 )
+
+[sub_resource type="ShaderMaterial" id=80]
+shader = ExtResource( 52 )
+shader_param/vignette_intensity = 0.202
+shader_param/vignette_opacity = 1.0
+shader_param/vignette_rgb = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Animation" id=57]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TextureRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=58]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TextureRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_on_LowHP_BloodLayoutAnim"
+} ]
+}
+
+[sub_resource type="Animation" id=70]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=71]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="StyleBoxEmpty" id=75]
+
+[sub_resource type="StyleBoxLine" id=26]
+color = Color( 0.321569, 0.321569, 0.321569, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=69]
+
+[sub_resource type="ShaderMaterial" id=56]
+shader = ExtResource( 10 )
+shader_param/line_color = Color( 1, 1, 1, 0.760784 )
+shader_param/line_thickness = 1.0
+
+[sub_resource type="StyleBoxLine" id=23]
+color = Color( 1, 1, 1, 0.321569 )
+
+[sub_resource type="StyleBoxEmpty" id=52]
+
+[sub_resource type="ButtonGroup" id=51]
+
+[sub_resource type="AtlasTexture" id=43]
+atlas = ExtResource( 34 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=44]
+atlas = ExtResource( 34 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=45]
+atlas = ExtResource( 34 )
+region = Rect2( 80, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=46]
+atlas = ExtResource( 34 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=47]
+atlas = ExtResource( 34 )
+region = Rect2( 96, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=48]
+atlas = ExtResource( 34 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=49]
+atlas = ExtResource( 34 )
+region = Rect2( 112, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=50]
+atlas = ExtResource( 34 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="StyleBoxLine" id=53]
+color = Color( 1, 1, 1, 0.254902 )
+
+[sub_resource type="StyleBoxEmpty" id=54]
+
+[sub_resource type="StyleBoxEmpty" id=22]
+
+[sub_resource type="StyleBoxLine" id=21]
+color = Color( 1, 1, 1, 0.298039 )
+vertical = true
+
+[sub_resource type="StyleBoxEmpty" id=24]
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 20 )
+region = Rect2( 96, 96, 16, 16 )
+
+[sub_resource type="CanvasItemMaterial" id=79]
+blend_mode = 1
+
+[sub_resource type="StyleBoxFlat" id=67]
+content_margin_left = 3.0
+content_margin_right = 3.0
+bg_color = Color( 0, 0, 0, 0.741176 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+anti_aliasing = false
+
+[sub_resource type="RectangleShape2D" id=76]
+
+[sub_resource type="CircleShape2D" id=78]
+radius = 130.0
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 20 )
+region = Rect2( 16, 128, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 20 )
+region = Rect2( 64, 144, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 20 )
+region = Rect2( 64, 128, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 20 )
+region = Rect2( 128, 128, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 20 )
+region = Rect2( 80, 128, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 20 )
+region = Rect2( 96, 128, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 20 )
+region = Rect2( 80, 144, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 20 )
+region = Rect2( 96, 144, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 20 )
+region = Rect2( 48, 144, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 20 )
+region = Rect2( 112, 128, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 20 )
+region = Rect2( 16, 144, 16, 16 )
+
+[sub_resource type="StyleBoxLine" id=77]
+color = Color( 1, 1, 1, 0.341176 )
+
+[sub_resource type="OpenSimplexNoise" id=38]
+
+[sub_resource type="NoiseTexture" id=39]
+noise = SubResource( 38 )
+
+[sub_resource type="ShaderMaterial" id=40]
+shader = ExtResource( 29 )
+shader_param/dissolve_value = 0.0
+shader_param/dissolve_texture = SubResource( 39 )
+
+[sub_resource type="AtlasTexture" id=55]
+atlas = ExtResource( 20 )
+region = Rect2( 64, 128, 16, 16 )
+
+[sub_resource type="Animation" id=41]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BlackRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:material:shader_param/dissolve_value")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ControlUseCarpatitia:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=42]
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("BlackRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:material:shader_param/dissolve_value")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.7, 2.9, 3.9, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 1.0, 1.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ControlUseCarpatitia:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("..")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 2.9 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "check_if_can_use_carpatitia_death"
+} ]
+}
+
+[node name="GameInterface" type="Control"]
+pause_mode = 2
+light_mask = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource( 3 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TextureBG" type="TextureRect" parent="."]
+modulate = Color( 0.498039, 0.498039, 0.498039, 1 )
+light_mask = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 7
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+light_mask = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -170.5
+margin_top = -96.0
+margin_right = 170.5
+margin_bottom = 96.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+pause_mode = 1
+size = Vector2( 341, 192 )
+handle_input_locally = false
+hdr = false
+usage = 0
+render_target_update_mode = 3
+audio_listener_enable_2d = true
+
+[node name="CRTVHSAdd" type="ColorRect" parent="."]
+unique_name_in_owner = true
+material = ExtResource( 50 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -170.5
+margin_top = -96.0
+margin_right = 170.5
+margin_bottom = 96.0
+mouse_filter = 2
+
+[node name="AchievementNotif" parent="." instance=ExtResource( 49 )]
+unique_name_in_owner = true
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+light_mask = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="HUD" type="Control" parent="AspectRatioContainer"]
+light_mask = 0
+margin_right = 341.0
+margin_bottom = 192.0
+rect_min_size = Vector2( 341, 192 )
+mouse_filter = 2
+
+[node name="Position2DHud" type="Position2D" parent="AspectRatioContainer/HUD"]
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/HUD"]
+visible = false
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 12.0
+margin_top = -37.0
+margin_right = 162.0
+margin_bottom = 74.0
+mouse_filter = 2
+custom_constants/separation = -4
+
+[node name="Label" type="Label" parent="AspectRatioContainer/HUD/VBoxContainer"]
+margin_right = 150.0
+margin_bottom = 14.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+text = "C$233"
+
+[node name="Label2" type="Label" parent="AspectRatioContainer/HUD/VBoxContainer"]
+margin_top = 10.0
+margin_right = 150.0
+margin_bottom = 24.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+text = "Copper"
+
+[node name="Label3" type="Label" parent="AspectRatioContainer/HUD/VBoxContainer"]
+margin_top = 20.0
+margin_right = 150.0
+margin_bottom = 34.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+text = "Treasure"
+
+[node name="Label4" type="Label" parent="AspectRatioContainer/HUD/VBoxContainer"]
+margin_top = 30.0
+margin_right = 150.0
+margin_bottom = 44.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+text = "C$233"
+
+[node name="Label5" type="Label" parent="AspectRatioContainer/HUD/VBoxContainer"]
+margin_top = 40.0
+margin_right = 150.0
+margin_bottom = 54.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+text = "Copper"
+
+[node name="Label6" type="Label" parent="AspectRatioContainer/HUD/VBoxContainer"]
+margin_top = 50.0
+margin_right = 150.0
+margin_bottom = 64.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+text = "Treasure"
+
+[node name="VBxQuickNotif" type="VBoxContainer" parent="AspectRatioContainer/HUD"]
+unique_name_in_owner = true
+modulate = Color( 1, 1, 1, 0.807843 )
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -71.0
+margin_top = -53.0
+margin_right = -4.0
+margin_bottom = 81.0
+grow_horizontal = 0
+mouse_filter = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/separation = 0
+
+[node name="Label" type="Label" parent="AspectRatioContainer/HUD/VBxQuickNotif"]
+visible = false
+margin_left = 13.0
+margin_right = 67.0
+margin_bottom = 15.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = ExtResource( 42 )
+custom_styles/normal = SubResource( 68 )
+text = "C$22"
+align = 2
+
+[node name="Label2" type="Label" parent="AspectRatioContainer/HUD/VBxQuickNotif"]
+visible = false
+margin_left = 6.0
+margin_right = 67.0
+margin_bottom = 15.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = ExtResource( 42 )
+custom_styles/normal = SubResource( 68 )
+text = "Copper"
+align = 2
+
+[node name="Label3" type="Label" parent="AspectRatioContainer/HUD/VBxQuickNotif"]
+visible = false
+margin_left = 13.0
+margin_right = 67.0
+margin_bottom = 15.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = ExtResource( 42 )
+custom_styles/normal = SubResource( 68 )
+text = "C$22"
+align = 2
+
+[node name="Label4" type="Label" parent="AspectRatioContainer/HUD/VBxQuickNotif"]
+visible = false
+margin_left = 13.0
+margin_right = 67.0
+margin_bottom = 15.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = ExtResource( 42 )
+custom_styles/normal = SubResource( 68 )
+text = "C$22"
+align = 2
+
+[node name="Label5" type="Label" parent="AspectRatioContainer/HUD/VBxQuickNotif"]
+visible = false
+margin_left = 6.0
+margin_right = 67.0
+margin_bottom = 15.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = ExtResource( 42 )
+custom_styles/normal = SubResource( 68 )
+text = "Copper"
+align = 2
+
+[node name="Label6" type="Label" parent="AspectRatioContainer/HUD/VBxQuickNotif"]
+visible = false
+margin_left = 6.0
+margin_right = 67.0
+margin_bottom = 15.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = ExtResource( 42 )
+custom_styles/normal = SubResource( 68 )
+text = "Copper"
+align = 2
+
+[node name="Base" type="TextureRect" parent="AspectRatioContainer/HUD"]
+light_mask = 0
+margin_right = 80.0
+margin_bottom = 40.0
+mouse_filter = 2
+texture = SubResource( 1 )
+expand = true
+stretch_mode = 5
+
+[node name="SPUnder" type="TextureRect" parent="AspectRatioContainer/HUD/Base"]
+show_behind_parent = true
+light_mask = 0
+margin_left = 7.0
+margin_top = 14.0
+margin_right = 23.0
+margin_bottom = 30.0
+mouse_filter = 2
+texture = SubResource( 2 )
+stretch_mode = 5
+
+[node name="SP" type="TextureProgress" parent="AspectRatioContainer/HUD/Base"]
+show_behind_parent = true
+light_mask = 0
+margin_left = 5.0
+margin_top = 12.0
+margin_right = 21.0
+margin_bottom = 28.0
+mouse_filter = 2
+value = 50.0
+texture_progress = ExtResource( 9 )
+fill_mode = 4
+radial_initial_angle = 270.0
+
+[node name="BladeUnder" type="TextureRect" parent="AspectRatioContainer/HUD/Base"]
+modulate = Color( 1, 1, 1, 0.498039 )
+show_behind_parent = true
+light_mask = 0
+margin_left = 20.0
+margin_top = 28.0
+margin_right = 36.0
+margin_bottom = 76.0
+rect_min_size = Vector2( 16, 48 )
+rect_rotation = -90.0
+mouse_filter = 2
+texture = SubResource( 3 )
+expand = true
+stretch_mode = 5
+
+[node name="Blade" type="TextureProgress" parent="AspectRatioContainer/HUD/Base"]
+show_behind_parent = true
+light_mask = 0
+material = SubResource( 4 )
+margin_left = 20.0
+margin_top = 28.0
+margin_right = 36.0
+margin_bottom = 76.0
+rect_rotation = -90.0
+mouse_filter = 2
+value = 100.0
+texture_progress = SubResource( 5 )
+fill_mode = 2
+
+[node name="HPUnder" type="TextureRect" parent="AspectRatioContainer/HUD/Base"]
+show_behind_parent = true
+light_mask = 0
+margin_left = 24.0
+margin_top = 8.0
+margin_right = 75.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 44, 4 )
+mouse_filter = 2
+texture = SubResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="MPUnder" type="TextureRect" parent="AspectRatioContainer/HUD/Base"]
+show_behind_parent = true
+light_mask = 0
+margin_left = 24.0
+margin_top = 14.0
+margin_right = 56.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 32, 4 )
+mouse_filter = 2
+texture = SubResource( 7 )
+expand = true
+stretch_mode = 5
+
+[node name="HPDamage" type="TextureProgress" parent="AspectRatioContainer/HUD/Base"]
+show_behind_parent = true
+light_mask = 0
+margin_left = 24.0
+margin_top = 8.0
+margin_right = 68.0
+margin_bottom = 12.0
+mouse_filter = 2
+value = 80.0
+texture_progress = SubResource( 8 )
+
+[node name="HP" type="TextureProgress" parent="AspectRatioContainer/HUD/Base"]
+show_behind_parent = true
+light_mask = 0
+material = SubResource( 9 )
+margin_left = 24.0
+margin_top = 8.0
+margin_right = 68.0
+margin_bottom = 12.0
+mouse_filter = 2
+value = 50.0
+texture_progress = SubResource( 10 )
+
+[node name="HPWarning" type="TextureProgress" parent="AspectRatioContainer/HUD/Base"]
+visible = false
+show_behind_parent = true
+light_mask = 0
+margin_left = 24.0
+margin_top = 8.0
+margin_right = 68.0
+margin_bottom = 12.0
+mouse_filter = 2
+value = 20.0
+texture_progress = SubResource( 11 )
+
+[node name="MP" type="TextureProgress" parent="AspectRatioContainer/HUD/Base"]
+show_behind_parent = true
+light_mask = 0
+margin_left = 24.0
+margin_top = 14.0
+margin_right = 68.0
+margin_bottom = 18.0
+mouse_filter = 2
+value = 50.0
+texture_progress = SubResource( 12 )
+
+[node name="MPFull" type="TextureProgress" parent="AspectRatioContainer/HUD/Base"]
+show_behind_parent = true
+light_mask = 0
+margin_left = 24.0
+margin_top = 14.0
+margin_right = 68.0
+margin_bottom = 18.0
+mouse_filter = 2
+value = 100.0
+texture_progress = SubResource( 13 )
+
+[node name="NegativeStatsIcons" type="HBoxContainer" parent="AspectRatioContainer/HUD/Base"]
+light_mask = 0
+margin_left = 30.0
+margin_top = 29.0
+margin_right = 66.0
+margin_bottom = 69.0
+mouse_filter = 2
+custom_constants/separation = 0
+
+[node name="Injured" type="TextureRect" parent="AspectRatioContainer/HUD/Base/NegativeStatsIcons"]
+margin_right = 12.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 12, 40 )
+texture = SubResource( 14 )
+stretch_mode = 5
+
+[node name="Cursed" type="TextureRect" parent="AspectRatioContainer/HUD/Base/NegativeStatsIcons"]
+margin_left = 12.0
+margin_right = 24.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 12, 40 )
+texture = SubResource( 16 )
+stretch_mode = 5
+
+[node name="Poisoned" type="TextureRect" parent="AspectRatioContainer/HUD/Base/NegativeStatsIcons"]
+margin_left = 24.0
+margin_right = 36.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 12, 40 )
+texture = SubResource( 15 )
+stretch_mode = 5
+
+[node name="CurrentSubweaponSprite" type="Sprite" parent="AspectRatioContainer/HUD/Base"]
+unique_name_in_owner = true
+material = SubResource( 73 )
+position = Vector2( 79, 36 )
+texture = ExtResource( 45 )
+hframes = 5
+vframes = 2
+
+[node name="Light" type="Sprite" parent="AspectRatioContainer/HUD/Base/CurrentSubweaponSprite"]
+modulate = Color( 0.486275, 0.137255, 1, 0.996078 )
+show_behind_parent = true
+material = SubResource( 74 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 46 )
+
+[node name="ControlStats" type="Control" parent="AspectRatioContainer/HUD/Base"]
+unique_name_in_owner = true
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="LblHPQuick" type="Label" parent="AspectRatioContainer/HUD/Base/ControlStats"]
+unique_name_in_owner = true
+modulate = Color( 0.643137, 1, 0.443137, 1 )
+margin_left = 76.0
+margin_top = 6.0
+margin_right = 111.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 7 )
+text = "000"
+
+[node name="LblMPQuick" type="Label" parent="AspectRatioContainer/HUD/Base/ControlStats"]
+unique_name_in_owner = true
+modulate = Color( 0.443137, 1, 0.913725, 1 )
+margin_left = 67.0
+margin_top = 14.0
+margin_right = 102.0
+margin_bottom = 21.0
+custom_fonts/font = ExtResource( 7 )
+text = "000"
+
+[node name="LblBLQuick" type="Label" parent="AspectRatioContainer/HUD/Base/ControlStats"]
+unique_name_in_owner = true
+modulate = Color( 1, 0.545098, 0.443137, 1 )
+margin_left = 57.0
+margin_top = 22.0
+margin_right = 92.0
+margin_bottom = 29.0
+custom_fonts/font = ExtResource( 7 )
+text = "000"
+
+[node name="LblSetInfo" type="Label" parent="AspectRatioContainer/HUD/Base/ControlStats"]
+unique_name_in_owner = true
+modulate = Color( 0.862745, 0.905882, 1, 1 )
+margin_left = 98.0
+margin_top = 6.0
+margin_right = 157.0
+margin_bottom = 60.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/line_spacing = -4
+custom_constants/shadow_offset_y = 0
+text = "Alloy
+Circuit Action"
+
+[node name="ControlChangeSet" type="Control" parent="AspectRatioContainer/HUD/Base"]
+unique_name_in_owner = true
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="LightSet" type="Sprite" parent="AspectRatioContainer/HUD/Base/ControlChangeSet"]
+unique_name_in_owner = true
+modulate = Color( 1, 0, 0.72549, 1 )
+material = SubResource( 74 )
+position = Vector2( 24, 30 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 46 )
+
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/HUD/Base/ControlChangeSet"]
+margin_left = 12.0
+margin_top = 32.0
+margin_right = 22.0
+margin_bottom = 42.0
+texture = SubResource( 72 )
+
+[node name="TextureRect2" type="TextureRect" parent="AspectRatioContainer/HUD/Base/ControlChangeSet"]
+margin_left = 25.0
+margin_top = 19.0
+margin_right = 35.0
+margin_bottom = 29.0
+texture = SubResource( 72 )
+
+[node name="LblSetNext" type="Label" parent="AspectRatioContainer/HUD/Base/ControlChangeSet"]
+unique_name_in_owner = true
+margin_left = 27.0
+margin_top = 20.0
+margin_right = 32.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 44 )
+text = "B"
+
+[node name="LblSetPrev" type="Label" parent="AspectRatioContainer/HUD/Base/ControlChangeSet"]
+unique_name_in_owner = true
+margin_left = 14.0
+margin_top = 33.0
+margin_right = 21.0
+margin_bottom = 43.0
+custom_fonts/font = ExtResource( 44 )
+text = "D"
+
+[node name="LblSet" type="Label" parent="AspectRatioContainer/HUD/Base"]
+unique_name_in_owner = true
+margin_left = 20.0
+margin_top = 27.0
+margin_right = 27.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 32 )
+text = "A"
+
+[node name="ThermalBarHeat" type="TextureProgress" parent="AspectRatioContainer/HUD/Base"]
+unique_name_in_owner = true
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -34.5
+margin_top = 12.5
+margin_right = 2.5
+margin_bottom = 17.5
+rect_min_size = Vector2( 37, 5 )
+rect_rotation = 90.0
+rect_scale = Vector2( 1, -1 )
+mouse_filter = 2
+value = 50.0
+texture_under = SubResource( 59 )
+texture_over = SubResource( 60 )
+texture_progress = SubResource( 61 )
+
+[node name="Icon" type="TextureRect" parent="AspectRatioContainer/HUD/Base/ThermalBarHeat"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -12.5
+margin_top = 20.5
+margin_right = 3.5
+margin_bottom = 36.5
+rect_rotation = -90.0
+texture = SubResource( 63 )
+
+[node name="ThermalBarCold" type="TextureProgress" parent="AspectRatioContainer/HUD/Base"]
+unique_name_in_owner = true
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -34.5
+margin_top = 12.5
+margin_right = 2.5
+margin_bottom = 17.5
+rect_min_size = Vector2( 37, 5 )
+rect_rotation = 90.0
+rect_scale = Vector2( 1, -1 )
+mouse_filter = 2
+value = 50.0
+texture_under = SubResource( 59 )
+texture_over = SubResource( 60 )
+texture_progress = SubResource( 65 )
+
+[node name="Icon" type="TextureRect" parent="AspectRatioContainer/HUD/Base/ThermalBarCold"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -12.5
+margin_top = 20.5
+margin_right = 3.5
+margin_bottom = 36.5
+rect_rotation = -90.0
+texture = SubResource( 66 )
+
+[node name="ThermalBarUnderWater" type="TextureProgress" parent="AspectRatioContainer/HUD/Base"]
+unique_name_in_owner = true
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -34.5
+margin_top = 12.5
+margin_right = 2.5
+margin_bottom = 17.5
+rect_min_size = Vector2( 37, 5 )
+rect_rotation = 90.0
+rect_scale = Vector2( 1, -1 )
+mouse_filter = 2
+value = 50.0
+texture_under = SubResource( 59 )
+texture_over = SubResource( 60 )
+texture_progress = SubResource( 64 )
+
+[node name="Icon" type="TextureRect" parent="AspectRatioContainer/HUD/Base/ThermalBarUnderWater"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -12.5
+margin_top = 20.5
+margin_right = 3.5
+margin_bottom = 36.5
+rect_rotation = -90.0
+mouse_filter = 2
+texture = ExtResource( 39 )
+
+[node name="AnimBloodOutline" type="AnimationPlayer" parent="AspectRatioContainer/HUD"]
+pause_mode = 1
+anims/RESET = SubResource( 17 )
+anims/hide = SubResource( 18 )
+anims/show = SubResource( 19 )
+
+[node name="TimerStartHPTween" type="Timer" parent="AspectRatioContainer/HUD"]
+pause_mode = 1
+one_shot = true
+
+[node name="TimerStartRecoverStamina" type="Timer" parent="AspectRatioContainer/HUD"]
+pause_mode = 1
+one_shot = true
+
+[node name="TimerRecoverStamina" type="Timer" parent="AspectRatioContainer/HUD"]
+pause_mode = 1
+wait_time = 0.1
+
+[node name="TimerRecoverMana" type="Timer" parent="AspectRatioContainer/HUD"]
+pause_mode = 1
+autostart = true
+__meta__ = {
+"_editor_description_": "1.5"
+}
+
+[node name="TimerReduceHPByPoison" type="Timer" parent="AspectRatioContainer/HUD"]
+pause_mode = 1
+wait_time = 2.0
+
+[node name="TimerReduceMPByCurse" type="Timer" parent="AspectRatioContainer/HUD"]
+pause_mode = 1
+wait_time = 0.2
+
+[node name="TweenHPBar" type="Tween" parent="AspectRatioContainer/HUD"]
+pause_mode = 1
+
+[node name="BossBar" parent="AspectRatioContainer/HUD" instance=ExtResource( 40 )]
+unique_name_in_owner = true
+
+[node name="ControlMiniMap" type="Control" parent="AspectRatioContainer"]
+light_mask = 0
+margin_left = 74.5
+margin_right = 266.5
+margin_bottom = 192.0
+mouse_filter = 2
+
+[node name="Panel" type="PanelContainer" parent="AspectRatioContainer/ControlMiniMap"]
+light_mask = 0
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = 6.0
+margin_right = 75.0
+margin_bottom = 39.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 20 )
+
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/ControlMiniMap/Panel"]
+modulate = Color( 1, 1, 1, 0.278431 )
+light_mask = 0
+margin_right = 69.0
+margin_bottom = 39.0
+mouse_filter = 2
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 7
+
+[node name="Margin" type="MarginContainer" parent="AspectRatioContainer/ControlMiniMap/Panel"]
+light_mask = 0
+margin_right = 69.0
+margin_bottom = 39.0
+mouse_filter = 2
+
+[node name="ViewportContainer" type="ViewportContainer" parent="AspectRatioContainer/ControlMiniMap/Panel/Margin"]
+light_mask = 0
+margin_right = 69.0
+margin_bottom = 39.0
+mouse_filter = 2
+stretch = true
+
+[node name="Viewport" type="Viewport" parent="AspectRatioContainer/ControlMiniMap/Panel/Margin/ViewportContainer"]
+size = Vector2( 138, 78 )
+own_world = true
+transparent_bg = true
+handle_input_locally = false
+usage = 0
+render_target_update_mode = 3
+gui_disable_input = true
+
+[node name="MiniMap" parent="AspectRatioContainer/ControlMiniMap/Panel/Margin/ViewportContainer/Viewport" instance=ExtResource( 5 )]
+
+[node name="ControlBloodLayout" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -170.5
+margin_top = -96.0
+margin_right = 170.5
+margin_bottom = 96.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="ControlBloodLayout"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource( 37 )
+
+[node name="ColorRect" type="ColorRect" parent="ControlBloodLayout/TextureRect"]
+modulate = Color( 1, 0, 0, 0.0745098 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="ColorRect2" type="ColorRect" parent="ControlBloodLayout/TextureRect"]
+material = SubResource( 80 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="AnimBloodLayout" type="AnimationPlayer" parent="ControlBloodLayout"]
+pause_mode = 1
+unique_name_in_owner = true
+anims/RESET = SubResource( 57 )
+anims/heartbeat = SubResource( 58 )
+
+[node name="VirtualGamepad" parent="." instance=ExtResource( 4 )]
+visible = false
+edit_mode = false
+
+[node name="BossTitle" parent="." instance=ExtResource( 41 )]
+unique_name_in_owner = true
+
+[node name="DramaticTitle" parent="." instance=ExtResource( 24 )]
+unique_name_in_owner = true
+
+[node name="AreaTitle" parent="." instance=ExtResource( 8 )]
+unique_name_in_owner = true
+
+[node name="LevelUpMessage" parent="." instance=ExtResource( 30 )]
+unique_name_in_owner = true
+
+[node name="Flash" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.776471, 0.776471, 0.776471, 1 )
+
+[node name="AnimationPlayerFlash" type="AnimationPlayer" parent="Flash"]
+unique_name_in_owner = true
+anims/RESET = SubResource( 70 )
+anims/flash = SubResource( 71 )
+
+[node name="BlackRect" type="ColorRect" parent="."]
+light_mask = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_editor_description_": "dejar blackrect visible"
+}
+
+[node name="CtrlPause" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="TextureBG" type="TextureRect" parent="CtrlPause"]
+modulate = Color( 0.372549, 0.372549, 0.372549, 1 )
+light_mask = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 7
+
+[node name="Equip" type="MarginContainer" parent="CtrlPause"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -170.5
+margin_top = -96.0
+margin_right = 170.5
+margin_bottom = 96.0
+mouse_filter = 2
+custom_constants/margin_right = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CtrlPause/Equip"]
+margin_left = 5.0
+margin_right = 336.0
+margin_bottom = 189.0
+
+[node name="EquipTabContainer" type="TabContainer" parent="CtrlPause/Equip/VBoxContainer"]
+unique_name_in_owner = true
+margin_right = 331.0
+margin_bottom = 169.0
+size_flags_vertical = 3
+
+[node name="INVENTORY" type="Tabs" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 29.0
+margin_right = -5.0
+margin_bottom = -5.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = -61.5
+margin_right = 150.0
+margin_bottom = 61.5
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 23
+alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer"]
+margin_left = 21.0
+margin_right = 106.0
+margin_bottom = 123.0
+custom_constants/separation = -1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer2"]
+margin_right = 85.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 85, 0 )
+size_flags_vertical = 3
+follow_focus = true
+
+[node name="InventoryGridContainer" type="GridContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer2/ScrollContainer"]
+unique_name_in_owner = true
+margin_right = 85.0
+size_flags_horizontal = 3
+columns = 4
+
+[node name="HSeparator" type="HSeparator" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer2"]
+margin_top = 57.0
+margin_right = 85.0
+margin_bottom = 68.0
+custom_constants/separation = 11
+custom_styles/separator = SubResource( 75 )
+
+[node name="InvProgressHP" type="TextureProgress" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+margin_top = 67.0
+margin_right = 85.0
+margin_bottom = 69.0
+value = 50.0
+texture_under = ExtResource( 31 )
+texture_progress = ExtResource( 47 )
+fill_mode = 1
+tint_progress = Color( 0.658824, 0.984314, 0.345098, 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer2"]
+margin_top = 68.0
+margin_right = 85.0
+margin_bottom = 82.0
+
+[node name="Label" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer2/HBoxContainer"]
+margin_right = 40.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+custom_constants/line_spacing = -5
+text = "HP:"
+
+[node name="LblStatsHP" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 44.0
+margin_right = 85.0
+margin_bottom = 14.0
+grow_horizontal = 0
+size_flags_horizontal = 3
+custom_constants/line_spacing = -5
+text = "999/999"
+align = 2
+
+[node name="InvProgressMP" type="TextureProgress" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+margin_top = 81.0
+margin_right = 85.0
+margin_bottom = 83.0
+value = 50.0
+texture_under = ExtResource( 31 )
+texture_progress = ExtResource( 47 )
+fill_mode = 1
+tint_progress = Color( 0.345098, 0.670588, 0.984314, 1 )
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer2"]
+margin_top = 82.0
+margin_right = 85.0
+margin_bottom = 96.0
+
+[node name="Label" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+margin_right = 40.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+custom_constants/line_spacing = -5
+text = "MP:"
+
+[node name="LblStatsMP" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+unique_name_in_owner = true
+margin_left = 44.0
+margin_right = 85.0
+margin_bottom = 14.0
+grow_horizontal = 0
+size_flags_horizontal = 3
+custom_constants/line_spacing = -5
+text = "999/999"
+align = 2
+
+[node name="InvProgressBL" type="TextureProgress" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+margin_top = 95.0
+margin_right = 85.0
+margin_bottom = 97.0
+value = 50.0
+texture_under = ExtResource( 31 )
+texture_progress = ExtResource( 47 )
+fill_mode = 1
+tint_progress = Color( 0.984314, 0.345098, 0.345098, 1 )
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer2"]
+margin_top = 96.0
+margin_right = 85.0
+margin_bottom = 110.0
+
+[node name="Label" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer2/HBoxContainer4"]
+margin_right = 40.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+custom_constants/line_spacing = -5
+text = "BLOOD:"
+
+[node name="LblStatsBL" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer2/HBoxContainer4"]
+unique_name_in_owner = true
+margin_left = 44.0
+margin_right = 85.0
+margin_bottom = 14.0
+grow_horizontal = 0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+custom_constants/line_spacing = -5
+text = "999/999"
+align = 2
+
+[node name="InvProgressLVL" type="TextureProgress" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+visible = false
+margin_top = 108.0
+margin_right = 85.0
+margin_bottom = 110.0
+value = 50.0
+texture_under = ExtResource( 31 )
+texture_progress = ExtResource( 47 )
+fill_mode = 1
+tint_progress = Color( 1, 0.792157, 0.792157, 1 )
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer2"]
+margin_top = 109.0
+margin_right = 85.0
+margin_bottom = 123.0
+alignment = 1
+
+[node name="LblLVL" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer2/HBoxContainer5"]
+unique_name_in_owner = true
+margin_right = 41.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+custom_constants/line_spacing = -5
+text = "LVL 010"
+align = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer2/HBoxContainer5"]
+margin_left = 45.0
+margin_right = 85.0
+margin_bottom = 14.0
+size_flags_vertical = 3
+custom_constants/separation = -1
+alignment = 2
+
+[node name="LblExpNow" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer2/HBoxContainer5/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 1.0
+margin_right = 40.0
+margin_bottom = 8.0
+rect_min_size = Vector2( 0, 7 )
+size_flags_horizontal = 3
+custom_constants/line_spacing = -5
+custom_fonts/font = ExtResource( 7 )
+text = "01231114"
+align = 2
+
+[node name="LblExpToNext" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer2/HBoxContainer5/VBoxContainer"]
+unique_name_in_owner = true
+modulate = Color( 1, 0.721569, 0.721569, 1 )
+margin_top = 7.0
+margin_right = 40.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 0, 7 )
+size_flags_horizontal = 3
+custom_constants/line_spacing = -5
+custom_fonts/font = ExtResource( 7 )
+text = "01231114"
+align = 2
+
+[node name="InvProgressSP" type="TextureProgress" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer2"]
+visible = false
+margin_top = 110.0
+margin_right = 85.0
+margin_bottom = 112.0
+value = 50.0
+texture_under = ExtResource( 31 )
+texture_progress = ExtResource( 47 )
+fill_mode = 1
+tint_progress = Color( 0.764706, 0.764706, 0.764706, 1 )
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer2"]
+visible = false
+margin_top = 109.0
+margin_right = 85.0
+margin_bottom = 123.0
+
+[node name="Label" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer2/HBoxContainer3"]
+margin_right = 40.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+custom_constants/line_spacing = -5
+text = "SP:"
+
+[node name="LblStatsSP" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer2/HBoxContainer3"]
+unique_name_in_owner = true
+margin_left = 44.0
+margin_right = 85.0
+margin_bottom = 14.0
+grow_horizontal = 0
+size_flags_horizontal = 3
+custom_constants/line_spacing = -5
+text = "999/999"
+align = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer"]
+margin_left = 129.0
+margin_right = 279.0
+margin_bottom = 123.0
+rect_min_size = Vector2( 150, 0 )
+
+[node name="InventoryItemTitle" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_right = 150.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 16 )
+text = "TITLE OBJECT"
+align = 1
+
+[node name="InventoryItemDesc" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 20.0
+margin_right = 150.0
+margin_bottom = 79.0
+size_flags_vertical = 7
+custom_constants/line_spacing = -3
+text = "Lorem ipsum dolor sit amet consectetur adipiscing elit luctus, facilisi congue consequat iaculis sagittis orci conubia, est ut per condimentum donec risus fringilla."
+autowrap = true
+clip_text = true
+
+[node name="HSeparator" type="HSeparator" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer"]
+margin_top = 83.0
+margin_right = 150.0
+margin_bottom = 87.0
+custom_styles/separator = SubResource( 26 )
+
+[node name="LblNegativeStatus" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 91.0
+margin_right = 150.0
+margin_bottom = 105.0
+text = "Herido, Envenedado, Maldito"
+autowrap = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer"]
+margin_top = 109.0
+margin_right = 150.0
+margin_bottom = 123.0
+custom_constants/separation = 11
+
+[node name="BtnUseItemInventory" type="Button" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_right = 121.0
+margin_bottom = 14.0
+focus_mode = 0
+size_flags_horizontal = 3
+text = "USEITEM"
+
+[node name="HelperIconBtn" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer/HBoxContainer/BtnUseItemInventory" instance=ExtResource( 15 )]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -9.0
+margin_bottom = 7.0
+hide_method_touch = "visible"
+action = "ui_accept"
+
+[node name="InventoryItemQuantity" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 132.0
+margin_right = 150.0
+margin_bottom = 14.0
+text = "(99)"
+
+[node name="ALCHEMY" type="Tabs" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 29.0
+margin_right = -5.0
+margin_bottom = -5.0
+
+[node name="Margin" type="MarginContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 2
+custom_constants/margin_top = -1
+custom_constants/margin_left = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin"]
+margin_left = 2.0
+margin_top = -1.0
+margin_right = 319.0
+margin_bottom = 135.0
+custom_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer"]
+margin_right = 317.0
+margin_bottom = 81.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 24
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer"]
+margin_right = 146.0
+margin_bottom = 81.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_right = 146.0
+margin_bottom = 16.0
+alignment = 1
+
+[node name="BtnPrevCircuitType" type="Button" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+margin_right = 13.0
+margin_bottom = 16.0
+focus_mode = 0
+text = " "
+
+[node name="HelperIconBtn" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/BtnPrevCircuitType" instance=ExtResource( 15 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -9.0
+margin_right = 8.0
+margin_bottom = 7.0
+hide_method_touch = "visible"
+action = "ui_left"
+
+[node name="LblTypeCircuit" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 17.0
+margin_right = 129.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 16 )
+text = "TYPECIRCUIT"
+align = 1
+
+[node name="BtnNextCircuitType" type="Button" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 133.0
+margin_right = 146.0
+margin_bottom = 16.0
+focus_mode = 0
+text = " "
+
+[node name="HelperIconBtn" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/BtnNextCircuitType" instance=ExtResource( 15 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -9.0
+margin_right = 8.0
+margin_bottom = 7.0
+hide_method_touch = "visible"
+action = "ui_right"
+
+[node name="ScrollContainerAlchemyBtns" type="ScrollContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+margin_top = 20.0
+margin_right = 146.0
+margin_bottom = 77.0
+rect_min_size = Vector2( 0, 45 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+follow_focus = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer/VBoxContainer2/ScrollContainerAlchemyBtns"]
+margin_right = 146.0
+margin_bottom = 94.0
+mouse_filter = 1
+size_flags_horizontal = 3
+custom_constants/margin_right = 10
+custom_constants/margin_left = 10
+
+[node name="VBxAlchemyBtns" type="VBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer/VBoxContainer2/ScrollContainerAlchemyBtns/MarginContainer"]
+unique_name_in_owner = true
+margin_left = 10.0
+margin_right = 136.0
+margin_bottom = 94.0
+size_flags_horizontal = 3
+custom_constants/separation = 2
+
+[node name="Button" type="Button" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer/VBoxContainer2/ScrollContainerAlchemyBtns/MarginContainer/VBxAlchemyBtns"]
+margin_right = 122.0
+margin_bottom = 14.0
+mouse_filter = 1
+text = "TEST BTN"
+
+[node name="Button2" type="Button" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer/VBoxContainer2/ScrollContainerAlchemyBtns/MarginContainer/VBxAlchemyBtns"]
+margin_top = 16.0
+margin_right = 122.0
+margin_bottom = 30.0
+mouse_filter = 1
+text = "TEST BTN"
+
+[node name="Button3" type="Button" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer/VBoxContainer2/ScrollContainerAlchemyBtns/MarginContainer/VBxAlchemyBtns"]
+margin_top = 32.0
+margin_right = 122.0
+margin_bottom = 46.0
+mouse_filter = 1
+text = "TEST BTN"
+
+[node name="Button4" type="Button" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer/VBoxContainer2/ScrollContainerAlchemyBtns/MarginContainer/VBxAlchemyBtns"]
+margin_top = 48.0
+margin_right = 122.0
+margin_bottom = 62.0
+mouse_filter = 1
+text = "TEST BTN"
+
+[node name="Button5" type="Button" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer/VBoxContainer2/ScrollContainerAlchemyBtns/MarginContainer/VBxAlchemyBtns"]
+margin_top = 64.0
+margin_right = 122.0
+margin_bottom = 78.0
+mouse_filter = 1
+text = "TEST BTN"
+
+[node name="Button6" type="Button" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer/VBoxContainer2/ScrollContainerAlchemyBtns/MarginContainer/VBxAlchemyBtns"]
+margin_top = 80.0
+margin_right = 122.0
+margin_bottom = 94.0
+mouse_filter = 1
+text = "TEST BTN"
+
+[node name="HSeparator" type="HSeparator" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 81.0
+margin_right = 146.0
+margin_bottom = 81.0
+custom_constants/separation = -3
+custom_styles/separator = SubResource( 69 )
+
+[node name="Label" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer/VBoxContainer2"]
+visible = false
+margin_top = 53.0
+margin_right = 143.0
+margin_bottom = 69.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 16 )
+text = "NAMEITEM"
+align = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer"]
+margin_left = 170.0
+margin_right = 317.0
+margin_bottom = 81.0
+size_flags_horizontal = 3
+custom_constants/separation = 6
+
+[node name="Control" type="Control" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_right = 147.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer/VBoxContainer/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 40, 40 )
+
+[node name="UICircuit" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer/VBoxContainer/Control/TextureRect" instance=ExtResource( 17 )]
+unique_name_in_owner = true
+position = Vector2( 19, 21 )
+custom_color = Color( 0.615686, 0.0784314, 0.67451, 1 )
+is_for_ui = true
+
+[node name="UICE_ALLOY" type="Sprite" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer/VBoxContainer/Control/TextureRect/UICircuit"]
+unique_name_in_owner = true
+light_mask = 0
+material = SubResource( 56 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 23 )
+hframes = 10
+vframes = 5
+
+[node name="BtnEquipCircuit" type="Button" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 56.0
+margin_right = 147.0
+margin_bottom = 70.0
+focus_mode = 0
+text = "SELECT"
+
+[node name="HelperIconBtn" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer/VBoxContainer/BtnEquipCircuit" instance=ExtResource( 15 )]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -9.0
+margin_bottom = 7.0
+hide_method_touch = "visible"
+action = "ui_accept"
+
+[node name="HSeparator" type="HSeparator" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer"]
+margin_top = 81.0
+margin_right = 317.0
+margin_bottom = 86.0
+custom_constants/separation = 5
+custom_styles/separator = SubResource( 23 )
+
+[node name="LblCircuitDescription" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 86.0
+margin_right = 317.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 0, 34 )
+size_flags_horizontal = 3
+size_flags_vertical = 5
+custom_constants/line_spacing = -4
+text = "Lorem ipsum dolor sit amet consectetur adipiscing elit luctus, facilisi congue consequat iaculis sagittis orci conubia, est ut per condimentum donec risus fringilla."
+autowrap = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer"]
+margin_top = 120.0
+margin_right = 317.0
+margin_bottom = 136.0
+rect_min_size = Vector2( 0, 16 )
+
+[node name="HBxAttrbPhysic" type="HBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+visible = false
+margin_right = 61.0
+margin_bottom = 16.0
+custom_constants/separation = -1
+
+[node name="IconSolid" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer2/HBxAttrbPhysic" instance=ExtResource( 22 )]
+unique_name_in_owner = true
+
+[node name="IconLiquid" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer2/HBxAttrbPhysic" instance=ExtResource( 22 )]
+unique_name_in_owner = true
+margin_left = 15.0
+margin_right = 31.0
+type = 1
+attrb_physical = 1
+
+[node name="IconGas" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer2/HBxAttrbPhysic" instance=ExtResource( 22 )]
+unique_name_in_owner = true
+margin_left = 30.0
+margin_right = 46.0
+type = 2
+attrb_physical = 2
+
+[node name="IconIntactilis" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer2/HBxAttrbPhysic" instance=ExtResource( 22 )]
+unique_name_in_owner = true
+margin_left = 45.0
+margin_right = 61.0
+type = 2
+attrb_physical = 3
+
+[node name="HBxAttrbElement" type="HBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+margin_right = 203.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+custom_constants/separation = -1
+alignment = 2
+
+[node name="AQUA" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer2/HBxAttrbElement" instance=ExtResource( 18 )]
+unique_name_in_owner = true
+margin_left = 97.0
+margin_right = 113.0
+type = 5
+
+[node name="PYRO" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer2/HBxAttrbElement" instance=ExtResource( 18 )]
+unique_name_in_owner = true
+margin_left = 112.0
+margin_right = 128.0
+type = 5
+attrb_elemental = 1
+
+[node name="FRIGO" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer2/HBxAttrbElement" instance=ExtResource( 18 )]
+unique_name_in_owner = true
+margin_left = 127.0
+margin_right = 143.0
+type = 5
+attrb_elemental = 2
+
+[node name="AERIA" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer2/HBxAttrbElement" instance=ExtResource( 18 )]
+unique_name_in_owner = true
+margin_left = 142.0
+margin_right = 158.0
+type = 5
+attrb_elemental = 3
+
+[node name="ELECTRO" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer2/HBxAttrbElement" instance=ExtResource( 18 )]
+unique_name_in_owner = true
+margin_left = 157.0
+margin_right = 173.0
+type = 5
+attrb_elemental = 4
+
+[node name="LUX" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer2/HBxAttrbElement" instance=ExtResource( 18 )]
+unique_name_in_owner = true
+margin_left = 172.0
+margin_right = 188.0
+type = 5
+attrb_elemental = 5
+
+[node name="TENEBRIS" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer2/HBxAttrbElement" instance=ExtResource( 18 )]
+unique_name_in_owner = true
+margin_left = 187.0
+margin_right = 203.0
+type = 5
+attrb_elemental = 6
+
+[node name="LblCircuitMPTIME" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+margin_left = 207.0
+margin_top = 1.0
+margin_right = 317.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 110, 0 )
+text = "MP: 99 - TIME: 99 SCS"
+align = 2
+
+[node name="ButtonSwitchSetAlchemy" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY" instance=ExtResource( 33 )]
+unique_name_in_owner = true
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -150.0
+margin_right = -119.0
+
+[node name="HelperIconBtn" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/ButtonSwitchSetAlchemy" instance=ExtResource( 15 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 15.0
+margin_top = -7.0
+margin_right = 31.0
+margin_bottom = 9.0
+hide_method_touch = "visible"
+action = "ui_select"
+
+[node name="EQUIP" type="Tabs" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 29.0
+margin_right = -5.0
+margin_bottom = -5.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -149.5
+margin_top = -61.5
+margin_right = 149.5
+margin_bottom = 61.5
+grow_horizontal = 2
+size_flags_horizontal = 4
+custom_constants/separation = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer"]
+margin_right = 145.0
+margin_bottom = 123.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBoxContainer"]
+margin_right = 145.0
+margin_bottom = 16.0
+alignment = 1
+
+[node name="TextureNodeItemEquipIcon" type="TextureRect" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+margin_left = 25.0
+margin_right = 41.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+
+[node name="SpriteItemEquipIcon" type="Sprite" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBoxContainer/HBoxContainer2/TextureNodeItemEquipIcon"]
+unique_name_in_owner = true
+position = Vector2( 8, 7 )
+texture = ExtResource( 35 )
+hframes = 5
+vframes = 10
+frame = 5
+
+[node name="LblEquipTypeTitle" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+margin_left = 45.0
+margin_right = 119.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 16 )
+text = "ITEM_TYPE"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBoxContainer"]
+margin_top = 20.0
+margin_right = 145.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+custom_constants/separation = 0
+alignment = 1
+
+[node name="HelperIconBtn" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 15 )]
+margin_left = 20.0
+margin_right = 36.0
+hide_method_touch = "visible"
+action = "ui_left"
+
+[node name="VSeparator" type="VSeparator" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 36.0
+margin_right = 40.0
+margin_bottom = 16.0
+custom_styles/separator = SubResource( 52 )
+
+[node name="BtnEquipType0" type="TextureButton" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 40.0
+margin_right = 56.0
+margin_bottom = 16.0
+focus_mode = 0
+toggle_mode = true
+group = SubResource( 51 )
+texture_normal = SubResource( 43 )
+texture_pressed = SubResource( 44 )
+texture_hover = SubResource( 44 )
+texture_focused = SubResource( 44 )
+
+[node name="BtnEquipType1" type="TextureButton" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 56.0
+margin_right = 72.0
+margin_bottom = 16.0
+focus_mode = 0
+toggle_mode = true
+group = SubResource( 51 )
+texture_normal = SubResource( 45 )
+texture_pressed = SubResource( 46 )
+texture_hover = SubResource( 46 )
+texture_focused = SubResource( 46 )
+
+[node name="BtnEquipType2" type="TextureButton" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 72.0
+margin_right = 88.0
+margin_bottom = 16.0
+focus_mode = 0
+toggle_mode = true
+group = SubResource( 51 )
+texture_normal = SubResource( 47 )
+texture_pressed = SubResource( 48 )
+texture_hover = SubResource( 48 )
+texture_focused = SubResource( 48 )
+
+[node name="BtnEquipType3" type="TextureButton" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 88.0
+margin_right = 104.0
+margin_bottom = 16.0
+focus_mode = 0
+toggle_mode = true
+group = SubResource( 51 )
+texture_normal = SubResource( 49 )
+texture_pressed = SubResource( 50 )
+texture_hover = SubResource( 50 )
+texture_focused = SubResource( 50 )
+
+[node name="VSeparator2" type="VSeparator" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 104.0
+margin_right = 108.0
+margin_bottom = 16.0
+custom_styles/separator = SubResource( 52 )
+
+[node name="HelperIconBtn2" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 15 )]
+margin_left = 108.0
+margin_right = 124.0
+hide_method_touch = "visible"
+action = "ui_right"
+
+[node name="ScrollContainerEquipBtns" type="ScrollContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 40.0
+margin_right = 145.0
+margin_bottom = 123.0
+rect_min_size = Vector2( 0, 45 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="MarginContainer" type="MarginContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBoxContainer/ScrollContainerEquipBtns"]
+margin_right = 145.0
+margin_bottom = 94.0
+mouse_filter = 1
+size_flags_horizontal = 3
+custom_constants/margin_right = 10
+custom_constants/margin_left = 10
+
+[node name="VBxEquipBtns" type="VBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBoxContainer/ScrollContainerEquipBtns/MarginContainer"]
+unique_name_in_owner = true
+margin_left = 10.0
+margin_right = 135.0
+margin_bottom = 94.0
+size_flags_horizontal = 3
+custom_constants/separation = 2
+
+[node name="Button" type="Button" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBoxContainer/ScrollContainerEquipBtns/MarginContainer/VBxEquipBtns"]
+margin_right = 121.0
+margin_bottom = 14.0
+mouse_filter = 1
+text = "TEST BTN"
+
+[node name="Button2" type="Button" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBoxContainer/ScrollContainerEquipBtns/MarginContainer/VBxEquipBtns"]
+margin_top = 16.0
+margin_right = 121.0
+margin_bottom = 30.0
+mouse_filter = 1
+text = "TEST BTN"
+
+[node name="Button3" type="Button" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBoxContainer/ScrollContainerEquipBtns/MarginContainer/VBxEquipBtns"]
+margin_top = 32.0
+margin_right = 121.0
+margin_bottom = 46.0
+mouse_filter = 1
+text = "TEST BTN"
+
+[node name="Button4" type="Button" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBoxContainer/ScrollContainerEquipBtns/MarginContainer/VBxEquipBtns"]
+margin_top = 48.0
+margin_right = 121.0
+margin_bottom = 62.0
+mouse_filter = 1
+text = "TEST BTN"
+
+[node name="Button5" type="Button" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBoxContainer/ScrollContainerEquipBtns/MarginContainer/VBxEquipBtns"]
+margin_top = 64.0
+margin_right = 121.0
+margin_bottom = 78.0
+mouse_filter = 1
+text = "TEST BTN"
+
+[node name="Button6" type="Button" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBoxContainer/ScrollContainerEquipBtns/MarginContainer/VBxEquipBtns"]
+margin_top = 80.0
+margin_right = 121.0
+margin_bottom = 94.0
+mouse_filter = 1
+text = "TEST BTN"
+
+[node name="VBxEquipItemData" type="VBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 153.0
+margin_right = 299.0
+margin_bottom = 123.0
+size_flags_horizontal = 3
+custom_constants/separation = -1
+
+[node name="LblEquipItemDesc" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBxEquipItemData"]
+unique_name_in_owner = true
+margin_right = 146.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 0, 48 )
+custom_constants/line_spacing = -3
+text = "ITEM_DESCRIPTION
+
+"
+autowrap = true
+clip_text = true
+
+[node name="HSeparator" type="HSeparator" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBxEquipItemData"]
+margin_top = 47.0
+margin_right = 146.0
+margin_bottom = 51.0
+custom_styles/separator = SubResource( 53 )
+
+[node name="HBxEquipStats" type="HBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBxEquipItemData"]
+margin_top = 50.0
+margin_right = 146.0
+margin_bottom = 75.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBxEquipItemData/HBxEquipStats"]
+margin_right = 46.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+custom_constants/separation = -3
+
+[node name="Lbl_atk" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBxEquipItemData/HBxEquipStats/VBoxContainer"]
+unique_name_in_owner = true
+margin_right = 46.0
+margin_bottom = 14.0
+text = "ATK: 00"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBxEquipItemData/HBxEquipStats/VBoxContainer"]
+margin_top = 11.0
+margin_right = 46.0
+margin_bottom = 25.0
+custom_constants/separation = 0
+alignment = 1
+
+[node name="LblEquipStat_atk" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBxEquipItemData/HBxEquipStats/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 12.0
+margin_right = 24.0
+margin_bottom = 14.0
+text = "00"
+
+[node name="TextureRect" type="TextureRect" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBxEquipItemData/HBxEquipStats/VBoxContainer/HBoxContainer"]
+margin_left = 24.0
+margin_right = 33.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 9, 14 )
+
+[node name="BuffIcon_atk" type="Sprite" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBxEquipItemData/HBxEquipStats/VBoxContainer/HBoxContainer/TextureRect"]
+unique_name_in_owner = true
+texture = ExtResource( 36 )
+centered = false
+hframes = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBxEquipItemData/HBxEquipStats"]
+margin_left = 50.0
+margin_right = 96.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+custom_constants/separation = -3
+
+[node name="Lbl_def" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBxEquipItemData/HBxEquipStats/VBoxContainer2"]
+unique_name_in_owner = true
+margin_right = 46.0
+margin_bottom = 14.0
+text = "DEF: 00"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBxEquipItemData/HBxEquipStats/VBoxContainer2"]
+margin_top = 11.0
+margin_right = 46.0
+margin_bottom = 25.0
+custom_constants/separation = 0
+alignment = 1
+
+[node name="LblEquipStat_def" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBxEquipItemData/HBxEquipStats/VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 12.0
+margin_right = 24.0
+margin_bottom = 14.0
+text = "00"
+
+[node name="TextureRect" type="TextureRect" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBxEquipItemData/HBxEquipStats/VBoxContainer2/HBoxContainer"]
+margin_left = 24.0
+margin_right = 33.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 9, 14 )
+
+[node name="BuffIcon_def" type="Sprite" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBxEquipItemData/HBxEquipStats/VBoxContainer2/HBoxContainer/TextureRect"]
+unique_name_in_owner = true
+texture = ExtResource( 36 )
+centered = false
+hframes = 3
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBxEquipItemData/HBxEquipStats"]
+margin_left = 100.0
+margin_right = 146.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+custom_constants/separation = -3
+
+[node name="Lbl_int" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBxEquipItemData/HBxEquipStats/VBoxContainer3"]
+unique_name_in_owner = true
+margin_right = 46.0
+margin_bottom = 14.0
+text = "INT: 00"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBxEquipItemData/HBxEquipStats/VBoxContainer3"]
+margin_top = 11.0
+margin_right = 46.0
+margin_bottom = 25.0
+custom_constants/separation = 0
+alignment = 1
+
+[node name="LblEquipStat_int" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBxEquipItemData/HBxEquipStats/VBoxContainer3/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 12.0
+margin_right = 24.0
+margin_bottom = 14.0
+text = "00"
+
+[node name="TextureRect" type="TextureRect" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBxEquipItemData/HBxEquipStats/VBoxContainer3/HBoxContainer"]
+margin_left = 24.0
+margin_right = 33.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 9, 14 )
+
+[node name="BuffIcon_int" type="Sprite" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBxEquipItemData/HBxEquipStats/VBoxContainer3/HBoxContainer/TextureRect"]
+unique_name_in_owner = true
+texture = ExtResource( 36 )
+centered = false
+hframes = 3
+
+[node name="HSeparator3" type="HSeparator" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBxEquipItemData"]
+margin_top = 74.0
+margin_right = 146.0
+margin_bottom = 82.0
+custom_constants/separation = 8
+custom_styles/separator = SubResource( 54 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBxEquipItemData"]
+margin_top = 81.0
+margin_right = 146.0
+margin_bottom = 95.0
+alignment = 1
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBxEquipItemData/HBoxContainer"]
+margin_right = 35.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 35, 0 )
+
+[node name="BtnEquipItem" type="Button" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBxEquipItemData/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 39.0
+margin_right = 107.0
+margin_bottom = 14.0
+focus_mode = 0
+size_flags_horizontal = 3
+enabled_focus_mode = 0
+text = "SELECT"
+
+[node name="HelperIconBtn" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBxEquipItemData/HBoxContainer/BtnEquipItem" instance=ExtResource( 15 )]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -24.0
+margin_top = -9.0
+margin_right = -8.0
+margin_bottom = 7.0
+hide_method_touch = "visible"
+action = "ui_accept"
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBxEquipItemData/HBoxContainer"]
+margin_left = 111.0
+margin_right = 146.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 35, 0 )
+
+[node name="OPTIONS" type="Tabs" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 29.0
+margin_right = -5.0
+margin_bottom = -5.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/OPTIONS"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="MarginContainer" type="MarginContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/OPTIONS/ScrollContainer"]
+margin_right = 321.0
+margin_bottom = 206.0
+mouse_filter = 2
+size_flags_horizontal = 3
+
+[node name="VBxOptionsBtn" type="VBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/OPTIONS/ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
+margin_left = 10.0
+margin_right = 310.0
+margin_bottom = 206.0
+rect_min_size = Vector2( 300, 0 )
+size_flags_horizontal = 4
+
+[node name="BtnLang" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/OPTIONS/ScrollContainer/MarginContainer/VBxOptionsBtn" instance=ExtResource( 51 )]
+margin_right = 300.0
+title_btn = "LANGUAGE"
+section = "gameplay"
+key = "lang"
+items_values = [ "en", "es", "pt_BR" ]
+items_text = [ "English", "Español", "Portuguese (Brazil)" ]
+
+[node name="BtnScreenFilter" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/OPTIONS/ScrollContainer/MarginContainer/VBxOptionsBtn" instance=ExtResource( 51 )]
+unique_name_in_owner = true
+margin_top = 20.0
+margin_right = 300.0
+margin_bottom = 36.0
+title_btn = "SCREEN_FILTER"
+section = "video"
+key = "filter"
+items_values = [ "none", "crt_curved", "crt_no_curve" ]
+items_text = [ "NONE", "CRT (only in-gameplay)", "Grid LCD" ]
+
+[node name="BtnShowMinimap" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/OPTIONS/ScrollContainer/MarginContainer/VBxOptionsBtn" instance=ExtResource( 51 )]
+margin_top = 40.0
+margin_right = 300.0
+margin_bottom = 56.0
+title_btn = "SHOW_MINIMAP"
+section = "gameplay"
+key = "show_minimap"
+bool_value = true
+
+[node name="HBox_sfx" type="HBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/OPTIONS/ScrollContainer/MarginContainer/VBxOptionsBtn"]
+margin_top = 60.0
+margin_right = 300.0
+margin_bottom = 86.0
+alignment = 1
+
+[node name="Label" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/OPTIONS/ScrollContainer/MarginContainer/VBxOptionsBtn/HBox_sfx"]
+margin_top = 6.0
+margin_right = 150.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 150, 0 )
+text = "SOUND_EFFECTS"
+
+[node name="HSlider" type="HSlider" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/OPTIONS/ScrollContainer/MarginContainer/VBxOptionsBtn/HBox_sfx"]
+margin_left = 154.0
+margin_right = 278.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 40, 0 )
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="LblNum" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/OPTIONS/ScrollContainer/MarginContainer/VBxOptionsBtn/HBox_sfx"]
+margin_left = 282.0
+margin_top = 6.0
+margin_right = 300.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 17, 0 )
+text = "000"
+
+[node name="HBox_bgm" type="HBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/OPTIONS/ScrollContainer/MarginContainer/VBxOptionsBtn"]
+margin_top = 90.0
+margin_right = 300.0
+margin_bottom = 116.0
+alignment = 1
+
+[node name="Label" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/OPTIONS/ScrollContainer/MarginContainer/VBxOptionsBtn/HBox_bgm"]
+margin_top = 6.0
+margin_right = 150.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 150, 0 )
+text = "MUSIC"
+
+[node name="HSlider" type="HSlider" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/OPTIONS/ScrollContainer/MarginContainer/VBxOptionsBtn/HBox_bgm"]
+margin_left = 154.0
+margin_right = 278.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="LblNum" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/OPTIONS/ScrollContainer/MarginContainer/VBxOptionsBtn/HBox_bgm"]
+margin_left = 282.0
+margin_top = 6.0
+margin_right = 300.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 17, 0 )
+text = "000"
+
+[node name="HBox_voice" type="HBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/OPTIONS/ScrollContainer/MarginContainer/VBxOptionsBtn"]
+margin_top = 120.0
+margin_right = 300.0
+margin_bottom = 146.0
+alignment = 1
+
+[node name="Label" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/OPTIONS/ScrollContainer/MarginContainer/VBxOptionsBtn/HBox_voice"]
+margin_top = 6.0
+margin_right = 150.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 150, 0 )
+text = "VOICES"
+
+[node name="HSlider" type="HSlider" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/OPTIONS/ScrollContainer/MarginContainer/VBxOptionsBtn/HBox_voice"]
+margin_left = 154.0
+margin_right = 278.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="LblNum" type="Label" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/OPTIONS/ScrollContainer/MarginContainer/VBxOptionsBtn/HBox_voice"]
+margin_left = 282.0
+margin_top = 6.0
+margin_right = 300.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 17, 0 )
+text = "000"
+
+[node name="BtnVisibilityMinimap" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/OPTIONS/ScrollContainer/MarginContainer/VBxOptionsBtn" instance=ExtResource( 51 )]
+margin_top = 150.0
+margin_right = 300.0
+margin_bottom = 166.0
+title_btn = "MINIMAP_VISIBILITY"
+section = "gameplay"
+key = "minimap_opacity"
+items_values = [ "0.4", "0.5", "0.6", "0.7", "0.8", "0.9" ]
+items_text = [ "40 %", "50 %", "60 %", "70 %", "80 %", "90 %" ]
+
+[node name="BtnQuickMenDetails" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/OPTIONS/ScrollContainer/MarginContainer/VBxOptionsBtn" instance=ExtResource( 51 )]
+margin_top = 170.0
+margin_right = 300.0
+margin_bottom = 186.0
+title_btn = "DETAILS_QUICKMENU"
+section = "gameplay"
+key = "quickmenu_details"
+bool_value = true
+
+[node name="BtnFPSLimit" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/OPTIONS/ScrollContainer/MarginContainer/VBxOptionsBtn" instance=ExtResource( 51 )]
+unique_name_in_owner = true
+margin_top = 190.0
+margin_right = 300.0
+margin_bottom = 206.0
+title_btn = "FPS_LIMIT"
+section = "video"
+key = "fps"
+items_values = [ "30", "60", "90", "120" ]
+items_text = [ "30 FPS", "60 FPS", "90 FPS", "120 FPS" ]
+
+[node name="EXIT" type="Tabs" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 29.0
+margin_right = -5.0
+margin_bottom = -5.0
+
+[node name="CenterContainer" type="CenterContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EXIT"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VbxExitButtons" type="VBoxContainer" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EXIT/CenterContainer"]
+unique_name_in_owner = true
+margin_left = 112.0
+margin_top = 42.0
+margin_right = 209.0
+margin_bottom = 92.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button3" type="Button" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EXIT/CenterContainer/VbxExitButtons"]
+margin_right = 97.0
+margin_bottom = 14.0
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+text = "RETURN"
+
+[node name="Button" type="Button" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EXIT/CenterContainer/VbxExitButtons"]
+margin_top = 18.0
+margin_right = 97.0
+margin_bottom = 32.0
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+text = "EXIT_N_GOTO_MMENU"
+
+[node name="BtnQuicksaveAndExit" type="Button" parent="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EXIT/CenterContainer/VbxExitButtons"]
+unique_name_in_owner = true
+margin_top = 36.0
+margin_right = 97.0
+margin_bottom = 50.0
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+text = "QUICKSAVE_AND_EXIT"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CtrlPause/Equip/VBoxContainer"]
+margin_top = 173.0
+margin_right = 331.0
+margin_bottom = 189.0
+rect_min_size = Vector2( 0, 16 )
+custom_constants/separation = 9
+
+[node name="VSeparator1" type="VSeparator" parent="CtrlPause/Equip/VBoxContainer/HBoxContainer"]
+visible = false
+margin_right = 4.0
+margin_bottom = 32.0
+custom_styles/separator = SubResource( 22 )
+
+[node name="HelperIconBtn" parent="CtrlPause/Equip/VBoxContainer/HBoxContainer" instance=ExtResource( 15 )]
+hide_method_touch = "modulate"
+
+[node name="BtnReturn" type="Button" parent="CtrlPause/Equip/VBoxContainer/HBoxContainer"]
+margin_left = 25.0
+margin_right = 112.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 66, 0 )
+focus_mode = 0
+size_flags_horizontal = 3
+text = "RETURN"
+
+[node name="VSeparator2" type="VSeparator" parent="CtrlPause/Equip/VBoxContainer/HBoxContainer"]
+margin_left = 121.0
+margin_right = 132.0
+margin_bottom = 16.0
+custom_constants/separation = 11
+custom_styles/separator = SubResource( 21 )
+
+[node name="HBxStats" type="HBoxContainer" parent="CtrlPause/Equip/VBoxContainer/HBoxContainer"]
+margin_left = 141.0
+margin_right = 331.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 190, 0 )
+size_flags_horizontal = 3
+custom_constants/separation = -5
+alignment = 1
+
+[node name="LblStatsMONEY" type="Label" parent="CtrlPause/Equip/VBoxContainer/HBoxContainer/HBxStats"]
+unique_name_in_owner = true
+margin_top = 1.0
+margin_right = 97.0
+margin_bottom = 15.0
+size_flags_horizontal = 3
+text = "C$ 999999"
+align = 1
+
+[node name="LblStatsTIME" type="Label" parent="CtrlPause/Equip/VBoxContainer/HBoxContainer/HBxStats"]
+unique_name_in_owner = true
+margin_left = 92.0
+margin_top = 1.0
+margin_right = 190.0
+margin_bottom = 15.0
+size_flags_horizontal = 3
+text = "TIME: 00:00:00.00"
+align = 1
+
+[node name="Map" type="Control" parent="CtrlPause"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="MapTabContainer" type="TabContainer" parent="CtrlPause/Map"]
+unique_name_in_owner = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -170.5
+margin_top = -96.0
+margin_right = 170.5
+margin_bottom = 96.0
+custom_styles/panel = SubResource( 24 )
+
+[node name="MAP" type="Tabs" parent="CtrlPause/Map/MapTabContainer"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 24.0
+mouse_filter = 2
+
+[node name="NodeMap" parent="CtrlPause/Map/MapTabContainer/MAP" instance=ExtResource( 21 )]
+unique_name_in_owner = true
+pointer = NodePath("../MapPointer")
+max_scale = Vector2( 0.5, 0.5 )
+min_scale = Vector2( 0.2, 0.2 )
+
+[node name="MapPointer" type="TextureRect" parent="CtrlPause/Map/MapTabContainer/MAP"]
+unique_name_in_owner = true
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+rect_pivot_offset = Vector2( 8, 8 )
+mouse_filter = 2
+texture = SubResource( 25 )
+stretch_mode = 3
+
+[node name="Position2D" type="Position2D" parent="CtrlPause/Map/MapTabContainer/MAP/MapPointer"]
+position = Vector2( 8, 8 )
+
+[node name="Magic03" type="Sprite" parent="CtrlPause/Map/MapTabContainer/MAP/MapPointer"]
+material = SubResource( 79 )
+position = Vector2( 2.25, 2.21 )
+scale = Vector2( 0.02, 0.02 )
+texture = ExtResource( 48 )
+centered = false
+
+[node name="LblPercentMap" type="Label" parent="CtrlPause/Map/MapTabContainer/MAP"]
+unique_name_in_owner = true
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 13.0
+margin_top = -72.0
+margin_right = 46.0
+margin_bottom = -58.0
+grow_horizontal = 2
+custom_styles/normal = SubResource( 67 )
+text = "000 %"
+align = 1
+
+[node name="LblAreaTitle" type="Label" parent="CtrlPause/Map/MapTabContainer/MAP"]
+unique_name_in_owner = true
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -70.0
+margin_top = -66.0
+margin_right = -18.0
+margin_bottom = -52.0
+grow_horizontal = 2
+size_flags_horizontal = 0
+custom_styles/normal = SubResource( 67 )
+text = "AREATITLE"
+align = 1
+
+[node name="DpadHelperMoveMap" type="Control" parent="CtrlPause/Map/MapTabContainer/MAP"]
+unique_name_in_owner = true
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -63.0
+margin_top = -33.0
+margin_right = -22.0
+margin_bottom = 1.0
+mouse_filter = 2
+
+[node name="MoveMapDpadA" type="Node2D" parent="CtrlPause/Map/MapTabContainer/MAP/DpadHelperMoveMap"]
+unique_name_in_owner = true
+position = Vector2( -1, 0 )
+
+[node name="HelperIconBtn" parent="CtrlPause/Map/MapTabContainer/MAP/DpadHelperMoveMap/MoveMapDpadA" instance=ExtResource( 15 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 12.5
+margin_top = -7.0
+margin_right = 28.5
+margin_bottom = 9.0
+action = "ui_up"
+
+[node name="HelperIconBtn3" parent="CtrlPause/Map/MapTabContainer/MAP/DpadHelperMoveMap/MoveMapDpadA" instance=ExtResource( 15 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 28.5
+margin_top = 9.0
+margin_right = 44.5
+margin_bottom = 25.0
+action = "ui_right"
+
+[node name="HelperIconBtn4" parent="CtrlPause/Map/MapTabContainer/MAP/DpadHelperMoveMap/MoveMapDpadA" instance=ExtResource( 15 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -2.5
+margin_top = 9.0
+margin_right = 13.5
+margin_bottom = 25.0
+action = "ui_left"
+
+[node name="HelperIconBtn2" parent="CtrlPause/Map/MapTabContainer/MAP/DpadHelperMoveMap/MoveMapDpadA" instance=ExtResource( 15 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 12.5
+margin_top = 24.0
+margin_right = 28.5
+margin_bottom = 40.0
+action = "ui_down"
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CtrlPause/Map/MapTabContainer/MAP/DpadHelperMoveMap/MoveMapDpadA"]
+pause_mode = 2
+position = Vector2( 10.5, -9 )
+shape = SubResource( 76 )
+action = "ui_up"
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="CtrlPause/Map/MapTabContainer/MAP/DpadHelperMoveMap/MoveMapDpadA"]
+pause_mode = 2
+position = Vector2( 26.5, 7 )
+shape = SubResource( 76 )
+action = "ui_right"
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="CtrlPause/Map/MapTabContainer/MAP/DpadHelperMoveMap/MoveMapDpadA"]
+pause_mode = 2
+position = Vector2( -4.5, 7 )
+shape = SubResource( 76 )
+action = "ui_left"
+
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="CtrlPause/Map/MapTabContainer/MAP/DpadHelperMoveMap/MoveMapDpadA"]
+pause_mode = 2
+position = Vector2( 10.5, 22 )
+shape = SubResource( 76 )
+action = "ui_down"
+
+[node name="MoveMapDpadB" type="Node2D" parent="CtrlPause/Map/MapTabContainer/MAP/DpadHelperMoveMap"]
+unique_name_in_owner = true
+visible = false
+position = Vector2( 19, 13 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="VJoystickMap" type="Node2D" parent="CtrlPause/Map/MapTabContainer/MAP/DpadHelperMoveMap/MoveMapDpadB"]
+unique_name_in_owner = true
+scale = Vector2( 0.35, 0.35 )
+script = ExtResource( 57 )
+button_area = NodePath("TouchScreenButton")
+bigger_texture = ExtResource( 59 )
+small_texture = ExtResource( 58 )
+amount_of_directions = 4
+draw_line = true
+line_color = Color( 1, 1, 1, 0.290196 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CtrlPause/Map/MapTabContainer/MAP/DpadHelperMoveMap/MoveMapDpadB/VJoystickMap"]
+shape = SubResource( 78 )
+shape_centered = false
+
+[node name="Label" type="Label" parent="CtrlPause/Map/MapTabContainer/MAP/DpadHelperMoveMap"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = 27.0
+margin_bottom = 41.0
+grow_horizontal = 2
+text = "MOVE"
+align = 1
+
+[node name="KEYSOBJECTS" type="Tabs" parent="CtrlPause/Map/MapTabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 24.0
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CtrlPause/Map/MapTabContainer/KEYSOBJECTS"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 5
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 26
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CtrlPause/Map/MapTabContainer/KEYSOBJECTS/MarginContainer"]
+margin_left = 10.0
+margin_top = 5.0
+margin_right = 331.0
+margin_bottom = 142.0
+custom_constants/separation = 14
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CtrlPause/Map/MapTabContainer/KEYSOBJECTS/MarginContainer/HBoxContainer"]
+margin_right = 153.0
+margin_bottom = 137.0
+size_flags_horizontal = 3
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="MarginContainer" type="MarginContainer" parent="CtrlPause/Map/MapTabContainer/KEYSOBJECTS/MarginContainer/HBoxContainer/ScrollContainer"]
+margin_right = 153.0
+mouse_filter = 2
+size_flags_horizontal = 3
+custom_constants/margin_right = 8
+custom_constants/margin_left = 8
+
+[node name="VBxKeysObjects" type="VBoxContainer" parent="CtrlPause/Map/MapTabContainer/KEYSOBJECTS/MarginContainer/HBoxContainer/ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
+margin_left = 8.0
+margin_right = 145.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CtrlPause/Map/MapTabContainer/KEYSOBJECTS/MarginContainer/HBoxContainer"]
+margin_left = 167.0
+margin_right = 321.0
+margin_bottom = 137.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CtrlPause/Map/MapTabContainer/KEYSOBJECTS/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_right = 154.0
+margin_bottom = 16.0
+alignment = 1
+
+[node name="IconKeyObject" type="TextureRect" parent="CtrlPause/Map/MapTabContainer/KEYSOBJECTS/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 69.0
+margin_right = 85.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+size_flags_horizontal = 0
+expand = true
+
+[node name="SpriteKeyObject" type="Sprite" parent="CtrlPause/Map/MapTabContainer/KEYSOBJECTS/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/IconKeyObject"]
+unique_name_in_owner = true
+position = Vector2( 8, 7 )
+texture = ExtResource( 13 )
+hframes = 5
+vframes = 4
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="LblKeyObjTitle" type="Label" parent="CtrlPause/Map/MapTabContainer/KEYSOBJECTS/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 20.0
+margin_right = 154.0
+margin_bottom = 36.0
+custom_fonts/font = ExtResource( 16 )
+text = "ITEM_TITLE"
+align = 1
+autowrap = true
+
+[node name="LblKeyObjDesc" type="Label" parent="CtrlPause/Map/MapTabContainer/KEYSOBJECTS/MarginContainer/HBoxContainer/VBoxContainer"]
+visible = false
+margin_top = 40.0
+margin_right = 154.0
+margin_bottom = 137.0
+size_flags_vertical = 3
+custom_constants/line_spacing = -4
+text = "ITEM_DESC"
+autowrap = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CtrlPause/Map/MapTabContainer/KEYSOBJECTS/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 40.0
+margin_right = 154.0
+margin_bottom = 137.0
+rect_min_size = Vector2( 143, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainerKeys" type="ScrollContainer" parent="CtrlPause/Map/MapTabContainer/KEYSOBJECTS/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_right = 154.0
+margin_bottom = 77.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="LblKeyObjDesc" type="Label" parent="CtrlPause/Map/MapTabContainer/KEYSOBJECTS/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/ScrollContainerKeys"]
+unique_name_in_owner = true
+margin_right = 154.0
+margin_bottom = 267.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/line_spacing = -3
+text = "Lorem ipsum dolor sit amet consectetur adipiscing elit luctus, facilisi congue consequat iaculis sagittis orci conubia, est ut per condimentum donec risus fringilla.
+
+Nisl elementum vestibulum tristique ullamcorper interdum donec lobortis augue, aliquet vulputate et ante sodales ridiculus eleifend, pellentesque pulvinar malesuada lacus luctus rutrum litora.
+
+Vestibulum maecenas himenaeos neque porta eros risus, id fusce ridiculus torquent volutpat, curabitur hendrerit feugiat dignissim nostra. Ut taciti etiam class erat vel praesent facilisis, vehicula natoque pretium viverra fringilla senectus imperdiet, donec litora consequat enim purus mauris."
+autowrap = true
+
+[node name="HBxKeyScrollHelpers" type="HBoxContainer" parent="CtrlPause/Map/MapTabContainer/KEYSOBJECTS/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 81.0
+margin_right = 154.0
+margin_bottom = 97.0
+custom_constants/separation = 16
+alignment = 1
+
+[node name="HelperIconBtn" parent="CtrlPause/Map/MapTabContainer/KEYSOBJECTS/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBxKeyScrollHelpers" instance=ExtResource( 15 )]
+margin_left = 53.0
+margin_right = 69.0
+hide_method_touch = "visible"
+action = "ui_accept"
+
+[node name="Label" type="Label" parent="CtrlPause/Map/MapTabContainer/KEYSOBJECTS/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBxKeyScrollHelpers/HelperIconBtn"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 11.0
+margin_top = -7.0
+margin_right = 19.0
+margin_bottom = 7.0
+text = ""
+
+[node name="HelperIconBtn2" parent="CtrlPause/Map/MapTabContainer/KEYSOBJECTS/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBxKeyScrollHelpers" instance=ExtResource( 15 )]
+margin_left = 85.0
+margin_right = 101.0
+hide_method_touch = "visible"
+action = "ui_cancel"
+
+[node name="Label" type="Label" parent="CtrlPause/Map/MapTabContainer/KEYSOBJECTS/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBxKeyScrollHelpers/HelperIconBtn2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 11.0
+margin_top = -7.0
+margin_right = 19.0
+margin_bottom = 7.0
+text = ""
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CtrlPause/Map/MapTabContainer/KEYSOBJECTS/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBxKeyScrollHelpers"]
+visible = false
+margin_left = 98.0
+margin_right = 98.0
+margin_bottom = 16.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CtrlPause/Map/MapTabContainer/KEYSOBJECTS/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBxKeyScrollHelpers"]
+visible = false
+margin_left = 106.0
+margin_right = 106.0
+margin_bottom = 16.0
+
+[node name="FINDINGS" type="Tabs" parent="CtrlPause/Map/MapTabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 24.0
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CtrlPause/Map/MapTabContainer/FINDINGS"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 5
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 26
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CtrlPause/Map/MapTabContainer/FINDINGS/MarginContainer"]
+margin_left = 10.0
+margin_top = 5.0
+margin_right = 331.0
+margin_bottom = 142.0
+custom_constants/separation = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CtrlPause/Map/MapTabContainer/FINDINGS/MarginContainer/HBoxContainer"]
+margin_right = 159.0
+margin_bottom = 137.0
+rect_min_size = Vector2( 143, 0 )
+size_flags_horizontal = 3
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="MarginContainer" type="MarginContainer" parent="CtrlPause/Map/MapTabContainer/FINDINGS/MarginContainer/HBoxContainer/ScrollContainer"]
+margin_right = 159.0
+mouse_filter = 2
+size_flags_horizontal = 3
+custom_constants/margin_right = 8
+custom_constants/margin_left = 8
+
+[node name="VBxNotes" type="VBoxContainer" parent="CtrlPause/Map/MapTabContainer/FINDINGS/MarginContainer/HBoxContainer/ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
+margin_left = 8.0
+margin_right = 151.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CtrlPause/Map/MapTabContainer/FINDINGS/MarginContainer/HBoxContainer"]
+margin_left = 162.0
+margin_right = 321.0
+margin_bottom = 137.0
+rect_min_size = Vector2( 143, 0 )
+size_flags_horizontal = 3
+
+[node name="LblTxtListEmpty" type="Label" parent="CtrlPause/Map/MapTabContainer/FINDINGS/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_right = 159.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 16 )
+text = "EMPTY_LIST"
+align = 1
+clip_text = true
+
+[node name="ScrollContainerNote" type="ScrollContainer" parent="CtrlPause/Map/MapTabContainer/FINDINGS/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 20.0
+margin_right = 159.0
+margin_bottom = 117.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="LblNoteDesc" type="Label" parent="CtrlPause/Map/MapTabContainer/FINDINGS/MarginContainer/HBoxContainer/VBoxContainer/ScrollContainerNote"]
+unique_name_in_owner = true
+margin_right = 159.0
+margin_bottom = 256.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/line_spacing = -3
+text = "Lorem ipsum dolor sit amet consectetur adipiscing elit luctus, facilisi congue consequat iaculis sagittis orci conubia, est ut per condimentum donec risus fringilla.
+
+Nisl elementum vestibulum tristique ullamcorper interdum donec lobortis augue, aliquet vulputate et ante sodales ridiculus eleifend, pellentesque pulvinar malesuada lacus luctus rutrum litora.
+
+Vestibulum maecenas himenaeos neque porta eros risus, id fusce ridiculus torquent volutpat, curabitur hendrerit feugiat dignissim nostra. Ut taciti etiam class erat vel praesent facilisis, vehicula natoque pretium viverra fringilla senectus imperdiet, donec litora consequat enim purus mauris."
+autowrap = true
+
+[node name="HBxTxtScrollHelpers" type="HBoxContainer" parent="CtrlPause/Map/MapTabContainer/FINDINGS/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 121.0
+margin_right = 159.0
+margin_bottom = 137.0
+custom_constants/separation = 16
+alignment = 1
+
+[node name="HelperIconBtn" parent="CtrlPause/Map/MapTabContainer/FINDINGS/MarginContainer/HBoxContainer/VBoxContainer/HBxTxtScrollHelpers" instance=ExtResource( 15 )]
+margin_left = 55.0
+margin_right = 71.0
+hide_method_touch = "visible"
+action = "ui_accept"
+
+[node name="Label" type="Label" parent="CtrlPause/Map/MapTabContainer/FINDINGS/MarginContainer/HBoxContainer/VBoxContainer/HBxTxtScrollHelpers/HelperIconBtn"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 11.0
+margin_top = -7.0
+margin_right = 19.0
+margin_bottom = 7.0
+text = ""
+
+[node name="HelperIconBtn2" parent="CtrlPause/Map/MapTabContainer/FINDINGS/MarginContainer/HBoxContainer/VBoxContainer/HBxTxtScrollHelpers" instance=ExtResource( 15 )]
+margin_left = 87.0
+margin_right = 103.0
+hide_method_touch = "visible"
+action = "ui_cancel"
+
+[node name="Label" type="Label" parent="CtrlPause/Map/MapTabContainer/FINDINGS/MarginContainer/HBoxContainer/VBoxContainer/HBxTxtScrollHelpers/HelperIconBtn2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 11.0
+margin_top = -7.0
+margin_right = 19.0
+margin_bottom = 7.0
+text = ""
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CtrlPause/Map/MapTabContainer/FINDINGS/MarginContainer/HBoxContainer/VBoxContainer/HBxTxtScrollHelpers"]
+visible = false
+margin_left = 98.0
+margin_right = 98.0
+margin_bottom = 16.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CtrlPause/Map/MapTabContainer/FINDINGS/MarginContainer/HBoxContainer/VBoxContainer/HBxTxtScrollHelpers"]
+visible = false
+margin_left = 106.0
+margin_right = 106.0
+margin_bottom = 16.0
+
+[node name="TREASURES" type="Tabs" parent="CtrlPause/Map/MapTabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 24.0
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CtrlPause/Map/MapTabContainer/TREASURES"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 5
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 26
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CtrlPause/Map/MapTabContainer/TREASURES/MarginContainer"]
+margin_left = 10.0
+margin_top = 5.0
+margin_right = 331.0
+margin_bottom = 142.0
+custom_constants/separation = 14
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CtrlPause/Map/MapTabContainer/TREASURES/MarginContainer/HBoxContainer"]
+margin_right = 143.0
+margin_bottom = 125.0
+size_flags_horizontal = 3
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="MarginContainer" type="MarginContainer" parent="CtrlPause/Map/MapTabContainer/TREASURES/MarginContainer/HBoxContainer/ScrollContainer"]
+margin_right = 143.0
+mouse_filter = 2
+size_flags_horizontal = 3
+custom_constants/margin_right = 8
+custom_constants/margin_left = 8
+
+[node name="VBxTreasure" type="VBoxContainer" parent="CtrlPause/Map/MapTabContainer/TREASURES/MarginContainer/HBoxContainer/ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
+margin_left = 8.0
+margin_right = 135.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CtrlPause/Map/MapTabContainer/TREASURES/MarginContainer/HBoxContainer"]
+margin_left = 157.0
+margin_right = 300.0
+margin_bottom = 125.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CtrlPause/Map/MapTabContainer/TREASURES/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_right = 143.0
+margin_bottom = 16.0
+alignment = 1
+
+[node name="IconTreasure" type="TextureRect" parent="CtrlPause/Map/MapTabContainer/TREASURES/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 63.0
+margin_right = 79.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+size_flags_horizontal = 0
+expand = true
+
+[node name="SpriteTreasure" type="Sprite" parent="CtrlPause/Map/MapTabContainer/TREASURES/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/IconTreasure"]
+unique_name_in_owner = true
+position = Vector2( 8, 8 )
+texture = ExtResource( 14 )
+hframes = 5
+vframes = 6
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="LblTreasureTitle" type="Label" parent="CtrlPause/Map/MapTabContainer/TREASURES/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 20.0
+margin_right = 143.0
+margin_bottom = 36.0
+custom_fonts/font = ExtResource( 16 )
+text = "ITEM_TITLE"
+align = 1
+autowrap = true
+
+[node name="LblKeyTreasureDesc" type="Label" parent="CtrlPause/Map/MapTabContainer/TREASURES/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 40.0
+margin_right = 143.0
+margin_bottom = 125.0
+size_flags_vertical = 3
+custom_constants/line_spacing = -4
+text = "ITEM_DESC"
+autowrap = true
+
+[node name="ENEMIES" type="Tabs" parent="CtrlPause/Map/MapTabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 24.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CtrlPause/Map/MapTabContainer/ENEMIES"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "WORK_IN_PROGRESS"
+align = 1
+valign = 1
+
+[node name="TextureShadow" type="TextureRect" parent="CtrlPause/Map"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -32.0
+rect_min_size = Vector2( 320, 32 )
+texture = ExtResource( 12 )
+expand = true
+stretch_mode = 1
+flip_v = true
+
+[node name="HBxMapActionsButtons" type="HBoxContainer" parent="CtrlPause/Map"]
+unique_name_in_owner = true
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -147.5
+margin_top = -20.0
+margin_right = 147.5
+margin_bottom = -6.0
+custom_constants/separation = 13
+
+[node name="Button" type="Button" parent="CtrlPause/Map/HBxMapActionsButtons"]
+margin_right = 64.0
+margin_bottom = 14.0
+focus_mode = 0
+size_flags_horizontal = 3
+text = "RETURN"
+
+[node name="HelperIconBtn" parent="CtrlPause/Map/HBxMapActionsButtons/Button" instance=ExtResource( 15 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -25.0
+margin_right = 8.0
+margin_bottom = -9.0
+hide_method_touch = "visible"
+action = "ui_select"
+
+[node name="BtnCenterMap" type="Button" parent="CtrlPause/Map/HBxMapActionsButtons"]
+margin_left = 77.0
+margin_right = 141.0
+margin_bottom = 14.0
+focus_mode = 0
+size_flags_horizontal = 3
+text = "CENTER_MAP"
+
+[node name="HelperIconBtn" parent="CtrlPause/Map/HBxMapActionsButtons/BtnCenterMap" instance=ExtResource( 15 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -25.0
+margin_right = 8.0
+margin_bottom = -9.0
+hide_method_touch = "visible"
+
+[node name="BtnAddMarkerMap" type="Button" parent="CtrlPause/Map/HBxMapActionsButtons"]
+margin_left = 154.0
+margin_right = 218.0
+margin_bottom = 14.0
+focus_mode = 0
+size_flags_horizontal = 3
+text = "EDIT_MARKER"
+
+[node name="HelperIconBtn" parent="CtrlPause/Map/HBxMapActionsButtons/BtnAddMarkerMap" instance=ExtResource( 15 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -25.0
+margin_right = 8.0
+margin_bottom = -9.0
+hide_method_touch = "visible"
+action = "ui_accept"
+
+[node name="BtnZoomMap" type="Button" parent="CtrlPause/Map/HBxMapActionsButtons"]
+unique_name_in_owner = true
+margin_left = 231.0
+margin_right = 295.0
+margin_bottom = 14.0
+focus_mode = 0
+size_flags_horizontal = 3
+text = "ZOOMOUT"
+
+[node name="HelperIconBtn" parent="CtrlPause/Map/HBxMapActionsButtons/BtnZoomMap" instance=ExtResource( 15 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -25.0
+margin_right = 8.0
+margin_bottom = -9.0
+hide_method_touch = "visible"
+action = "ui_cancel"
+
+[node name="HBxMapActionsButtons2" type="HBoxContainer" parent="CtrlPause/Map"]
+unique_name_in_owner = true
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -147.5
+margin_top = -20.0
+margin_right = 147.5
+margin_bottom = -6.0
+custom_constants/separation = 13
+
+[node name="Button" type="Button" parent="CtrlPause/Map/HBxMapActionsButtons2"]
+margin_right = 100.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 100, 0 )
+focus_mode = 0
+text = "RETURN"
+
+[node name="HelperIconBtn" parent="CtrlPause/Map/HBxMapActionsButtons2/Button" instance=ExtResource( 15 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -54.0
+margin_top = -9.0
+margin_right = -38.0
+margin_bottom = 7.0
+hide_method_touch = "visible"
+action = "ui_select"
+
+[node name="PopupMarkerMenu" type="Popup" parent="CtrlPause/Map"]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="BG" type="ColorRect" parent="CtrlPause/Map/PopupMarkerMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.847059 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CtrlPause/Map/PopupMarkerMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = 61.0
+margin_right = -32.0
+margin_bottom = 75.0
+
+[node name="BtnSaveMarker" type="Button" parent="CtrlPause/Map/PopupMarkerMenu/VBoxContainer"]
+unique_name_in_owner = true
+margin_right = 96.0
+margin_bottom = 14.0
+focus_mode = 0
+text = "SAVE_CHANGES"
+
+[node name="HelperIconBtn" parent="CtrlPause/Map/PopupMarkerMenu/VBoxContainer/BtnSaveMarker" instance=ExtResource( 15 )]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -23.0
+margin_top = -9.0
+margin_right = -7.0
+margin_bottom = 7.0
+hide_method_touch = "visible"
+action = "ui_accept"
+
+[node name="GridContainerMarkersButtons" type="GridContainer" parent="CtrlPause/Map/PopupMarkerMenu"]
+unique_name_in_owner = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -47.0
+margin_top = -72.0
+margin_right = 47.0
+margin_bottom = -4.0
+focus_neighbour_bottom = NodePath("../VBoxContainer2")
+custom_constants/vseparation = 10
+custom_constants/hseparation = 10
+columns = 4
+
+[node name="Mark0" type="TextureButton" parent="CtrlPause/Map/PopupMarkerMenu/GridContainerMarkersButtons"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+texture_normal = SubResource( 27 )
+texture_focused = ExtResource( 19 )
+expand = true
+
+[node name="Mark4" type="TextureButton" parent="CtrlPause/Map/PopupMarkerMenu/GridContainerMarkersButtons"]
+margin_left = 26.0
+margin_right = 42.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+texture_normal = SubResource( 28 )
+texture_focused = ExtResource( 19 )
+expand = true
+
+[node name="Mark3" type="TextureButton" parent="CtrlPause/Map/PopupMarkerMenu/GridContainerMarkersButtons"]
+margin_left = 52.0
+margin_right = 68.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+texture_normal = SubResource( 29 )
+texture_focused = ExtResource( 19 )
+expand = true
+
+[node name="Mark13" type="TextureButton" parent="CtrlPause/Map/PopupMarkerMenu/GridContainerMarkersButtons"]
+margin_left = 78.0
+margin_right = 94.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+texture_normal = SubResource( 30 )
+texture_focused = ExtResource( 19 )
+expand = true
+
+[node name="Mark8" type="TextureButton" parent="CtrlPause/Map/PopupMarkerMenu/GridContainerMarkersButtons"]
+margin_top = 26.0
+margin_right = 16.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 16, 16 )
+texture_normal = SubResource( 31 )
+texture_focused = ExtResource( 19 )
+expand = true
+
+[node name="Mark10" type="TextureButton" parent="CtrlPause/Map/PopupMarkerMenu/GridContainerMarkersButtons"]
+margin_left = 26.0
+margin_top = 26.0
+margin_right = 42.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 16, 16 )
+texture_normal = SubResource( 32 )
+texture_focused = ExtResource( 19 )
+expand = true
+
+[node name="Mark9" type="TextureButton" parent="CtrlPause/Map/PopupMarkerMenu/GridContainerMarkersButtons"]
+margin_left = 52.0
+margin_top = 26.0
+margin_right = 68.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 16, 16 )
+texture_normal = SubResource( 33 )
+texture_focused = ExtResource( 19 )
+expand = true
+
+[node name="Mark11" type="TextureButton" parent="CtrlPause/Map/PopupMarkerMenu/GridContainerMarkersButtons"]
+margin_left = 78.0
+margin_top = 26.0
+margin_right = 94.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 16, 16 )
+texture_normal = SubResource( 34 )
+texture_focused = ExtResource( 19 )
+expand = true
+
+[node name="Mark5" type="TextureButton" parent="CtrlPause/Map/PopupMarkerMenu/GridContainerMarkersButtons"]
+margin_top = 52.0
+margin_right = 16.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 16, 16 )
+focus_neighbour_bottom = NodePath("../../VBoxContainer2/BtnDeleteMarker")
+texture_normal = SubResource( 35 )
+texture_focused = ExtResource( 19 )
+expand = true
+
+[node name="Mark12" type="TextureButton" parent="CtrlPause/Map/PopupMarkerMenu/GridContainerMarkersButtons"]
+margin_left = 26.0
+margin_top = 52.0
+margin_right = 42.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 16, 16 )
+focus_neighbour_bottom = NodePath("../../VBoxContainer2/BtnDeleteMarker")
+texture_normal = SubResource( 36 )
+texture_focused = ExtResource( 19 )
+expand = true
+
+[node name="Mark7" type="TextureButton" parent="CtrlPause/Map/PopupMarkerMenu/GridContainerMarkersButtons"]
+margin_left = 52.0
+margin_top = 52.0
+margin_right = 68.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 16, 16 )
+focus_neighbour_bottom = NodePath("../../VBoxContainer2/BtnDeleteMarker")
+texture_normal = SubResource( 37 )
+texture_focused = ExtResource( 19 )
+expand = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CtrlPause/Map/PopupMarkerMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -48.0
+margin_top = 10.0
+margin_right = 48.0
+margin_bottom = 60.0
+grow_horizontal = 2
+focus_neighbour_top = NodePath("../GridContainerMarkersButtons")
+
+[node name="HSeparator" type="HSeparator" parent="CtrlPause/Map/PopupMarkerMenu/VBoxContainer2"]
+margin_right = 96.0
+margin_bottom = 4.0
+custom_styles/separator = SubResource( 77 )
+
+[node name="BtnDeleteMarker" type="Button" parent="CtrlPause/Map/PopupMarkerMenu/VBoxContainer2"]
+margin_top = 8.0
+margin_right = 96.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 16 )
+focus_neighbour_top = NodePath("../../GridContainerMarkersButtons/Mark7")
+text = "DELETE_MARKER"
+
+[node name="BtnCloseMarkerMenu" type="Button" parent="CtrlPause/Map/PopupMarkerMenu/VBoxContainer2"]
+margin_top = 28.0
+margin_right = 96.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 0, 16 )
+text = "CLOSE"
+
+[node name="HelperIconBtn" parent="CtrlPause" instance=ExtResource( 15 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -155.0
+margin_top = -93.0
+margin_right = -139.0
+margin_bottom = -77.0
+hide_method_touch = "visible"
+action = "ui_focus_prev"
+
+[node name="HelperIconBtn2" parent="CtrlPause" instance=ExtResource( 15 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 139.0
+margin_top = -93.0
+margin_right = 155.0
+margin_bottom = -77.0
+hide_method_touch = "visible"
+action = "ui_focus_next"
+
+[node name="ControlDeath" type="Control" parent="."]
+visible = false
+material = SubResource( 40 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="BlackRect" type="ColorRect" parent="ControlDeath"]
+modulate = Color( 1, 1, 1, 0 )
+light_mask = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_editor_description_": "dejar blackrect visible"
+}
+
+[node name="BloodBG1" type="TextureRect" parent="ControlDeath"]
+modulate = Color( 1, 1, 1, 0.294118 )
+material = SubResource( 40 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -352.0
+margin_top = -26.0
+margin_right = 42.0
+margin_bottom = 199.0
+texture = ExtResource( 26 )
+expand = true
+stretch_mode = 1
+
+[node name="BloodBG3" type="TextureRect" parent="ControlDeath"]
+modulate = Color( 1, 1, 1, 0.458824 )
+material = SubResource( 40 )
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = -9.0
+margin_top = -191.0
+margin_right = 345.0
+margin_bottom = 6.0
+texture = ExtResource( 28 )
+expand = true
+stretch_mode = 1
+
+[node name="BloodBG2" type="TextureRect" parent="ControlDeath"]
+material = SubResource( 40 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 152.0
+margin_top = -116.0
+margin_right = 349.0
+margin_bottom = 27.0
+rect_scale = Vector2( -1.5, 1.5 )
+texture = ExtResource( 27 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="ControlDeath"]
+material = SubResource( 40 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -60.5
+margin_top = -29.0
+margin_right = 60.5
+margin_bottom = -11.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 25 )
+text = "Et mortuus es"
+align = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="LblDeaths" type="Label" parent="ControlDeath"]
+unique_name_in_owner = true
+material = SubResource( 40 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -60.5
+margin_top = 2.0
+margin_right = 60.5
+margin_bottom = 20.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 25 )
+text = " 00 "
+align = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="TextureRect" type="TextureRect" parent="ControlDeath/LblDeaths"]
+material = SubResource( 40 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.5
+margin_top = 6.0
+margin_right = 8.5
+margin_bottom = 22.0
+texture = SubResource( 55 )
+
+[node name="AnimationPlayerDeath" type="AnimationPlayer" parent="ControlDeath"]
+unique_name_in_owner = true
+anims/RESET = SubResource( 41 )
+anims/show = SubResource( 42 )
+
+[node name="ControlUseCarpatitia" type="Control" parent="ControlDeath"]
+unique_name_in_owner = true
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -132.0
+margin_top = -51.0
+margin_right = 132.0
+margin_bottom = -4.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ControlDeath/ControlUseCarpatitia"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -1.0
+margin_bottom = -1.0
+custom_constants/separation = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ControlDeath/ControlUseCarpatitia/VBoxContainer"]
+margin_right = 264.0
+margin_bottom = 21.0
+size_flags_vertical = 3
+custom_constants/separation = 55
+alignment = 1
+
+[node name="BtnContinueFromDeath" type="Button" parent="ControlDeath/ControlUseCarpatitia/VBoxContainer/HBoxContainer"]
+margin_left = 41.0
+margin_right = 84.0
+margin_bottom = 21.0
+text = "CONTINUE"
+
+[node name="HelperIconBtn" parent="ControlDeath/ControlUseCarpatitia/VBoxContainer/HBoxContainer/BtnContinueFromDeath" instance=ExtResource( 15 )]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -24.0
+margin_top = -8.0
+margin_right = -8.0
+margin_bottom = 8.0
+hide_method_touch = "visible"
+action = "ui_accept"
+
+[node name="BtnUseCarpatitiaDeath" type="Button" parent="ControlDeath/ControlUseCarpatitia/VBoxContainer/HBoxContainer"]
+margin_left = 139.0
+margin_right = 223.0
+margin_bottom = 21.0
+text = "USE_CARPATITIAX2"
+
+[node name="HelperIconBtn" parent="ControlDeath/ControlUseCarpatitia/VBoxContainer/HBoxContainer/BtnUseCarpatitiaDeath" instance=ExtResource( 15 )]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -24.0
+margin_top = -8.0
+margin_right = -8.0
+margin_bottom = 8.0
+hide_method_touch = "visible"
+action = "ui_cancel"
+
+[node name="Label" type="Label" parent="ControlDeath/ControlUseCarpatitia/VBoxContainer"]
+modulate = Color( 0.72549, 0.72549, 0.72549, 1 )
+margin_top = 23.0
+margin_right = 264.0
+margin_bottom = 47.0
+custom_constants/line_spacing = -4
+text = "ABOUT_CARPATITIA_DEATH"
+align = 1
+autowrap = true
+
+[node name="Tween" type="Tween" parent="."]
+pause_mode = 1
+
+[node name="TimerReady" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="TimerRefreshAlchemyBtns" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[node name="TimerRemovePoison" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
+
+[node name="TimerRemoveCurse" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
+
+[node name="TimerRemoveInjury" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
+
+[node name="TimerLoadedScenario" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="TimerNoNegStatusPoison" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="TimerNoNegStatusCurse" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
+
+[node name="TimerNoNegStatusInjury" type="Timer" parent="."]
+wait_time = 7.0
+one_shot = true
+
+[connection signal="tree_exiting" from="." to="." method="_on_GameInterface_tree_exiting"]
+[connection signal="timeout" from="AspectRatioContainer/HUD/TimerStartHPTween" to="." method="_on_TimerStartHPTween_timeout"]
+[connection signal="timeout" from="AspectRatioContainer/HUD/TimerStartRecoverStamina" to="." method="_on_TimerStartRecoverStamina_timeout"]
+[connection signal="timeout" from="AspectRatioContainer/HUD/TimerRecoverStamina" to="." method="_on_TimerRecoverStamina_timeout"]
+[connection signal="timeout" from="AspectRatioContainer/HUD/TimerRecoverMana" to="." method="_on_TimerRecoverMana_timeout"]
+[connection signal="timeout" from="AspectRatioContainer/HUD/TimerReduceHPByPoison" to="." method="_on_TimerReduceHPByPoison_timeout"]
+[connection signal="timeout" from="AspectRatioContainer/HUD/TimerReduceMPByCurse" to="." method="_on_TimerReduceMPByCurse_timeout"]
+[connection signal="ended" from="DramaticTitle" to="." method="_on_DramaticTitle_ended"]
+[connection signal="started" from="DramaticTitle" to="." method="_on_DramaticTitle_started"]
+[connection signal="animation_ended" from="LevelUpMessage" to="." method="_on_DramaticTitle_ended"]
+[connection signal="animation_started" from="LevelUpMessage" to="." method="_on_DramaticTitle_started"]
+[connection signal="tab_changed" from="CtrlPause/Equip/VBoxContainer/EquipTabContainer" to="." method="_on_EquipTabContainer_tab_changed"]
+[connection signal="pressed" from="CtrlPause/Equip/VBoxContainer/EquipTabContainer/INVENTORY/HBoxContainer/VBoxContainer/HBoxContainer/BtnUseItemInventory" to="." method="_on_BtnUseItemInventory_pressed"]
+[connection signal="pressed" from="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/BtnPrevCircuitType" to="." method="_on_BtnPrevCircuitType_pressed"]
+[connection signal="pressed" from="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/BtnNextCircuitType" to="." method="_on_BtnNextCircuitType_pressed"]
+[connection signal="pressed" from="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/Margin/VBoxContainer/HBoxContainer/VBoxContainer/BtnEquipCircuit" to="." method="_on_BtnEquipCircuit_pressed"]
+[connection signal="set_changed" from="CtrlPause/Equip/VBoxContainer/EquipTabContainer/ALCHEMY/ButtonSwitchSetAlchemy" to="." method="_on_ButtonSwitchSet_set_changed"]
+[connection signal="pressed" from="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBoxContainer/HBoxContainer/BtnEquipType0" to="." method="_on_BtnEquipType_pressed" binds= [ 0 ]]
+[connection signal="pressed" from="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBoxContainer/HBoxContainer/BtnEquipType1" to="." method="_on_BtnEquipType_pressed" binds= [ 1 ]]
+[connection signal="pressed" from="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBoxContainer/HBoxContainer/BtnEquipType2" to="." method="_on_BtnEquipType_pressed" binds= [ 2 ]]
+[connection signal="pressed" from="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBoxContainer/HBoxContainer/BtnEquipType3" to="." method="_on_BtnEquipType_pressed" binds= [ 3 ]]
+[connection signal="pressed" from="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EQUIP/HBoxContainer/VBxEquipItemData/HBoxContainer/BtnEquipItem" to="." method="_on_BtnEquipItem_pressed"]
+[connection signal="value_changed" from="CtrlPause/Equip/VBoxContainer/EquipTabContainer/OPTIONS/ScrollContainer/MarginContainer/VBxOptionsBtn/BtnScreenFilter" to="." method="_on_BtnScreenFilter_value_changed"]
+[connection signal="value_changed" from="CtrlPause/Equip/VBoxContainer/EquipTabContainer/OPTIONS/ScrollContainer/MarginContainer/VBxOptionsBtn/BtnShowMinimap" to="." method="_on_BtnShowMinimap_value_changed"]
+[connection signal="value_changed" from="CtrlPause/Equip/VBoxContainer/EquipTabContainer/OPTIONS/ScrollContainer/MarginContainer/VBxOptionsBtn/BtnVisibilityMinimap" to="." method="_on_BtnVisibilityMinimap_value_changed"]
+[connection signal="pressed" from="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EXIT/CenterContainer/VbxExitButtons/Button3" to="." method="_on_BtnReturn_pressed"]
+[connection signal="pressed" from="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EXIT/CenterContainer/VbxExitButtons/Button" to="." method="_on_BtnExit_pressed" binds= [ false ]]
+[connection signal="pressed" from="CtrlPause/Equip/VBoxContainer/EquipTabContainer/EXIT/CenterContainer/VbxExitButtons/BtnQuicksaveAndExit" to="." method="_on_BtnExit_pressed" binds= [ true ]]
+[connection signal="pressed" from="CtrlPause/Equip/VBoxContainer/HBoxContainer/BtnReturn" to="." method="_on_BtnReturn_pressed"]
+[connection signal="tab_changed" from="CtrlPause/Map/MapTabContainer" to="." method="_on_MapTabContainer_tab_changed"]
+[connection signal="stop_update_pos" from="CtrlPause/Map/MapTabContainer/MAP/DpadHelperMoveMap/MoveMapDpadB/VJoystickMap" to="." method="_on_VJoystickMap_stop_update_pos"]
+[connection signal="update_pos" from="CtrlPause/Map/MapTabContainer/MAP/DpadHelperMoveMap/MoveMapDpadB/VJoystickMap" to="." method="_on_VJoystickMap_update_pos"]
+[connection signal="pressed" from="CtrlPause/Map/HBxMapActionsButtons/Button" to="." method="_on_BtnReturn_pressed"]
+[connection signal="pressed" from="CtrlPause/Map/HBxMapActionsButtons/BtnCenterMap" to="." method="_on_BtnCenterMap_pressed"]
+[connection signal="pressed" from="CtrlPause/Map/HBxMapActionsButtons/BtnAddMarkerMap" to="." method="_on_BtnAddMarkerMap_pressed"]
+[connection signal="pressed" from="CtrlPause/Map/HBxMapActionsButtons/BtnZoomMap" to="." method="_on_BtnZoomMap_pressed"]
+[connection signal="pressed" from="CtrlPause/Map/HBxMapActionsButtons2/Button" to="." method="_on_BtnReturn_pressed"]
+[connection signal="visibility_changed" from="CtrlPause/Map/PopupMarkerMenu" to="." method="_on_PopupMarkerMenu_visibility_changed"]
+[connection signal="pressed" from="CtrlPause/Map/PopupMarkerMenu/VBoxContainer/BtnSaveMarker" to="." method="_on_BtnSaveMarker_pressed"]
+[connection signal="pressed" from="CtrlPause/Map/PopupMarkerMenu/GridContainerMarkersButtons/Mark0" to="." method="_on_BtnSaveMarker_pressed"]
+[connection signal="pressed" from="CtrlPause/Map/PopupMarkerMenu/GridContainerMarkersButtons/Mark4" to="." method="_on_BtnSaveMarker_pressed"]
+[connection signal="pressed" from="CtrlPause/Map/PopupMarkerMenu/GridContainerMarkersButtons/Mark3" to="." method="_on_BtnSaveMarker_pressed"]
+[connection signal="pressed" from="CtrlPause/Map/PopupMarkerMenu/GridContainerMarkersButtons/Mark13" to="." method="_on_BtnSaveMarker_pressed"]
+[connection signal="pressed" from="CtrlPause/Map/PopupMarkerMenu/GridContainerMarkersButtons/Mark8" to="." method="_on_BtnSaveMarker_pressed"]
+[connection signal="pressed" from="CtrlPause/Map/PopupMarkerMenu/GridContainerMarkersButtons/Mark10" to="." method="_on_BtnSaveMarker_pressed"]
+[connection signal="pressed" from="CtrlPause/Map/PopupMarkerMenu/GridContainerMarkersButtons/Mark9" to="." method="_on_BtnSaveMarker_pressed"]
+[connection signal="pressed" from="CtrlPause/Map/PopupMarkerMenu/GridContainerMarkersButtons/Mark11" to="." method="_on_BtnSaveMarker_pressed"]
+[connection signal="pressed" from="CtrlPause/Map/PopupMarkerMenu/GridContainerMarkersButtons/Mark5" to="." method="_on_BtnSaveMarker_pressed"]
+[connection signal="pressed" from="CtrlPause/Map/PopupMarkerMenu/GridContainerMarkersButtons/Mark12" to="." method="_on_BtnSaveMarker_pressed"]
+[connection signal="pressed" from="CtrlPause/Map/PopupMarkerMenu/GridContainerMarkersButtons/Mark7" to="." method="_on_BtnSaveMarker_pressed"]
+[connection signal="pressed" from="CtrlPause/Map/PopupMarkerMenu/VBoxContainer2/BtnDeleteMarker" to="." method="_on_BtnDeleteMarker_pressed"]
+[connection signal="pressed" from="CtrlPause/Map/PopupMarkerMenu/VBoxContainer2/BtnCloseMarkerMenu" to="." method="_on_BtnCloseMarkerMenu_pressed"]
+[connection signal="animation_finished" from="ControlDeath/AnimationPlayerDeath" to="." method="_on_AnimationPlayerDeath_animation_finished" flags=6]
+[connection signal="pressed" from="ControlDeath/ControlUseCarpatitia/VBoxContainer/HBoxContainer/BtnContinueFromDeath" to="." method="_on_BtnContinueFromDeath_pressed"]
+[connection signal="pressed" from="ControlDeath/ControlUseCarpatitia/VBoxContainer/HBoxContainer/BtnUseCarpatitiaDeath" to="." method="_on_BtnUseCarpatitiaDeath_pressed"]
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
+[connection signal="timeout" from="TimerRefreshAlchemyBtns" to="." method="_on_TimerRefreshAlchemyBtns_timeout"]
+[connection signal="timeout" from="TimerRemovePoison" to="." method="_on_TimerRemovePoison_timeout"]
+[connection signal="timeout" from="TimerRemoveCurse" to="." method="_on_TimerRemoveCurse_timeout"]
+[connection signal="timeout" from="TimerRemoveInjury" to="." method="_on_TimerRemoveInjury_timeout"]

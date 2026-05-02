@@ -1,0 +1,167 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/images/texture_old_paper.jpg" type="Texture" id=1]
+[ext_resource path="res://stages/oota/map.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/scripts/map_full_travel.gd" type="Script" id=3]
+[ext_resource path="res://src/ui_elements/_map_full_position_button.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/ui_elements/_travel_station_indication.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/game_objects/node_map.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/gdshaders/vignette_color.gdshader" type="Shader" id=7]
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 7 )
+shader_param/vignette_intensity = 0.4
+shader_param/vignette_opacity = 0.5
+shader_param/vignette_rgb = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "black"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="MapFullTravel" type="CanvasLayer" groups=["map_full_travel_interface"]]
+script = ExtResource( 3 )
+NodeMap = NodePath("TextureBG/Control/NodeMap")
+ButtonsNode = NodePath("TextureBG/Control/Buttons")
+
+[node name="TextureBG" type="TextureRect" parent="."]
+self_modulate = Color( 0.411765, 0.411765, 0.411765, 1 )
+light_mask = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 7
+
+[node name="Vignette" type="ColorRect" parent="TextureBG"]
+material = SubResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Control" type="Control" parent="TextureBG"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+
+[node name="NodeMap" parent="TextureBG/Control" instance=ExtResource( 6 )]
+
+[node name="Node2D" parent="TextureBG/Control/NodeMap" instance=ExtResource( 2 )]
+position = Vector2( 71.5, 46 )
+scale = Vector2( 0.19, 0.19 )
+
+[node name="Buttons" type="Node2D" parent="TextureBG/Control"]
+
+[node name="MapFullPositionButton" parent="TextureBG/Control/Buttons" instance=ExtResource( 4 )]
+margin_left = -3.5
+margin_top = 40.0
+margin_right = 4.5
+margin_bottom = 48.0
+scene_path = "res://stages/oota/amerithia/amerithia_station.tscn"
+
+[node name="MapFullPositionButton2" parent="TextureBG/Control/Buttons" instance=ExtResource( 4 )]
+margin_left = 117.5
+margin_top = 86.0
+margin_right = 125.5
+margin_bottom = 94.0
+scene_path = "res://stages/oota/aridiah/aridiah_station.tscn"
+
+[node name="MapFullPositionButton3" parent="TextureBG/Control/Buttons" instance=ExtResource( 4 )]
+margin_left = -134.5
+margin_top = 86.0
+margin_right = -126.5
+margin_bottom = 94.0
+scene_path = "res://stages/oota/tahuatepet/tahua22.tscn"
+
+[node name="MapFullPositionButton4" parent="TextureBG/Control/Buttons" instance=ExtResource( 4 )]
+margin_left = 175.5
+margin_top = 19.0
+margin_right = 183.5
+margin_bottom = 27.0
+scene_path = "res://stages/oota/grijayla/grijayla_32b.tscn"
+
+[node name="MapFullPositionButton5" parent="TextureBG/Control/Buttons" instance=ExtResource( 4 )]
+margin_left = -21.5
+margin_top = -33.0
+margin_right = -13.5
+margin_bottom = -25.0
+scene_path = "res://stages/oota/athos_abbey/abbey21.tscn"
+
+[node name="MapFullPositionButton6" parent="TextureBG/Control/Buttons" instance=ExtResource( 4 )]
+margin_left = 35.5
+margin_top = 95.0
+margin_right = 43.5
+margin_bottom = 103.0
+scene_path = "res://stages/oota/stralsund/stralsund34.tscn"
+
+[node name="TravelStationIndication" parent="TextureBG" instance=ExtResource( 5 )]
+
+[node name="ColorRect" type="ColorRect" parent="TextureBG"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="TextureBG"]
+anims/RESET = SubResource( 1 )
+anims/black = SubResource( 2 )
+
+[connection signal="accept_pressed" from="TextureBG/TravelStationIndication" to="." method="go_to"]
+[connection signal="cancel_pressed" from="TextureBG/TravelStationIndication" to="." method="close"]

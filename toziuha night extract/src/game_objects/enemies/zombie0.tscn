@@ -1,0 +1,386 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://assets/sprites/enemies/zombie_0.png" type="Texture" id=1]
+[ext_resource path="res://src/game_objects/vfx/particles_blood_smash.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/game_objects/enemy_base.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game_objects/enemies/zombie.gd" type="Script" id=4]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hurtbox_enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hitbox_enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/game_objects/area2d_cast.tscn" type="PackedScene" id=7]
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 5, 20 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 2.5, 8 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 23, 2.875 )
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 23 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ParticlesBlood:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -32 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ParticlesBlood:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("HitboxEnemy/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("HurtboxEnemy/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "dead"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 1.2, 1.3, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ParticlesBlood:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ParticlesBlood:position")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.2, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -32 ), Vector2( 0, -22 ), Vector2( 0, -17 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.2, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 0.164706 ) ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 7 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "revive"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4, 0.7, 1, 1.2, 1.3, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 23, 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("HurtboxEnemy/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HitboxEnemy/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("EnemyBase")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1.5, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "to_player" ],
+"method": "change_direction"
+}, {
+"args": [ "walk", true, false ],
+"method": "change_state"
+} ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "walk"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 7, 8, 9, 10 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("HurtboxEnemy/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HitboxEnemy/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 10, 24 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 5, 20 )
+
+[node name="Zombie0" type="KinematicBody2D"]
+collision_layer = 512
+collision_mask = 5
+script = ExtResource( 4 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+visible = false
+position = Vector2( -1.90735e-06, -23 )
+scale = Vector2( 3.2, 3.3 )
+process_parent = true
+physics_process_parent = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -20 )
+shape = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -24 )
+texture = ExtResource( 1 )
+hframes = 5
+vframes = 5
+frame = 23
+
+[node name="RayCast2DNoFloor" type="RayCast2D" parent="Sprite"]
+position = Vector2( 9, 24 )
+enabled = true
+cast_to = Vector2( 0, 10 )
+collision_mask = 5
+
+[node name="Area2DDetectPlayer" type="Area2D" parent="Sprite"]
+visible = false
+collision_layer = 8
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2DDetectPlayer"]
+position = Vector2( -72, 8 )
+shape = SubResource( 9 )
+
+[node name="DetectNoFloor" parent="Sprite" instance=ExtResource( 7 )]
+position = Vector2( 13, 32 )
+collision_layer = 512
+collision_mask = 5
+detect = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/DetectNoFloor"]
+visible = false
+position = Vector2( -1.5, 4 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite/DetectNoFloor"]
+visible = false
+position = Vector2( -13, -6.875 )
+shape = SubResource( 11 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/dead = SubResource( 2 )
+anims/idle = SubResource( 3 )
+anims/revive = SubResource( 4 )
+anims/walk = SubResource( 5 )
+
+[node name="ParticlesBlood" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -32 )
+amount = 40
+lifetime = 1.27
+one_shot = false
+explosiveness = 0.0
+direction = Vector2( 1, -10 )
+spread = 17.23
+gravity = Vector2( 0, 400 )
+initial_velocity = 141.92
+script = null
+
+[node name="EnemyBase" parent="." instance=ExtResource( 3 )]
+node_facing = NodePath("../Sprite")
+anim_player = NodePath("../AnimationPlayer")
+hurtbox = NodePath("../HurtboxEnemy")
+
+[node name="HurtboxEnemy" parent="." instance=ExtResource( 5 )]
+visible = false
+identifier = "zombie0"
+sprite_flash = NodePath("../Sprite")
+death_sounds = [ "enemy_zombie_roar2", "enemy_death_woosh" ]
+blood_drop = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxEnemy"]
+position = Vector2( 0, -24 )
+shape = SubResource( 7 )
+disabled = true
+
+[node name="HitboxEnemy" parent="." instance=ExtResource( 6 )]
+visible = false
+identifier = "zombie0"
+hurtbox_node = NodePath("../HurtboxEnemy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxEnemy"]
+position = Vector2( 0, -24 )
+shape = SubResource( 8 )
+disabled = true
+
+[connection signal="screen_entered" from="VisibilityEnabler2D" to="." method="_on_VisibilityEnabler2D_screen_entered"]
+[connection signal="area_entered" from="Sprite/Area2DDetectPlayer" to="." method="_on_Area2DDetectPlayer_area_entered"]
+[connection signal="object_exited" from="Sprite/DetectNoFloor" to="." method="_on_DetectNoFloor_object_exited"]
+[connection signal="damaged" from="HurtboxEnemy" to="." method="_on_HurtboxEnemy_damaged"]

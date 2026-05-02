@@ -1,0 +1,121 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/sprites/ui_icons/btn_helper_icons_normal.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/ui_icons/btn_helper_icons_pressed.png" type="Texture" id=2]
+[ext_resource path="res://src/ui_elements/helper_icon_btn.gd" type="Script" id=3]
+[ext_resource path="res://assets/tres/ThemeBasic.tres" type="Theme" id=4]
+[ext_resource path="res://assets/fonts/LanaPixel.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=3]
+size = 11
+font_data = ExtResource( 5 )
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Texture/Label:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 1.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Texture/Normal:modulate")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Texture/Label:rect_position")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Texture/Label:custom_colors/font_color")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.235294, 0.270588, 0.376471, 1 ) ]
+}
+
+[node name="HelperIconBtn" type="Control" groups=["btn_help_icon"]]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+mouse_filter = 2
+theme = ExtResource( 4 )
+script = ExtResource( 3 )
+
+[node name="Texture" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+mouse_filter = 2
+
+[node name="Pressed" type="Sprite" parent="Texture"]
+texture = ExtResource( 2 )
+centered = false
+hframes = 5
+vframes = 20
+frame = 99
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Normal" type="Sprite" parent="Texture"]
+texture = ExtResource( 1 )
+centered = false
+hframes = 5
+vframes = 20
+frame = 99
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="Texture"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 12, 13 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "X"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 4 )
+anims/press_anim = SubResource( 2 )

@@ -1,0 +1,246 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://src/game_objects/game_scenario.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/game_objects/game_interface.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/game_objects/characters/playable_character.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game_objects/room_changer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/game_objects/tilemaps/solid/tilemap_building.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/game_objects/door_interior.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/game_objects/camera_limit.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/game_objects/tilemaps/background/tilemap_walls.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/game_objects/destructibles/torch_roof.tscn" type="PackedScene" id=9]
+[ext_resource path="res://addons/gamelevels_blueprint/img/shadow_gradient_0.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/bg_decoration/village_a_interior.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/misc/the_order_flag_vertical.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/misc/alchemy_lab_flag_vertical.png" type="Texture" id=13]
+[ext_resource path="res://src/game_objects/levelup_item.tscn" type="PackedScene" id=14]
+[ext_resource path="res://src/game_objects/npc/npc.tscn" type="PackedScene" id=15]
+[ext_resource path="res://stages/oota/amerithia/alchemy_lab.gd" type="Script" id=16]
+[ext_resource path="res://src/game_objects/interactable_area2d_indicator.tscn" type="PackedScene" id=17]
+[ext_resource path="res://src/game_objects/store_interface.tscn" type="PackedScene" id=18]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 44, 10 )
+
+[node name="Node" type="Node"]
+script = ExtResource( 16 )
+
+[node name="GameInterface" parent="." instance=ExtResource( 2 )]
+area_title = "ALCHEMY_LABORATORY"
+enabled_quicksave = false
+
+[node name="GameScenario" parent="." instance=ExtResource( 1 )]
+music = "rest_town"
+low_music_mode = true
+
+[node name="TileMapWalls" parent="GameScenario" instance=ExtResource( 8 )]
+modulate = Color( 0.635294, 0.686275, 1, 1 )
+tile_data = PoolIntArray( -1310726, 536870919, 0, -1310723, 536870919, 0, -1376256, 536870919, 0, -1376253, 536870919, 0, -1376250, 536870919, 0, -1376247, 536870919, 0, -1376244, 536870919, 0, -1376241, 536870919, 0, -1245191, 536870918, 0, -1245188, 536870917, 0, -1245186, 536870918, 0, -1310720, 536870918, 0, -1310719, 536870918, 0, -1310716, 536870917, 0, -1310714, 536870918, 0, -1310711, 536870918, 0, -1310708, 536870918, 0, -1310705, 536870918, 0, -1114118, 536870919, 0, -1114116, 536870920, 0, -1179648, 536870919, 0, -1179645, 536870919, 0, -1179644, 536870920, 0, -1179642, 536870919, 0, -1179639, 536870919, 0, -1179636, 536870919, 0, -1179633, 536870919, 0, -1048578, 536870919, 0, -917510, 536870919, 0, -917508, 536870920, 0, -983040, 536870919, 0, -983037, 536870919, 0, -983036, 536870920, 0, -983034, 536870919, 0, -983031, 536870919, 0, -983028, 536870919, 0, -983025, 536870919, 0, -851970, 536870919, 0 )
+
+[node name="ShadowGradient1" type="Sprite" parent="GameScenario"]
+position = Vector2( 67, -298.5 )
+scale = Vector2( 3.57, 0.27 )
+texture = ExtResource( 10 )
+
+[node name="ShadowGradient2" type="Sprite" parent="GameScenario"]
+position = Vector2( 67, -204 )
+scale = Vector2( 3.57, 1.04 )
+texture = ExtResource( 10 )
+flip_v = true
+
+[node name="ShadowGradient3" type="Sprite" parent="GameScenario"]
+position = Vector2( -92.3499, -255.715 )
+rotation = 1.5708
+scale = Vector2( 2.5357, 0.728868 )
+texture = ExtResource( 10 )
+flip_v = true
+
+[node name="ShadowGradient4" type="Sprite" parent="GameScenario"]
+position = Vector2( 208.683, -255.715 )
+rotation = 1.5708
+scale = Vector2( 2.5357, 1.22129 )
+texture = ExtResource( 10 )
+
+[node name="ShadowGradient5" type="Sprite" parent="GameScenario"]
+position = Vector2( -75, -266.5 )
+scale = Vector2( 0.277, 0.11 )
+texture = ExtResource( 10 )
+
+[node name="ShadowGradient6" type="Sprite" parent="GameScenario"]
+position = Vector2( 113, -242 )
+scale = Vector2( 0.277, 0.11 )
+texture = ExtResource( 10 )
+
+[node name="ShadowGradient7" type="Sprite" parent="GameScenario"]
+position = Vector2( 113, -256 )
+scale = Vector2( 0.277, 0.11 )
+texture = ExtResource( 10 )
+
+[node name="ShadowGradient8" type="Sprite" parent="GameScenario"]
+position = Vector2( 150, -257 )
+scale = Vector2( 0.277, 0.11 )
+texture = ExtResource( 10 )
+
+[node name="ShadowGradient9" type="Sprite" parent="GameScenario"]
+position = Vector2( 150, -245 )
+scale = Vector2( 0.277, 0.11 )
+texture = ExtResource( 10 )
+
+[node name="ShadowGradient10" type="Sprite" parent="GameScenario"]
+position = Vector2( -16.6605, -202.334 )
+rotation = 0.860447
+scale = Vector2( 0.916129, 0.552035 )
+texture = ExtResource( 10 )
+
+[node name="ShadowGradient11" type="Sprite" parent="GameScenario"]
+position = Vector2( 35.9093, -230.63 )
+rotation = 0.860447
+scale = Vector2( 0.390183, 0.295662 )
+texture = ExtResource( 10 )
+
+[node name="ShadowGradient12" type="Sprite" parent="GameScenario"]
+position = Vector2( -91, -224 )
+rotation = 0.860447
+scale = Vector2( 0.390183, 0.295662 )
+texture = ExtResource( 10 )
+
+[node name="VillageAInterior10" type="Sprite" parent="GameScenario"]
+position = Vector2( -77, -224 )
+texture = ExtResource( 11 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 800, 64, 32, 64 )
+
+[node name="VillageAInterior6" type="Sprite" parent="GameScenario"]
+position = Vector2( -1, -224 )
+texture = ExtResource( 11 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 832, 192, 64, 64 )
+
+[node name="VillageAInterior7" type="Sprite" parent="GameScenario"]
+visible = false
+position = Vector2( 45, -224 )
+texture = ExtResource( 11 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 832, 192, 64, 64 )
+
+[node name="VillageAInterior8" type="Sprite" parent="GameScenario"]
+position = Vector2( 48, -224 )
+texture = ExtResource( 11 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 928, 192, 32, 64 )
+
+[node name="VillageAInterior" type="Sprite" parent="GameScenario"]
+position = Vector2( -40, -216 )
+texture = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 832, 336, 64, 48 )
+
+[node name="VillageAInterior2" type="Sprite" parent="GameScenario"]
+position = Vector2( 102, -216 )
+texture = ExtResource( 11 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 896, 336, 64, 48 )
+
+[node name="VillageAInterior9" type="Sprite" parent="GameScenario"]
+position = Vector2( 153, -208 )
+texture = ExtResource( 11 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 832, 256, 32, 32 )
+
+[node name="VillageAInterior3" type="Sprite" parent="GameScenario"]
+position = Vector2( 113, -260 )
+texture = ExtResource( 11 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 1024, 128, 32, 32 )
+
+[node name="VillageAInterior4" type="Sprite" parent="GameScenario"]
+position = Vector2( 150, -258 )
+texture = ExtResource( 11 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 1024, 160, 32, 32 )
+
+[node name="VillageAInterior5" type="Sprite" parent="GameScenario"]
+position = Vector2( -75, -277 )
+texture = ExtResource( 11 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 1056, 176, 32, 16 )
+
+[node name="AlchemyLabFlagVertical" type="Sprite" parent="GameScenario"]
+modulate = Color( 0.776471, 0.827451, 0.843137, 1 )
+position = Vector2( -48, -288 )
+texture = ExtResource( 13 )
+
+[node name="TheOrderFlagVertical2" type="Sprite" parent="GameScenario"]
+modulate = Color( 0.776471, 0.827451, 0.843137, 1 )
+position = Vector2( 80, -288 )
+texture = ExtResource( 12 )
+
+[node name="TorchRoof" parent="GameScenario" instance=ExtResource( 9 )]
+position = Vector2( 22, -280 )
+
+[node name="TorchRoof3" parent="GameScenario" instance=ExtResource( 9 )]
+position = Vector2( 134, -280 )
+
+[node name="TileMapBuilding" parent="GameScenario" instance=ExtResource( 5 )]
+modulate = Color( 0.721569, 0.835294, 0.619608, 1 )
+tile_data = PoolIntArray( -1507316, 8, 0, -1507314, 536870920, 0, -1507312, 536870920, 0, -1376263, 536870922, 0, -1376262, 536870924, 0, -1441792, 536870924, 0, -1441786, 536870924, 0, -1310727, 536870922, 0, -1376244, 10, 0, -1376243, 10, 0, -1376242, 536870922, 0, -1376241, 536870922, 0, -1376240, 536870922, 0, -1376239, 536870922, 0, -1245191, 536870922, 0, -1310708, 9, 0, -1310706, 536870921, 0, -1310704, 536870921, 0, -1179655, 536870922, 0, -1245172, 1073741832, 0, -1245170, 8, 0, -1245168, 536870920, 0, -1245167, 1073741832, 0, -1114119, 536870922, 0, -1048583, 536870922, 0, -983047, 536870922, 0, -917511, 536870922, 0, -851975, 536870922, 0, -786439, 536870922, 0, -851958, 536870923, 0, -851957, 536870922, 0, -851956, 536870922, 0, -851955, 536870922, 0, -851954, 536870922, 0, -851953, 536870922, 0, -851952, 536870922, 0, -720903, 536870919, 0, -720901, 536870919, 0, -720899, 536870919, 0, -720897, 536870919, 0, -786431, 536870919, 0, -786429, 536870919, 0, -786427, 536870919, 0, -786425, 536870919, 0, -786423, 536870919, 0, -786421, 536870920, 0, -786419, 536870921, 0, -786417, 536870922, 0, -786416, 536870922, 0, -655367, 536870920, 0, -655365, 536870920, 0, -655363, 536870920, 0, -655361, 536870920, 0, -720895, 536870920, 0, -720893, 536870920, 0, -720891, 536870920, 0, -720889, 536870920, 0, -720887, 536870920, 0, -720883, 536870922, 0, -720882, 536870922, 0, -720881, 536870922, 0, -720880, 536870922, 0, -655349, 536870922, 0, -655348, 536870922, 0, -655347, 536870922, 0, -655346, 536870922, 0, -655345, 536870922, 0, -655344, 536870922, 0 )
+
+[node name="CameraLimit" parent="GameScenario" instance=ExtResource( 7 )]
+margin_left = -96.0
+margin_top = -343.0
+margin_right = 245.0
+margin_bottom = -151.0
+
+[node name="RoomChanger" parent="GameScenario" instance=ExtResource( 4 )]
+position = Vector2( 245, -208 )
+path_destination = "res://stages/oota/amerithia/amerithia_central.tscn"
+offset_area = -59
+
+[node name="PlayableCharacter" parent="GameScenario" instance=ExtResource( 3 )]
+position = Vector2( 229, -208 )
+
+[node name="DoorInterior" parent="GameScenario" instance=ExtResource( 6 )]
+position = Vector2( 245, -208 )
+scale_x = -1
+spawn_position_name = "PositionLab"
+
+[node name="ShadowGradient13" type="Sprite" parent="GameScenario"]
+position = Vector2( 67, -168 )
+scale = Vector2( 3.57, 0.48 )
+texture = ExtResource( 10 )
+flip_v = true
+
+[node name="ShadowGradient14" type="Sprite" parent="GameScenario"]
+position = Vector2( 67, -332 )
+scale = Vector2( 3.57, 0.52 )
+texture = ExtResource( 10 )
+
+[node name="LevelUpItem" parent="GameScenario" instance=ExtResource( 14 )]
+position = Vector2( 80, -269 )
+ide = "8dd4f1f5-c0a2-4c31-8de7-0fcc033f1751"
+type = 2
+amount = 2
+
+[node name="NPCMargaret" parent="GameScenario" instance=ExtResource( 15 )]
+position = Vector2( -44, -192 )
+character = "Margaret"
+
+[node name="InteractableArea2DIndicator" parent="GameScenario/NPCMargaret" instance=ExtResource( 17 )]
+position = Vector2( 0, -4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScenario/NPCMargaret/InteractableArea2DIndicator"]
+shape = SubResource( 1 )
+
+[node name="StoreInterface" parent="." instance=ExtResource( 18 )]
+
+[connection signal="interact_requested" from="GameScenario/NPCMargaret/InteractableArea2DIndicator" to="." method="_on_InteractableArea2DIndicator_interact_requested"]
+[connection signal="closed" from="StoreInterface" to="." method="_on_AlchemyInterface_closed"]

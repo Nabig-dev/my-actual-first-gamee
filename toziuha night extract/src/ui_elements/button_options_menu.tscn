@@ -1,0 +1,97 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/tres/ThemeBasic.tres" type="Theme" id=1]
+[ext_resource path="res://src/ui_elements/button_options_menu.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 12, 7 )
+
+[node name="Button" type="Button"]
+margin_right = 168.0
+margin_bottom = 16.0
+grow_horizontal = 2
+rect_min_size = Vector2( 168, 16 )
+mouse_filter = 1
+size_flags_horizontal = 5
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+autostart = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+margin_top = 1.0
+margin_right = 44.0
+margin_bottom = 15.0
+size_flags_horizontal = 3
+text = "Panel BTN"
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+margin_left = 48.0
+margin_right = 98.0
+margin_bottom = 16.0
+custom_constants/separation = 50
+custom_styles/separator = SubResource( 2 )
+
+[node name="ArrowL" type="Label" parent="HBoxContainer"]
+margin_left = 102.0
+margin_top = 1.0
+margin_right = 121.0
+margin_bottom = 15.0
+text = "   "
+
+[node name="TchBtn" type="TouchScreenButton" parent="HBoxContainer/ArrowL"]
+position = Vector2( -4, 0 )
+shape = SubResource( 1 )
+action = "ui_left"
+
+[node name="IconMovible" type="Label" parent="HBoxContainer/ArrowL"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -202, -6 )
+text = ""
+
+[node name="LblVal" type="Label" parent="HBoxContainer"]
+margin_left = 125.0
+margin_top = 1.0
+margin_right = 149.0
+margin_bottom = 15.0
+size_flags_horizontal = 4
+text = "Value"
+align = 1
+
+[node name="ArrowR" type="Label" parent="HBoxContainer"]
+margin_left = 153.0
+margin_top = 1.0
+margin_right = 172.0
+margin_bottom = 15.0
+text = "   "
+
+[node name="TchBtn2" type="TouchScreenButton" parent="HBoxContainer/ArrowR"]
+position = Vector2( -4, 0 )
+shape = SubResource( 1 )
+action = "ui_right"
+
+[node name="IconMovible" type="Label" parent="HBoxContainer/ArrowR"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 9.0
+rect_pivot_offset = Vector2( -202, -6 )
+text = ""
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="focus_entered" from="." to="." method="_on_Button_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_Button_focus_exited"]
+[connection signal="value_changed" from="." to="." method="_on_Button_value_changed"]

@@ -1,0 +1,241 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hitbox_enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hurtbox_enemy_simple.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/images/vfx/flare_cyan.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/weapons_enemies/waterball.png" type="Texture" id=4]
+[ext_resource path="res://src/game_objects/enemies_weapons/water_ball.gd" type="Script" id=5]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Waterball:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("FlareCyan:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("HitboxEnemy/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("HurtboxEnemySimple/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "fly"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Waterball:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "show"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Waterball:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("FlareCyan:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.498039 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("HitboxEnemy/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("HurtboxEnemySimple/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="CanvasItemMaterial" id=4]
+blend_mode = 1
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 13.5
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 16.78
+
+[sub_resource type="CircleShape2D" id=7]
+
+[node name="WaterBall" type="KinematicBody2D"]
+modulate = Color( 1, 1, 1, 0 )
+script = ExtResource( 5 )
+
+[node name="Waterball" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/fly = SubResource( 2 )
+anims/show = SubResource( 3 )
+
+[node name="FlareCyan" type="Sprite" parent="."]
+material = SubResource( 4 )
+scale = Vector2( 0.516, 0.516 )
+texture = ExtResource( 3 )
+
+[node name="HitboxEnemy" parent="." instance=ExtResource( 1 )]
+identifier = "waterball"
+hurtbox_node = NodePath("../HurtboxEnemySimple")
+is_weapon = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxEnemy"]
+shape = SubResource( 5 )
+disabled = true
+
+[node name="HurtboxEnemySimple" parent="." instance=ExtResource( 2 )]
+sprite_flash = NodePath("../Waterball")
+max_hits = 1
+damage_sounds = [ "water_splash_in2" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxEnemySimple"]
+shape = SubResource( 6 )
+disabled = true
+
+[node name="TimerChangeSpeed" type="Timer" parent="."]
+autostart = true
+
+[node name="TimerAutoQueue" type="Timer" parent="."]
+
+[node name="Area2DDetectPlayer" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DDetectPlayer"]
+shape = SubResource( 7 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="area_entered" from="HitboxEnemy" to="." method="_on_HitboxEnemy_area_entered"]
+[connection signal="damaged" from="HurtboxEnemySimple" to="." method="_on_HurtboxEnemySimple_damaged"]
+[connection signal="defeated" from="HurtboxEnemySimple" to="." method="_on_HurtboxEnemySimple_defeated"]
+[connection signal="timeout" from="TimerChangeSpeed" to="." method="_on_TimerChangeSpeed_timeout"]
+[connection signal="area_entered" from="Area2DDetectPlayer" to="." method="_on_Area2DDetectPlayer_area_entered" flags=6]

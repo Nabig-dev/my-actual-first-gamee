@@ -1,0 +1,197 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/sprites/ui_icons/gamepad_tester.png" type="Texture" id=1]
+[ext_resource path="res://src/ui_elements/gamepad_input.gd" type="Script" id=3]
+
+[node name="GamepadInput" type="Control"]
+self_modulate = Color( 1, 1, 1, 0.552941 )
+margin_right = 73.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 73, 49 )
+script = ExtResource( 3 )
+
+[node name="GamepadTester" type="Sprite" parent="."]
+position = Vector2( -16, -6 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 1 )
+centered = false
+hframes = 5
+vframes = 5
+frame = 24
+__meta__ = {
+"_editor_description_": "x -16
+y -6"
+}
+
+[node name="l_joy_up" type="Sprite" parent="GamepadTester"]
+position = Vector2( -20, -20 )
+texture = ExtResource( 1 )
+centered = false
+hframes = 5
+vframes = 5
+
+[node name="l_joy_down" type="Sprite" parent="GamepadTester"]
+position = Vector2( -20, -11.6667 )
+texture = ExtResource( 1 )
+centered = false
+hframes = 5
+vframes = 5
+frame = 2
+
+[node name="l_joy_left" type="Sprite" parent="GamepadTester"]
+position = Vector2( -25, -16.6667 )
+texture = ExtResource( 1 )
+centered = false
+hframes = 5
+vframes = 5
+frame = 3
+
+[node name="l_joy_right" type="Sprite" parent="GamepadTester"]
+position = Vector2( -15, -16.6667 )
+texture = ExtResource( 1 )
+centered = false
+hframes = 5
+vframes = 5
+frame = 1
+
+[node name="r_joy_up" type="Sprite" parent="GamepadTester"]
+position = Vector2( 36.6667, -5 )
+texture = ExtResource( 1 )
+centered = false
+hframes = 5
+vframes = 5
+
+[node name="r_joy_down" type="Sprite" parent="GamepadTester"]
+position = Vector2( 36.6667, 5 )
+texture = ExtResource( 1 )
+centered = false
+hframes = 5
+vframes = 5
+frame = 2
+
+[node name="r_joy_left" type="Sprite" parent="GamepadTester"]
+position = Vector2( 31.6667, -1.66667 )
+texture = ExtResource( 1 )
+centered = false
+hframes = 5
+vframes = 5
+frame = 3
+
+[node name="r_joy_right" type="Sprite" parent="GamepadTester"]
+position = Vector2( 41.6667, -1.66667 )
+texture = ExtResource( 1 )
+centered = false
+hframes = 5
+vframes = 5
+frame = 1
+
+[node name="dpup" type="Sprite" parent="GamepadTester"]
+texture = ExtResource( 1 )
+centered = false
+hframes = 5
+vframes = 5
+
+[node name="dpdown" type="Sprite" parent="GamepadTester"]
+texture = ExtResource( 1 )
+centered = false
+hframes = 5
+vframes = 5
+frame = 2
+
+[node name="dpleft" type="Sprite" parent="GamepadTester"]
+texture = ExtResource( 1 )
+centered = false
+hframes = 5
+vframes = 5
+frame = 3
+
+[node name="dpright" type="Sprite" parent="GamepadTester"]
+texture = ExtResource( 1 )
+centered = false
+hframes = 5
+vframes = 5
+frame = 1
+
+[node name="a" type="Sprite" parent="GamepadTester"]
+texture = ExtResource( 1 )
+centered = false
+hframes = 5
+vframes = 5
+frame = 4
+
+[node name="b" type="Sprite" parent="GamepadTester"]
+texture = ExtResource( 1 )
+centered = false
+hframes = 5
+vframes = 5
+frame = 5
+
+[node name="x" type="Sprite" parent="GamepadTester"]
+texture = ExtResource( 1 )
+centered = false
+hframes = 5
+vframes = 5
+frame = 6
+
+[node name="y" type="Sprite" parent="GamepadTester"]
+texture = ExtResource( 1 )
+centered = false
+hframes = 5
+vframes = 5
+frame = 7
+
+[node name="rightshoulder" type="Sprite" parent="GamepadTester"]
+texture = ExtResource( 1 )
+centered = false
+hframes = 5
+vframes = 5
+frame = 11
+
+[node name="righttrigger" type="Sprite" parent="GamepadTester"]
+texture = ExtResource( 1 )
+centered = false
+hframes = 5
+vframes = 5
+frame = 13
+
+[node name="leftshoulder" type="Sprite" parent="GamepadTester"]
+texture = ExtResource( 1 )
+centered = false
+hframes = 5
+vframes = 5
+frame = 10
+
+[node name="lefttrigger" type="Sprite" parent="GamepadTester"]
+texture = ExtResource( 1 )
+centered = false
+hframes = 5
+vframes = 5
+frame = 12
+
+[node name="back" type="Sprite" parent="GamepadTester"]
+texture = ExtResource( 1 )
+centered = false
+hframes = 5
+vframes = 5
+frame = 9
+
+[node name="start" type="Sprite" parent="GamepadTester"]
+texture = ExtResource( 1 )
+centered = false
+hframes = 5
+vframes = 5
+frame = 8
+
+[node name="leftstick" type="Sprite" parent="GamepadTester"]
+texture = ExtResource( 1 )
+centered = false
+hframes = 5
+vframes = 5
+frame = 16
+
+[node name="rightstick" type="Sprite" parent="GamepadTester"]
+texture = ExtResource( 1 )
+centered = false
+hframes = 5
+vframes = 5
+frame = 19

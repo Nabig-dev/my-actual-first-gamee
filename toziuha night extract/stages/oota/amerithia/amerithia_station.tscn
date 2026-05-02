@@ -1,0 +1,74 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://src/game_objects/camera_limit.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/game_objects/characters/playable_character.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/game_objects/game_interface.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game_objects/game_scenario.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/game_objects/tilemaps/solid/tilemap_building_32px.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/game_objects/train_station.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/game_objects/backgrounds/normal_sky.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/sprites/props/grass_and_rocks.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/bg/plains/foreground.png" type="Texture" id=9]
+[ext_resource path="res://src/game_objects/room_changer.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/sprites/bg/plains/forest.png" type="Texture" id=11]
+[ext_resource path="res://stages/oota/amerithia/amerithia_station.gd" type="Script" id=12]
+
+[node name="Node" type="Node"]
+script = ExtResource( 12 )
+
+[node name="GameInterface" parent="." instance=ExtResource( 3 )]
+
+[node name="GameScenario" parent="." instance=ExtResource( 4 )]
+
+[node name="NormalSky" parent="GameScenario" instance=ExtResource( 7 )]
+
+[node name="BuildingsBG" type="Node2D" parent="GameScenario"]
+
+[node name="Forest" type="Sprite" parent="GameScenario/BuildingsBG"]
+position = Vector2( 248, -208 )
+texture = ExtResource( 11 )
+
+[node name="Foreground" type="Sprite" parent="GameScenario/BuildingsBG"]
+modulate = Color( 0.839216, 0.839216, 0.839216, 1 )
+position = Vector2( 245, -200 )
+texture = ExtResource( 9 )
+
+[node name="CameraLimit" parent="GameScenario" instance=ExtResource( 1 )]
+margin_left = 69.0
+margin_top = -287.0
+margin_right = 410.0
+margin_bottom = -95.0
+
+[node name="TrainStation" parent="GameScenario" instance=ExtResource( 6 )]
+position = Vector2( 240, -128 )
+
+[node name="GrassAndRocks7" type="Sprite" parent="GameScenario"]
+position = Vector2( 395, -168 )
+texture = ExtResource( 8 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 0, 0, 48, 32 )
+
+[node name="TileMapBuilding" parent="GameScenario" instance=ExtResource( 5 )]
+tile_data = PoolIntArray( -720895, 2, 2, -720894, 2, 2, -720893, 2, 2, -720892, 2, 2, -720891, 2, 2, -720890, 2, 2, -720889, 2, 2, -720888, 2, 2, -720887, 2, 2, -720886, 2, 2, -720885, 2, 2, -720884, 2, 2, -720883, 2, 2, -327680, 0, 2, -327679, 0, 2, -327678, 0, 2, -327677, 3, 0, -327669, 536870915, 0, -327668, 0, 1, -327667, 0, 3, -262144, 0, 65537, -262143, 0, 65537, -262142, 0, 65537, -262140, 4, 0, -262139, 1, 1, -262138, 1, 2, -262137, 536870913, 1, -262136, 1, 2, -262135, 536870913, 1, -262134, 536870916, 0, -262132, 0, 65537, -262131, 0, 65539, -196608, 0, 65537, -196607, 0, 65537, -196606, 0, 65537, -196605, 1, 65537, -196604, 1, 65537, -196603, 1, 65537, -196602, 0, 65537, -196601, 0, 65537, -196600, 0, 65538, -196599, 0, 65538, -196598, 0, 65537, -196597, 0, 65538, -196596, 0, 65538, -196595, 0, 65539, -131072, 0, 65537, -131071, 0, 65537, -131070, 0, 65537, -131069, 1, 131074, -131068, 1, 131074, -131067, 1, 131074, -131066, 0, 131074, -131065, 0, 131074, -131064, 0, 131073, -131063, 0, 131074, -131062, 0, 131073, -131061, 0, 131073, -131060, 0, 131073, -131059, 0, 131075 )
+
+[node name="RoomChanger" parent="GameScenario" instance=ExtResource( 10 )]
+position = Vector2( 69, -156 )
+scale = Vector2( -1, 1 )
+direction = 2
+identifier = "dl"
+id_destination = "dr"
+path_destination = "res://stages/oota/amerithia/entrance_l.tscn"
+offset_area = -75
+
+[node name="RoomChanger2" parent="GameScenario" instance=ExtResource( 10 )]
+position = Vector2( 410, -156 )
+identifier = "dr"
+id_destination = "dl"
+path_destination = "res://stages/oota/amerithia/amerithia_central.tscn"
+offset_area = -59
+
+[node name="PlayableCharacter" parent="GameScenario" instance=ExtResource( 2 )]
+position = Vector2( 241, -126 )
+
+[connection signal="interact_requested" from="GameScenario/TrainStation" to="." method="_on_TrainStation_interact_requested"]

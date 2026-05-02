@@ -1,0 +1,16 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+
+[deps]
+
+files=[ "res://localization/alloys.es.translation", "res://localization/alloys.en.translation", "res://localization/alloys.pt_BR.translation" ]
+
+source_file="res://localization/alloys.csv"
+dest_files=[ "res://localization/alloys.es.translation", "res://localization/alloys.en.translation", "res://localization/alloys.pt_BR.translation" ]
+
+[params]
+
+compress=true
+delimiter=0

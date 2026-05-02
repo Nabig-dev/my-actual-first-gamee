@@ -1,0 +1,347 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/images/vfx/line_glow.png" type="Texture" id=1]
+[ext_resource path="res://src/game_objects/vfx/hit_lines_impact.gd" type="Script" id=2]
+[ext_resource path="res://assets/images/vfx/particles/spotlight_5.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/vfx/particles/spotlight_7.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("hit_low:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 4.62, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("hit_high:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("hit_high/LineGlow0:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "hit_high"
+tracks/0/type = "value"
+tracks/0/path = NodePath("hit_high:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("hit_high:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("hit_high/LineGlow0:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "hit_low"
+tracks/0/type = "value"
+tracks/0/path = NodePath("hit_low:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("hit_low:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "hit_low_player"
+
+[sub_resource type="Animation" id=5]
+resource_name = "hit_mid"
+tracks/0/type = "value"
+tracks/0/path = NodePath("hit_mid:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 2.31, 1, 1, 1 ), Color( 1.4, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("hit_mid:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("hit_mid/LineGlow0:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "hit_mid_player"
+
+[node name="hit_lines_impact" type="Node2D"]
+light_mask = 0
+z_index = 3
+script = ExtResource( 2 )
+
+[node name="hit_low" type="Node2D" parent="."]
+visible = false
+modulate = Color( 4.62, 1, 1, 1 )
+light_mask = 0
+scale = Vector2( 0.5, 0.5 )
+
+[node name="LineGlow" type="Sprite" parent="hit_low"]
+light_mask = 0
+position = Vector2( -30.6766, 10.6125 )
+rotation = -0.261799
+scale = Vector2( 0.0704384, 0.0566555 )
+texture = ExtResource( 1 )
+
+[node name="LineGlow2" type="Sprite" parent="hit_low"]
+light_mask = 0
+position = Vector2( -19.6766, -3.38746 )
+rotation = 0.261799
+scale = Vector2( 0.0399472, 0.0862703 )
+texture = ExtResource( 1 )
+
+[node name="LineGlow3" type="Sprite" parent="hit_low"]
+light_mask = 0
+position = Vector2( -9.67664, -9.38746 )
+rotation = 0.785397
+scale = Vector2( 0.0221853, 0.0629145 )
+texture = ExtResource( 1 )
+
+[node name="LineGlow4" type="Sprite" parent="hit_low"]
+light_mask = 0
+position = Vector2( 25.3234, -13.3875 )
+rotation = -0.523598
+scale = Vector2( 0.0681165, 0.0491238 )
+texture = ExtResource( 1 )
+
+[node name="LineGlow5" type="Sprite" parent="hit_low"]
+light_mask = 0
+position = Vector2( 9.32336, 10.6125 )
+rotation = 0.785397
+scale = Vector2( 0.0264008, 0.0575038 )
+texture = ExtResource( 1 )
+
+[node name="Spotlight5" type="Sprite" parent="hit_low"]
+light_mask = 0
+position = Vector2( 1.52588e-05, 7.62939e-06 )
+scale = Vector2( 0.34375, 0.34375 )
+texture = ExtResource( 3 )
+
+[node name="hit_mid" type="Node2D" parent="."]
+modulate = Color( 1.4, 1, 1, 0 )
+light_mask = 0
+scale = Vector2( 0.4, 0.4 )
+
+[node name="Spotlight5" type="Sprite" parent="hit_mid"]
+modulate = Color( 1, 1, 1, 0.952941 )
+light_mask = 0
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 3 )
+
+[node name="LineGlow0" type="Sprite" parent="hit_mid"]
+modulate = Color( 1, 1, 1, 0 )
+light_mask = 0
+position = Vector2( 1.02813, 0.991585 )
+rotation = -1.0472
+scale = Vector2( 0.442963, 0.184121 )
+texture = ExtResource( 1 )
+
+[node name="LineGlow" type="Sprite" parent="hit_mid"]
+light_mask = 0
+position = Vector2( -28, 9 )
+rotation = -0.261799
+scale = Vector2( 0.0704384, 0.0566555 )
+texture = ExtResource( 1 )
+
+[node name="LineGlow4" type="Sprite" parent="hit_mid"]
+light_mask = 0
+position = Vector2( 48, -16 )
+rotation = -0.261799
+scale = Vector2( 0.0704384, 0.0566555 )
+texture = ExtResource( 1 )
+
+[node name="LineGlow5" type="Sprite" parent="hit_mid"]
+light_mask = 0
+position = Vector2( -56, -16 )
+rotation = 0.261799
+scale = Vector2( 0.0704384, 0.0566555 )
+texture = ExtResource( 1 )
+
+[node name="LineGlow6" type="Sprite" parent="hit_mid"]
+light_mask = 0
+position = Vector2( 24, 8 )
+rotation = 0.261799
+scale = Vector2( 0.0704384, 0.0566555 )
+texture = ExtResource( 1 )
+
+[node name="LineGlow2" type="Sprite" parent="hit_mid"]
+light_mask = 0
+position = Vector2( -30, -30 )
+rotation = 3.92699
+scale = Vector2( 0.112351, 0.0566555 )
+texture = ExtResource( 1 )
+
+[node name="LineGlow3" type="Sprite" parent="hit_mid"]
+light_mask = 0
+position = Vector2( 24, 24 )
+rotation = 3.92699
+scale = Vector2( 0.112351, 0.0566555 )
+texture = ExtResource( 1 )
+
+[node name="hit_high" type="Node2D" parent="."]
+light_mask = 0
+scale = Vector2( 0.4, 0.4 )
+
+[node name="Spotlight7" type="Sprite" parent="hit_high"]
+light_mask = 0
+scale = Vector2( 1.625, 1.625 )
+texture = ExtResource( 4 )
+
+[node name="LineGlow0" type="Sprite" parent="hit_high"]
+light_mask = 0
+position = Vector2( 1.24751, -0.428707 )
+rotation = -1.0472
+scale = Vector2( 0.442963, 0.120675 )
+texture = ExtResource( 1 )
+
+[node name="LineGlow1" type="Sprite" parent="hit_high"]
+light_mask = 0
+position = Vector2( -0.534241, -2.21048 )
+rotation = 0.785397
+scale = Vector2( 0.757943, 0.120675 )
+texture = ExtResource( 1 )
+
+[node name="LineGlow" type="Sprite" parent="hit_high"]
+light_mask = 0
+position = Vector2( -28, 9 )
+rotation = -0.261799
+scale = Vector2( 0.0704384, 0.0566555 )
+texture = ExtResource( 1 )
+
+[node name="LineGlow4" type="Sprite" parent="hit_high"]
+light_mask = 0
+position = Vector2( 48, -16 )
+rotation = -0.261799
+scale = Vector2( 0.0704384, 0.0566555 )
+texture = ExtResource( 1 )
+
+[node name="LineGlow5" type="Sprite" parent="hit_high"]
+light_mask = 0
+position = Vector2( -56, -16 )
+rotation = 0.261799
+scale = Vector2( 0.0704384, 0.0566555 )
+texture = ExtResource( 1 )
+
+[node name="LineGlow6" type="Sprite" parent="hit_high"]
+light_mask = 0
+position = Vector2( 24, 8 )
+rotation = 0.261799
+scale = Vector2( 0.0704384, 0.0566555 )
+texture = ExtResource( 1 )
+
+[node name="LineGlow2" type="Sprite" parent="hit_high"]
+visible = false
+light_mask = 0
+position = Vector2( -30, -30 )
+rotation = 3.92699
+scale = Vector2( 0.112351, 0.0566555 )
+texture = ExtResource( 1 )
+
+[node name="LineGlow3" type="Sprite" parent="hit_high"]
+visible = false
+light_mask = 0
+position = Vector2( 24, 24 )
+rotation = 3.92699
+scale = Vector2( 0.112351, 0.0566555 )
+texture = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 2.5
+anims/RESET = SubResource( 3 )
+anims/hit_high = SubResource( 6 )
+anims/hit_low = SubResource( 4 )
+anims/hit_low_player = SubResource( 7 )
+anims/hit_mid = SubResource( 5 )
+anims/hit_mid_player = SubResource( 8 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

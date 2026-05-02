@@ -1,0 +1,177 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/tres/ThemeBasic.tres" type="Theme" id=1]
+[ext_resource path="res://assets/sprites/ui_icons/keyboard_layout_full.png" type="Texture" id=2]
+[ext_resource path="res://src/screens/initial_pc_config_wizard.gd" type="Script" id=3]
+[ext_resource path="res://assets/sprites/misc/filters_available.png" type="Texture" id=4]
+[ext_resource path="res://src/ui_elements/bg_parallax_demon_forest.tscn" type="PackedScene" id=5]
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 54, 179, 54 )
+
+[sub_resource type="StyleBoxLine" id=4]
+color = Color( 1, 1, 1, 0.345098 )
+
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/keyboard_layout_full.png-e42ccfa6edf8bbfa0e3b6a50f9254fdd.stex"
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = SubResource( 1 )
+region = Rect2( 179, 54, 179, 54 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 4 )
+region = Rect2( 205, 0, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 4 )
+region = Rect2( 410, 0, 200, 200 )
+
+[node name="InitialPCConfigWizard" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="BgParallaxDemonForest" parent="." instance=ExtResource( 5 )]
+modulate = Color( 0.772549, 0.0196078, 0.854902, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.403922 )
+
+[node name="Step0" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Step0"]
+margin_top = 18.0
+margin_right = 341.0
+margin_bottom = 72.0
+texture = SubResource( 3 )
+stretch_mode = 4
+
+[node name="Label2" type="Label" parent="Step0"]
+margin_top = 76.0
+margin_right = 341.0
+margin_bottom = 90.0
+text = "PRESSFORKEYBOARDARROWSETTING"
+align = 1
+
+[node name="HSeparator" type="HSeparator" parent="Step0"]
+margin_top = 94.0
+margin_right = 341.0
+margin_bottom = 98.0
+custom_styles/separator = SubResource( 4 )
+
+[node name="TextureRect2" type="TextureRect" parent="Step0"]
+margin_top = 102.0
+margin_right = 341.0
+margin_bottom = 156.0
+texture = SubResource( 2 )
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Step0"]
+margin_top = 160.0
+margin_right = 341.0
+margin_bottom = 174.0
+text = "PRESSFORWASDSETTING"
+align = 1
+
+[node name="Step1" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+
+[node name="Label" type="Label" parent="Step1"]
+margin_top = 43.0
+margin_right = 341.0
+margin_bottom = 57.0
+text = "PRESSLETTERFILTERSCREEN"
+align = 1
+
+[node name="HSeparator" type="HSeparator" parent="Step1"]
+margin_top = 61.0
+margin_right = 341.0
+margin_bottom = 65.0
+custom_styles/separator = SubResource( 4 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Step1"]
+margin_top = 69.0
+margin_right = 341.0
+margin_bottom = 149.0
+custom_constants/separation = 19
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Step1/HBoxContainer"]
+margin_left = 31.0
+margin_right = 111.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+texture = SubResource( 5 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="Step1/HBoxContainer/TextureRect"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 14.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+text = "\"A\" : Pixel"
+align = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Step1/HBoxContainer"]
+margin_left = 130.0
+margin_right = 210.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+texture = SubResource( 6 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="Step1/HBoxContainer/TextureRect2"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 14.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+text = "\"B\" : CRT"
+align = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Step1/HBoxContainer"]
+margin_left = 229.0
+margin_right = 309.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+texture = SubResource( 7 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="Step1/HBoxContainer/TextureRect3"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 14.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+text = "\"C\" : LCD"
+align = 1
+
+[node name="BlackRectScr" type="ColorRect" parent="."]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )

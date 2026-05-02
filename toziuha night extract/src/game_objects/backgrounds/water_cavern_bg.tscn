@@ -1,0 +1,161 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/sprites/bg/lake_cavern.png" type="Texture" id=1]
+[ext_resource path="res://src/gdshaders/water_waves.gdshader" type="Shader" id=2]
+[ext_resource path="res://src/gdshaders/vignette_color.gdshader" type="Shader" id=3]
+[ext_resource path="res://src/game_objects/backgrounds/water_cavern_bg.gd" type="Script" id=4]
+[ext_resource path="res://assets/sprites/bg/ocean_midle_small.png" type="Texture" id=5]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 2 )
+shader_param/wave_speed = 1.0
+shader_param/wave_freq = 10.0
+shader_param/wave_width = 0.5
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 3 )
+shader_param/vignette_intensity = 0.597
+shader_param/vignette_opacity = 1.0
+shader_param/vignette_rgb = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CanvasItemMaterial" id=2]
+blend_mode = 1
+
+[node name="WaterCavernParallaxBackground" type="ParallaxBackground"]
+script = ExtResource( 4 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 640, 360 )
+
+[node name="LakeCavern" type="Sprite" parent="ParallaxLayer"]
+position = Vector2( 160, 90 )
+texture = ExtResource( 1 )
+hframes = 4
+
+[node name="LakeCavern2" type="Sprite" parent="ParallaxLayer"]
+position = Vector2( 480, 90 )
+texture = ExtResource( 1 )
+hframes = 4
+
+[node name="LakeCavern3" type="Sprite" parent="ParallaxLayer"]
+position = Vector2( 160, 270 )
+texture = ExtResource( 1 )
+hframes = 4
+
+[node name="LakeCavern4" type="Sprite" parent="ParallaxLayer"]
+position = Vector2( 480, 270 )
+texture = ExtResource( 1 )
+hframes = 4
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.2, 0.2 )
+motion_mirroring = Vector2( 640, 360 )
+
+[node name="LakeCavern" type="Sprite" parent="ParallaxLayer2"]
+position = Vector2( 160, 90 )
+texture = ExtResource( 1 )
+hframes = 4
+frame = 1
+
+[node name="LakeCavern2" type="Sprite" parent="ParallaxLayer2"]
+position = Vector2( 480, 90 )
+texture = ExtResource( 1 )
+hframes = 4
+frame = 1
+
+[node name="LakeCavern3" type="Sprite" parent="ParallaxLayer2"]
+position = Vector2( 160, 270 )
+texture = ExtResource( 1 )
+hframes = 4
+frame = 1
+
+[node name="LakeCavern4" type="Sprite" parent="ParallaxLayer2"]
+position = Vector2( 480, 270 )
+texture = ExtResource( 1 )
+hframes = 4
+frame = 1
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.3, 0.3 )
+motion_mirroring = Vector2( 640, 360 )
+
+[node name="LakeCavern" type="Sprite" parent="ParallaxLayer3"]
+position = Vector2( 160, 90 )
+texture = ExtResource( 1 )
+hframes = 4
+frame = 2
+
+[node name="LakeCavern2" type="Sprite" parent="ParallaxLayer3"]
+position = Vector2( 480, 90 )
+texture = ExtResource( 1 )
+hframes = 4
+frame = 2
+
+[node name="LakeCavern3" type="Sprite" parent="ParallaxLayer3"]
+position = Vector2( 160, 270 )
+texture = ExtResource( 1 )
+hframes = 4
+frame = 2
+
+[node name="LakeCavern4" type="Sprite" parent="ParallaxLayer3"]
+position = Vector2( 480, 270 )
+texture = ExtResource( 1 )
+hframes = 4
+frame = 2
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.4, 0.4 )
+motion_mirroring = Vector2( 640, 360 )
+
+[node name="LakeCavern" type="Sprite" parent="ParallaxLayer4"]
+position = Vector2( 160, 90 )
+texture = ExtResource( 1 )
+hframes = 4
+frame = 3
+
+[node name="LakeCavern2" type="Sprite" parent="ParallaxLayer4"]
+position = Vector2( 480, 90 )
+texture = ExtResource( 1 )
+hframes = 4
+frame = 3
+
+[node name="LakeCavern3" type="Sprite" parent="ParallaxLayer4"]
+position = Vector2( 160, 270 )
+texture = ExtResource( 1 )
+hframes = 4
+frame = 3
+
+[node name="LakeCavern4" type="Sprite" parent="ParallaxLayer4"]
+position = Vector2( 480, 270 )
+texture = ExtResource( 1 )
+hframes = 4
+frame = 3
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.5, 0.5 )
+motion_mirroring = Vector2( 480, 256 )
+
+[node name="OceanMidleSmall" type="Sprite" parent="ParallaxLayer5"]
+modulate = Color( 0.835294, 0.835294, 0.835294, 1 )
+position = Vector2( 240, 128 )
+texture = ExtResource( 5 )
+
+[node name="Waves" type="ColorRect" parent="."]
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Darker2" type="ColorRect" parent="."]
+material = SubResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Color" type="ColorRect" parent="."]
+material = SubResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.0313726, 0, 0.294118, 1 )

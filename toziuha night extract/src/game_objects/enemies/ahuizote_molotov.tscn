@@ -1,0 +1,283 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://assets/sprites/enemies/ahuizote_molotov.png" type="Texture" id=1]
+[ext_resource path="res://src/game_objects/enemy_base.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/game_objects/enemies/ahuizote_molotov.gd" type="Script" id=3]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hurtbox_enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hitbox_enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/game_objects/area2d_cast.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/game_objects/visibility_notifier_camera_area.tscn" type="PackedScene" id=8]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 5, 20 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 13, 28 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 8.5, 23.5 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 2.5, 8 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 23, 2.875 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 80, 80 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 56, 11.5 )
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 7 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "dead"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 16, 17 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.6, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.203922, 0.203922, 0.203922, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "idle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.9, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 7, 8, 7, 10 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "throw"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8, 1.1, 1.2, 1.3, 1.5, 1.7, 1.9, 2.1, 2.3, 2.5, 2.7, 2.9, 3, 3.1, 3.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 11, 12, 12, 13, 14, 15, 0, 1, 2, 3, 4, 2, 3, 4, 5, 6, 7 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.1, 1.2, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "play_woosh"
+}, {
+"args": [  ],
+"method": "spawn_molotov"
+}, {
+"args": [  ],
+"method": "return_to_patrol"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "walk"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 7, 8, 9, 10 ]
+}
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 36, 32 )
+
+[node name="AhuizoteMolotov" type="KinematicBody2D"]
+collision_layer = 512
+collision_mask = 517
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -20 )
+shape = SubResource( 5 )
+
+[node name="EnemyBase" parent="." instance=ExtResource( 2 )]
+node_facing = NodePath("../Sprite")
+anim_player = NodePath("../AnimationPlayer")
+hurtbox = NodePath("../HurtboxEnemy")
+
+[node name="HurtboxEnemy" parent="." instance=ExtResource( 4 )]
+identifier = "ahuitoze_molotov"
+sprite_flash = NodePath("../Sprite")
+death_sounds = [ "enemy_ahuizot_death2" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxEnemy"]
+visible = false
+position = Vector2( 0, -28 )
+shape = SubResource( 7 )
+
+[node name="HitboxEnemy" parent="." instance=ExtResource( 5 )]
+identifier = "ahuitoze_molotov"
+hurtbox_node = NodePath("../HurtboxEnemy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxEnemy"]
+position = Vector2( -0.5, -24.5 )
+shape = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -32 )
+texture = ExtResource( 1 )
+hframes = 5
+vframes = 4
+frame = 7
+
+[node name="Position2DMolotov" type="Position2D" parent="Sprite"]
+position = Vector2( 4, -19 )
+
+[node name="TargetMolotov" type="Position2D" parent="Sprite"]
+position = Vector2( 80, 32 )
+
+[node name="DetectNoFloor" parent="Sprite" instance=ExtResource( 7 )]
+position = Vector2( 13, 32 )
+collision_layer = 512
+collision_mask = 5
+detect = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/DetectNoFloor"]
+visible = false
+position = Vector2( -1.5, 4 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite/DetectNoFloor"]
+visible = false
+position = Vector2( -13, -6.875 )
+shape = SubResource( 10 )
+
+[node name="AreaPlayerRange" parent="Sprite" instance=ExtResource( 7 )]
+collision_layer = 8
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/AreaPlayerRange"]
+visible = false
+position = Vector2( 64, 0 )
+shape = SubResource( 12 )
+
+[node name="DetectPlayerBack" parent="Sprite" instance=ExtResource( 7 )]
+collision_layer = 8
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/DetectPlayerBack"]
+visible = false
+position = Vector2( -66, 20.5 )
+shape = SubResource( 13 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/dead = SubResource( 3 )
+anims/idle = SubResource( 8 )
+anims/throw = SubResource( 4 )
+anims/walk = SubResource( 2 )
+
+[node name="VisibilityNotifierCameraArea" parent="." instance=ExtResource( 8 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisibilityNotifierCameraArea"]
+visible = false
+position = Vector2( 0, -32 )
+shape = SubResource( 11 )
+
+[node name="TimerPatrolWait" type="Timer" parent="."]
+one_shot = true
+
+[node name="TimerRepeatThrow" type="Timer" parent="."]
+one_shot = true
+
+[node name="TimerCoolDownFirstThrow" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[connection signal="damaged" from="HurtboxEnemy" to="." method="_on_HurtboxEnemy_damaged"]
+[connection signal="object_exited" from="Sprite/DetectNoFloor" to="." method="_on_DetectNoFloor_object_exited"]
+[connection signal="object_entered" from="Sprite/AreaPlayerRange" to="." method="_on_AreaPlayerRange_object_entered"]
+[connection signal="object_entered" from="Sprite/DetectPlayerBack" to="." method="_on_DetectPlayerBack_object_entered"]
+[connection signal="screen_entered" from="VisibilityNotifierCameraArea" to="." method="_on_VisibilityNotifierCameraArea_screen_entered"]
+[connection signal="timeout" from="TimerPatrolWait" to="." method="_on_TimerPatrolWait_timeout"]
+[connection signal="timeout" from="TimerRepeatThrow" to="." method="_on_TimerRepeatThrow_timeout"]

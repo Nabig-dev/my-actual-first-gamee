@@ -1,0 +1,163 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://assets/sprites/statue_mana.png" type="Texture" id=1]
+[ext_resource path="res://src/game_objects/statue_mana.gd" type="Script" id=2]
+[ext_resource path="res://src/game_objects/light2d_custom.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hurtbox_enemy_simple.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/images/vfx/light5_floorcut.png" type="Texture" id=5]
+[ext_resource path="res://src/ui_elements/helper_icon_btn.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/game_objects/area_recover_thermalbar.tscn" type="PackedScene" id=7]
+
+[sub_resource type="CapsuleShape2D" id=8]
+radius = 24.0
+height = 26.0
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 21, 6 )
+
+[sub_resource type="CanvasItemMaterial" id=2]
+blend_mode = 1
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.483516, 1 )
+colors = PoolColorArray( 0, 0.268097, 0.980469, 1, 0.235605, 0.527344, 0.164795, 1, 0.0406494, 0.867188, 0.828444, 1 )
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+
+[sub_resource type="Animation" id=6]
+resource_name = "destroyed"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Light2DCustom:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 7.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Light2DCustom:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Particles:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[node name="StatueMana" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="AreaRecoverThermal" parent="." instance=ExtResource( 7 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaRecoverThermal"]
+position = Vector2( 0, -37 )
+shape = SubResource( 8 )
+
+[node name="HurtboxEnemySimple" parent="." instance=ExtResource( 4 )]
+sprite_flash = NodePath("../Sprite")
+hitboxes = [ "whip_l", "whip_m" ]
+max_hits = 4
+damage_sounds = [ "enemy_damage_skeleton" ]
+death_sounds = [ "impact_body_wall" ]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -1, -40 )
+texture = ExtResource( 1 )
+hframes = 14
+
+[node name="AreaDetectPlayer" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetectPlayer"]
+position = Vector2( 0, -6 )
+shape = SubResource( 1 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 0, -51 )
+
+[node name="TimerSpawn" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="Light2DCustom" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0.107766, -25.9999 )
+rotation = 3.14159
+scale = Vector2( 0.723524, -1 )
+texture = ExtResource( 5 )
+texture_scale = 0.45
+color = Color( 0.0509804, 0.976471, 0.780392, 1 )
+energy = 3.0
+range_item_cull_mask = 1
+only_light2d = false
+
+[node name="Particles" type="CPUParticles2D" parent="."]
+material = SubResource( 2 )
+rotation = -1.5708
+z_index = 3
+amount = 50
+lifetime = 10.0
+randomness = 1.0
+emission_shape = 2
+emission_rect_extents = Vector2( 1, 10 )
+gravity = Vector2( 0, 0 )
+initial_velocity = 40.0
+initial_velocity_random = 1.0
+scale_amount = 4.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 3 )
+color_ramp = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 5 )
+anims/destroyed = SubResource( 6 )
+
+[node name="HelperIconBtn" parent="." instance=ExtResource( 6 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -96.0
+margin_right = 8.0
+margin_bottom = -80.0
+action = "ui_down"
+
+[connection signal="body_entered" from="AreaDetectPlayer" to="." method="_on_AreaDetectPlayer_body_entered"]
+[connection signal="body_exited" from="AreaDetectPlayer" to="." method="_on_AreaDetectPlayer_body_exited"]
+[connection signal="timeout" from="TimerSpawn" to="." method="_on_TimerSpawn_timeout"]

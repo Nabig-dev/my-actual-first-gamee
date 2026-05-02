@@ -1,0 +1,33 @@
+{
+	"color": "#ffffffff",
+	"description": "gabriel eclair",
+	"display_name": "Gabriel",
+	"display_name_bool": true,
+	"id": "character-1704466423.json",
+	"mirror_portraits": false,
+	"name": "gabriel-char",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": -47,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://assets/sprites/art_dialog_chars/gabriel_default.png"
+		},
+		{
+			"name": "Sad",
+			"path": "res://assets/sprites/art_dialog_chars/gabriel_sad.png"
+		},
+		{
+			"name": "Sad2",
+			"path": "res://assets/sprites/art_dialog_chars/gabriel_sad2.png"
+		},
+		{
+			"name": "ShySmile",
+			"path": "res://assets/sprites/art_dialog_chars/gabriel_shy_smile.png"
+		}
+	],
+	"scale": 19,
+	"theme": ""
+}

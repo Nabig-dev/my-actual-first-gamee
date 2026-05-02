@@ -1,0 +1,153 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/sprites/doors.png" type="Texture" id=1]
+[ext_resource path="res://src/game_objects/door.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 24, 32 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 8, 16 )
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -32 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Bottom:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -32 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Center:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Top:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -32 ), Vector2( 0, -64 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Bottom:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -32 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Center:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="DoorBronzeKey" type="Node2D" groups=["doors"]]
+z_index = -1
+script = ExtResource( 2 )
+
+[node name="AreaDetectPlayer" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetectPlayer"]
+position = Vector2( 0, -32 )
+shape = SubResource( 3 )
+
+[node name="Top" type="Sprite" parent="."]
+position = Vector2( 0, -32 )
+texture = ExtResource( 1 )
+flip_v = true
+hframes = 10
+frame = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Top"]
+show_behind_parent = true
+collision_mask = 514
+
+[node name="SolidTop" type="CollisionShape2D" parent="Top/StaticBody2D"]
+unique_name_in_owner = true
+position = Vector2( 0, -16 )
+shape = SubResource( 4 )
+disabled = true
+
+[node name="Bottom" type="Sprite" parent="."]
+position = Vector2( 0, -32 )
+texture = ExtResource( 1 )
+hframes = 10
+frame = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bottom"]
+show_behind_parent = true
+collision_mask = 514
+
+[node name="SolidBottom" type="CollisionShape2D" parent="Bottom/StaticBody2D"]
+unique_name_in_owner = true
+position = Vector2( 0, 16 )
+shape = SubResource( 4 )
+disabled = true
+
+[node name="Center" type="Sprite" parent="."]
+position = Vector2( 0, -32 )
+texture = ExtResource( 1 )
+hframes = 10
+frame = 9
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/open = SubResource( 2 )
+
+[node name="TimerReady" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[connection signal="area_entered" from="AreaDetectPlayer" to="." method="_on_AreaDetectPlayer_area_entered"]
+[connection signal="area_exited" from="AreaDetectPlayer" to="." method="_on_AreaDetectPlayer_area_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="TimerReady" to="." method="_on_TimerReady_timeout"]

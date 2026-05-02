@@ -1,0 +1,9 @@
+[macro] node %arg0%
+get_node("%%arg0%")
+[macro] instance %arg0%
+var ObjInstance = %arg0%.instance()
+call_deferred("add_child", ObjInstance)
+[macro] idle frame
+yield(get_tree(),'idle_frame')
+[macro] connect %arg0% %arg1% %arg2%
+connect(%arg0%, %arg1%, %arg2%)

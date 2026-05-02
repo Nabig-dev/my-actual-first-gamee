@@ -1,0 +1,337 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://assets/sprites/enemies/golum.png" type="Texture" id=1]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hurtbox_enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hitbox_enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/game_objects/enemies/golum.gd" type="Script" id=5]
+[ext_resource path="res://src/game_objects/enemy_base.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/game_objects/visibility_notifier_camera_area.tscn" type="PackedScene" id=7]
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 9, 25 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 18.5, 32 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 27.25, 36 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 45.8558, 40.3077 )
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/HitboxArm/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "attack_a"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 18, 19, 20, 19, 21, 22, 23, 24 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("EnemyBase")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "to_player" ],
+"method": "change_direction"
+}, {
+"args": [ "idle", false, false ],
+"method": "change_state"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.9, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "_play_woosh"
+}, {
+"args": [  ],
+"method": "_prepare_next_attack"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/HitboxArm/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.9, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "attack_b"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 26, 27, 28, 29, 30, 31 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("EnemyBase")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "to_player" ],
+"method": "change_direction"
+}, {
+"args": [ "idle", false, false ],
+"method": "change_state"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.8, 1.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ true ],
+"method": "_spawn_floor_atk"
+}, {
+"args": [  ],
+"method": "_prepare_next_attack"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("TimerSpawnFloorAtk")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ -1 ],
+"method": "start"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "dead"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 38, 39, 40, 41, 42 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "idle"
+length = 1.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[node name="Golum" type="KinematicBody2D"]
+collision_layer = 512
+collision_mask = 5
+script = ExtResource( 5 )
+
+[node name="VisibilityNotifierCameraArea" parent="." instance=ExtResource( 7 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisibilityNotifierCameraArea"]
+position = Vector2( 0, -32 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -25 )
+shape = SubResource( 1 )
+
+[node name="EnemyBase" parent="." instance=ExtResource( 6 )]
+node_facing = NodePath("../Sprite")
+anim_player = NodePath("../AnimationPlayer")
+hurtbox = NodePath("../HurtboxEnemy")
+
+[node name="HitboxEnemy" parent="." instance=ExtResource( 4 )]
+visible = false
+identifier = "golum"
+hurtbox_node = NodePath("../HurtboxEnemy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxEnemy"]
+position = Vector2( 0, -32 )
+shape = SubResource( 2 )
+
+[node name="HurtboxEnemy" parent="." instance=ExtResource( 3 )]
+visible = false
+identifier = "golum"
+sprite_flash = NodePath("../Sprite")
+damage_sounds = [ "impact_earth", "impact_iron_clang" ]
+death_sounds = [ "impact_earth2", "enemy_death_woosh" ]
+blood_drop = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxEnemy"]
+position = Vector2( 0, -36 )
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -48 )
+texture = ExtResource( 1 )
+hframes = 10
+vframes = 6
+
+[node name="RayCastDetectPlayer" type="RayCast2D" parent="Sprite"]
+visible = false
+modulate = Color( 1, 0.796078, 0, 1 )
+position = Vector2( 10.769, 3.364 )
+scale = Vector2( 1, 21.564 )
+enabled = true
+cast_to = Vector2( 40, 2 )
+collision_mask = 2
+
+[node name="HitboxArm" parent="Sprite" instance=ExtResource( 4 )]
+visible = false
+identifier = "golum"
+hurtbox_node = NodePath("../../HurtboxEnemy")
+injury = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/HitboxArm"]
+position = Vector2( 58.1442, 0.307693 )
+shape = SubResource( 9 )
+disabled = true
+
+[node name="PositionFloorAtk" type="Position2D" parent="Sprite"]
+position = Vector2( 40, 48 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 4 )
+anims/attack_a = SubResource( 7 )
+anims/attack_b = SubResource( 8 )
+anims/dead = SubResource( 6 )
+anims/idle = SubResource( 5 )
+
+[node name="TimerNewAttack" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[node name="TimerSpawnFloorAtk" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="state_changed" from="EnemyBase" to="." method="_on_EnemyBase_state_changed"]
+[connection signal="damaged" from="HurtboxEnemy" to="." method="_on_HurtboxEnemy_damaged"]
+[connection signal="defeated" from="HurtboxEnemy" to="." method="_on_HurtboxEnemy_defeated"]
+[connection signal="timeout" from="TimerNewAttack" to="." method="_on_TimerNewAttack_timeout"]
+[connection signal="timeout" from="TimerSpawnFloorAtk" to="." method="_on_TimerSpawnFloorAtk_timeout"]

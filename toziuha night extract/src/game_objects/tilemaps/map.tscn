@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/tres/map_tiles/wall.tres" type="TileSet" id=1]
+[ext_resource path="res://src/game_objects/tilemaps/map.gd" type="Script" id=2]
+
+[node name="WallTileMap" type="TileMap"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
+cell_tile_origin = 1
+format = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": "Los Colores están reservados:
+
+rojo: save
+amarillo: viaje rapido"
+}

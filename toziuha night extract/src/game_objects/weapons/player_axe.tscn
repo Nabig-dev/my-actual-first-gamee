@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/sprites/weapons/xandria_subweapons.png" type="Texture" id=1]
+[ext_resource path="res://src/game_objects/weapons/player_axe.gd" type="Script" id=2]
+[ext_resource path="res://src/game_objects/ghost_trail.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hitbox_player.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[node name="Axe" type="RigidBody2D"]
+z_index = 2
+collision_layer = 0
+collision_mask = 0
+mass = 6.12
+gravity_scale = 8.0
+script = ExtResource( 2 )
+
+[node name="XandriaSubweapons" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 5
+vframes = 2
+frame = 4
+
+[node name="Tween" type="Tween" parent="."]
+repeat = true
+playback/repeat = true
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+position = Vector2( 96, 98 )
+scale = Vector2( 12.825, 13.025 )
+rect = Rect2( -10, -10, 5, 5 )
+freeze_bodies = false
+pause_particles = false
+
+[node name="GhostTrail" parent="." instance=ExtResource( 3 )]
+parent_sprite_path = NodePath("..")
+sprite_path = NodePath("../XandriaSubweapons")
+modulate_ghost = Color( 0.996078, 0.505882, 0.423529, 1 )
+use_custom_z_index = true
+z_index = 1
+
+[node name="HitboxWeapon" parent="." instance=ExtResource( 4 )]
+from_circuit_action = "FERRUM_ASCIA"
+continuous_damage = 1.0
+extra_damage = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxWeapon"]
+shape = SubResource( 1 )
+
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
+[connection signal="screen_exited" from="VisibilityEnabler2D" to="." method="_on_VisibilityEnabler2D_screen_exited"]

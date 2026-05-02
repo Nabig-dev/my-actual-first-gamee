@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/game_objects/enemies_weapons/thermit_floor_fire_columns.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/vfx/particle_shine.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/vfx/particles/spotlight_2.png" type="Texture" id=3]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+particles_animation = true
+particles_anim_h_frames = 7
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.303571, 0.75, 1 )
+colors = PoolColorArray( 0.84375, 0.495724, 0.125244, 1, 0.964111, 1, 0.34375, 1, 1, 0.304932, 0.144531, 1, 0.666667, 0.211765, 0.0745098, 0 )
+
+[sub_resource type="CanvasItemMaterial" id=3]
+blend_mode = 1
+
+[node name="ThermitFloorFireColumns" type="Node2D"]
+z_index = 2
+script = ExtResource( 1 )
+
+[node name="PositionA" type="Position2D" parent="."]
+position = Vector2( -128, 0 )
+__meta__ = {
+"_gizmo_extents_": 40.0
+}
+
+[node name="PositionB" type="Position2D" parent="."]
+position = Vector2( 128, 0 )
+__meta__ = {
+"_gizmo_extents_": 40.0
+}
+
+[node name="ThermitParticles" type="CPUParticles2D" parent="."]
+material = SubResource( 1 )
+emitting = false
+amount = 200
+lifetime = 2.0
+lifetime_randomness = 1.0
+local_coords = false
+texture = ExtResource( 2 )
+direction = Vector2( 0, 1 )
+spread = 20.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 144.34
+initial_velocity_random = 1.0
+color_ramp = SubResource( 2 )
+anim_speed = 1.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Spotlight" type="Sprite" parent="ThermitParticles"]
+modulate = Color( 1, 0.607843, 0.101961, 1 )
+material = SubResource( 3 )
+scale = Vector2( 0.25, 0.3 )
+texture = ExtResource( 3 )

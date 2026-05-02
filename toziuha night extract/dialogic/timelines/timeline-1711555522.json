@@ -1,0 +1,296 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1677081590.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"condition": "",
+			"definition": "1711562570-458",
+			"event_id": "dialogic_012",
+			"value": "1"
+		},
+		{
+			"anchor_id": "anchor-1711562522",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"character": "character-1677081590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Vaya, tenemos a una visitante. Saludos señorita, mi nombre es Kalev, bienvenida a Eztilia."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hola. Soy Xandria, Alquimista de La Orden."
+		},
+		{
+			"character": "character-1677081590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "¿Xandria? Una alquimista... Ya veo... ¿De casualidad eres la discipula de Rachel?"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Sí. ¿La conoce?"
+		},
+		{
+			"character": "character-1677081590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Oh, así que era cierto... Había escuchado que Rachel habia tomado a una aprendíz."
+		},
+		{
+			"character": "character-1677081590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ya hace algunos años que no la veo... Yo era el maestro de Rachel cuando ella empezó a trabajar en La Orden."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Entiendo."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "¿Así que esta es la ciudad de Eztilia? No pensé que hiciera tanto frío aquí."
+		},
+		{
+			"character": "character-1677081590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Bueno, realmente Eztilia era un lugar más placentero. Hasta que un Adeptis llegó."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "¿Un Adeptis? Dígame más."
+		},
+		{
+			"character": "character-1677081590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ocurrió hace un par de años cuando yo seguía trabajando en La Orden."
+		},
+		{
+			"character": "character-1677081590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "En los pueblos cercanos a Eztilia sufrieron una crisis a partir de una sustancia adictiva."
+		},
+		{
+			"character": "character-1677081590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "La gente perdía la cordura, y hacía cualquier cosa solo por conseguir una dosis más, de aquella sustancia conocida como [color=yellow]Mercurio Rojo.[/color]"
+		},
+		{
+			"character": "character-1677081590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Investigamos el asunto hasta dar con el reponsable."
+		},
+		{
+			"character": "character-1677081590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Se trataba de [color=yellow]Sheal Avicena[/color], un comerciante que vino desde tierras lejanas."
+		},
+		{
+			"character": "character-1677081590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Esta persona tiene el conocimiento para producir el Mercurio Rojo y creó una extensa red de mercado negro con el que ganaba millones de cordovas."
+		},
+		{
+			"character": "character-1677081590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Logramos ponerle fin a la distribución del Mercurio Rojo. Pero el desgraciado de Sheal escapó."
+		},
+		{
+			"character": "character-1677081590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ya en mi retiro me enteré que Sheal había regresado, esta vez siendo uno de los Adeptis de los Ahuizotes."
+		},
+		{
+			"character": "character-1677081590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Y se ha refugiado en la cima de la montaña. Colocando además trampas por el camino."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "¿Es este Adeptis también responsable de la nevada?"
+		},
+		{
+			"character": "character-1677081590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Así es, Xandria."
+		},
+		{
+			"character": "character-1677081590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "El aire está compuesto con un [color=yellow]78% de Nitrógeno[/color]..."
+		},
+		{
+			"character": "character-1677081590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Por lo que Sheal, siendo Alquimista que domina este elemento, ha logrado bajar la temperatura del aire, provocando este invierno imparable."
+		},
+		{
+			"character": "character-1677081590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Varios Alquimistas trataron de llegar hasta él, pero el clima y las trampas han hecho que varios perecieran en el camino."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Entiendo... Por lo que no sería suficiente llevar abrigo y fuego, considerando que la nevada no es de origen natural."
+		},
+		{
+			"character": "character-1677081590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Estás en lo cierto. Pero no todo está perdido."
+		},
+		{
+			"character": "character-1677081590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Esa [color=yellow]antorcha azul[/color] que ves a tu lado es una de las ultimas creaciones de la división de investigación de La Orden."
+		},
+		{
+			"character": "character-1677081590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Permite que el aire a su alrededor aumente de temperatura utilizando un Generador termoeléctrico de radioisótopos."
+		},
+		{
+			"character": "character-1677081590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "[color=yellow]Margaret Curie ha logrado crear este dispositivo[/color] manteniendo su potencia a niveles bajos para que sean seguros."
+		},
+		{
+			"character": "character-1677081590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Por lo que solo servirá para recuperar el calor temporalmente."
+		},
+		{
+			"character": "character-1677081590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Varias de estas antorchas fueron colocadas a lo largo del camino, pero no es solo el frío nuestro enemigo."
+		},
+		{
+			"character": "character-1677081590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "He sufrido de varias batallas intensas a lo largo de los años, por lo que mi capacidad de lucha no es suficiente para lograr llegar a la cima."
+		},
+		{
+			"character": "character-1677081590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Así que estoy aquí en la ciudad para proteger a los habitantes de los demonios, que los Ahuizotes envían."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Gracias por la información. Haré lo posible por llegar a la cima y acabar con el Adeptis."
+		},
+		{
+			"character": "character-1677081590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Me alegra escuchar eso. Te deseo lo mejor."
+		},
+		{
+			"character": "character-1677081590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ah, una cosa antes de que te vayas."
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1711562522",
+			"index": 0,
+			"name": "kalev1_talked"
+		},
+		{
+			"character": "character-1677081590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Cuando Sheal sea derrotado, regresa. Me gustaría seguir hablando contigo."
+		},
+		{
+			"character": "character-1677081590.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Siendo la díscipula de Rachel, estoy seguro que lo lograrás."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1711555522.json",
+		"name": "kalev-talk1"
+	}
+}

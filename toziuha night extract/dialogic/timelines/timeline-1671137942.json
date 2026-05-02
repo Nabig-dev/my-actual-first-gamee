@@ -1,0 +1,729 @@
+{
+	"events": [
+		{
+			"event_id": "noskip_dialog",
+			"skip_disabled": true
+		},
+		{
+			"background": "res://assets/sprites/art_dialog_bg/black.png",
+			"event_id": "dialogic_021",
+			"fade_duration": 0
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 1
+		},
+		{
+			"event_id": "flash_event",
+			"time_flash": 0.5
+		},
+		{
+			"event_id": "dialogic_024",
+			"set_theme": "theme-1666884860.cfg"
+		},
+		{
+			"event_id": "screen_dialog_filter",
+			"filter_idx": 1
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 2
+		},
+		{
+			"event_id": "noskip_dialog",
+			"skip_disabled": false
+		},
+		{
+			"background": "res://assets/sprites/art_dialog_bg/xandria_small_sad.png",
+			"event_id": "dialogic_021",
+			"fade_duration": 3
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG8_1671137942"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG9_1671137942"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG11_1671137942"
+		},
+		{
+			"background": "res://assets/sprites/art_dialog_bg/xandria_small_sad2.png",
+			"event_id": "dialogic_021",
+			"fade_duration": 0.5
+		},
+		{
+			"character": "character-1677087468.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG13_1671137942"
+		},
+		{
+			"character": "character-1677087468.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG14_1671137942"
+		},
+		{
+			"background": "res://assets/sprites/art_dialog_bg/xandria_brother_happy.png",
+			"event_id": "dialogic_021"
+		},
+		{
+			"character": "character-1677087468.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG16_1671137942"
+		},
+		{
+			"character": "character-1677087468.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG18_1671137942"
+		},
+		{
+			"character": "character-1677087468.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG19_1671137942"
+		},
+		{
+			"character": "character-1677087468.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG20_1671137942"
+		},
+		{
+			"character": "character-1677087468.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG21_1671137942"
+		},
+		{
+			"character": "character-1677087468.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG23_1671137942"
+		},
+		{
+			"action": 1,
+			"audio_name": "flashback_theme_1",
+			"event_id": "audio_event_custom",
+			"type": 1
+		},
+		{
+			"background": "res://assets/sprites/art_dialog_bg/black.png",
+			"event_id": "dialogic_021",
+			"fade_duration": 2
+		},
+		{
+			"character": "character-1677087468.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "XANDRIADOTX3"
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 3
+		},
+		{
+			"event_id": "dialogic_024",
+			"set_theme": "theme-1666885025.cfg"
+		},
+		{
+			"event_id": "flash_event",
+			"time_flash": 0.5
+		},
+		{
+			"event_id": "screen_dialog_filter",
+			"filter_idx": 0
+		},
+		{
+			"bg_visible": false,
+			"event_id": "hideshow_bgblack"
+		},
+		{
+			"action": 1,
+			"audio_name": "xandrias_theme",
+			"event_id": "audio_event_custom",
+			"type": 1
+		},
+		{
+			"character": "character-1677087468.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "XANDRIADOTX3"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG34_1671137942"
+		},
+		{
+			"character": "character-1677087468.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG35_1671137942"
+		},
+		{
+			"background": "",
+			"event_id": "dialogic_021"
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1676994744.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"action": 0,
+			"audio_name": "beginning_of_darkness_underground",
+			"event_id": "audio_event_custom",
+			"type": 1
+		},
+		{
+			"character": "character-1676994744.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG40_1671137942"
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_position": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Meh",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 2,
+			"z_index": 0
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG41_1671137942"
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_position": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 2,
+			"z_index": 0
+		},
+		{
+			"character": "character-1676994744.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG42_1671137942"
+		},
+		{
+			"character": "character-1676994744.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG43_1671137942"
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_position": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Meh",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 2,
+			"z_index": 0
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG44_1671137942"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG45_1671137942"
+		},
+		{
+			"character": "character-1676994744.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG46_1671137942"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "THANKS"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "..."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG49_1671137942"
+		},
+		{
+			"character": "character-1676994744.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG51_1671137942"
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1676994744.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 1,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_position": true,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "(Don't change)",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 2,
+			"z_index": 0
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "DLG54_1671137942"
+		},
+		{
+			"choice": "DLG55_1671137942",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_position": true,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 2,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1676994744.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1676994744.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG58_1671137942"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "..."
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_position": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Meh",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 2,
+			"z_index": 0
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG60_1671137942"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG61_1671137942"
+		},
+		{
+			"choice": "DLG62_1671137942",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_position": true,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "(Don't change)",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 2,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1676994744.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1676994744.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG65_1671137942"
+		},
+		{
+			"character": "character-1676994744.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG66_1671137942"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "IUNDERSTAND"
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1676994744.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 1,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_position": true,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "(Don't change)",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": true,
+				"3": false,
+				"4": false
+			},
+			"type": 2,
+			"z_index": 0
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG70_1671137942"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_position": true,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 2,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1676994744.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1676994744.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG74_1671137942"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG75_1671137942"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG76_1671137942"
+		},
+		{
+			"character": "character-1676994744.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG77_1671137942"
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 1,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1676994744.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 1,
+			"z_index": 0
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1671137942.json",
+		"name": "grijayla-flashback-before-atreu"
+	}
+}

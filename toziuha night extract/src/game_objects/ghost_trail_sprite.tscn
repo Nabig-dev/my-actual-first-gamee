@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/game_objects/ghost_trail_sprite.gd" type="Script" id=1]
+
+[node name="GhostTrailSprite" type="Sprite"]
+self_modulate = Color( 1, 1, 1, 0.7 )
+light_mask = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="TimerChangeFrame" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]

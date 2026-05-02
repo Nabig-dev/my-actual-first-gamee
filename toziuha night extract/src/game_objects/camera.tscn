@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/game_objects/camera.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 170.5, 96 )
+
+[node name="Camera" type="Camera2D"]
+process_mode = 0
+limit_smoothed = true
+smoothing_enabled = true
+smoothing_speed = 8.0
+script = ExtResource( 1 )
+
+[node name="AreaVisibilityNotifier" type="Area2D" parent="."]
+collision_layer = 2048
+collision_mask = 2048
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaVisibilityNotifier"]
+modulate = Color( 0.941176, 0.407843, 1, 0.596078 )
+position = Vector2( -0.5, 0 )
+shape = SubResource( 1 )
+
+[node name="TweenMoveOffsetRJoy" type="Tween" parent="."]

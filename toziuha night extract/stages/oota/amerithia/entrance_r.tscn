@@ -1,0 +1,142 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://src/game_objects/game_scenario.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/game_objects/tilemaps/solid/tilemap_building_32px.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/game_objects/game_interface.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game_objects/characters/playable_character.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/game_objects/tilemaps/background/area_connection.png" type="Texture" id=5]
+[ext_resource path="res://src/game_objects/camera_limit.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/game_objects/backgrounds/normal_sky.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/sprites/bg/plains/foreground.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/bg/plains/forest.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/bg_decoration/city_amerithia.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/props/grass_and_rocks.png" type="Texture" id=11]
+[ext_resource path="res://src/game_objects/room_changer.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/game_objects/door_interior.tscn" type="PackedScene" id=13]
+[ext_resource path="res://stages/oota/amerithia/entrance_r.gd" type="Script" id=14]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 18.5, 144 )
+
+[node name="Node" type="Node"]
+script = ExtResource( 14 )
+
+[node name="GameInterface" parent="." instance=ExtResource( 3 )]
+area_title = "AMERITHIA"
+
+[node name="GameScenario" parent="." instance=ExtResource( 1 )]
+music = "rest_town"
+
+[node name="NormalSky" parent="GameScenario" instance=ExtResource( 7 )]
+
+[node name="BuildingsBG" type="Node2D" parent="GameScenario"]
+
+[node name="Forest" type="Sprite" parent="GameScenario/BuildingsBG"]
+position = Vector2( -34.5033, -315.179 )
+texture = ExtResource( 9 )
+
+[node name="Forest4" type="Sprite" parent="GameScenario/BuildingsBG"]
+position = Vector2( 349.095, -315.179 )
+texture = ExtResource( 9 )
+
+[node name="Foreground" type="Sprite" parent="GameScenario/BuildingsBG"]
+modulate = Color( 0.839216, 0.839216, 0.839216, 1 )
+position = Vector2( 150.112, -296 )
+texture = ExtResource( 8 )
+
+[node name="CityAmerithia2" type="Sprite" parent="GameScenario/BuildingsBG"]
+position = Vector2( 64.2735, -293 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 432, 240, 112, 80 )
+
+[node name="CityAmerithia3" type="Sprite" parent="GameScenario/BuildingsBG"]
+position = Vector2( 6.27354, -280 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 432, 240, 112, 80 )
+
+[node name="CityAmerithia4" type="Sprite" parent="GameScenario/BuildingsBG"]
+position = Vector2( 148.274, -288 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 544, 240, 128, 80 )
+
+[node name="CityAmerithia6" type="Sprite" parent="GameScenario/BuildingsBG"]
+position = Vector2( 209.308, -280 )
+texture = ExtResource( 10 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 432, 240, 112, 80 )
+
+[node name="GrassRocks" type="Node2D" parent="GameScenario/BuildingsBG"]
+
+[node name="GrassAndRocks" type="Sprite" parent="GameScenario/BuildingsBG/GrassRocks"]
+position = Vector2( 45, -256 )
+texture = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 48, 32 )
+
+[node name="GrassAndRocks2" type="Sprite" parent="GameScenario/BuildingsBG/GrassRocks"]
+position = Vector2( 65, -256 )
+texture = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 48, 32 )
+
+[node name="AreaConnection" type="Sprite" parent="GameScenario"]
+position = Vector2( 674, -35 )
+texture = ExtResource( 5 )
+
+[node name="TileMapBuilding" parent="GameScenario" instance=ExtResource( 2 )]
+show_collision = true
+tile_data = PoolIntArray( -983031, 0, 0, -983030, 0, 2, -983029, 0, 1, -983028, 0, 2, -983027, 0, 1, -983026, 0, 3, -851970, 2, 2, -851969, 2, 2, -917504, 2, 2, -917503, 2, 2, -917502, 2, 2, -917501, 2, 2, -917500, 2, 2, -917499, 2, 2, -917498, 2, 2, -917497, 2, 2, -917496, 2, 2, -917495, 0, 65536, -917494, 0, 65538, -917493, 0, 65537, -917492, 0, 65538, -917491, 0, 65537, -917490, 0, 65539, -851959, 0, 65536, -851958, 0, 65538, -851957, 0, 65537, -851956, 0, 65538, -851955, 0, 65537, -851954, 0, 65539, -786423, 0, 65536, -786422, 0, 65538, -786421, 0, 65537, -786420, 0, 65537, -786419, 0, 65538, -786418, 0, 65539, -720887, 0, 131072, -720886, 0, 131073, -720885, 0, 131074, -720884, 0, 131073, -720883, 0, 131074, -720882, 0, 131075, -458757, 0, 0, -458756, 0, 1, -458755, 0, 2, -458754, 0, 2, -458753, 0, 2, -524288, 0, 2, -524287, 0, 1, -524286, 0, 1, -524285, 0, 1, -524284, 0, 1, -524283, 0, 1, -524282, 0, 1, -524281, 0, 2, -524280, 0, 2, -524279, 0, 1, -524278, 0, 1, -524277, 0, 1, -524276, 0, 2, -524275, 0, 1, -524274, 0, 2, -524273, 0, 1, -524272, 0, 1, -524271, 0, 2, -524270, 0, 1, -524269, 0, 3, -393221, 0, 131072, -393220, 0, 131073, -393219, 0, 131074, -393218, 0, 131074, -393217, 0, 131073, -458752, 0, 131073, -458751, 0, 131074, -458750, 0, 131074, -458749, 0, 131073, -458748, 0, 131074, -458747, 0, 131074, -458746, 0, 131074, -458745, 0, 131073, -458744, 0, 131073, -458743, 0, 131074, -458742, 0, 131074, -458741, 0, 131073, -458740, 0, 131073, -458739, 0, 131073, -458738, 0, 131073, -458737, 0, 131073, -458736, 0, 131074, -458735, 0, 131074, -458734, 0, 131073, -458733, 0, 131075 )
+
+[node name="RoomChanger" parent="GameScenario" instance=ExtResource( 12 )]
+position = Vector2( 0, -252 )
+scale = Vector2( -1, 1 )
+direction = 2
+identifier = "dl"
+id_destination = "dr"
+path_destination = "res://stages/oota/amerithia/amerithia_central.tscn"
+offset_area = -71
+
+[node name="RoomChanger2" parent="GameScenario" instance=ExtResource( 12 )]
+position = Vector2( 341, -252 )
+identifier = "dr"
+id_destination = "dl"
+path_destination = "res://stages/oota/amerithia/connection_r.tscn"
+offset_area = -57
+
+[node name="CollisionShape2D" parent="GameScenario/RoomChanger2" index="0"]
+modulate = Color( 0, 1, 0.0627451, 1 )
+position = Vector2( 4, -57 )
+
+[node name="PlayerPosition" parent="GameScenario/RoomChanger2" index="1"]
+position = Vector2( -37, 0 )
+
+[node name="PlayableCharacter" parent="GameScenario" instance=ExtResource( 4 )]
+position = Vector2( 9, -250 )
+
+[node name="CameraLimit" parent="GameScenario" instance=ExtResource( 6 )]
+margin_top = -416.0
+margin_right = 341.0
+margin_bottom = -224.0
+
+[node name="DoorInterior" parent="GameScenario" instance=ExtResource( 13 )]
+position = Vector2( 341, -254 )
+active = false
+scale_x = -1
+color_inactive = Color( 0, 1, 0.321569, 1 )
+
+[node name="Area2DDetectPlayer" type="Area2D" parent="GameScenario"]
+position = Vector2( 303, -302 )
+collision_layer = 8
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScenario/Area2DDetectPlayer"]
+position = Vector2( 19.5, -2 )
+shape = SubResource( 1 )
+
+[connection signal="area_entered" from="GameScenario/Area2DDetectPlayer" to="." method="_on_Area2DDetectPlayer_area_entered"]
+
+[editable path="GameScenario/RoomChanger2"]

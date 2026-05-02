@@ -1,0 +1,37 @@
+{
+	"events": [
+		{
+			"event_id": "dialogic_024",
+			"set_theme": "theme-1677182817.cfg"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Aquí hay un cuerpo de lo que parece ser un alquimista de La Orden."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "A su lado está su diario personal..."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Parte del texto menciona [color=yellow]algo sobre un peligroso gas en el volcán...[/color]"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Sería bueno echar una ojeada."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1708556398.json",
+		"name": "letter-about-volcan-gas"
+	}
+}

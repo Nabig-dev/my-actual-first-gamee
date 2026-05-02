@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/after_elisia.ogg-cda78560a8ead7383ec82a7b2ce7be18.oggstr"
+
+[deps]
+
+source_file="res://assets/bgm/after_elisia.ogg"
+dest_files=[ "res://.import/after_elisia.ogg-cda78560a8ead7383ec82a7b2ce7be18.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

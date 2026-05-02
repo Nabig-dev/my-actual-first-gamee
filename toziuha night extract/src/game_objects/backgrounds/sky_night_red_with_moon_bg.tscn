@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/sprites/bg/sky_red_with_moon.png" type="Texture" id=1]
+
+[node name="SkyNightRedWithMoonBG" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0, 0 )
+
+[node name="SkyRedWithMoon" type="Sprite" parent="ParallaxLayer"]
+texture = ExtResource( 1 )

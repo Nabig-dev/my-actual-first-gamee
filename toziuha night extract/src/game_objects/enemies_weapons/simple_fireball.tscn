@@ -1,0 +1,85 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/sprites/weapons_enemies/simple_fireball.png" type="Texture" id=1]
+[ext_resource path="res://src/game_objects/enemies_weapons/simple_fireball.gd" type="Script" id=2]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hurtbox_enemy_simple.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hitbox_enemy.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 6.0
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 7.0
+height = 24.0
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 13 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+length = 0.3
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 ]
+}
+
+[node name="SimpleFireball" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 5
+vframes = 8
+frame = 13
+
+[node name="HitboxEnemy" parent="Sprite" instance=ExtResource( 4 )]
+identifier = "fireball"
+hurtbox_node = NodePath("../HurtboxEnemySimple")
+is_weapon = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/HitboxEnemy"]
+position = Vector2( -11, 0 )
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[node name="HurtboxEnemySimple" parent="Sprite" instance=ExtResource( 3 )]
+sprite_flash = NodePath("..")
+max_hits = 1
+damage_sounds = [ "damage_slash" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/HurtboxEnemySimple"]
+position = Vector2( -11, 0 )
+rotation = 1.5708
+shape = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/idle = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+scale = Vector2( 4.5, 3.3 )
+
+[connection signal="defeated" from="Sprite/HurtboxEnemySimple" to="." method="_on_HurtboxEnemySimple_defeated"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

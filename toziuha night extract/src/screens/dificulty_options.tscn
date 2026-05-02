@@ -1,0 +1,83 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/ui_elements/bg_parallax_demon_forest.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/tres/ThemeBasic.tres" type="Theme" id=2]
+[ext_resource path="res://src/ui_elements/button_options_menu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/screens/dificulty_options.gd" type="Script" id=4]
+
+[node name="DificultyOptions" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 4 )
+
+[node name="BgParallaxDemonForest" parent="." instance=ExtResource( 1 )]
+modulate = Color( 0.772549, 0.0196078, 0.854902, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -145.0
+margin_top = -90.0
+margin_right = 146.0
+margin_bottom = 43.0
+alignment = 1
+
+[node name="BtnResetDefault" type="Button" parent="VBoxContainer"]
+margin_top = 20.0
+margin_right = 291.0
+margin_bottom = 34.0
+text = "CONF_DEFAULT"
+
+[node name="Button" parent="VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 38.0
+margin_right = 291.0
+margin_bottom = 54.0
+title_btn = "UNBREAKABLEWILL"
+section = "difficulty"
+key = "unbreakable_will"
+bool_value = true
+
+[node name="Button2" parent="VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 58.0
+margin_right = 291.0
+margin_bottom = 74.0
+title_btn = "DYNAMICKNOCKBACK"
+section = "difficulty"
+key = "dynamic_knockback"
+bool_value = true
+
+[node name="Button3" parent="VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 78.0
+margin_right = 291.0
+margin_bottom = 94.0
+title_btn = "DESPERATIONATTACK"
+section = "difficulty"
+key = "desperation_attack"
+bool_value = true
+
+[node name="BtnReturn" type="Button" parent="VBoxContainer"]
+margin_top = 98.0
+margin_right = 291.0
+margin_bottom = 112.0
+text = "RETURN"
+
+[node name="Label" type="Label" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 13.0
+margin_top = -39.0
+margin_right = -13.0
+custom_constants/line_spacing = -2
+autowrap = true
+
+[connection signal="focus_entered" from="VBoxContainer/BtnResetDefault" to="." method="_on_BtnResetDefault_focus_entered"]
+[connection signal="pressed" from="VBoxContainer/BtnResetDefault" to="." method="_on_BtnResetDefault_pressed"]
+[connection signal="focus_entered" from="VBoxContainer/Button" to="." method="_on_BtnFocus" binds= [ "unbreakable_will" ]]
+[connection signal="focus_entered" from="VBoxContainer/Button2" to="." method="_on_BtnFocus" binds= [ "dynamic_knockback" ]]
+[connection signal="focus_entered" from="VBoxContainer/Button3" to="." method="_on_BtnFocus" binds= [ "desperation_attack" ]]
+[connection signal="focus_entered" from="VBoxContainer/BtnReturn" to="." method="_on_BtnReturn_focus_entered"]
+[connection signal="pressed" from="VBoxContainer/BtnReturn" to="." method="_on_BtnReturn_pressed"]

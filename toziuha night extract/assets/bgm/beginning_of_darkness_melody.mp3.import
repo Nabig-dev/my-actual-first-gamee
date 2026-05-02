@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/beginning_of_darkness_melody.mp3-cc11c17c618e1ab1ab72bd2ce0a89535.mp3str"
+
+[deps]
+
+source_file="res://assets/bgm/beginning_of_darkness_melody.mp3"
+dest_files=[ "res://.import/beginning_of_darkness_melody.mp3-cc11c17c618e1ab1ab72bd2ce0a89535.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/game_objects/camera_limit.gd" type="Script" id=1]
+
+[node name="CameraLimit" type="ColorRect" groups=["camera_limit"]]
+light_mask = 0
+margin_right = 341.0
+margin_bottom = 192.0
+rect_min_size = Vector2( 341, 192 )
+mouse_filter = 2
+color = Color( 0.901961, 0.768627, 0.0509804, 0.282353 )
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "Este nodo puede ocultarse sin problemas manualmente"
+}

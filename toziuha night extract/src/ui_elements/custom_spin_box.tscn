@@ -1,0 +1,83 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/tres/ThemeBasic.tres" type="Theme" id=1]
+[ext_resource path="res://src/ui_elements/custom_spin_box.gd" type="Script" id=2]
+[ext_resource path="res://assets/sprites/arrow.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/arrow_b.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/arrow_c.png" type="Texture" id=5]
+[ext_resource path="res://assets/fonts/venice.fnt" type="BitmapFont" id=6]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 3 )
+region = Rect2( 8, 8, 24, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 4 )
+region = Rect2( 8, 8, 24, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 5 )
+region = Rect2( 8, 8, 24, 16 )
+
+[node name="CustomSpinBox" type="HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 110, 14 )
+focus_mode = 2
+size_flags_vertical = 4
+theme = ExtResource( 1 )
+custom_constants/separation = -1
+script = ExtResource( 2 )
+
+[node name="LblFocusInd" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+margin_right = 19.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 6 )
+text = ">> "
+
+[node name="Label" type="Label" parent="."]
+margin_top = 2.0
+margin_right = 23.0
+margin_bottom = 16.0
+text = "SLOT"
+
+[node name="BtnDown" type="TextureButton" parent="."]
+margin_left = 22.0
+margin_right = 46.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 24, 0 )
+focus_mode = 0
+texture_normal = SubResource( 1 )
+texture_pressed = SubResource( 2 )
+texture_hover = SubResource( 1 )
+texture_disabled = SubResource( 3 )
+stretch_mode = 5
+flip_h = true
+
+[node name="Label2" type="Label" parent="."]
+modulate = Color( 0.52549, 0.988235, 0.694118, 1 )
+margin_left = 45.0
+margin_right = 87.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 18, 0 )
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 6 )
+text = "999"
+align = 1
+
+[node name="BtnUp" type="TextureButton" parent="."]
+margin_left = 86.0
+margin_right = 110.0
+margin_bottom = 18.0
+focus_mode = 0
+texture_normal = SubResource( 1 )
+texture_pressed = SubResource( 2 )
+texture_hover = SubResource( 1 )
+texture_disabled = SubResource( 3 )
+
+[connection signal="focus_entered" from="." to="." method="_on_CustomSpinBox_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_CustomSpinBox_focus_exited"]
+[connection signal="pressed" from="BtnDown" to="." method="_on_BtnDown_pressed"]
+[connection signal="pressed" from="BtnUp" to="." method="_on_BtnUp_pressed"]

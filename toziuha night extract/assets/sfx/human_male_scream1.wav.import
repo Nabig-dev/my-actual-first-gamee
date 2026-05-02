@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/human_male_scream1.wav-06a59c783b34f2d5f2e9ccb6308b870a.sample"
+
+[deps]
+
+source_file="res://assets/sfx/human_male_scream1.wav"
+dest_files=[ "res://.import/human_male_scream1.wav-06a59c783b34f2d5f2e9ccb6308b870a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

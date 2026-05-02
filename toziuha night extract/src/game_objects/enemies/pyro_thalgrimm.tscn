@@ -1,0 +1,292 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://assets/sprites/enemies/pyro_thalgrimm.png" type="Texture" id=1]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hitbox_enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hurtbox_enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game_objects/enemy_base.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/sprites/weapons_enemies/thalgrimm_projectile_pyro.png" type="Texture" id=5]
+[ext_resource path="res://src/game_objects/enemies/pyro_thalgrimm.gd" type="Script" id=6]
+[ext_resource path="res://src/game_objects/visibility_notifier_camera_area.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/game_objects/vfx/explosions_small_particles.tscn" type="PackedScene" id=8]
+
+[sub_resource type="RectangleShape2D" id=5]
+
+[sub_resource type="CapsuleShape2D" id=6]
+
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 8.0
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Thalgrimm:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Thalgrimm/Projectile:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 9 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ExplosionParticlesSmall:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Thalgrimm:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "attack"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Thalgrimm:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Thalgrimm/Projectile:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 9, 9, 3, 4, 5, 6, 1, 9 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("EnemyBase")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "idle", false, false ],
+"method": "change_state"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.3, 1.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "prepare_snd"
+}, {
+"args": [  ],
+"method": "spawn_magic"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "dead"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Thalgrimm:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Thalgrimm/Projectile:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 9 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ExplosionParticlesSmall:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Thalgrimm:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.9, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Thalgrimm:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Thalgrimm/Projectile:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 9 ]
+}
+
+[sub_resource type="CircleShape2D" id=8]
+radius = 14.4
+
+[node name="PyroThalgrimm" type="RigidBody2D"]
+collision_layer = 512
+collision_mask = 5
+mode = 2
+gravity_scale = 4.0
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -10 )
+shape = SubResource( 5 )
+
+[node name="HurtboxEnemy" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, -20 )
+identifier = "thalgrimm"
+sprite_flash = NodePath("../Thalgrimm")
+death_sounds = [ "enemy_death_woosh" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxEnemy"]
+shape = SubResource( 6 )
+
+[node name="HitboxEnemy" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -20 )
+identifier = "thalgrimm"
+hurtbox_node = NodePath("../HurtboxEnemy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxEnemy"]
+shape = SubResource( 7 )
+
+[node name="Thalgrimm" type="Sprite" parent="."]
+position = Vector2( 0, -24 )
+texture = ExtResource( 1 )
+flip_h = true
+hframes = 6
+
+[node name="Projectile" type="Sprite" parent="Thalgrimm"]
+position = Vector2( 13, -1 )
+texture = ExtResource( 5 )
+hframes = 5
+vframes = 2
+frame = 9
+
+[node name="EnemyBase" parent="." instance=ExtResource( 4 )]
+node_facing = NodePath("../Thalgrimm")
+anim_player = NodePath("../AnimationPlayer")
+hurtbox = NodePath("../HurtboxEnemy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/attack = SubResource( 2 )
+anims/dead = SubResource( 3 )
+anims/idle = SubResource( 4 )
+
+[node name="TimerAtk" type="Timer" parent="."]
+
+[node name="VisibilityNotifierCameraArea" parent="." instance=ExtResource( 7 )]
+position = Vector2( 0, -20 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisibilityNotifierCameraArea"]
+shape = SubResource( 8 )
+
+[node name="ExplosionParticlesSmall" parent="." instance=ExtResource( 8 )]
+position = Vector2( 0, -24 )
+amount = 100
+emission_sphere_radius = 6.59
+
+[connection signal="state_changed" from="EnemyBase" to="." method="_on_EnemyBase_state_changed"]
+[connection signal="timeout" from="TimerAtk" to="." method="_on_TimerAtk_timeout"]

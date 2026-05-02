@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/signum_crucis_latin.wav-47837c2580d5beef7ef0b153fb7dee2c.sample"
+
+[deps]
+
+source_file="res://assets/sfx/signum_crucis_latin.wav"
+dest_files=[ "res://.import/signum_crucis_latin.wav-47837c2580d5beef7ef0b153fb7dee2c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

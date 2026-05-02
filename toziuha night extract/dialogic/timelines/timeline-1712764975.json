@@ -1,0 +1,109 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1710264048.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG2_1712764975"
+		},
+		{
+			"character": "character-1710264048.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG3_1712764975"
+		},
+		{
+			"character": "character-1710264048.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG4_1712764975"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Angry",
+			"text": "DLG5_1712764975"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG6_1712764975"
+		},
+		{
+			"character": "character-1710264048.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG7_1712764975"
+		},
+		{
+			"character": "character-1710264048.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG8_1712764975"
+		},
+		{
+			"character": "character-1710264048.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG9_1712764975"
+		},
+		{
+			"character": "character-1710264048.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG10_1712764975"
+		},
+		{
+			"character": "character-1710264048.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG11_1712764975"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1712764975.json",
+		"name": "annette-prefight"
+	}
+}

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hitbox_enemy.gd" type="Script" id=1]
+
+[node name="HitboxEnemy" type="Area2D"]
+modulate = Color( 1, 0, 0, 1 )
+collision_layer = 32
+collision_mask = 64
+monitoring = false
+script = ExtResource( 1 )

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/rachel_theme.ogg-7a2f454a49286b7ec6648e2d8e063d53.oggstr"
+
+[deps]
+
+source_file="res://assets/bgm/rachel_theme.ogg"
+dest_files=[ "res://.import/rachel_theme.ogg-7a2f454a49286b7ec6648e2d8e063d53.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=16.783

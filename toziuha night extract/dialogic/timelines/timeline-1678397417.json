@@ -1,0 +1,39 @@
+{
+	"events": [
+		{
+			"event_id": "noskip_dialog",
+			"skip_disabled": true
+		},
+		{
+			"event_id": "dialogic_024",
+			"set_theme": "theme-1677182817.cfg"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG1_1678397417"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG2_1678397417"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG3_1678397417"
+		},
+		{
+			"emit_signal": "show_tuto_circuits",
+			"event_id": "dialogic_040"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1678397417.json",
+		"name": "grijayla-about-explosive-tank"
+	}
+}

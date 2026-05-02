@@ -1,0 +1,21 @@
+{
+	"color": "#ffffffff",
+	"description": "",
+	"display_name": "Evelyn",
+	"display_name_bool": true,
+	"id": "character-1710263881.json",
+	"mirror_portraits": false,
+	"name": "evelyn-char",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": -47,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://assets/sprites/art_dialog_chars/evelyn_default.png"
+		}
+	],
+	"scale": 19,
+	"theme": ""
+}

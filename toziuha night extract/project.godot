@@ -1,0 +1,805 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Reference",
+"class": "Array2D",
+"language": "GDScript",
+"path": "res://addons/godot-next/references/array_2d.gd"
+}, {
+"base": "Resource",
+"class": "ArrayMap",
+"language": "GDScript",
+"path": "res://addons/godot-next/resources/array_map.gd"
+}, {
+"base": "AudioStreamPlayer",
+"class": "AudioStreamPlayerADSR",
+"language": "GDScript",
+"path": "res://addons/midi/ADSR.gd"
+}, {
+"base": "Reference",
+"class": "Bank",
+"language": "GDScript",
+"path": "res://addons/midi/Bank.gd"
+}, {
+"base": "Resource",
+"class": "Behavior",
+"language": "GDScript",
+"path": "res://addons/godot-next/resources/behavior.gd"
+}, {
+"base": "Reference",
+"class": "BitFlag",
+"language": "GDScript",
+"path": "res://addons/godot-next/references/bit_flag.gd"
+}, {
+"base": "Reference",
+"class": "Bitset",
+"language": "GDScript",
+"path": "res://addons/godot-next/references/bitset.gd"
+}, {
+"base": "Reference",
+"class": "CSVFile",
+"language": "GDScript",
+"path": "res://addons/godot-next/references/csv_file.gd"
+}, {
+"base": "Reference",
+"class": "CSVLoader",
+"language": "GDScript",
+"path": "res://addons/localization_editor_plugin_g3/csv_loader.gd"
+}, {
+"base": "Node",
+"class": "CallbackDelegator",
+"language": "GDScript",
+"path": "res://addons/godot-next/nodes/callback_delegator.gd"
+}, {
+"base": "Reference",
+"class": "ClassType",
+"language": "GDScript",
+"path": "res://addons/godot-next/references/class_type.gd"
+}, {
+"base": "TabContainer",
+"class": "Cycle",
+"language": "GDScript",
+"path": "res://addons/godot-next/gui/cycle.gd"
+}, {
+"base": "Reference",
+"class": "DTS",
+"language": "GDScript",
+"path": "res://addons/dialogic/Localization/translation_service.gd"
+}, {
+"base": "Label",
+"class": "DebugLabel",
+"language": "GDScript",
+"path": "res://addons/godot-next/gui/debug_label.gd"
+}, {
+"base": "Node",
+"class": "Dialogic",
+"language": "GDScript",
+"path": "res://addons/dialogic/Other/DialogicClass.gd"
+}, {
+"base": "Reference",
+"class": "DialogicAnimaPropertiesHelper",
+"language": "GDScript",
+"path": "res://addons/dialogic/Nodes/Anima/DialogicAnimaPropertiesHelper.gd"
+}, {
+"base": "Node",
+"class": "DialogicAnimaResources",
+"language": "GDScript",
+"path": "res://addons/dialogic/Nodes/Anima/DialogicAnimaResources.gd"
+}, {
+"base": "Control",
+"class": "DialogicBackgroundMusic",
+"language": "GDScript",
+"path": "res://addons/dialogic/Nodes/BackgroundMusic.gd"
+}, {
+"base": "Node",
+"class": "DialogicCustomEvents",
+"language": "GDScript",
+"path": "res://addons/dialogic/Nodes/DialogicCustomEvents.gd"
+}, {
+"base": "Node",
+"class": "DialogicDefinitionsUtil",
+"language": "GDScript",
+"path": "res://addons/dialogic/Other/DialogicDefinitionsUtil.gd"
+}, {
+"base": "Node",
+"class": "DialogicParser",
+"language": "GDScript",
+"path": "res://addons/dialogic/Parser/DialogicParser.gd"
+}, {
+"base": "Reference",
+"class": "DialogicResources",
+"language": "GDScript",
+"path": "res://addons/dialogic/Other/DialogicResources.gd"
+}, {
+"base": "Reference",
+"class": "DialogicUtil",
+"language": "GDScript",
+"path": "res://addons/dialogic/Other/DialogicUtil.gd"
+}, {
+"base": "ImageTexture",
+"class": "DiscreteGradientTexture",
+"language": "GDScript",
+"path": "res://addons/godot-next/resources/discrete_gradient_texture.gd"
+}, {
+"base": "Reference",
+"class": "EditorTools",
+"language": "GDScript",
+"path": "res://addons/godot-next/global/editor_tools.gd"
+}, {
+"base": "Reference",
+"class": "FileSearch",
+"language": "GDScript",
+"path": "res://addons/godot-next/global/file_search.gd"
+}, {
+"base": "Reference",
+"class": "FileSystemLink",
+"language": "GDScript",
+"path": "res://addons/godot-next/global/file_system_link.gd"
+}, {
+"base": "Node",
+"class": "FuncsArrays",
+"language": "GDScript",
+"path": "res://src/classes/funcs_arrays.gd"
+}, {
+"base": "Node",
+"class": "FuncsFiles",
+"language": "GDScript",
+"path": "res://src/classes/funcs_files.gd"
+}, {
+"base": "Node",
+"class": "FuncsNumbers",
+"language": "GDScript",
+"path": "res://src/classes/funcs_numbers.gd"
+}, {
+"base": "Node",
+"class": "GScenario",
+"language": "GDScript",
+"path": "res://src/game_objects/game_scenario.gd"
+}, {
+"base": "Reference",
+"class": "GVar",
+"language": "GDScript",
+"path": "res://src/classes/gvar.gd"
+}, {
+"base": "CollisionShape2D",
+"class": "Geometry2D",
+"language": "GDScript",
+"path": "res://addons/godot-next/2d/geometry_2d.gd"
+}, {
+"base": "PanelContainer",
+"class": "HistoryRow",
+"language": "GDScript",
+"path": "res://addons/dialogic/Example Assets/History/HistoryRow.gd"
+}, {
+"base": "Reference",
+"class": "Icons",
+"language": "GDScript",
+"path": "res://addons/godot-next/singletons/icons.gd"
+}, {
+"base": "Reference",
+"class": "Inflector",
+"language": "GDScript",
+"path": "res://addons/godot-next/references/inflector.gd"
+}, {
+"base": "Reference",
+"class": "InspectorControls",
+"language": "GDScript",
+"path": "res://addons/godot-next/global/inspector_controls.gd"
+}, {
+"base": "Reference",
+"class": "JSONBeautifier",
+"language": "GDScript",
+"path": "res://addons/json_config_file/json_beautifier.gd"
+}, {
+"base": "Reference",
+"class": "MenuManager",
+"language": "GDScript",
+"path": "res://addons/godot-next/references/MenuManager.gd"
+}, {
+"base": "Reference",
+"class": "MessageDispatcher",
+"language": "GDScript",
+"path": "res://addons/godot-next/references/message_dispatcher.gd"
+}, {
+"base": "Node",
+"class": "MessageDispatcherWrapper",
+"language": "GDScript",
+"path": "res://addons/godot-next/nodes/message_dispatcher_wrapper.gd"
+}, {
+"base": "Node",
+"class": "MidiPlayer",
+"language": "GDScript",
+"path": "res://addons/midi/MidiPlayer.gd"
+}, {
+"base": "Node2D",
+"class": "Parallax",
+"language": "GDScript",
+"path": "res://addons/nklbdev.parallax/Parallax.gd"
+}, {
+"base": "Reference",
+"class": "PhysicsHelper",
+"language": "GDScript",
+"path": "res://src/scripts/physics_helper.gd"
+}, {
+"base": "Resource",
+"class": "PhysicsLayers",
+"language": "GDScript",
+"path": "res://addons/godot-next/global/physics_layers.gd"
+}, {
+"base": "Node2D",
+"class": "PlayableCharacter",
+"language": "GDScript",
+"path": "res://src/game_objects/characters/playable_character.gd"
+}, {
+"base": "Reference",
+"class": "ProjectTools",
+"language": "GDScript",
+"path": "res://addons/godot-next/global/project_tools.gd"
+}, {
+"base": "Reference",
+"class": "PropertyInfo",
+"language": "GDScript",
+"path": "res://addons/godot-next/references/property_info.gd"
+}, {
+"base": "Reference",
+"class": "PropertyInfoFactory",
+"language": "GDScript",
+"path": "res://addons/godot-next/references/property_info_factory.gd"
+}, {
+"base": "Object",
+"class": "RNGTools",
+"language": "GDScript",
+"path": "res://addons/rngtools/RNGTools.gd"
+}, {
+"base": "Node",
+"class": "RandomAudioNodePlayer",
+"language": "GDScript",
+"path": "res://addons/RandomAudioNodePlayer/RandomAudioNodePlayer.gd"
+}, {
+"base": "ResourceCollection",
+"class": "ResourceArray",
+"language": "GDScript",
+"path": "res://addons/godot-next/resources/resource_collections/resource_array.gd"
+}, {
+"base": "Resource",
+"class": "ResourceCollection",
+"language": "GDScript",
+"path": "res://addons/godot-next/resources/resource_collections/resource_collection.gd"
+}, {
+"base": "ResourceCollection",
+"class": "ResourceSet",
+"language": "GDScript",
+"path": "res://addons/godot-next/resources/resource_collections/resource_set.gd"
+}, {
+"base": "Reference",
+"class": "SMF",
+"language": "GDScript",
+"path": "res://addons/midi/SMF.gd"
+}, {
+"base": "Reference",
+"class": "Singletons",
+"language": "GDScript",
+"path": "res://addons/godot-next/global/singletons.gd"
+}, {
+"base": "Reference",
+"class": "SoundFont",
+"language": "GDScript",
+"path": "res://addons/midi/SoundFont.gd"
+}, {
+"base": "",
+"class": "SteamAPI",
+"language": "NativeScript",
+"path": "res://addons/steam_api/steam_api.gdns"
+}, {
+"base": "",
+"class": "SteamApps",
+"language": "NativeScript",
+"path": "res://addons/steam_api/steam_apps.gdns"
+}, {
+"base": "",
+"class": "SteamCallback",
+"language": "NativeScript",
+"path": "res://addons/steam_api/steam_callback.gdns"
+}, {
+"base": "",
+"class": "SteamFriends",
+"language": "NativeScript",
+"path": "res://addons/steam_api/steam_friends.gdns"
+}, {
+"base": "Node",
+"class": "SteamI",
+"language": "GDScript",
+"path": "res://addons/steam_api/steam_i.gd"
+}, {
+"base": "",
+"class": "SteamId",
+"language": "NativeScript",
+"path": "res://addons/steam_api/steam_id.gdns"
+}, {
+"base": "",
+"class": "SteamLeaderboard",
+"language": "NativeScript",
+"path": "res://addons/steam_api/steam_leaderboard.gdns"
+}, {
+"base": "",
+"class": "SteamLeaderboardEntries",
+"language": "NativeScript",
+"path": "res://addons/steam_api/steam_leaderboard_entries.gdns"
+}, {
+"base": "",
+"class": "SteamLeaderboardEntry",
+"language": "NativeScript",
+"path": "res://addons/steam_api/steam_leaderboard_entry.gdns"
+}, {
+"base": "",
+"class": "SteamLeaderboardFindResult",
+"language": "NativeScript",
+"path": "res://addons/steam_api/steam_find_leaderboard_result.gdns"
+}, {
+"base": "",
+"class": "SteamLeaderboardScoreUploaded",
+"language": "NativeScript",
+"path": "res://addons/steam_api/steam_leaderboard_uploaded.gdns"
+}, {
+"base": "",
+"class": "SteamLeaderboardScoresDownloaded",
+"language": "NativeScript",
+"path": "res://addons/steam_api/steam_leaderboard_scores_downloaded.gdns"
+}, {
+"base": "",
+"class": "SteamUser",
+"language": "NativeScript",
+"path": "res://addons/steam_api/steam_user.gdns"
+}, {
+"base": "",
+"class": "SteamUserStats",
+"language": "NativeScript",
+"path": "res://addons/steam_api/steam_user_stats.gdns"
+}, {
+"base": "",
+"class": "SteamUtils",
+"language": "NativeScript",
+"path": "res://addons/steam_api/steam_utils.gdns"
+}, {
+"base": "BitmapFont",
+"class": "TextureFont",
+"language": "GDScript",
+"path": "res://addons/texture_fonts/Classes/TextureFont.gd"
+}, {
+"base": "Line2D",
+"class": "Trail2D",
+"language": "GDScript",
+"path": "res://addons/godot-next/2d/trail_2d.gd"
+}, {
+"base": "ImmediateGeometry",
+"class": "Trail3D",
+"language": "GDScript",
+"path": "res://addons/godot-next/3d/trail_3d.gd"
+}, {
+"base": "VBoxContainer",
+"class": "VBoxItemList",
+"language": "GDScript",
+"path": "res://addons/godot-next/gui/v_box_item_list.gd"
+}, {
+"base": "Reference",
+"class": "Variant",
+"language": "GDScript",
+"path": "res://addons/godot-next/global/variant.gd"
+}, {
+"base": "Resource",
+"class": "Vec2",
+"language": "GDScript",
+"path": "res://addons/godot-next/2d/vec2.gd"
+}, {
+"base": "Resource",
+"class": "Vec3",
+"language": "GDScript",
+"path": "res://addons/godot-next/3d/vec3.gd"
+}, {
+"base": "Node",
+"class": "VectorDisplay2D",
+"language": "GDScript",
+"path": "res://addons/godot-next/2d/vector_display_2d.gd"
+}, {
+"base": "Node",
+"class": "VectorDisplay3D",
+"language": "GDScript",
+"path": "res://addons/godot-next/3d/vector_display_3d.gd"
+}, {
+"base": "Node2D",
+"class": "joystick",
+"language": "GDScript",
+"path": "res://addons/multidir_joystick/scripts/joystick.gd"
+} ]
+_global_script_class_icons={
+"Array2D": "",
+"ArrayMap": "",
+"AudioStreamPlayerADSR": "",
+"Bank": "",
+"Behavior": "",
+"BitFlag": "",
+"Bitset": "",
+"CSVFile": "",
+"CSVLoader": "",
+"CallbackDelegator": "",
+"ClassType": "",
+"Cycle": "res://addons/godot-next/icons/icon_cycle.svg",
+"DTS": "",
+"DebugLabel": "",
+"Dialogic": "",
+"DialogicAnimaPropertiesHelper": "",
+"DialogicAnimaResources": "",
+"DialogicBackgroundMusic": "",
+"DialogicCustomEvents": "",
+"DialogicDefinitionsUtil": "",
+"DialogicParser": "",
+"DialogicResources": "",
+"DialogicUtil": "",
+"DiscreteGradientTexture": "",
+"EditorTools": "",
+"FileSearch": "",
+"FileSystemLink": "",
+"FuncsArrays": "",
+"FuncsFiles": "",
+"FuncsNumbers": "",
+"GScenario": "res://assets/icons/blueprint.png",
+"GVar": "",
+"Geometry2D": "res://addons/godot-next/icons/icon_geometry_2d.svg",
+"HistoryRow": "",
+"Icons": "",
+"Inflector": "",
+"InspectorControls": "",
+"JSONBeautifier": "",
+"MenuManager": "",
+"MessageDispatcher": "",
+"MessageDispatcherWrapper": "",
+"MidiPlayer": "res://addons/midi/icon.png",
+"Parallax": "",
+"PhysicsHelper": "",
+"PhysicsLayers": "",
+"PlayableCharacter": "res://assets/icons/position-stick-man.svg",
+"ProjectTools": "",
+"PropertyInfo": "",
+"PropertyInfoFactory": "",
+"RNGTools": "",
+"RandomAudioNodePlayer": "",
+"ResourceArray": "",
+"ResourceCollection": "",
+"ResourceSet": "",
+"SMF": "",
+"Singletons": "",
+"SoundFont": "",
+"SteamAPI": "",
+"SteamApps": "",
+"SteamCallback": "",
+"SteamFriends": "",
+"SteamI": "",
+"SteamId": "",
+"SteamLeaderboard": "",
+"SteamLeaderboardEntries": "",
+"SteamLeaderboardEntry": "",
+"SteamLeaderboardFindResult": "",
+"SteamLeaderboardScoreUploaded": "",
+"SteamLeaderboardScoresDownloaded": "",
+"SteamUser": "",
+"SteamUserStats": "",
+"SteamUtils": "",
+"TextureFont": "res://addons/texture_fonts/Assets/TextureFont.svg",
+"Trail2D": "res://addons/godot-next/icons/icon_trail_2d.svg",
+"Trail3D": "res://addons/godot-next/icons/icon_trail_3d.svg",
+"VBoxItemList": "res://addons/godot-next/icons/icon_v_box_item_list.svg",
+"Variant": "",
+"Vec2": "",
+"Vec3": "",
+"VectorDisplay2D": "",
+"VectorDisplay3D": "",
+"joystick": "res://addons/multidir_joystick/icons/icon.svg"
+}
+
+[addons]
+
+quick_scenes/selected_scene=0
+quick_scenes/quick_run_shortcut=Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":true,"scancode":16777252,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+
+quick_scenes/scene_list=PoolStringArray( "res://src/screens/splashscreen.tscn" )
+instance_dock/scenes=[ {
+"name": "Enemies",
+"scenes": [ {
+"scene": "res://src/game_objects/enemies/ahuizote_with_knife.tscn"
+}, {
+"scene": "res://src/game_objects/enemies/ahuizote_molotov.tscn"
+} ],
+"scroll": 0
+}, {
+"name": "Tilemaps",
+"scenes": [ {
+"scene": "res://src/game_objects/tilemaps/dungeon_forgotten_tilemap.tscn"
+}, {
+"scene": "res://src/game_objects/tilemaps/solid/tilemap_building.tscn"
+}, {
+"scene": "res://src/game_objects/tilemaps/solid/tilemap_terrain_1.tscn"
+} ],
+"scroll": 0
+}, {
+"name": "Get Objects",
+"scenes": [ {
+"scene": "res://src/game_objects/elemental_circuit.tscn"
+} ],
+"scroll": 0
+} ]
+
+[application]
+
+config/name="Toziuha Night: Order of the Alchemists"
+run/main_scene="res://initial_scene.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="ToziuhaNight_OrderOfTheAlchemists"
+boot_splash/image="res://assets/sprites/misc/the_order_icon.png"
+boot_splash/use_filter=false
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
+config/icon="res://assets/icons/icon.png"
+config/quit_on_go_back=false
+config/name.demo="Toziuha Night: Order of the Alchemists (Demo)"
+config/custom_user_dir_name.demo="ToziuhaNight_OrderOfTheAlchemists_Demo"
+config/custom_user_dir_name.debug="ToziuhaNight_OrderOfTheAlchemists_Debug"
+
+[audio]
+
+default_bus_layout="res://assets/tres/audio_bus_layout.tres"
+
+[autoload]
+
+Features="*res://src/autoload/features.gd"
+Config="*res://src/scripts/config.gd"
+CSVDBLoader="*res://src/autoload/csvdb_loader.gd"
+VarsGlobal="*res://src/scripts/vars_global.gd"
+Gamepad="*res://src/scripts/gamepad.gd"
+Audio="*res://src/autoload/audio.tscn"
+ScreenFilter="*res://src/autoload/screen_filter.tscn"
+SceneChanger="*res://src/autoload/scene_changer.tscn"
+Notification="*res://src/autoload/notification.tscn"
+LocalizationManager.no-plugins-dev="*res://src/scripts/no-plugins-dev.gd"
+ElementalCircuits="*res://src/autoload/elemental_circuits.gd"
+Alloys="*res://src/autoload/alloys.gd"
+Savedata="*res://src/scripts/savedata.gd"
+Stopwatch="*res://src/scripts/stopwatch.gd"
+ThermalBar="*res://src/autoload/thermal_bar.tscn"
+InputBuffer="*res://src/autoload/input_buffer.gd"
+DebugMenu="*res://src/autoload/debug_menu.tscn"
+InitialDataDebug="*res://src/autoload/initial_data_debug.gd"
+BugReport="*res://src/autoload/bugreport.tscn"
+Achievments="*res://src/autoload/achievments.gd"
+Steam="*res://addons/steam_api/steam.gd"
+GooglePlayGamesServices="*res://addons/google_play_game_services_manager/singleton.gd"
+
+[debug]
+
+settings/fps/force_fps=60
+shapes/collision/shape_color=Color( 1, 1, 1, 0.419608 )
+shapes/navigation/geometry_color=Color( 0.101961, 1, 0.701961, 0.4 )
+
+[display]
+
+window/size/width=341
+window/size/height=192
+window/handheld/orientation="sensor_landscape"
+window/stretch/mode="2d"
+window/stretch/aspect="keep_height"
+window/size/always_on_top.debug=false
+window/size/resizable.release=false
+
+[editor]
+
+scene_naming=2
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/AsepriteWizard/plugin.cfg", "res://addons/AutoExportVersion/plugin.cfg", "res://addons/GDScriptMacros/plugin.cfg", "res://addons/QuickSceneRunner/plugin.cfg", "res://addons/RandomAudioNodePlayer/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg", "res://addons/carrousel_menu/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/file_shorcuts_g3/plugin.cfg", "res://addons/gamelevels_blueprint/plugin.cfg", "res://addons/gkanban/plugin.cfg", "res://addons/godot-next/plugin.cfg", "res://addons/google_play_game_services_manager/plugin.cfg", "res://addons/interactive-music-g3/plugin.cfg", "res://addons/localization_editor_plugin_g3/plugin.cfg", "res://addons/midi/plugin.cfg", "res://addons/multidir_joystick/plugin.cfg", "res://addons/nklbdev.parallax/plugin.cfg", "res://addons/orphan_import_file_cleaner/plugin.cfg", "res://addons/steam_api/plugin.cfg", "res://addons/texture_fonts/plugin.cfg", "res://addons/uuid_generator/plugin.cfg" )
+
+[global]
+
+mouse=false
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d": false,
+"flags/anisotropic": false,
+"flags/filter": false,
+"flags/mipmaps": false,
+"flags/repeat": 0,
+"flags/srgb": 2,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": true,
+"process/invert_color": false,
+"process/normal_map_invert_y": false,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
+}
+
+[input]
+
+ui_accept={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":88,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_select={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_cancel={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":67,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_focus_next={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_focus_prev={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":90,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_down={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_page_up={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_page_down={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_home={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_end={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_start={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777221,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+jump={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":88,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+backdash={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":90,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+attack={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":67,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+circuit={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+quickmenu={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":70,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_joy_left={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_joy_right={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_joy_up={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_joy_down={
+"deadzone": 0.5,
+"events": [  ]
+}
+r_joy_up={
+"deadzone": 0.5,
+"events": [  ]
+}
+r_joy_down={
+"deadzone": 0.5,
+"events": [  ]
+}
+r_joy_left={
+"deadzone": 0.5,
+"events": [  ]
+}
+r_joy_right={
+"deadzone": 0.5,
+"events": [  ]
+}
+fullscr_toggle={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":true,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":16777221,"unicode":0,"echo":false,"script":null)
+ ]
+}
+dialogic_default_action={
+"deadzone": 0.5,
+"events": [  ]
+}
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+pointing/ios/touch_delay=0.01
+
+[layer_names]
+
+2d_physics/layer_1="solid"
+2d_physics/layer_2="solid_char"
+2d_physics/layer_3="solid_oneway"
+2d_physics/layer_4="solid_item"
+2d_physics/layer_5="hitb_player"
+2d_physics/layer_6="hitb_enemy"
+2d_physics/layer_7="hurtb_player"
+2d_physics/layer_8="hurtb_enemy"
+2d_physics/layer_9="trigger_item"
+2d_physics/layer_10="solid_enemy"
+2d_physics/layer_11="water_area"
+2d_physics/layer_12="unspecified"
+2d_physics/layer_13="water_area_limit"
+2d_physics/layer_32="pendulum_bodies"
+
+[locale]
+
+translations=PoolStringArray(  )
+locale_filter=[ 1, [ "en_US", "es" ] ]
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+2d/snapping/use_gpu_pixel_snap=true
+vram_compression/import_etc=true
+batching/precision/uv_contract=true

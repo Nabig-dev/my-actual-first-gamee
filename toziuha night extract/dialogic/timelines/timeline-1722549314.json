@@ -1,0 +1,220 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1686776723.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1686776723.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG2_1722549314"
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1723216324",
+			"index": 0,
+			"name": "start_question"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "DLG4_1722549314"
+		},
+		{
+			"choice": "DLG5_1722549314",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1686776723.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG6_1722549314"
+		},
+		{
+			"character": "character-1686776723.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG7_1722549314"
+		},
+		{
+			"character": "character-1686776723.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG8_1722549314"
+		},
+		{
+			"character": "character-1686776723.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG9_1722549314"
+		},
+		{
+			"anchor_id": "anchor-1723216324",
+			"event_id": "dialogic_016"
+		},
+		{
+			"choice": "DLG11_1722549314",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG12_1722549314"
+		},
+		{
+			"character": "character-1686776723.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG13_1722549314"
+		},
+		{
+			"character": "character-1686776723.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG14_1722549314"
+		},
+		{
+			"anchor_id": "anchor-1723216324",
+			"event_id": "dialogic_016"
+		},
+		{
+			"choice": "DLG16_1722549314",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG17_1722549314"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG18_1722549314"
+		},
+		{
+			"character": "character-1686776723.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG19_1722549314"
+		},
+		{
+			"character": "character-1686776723.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG20_1722549314"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG21_1722549314"
+		},
+		{
+			"anchor_id": "anchor-1723216324",
+			"event_id": "dialogic_016"
+		},
+		{
+			"choice": "DLG23_1722549314",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG24_1722549314"
+		},
+		{
+			"character": "character-1686776723.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG25_1722549314"
+		},
+		{
+			"character": "character-1686776723.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG26_1722549314"
+		},
+		{
+			"anchor_id": "anchor-1723216324",
+			"event_id": "dialogic_016"
+		},
+		{
+			"choice": "DLG28_1722549314",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1686776723.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG29_1722549314"
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1722549314.json",
+		"name": "margaret-help-puzzle-lab"
+	}
+}

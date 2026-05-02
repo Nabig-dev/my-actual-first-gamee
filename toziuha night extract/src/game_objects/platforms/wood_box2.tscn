@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/sprites/bg_decoration/village_a_exterior.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 14, 15 )
+
+[node name="WoodBox" type="StaticBody2D"]
+collision_mask = 523
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -15 )
+shape = SubResource( 1 )
+
+[node name="VillageAExterior" type="Sprite" parent="."]
+position = Vector2( 0, -15 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1056, 640, 32, 32 )

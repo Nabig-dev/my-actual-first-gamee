@@ -1,0 +1,87 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://src/game_objects/game_interface.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/game_objects/characters/playable_character.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/game_objects/tilemaps/eldralis_woods.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game_objects/camera_limit.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/game_objects/game_scenario.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/sprites/bg/vegetation1/background3.png" type="Texture" id=6]
+[ext_resource path="res://src/game_objects/breakable_wall.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/game_objects/backgrounds/fog_parallax.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/game_objects/room_changer.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/game_objects/enemies/golum.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/game_objects/drop_items/money_coin.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/game_objects/levelup_item.tscn" type="PackedScene" id=13]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 32 )
+
+[node name="Node" type="Node"]
+
+[node name="GameInterface" parent="." instance=ExtResource( 1 )]
+
+[node name="GameScenario" parent="." instance=ExtResource( 5 )]
+music = "eldralis_woods"
+
+[node name="FogParallax" parent="GameScenario" instance=ExtResource( 8 )]
+
+[node name="BG" type="Node2D" parent="GameScenario"]
+
+[node name="Background3" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 36, -528 )
+texture = ExtResource( 6 )
+
+[node name="Background4" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 31, -448 )
+texture = ExtResource( 6 )
+flip_h = true
+
+[node name="Background5" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 23, -368 )
+texture = ExtResource( 6 )
+flip_h = true
+
+[node name="TileMapEldralisWoods" parent="GameScenario" instance=ExtResource( 3 )]
+tile_data = PoolIntArray( -1703947, 6, 0, -1703946, 6, 2, -1703945, 6, 2, -1703944, 6, 1, -1703943, 6, 1, -1703942, 6, 1, -1703941, 6, 2, -1703940, 6, 1, -1703939, 6, 1, -1703938, 6, 2, -1703937, 6, 1, -1769472, 6, 2, -1769471, 6, 2, -1769470, 6, 2, -1769469, 6, 1, -1769468, 6, 1, -1769467, 6, 1, -1769466, 6, 2, -1769465, 6, 1, -1769464, 6, 2, -1769463, 6, 2, -1769462, 6, 1, -1769461, 6, 1, -1769460, 6, 2, -1769459, 6, 3, -1638411, 6, 65536, -1638410, 6, 65537, -1638409, 6, 65538, -1638408, 6, 65538, -1638407, 6, 65538, -1638406, 6, 65538, -1638405, 6, 65538, -1638404, 6, 65537, -1638403, 6, 65537, -1638402, 6, 65538, -1638401, 6, 65537, -1703936, 6, 65537, -1703935, 6, 65538, -1703934, 6, 65538, -1703933, 6, 65538, -1703932, 6, 65538, -1703931, 6, 65538, -1703930, 6, 65538, -1703929, 6, 65537, -1703928, 6, 65538, -1703927, 6, 65538, -1703926, 6, 65538, -1703925, 6, 65538, -1703924, 6, 65538, -1703923, 6, 65539, -1572875, 6, 65536, -1572874, 6, 65537, -1572873, 6, 65537, -1572872, 6, 65537, -1572871, 6, 65537, -1572870, 6, 65537, -1572869, 6, 65538, -1572868, 6, 65538, -1572867, 6, 65538, -1572866, 6, 65537, -1572865, 6, 65537, -1638400, 6, 65538, -1638399, 6, 65537, -1638398, 6, 65538, -1638397, 6, 65538, -1638396, 6, 65537, -1638395, 6, 65538, -1638394, 6, 65537, -1638393, 6, 65538, -1638392, 6, 65537, -1638391, 6, 65537, -1638390, 6, 65537, -1638389, 6, 65537, -1638388, 6, 65538, -1638387, 6, 65539, -1507339, 6, 65536, -1507338, 6, 65538, -1507337, 6, 65537, -1507336, 6, 65537, -1507335, 6, 196609, -1507334, 6, 131073, -1507333, 6, 131073, -1507332, 6, 131074, -1507331, 6, 131074, -1507330, 6, 131074, -1507329, 6, 131073, -1572864, 6, 131074, -1572863, 6, 131073, -1572862, 6, 131074, -1572861, 6, 131074, -1572860, 6, 131074, -1572859, 6, 131073, -1572858, 6, 131074, -1572857, 6, 131073, -1572856, 6, 131073, -1572855, 6, 196611, -1572854, 6, 65537, -1572853, 6, 65537, -1572852, 6, 65537, -1572851, 6, 65539, -1441803, 6, 65536, -1441802, 6, 65537, -1441801, 6, 65538, -1441800, 6, 65538, -1441799, 6, 65539, -1507319, 6, 65536, -1507318, 6, 65538, -1507317, 6, 65538, -1507316, 6, 65538, -1507315, 6, 65539, -1376267, 6, 65536, -1376266, 6, 65537, -1376265, 6, 65537, -1376264, 6, 65538, -1376263, 6, 65539, -1441783, 6, 65536, -1441782, 6, 65538, -1441781, 6, 65538, -1441780, 6, 65537, -1441779, 6, 65539, -1310731, 6, 65536, -1310730, 6, 65537, -1310729, 6, 65538, -1310728, 6, 65538, -1310727, 6, 65539, -1376247, 6, 65536, -1376246, 6, 65537, -1376245, 6, 65537, -1376244, 6, 65537, -1376243, 6, 65539, -1245195, 6, 131072, -1245194, 6, 131073, -1245193, 6, 131073, -1245192, 6, 131073, -1245191, 6, 131075, -1310711, 6, 131072, -1310710, 6, 131074, -1310709, 6, 196611, -1310708, 6, 65537, -1310707, 6, 65539, -1245173, 6, 65536, -1245172, 6, 65538, -1245171, 6, 65539, -1179637, 6, 65536, -1179636, 6, 65538, -1179635, 6, 65539, -1114101, 6, 65536, -1114100, 6, 65538, -1114099, 6, 65539, -1048565, 6, 65536, -1048564, 6, 65538, -1048563, 6, 65539, -917515, 7, 0, -917514, 7, 1, -917513, 7, 1, -917512, 7, 2, -917511, 7, 2, -917510, 7, 1, -917509, 7, 1, -917508, 7, 1, -917507, 7, 1, -917506, 7, 2, -917505, 7, 1, -983040, 7, 2, -983039, 7, 1, -983038, 7, 2, -983037, 7, 2, -983036, 7, 1, -983035, 7, 2, -983034, 7, 2, -983033, 7, 1, -983032, 7, 2, -983031, 7, 2, -983030, 7, 3, -983029, 6, 65536, -983028, 6, 65538, -983027, 6, 65539, -851979, 6, 0, -851978, 6, 1, -851977, 6, 2, -851976, 6, 2, -851975, 6, 2, -851974, 6, 1, -851973, 6, 2, -851972, 6, 1, -851971, 6, 2, -851970, 6, 1, -851969, 6, 1, -917504, 6, 1, -917503, 6, 2, -917502, 6, 2, -917501, 6, 1, -917500, 6, 1, -917499, 6, 2, -917498, 6, 2, -917497, 6, 2, -917496, 6, 2, -917495, 6, 1, -917494, 6, 1, -917493, 6, 196610, -917492, 6, 65538, -917491, 6, 65539, -786443, 6, 131072, -786442, 6, 131073, -786441, 6, 131074, -786440, 6, 131074, -786439, 6, 131073, -786438, 6, 131073, -786437, 6, 131073, -786436, 6, 131074, -786435, 6, 131074, -786434, 6, 131073, -786433, 6, 131074, -851968, 6, 131073, -851967, 6, 131073, -851966, 6, 131074, -851965, 6, 131074, -851964, 6, 131074, -851963, 6, 131074, -851962, 6, 131073, -851961, 6, 131074, -851960, 6, 131074, -851959, 6, 131074, -851958, 6, 131074, -851957, 6, 131073, -851956, 6, 131073, -851955, 6, 131075 )
+
+[node name="MoneyCoin" parent="GameScenario" instance=ExtResource( 12 )]
+position = Vector2( 169, -224 )
+z_index = 0
+money = "5000"
+ide = "5df3ffe4-e4bc-4bfb-86bf-8828e60d145a"
+
+[node name="BreakableWall" parent="GameScenario" instance=ExtResource( 7 )]
+position = Vector2( 160, -256 )
+identifier = "256e799c-23eb-4541-8fed-da98053a06d1"
+
+[node name="TileMapEldralisWoods" parent="GameScenario/BreakableWall" instance=ExtResource( 3 )]
+tile_data = PoolIntArray( -458753, 6, 196611, -524288, 6, 65537, -524287, 6, 65537, -524286, 6, 65537, -393217, 6, 65536, -458752, 6, 65538, -458751, 6, 65538, -458750, 6, 65537, -327681, 6, 65536, -393216, 6, 65537, -393215, 6, 65537, -393214, 6, 65537, -262145, 6, 65536, -327680, 6, 65537, -327679, 6, 65537, -327678, 6, 65537, -196609, 6, 65536, -262144, 6, 65538, -262143, 6, 65538, -262142, 6, 65537, -131073, 6, 65536, -196608, 6, 65538, -196607, 6, 65537, -196606, 6, 65537, -65537, 6, 65536, -131072, 6, 65537, -131071, 6, 65538, -131070, 6, 65537, -1, 6, 65536, -65536, 6, 65537, -65535, 6, 65537, -65534, 6, 65537, 65535, 6, 65536, 0, 6, 65538, 1, 6, 65537, 2, 6, 65537, 131071, 6, 65536, 65536, 6, 65538, 65537, 6, 65537, 65538, 6, 65537, 196607, 6, 196610, 131072, 6, 65537, 131073, 6, 65537, 131074, 6, 65537 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScenario/BreakableWall"]
+shape = SubResource( 1 )
+
+[node name="CameraLimit" parent="GameScenario" instance=ExtResource( 4 )]
+margin_left = -136.0
+margin_top = -400.0
+margin_right = 205.0
+margin_bottom = -208.0
+
+[node name="RoomChanger" parent="GameScenario" instance=ExtResource( 9 )]
+position = Vector2( -136, -224 )
+scale = Vector2( -1, 1 )
+direction = 2
+identifier = "dl"
+id_destination = "dr"
+path_destination = "res://stages/oota/eldralis_woods/eldralis6.tscn"
+
+[node name="PlayableCharacter" parent="GameScenario" instance=ExtResource( 2 )]
+position = Vector2( -120, -224 )
+
+[node name="Golum" parent="GameScenario" instance=ExtResource( 10 )]
+position = Vector2( 41, -224 )
+
+[node name="LevelUpItem" parent="GameScenario" instance=ExtResource( 13 )]
+position = Vector2( 118, -312 )
+ide = "20758f91-4212-4837-a603-e0384a830ac0"
+type = 3
+amount = 10

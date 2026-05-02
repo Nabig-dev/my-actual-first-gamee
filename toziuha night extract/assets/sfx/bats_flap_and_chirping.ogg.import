@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bats_flap_and_chirping.ogg-cd03abf0fb90cfbd91a3f8fbae8dadbc.oggstr"
+
+[deps]
+
+source_file="res://assets/sfx/bats_flap_and_chirping.ogg"
+dest_files=[ "res://.import/bats_flap_and_chirping.ogg-cd03abf0fb90cfbd91a3f8fbae8dadbc.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

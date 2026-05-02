@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/tension_battle.ogg-02873b281e4e0a80f0e3d13249d15521.oggstr"
+
+[deps]
+
+source_file="res://assets/bgm/tension_battle.ogg"
+dest_files=[ "res://.import/tension_battle.ogg-02873b281e4e0a80f0e3d13249d15521.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=13.914

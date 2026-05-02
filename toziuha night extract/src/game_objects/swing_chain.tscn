@@ -1,0 +1,149 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://src/scripts/pendulum.gd" type="Script" id=1]
+[ext_resource path="res://src/game_objects/swing_chain.gd" type="Script" id=2]
+[ext_resource path="res://assets/sprites/swing_anchor.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/swing_chain.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 96, 1.5 )
+
+[sub_resource type="CircleShape2D" id=9]
+radius = 24.97
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("SwingAnchor:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "active"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("SwingAnchor:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "inactive"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("SwingAnchor:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 1 ]
+}
+
+[sub_resource type="CircleShape2D" id=10]
+
+[node name="SwingChain" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="AreaPendulumDisable" type="Area2D" parent="."]
+collision_layer = 2147483648
+collision_mask = 2147483648
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaPendulumDisable"]
+position = Vector2( -3.8147e-06, -33.5 )
+shape = SubResource( 11 )
+
+[node name="AreaDetectChain" type="Area2D" parent="."]
+position = Vector2( -1, -5 )
+collision_layer = 128
+collision_mask = 16
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetectChain"]
+modulate = Color( 0.176471, 1, 0.882353, 1 )
+position = Vector2( 0.656, 0 )
+shape = SubResource( 9 )
+
+[node name="SwingAnchor" type="Sprite" parent="."]
+position = Vector2( -1, -7 )
+texture = ExtResource( 3 )
+hframes = 5
+frame = 1
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PoolVector2Array( 0, 0, 0, 90 )
+width = 5.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 4 )
+texture_mode = 1
+
+[node name="AnchorActive" type="Sprite" parent="."]
+visible = false
+position = Vector2( -1, -8 )
+texture = ExtResource( 3 )
+hframes = 5
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 6 )
+anims/active = SubResource( 7 )
+anims/inactive = SubResource( 8 )
+
+[node name="TimerCoolDown" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="TimerJumpCoolDown" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="StartPendulum" type="Position2D" parent="."]
+script = ExtResource( 1 )
+pendulum = NodePath("../EndPendulum")
+cooldown_node = NodePath("../TimerCoolDown")
+max_length = 70.0
+
+[node name="EndPendulum" type="Position2D" parent="."]
+position = Vector2( 0, 90 )
+
+[node name="AreaPendulum" type="Area2D" parent="EndPendulum"]
+collision_layer = 2147483648
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndPendulum/AreaPendulum"]
+modulate = Color( 0.960784, 0.407843, 0.0431373, 1 )
+shape = SubResource( 10 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="TimerConnectSignals" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+autostart = true
+
+[connection signal="area_entered" from="AreaPendulumDisable" to="." method="_on_AreaPendulumDisable_area_entered"]
+[connection signal="area_exited" from="AreaPendulumDisable" to="." method="_on_AreaPendulumDisable_area_exited"]
+[connection signal="area_entered" from="AreaDetectChain" to="." method="_on_AreaDetectChain_area_entered"]
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
+[connection signal="timeout" from="TimerConnectSignals" to="." method="_on_TimerConnectSignals_timeout"]

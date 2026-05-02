@@ -1,0 +1,273 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Sad",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1677087468.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "(Don't change)",
+			"text": "No puedo hacerlo... Por favor... reacciona. ¿Acaso ya no me reconoces?"
+		},
+		{
+			"character": "character-1677087468.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "..."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "No podía creerlo, pero ahora estoy segura, tú eres Isaac."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "¿Recuerdas que me prometiste que serías el Alquimista de Hierro con tal de que me dejaran ir?"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Lo has logrado Isaac, pero por qué... ¿¡Por qué peleas contra mí?"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "¡Deja de seguir las órdenes de Johannes! Estoy aquí, podemos pelear juntos contra él."
+		},
+		{
+			"action": 1,
+			"audio_name": "all",
+			"event_id": "audio_event_custom",
+			"type": 1
+		},
+		{
+			"character": "character-1677081398.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ja, ja, ja... qué conmovedora reunión."
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"animation_wait": true,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "[All]",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 1,
+			"z_index": 0
+		},
+		{
+			"bg_visible": false,
+			"event_id": "hideshow_bgblack"
+		},
+		{
+			"emit_signal": "johannes_appear",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "disable_advance",
+			"input_enabled": false
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 4
+		},
+		{
+			"event_id": "disable_advance",
+			"input_enabled": true
+		},
+		{
+			"bg_visible": true,
+			"event_id": "hideshow_bgblack"
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Angry",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1677081398.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Angry",
+			"text": "¡Johannes!"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Angry",
+			"text": "¿¡Qué le has hecho a Isaac!?"
+		},
+		{
+			"character": "character-1677081398.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Niña tonta, ¿no te lo dije aquella vez?"
+		},
+		{
+			"character": "character-1677081398.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Tu querido Isaac murió, no soportó el entrenamiento."
+		},
+		{
+			"character": "character-1677081398.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Pero era una lástima desperdiciar los avances que habíamos hecho."
+		},
+		{
+			"character": "character-1677081398.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Así que Elisia, habiendo dominado sus poderes como Alquimista de Silicio, logró algo importante."
+		},
+		{
+			"character": "character-1677081398.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hizo que el cuerpo de Isaac pudiera seguir en funcionamiento, haciendo que la electricidad recorriera por su cuerpo."
+		},
+		{
+			"character": "character-1677081398.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Isaac solo es un cuerpo reanimado, su corazón late, sus musculos se mueven, pero su alma se desvaneció hace tiempo."
+		},
+		{
+			"character": "character-1677081398.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Él no es más que una simple marioneta."
+		},
+		{
+			"character": "character-1677081398.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Y ahora que has acabado con Elisia..."
+		},
+		{
+			"character": "character-1677081398.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Es solo cuestión de tiempo para que el cuerpo de Isaac se desmorone..."
+		},
+		{
+			"character": "character-1677081398.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Y empiece el proceso de muerte que solo había sido aplazado."
+		},
+		{
+			"character": "character-1677081398.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Antes de que eso pase, dejaré que te despidas de él..."
+		},
+		{
+			"action": 1,
+			"audio_name": "all",
+			"event_id": "audio_event_custom",
+			"type": 1
+		},
+		{
+			"character": "character-1677081398.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "¡Mientras la sangre de Athos aumenta más su poder hasta consumirlo por completo!"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1716392234.json",
+		"name": "defeated-isaac-phase1"
+	}
+}

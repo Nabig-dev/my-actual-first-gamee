@@ -1,0 +1,33 @@
+{
+	"color": "#ffbe1515",
+	"description": "",
+	"display_name": "Xandria",
+	"display_name_bool": true,
+	"id": "character-1649630816.json",
+	"mirror_portraits": false,
+	"name": "xandria-char",
+	"nickname": "xandria",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": -47,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://assets/sprites/art_dialog_chars/xandria_default.png"
+		},
+		{
+			"name": "Angry",
+			"path": "res://assets/sprites/art_dialog_chars/xandria_angry.png"
+		},
+		{
+			"name": "Meh",
+			"path": "res://assets/sprites/art_dialog_chars/xandria_meh.png"
+		},
+		{
+			"name": "Sad",
+			"path": "res://assets/sprites/art_dialog_chars/xandria_sad.png"
+		}
+	],
+	"scale": 16,
+	"theme": ""
+}

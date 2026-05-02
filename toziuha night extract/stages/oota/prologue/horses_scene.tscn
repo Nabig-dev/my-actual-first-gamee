@@ -1,0 +1,175 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/images/texture_old_paper.jpg" type="Texture" id=1]
+[ext_resource path="res://stages/oota/prologue/_horses_cinematic.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/tres/fonts/alkemikal_small.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/tres/ThemeBasic.tres" type="Theme" id=4]
+[ext_resource path="res://assets/sprites/panels/letter.png" type="Texture" id=5]
+[ext_resource path="res://stages/oota/prologue/horses_scene.gd" type="Script" id=6]
+[ext_resource path="res://src/ui_elements/helper_icon_btn.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/tres/crt_vhs_add.tres" type="Material" id=8]
+[ext_resource path="res://src/scripts/_crt_vhs_add.gd" type="Script" id=9]
+
+[node name="HorsesScene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+script = ExtResource( 6 )
+
+[node name="TextureBG" type="TextureRect" parent="."]
+modulate = Color( 0.498039, 0.498039, 0.498039, 1 )
+light_mask = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 7
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+light_mask = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -170.5
+margin_top = -96.0
+margin_right = 170.5
+margin_bottom = 96.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+pause_mode = 1
+size = Vector2( 341, 192 )
+handle_input_locally = false
+hdr = false
+usage = 0
+render_target_update_mode = 3
+audio_listener_enable_2d = true
+
+[node name="HorsesScene" parent="ViewportContainer/Viewport" instance=ExtResource( 2 )]
+unique_name_in_owner = true
+
+[node name="Letter" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -158.5
+margin_top = -84.5
+margin_right = -29.5
+margin_bottom = 84.5
+texture = ExtResource( 5 )
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="MarginContainer" type="MarginContainer" parent="Letter"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_right = 7
+custom_constants/margin_top = 5
+custom_constants/margin_left = 7
+custom_constants/margin_bottom = 5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Letter/MarginContainer"]
+margin_left = 7.0
+margin_top = 5.0
+margin_right = 122.0
+margin_bottom = 164.0
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="LabelLetter" type="Label" parent="Letter/MarginContainer/ScrollContainer"]
+unique_name_in_owner = true
+margin_right = 115.0
+margin_bottom = 159.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/line_spacing = -2
+custom_fonts/font = ExtResource( 3 )
+align = 1
+valign = 1
+autowrap = true
+
+[node name="HbxBtnNext" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -22.5
+margin_top = 62.0
+margin_right = 45.5
+margin_bottom = 85.0
+custom_constants/separation = 7
+
+[node name="HelperIconBtn" parent="HbxBtnNext" instance=ExtResource( 7 )]
+margin_bottom = 23.0
+hide_method_touch = "visible"
+animated = true
+action = "ui_accept"
+
+[node name="BtnNext" type="Button" parent="HbxBtnNext"]
+margin_left = 23.0
+margin_right = 68.0
+margin_bottom = 23.0
+focus_mode = 0
+size_flags_horizontal = 3
+text = "NEXT"
+
+[node name="TimerCoolDown" type="Timer" parent="HbxBtnNext"]
+unique_name_in_owner = true
+wait_time = 0.6
+one_shot = true
+
+[node name="CRTVHSAdd" type="ColorRect" parent="."]
+material = ExtResource( 8 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -170.5
+margin_top = -96.0
+margin_right = 170.5
+margin_bottom = 96.0
+mouse_filter = 2
+script = ExtResource( 9 )
+
+[node name="HBx" type="HBoxContainer" parent="."]
+modulate = Color( 1, 1, 1, 0.227451 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -48.0
+margin_top = 3.0
+margin_right = -5.0
+margin_bottom = 19.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+custom_constants/separation = 8
+alignment = 2
+
+[node name="ButtonSkip" type="Button" parent="HBx"]
+margin_right = 19.0
+margin_bottom = 16.0
+grow_horizontal = 0
+focus_mode = 0
+size_flags_horizontal = 8
+theme = ExtResource( 4 )
+enabled_focus_mode = 0
+text = "SKIP"
+
+[node name="HelperIconBtn" parent="HBx" instance=ExtResource( 7 )]
+margin_left = 27.0
+margin_right = 43.0
+
+[connection signal="pressed" from="HbxBtnNext/BtnNext" to="." method="next_text"]
+[connection signal="timeout" from="HbxBtnNext/TimerCoolDown" to="." method="_on_TimerCoolDown_timeout"]
+[connection signal="pressed" from="HBx/ButtonSkip" to="." method="_on_ButtonSkip_pressed" flags=6]

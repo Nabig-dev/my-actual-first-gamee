@@ -1,0 +1,197 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hitbox_enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hurtbox_enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/game_objects/enemy_base.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game_objects/enemies/floating_sword.gd" type="Script" id=4]
+[ext_resource path="res://assets/sprites/enemies/sword_master.png" type="Texture" id=5]
+[ext_resource path="res://src/game_objects/ghost_trail.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/game_objects/vfx/explosions_small_particles.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/gdshaders/outline.gdshader" type="Shader" id=8]
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 8 )
+shader_param/line_color = Color( 0.698039, 0.447059, 1, 1 )
+shader_param/line_thickness = 1.0
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 4.0
+height = 34.0
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 7.0
+height = 42.0
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ExplosionParticlesSmall:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:material:shader_param/line_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.698039, 0.447059, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "dead"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ExplosionParticlesSmall:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "fly"
+length = 2.0
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8, 1.55 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 5 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/Sprite2:material:shader_param/line_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.698039, 0.447059, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.364706, 1, 0.984314, 1 ), Color( 0.698039, 0.447059, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.698039, 0.447059, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.364706, 1, 0.984314, 1 ), Color( 0.698039, 0.447059, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.698039, 0.447059, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.364706, 1, 0.984314, 1 ), Color( 0.698039, 0.447059, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.698039, 0.447059, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.364706, 1, 0.984314, 1 ), Color( 0.698039, 0.447059, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.364706, 1, 0.984314, 1 ) ]
+}
+
+[node name="FloatingSword" type="KinematicBody2D"]
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+rotation = 1.5708
+z_index = 1
+texture = ExtResource( 5 )
+flip_h = true
+hframes = 5
+vframes = 3
+frame = 11
+
+[node name="Sprite2" type="Sprite" parent="Sprite"]
+material = SubResource( 6 )
+texture = ExtResource( 5 )
+flip_h = true
+hframes = 5
+vframes = 3
+frame = 11
+
+[node name="HitboxEnemy" parent="Sprite" instance=ExtResource( 1 )]
+rotation = -1.5708
+hurtbox_node = NodePath("../HurtboxEnemy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/HitboxEnemy"]
+shape = SubResource( 3 )
+
+[node name="HurtboxEnemy" parent="Sprite" instance=ExtResource( 2 )]
+rotation = -1.5708
+sprite_flash = NodePath("..")
+damage_sounds = [ "impact_shield_clang" ]
+death_sounds = [ "enemy_death_woosh" ]
+blood_drop = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/HurtboxEnemy"]
+shape = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/dead = SubResource( 5 )
+anims/fly = SubResource( 2 )
+
+[node name="EnemyBase" parent="." instance=ExtResource( 3 )]
+anim_player = NodePath("../AnimationPlayer")
+hurtbox = NodePath("../Sprite/HurtboxEnemy")
+
+[node name="TimerStartChase" type="Timer" parent="."]
+one_shot = true
+
+[node name="GhostTrail" parent="." instance=ExtResource( 6 )]
+parent_sprite_path = NodePath("..")
+sprite_path = NodePath("../Sprite")
+scale_from_parent = false
+use_custom_z_index = true
+
+[node name="ExplosionParticlesSmall" parent="." instance=ExtResource( 7 )]
+z_index = 1
+amount = 100
+lifetime = 3.0
+emission_sphere_radius = 10.0
+scale_amount = 0.7
+
+[connection signal="defeated" from="Sprite/HurtboxEnemy" to="." method="_on_HurtboxEnemy_defeated"]
+[connection signal="timeout" from="TimerStartChase" to="." method="_on_TimerStartChase_timeout"]

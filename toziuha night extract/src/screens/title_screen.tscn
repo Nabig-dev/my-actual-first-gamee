@@ -1,0 +1,168 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/tres/ThemeBasic.tres" type="Theme" id=1]
+[ext_resource path="res://assets/images/logos/logo_revamped_outline.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/xandria_sketch.png" type="Texture" id=3]
+[ext_resource path="res://src/ui_elements/helper_icon_btn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/screens/title_screen.gd" type="Script" id=5]
+[ext_resource path="res://assets/images/texture_chemical_links.jpg" type="Texture" id=6]
+[ext_resource path="res://assets/images/shadow_gradient_1.png" type="Texture" id=7]
+[ext_resource path="res://assets/images/texture_old_paper.jpg" type="Texture" id=8]
+
+[sub_resource type="CanvasItemMaterial" id=2]
+blend_mode = 1
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 170, 100 )
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 5 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 0.333333, 0.333333, 0.333333, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 7
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color( 0.188235, 0.188235, 0.188235, 1 )
+material = SubResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 7
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -151.0
+margin_top = -96.0
+margin_right = 49.0
+margin_bottom = 96.0
+texture = ExtResource( 7 )
+stretch_mode = 1
+flip_h = true
+
+[node name="Logo" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -171.5
+margin_top = -54.0
+margin_right = 26.5
+margin_bottom = 44.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Logo"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = 20.0
+margin_bottom = 42.0
+grow_vertical = 2
+size_flags_horizontal = 3
+custom_constants/separation = 5
+alignment = 1
+
+[node name="Lbl1" type="Label" parent="Logo/HBoxContainer"]
+margin_left = 49.0
+margin_right = 76.0
+margin_bottom = 22.0
+size_flags_vertical = 5
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "PRESS"
+valign = 1
+
+[node name="HelperIconBtn" parent="Logo/HBoxContainer" instance=ExtResource( 4 )]
+margin_left = 81.0
+margin_right = 97.0
+margin_bottom = 22.0
+animated = true
+action = "ui_accept"
+
+[node name="Lbl3" type="Label" parent="Logo/HBoxContainer"]
+margin_left = 102.0
+margin_right = 148.0
+margin_bottom = 22.0
+size_flags_vertical = 5
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "TO_START"
+valign = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Logo"]
+visible = false
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = 20.0
+margin_bottom = 42.0
+grow_vertical = 2
+size_flags_horizontal = 3
+custom_constants/separation = 21
+alignment = 1
+
+[node name="Lbl1" type="Label" parent="Logo/HBoxContainer2"]
+margin_left = 34.0
+margin_right = 102.0
+margin_bottom = 22.0
+size_flags_vertical = 5
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "TAP_TO_START"
+valign = 1
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Logo"]
+modulate = Color( 0.992157, 1, 0, 1 )
+position = Vector2( 2, -46.5 )
+shape = SubResource( 1 )
+action = "ui_accept"
+
+[node name="Xandria" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -90.5
+margin_top = -128.0
+margin_right = 219.5
+margin_bottom = 173.0
+rect_min_size = Vector2( 100, 100 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = -17.0
+margin_right = 130.0
+margin_bottom = -3.0
+
+[node name="LblVersion" type="Label" parent="HBoxContainer"]
+margin_right = 61.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "GAMEVERSION"
+
+[node name="LblStatus" type="Label" parent="HBoxContainer"]
+margin_left = 65.0
+margin_right = 126.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "GAMESTATUS"

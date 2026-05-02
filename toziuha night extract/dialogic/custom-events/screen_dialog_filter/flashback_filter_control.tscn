@@ -1,0 +1,123 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://src/gdshaders/chromatic abberation_screen.gdshader" type="Shader" id=1]
+[ext_resource path="res://src/gdshaders/vignette_color.gdshader" type="Shader" id=2]
+[ext_resource path="res://dialogic/custom-events/screen_dialog_filter/flashback_filter_control.gd" type="Script" id=4]
+[ext_resource path="res://assets/images/vfx/old_film_effect.png" type="Texture" id=5]
+
+[sub_resource type="CanvasItemMaterial" id=5]
+blend_mode = 1
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 1 )
+shader_param/levels = 3
+shader_param/spread = 0.029
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 2 )
+shader_param/vignette_intensity = 4.972
+shader_param/vignette_opacity = 0.089
+shader_param/vignette_rgb = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CanvasItemMaterial" id=6]
+blend_mode = 1
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 341, 192 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 5 )
+region = Rect2( 341, 0, 341, 192 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 5 )
+region = Rect2( 682, 0, 341, 192 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 5 )
+region = Rect2( 1023, 0, 341, 192 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 5 )
+region = Rect2( 1364, 0, 341, 192 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 192, 341, 192 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 5 )
+region = Rect2( 341, 192, 341, 192 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 5 )
+region = Rect2( 682, 192, 341, 192 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 5 )
+region = Rect2( 1023, 192, 341, 192 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 5 )
+region = Rect2( 1364, 192, 341, 192 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 384, 341, 192 )
+
+[sub_resource type="SpriteFrames" id=18]
+animations = [ {
+"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[node name="FlashbackFilter" type="Control" groups=["dialogic_screen_filter"]]
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -170.5
+margin_top = -96.0
+margin_right = 170.5
+margin_bottom = 96.0
+mouse_filter = 2
+script = ExtResource( 4 )
+
+[node name="Color" type="ColorRect" parent="."]
+material = SubResource( 5 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.647059, 0.384314, 0.0352941, 0.376471 )
+
+[node name="LayerChromaticAberration" type="ColorRect" parent="."]
+material = SubResource( 2 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -160.0
+margin_top = -90.0
+margin_right = 160.0
+margin_bottom = 90.0
+mouse_filter = 2
+
+[node name="LayerVignette" type="ColorRect" parent="."]
+material = SubResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+modulate = Color( 1, 1, 1, 0.643137 )
+material = SubResource( 6 )
+position = Vector2( 171, 96 )
+frames = SubResource( 18 )
+frame = 5
+playing = true
+
+[connection signal="resized" from="." to="." method="_on_FlashbackFilter_resized"]

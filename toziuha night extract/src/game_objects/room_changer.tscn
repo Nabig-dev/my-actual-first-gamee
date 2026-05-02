@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/game_objects/room_changer.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 4, 104 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 80, 52 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 84, 38 )
+
+[node name="RoomChanger" type="Area2D"]
+z_index = 2
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "Debe ir antes del playable character en el arbol,
+o sea estar arriba del player en el tree"
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 4, 0 )
+shape = SubResource( 5 )
+
+[node name="PlayerPosition" type="Position2D" parent="."]
+position = Vector2( -16, 0 )
+__meta__ = {
+"_gizmo_extents_": 50.0
+}
+
+[node name="AreaDetectPlayer" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 256
+
+[node name="CollisionLR" type="CollisionShape2D" parent="AreaDetectPlayer"]
+position = Vector2( -80, -36 )
+shape = SubResource( 4 )
+
+[node name="CollisionUD" type="CollisionShape2D" parent="AreaDetectPlayer"]
+visible = false
+position = Vector2( -84, 0 )
+shape = SubResource( 6 )
+disabled = true
+
+[connection signal="body_entered" from="." to="." method="_on_RoomChanger_body_entered"]
+[connection signal="area_entered" from="AreaDetectPlayer" to="." method="_on_AreaDetectPlayer_area_entered" flags=6]

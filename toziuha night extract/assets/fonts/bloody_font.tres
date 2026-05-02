@@ -1,0 +1,21 @@
+[gd_resource type="BitmapFont" load_steps=4 format=2]
+
+[ext_resource path="res://addons/texture_fonts/Classes/TextureFontSettings.gd" type="Script" id=1]
+[ext_resource path="res://addons/texture_fonts/Classes/TextureFont.gd" type="Script" id=2]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 1 )
+char_settings = {
+}
+kerning_pairs = [  ]
+gap = 2
+horizontal_align = 1
+vertical_align = 0
+monospace = false
+preview_color = Color( 0.12549, 0.141176, 0.192157, 1 )
+preview_chars = ""
+
+[resource]
+script = ExtResource( 2 )
+texture_mappings = [  ]
+font_settings = SubResource( 1 )

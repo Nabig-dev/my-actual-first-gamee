@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/galloping_horse_loop.ogg-3a02468129e13dbbc1435639f6e3e024.oggstr"
+
+[deps]
+
+source_file="res://assets/sfx/galloping_horse_loop.ogg"
+dest_files=[ "res://.import/galloping_horse_loop.ogg-3a02468129e13dbbc1435639f6e3e024.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/before_rachel.ogg-cd21d4655419a659ae891b152e5fa48b.oggstr"
+
+[deps]
+
+source_file="res://assets/bgm/before_rachel.ogg"
+dest_files=[ "res://.import/before_rachel.ogg-cd21d4655419a659ae891b152e5fa48b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

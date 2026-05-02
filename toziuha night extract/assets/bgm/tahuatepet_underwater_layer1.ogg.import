@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/tahuatepet_underwater_layer1.ogg-bb0b13b07e176c67e7242cc296e8ab85.oggstr"
+
+[deps]
+
+source_file="res://assets/bgm/tahuatepet_underwater_layer1.ogg"
+dest_files=[ "res://.import/tahuatepet_underwater_layer1.ogg-bb0b13b07e176c67e7242cc296e8ab85.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=16.049

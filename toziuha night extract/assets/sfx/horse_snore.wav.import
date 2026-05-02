@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/horse_snore.wav-4b2b78be50225b37e992fa97acef7716.sample"
+
+[deps]
+
+source_file="res://assets/sfx/horse_snore.wav"
+dest_files=[ "res://.import/horse_snore.wav-4b2b78be50225b37e992fa97acef7716.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,88 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1676994716.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Angry",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1676994716.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Eres peor que una simple molestia... No sé como rayos has sobrevivido hasta ahora..."
+		},
+		{
+			"character": "character-1676994716.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Pero juro en el nombre de Athos, que yo misma me encargaré de matarte."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Maldita Adeptis. Me he enfrentado a ti antes, sé bien como peleas..."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "No tendrás oportunidad contra mí."
+		},
+		{
+			"character": "character-1676994716.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Eres una perra confianzuda, lo que pasó en Grijayla no es nada en comparación a lo que te haré ahora."
+		},
+		{
+			"event_id": "shake_dialog_node"
+		},
+		{
+			"character": "character-1676994716.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "¡Muere de una maldita vez!"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1715101405.json",
+		"name": "eva-prebattle"
+	}
+}

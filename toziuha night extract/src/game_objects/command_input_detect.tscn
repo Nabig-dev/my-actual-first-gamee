@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/game_objects/command_input_detect.gd" type="Script" id=1]
+
+[node name="CommandInputDetect" type="Node"]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "Detectar alguna combinacion de botones para realizar una acción o activar truco (estilo GTA)"
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+__meta__ = {
+"_editor_description_": "0.3"
+}

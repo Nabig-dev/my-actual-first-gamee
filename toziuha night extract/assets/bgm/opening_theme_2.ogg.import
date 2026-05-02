@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/opening_theme_2.ogg-b52fa7538a3313ec01d18a8640c16bdb.oggstr"
+
+[deps]
+
+source_file="res://assets/bgm/opening_theme_2.ogg"
+dest_files=[ "res://.import/opening_theme_2.ogg-b52fa7538a3313ec01d18a8640c16bdb.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

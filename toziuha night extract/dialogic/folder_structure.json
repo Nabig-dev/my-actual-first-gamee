@@ -1,0 +1,312 @@
+{
+	"files": [
+
+	],
+	"folders": {
+		"Characters": {
+			"files": [
+				"character-1649630816.json",
+				"character-1676994744.json",
+				"character-1677183999.json"
+			],
+			"folders": {
+				"ahuizotes": {
+					"files": [
+						"character-1676994716.json",
+						"character-1706221744.json",
+						"character-1677081398.json",
+						"character-1677087468.json",
+						"character-1710264048.json",
+						"character-1710264174.json",
+						"character-1710264325.json",
+						"character-1710264530.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"npc-main": {
+					"files": [
+						"character-1702344268.json",
+						"character-1686776723.json",
+						"character-1702344537.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"npc-others": {
+					"files": [
+						"character-1677081590.json",
+						"character-1704466423.json",
+						"character-1709238012.json",
+						"character-1710263881.json",
+						"character-1710264619.json",
+						"character-1712351582.json",
+						"character-1725643444.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				}
+			},
+			"metadata": {
+				"color": null,
+				"folded": true
+			}
+		},
+		"Definitions": {
+			"files": [
+				"1725641264-335",
+				"1725641245-955",
+				"1725641029-704",
+				"1725637973-338",
+				"1722373157-125",
+				"1722371370-882",
+				"1718916749-729",
+				"1718900610-187",
+				"1718894711-146",
+				"1718830688-787",
+				"1718829161-648",
+				"1711562570-458",
+				"1710800196-366",
+				"1710793677-787",
+				"1710793307-648",
+				"1705096192-504",
+				"1705075637-874",
+				"1705010857-524",
+				"1705007986-686",
+				"1686842453-115"
+			],
+			"folders": {
+
+			},
+			"metadata": {
+				"color": null,
+				"folded": true
+			}
+		},
+		"Themes": {
+			"files": [
+				"theme-1666885025.cfg",
+				"theme-1666884860.cfg",
+				"theme-1677182817.cfg"
+			],
+			"folders": {
+
+			},
+			"metadata": {
+				"color": null,
+				"folded": false
+			}
+		},
+		"Timelines": {
+			"files": [
+				"timeline-1729027642.json",
+				"timeline-1728247664.json",
+				"timeline-1727995054.json",
+				"timeline-1721926706.json",
+				"timeline-1708468117.json",
+				"timeline-1677104432.json",
+				"timeline-1702343785.json"
+			],
+			"folders": {
+				"Abbey": {
+					"files": [
+						"timeline-1715703134.json",
+						"timeline-1716392234.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": true
+					}
+				},
+				"Amerithia": {
+					"files": [
+						"timeline-1704732290.json",
+						"timeline-1705004200.json",
+						"timeline-1705010680.json",
+						"timeline-1705071479.json",
+						"timeline-1705075346.json",
+						"timeline-1705090606.json",
+						"timeline-1705354727.json",
+						"timeline-1705684052.json",
+						"timeline-1706222258.json",
+						"timeline-1706224082.json",
+						"timeline-1713547682.json",
+						"timeline-1718897790.json",
+						"timeline-1724085796.json",
+						"timeline-1725643091.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": true
+					}
+				},
+				"Aridiah": {
+					"files": [
+						"timeline-1714772128.json",
+						"timeline-1714772962.json",
+						"timeline-1719417607.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": true
+					}
+				},
+				"Birstall": {
+					"files": [
+						"timeline-1710539613.json",
+						"timeline-1715101405.json",
+						"timeline-1715207789.json",
+						"timeline-1715207833.json",
+						"timeline-1715208269.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": true
+					}
+				},
+				"Eldralis": {
+					"files": [
+						"timeline-1686778008.json",
+						"timeline-1686779687.json",
+						"timeline-1709065925.json",
+						"timeline-1709066034.json",
+						"timeline-1709066959.json",
+						"timeline-1718311861.json",
+						"timeline-1718312954.json",
+						"timeline-1718387263.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": true
+					}
+				},
+				"Eztilia": {
+					"files": [
+						"timeline-1711555522.json",
+						"timeline-1713300300.json",
+						"timeline-1726182471.json",
+						"timeline-1726500626.json",
+						"timeline-1726501446.json",
+						"timeline-1726504460.json",
+						"timeline-1726518782.json",
+						"timeline-1726523748.json",
+						"timeline-1726588428.json",
+						"timeline-1726588962.json",
+						"timeline-1726590969.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": true
+					}
+				},
+				"Grijayla-Prologue": {
+					"files": [
+						"timeline-1671133094.json",
+						"timeline-1671134583.json",
+						"timeline-1671136236.json",
+						"timeline-1671136581.json",
+						"timeline-1671137942.json",
+						"timeline-1671139129.json",
+						"timeline-1674506987.json",
+						"timeline-1675875815.json",
+						"timeline-1675875857.json",
+						"timeline-1677711345.json",
+						"timeline-1677779048.json",
+						"timeline-1678397417.json",
+						"timeline-1704472509.json",
+						"timeline-1704553543.json",
+						"timeline-1712764975.json",
+						"timeline-1712768333.json",
+						"timeline-1722530103.json",
+						"timeline-1722549314.json",
+						"timeline-1722984911.json",
+						"timeline-1723066136.json",
+						"timeline-1723066161.json",
+						"timeline-1723066397.json",
+						"timeline-1723667777.json",
+						"timeline-1723667871.json",
+						"timeline-1723844799.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"Stralsund": {
+					"files": [
+						"timeline-1690912410.json",
+						"timeline-1690912429.json",
+						"timeline-1712163955.json",
+						"timeline-1712253339.json",
+						"timeline-1718635933.json",
+						"timeline-1718664090.json",
+						"timeline-1718748417.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": true
+					}
+				},
+				"Tahuatepet": {
+					"files": [
+						"timeline-1708556398.json",
+						"timeline-1709237363.json",
+						"timeline-1714167713.json",
+						"timeline-1724165909.json",
+						"timeline-1724166964.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": true
+					}
+				}
+			},
+			"metadata": {
+				"color": null,
+				"folded": false
+			}
+		}
+	}
+}

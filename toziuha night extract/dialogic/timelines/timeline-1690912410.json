@@ -1,0 +1,202 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1710264174.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "..."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG3_1690912410"
+		},
+		{
+			"character": "character-1710264174.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG4_1690912410"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "..."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG6_1690912410"
+		},
+		{
+			"character": "character-1710264174.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG7_1690912410"
+		},
+		{
+			"character": "character-1710264174.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG8_1690912410"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Angry",
+			"text": "DLG9_1690912410"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Angry",
+			"text": "DLG10_1690912410"
+		},
+		{
+			"character": "character-1710264174.json",
+			"event_id": "dialogic_001",
+			"portrait": "Angry",
+			"text": "DLG11_1690912410"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Angry",
+			"text": "DLG12_1690912410"
+		},
+		{
+			"event_id": "shake_dialog_node"
+		},
+		{
+			"character": "character-1710264174.json",
+			"event_id": "dialogic_001",
+			"portrait": "Angry",
+			"text": "DLG14_1690912410"
+		},
+		{
+			"character": "character-1710264174.json",
+			"event_id": "dialogic_001",
+			"portrait": "Angry",
+			"text": "DLG15_1690912410"
+		},
+		{
+			"event_id": "shake_dialog_node"
+		},
+		{
+			"character": "character-1710264174.json",
+			"event_id": "dialogic_001",
+			"portrait": "Angry",
+			"text": "DLG17_1690912410"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Angry",
+			"text": "..."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Angry",
+			"text": "DLG19_1690912410"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Angry",
+			"text": "DLG20_1690912410"
+		},
+		{
+			"character": "character-1710264174.json",
+			"event_id": "dialogic_001",
+			"portrait": "Angry",
+			"text": "DLG21_1690912410"
+		},
+		{
+			"event_id": "shake_dialog_node"
+		},
+		{
+			"character": "character-1710264174.json",
+			"event_id": "dialogic_001",
+			"portrait": "Angry",
+			"text": "DLG23_1690912410"
+		},
+		{
+			"character": "character-1710264174.json",
+			"event_id": "dialogic_001",
+			"portrait": "Angry",
+			"text": "DLG24_1690912410"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Angry",
+			"text": "..."
+		},
+		{
+			"action": 1,
+			"audio_name": "all",
+			"event_id": "audio_event_custom",
+			"type": 1
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Angry",
+			"text": "DLG27_1690912410"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Angry",
+			"text": "DLG28_1690912410"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1690912410.json",
+		"name": "alessandro_1_meet"
+	}
+}

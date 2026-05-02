@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/geiger_loop_high.wav-7aa9eab14668cae97eb682b384bb79a9.sample"
+
+[deps]
+
+source_file="res://assets/sfx/geiger_loop_high.wav"
+dest_files=[ "res://.import/geiger_loop_high.wav-7aa9eab14668cae97eb682b384bb79a9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

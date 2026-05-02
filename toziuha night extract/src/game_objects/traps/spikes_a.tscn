@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hitbox_enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sprites/traps/spikes_a.png" type="Texture" id=2]
+[ext_resource path="res://src/game_objects/traps/spikes_a.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 4 )
+
+[node name="SpikesA" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="HitboxEnemy" parent="." instance=ExtResource( 1 )]
+identifier = "golum_floor_atk"
+is_weapon = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxEnemy"]
+position = Vector2( 0, -4 )
+shape = SubResource( 1 )
+
+[node name="SpikesA" type="Sprite" parent="."]
+position = Vector2( 0, -3 )
+texture = ExtResource( 2 )
+
+[node name="SpikesA2" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, -8 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+modulate = Color( 1, 0.772549, 0, 1 )
+cast_to = Vector2( 0, -10 )
+collision_mask = 0

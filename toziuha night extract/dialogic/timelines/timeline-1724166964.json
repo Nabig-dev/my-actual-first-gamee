@@ -1,0 +1,145 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Angry",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1706221744.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "¿Así que finalmente pelearás?"
+		},
+		{
+			"character": "character-1706221744.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Por supuesto que no."
+		},
+		{
+			"character": "character-1706221744.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Los Adeptis sabemos escoger nuestras peleas. Pelear aquí me pondría en desventaja."
+		},
+		{
+			"character": "character-1706221744.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Tal como dijo Sheal, tenemos que hacer varias cosas para lograr nuestro objetivo."
+		},
+		{
+			"character": "character-1706221744.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Puedes ver al Opus Magnum como un delicioso platillo de comida. Antes de poder saborearla se deben coseguir los ingredientes y cocinarla."
+		},
+		{
+			"character": "character-1706221744.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Es un proceso tardado donde la receta solo la sabe Johannes."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Meh",
+			"text": "... ... ..."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "(Don't change)",
+			"text": "Dices unas cosas tan tontas que ni siquiera puedo tomarte en serio..."
+		},
+		{
+			"character": "character-1706221744.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ja, ja, ja... me dicen eso muy seguido."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Default",
+			"text": "¿En serio piensas que Johannes compartirá su poder con ustedes, los Adeptis?"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "(Don't change)",
+			"text": "En cuanto él consiga lo que sea que él quiere, los desechará como simples herramientas."
+		},
+		{
+			"character": "character-1706221744.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Sí, lo sé. Pero tomaremos ese riesgo."
+		},
+		{
+			"character": "character-1706221744.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hemos decidido seguirlo, porque para conseguir el Opus Magnum necesitamos ayuda. Johannes nos necesita, y nosotros a él."
+		},
+		{
+			"character": "character-1706221744.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Además Johannes no es un mal empleador, nos paga bastante bien al menos."
+		},
+		{
+			"character": "character-1706221744.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Bien, debo irme. Te dejaré un poco de compañía para que no sientas sola."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Angry",
+			"text": "¡Espera!"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1724166964.json",
+		"name": "tahua27-event-b"
+	}
+}

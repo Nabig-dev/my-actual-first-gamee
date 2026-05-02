@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ui_btn_cancel.wav-c1b34169d85b2d7a6e02be0e3f25425c.sample"
+
+[deps]
+
+source_file="res://assets/sfx/ui_btn_cancel.wav"
+dest_files=[ "res://.import/ui_btn_cancel.wav-c1b34169d85b2d7a6e02be0e3f25425c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

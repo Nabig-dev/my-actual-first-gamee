@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://addons/interactive-music-g3/audio_stream_player_interactive.gd" type="Script" id=1]
+[ext_resource path="res://src/game_objects/geiger.gd" type="Script" id=2]
+[ext_resource path="res://assets/sfx/geiger_loop_high.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/sfx/geiger_loop_low.wav" type="AudioStream" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 200.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 112.285
+
+[node name="Geiger" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="AreaFar" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaFar"]
+shape = SubResource( 1 )
+
+[node name="AreaNear" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaNear"]
+modulate = Color( 1, 0, 0, 1 )
+shape = SubResource( 2 )
+
+[node name="Geiger" type="Node" parent="."]
+script = ExtResource( 1 )
+low_tracks = "1"
+
+[node name="high2" type="AudioStreamPlayer" parent="Geiger"]
+stream = ExtResource( 4 )
+volume_db = 5.0
+pitch_scale = 3.0
+bus = "Effects"
+
+[node name="low" type="AudioStreamPlayer" parent="Geiger"]
+stream = ExtResource( 4 )
+volume_db = 5.0
+bus = "Effects"
+
+[node name="high" type="AudioStreamPlayer" parent="Geiger"]
+stream = ExtResource( 3 )
+volume_db = 5.0
+bus = "Effects"
+
+[connection signal="tree_exiting" from="." to="." method="_on_Geiger_tree_exiting"]
+[connection signal="area_entered" from="AreaFar" to="." method="_on_AreaFar_area_entered"]
+[connection signal="area_exited" from="AreaFar" to="." method="_on_AreaFar_area_exited"]
+[connection signal="area_entered" from="AreaNear" to="." method="_on_AreaNear_area_entered"]
+[connection signal="area_exited" from="AreaNear" to="." method="_on_AreaNear_area_exited"]

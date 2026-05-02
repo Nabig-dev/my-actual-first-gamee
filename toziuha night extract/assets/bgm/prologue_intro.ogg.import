@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/prologue_intro.ogg-27d8b3d232950fb4d2d1335435d2d39a.oggstr"
+
+[deps]
+
+source_file="res://assets/bgm/prologue_intro.ogg"
+dest_files=[ "res://.import/prologue_intro.ogg-27d8b3d232950fb4d2d1335435d2d39a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

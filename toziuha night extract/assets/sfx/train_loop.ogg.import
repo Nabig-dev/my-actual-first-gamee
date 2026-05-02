@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/train_loop.ogg-187ff1332cc2940adeda57760d5fc8f3.oggstr"
+
+[deps]
+
+source_file="res://assets/sfx/train_loop.ogg"
+dest_files=[ "res://.import/train_loop.ogg-187ff1332cc2940adeda57760d5fc8f3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

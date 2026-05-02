@@ -1,0 +1,112 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Angry",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1710264325.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "(Don't change)",
+			"text": "Tú de nuevo..."
+		},
+		{
+			"character": "character-1710264325.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Te estaba esperando."
+		},
+		{
+			"character": "character-1710264325.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Es hora de acabar contigo."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Maldita loca ni siquera sé qué es lo que tienes contra mí."
+		},
+		{
+			"character": "character-1710264325.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Claro... no lo recuerdas..."
+		},
+		{
+			"character": "character-1710264325.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Siempre estuve a tu sombra..."
+		},
+		{
+			"character": "character-1710264325.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Pero no más. Esta vez mi poder... mi potencial es mayor al tuyo."
+		},
+		{
+			"character": "character-1710264325.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Nadie... ni siquiera Johannes se volverá a interesar en otra persona más que yo."
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Meh",
+			"text": "..."
+		},
+		{
+			"event_id": "shake_dialog_node"
+		},
+		{
+			"character": "character-1710264325.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "¡Púdrete, no me veas con esa cara!"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1714772128.json",
+		"name": "elisia-prebattle"
+	}
+}

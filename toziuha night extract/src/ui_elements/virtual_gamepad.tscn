@@ -1,0 +1,605 @@
+[gd_scene load_steps=54 format=2]
+
+[ext_resource path="res://src/ui_elements/virtualpad_button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sprites/ui_icons/virtualgamepad/btn_vp9.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/ui_icons/virtualgamepad/btn_vp22.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/ui_icons/virtualgamepad/btn_vp16.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/ui_icons/virtualgamepad/btn_vp13.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/ui_icons/virtualgamepad/btn_vp12.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/ui_icons/virtualgamepad/btn_vp28.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/ui_icons/virtualgamepad/btn_vp11.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/ui_icons/virtualgamepad/btn_vp10.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/ui_icons/virtualgamepad/btn_vp15.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/ui_icons/virtualgamepad/btn_vp27.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/ui_icons/virtualgamepad/btn_vp8.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/ui_icons/virtualgamepad/btn_vp17.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/ui_icons/virtualgamepad/btn_vp6.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/ui_icons/virtualgamepad/btn_vp21.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/ui_icons/virtualgamepad/btn_vp5.png" type="Texture" id=16]
+[ext_resource path="res://assets/sprites/ui_icons/virtualgamepad/btn_vp24.png" type="Texture" id=17]
+[ext_resource path="res://assets/sprites/ui_icons/virtualgamepad/btn_vp7.png" type="Texture" id=18]
+[ext_resource path="res://assets/sprites/ui_icons/virtualgamepad/btn_vp4.png" type="Texture" id=19]
+[ext_resource path="res://addons/multidir_joystick/scripts/joystick.gd" type="Script" id=20]
+[ext_resource path="res://assets/sprites/ui_icons/virtualgamepad/btn_vp20.png" type="Texture" id=21]
+[ext_resource path="res://assets/sprites/ui_icons/virtualgamepad/btn_vp3.png" type="Texture" id=22]
+[ext_resource path="res://assets/sprites/ui_icons/virtualgamepad/btn_vp19.png" type="Texture" id=23]
+[ext_resource path="res://assets/sprites/ui_icons/virtualgamepad/btn_vp18.png" type="Texture" id=24]
+[ext_resource path="res://assets/sprites/ui_icons/virtualgamepad/btn_vp1.png" type="Texture" id=25]
+[ext_resource path="res://assets/sprites/ui_icons/virtualgamepad/btn_vp23.png" type="Texture" id=26]
+[ext_resource path="res://src/ui_elements/virtual_gamepad.gd" type="Script" id=27]
+[ext_resource path="res://addons/multidir_joystick/icons/bigger.svg" type="Texture" id=28]
+[ext_resource path="res://assets/sprites/ui_icons/virtualgamepad/btn_vp14.png" type="Texture" id=29]
+[ext_resource path="res://assets/tres/ThemeBasic.tres" type="Theme" id=30]
+[ext_resource path="res://assets/sprites/btn_close_hover.png" type="Texture" id=31]
+[ext_resource path="res://assets/sprites/btn_close_focus.png" type="Texture" id=32]
+[ext_resource path="res://assets/sprites/btn_close_pressed.png" type="Texture" id=33]
+[ext_resource path="res://assets/sprites/btn_close_normal.png" type="Texture" id=34]
+[ext_resource path="res://assets/sprites/ui_icons/virtualgamepad/btn_vp2.png" type="Texture" id=35]
+[ext_resource path="res://assets/images/texture_old_paper.jpg" type="Texture" id=36]
+[ext_resource path="res://assets/images/virtualpad_bg.png" type="Texture" id=37]
+[ext_resource path="res://assets/sprites/ui_icons/virtualgamepad/btn_vp30.png" type="Texture" id=38]
+[ext_resource path="res://assets/sprites/ui_icons/virtualgamepad/btn_vp29.png" type="Texture" id=39]
+[ext_resource path="res://assets/images/vfx/light_02.png" type="Texture" id=40]
+[ext_resource path="res://assets/sprites/ui_icons/virtualgamepad/virtualpad_commands.png" type="Texture" id=41]
+[ext_resource path="res://addons/multidir_joystick/icons/smaller.svg" type="Texture" id=42]
+[ext_resource path="res://assets/fonts/super_small_letters.tres" type="BitmapFont" id=43]
+[ext_resource path="res://assets/sprites/ui_hud_full.png" type="Texture" id=44]
+[ext_resource path="res://src/game_objects/transport_chain.tscn" type="PackedScene" id=45]
+
+[sub_resource type="CircleShape2D" id=13]
+radius = 130.0
+
+[sub_resource type="CanvasItemMaterial" id=7]
+blend_mode = 1
+
+[sub_resource type="CircleShape2D" id=8]
+radius = 9.09
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 17.17
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 14.31
+
+[sub_resource type="CircleShape2D" id=10]
+radius = 16.37
+
+[sub_resource type="CircleShape2D" id=11]
+radius = 15.13
+
+[sub_resource type="CircleShape2D" id=9]
+radius = 0.01
+
+[node name="VirtualGamepad" type="Control"]
+pause_mode = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource( 30 )
+script = ExtResource( 27 )
+scene_path_on_close = "res://src/screens/options.tscn"
+
+[node name="BG" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="BG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 36 )
+expand = true
+stretch_mode = 7
+
+[node name="TextureRect2" type="TextureRect" parent="BG"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -170.5
+margin_top = -96.0
+margin_right = 170.5
+margin_bottom = 96.0
+texture = ExtResource( 37 )
+stretch_mode = 3
+
+[node name="ColorRect" type="ColorRect" parent="BG/TextureRect2"]
+margin_right = 96.0
+margin_bottom = 45.0
+color = Color( 0.301961, 0.8, 0.521569, 0.498039 )
+
+[node name="Label" type="Label" parent="BG/TextureRect2/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -52.0
+margin_top = -16.0
+margin_right = 52.0
+margin_bottom = 16.0
+text = "HUD"
+align = 1
+valign = 1
+
+[node name="ColorRect2" type="ColorRect" parent="BG/TextureRect2"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -96.0
+margin_bottom = 45.0
+color = Color( 0.505882, 0.301961, 0.8, 0.498039 )
+
+[node name="Label" type="Label" parent="BG/TextureRect2/ColorRect2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -52.0
+margin_top = -16.0
+margin_right = 52.0
+margin_bottom = 16.0
+text = "MINIMAP"
+align = 1
+valign = 1
+
+[node name="ControlL" type="Control" parent="." groups=["vpad_control"]]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -40.0
+margin_right = 40.0
+mouse_filter = 2
+
+[node name="Start" parent="ControlL" groups=["vpad_object"] instance=ExtResource( 1 )]
+unique_name_in_owner = true
+position = Vector2( 4, -113 )
+scale = Vector2( 1.3, 1.3 )
+normal = ExtResource( 25 )
+pressed = ExtResource( 35 )
+action = "ui_start"
+
+[node name="Select" parent="ControlL" groups=["vpad_object"] instance=ExtResource( 1 )]
+unique_name_in_owner = true
+position = Vector2( 51, -113 )
+scale = Vector2( 1.3, 1.3 )
+normal = ExtResource( 22 )
+pressed = ExtResource( 19 )
+action = "ui_select"
+
+[node name="Dpad" type="Node2D" parent="ControlL" groups=["vpad_object"]]
+unique_name_in_owner = true
+position = Vector2( 50, -9 )
+scale = Vector2( 1.3, 1.3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="VirtualJoystick" type="Node2D" parent="ControlL/Dpad"]
+scale = Vector2( 0.35, 0.35 )
+script = ExtResource( 20 )
+button_area = NodePath("TouchScreenButton")
+bigger_texture = ExtResource( 28 )
+small_texture = ExtResource( 42 )
+draw_line = true
+circle_color = Color( 1, 1, 1, 0.811765 )
+line_color = Color( 1, 1, 1, 0.290196 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="ControlL/Dpad/VirtualJoystick"]
+shape = SubResource( 13 )
+shape_centered = false
+
+[node name="Left" parent="ControlL/Dpad" instance=ExtResource( 1 )]
+position = Vector2( -31.3333, -15.6667 )
+normal = ExtResource( 18 )
+pressed = ExtResource( 12 )
+action = "ui_left"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ControlL/Dpad/Left"]
+polygon = PoolVector2Array( 30.6667, 15, 20, 4.33334, 18, -0.999969, 14.6666, -21.6666, -6.6667, -11, -6.6667, 42.3334, 14.6666, 53, 18, 31, 20, 25.6667 )
+
+[node name="Right" parent="ControlL/Dpad" instance=ExtResource( 1 )]
+position = Vector2( 0.666668, -15.6667 )
+normal = ExtResource( 2 )
+pressed = ExtResource( 9 )
+action = "ui_right"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ControlL/Dpad/Right"]
+polygon = PoolVector2Array( -1.33334, 15, 10, 5.00003, 12.6667, -0.999969, 14.6667, -21.6666, 36, -11, 36, 37, 14.6667, 53, 12.6667, 31, 9.33333, 25.6667 )
+
+[node name="Up" parent="ControlL/Dpad" instance=ExtResource( 1 )]
+position = Vector2( -15.3333, -32.6667 )
+normal = ExtResource( 8 )
+pressed = ExtResource( 6 )
+action = "ui_up"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ControlL/Dpad/Up"]
+polygon = PoolVector2Array( 14.6667, 32, 4, 21.3333, 1.99997, 16, -1.33337, -4.66664, 30.6666, -4.66664, 28.6666, 16, 26, 22 )
+
+[node name="Down" parent="ControlL/Dpad" instance=ExtResource( 1 )]
+position = Vector2( -15.3333, 1.33333 )
+normal = ExtResource( 5 )
+pressed = ExtResource( 29 )
+action = "ui_down"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ControlL/Dpad/Down"]
+polygon = PoolVector2Array( 14.6667, -2, 4, 8.66666, 1.99997, 14, -1.33337, 36, 30.6666, 36, 28.6666, 14, 25.3333, 8.66666 )
+
+[node name="ControlR" type="Control" parent="." groups=["vpad_control"]]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -40.0
+mouse_filter = 2
+
+[node name="B" parent="ControlR" groups=["vpad_object"] instance=ExtResource( 1 )]
+pause_mode = 2
+unique_name_in_owner = true
+position = Vector2( -17, -104 )
+scale = Vector2( 1.3, 1.3 )
+normal = ExtResource( 16 )
+pressed = ExtResource( 14 )
+passby_press = false
+action = "quickmenu"
+
+[node name="SetMenu" type="Node2D" parent="ControlR/B"]
+unique_name_in_owner = true
+show_behind_parent = true
+position = Vector2( 16.9231, 16.1539 )
+
+[node name="SetB" type="Area2D" parent="ControlR/B/SetMenu"]
+unique_name_in_owner = true
+position = Vector2( -28.4616, -7.6923 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Chain" parent="ControlR/B/SetMenu/SetB" instance=ExtResource( 45 )]
+position = Vector2( 24.6154, 2.30769 )
+points = PoolVector2Array( 3.84616, 5.38461, -24.6154, -2.30769 )
+
+[node name="LightSet" type="Sprite" parent="ControlR/B/SetMenu/SetB"]
+visible = false
+modulate = Color( 0.0313726, 1, 1, 1 )
+material = SubResource( 7 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 40 )
+
+[node name="UiHudFull" type="Sprite" parent="ControlR/B/SetMenu/SetB"]
+modulate = Color( 0.0313726, 1, 1, 1 )
+self_modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 0.769226, 0.769241 )
+texture = ExtResource( 44 )
+region_enabled = true
+region_rect = Rect2( 48, 48, 11, 11 )
+
+[node name="Label" type="Label" parent="ControlR/B/SetMenu/SetB"]
+margin_left = -4.15384
+margin_top = -4.0
+margin_right = 3.84616
+margin_bottom = 6.0
+custom_fonts/font = ExtResource( 43 )
+text = "B
+"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ControlR/B/SetMenu/SetB"]
+shape = SubResource( 8 )
+
+[node name="SetC" type="Area2D" parent="ControlR/B/SetMenu"]
+unique_name_in_owner = true
+position = Vector2( -40, 8.46154 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Chain" parent="ControlR/B/SetMenu/SetC" instance=ExtResource( 45 )]
+position = Vector2( 21.5385, -14.6154 )
+points = PoolVector2Array( 18.4615, 6.15385, -21.5385, 14.6154 )
+
+[node name="LightSet" type="Sprite" parent="ControlR/B/SetMenu/SetC"]
+visible = false
+modulate = Color( 0.121569, 0.976471, 0, 0.976471 )
+material = SubResource( 7 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 40 )
+
+[node name="UiHudFull" type="Sprite" parent="ControlR/B/SetMenu/SetC"]
+modulate = Color( 0.121569, 0.976471, 0, 0.976471 )
+self_modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 0.769226, 0.769241 )
+texture = ExtResource( 44 )
+region_enabled = true
+region_rect = Rect2( 48, 48, 11, 11 )
+
+[node name="Label" type="Label" parent="ControlR/B/SetMenu/SetC"]
+margin_left = -4.15384
+margin_top = -4.0
+margin_right = 3.84616
+margin_bottom = 6.0
+custom_fonts/font = ExtResource( 43 )
+text = "C"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ControlR/B/SetMenu/SetC"]
+shape = SubResource( 8 )
+
+[node name="SetA" type="Area2D" parent="ControlR/B/SetMenu"]
+unique_name_in_owner = true
+position = Vector2( -12.3077, -17.6923 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Chain" parent="ControlR/B/SetMenu/SetA" instance=ExtResource( 45 )]
+position = Vector2( 21.5385, 20 )
+points = PoolVector2Array( -9.23079, -2.30769, -21.5385, -20 )
+
+[node name="LightSet" type="Sprite" parent="ControlR/B/SetMenu/SetA"]
+visible = false
+modulate = Color( 1, 0, 0.72549, 1 )
+material = SubResource( 7 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 40 )
+
+[node name="UiHudFull" type="Sprite" parent="ControlR/B/SetMenu/SetA"]
+modulate = Color( 1, 0, 0.72549, 1 )
+self_modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 0.769226, 0.769241 )
+texture = ExtResource( 44 )
+region_enabled = true
+region_rect = Rect2( 48, 48, 11, 11 )
+
+[node name="Label" type="Label" parent="ControlR/B/SetMenu/SetA"]
+margin_left = -4.15384
+margin_top = -4.0
+margin_right = 3.84616
+margin_bottom = 6.0
+custom_fonts/font = ExtResource( 43 )
+text = "A"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ControlR/B/SetMenu/SetA"]
+shape = SubResource( 8 )
+
+[node name="A" parent="ControlR" groups=["vpad_object"] instance=ExtResource( 1 )]
+unique_name_in_owner = true
+position = Vector2( -5, -29 )
+scale = Vector2( 1.3, 1.3 )
+normal = ExtResource( 13 )
+pressed = ExtResource( 24 )
+shape = SubResource( 1 )
+shape_centered = true
+action = "jump"
+
+[node name="L" parent="ControlR" groups=["vpad_object"] instance=ExtResource( 1 )]
+unique_name_in_owner = true
+position = Vector2( -40, -54 )
+scale = Vector2( 1.3, 1.3 )
+normal = ExtResource( 26 )
+pressed = ExtResource( 17 )
+shape = SubResource( 2 )
+shape_centered = true
+action = "backdash"
+
+[node name="X" parent="ControlR" groups=["vpad_object"] instance=ExtResource( 1 )]
+unique_name_in_owner = true
+position = Vector2( -45, -11 )
+scale = Vector2( 1.3, 1.3 )
+normal = ExtResource( 23 )
+pressed = ExtResource( 21 )
+shape = SubResource( 10 )
+shape_centered = true
+action = "attack"
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="X2" parent="ControlR/X" groups=["vpad_object"] instance=ExtResource( 1 )]
+unique_name_in_owner = true
+visible = false
+position = Vector2( -22.3077, 8.46154 )
+normal = ExtResource( 15 )
+pressed = ExtResource( 3 )
+action = "ui_x"
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="R" parent="ControlR" groups=["vpad_object"] instance=ExtResource( 1 )]
+unique_name_in_owner = true
+position = Vector2( -3, -71 )
+scale = Vector2( 1.3, 1.3 )
+normal = ExtResource( 11 )
+pressed = ExtResource( 7 )
+shape = SubResource( 11 )
+shape_centered = true
+action = "circuit"
+
+[node name="C" parent="ControlR" groups=["vpad_object"] instance=ExtResource( 1 )]
+unique_name_in_owner = true
+visible = false
+position = Vector2( -102, 4 )
+scale = Vector2( 1.3, 1.3 )
+normal = ExtResource( 10 )
+pressed = ExtResource( 4 )
+
+[node name="Commands" type="Node2D" parent="ControlR/C"]
+unique_name_in_owner = true
+show_behind_parent = true
+scale = Vector2( 0.769231, 0.769231 )
+
+[node name="BtnWhipSpin" parent="ControlR/C/Commands" instance=ExtResource( 1 )]
+unique_name_in_owner = true
+visible = false
+position = Vector2( -11, -11 )
+normal = ExtResource( 39 )
+pressed = ExtResource( 38 )
+
+[node name="Icon" type="Sprite" parent="ControlR/C/Commands/BtnWhipSpin"]
+position = Vector2( 16, 15 )
+texture = ExtResource( 41 )
+hframes = 5
+vframes = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ControlR/C/Commands/BtnWhipSpin"]
+polygon = PoolVector2Array( 16, 29, 2, 16, 15, 2, 17, 2, 30, 15 )
+
+[node name="BtnWhipCrush" parent="ControlR/C/Commands" instance=ExtResource( 1 )]
+unique_name_in_owner = true
+position = Vector2( 6, -28 )
+normal = ExtResource( 39 )
+pressed = ExtResource( 38 )
+
+[node name="Icon" type="Sprite" parent="ControlR/C/Commands/BtnWhipCrush"]
+position = Vector2( 16, 16 )
+texture = ExtResource( 41 )
+hframes = 5
+vframes = 2
+frame = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ControlR/C/Commands/BtnWhipCrush"]
+polygon = PoolVector2Array( 16, 29, 2, 16, 15, 2, 17, 2, 30, 15 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ControlR/C"]
+polygon = PoolVector2Array( 15.3846, 5.38461, 6.15385, 15.3846, 4.61539, 25.3846, 27.6923, 25.3846, 25.3846, 15.3846, 22.3077, 3.84615 )
+
+[node name="VBxOptions" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -52.0
+margin_top = -83.0
+margin_right = 52.0
+margin_bottom = 5.0
+custom_constants/separation = 8
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBxOptions"]
+margin_right = 104.0
+margin_bottom = 14.0
+custom_constants/separation = 14
+alignment = 1
+
+[node name="BtnSave" type="Button" parent="VBxOptions/HBoxContainer3"]
+margin_right = 45.0
+margin_bottom = 14.0
+focus_mode = 0
+size_flags_horizontal = 3
+text = "SAVE"
+
+[node name="BtnReset" type="Button" parent="VBxOptions/HBoxContainer3"]
+margin_left = 59.0
+margin_right = 104.0
+margin_bottom = 14.0
+focus_mode = 0
+size_flags_horizontal = 3
+text = "RESET"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBxOptions"]
+margin_top = 22.0
+margin_right = 104.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 18 )
+custom_constants/separation = 10
+alignment = 1
+
+[node name="BtnOpacityMinus" type="Button" parent="VBxOptions/HBoxContainer"]
+margin_right = 24.0
+margin_bottom = 18.0
+focus_mode = 0
+size_flags_horizontal = 3
+text = ""
+
+[node name="Label" type="Label" parent="VBxOptions/HBoxContainer"]
+margin_left = 34.0
+margin_top = 2.0
+margin_right = 70.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 36, 0 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.352941 )
+text = "OPACITY"
+align = 1
+
+[node name="BtnOpacityPlus" type="Button" parent="VBxOptions/HBoxContainer"]
+margin_left = 80.0
+margin_right = 104.0
+margin_bottom = 18.0
+focus_mode = 0
+size_flags_horizontal = 3
+text = ""
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBxOptions"]
+margin_top = 48.0
+margin_right = 104.0
+margin_bottom = 66.0
+rect_min_size = Vector2( 0, 18 )
+custom_constants/separation = 10
+alignment = 1
+
+[node name="BtnSizeMinus" type="Button" parent="VBxOptions/HBoxContainer2"]
+margin_right = 24.0
+margin_bottom = 18.0
+focus_mode = 0
+size_flags_horizontal = 3
+text = ""
+
+[node name="Label" type="Label" parent="VBxOptions/HBoxContainer2"]
+margin_left = 34.0
+margin_top = 2.0
+margin_right = 70.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 36, 0 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.352941 )
+text = "SIZE"
+align = 1
+
+[node name="BtnSizePlus" type="Button" parent="VBxOptions/HBoxContainer2"]
+margin_left = 80.0
+margin_right = 104.0
+margin_bottom = 18.0
+focus_mode = 0
+size_flags_horizontal = 3
+text = ""
+
+[node name="BtnClose" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -12.0
+margin_top = -12.0
+margin_right = 12.0
+margin_bottom = 12.0
+texture_normal = ExtResource( 34 )
+texture_pressed = ExtResource( 33 )
+texture_hover = ExtResource( 31 )
+texture_focused = ExtResource( 32 )
+
+[node name="TimerConnect" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+autostart = true
+
+[node name="Area2DQuickMenuTouch" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DQuickMenuTouch"]
+shape = SubResource( 9 )
+
+[connection signal="visibility_changed" from="." to="." method="_on_VirtualGamepad_visibility_changed"]
+[connection signal="stop_update_pos" from="ControlL/Dpad/VirtualJoystick" to="." method="_on_VirtualJoystick_stop_update_pos"]
+[connection signal="update_pos" from="ControlL/Dpad/VirtualJoystick" to="." method="_on_VirtualJoystick_update_pos"]
+[connection signal="pressed" from="ControlR/B" to="." method="_on_B_pressed"]
+[connection signal="released" from="ControlR/B" to="." method="_on_B_released"]
+[connection signal="pressed" from="ControlR/C" to="." method="_on_C_pressed"]
+[connection signal="pressed" from="ControlR/C/Commands/BtnWhipSpin" to="." method="_on_command_btn_pressed" binds= [ "BtnWhipSpin" ]]
+[connection signal="pressed" from="ControlR/C/Commands/BtnWhipCrush" to="." method="_on_command_btn_pressed" binds= [ "BtnWhipCrush" ]]
+[connection signal="pressed" from="VBxOptions/HBoxContainer3/BtnSave" to="." method="_on_BtnSave_pressed"]
+[connection signal="pressed" from="VBxOptions/HBoxContainer3/BtnReset" to="." method="_on_BtnReset_pressed"]
+[connection signal="pressed" from="VBxOptions/HBoxContainer/BtnOpacityMinus" to="." method="_on_BtnOpacity_pressed" binds= [ "-" ]]
+[connection signal="pressed" from="VBxOptions/HBoxContainer/BtnOpacityPlus" to="." method="_on_BtnOpacity_pressed" binds= [ "+" ]]
+[connection signal="pressed" from="VBxOptions/HBoxContainer2/BtnSizeMinus" to="." method="_on_BtnSize_pressed" binds= [ "-" ]]
+[connection signal="pressed" from="VBxOptions/HBoxContainer2/BtnSizePlus" to="." method="_on_BtnSize_pressed" binds= [ "+" ]]
+[connection signal="pressed" from="BtnClose" to="." method="_on_BtnClose_pressed"]
+[connection signal="timeout" from="TimerConnect" to="." method="_on_TimerConnect_timeout"]
+[connection signal="area_entered" from="Area2DQuickMenuTouch" to="." method="_on_Area2DQuickMenuTouch_area_entered"]
+[connection signal="area_exited" from="Area2DQuickMenuTouch" to="." method="_on_Area2DQuickMenuTouch_area_exited"]

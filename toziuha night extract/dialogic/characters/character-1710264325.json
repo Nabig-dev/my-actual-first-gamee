@@ -1,0 +1,21 @@
+{
+	"color": "#ffffffff",
+	"description": "",
+	"display_name": "Elisia",
+	"display_name_bool": true,
+	"id": "character-1710264325.json",
+	"mirror_portraits": false,
+	"name": "elisia-char",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": -47,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://assets/sprites/art_dialog_chars/elisia_default.png"
+		}
+	],
+	"scale": 19,
+	"theme": ""
+}

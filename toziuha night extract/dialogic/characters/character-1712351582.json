@@ -1,0 +1,21 @@
+{
+	"color": "#ffffffff",
+	"description": "",
+	"display_name": "Ahalcaná",
+	"display_name_bool": true,
+	"id": "character-1712351582.json",
+	"mirror_portraits": false,
+	"name": "ahalcana",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": -47,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://assets/sprites/art_dialog_chars/ahalcana_default.png"
+		}
+	],
+	"scale": 21,
+	"theme": ""
+}

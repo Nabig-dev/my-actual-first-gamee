@@ -1,0 +1,184 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1712351582.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": true,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1677183999.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "..."
+		},
+		{
+			"event_id": "renamename_001",
+			"my_text_key": "???"
+		},
+		{
+			"character": "character-1712351582.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG3_1723667871"
+		},
+		{
+			"event_id": "renamename_001",
+			"my_text_key": "???"
+		},
+		{
+			"character": "character-1712351582.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG5_1723667871"
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_position": true,
+			"change_z_index": false,
+			"character": "character-1712351582.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "(Don't change)",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": true,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 2,
+			"z_index": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": true,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Angry",
+			"text": "DLG8_1723667871"
+		},
+		{
+			"event_id": "renamename_001",
+			"my_text_key": "???"
+		},
+		{
+			"character": "character-1712351582.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG10_1723667871"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Angry",
+			"text": "DLG11_1723667871"
+		},
+		{
+			"character": "character-1712351582.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG12_1723667871"
+		},
+		{
+			"character": "character-1712351582.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG13_1723667871"
+		},
+		{
+			"character": "character-1712351582.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG14_1723667871"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Angry",
+			"text": "DLG15_1723667871"
+		},
+		{
+			"character": "character-1712351582.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG16_1723667871"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Angry",
+			"text": "DLG17_1723667871"
+		},
+		{
+			"character": "character-1712351582.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG18_1723667871"
+		},
+		{
+			"character": "character-1712351582.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG19_1723667871"
+		},
+		{
+			"character": "character-1712351582.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG20_1723667871"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "Angry",
+			"text": "DLG21_1723667871"
+		},
+		{
+			"character": "character-1712351582.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG22_1723667871"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1723667871.json",
+		"name": "ahalcana-meet"
+	}
+}

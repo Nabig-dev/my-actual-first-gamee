@@ -1,0 +1,386 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://src/game_objects/game_interface.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/game_objects/game_scenario.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/game_objects/camera_limit.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game_objects/characters/playable_character.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/game_objects/tilemaps/dungeon_forgotten_tilemap.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/game_objects/backgrounds/afternoon_sky_background.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/sprites/bg_decoration/village_a_interior.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/bg_decoration/train_waigon_bg_wall.png" type="Texture" id=8]
+[ext_resource path="res://stages/oota/amerithia/train_event_1.gd" type="Script" id=9]
+[ext_resource path="res://assets/images/light_gradient.png" type="Texture" id=10]
+[ext_resource path="res://src/game_objects/room_changer.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/sprites/misc/npc_train.png" type="Texture" id=12]
+[ext_resource path="res://src/game_objects/interactable_area2d_indicator.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/sprites/bg_decoration/train_waigon_bg_wall_no_window.png" type="Texture" id=14]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 20, 13.5 )
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.6, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Node" type="Node"]
+script = ExtResource( 9 )
+
+[node name="GameInterface" parent="." instance=ExtResource( 1 )]
+enabled_quicksave = false
+can_use_carpatitia = false
+
+[node name="GameScenario" parent="." instance=ExtResource( 2 )]
+music = "train_assault"
+
+[node name="AfternoonSkyBackground2" parent="GameScenario" instance=ExtResource( 6 )]
+speed = 500
+dir = -1
+
+[node name="RoomChanger" parent="GameScenario" instance=ExtResource( 11 )]
+position = Vector2( 0, -40 )
+scale = Vector2( -1, 1 )
+direction = 2
+identifier = "dl"
+id_destination = "dr"
+path_destination = "res://stages/oota/amerithia/train_event_2.tscn"
+
+[node name="PlayableCharacter" parent="GameScenario" instance=ExtResource( 4 )]
+position = Vector2( 150, -40 )
+can_move = false
+
+[node name="CameraLimit" parent="GameScenario" instance=ExtResource( 3 )]
+margin_top = -200.0
+margin_bottom = -8.0
+
+[node name="BG" type="Node2D" parent="GameScenario"]
+
+[node name="DungeonForgottenTileMap" parent="GameScenario/BG" instance=ExtResource( 5 )]
+position = Vector2( 0, -8 )
+tile_data = PoolIntArray( -983045, 0, 0, -983044, 0, 6, -983043, 0, 6, -983042, 0, 6, -983041, 0, 6, -1048576, 0, 6, -1048575, 0, 6, -1048574, 0, 6, -1048573, 0, 6, -1048572, 0, 6, -1048571, 0, 6, -1048570, 0, 6, -1048569, 0, 6, -1048568, 0, 6, -1048567, 0, 6, -1048566, 0, 6, -1048565, 0, 6, -1048564, 0, 6, -1048563, 0, 6, -1048562, 0, 6, -1048561, 0, 6, -1048560, 0, 6, -1048559, 0, 6, -1048558, 0, 6, -1048557, 0, 6, -1048556, 0, 0, -1048555, 0, 0, -1048554, 0, 6, -1048553, 0, 6, -1048552, 0, 6, -1048551, 0, 6, -1048550, 0, 0, -1048549, 0, 6, -1048548, 0, 6, -1048547, 0, 6, -1048546, 0, 6, -1048545, 0, 6, -1048544, 0, 7, -917509, 0, 65539, -983020, 0, 65536, -983019, 0, 327680, -983014, 0, 65539, -851973, 0, 65539, -917484, 0, 327683, -917483, 0, 262144, -917478, 0, 65539, -786437, 0, 65539, -851948, 0, 65536, -851947, 0, 65538, -851942, 0, 65539, -720901, 0, 65539, -786412, 0, 65536, -786411, 0, 262144, -786406, 0, 65539, -655365, 0, 0, -655364, 0, 393218, -655363, 0, 393217, -655362, 0, 393217, -655361, 0, 2, -720895, 0, 0, -720894, 0, 393217, -720893, 0, 393217, -720892, 0, 393217, -720891, 0, 1, -720890, 0, 1, -720889, 0, 393217, -720888, 0, 1, -720887, 0, 393218, -720886, 0, 1, -720885, 0, 393217, -720884, 0, 393217, -720883, 0, 393218, -720882, 0, 1, -720881, 0, 393217, -720880, 0, 393217, -720879, 0, 1, -720878, 0, 393217, -720877, 0, 393217, -720876, 0, 393219, -720875, 0, 393216, -720874, 0, 393217, -720873, 0, 1, -720872, 0, 393217, -720871, 0, 1, -720870, 0, 0, -589829, 0, 0, -589828, 0, 131073, -589827, 0, 196609, -589826, 0, 131073, -589825, 0, 0, -655360, 0, 6, -655359, 0, 0, -655358, 0, 131073, -655357, 0, 196610, -655356, 0, 196610, -655355, 0, 131073, -655354, 0, 196609, -655353, 0, 131073, -655352, 0, 131073, -655351, 0, 196609, -655350, 0, 196609, -655349, 0, 131073, -655348, 0, 196610, -655347, 0, 196609, -655346, 0, 131073, -655345, 0, 196609, -655344, 0, 196610, -655343, 0, 196610, -655342, 0, 131073, -655341, 0, 196609, -655340, 0, 196610, -655339, 0, 196609, -655338, 0, 196610, -655337, 0, 131073, -655336, 0, 196610, -655335, 0, 196609, -655334, 0, 0, -524293, 0, 65539, -589798, 0, 65539, -458757, 0, 65539, -524268, 0, 0, -524267, 0, 2, -524262, 0, 65539, -393221, 0, 65539, -458732, 0, 262147, -458731, 0, 327680, -458726, 0, 65539, -327685, 0, 65539, -393196, 0, 262147, -393195, 0, 65538, -393190, 0, 65539, -262149, 0, 65539, -327660, 0, 262147, -327659, 0, 262144, -327654, 0, 65539, -196613, 0, 65539, -262124, 0, 65536, -262123, 0, 327680, -262118, 0, 65539, -131077, 0, 65539, -196588, 0, 327683, -196587, 0, 327680, -196582, 0, 0, -196581, 0, 2, -65541, 0, 0, -65540, 0, 393218, -65539, 0, 393217, -65538, 0, 1, -65537, 0, 393218, -131072, 0, 393218, -131071, 0, 1, -131070, 0, 393217, -131069, 0, 1, -131068, 0, 1, -131067, 0, 393218, -131066, 0, 393217, -131065, 0, 393217, -131064, 0, 393218, -131063, 0, 1, -131062, 0, 1, -131061, 0, 1, -131060, 0, 393217, -131059, 0, 393217, -131058, 0, 393217, -131057, 0, 393218, -131056, 0, 1, -131055, 0, 1, -131054, 0, 1, -131053, 0, 393218, -131052, 0, 393219, -131051, 0, 393216, -131050, 0, 1, -131049, 0, 393217, -131048, 0, 393217, -131047, 0, 393217, -131046, 0, 393219, -131045, 0, 393216, -131044, 0, 2, -5, 0, 327683, -4, 0, 65537, -3, 0, 65541, -2, 0, 131077, -1, 0, 65537, -65536, 0, 65537, -65535, 0, 131077, -65534, 0, 196612, -65533, 0, 65540, -65532, 0, 65542, -65531, 0, 65541, -65530, 0, 131076, -65529, 0, 131078, -65528, 0, 65543, -65527, 0, 65541, -65526, 0, 131078, -65525, 0, 65540, -65524, 0, 65542, -65523, 0, 65542, -65522, 0, 131077, -65521, 0, 65540, -65520, 0, 65542, -65519, 0, 131077, -65518, 0, 65541, -65517, 0, 131078, -65516, 0, 131076, -65515, 0, 131078, -65514, 0, 131077, -65513, 0, 65537, -65512, 0, 65542, -65511, 0, 65537, -65510, 0, 131077, -65509, 0, 131077, -65508, 0, 262144, 65531, 0, 131072, 65532, 0, 196609, 65533, 0, 196609, 65534, 0, 131073, 65535, 0, 196610, 0, 0, 131073, 1, 0, 196609, 2, 0, 196610, 3, 0, 196610, 4, 0, 131073, 5, 0, 131073, 6, 0, 131073, 7, 0, 196609, 8, 0, 131073, 9, 0, 196610, 10, 0, 196609, 11, 0, 196610, 12, 0, 196609, 13, 0, 196610, 14, 0, 196610, 15, 0, 196610, 16, 0, 196609, 17, 0, 196610, 18, 0, 196609, 19, 0, 196609, 20, 0, 131073, 21, 0, 131073, 22, 0, 196609, 23, 0, 196609, 24, 0, 131073, 25, 0, 131073, 26, 0, 196610, 27, 0, 131073, 28, 0, 131074 )
+
+[node name="TrainWaigonBgWall" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( -12, -77 )
+texture = ExtResource( 8 )
+
+[node name="TrainWaigonBgWall2" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 84, -77 )
+texture = ExtResource( 8 )
+
+[node name="TrainWaigonBgWall3" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 180, -77 )
+texture = ExtResource( 8 )
+
+[node name="TrainWaigonBgWall4" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 276, -77 )
+texture = ExtResource( 14 )
+
+[node name="LightGradient2" type="Sprite" parent="GameScenario/BG"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 150, -134.5 )
+scale = Vector2( 4.56, 0.45 )
+texture = ExtResource( 10 )
+
+[node name="Table" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( -11, -58 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 960, 336, 64, 48 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="VillageAInterior2" type="Sprite" parent="GameScenario/BG/Table"]
+position = Vector2( 26, 8 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 928, 288, 32, 32 )
+
+[node name="VillageAInterior3" type="Sprite" parent="GameScenario/BG/Table"]
+position = Vector2( -26, 8 )
+texture = ExtResource( 7 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 928, 288, 32, 32 )
+
+[node name="Table2" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 85, -58 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 960, 336, 64, 48 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="VillageAInterior2" type="Sprite" parent="GameScenario/BG/Table2"]
+position = Vector2( 26, 8 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 928, 288, 32, 32 )
+
+[node name="VillageAInterior3" type="Sprite" parent="GameScenario/BG/Table2"]
+position = Vector2( -26, 8 )
+texture = ExtResource( 7 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 928, 288, 32, 32 )
+
+[node name="Table3" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 180, -58 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 960, 336, 64, 48 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="VillageAInterior2" type="Sprite" parent="GameScenario/BG/Table3"]
+position = Vector2( 26, 8 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 928, 288, 32, 32 )
+
+[node name="VillageAInterior3" type="Sprite" parent="GameScenario/BG/Table3"]
+position = Vector2( -26, 8 )
+texture = ExtResource( 7 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 928, 288, 32, 32 )
+
+[node name="Roof8" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 336, -85 )
+texture = ExtResource( 7 )
+flip_v = true
+region_enabled = true
+region_rect = Rect2( 96, 352, 32, 128 )
+
+[node name="Roof9" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 344, -85 )
+texture = ExtResource( 7 )
+flip_v = true
+region_enabled = true
+region_rect = Rect2( 96, 352, 32, 128 )
+
+[node name="Roof10" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 353, -85 )
+texture = ExtResource( 7 )
+flip_v = true
+region_enabled = true
+region_rect = Rect2( 96, 352, 32, 128 )
+
+[node name="NpcTrain" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 54, -61 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 48, 48 )
+
+[node name="NpcTrain3" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 117, -61 )
+texture = ExtResource( 12 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 80, 0, 32, 48 )
+
+[node name="LightGradient" type="Sprite" parent="GameScenario/BG"]
+modulate = Color( 0.027451, 0.0156863, 0, 1 )
+position = Vector2( 150, -48 )
+scale = Vector2( 4.56, 0.32 )
+texture = ExtResource( 10 )
+flip_v = true
+
+[node name="FloorEnd" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 16, -32 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 176, 224, 32, 16 )
+
+[node name="FloorEnd16" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( -16, -32 )
+texture = ExtResource( 7 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 192, 224, 32, 16 )
+
+[node name="FloorEnd2" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 48, -32 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 192, 224, 32, 16 )
+
+[node name="FloorEnd3" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 80, -32 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 192, 224, 32, 16 )
+
+[node name="FloorEnd4" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 112, -32 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 192, 224, 32, 16 )
+
+[node name="FloorEnd5" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 144, -32 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 192, 224, 32, 16 )
+
+[node name="FloorEnd6" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 176, -32 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 192, 224, 32, 16 )
+
+[node name="FloorEnd7" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 208, -32 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 192, 224, 32, 16 )
+
+[node name="FloorEnd8" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 240, -32 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 192, 224, 32, 16 )
+
+[node name="FloorEnd9" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 272, -32 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 192, 224, 32, 16 )
+
+[node name="FloorEnd10" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 304, -32 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 224, 224, 32, 16 )
+
+[node name="FloorEnd11" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 336, -32 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 192, 192, 32, 16 )
+
+[node name="FloorEnd12" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 368, -32 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 192, 192, 32, 16 )
+
+[node name="FloorEnd13" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 40, -8 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 128, 192, 128, 32 )
+
+[node name="FloorEnd14" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 168, -8 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 128, 192, 128, 32 )
+
+[node name="FloorEnd15" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 296, -8 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 128, 192, 128, 32 )
+
+[node name="Roof" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 8, -157 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 32, 352, 64, 32 )
+
+[node name="Roof2" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 72, -157 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 32, 352, 64, 32 )
+
+[node name="Roof3" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 136, -157 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 32, 352, 64, 32 )
+
+[node name="Roof4" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 200, -157 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 32, 352, 64, 32 )
+
+[node name="Roof5" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 264, -157 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 32, 352, 64, 32 )
+
+[node name="Roof6" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 328, -157 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 32, 352, 64, 32 )
+
+[node name="Roof7" type="Sprite" parent="GameScenario/BG"]
+position = Vector2( 168, -197 )
+scale = Vector2( 6, 1.5 )
+texture = ExtResource( 7 )
+flip_v = true
+region_enabled = true
+region_rect = Rect2( 32, 352, 64, 32 )
+
+[node name="TimerTrainShake" type="Timer" parent="GameScenario"]
+wait_time = 0.5
+autostart = true
+
+[node name="VillageAInterior" type="Sprite" parent="GameScenario"]
+position = Vector2( 275, -63 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 912, 400, 32, 48 )
+
+[node name="InteractableArea2DIndicator" parent="GameScenario" instance=ExtResource( 13 )]
+position = Vector2( 275, -39 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScenario/InteractableArea2DIndicator"]
+position = Vector2( 2, -3.5 )
+shape = SubResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/show = SubResource( 2 )
+
+[connection signal="tree_exiting" from="." to="." method="_on_Node_tree_exiting"]
+[connection signal="timeout" from="GameScenario/TimerTrainShake" to="." method="_on_TimerTrainShake_timeout"]
+[connection signal="interact_requested" from="GameScenario/InteractableArea2DIndicator" to="." method="_on_InteractableArea2DIndicator_interact_requested"]

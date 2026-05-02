@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ambient_fire_crackle.ogg-efaee44a8c5f46290f0ca45523a36a8a.oggstr"
+
+[deps]
+
+source_file="res://assets/bgm/ambient_fire_crackle.ogg"
+dest_files=[ "res://.import/ambient_fire_crackle.ogg-efaee44a8c5f46290f0ca45523a36a8a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/birstall_3.ogg-a9fbd549dcb9b85ca2a6122a58c3358f.oggstr"
+
+[deps]
+
+source_file="res://assets/bgm/birstall_3.ogg"
+dest_files=[ "res://.import/birstall_3.ogg-a9fbd549dcb9b85ca2a6122a58c3358f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

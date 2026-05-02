@@ -1,0 +1,25 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=2]
+
+[ext_resource path="res://src/gdshaders/fire2d_noise.gdshader" type="Shader" id=1]
+
+[sub_resource type="Gradient" id=1]
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="OpenSimplexNoise" id=3]
+period = 34.6
+persistence = 0.402
+
+[sub_resource type="NoiseTexture" id=4]
+as_normalmap = true
+noise = SubResource( 3 )
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/brighter_color = Color( 0.972549, 0.690196, 0.313726, 1 )
+shader_param/middle_color = Color( 0.972549, 0.470588, 0.12549, 1 )
+shader_param/darker_color = Color( 0.972549, 0.156863, 0.0313726, 1 )
+shader_param/spread = 1.0
+shader_param/noise_tex = SubResource( 4 )
+shader_param/gradient_tex = SubResource( 2 )

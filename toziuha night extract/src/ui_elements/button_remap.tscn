@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/tres/ThemeBasic.tres" type="Theme" id=1]
+[ext_resource path="res://src/ui_elements/helper_icon_btn.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/ui_elements/button_remap.gd" type="Script" id=3]
+[ext_resource path="res://assets/fonts/LanaPixel.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=2]
+size = 10
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[node name="ButtonRemap" type="Button" groups=["remap_button"]]
+margin_right = 120.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 120, 22 )
+mouse_filter = 1
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+action_mode = 0
+text = "ACTION_"
+clip_text = true
+align = 0
+script = ExtResource( 3 )
+
+[node name="HelperIconBtn" parent="." instance=ExtResource( 2 )]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -16.0
+margin_right = 0.0
+margin_bottom = 0.0
+show_specific_icon = "gamepad"
+
+[node name="LblMsg" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_vertical = 2
+custom_constants/line_spacing = -1
+custom_fonts/font = SubResource( 2 )
+text = "PRESS_NEW_BTN"
+align = 2
+valign = 1
+autowrap = true
+
+[node name="TimerAppliedRemap" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="pressed" from="." to="." method="_on_ButtonRemap_pressed"]

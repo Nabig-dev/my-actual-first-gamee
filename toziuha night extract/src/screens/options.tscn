@@ -1,0 +1,1066 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://src/ui_elements/bg_parallax_demon_forest.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/tres/ThemeBasic.tres" type="Theme" id=2]
+[ext_resource path="res://src/screens/options.gd" type="Script" id=3]
+[ext_resource path="res://src/ui_elements/show_hide_elements_with_gamepad_and_touch.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/ui_elements/button_options_menu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/ui_elements/helper_icon_btn.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/ui_elements/button_remap.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/tres/fonts/alkemikal_small.tres" type="DynamicFont" id=8]
+[ext_resource path="res://assets/images/texture_old_paper.jpg" type="Texture" id=9]
+[ext_resource path="res://src/ui_elements/gamepad_dpad_echo.tscn" type="PackedScene" id=10]
+
+[sub_resource type="StyleBoxLine" id=2]
+color = Color( 1, 1, 1, 0.596078 )
+
+[sub_resource type="StyleBoxLine" id=1]
+color = Color( 1, 1, 1, 0.305882 )
+
+[node name="Options" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_vertical_guides_": [  ]
+}
+
+[node name="BgParallaxDemonForest" parent="." instance=ExtResource( 1 )]
+modulate = Color( 0.772549, 0.0196078, 0.854902, 1 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="CtrlHelpers" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TabPrev" parent="CtrlHelpers" instance=ExtResource( 6 )]
+margin_left = 4.0
+margin_top = 3.0
+margin_right = 20.0
+margin_bottom = 19.0
+action = "ui_focus_prev"
+
+[node name="TabNext" parent="CtrlHelpers" instance=ExtResource( 6 )]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -20.0
+margin_top = 3.0
+margin_right = -4.0
+margin_bottom = 19.0
+action = "ui_focus_next"
+
+[node name="Margin" type="MarginContainer" parent="CtrlHelpers"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -20.0
+size_flags_vertical = 8
+custom_constants/margin_right = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 4
+
+[node name="Hbox" type="HBoxContainer" parent="CtrlHelpers/Margin"]
+margin_left = 10.0
+margin_right = 331.0
+margin_bottom = 16.0
+custom_constants/separation = 5
+alignment = 1
+
+[node name="HbxBack" type="HBoxContainer" parent="CtrlHelpers/Margin/Hbox"]
+margin_right = 76.0
+margin_bottom = 16.0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+alignment = 1
+
+[node name="Icon" parent="CtrlHelpers/Margin/Hbox/HbxBack" instance=ExtResource( 6 )]
+margin_left = 11.0
+margin_right = 27.0
+action = "ui_cancel"
+
+[node name="Label" type="Label" parent="CtrlHelpers/Margin/Hbox/HbxBack"]
+margin_left = 31.0
+margin_top = 1.0
+margin_right = 64.0
+margin_bottom = 15.0
+text = "RETURN"
+
+[node name="HbxMoveUD" type="HBoxContainer" parent="CtrlHelpers/Margin/Hbox"]
+margin_left = 81.0
+margin_right = 158.0
+margin_bottom = 16.0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+alignment = 1
+
+[node name="Icon" parent="CtrlHelpers/Margin/Hbox/HbxMoveUD" instance=ExtResource( 6 )]
+margin_left = 6.0
+margin_right = 22.0
+action = "ui_up"
+
+[node name="Icon2" parent="CtrlHelpers/Margin/Hbox/HbxMoveUD" instance=ExtResource( 6 )]
+margin_left = 26.0
+margin_right = 42.0
+action = "ui_down"
+
+[node name="Label" type="Label" parent="CtrlHelpers/Margin/Hbox/HbxMoveUD"]
+margin_left = 46.0
+margin_top = 1.0
+margin_right = 71.0
+margin_bottom = 15.0
+text = "MOVE"
+
+[node name="HbxMoveLR" type="HBoxContainer" parent="CtrlHelpers/Margin/Hbox"]
+margin_left = 163.0
+margin_right = 239.0
+margin_bottom = 16.0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+alignment = 1
+
+[node name="Icon" parent="CtrlHelpers/Margin/Hbox/HbxMoveLR" instance=ExtResource( 6 )]
+action = "ui_left"
+
+[node name="Icon2" parent="CtrlHelpers/Margin/Hbox/HbxMoveLR" instance=ExtResource( 6 )]
+margin_left = 20.0
+margin_right = 36.0
+action = "ui_right"
+
+[node name="Label" type="Label" parent="CtrlHelpers/Margin/Hbox/HbxMoveLR"]
+margin_left = 40.0
+margin_top = 1.0
+margin_right = 75.0
+margin_bottom = 15.0
+text = "CHANGE"
+
+[node name="HbxAccept" type="HBoxContainer" parent="CtrlHelpers/Margin/Hbox"]
+margin_left = 244.0
+margin_right = 321.0
+margin_bottom = 16.0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+alignment = 1
+
+[node name="Icon" parent="CtrlHelpers/Margin/Hbox/HbxAccept" instance=ExtResource( 6 )]
+margin_left = 12.0
+margin_right = 28.0
+action = "ui_accept"
+
+[node name="Label" type="Label" parent="CtrlHelpers/Margin/Hbox/HbxAccept"]
+margin_left = 32.0
+margin_top = 1.0
+margin_right = 65.0
+margin_bottom = 15.0
+text = "SELECT"
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 4
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 24
+
+[node name="TabContainer" type="TabContainer" parent="Margin"]
+margin_left = 4.0
+margin_right = 337.0
+margin_bottom = 168.0
+size_flags_horizontal = 3
+
+[node name="GAMEPLAY" type="Tabs" parent="Margin/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 29.0
+margin_right = -5.0
+margin_bottom = -5.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Margin/TabContainer/GAMEPLAY"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+follow_focus = true
+
+[node name="Margin" type="MarginContainer" parent="Margin/TabContainer/GAMEPLAY/ScrollContainer"]
+margin_right = 319.0
+margin_bottom = 256.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 10
+custom_constants/margin_left = 10
+
+[node name="VBox" type="VBoxContainer" parent="Margin/TabContainer/GAMEPLAY/ScrollContainer/Margin"]
+margin_left = 10.0
+margin_right = 309.0
+margin_bottom = 256.0
+size_flags_horizontal = 7
+custom_constants/separation = 4
+
+[node name="BtnLang" parent="Margin/TabContainer/GAMEPLAY/ScrollContainer/Margin/VBox" instance=ExtResource( 5 )]
+unique_name_in_owner = true
+margin_right = 299.0
+focus_neighbour_top = NodePath("../BtnMainMenu")
+title_btn = "LANGUAGE"
+section = "gameplay"
+key = "lang"
+items_values = [ "en", "es", "pt_BR" ]
+items_text = [ "English", "Español", "Portuguese (Brazil)" ]
+
+[node name="LblLangNotice" type="Label" parent="Margin/TabContainer/GAMEPLAY/ScrollContainer/Margin/VBox"]
+unique_name_in_owner = true
+modulate = Color( 0.733333, 0.768627, 0.470588, 1 )
+margin_top = 20.0
+margin_right = 299.0
+margin_bottom = 34.0
+text = "* This translation is fan-made. It may be incomplete. *"
+align = 1
+
+[node name="HSeparatorLang" type="HSeparator" parent="Margin/TabContainer/GAMEPLAY/ScrollContainer/Margin/VBox"]
+unique_name_in_owner = true
+margin_top = 38.0
+margin_right = 299.0
+margin_bottom = 42.0
+custom_styles/separator = SubResource( 2 )
+
+[node name="BtnEditTouchButtons" type="Button" parent="Margin/TabContainer/GAMEPLAY/ScrollContainer/Margin/VBox"]
+margin_top = 46.0
+margin_right = 299.0
+margin_bottom = 60.0
+text = "EDIT_TOUCH_BTNS"
+
+[node name="BtnAlwaysShowVpad" parent="Margin/TabContainer/GAMEPLAY/ScrollContainer/Margin/VBox" instance=ExtResource( 5 )]
+margin_top = 64.0
+margin_right = 299.0
+margin_bottom = 80.0
+title_btn = "ONSCREENBUTTONSALWAYSVISIBLE"
+section = "touch_screen_btn"
+key = "always_visible"
+bool_value = true
+
+[node name="BtnUseVirtualJoystick" parent="Margin/TabContainer/GAMEPLAY/ScrollContainer/Margin/VBox" instance=ExtResource( 5 )]
+margin_top = 84.0
+margin_right = 299.0
+margin_bottom = 100.0
+title_btn = "USEVIRTUALJOYSTICK"
+section = "touch_screen_btn"
+key = "joystick"
+bool_value = true
+
+[node name="BtnShowMinimap" parent="Margin/TabContainer/GAMEPLAY/ScrollContainer/Margin/VBox" instance=ExtResource( 5 )]
+margin_top = 104.0
+margin_right = 299.0
+margin_bottom = 120.0
+title_btn = "SHOW_MINIMAP"
+section = "gameplay"
+key = "show_minimap"
+bool_value = true
+
+[node name="BtnVisibilityMinimap" parent="Margin/TabContainer/GAMEPLAY/ScrollContainer/Margin/VBox" instance=ExtResource( 5 )]
+margin_top = 124.0
+margin_right = 299.0
+margin_bottom = 140.0
+title_btn = "MINIMAP_VISIBILITY"
+section = "gameplay"
+key = "minimap_opacity"
+items_values = [ "0.4", "0.5", "0.6", "0.7", "0.8", "0.9" ]
+items_text = [ "40 %", "50 %", "60 %", "70 %", "80 %", "90 %" ]
+
+[node name="BtnPlayerAferImg" parent="Margin/TabContainer/GAMEPLAY/ScrollContainer/Margin/VBox" instance=ExtResource( 5 )]
+margin_top = 144.0
+margin_right = 299.0
+margin_bottom = 160.0
+title_btn = "PLAYER_AFTERIMAGE"
+section = "gameplay"
+key = "player_afterimage"
+bool_value = true
+
+[node name="BtnQuickMenDetails" parent="Margin/TabContainer/GAMEPLAY/ScrollContainer/Margin/VBox" instance=ExtResource( 5 )]
+margin_top = 164.0
+margin_right = 299.0
+margin_bottom = 180.0
+title_btn = "DETAILS_QUICKMENU"
+section = "gameplay"
+key = "quickmenu_details"
+bool_value = true
+
+[node name="BtnCameraShake" parent="Margin/TabContainer/GAMEPLAY/ScrollContainer/Margin/VBox" instance=ExtResource( 5 )]
+margin_top = 184.0
+margin_right = 299.0
+margin_bottom = 200.0
+title_btn = "SHAKE_CMR_DAMAGE"
+section = "gameplay"
+key = "camera_shake"
+bool_value = true
+
+[node name="BtnDeathCounter" parent="Margin/TabContainer/GAMEPLAY/ScrollContainer/Margin/VBox" instance=ExtResource( 5 )]
+visible = false
+margin_top = 118.0
+margin_right = 278.0
+margin_bottom = 134.0
+title_btn = "SHOW_DEATH_COUNTER"
+section = "gameplay"
+key = "show_death_counter"
+bool_value = true
+
+[node name="BtnIconAction" parent="Margin/TabContainer/GAMEPLAY/ScrollContainer/Margin/VBox" instance=ExtResource( 5 )]
+margin_top = 204.0
+margin_right = 299.0
+margin_bottom = 220.0
+title_btn = "ICONS_BTNS"
+section = "gameplay"
+key = "icons_buttons"
+items_values = [ "keyboard", "gamepad" ]
+items_text = [ "KEYBOARD", "GAMEPAD" ]
+
+[node name="BtnDifficultyOptions" type="Button" parent="Margin/TabContainer/GAMEPLAY/ScrollContainer/Margin/VBox"]
+margin_top = 224.0
+margin_right = 299.0
+margin_bottom = 238.0
+text = "DIFFICULTY_OPTIONS"
+
+[node name="BtnMainMenu" type="Button" parent="Margin/TabContainer/GAMEPLAY/ScrollContainer/Margin/VBox"]
+margin_top = 242.0
+margin_right = 299.0
+margin_bottom = 256.0
+focus_neighbour_bottom = NodePath("../BtnLang")
+text = "MAIN_MENU"
+
+[node name="VIDEO" type="Tabs" parent="Margin/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 29.0
+margin_right = -5.0
+margin_bottom = -5.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Margin/TabContainer/VIDEO"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 18.0
+follow_focus = true
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Margin" type="MarginContainer" parent="Margin/TabContainer/VIDEO/ScrollContainer"]
+margin_right = 323.0
+margin_bottom = 152.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 10
+custom_constants/margin_left = 10
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="VBox" type="VBoxContainer" parent="Margin/TabContainer/VIDEO/ScrollContainer/Margin"]
+margin_left = 10.0
+margin_right = 313.0
+margin_bottom = 152.0
+size_flags_horizontal = 7
+custom_constants/separation = 4
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="BtnVFXQuality" parent="Margin/TabContainer/VIDEO/ScrollContainer/Margin/VBox" instance=ExtResource( 5 )]
+margin_right = 303.0
+focus_neighbour_top = NodePath("../BtnMainMenu")
+title_btn = "QUALITY"
+section = "video"
+key = "vfx_level"
+items_values = [ "0", "1", "2" ]
+items_text = [ "SHADERS_NOT_SIMPLE_LIGHTS", "SHADERS_SIMPLE_LIGHTS", "SHADERS_DYNAMIC_LIGHTS" ]
+
+[node name="BtnScreenFilter" parent="Margin/TabContainer/VIDEO/ScrollContainer/Margin/VBox" instance=ExtResource( 5 )]
+margin_top = 20.0
+margin_right = 303.0
+margin_bottom = 36.0
+title_btn = "SCREEN_FILTER"
+section = "video"
+key = "filter"
+items_values = [ "none", "crt_curved", "crt_no_curve" ]
+items_text = [ "NONE", "CRT (only in-gameplay)", "Grid LCD" ]
+
+[node name="BtnAdditionalGlow" parent="Margin/TabContainer/VIDEO/ScrollContainer/Margin/VBox" instance=ExtResource( 5 )]
+visible = false
+margin_top = 80.0
+margin_right = 1150.0
+margin_bottom = 144.0
+title_btn = "ADITIONAL_GLOW_VFX"
+section = "video"
+key = "aditional_glow"
+bool_value = true
+
+[node name="BtnVisualMode" parent="Margin/TabContainer/VIDEO/ScrollContainer/Margin/VBox" instance=ExtResource( 5 )]
+margin_top = 40.0
+margin_right = 303.0
+margin_bottom = 56.0
+title_btn = "VISUALIZATION_MODE"
+section = "video"
+key = "visual_mode"
+items_values = [ "windowed", "borderless", "fullscreen" ]
+items_text = [ "WINDOWED", "WINDOW_BORDERLESS", "FULLSCREEN" ]
+
+[node name="BtnResolution" parent="Margin/TabContainer/VIDEO/ScrollContainer/Margin/VBox" instance=ExtResource( 5 )]
+margin_top = 60.0
+margin_right = 303.0
+margin_bottom = 76.0
+title_btn = "WINDOW_RESOLUTION"
+section = "video"
+key = "window_resolution"
+items_values = [ "3", "2", "1", "0", "-1" ]
+items_text = [ "341 x 192", "682 x 384", "1023 x 576", "1364 x 768", "MONITOR_RES" ]
+
+[node name="BtnFPSLimit" parent="Margin/TabContainer/VIDEO/ScrollContainer/Margin/VBox" instance=ExtResource( 5 )]
+margin_top = 80.0
+margin_right = 303.0
+margin_bottom = 96.0
+title_btn = "FPS_LIMIT"
+section = "video"
+key = "fps"
+items_values = [ "30", "60", "90", "120" ]
+items_text = [ "30 FPS", "60 FPS", "90 FPS", "120 FPS" ]
+
+[node name="BtnPixelScale" parent="Margin/TabContainer/VIDEO/ScrollContainer/Margin/VBox" instance=ExtResource( 5 )]
+visible = false
+margin_top = 100.0
+margin_right = 282.0
+margin_bottom = 116.0
+title_btn = "PRECISE_SCALING"
+section = "video"
+key = "screen_scaling"
+bool_value = true
+
+[node name="BtnMainMenu" type="Button" parent="Margin/TabContainer/VIDEO/ScrollContainer/Margin/VBox"]
+margin_top = 100.0
+margin_right = 303.0
+margin_bottom = 114.0
+focus_neighbour_bottom = NodePath("../BtnVFXQuality")
+text = "MAIN_MENU"
+
+[node name="AUDIO" type="Tabs" parent="Margin/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 29.0
+margin_right = -5.0
+margin_bottom = -5.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Margin/TabContainer/AUDIO"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+follow_focus = true
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Margin" type="MarginContainer" parent="Margin/TabContainer/AUDIO/ScrollContainer"]
+margin_right = 323.0
+margin_bottom = 134.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 10
+custom_constants/margin_left = 10
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="VBox" type="VBoxContainer" parent="Margin/TabContainer/AUDIO/ScrollContainer/Margin"]
+margin_left = 10.0
+margin_right = 313.0
+margin_bottom = 134.0
+size_flags_horizontal = 7
+custom_constants/separation = 4
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="HBox_sfx" type="HBoxContainer" parent="Margin/TabContainer/AUDIO/ScrollContainer/Margin/VBox"]
+margin_right = 303.0
+margin_bottom = 26.0
+alignment = 1
+
+[node name="Label" type="Label" parent="Margin/TabContainer/AUDIO/ScrollContainer/Margin/VBox/HBox_sfx"]
+margin_top = 6.0
+margin_right = 150.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 150, 0 )
+text = "SOUND_EFFECTS"
+
+[node name="HSlider" type="HSlider" parent="Margin/TabContainer/AUDIO/ScrollContainer/Margin/VBox/HBox_sfx"]
+margin_left = 154.0
+margin_right = 281.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 40, 0 )
+focus_neighbour_top = NodePath("../../BtnMainMenu")
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="LblNum" type="Label" parent="Margin/TabContainer/AUDIO/ScrollContainer/Margin/VBox/HBox_sfx"]
+margin_left = 285.0
+margin_top = 6.0
+margin_right = 303.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 17, 0 )
+text = "000"
+
+[node name="HBox_bgm" type="HBoxContainer" parent="Margin/TabContainer/AUDIO/ScrollContainer/Margin/VBox"]
+margin_top = 30.0
+margin_right = 303.0
+margin_bottom = 56.0
+alignment = 1
+
+[node name="Label" type="Label" parent="Margin/TabContainer/AUDIO/ScrollContainer/Margin/VBox/HBox_bgm"]
+margin_top = 6.0
+margin_right = 150.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 150, 0 )
+text = "MUSIC"
+
+[node name="HSlider" type="HSlider" parent="Margin/TabContainer/AUDIO/ScrollContainer/Margin/VBox/HBox_bgm"]
+margin_left = 154.0
+margin_right = 281.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="LblNum" type="Label" parent="Margin/TabContainer/AUDIO/ScrollContainer/Margin/VBox/HBox_bgm"]
+margin_left = 285.0
+margin_top = 6.0
+margin_right = 303.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 17, 0 )
+text = "000"
+
+[node name="HBox_voice" type="HBoxContainer" parent="Margin/TabContainer/AUDIO/ScrollContainer/Margin/VBox"]
+margin_top = 60.0
+margin_right = 303.0
+margin_bottom = 86.0
+alignment = 1
+
+[node name="Label" type="Label" parent="Margin/TabContainer/AUDIO/ScrollContainer/Margin/VBox/HBox_voice"]
+margin_top = 6.0
+margin_right = 150.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 150, 0 )
+text = "VOICES"
+
+[node name="HSlider" type="HSlider" parent="Margin/TabContainer/AUDIO/ScrollContainer/Margin/VBox/HBox_voice"]
+margin_left = 154.0
+margin_right = 281.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="LblNum" type="Label" parent="Margin/TabContainer/AUDIO/ScrollContainer/Margin/VBox/HBox_voice"]
+margin_left = 285.0
+margin_top = 6.0
+margin_right = 303.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 17, 0 )
+text = "000"
+
+[node name="BtnMainMenu" type="Button" parent="Margin/TabContainer/AUDIO/ScrollContainer/Margin/VBox"]
+margin_top = 90.0
+margin_right = 303.0
+margin_bottom = 104.0
+focus_neighbour_bottom = NodePath("../HBox_sfx/HSlider")
+text = "MAIN_MENU"
+
+[node name="GAMEPAD" type="Tabs" parent="Margin/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 29.0
+margin_right = -5.0
+margin_bottom = -5.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Margin/TabContainer/GAMEPAD"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+follow_focus = true
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Margin" type="MarginContainer" parent="Margin/TabContainer/GAMEPAD/ScrollContainer"]
+margin_right = 323.0
+margin_bottom = 264.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 10
+custom_constants/margin_left = 10
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="VBox" type="VBoxContainer" parent="Margin/TabContainer/GAMEPAD/ScrollContainer/Margin"]
+margin_left = 10.0
+margin_right = 313.0
+margin_bottom = 264.0
+size_flags_horizontal = 7
+custom_constants/separation = 4
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="BtnUseJoystick" parent="Margin/TabContainer/GAMEPAD/ScrollContainer/Margin/VBox" instance=ExtResource( 5 )]
+margin_right = 299.0
+focus_neighbour_top = NodePath("../BtnMainMenu")
+title_btn = "MOVE_WITH_JOYSTICK"
+section = "gamepad"
+key = "joystick_enabled"
+bool_value = true
+
+[node name="BtnGmpdVibrt" parent="Margin/TabContainer/GAMEPAD/ScrollContainer/Margin/VBox" instance=ExtResource( 5 )]
+margin_top = 20.0
+margin_right = 299.0
+margin_bottom = 36.0
+title_btn = "GAMEPAD_VIBRTN"
+section = "gamepad"
+key = "vibration"
+bool_value = true
+
+[node name="BtnGmpdMapping" type="Button" parent="Margin/TabContainer/GAMEPAD/ScrollContainer/Margin/VBox"]
+margin_top = 40.0
+margin_right = 299.0
+margin_bottom = 54.0
+text = "CALIBRATEGAMEPAD"
+
+[node name="Grid" type="GridContainer" parent="Margin/TabContainer/GAMEPAD/ScrollContainer/Margin/VBox"]
+margin_top = 58.0
+margin_right = 299.0
+margin_bottom = 262.0
+size_flags_horizontal = 3
+custom_constants/vseparation = 4
+custom_constants/hseparation = 25
+columns = 2
+
+[node name="ButtonRemap1" parent="Margin/TabContainer/GAMEPAD/ScrollContainer/Margin/VBox/Grid" instance=ExtResource( 7 )]
+margin_right = 137.0
+type_input = "gamepad"
+action_input = "attack"
+
+[node name="ButtonRemap2" parent="Margin/TabContainer/GAMEPAD/ScrollContainer/Margin/VBox/Grid" instance=ExtResource( 7 )]
+margin_left = 162.0
+margin_right = 299.0
+type_input = "gamepad"
+action_input = "circuit"
+
+[node name="ButtonRemap3" parent="Margin/TabContainer/GAMEPAD/ScrollContainer/Margin/VBox/Grid" instance=ExtResource( 7 )]
+margin_top = 26.0
+margin_right = 137.0
+margin_bottom = 48.0
+type_input = "gamepad"
+action_input = "jump"
+
+[node name="ButtonRemap4" parent="Margin/TabContainer/GAMEPAD/ScrollContainer/Margin/VBox/Grid" instance=ExtResource( 7 )]
+margin_left = 162.0
+margin_top = 26.0
+margin_right = 299.0
+margin_bottom = 48.0
+type_input = "gamepad"
+action_input = "backdash"
+
+[node name="ButtonRemap6" parent="Margin/TabContainer/GAMEPAD/ScrollContainer/Margin/VBox/Grid" instance=ExtResource( 7 )]
+margin_left = 162.0
+margin_top = 52.0
+margin_right = 299.0
+margin_bottom = 74.0
+type_input = "gamepad"
+action_input = "ui_select"
+
+[node name="ButtonRemap5" parent="Margin/TabContainer/GAMEPAD/ScrollContainer/Margin/VBox/Grid" instance=ExtResource( 7 )]
+margin_top = 52.0
+margin_right = 137.0
+margin_bottom = 74.0
+type_input = "gamepad"
+
+[node name="ButtonRemap7" parent="Margin/TabContainer/GAMEPAD/ScrollContainer/Margin/VBox/Grid" instance=ExtResource( 7 )]
+margin_top = 78.0
+margin_right = 137.0
+margin_bottom = 100.0
+type_input = "gamepad"
+action_input = "quickmenu"
+
+[node name="Control" type="Control" parent="Margin/TabContainer/GAMEPAD/ScrollContainer/Margin/VBox/Grid"]
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_filter = 1
+
+[node name="ButtonRemap8" parent="Margin/TabContainer/GAMEPAD/ScrollContainer/Margin/VBox/Grid" instance=ExtResource( 7 )]
+margin_top = 104.0
+margin_right = 137.0
+margin_bottom = 126.0
+type_input = "gamepad"
+action_input = "ui_accept"
+
+[node name="ButtonRemap9" parent="Margin/TabContainer/GAMEPAD/ScrollContainer/Margin/VBox/Grid" instance=ExtResource( 7 )]
+margin_left = 162.0
+margin_top = 104.0
+margin_right = 299.0
+margin_bottom = 126.0
+type_input = "gamepad"
+action_input = "ui_cancel"
+
+[node name="ButtonRemap10" parent="Margin/TabContainer/GAMEPAD/ScrollContainer/Margin/VBox/Grid" instance=ExtResource( 7 )]
+visible = false
+margin_top = 130.0
+margin_right = 137.0
+margin_bottom = 152.0
+type_input = "gamepad"
+action_input = "ui_left"
+
+[node name="ButtonRemap11" parent="Margin/TabContainer/GAMEPAD/ScrollContainer/Margin/VBox/Grid" instance=ExtResource( 7 )]
+visible = false
+margin_left = 162.0
+margin_top = 130.0
+margin_right = 299.0
+margin_bottom = 152.0
+type_input = "gamepad"
+action_input = "ui_right"
+
+[node name="ButtonRemap12" parent="Margin/TabContainer/GAMEPAD/ScrollContainer/Margin/VBox/Grid" instance=ExtResource( 7 )]
+visible = false
+margin_top = 156.0
+margin_right = 137.0
+margin_bottom = 178.0
+type_input = "gamepad"
+action_input = "ui_up"
+
+[node name="ButtonRemap13" parent="Margin/TabContainer/GAMEPAD/ScrollContainer/Margin/VBox/Grid" instance=ExtResource( 7 )]
+visible = false
+margin_left = 162.0
+margin_top = 156.0
+margin_right = 299.0
+margin_bottom = 178.0
+type_input = "gamepad"
+action_input = "ui_down"
+
+[node name="ButtonRemap14" parent="Margin/TabContainer/GAMEPAD/ScrollContainer/Margin/VBox/Grid" instance=ExtResource( 7 )]
+margin_top = 182.0
+margin_right = 137.0
+margin_bottom = 204.0
+type_input = "gamepad"
+action_input = "ui_focus_prev"
+
+[node name="ButtonRemap15" parent="Margin/TabContainer/GAMEPAD/ScrollContainer/Margin/VBox/Grid" instance=ExtResource( 7 )]
+margin_left = 162.0
+margin_top = 182.0
+margin_right = 299.0
+margin_bottom = 204.0
+type_input = "gamepad"
+action_input = "ui_focus_next"
+
+[node name="BtnChangeScheme" type="Button" parent="Margin/TabContainer/GAMEPAD/ScrollContainer/Margin/VBox"]
+margin_top = 266.0
+margin_right = 299.0
+margin_bottom = 280.0
+text = "CHANGE_SCHEME_ICONS"
+
+[node name="BtnCustomIconsBtns" type="Button" parent="Margin/TabContainer/GAMEPAD/ScrollContainer/Margin/VBox"]
+visible = false
+margin_top = 266.0
+margin_right = 299.0
+margin_bottom = 280.0
+text = "CUSTOM_GAMEPAD_ICONS"
+
+[node name="BtnResetGamepadConf" type="Button" parent="Margin/TabContainer/GAMEPAD/ScrollContainer/Margin/VBox"]
+margin_top = 284.0
+margin_right = 299.0
+margin_bottom = 298.0
+text = "CONF_DEFAULT"
+
+[node name="BtnMainMenu" type="Button" parent="Margin/TabContainer/GAMEPAD/ScrollContainer/Margin/VBox"]
+margin_top = 302.0
+margin_right = 299.0
+margin_bottom = 316.0
+focus_neighbour_bottom = NodePath("../BtnUseJoystick")
+text = "MAIN_MENU"
+
+[node name="KEYBOARD" type="Tabs" parent="Margin/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 29.0
+margin_right = -5.0
+margin_bottom = -5.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Margin/TabContainer/KEYBOARD"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+follow_focus = true
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Margin" type="MarginContainer" parent="Margin/TabContainer/KEYBOARD/ScrollContainer"]
+margin_right = 323.0
+margin_bottom = 240.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 10
+custom_constants/margin_left = 10
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="VBox" type="VBoxContainer" parent="Margin/TabContainer/KEYBOARD/ScrollContainer/Margin"]
+margin_left = 10.0
+margin_right = 313.0
+margin_bottom = 240.0
+size_flags_horizontal = 7
+custom_constants/separation = 4
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="BtnResetKeyboardConf" type="Button" parent="Margin/TabContainer/KEYBOARD/ScrollContainer/Margin/VBox"]
+margin_top = 156.0
+margin_right = 278.0
+margin_bottom = 170.0
+focus_neighbour_top = NodePath("../BtnMainMenu")
+text = "CONF_DEFAULT"
+
+[node name="Grid" type="GridContainer" parent="Margin/TabContainer/KEYBOARD/ScrollContainer/Margin/VBox"]
+margin_right = 278.0
+margin_bottom = 152.0
+custom_constants/vseparation = 4
+custom_constants/hseparation = 25
+columns = 2
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="ButtonRemap1" parent="Margin/TabContainer/KEYBOARD/ScrollContainer/Margin/VBox/Grid" instance=ExtResource( 7 )]
+margin_right = 137.0
+action_input = "attack"
+
+[node name="ButtonRemap2" parent="Margin/TabContainer/KEYBOARD/ScrollContainer/Margin/VBox/Grid" instance=ExtResource( 7 )]
+margin_left = 162.0
+margin_right = 299.0
+action_input = "circuit"
+
+[node name="ButtonRemap3" parent="Margin/TabContainer/KEYBOARD/ScrollContainer/Margin/VBox/Grid" instance=ExtResource( 7 )]
+margin_top = 26.0
+margin_right = 137.0
+margin_bottom = 48.0
+action_input = "jump"
+
+[node name="ButtonRemap4" parent="Margin/TabContainer/KEYBOARD/ScrollContainer/Margin/VBox/Grid" instance=ExtResource( 7 )]
+margin_left = 162.0
+margin_top = 26.0
+margin_right = 299.0
+margin_bottom = 48.0
+action_input = "backdash"
+
+[node name="ButtonRemap6" parent="Margin/TabContainer/KEYBOARD/ScrollContainer/Margin/VBox/Grid" instance=ExtResource( 7 )]
+margin_left = 162.0
+margin_top = 52.0
+margin_right = 299.0
+margin_bottom = 74.0
+action_input = "ui_select"
+
+[node name="ButtonRemap5" parent="Margin/TabContainer/KEYBOARD/ScrollContainer/Margin/VBox/Grid" instance=ExtResource( 7 )]
+margin_top = 52.0
+margin_right = 137.0
+margin_bottom = 74.0
+
+[node name="ButtonRemap7" parent="Margin/TabContainer/KEYBOARD/ScrollContainer/Margin/VBox/Grid" instance=ExtResource( 7 )]
+margin_top = 78.0
+margin_right = 137.0
+margin_bottom = 100.0
+action_input = "quickmenu"
+
+[node name="Control" type="Control" parent="Margin/TabContainer/KEYBOARD/ScrollContainer/Margin/VBox/Grid"]
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_filter = 1
+
+[node name="ButtonRemap8" parent="Margin/TabContainer/KEYBOARD/ScrollContainer/Margin/VBox/Grid" instance=ExtResource( 7 )]
+margin_top = 104.0
+margin_right = 137.0
+margin_bottom = 126.0
+action_input = "ui_accept"
+
+[node name="ButtonRemap9" parent="Margin/TabContainer/KEYBOARD/ScrollContainer/Margin/VBox/Grid" instance=ExtResource( 7 )]
+margin_left = 162.0
+margin_top = 104.0
+margin_right = 299.0
+margin_bottom = 126.0
+action_input = "ui_cancel"
+
+[node name="ButtonRemap10" parent="Margin/TabContainer/KEYBOARD/ScrollContainer/Margin/VBox/Grid" instance=ExtResource( 7 )]
+margin_top = 130.0
+margin_right = 137.0
+margin_bottom = 152.0
+action_input = "ui_left"
+
+[node name="ButtonRemap11" parent="Margin/TabContainer/KEYBOARD/ScrollContainer/Margin/VBox/Grid" instance=ExtResource( 7 )]
+margin_left = 162.0
+margin_top = 130.0
+margin_right = 299.0
+margin_bottom = 152.0
+action_input = "ui_right"
+
+[node name="ButtonRemap12" parent="Margin/TabContainer/KEYBOARD/ScrollContainer/Margin/VBox/Grid" instance=ExtResource( 7 )]
+margin_top = 156.0
+margin_right = 137.0
+margin_bottom = 178.0
+action_input = "ui_up"
+
+[node name="ButtonRemap13" parent="Margin/TabContainer/KEYBOARD/ScrollContainer/Margin/VBox/Grid" instance=ExtResource( 7 )]
+margin_left = 162.0
+margin_top = 156.0
+margin_right = 299.0
+margin_bottom = 178.0
+action_input = "ui_down"
+
+[node name="ButtonRemap14" parent="Margin/TabContainer/KEYBOARD/ScrollContainer/Margin/VBox/Grid" instance=ExtResource( 7 )]
+margin_top = 182.0
+margin_right = 137.0
+margin_bottom = 204.0
+action_input = "ui_focus_prev"
+
+[node name="ButtonRemap15" parent="Margin/TabContainer/KEYBOARD/ScrollContainer/Margin/VBox/Grid" instance=ExtResource( 7 )]
+margin_left = 162.0
+margin_top = 182.0
+margin_right = 299.0
+margin_bottom = 204.0
+action_input = "ui_focus_next"
+
+[node name="BtnMainMenu" type="Button" parent="Margin/TabContainer/KEYBOARD/ScrollContainer/Margin/VBox"]
+margin_top = 174.0
+margin_right = 278.0
+margin_bottom = 188.0
+focus_neighbour_bottom = NodePath("../BtnResetKeyboardConf")
+text = "MAIN_MENU"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+
+[node name="ShowHideElementsWithGamepadAndTouch" parent="." instance=ExtResource( 4 )]
+objs = [ NodePath("../CtrlHelpers") ]
+
+[node name="PopupAboutFanmadeTranslation" type="Popup" parent="."]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="PopupAboutFanmadeTranslation"]
+modulate = Color( 0.156863, 0.14902, 0.14902, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 0
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 7
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupAboutFanmadeTranslation"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -119.5
+margin_top = -90.0
+margin_right = 119.5
+margin_bottom = 90.0
+custom_constants/separation = 5
+alignment = 1
+
+[node name="Label" type="Label" parent="PopupAboutFanmadeTranslation/VBoxContainer"]
+margin_top = 28.0
+margin_right = 239.0
+margin_bottom = 44.0
+custom_fonts/font = ExtResource( 8 )
+text = "THISLANGISFANMADE"
+align = 1
+autowrap = true
+
+[node name="Label2" type="Label" parent="PopupAboutFanmadeTranslation/VBoxContainer"]
+margin_top = 49.0
+margin_right = 239.0
+margin_bottom = 63.0
+text = "ABOUTFANMADETRANSLATIONS"
+align = 1
+autowrap = true
+
+[node name="HSeparator" type="HSeparator" parent="PopupAboutFanmadeTranslation/VBoxContainer"]
+margin_top = 68.0
+margin_right = 239.0
+margin_bottom = 72.0
+custom_styles/separator = SubResource( 1 )
+
+[node name="BtnCloseFanmadeLangNotif" type="Button" parent="PopupAboutFanmadeTranslation/VBoxContainer"]
+unique_name_in_owner = true
+margin_left = 79.0
+margin_top = 77.0
+margin_right = 159.0
+margin_bottom = 91.0
+rect_min_size = Vector2( 80, 0 )
+size_flags_horizontal = 4
+text = "CLOSE"
+
+[node name="BtnKnowMoreAboutFanmadeTranslation" type="Button" parent="PopupAboutFanmadeTranslation/VBoxContainer"]
+margin_left = 79.0
+margin_top = 96.0
+margin_right = 159.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 80, 0 )
+size_flags_horizontal = 4
+text = "LEARNMORE"
+
+[node name="HSeparator2" type="HSeparator" parent="PopupAboutFanmadeTranslation/VBoxContainer"]
+margin_top = 115.0
+margin_right = 239.0
+margin_bottom = 119.0
+custom_styles/separator = SubResource( 1 )
+
+[node name="LblTranslationCredits" type="Label" parent="PopupAboutFanmadeTranslation/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 124.0
+margin_right = 239.0
+margin_bottom = 151.0
+custom_colors/font_color = Color( 0.580392, 0.580392, 0.580392, 1 )
+custom_constants/line_spacing = -1
+text = "- Language -
+Translated by: xxxx, xxx, xxx, xxxx"
+align = 2
+autowrap = true
+
+[node name="GamepadDpadEcho" parent="." instance=ExtResource( 10 )]
+
+[connection signal="tab_changed" from="Margin/TabContainer" to="." method="_on_TabContainer_tab_changed"]
+[connection signal="value_changed" from="Margin/TabContainer/GAMEPLAY/ScrollContainer/Margin/VBox/BtnLang" to="." method="_on_BtnLang_value_changed"]
+[connection signal="pressed" from="Margin/TabContainer/GAMEPLAY/ScrollContainer/Margin/VBox/BtnEditTouchButtons" to="." method="_on_BtnEditTouchButtons_pressed"]
+[connection signal="pressed" from="Margin/TabContainer/GAMEPLAY/ScrollContainer/Margin/VBox/BtnDifficultyOptions" to="." method="_on_BtnDifficultyOptions_pressed"]
+[connection signal="pressed" from="Margin/TabContainer/GAMEPLAY/ScrollContainer/Margin/VBox/BtnMainMenu" to="." method="_on_BtnMainMenu_pressed"]
+[connection signal="value_changed" from="Margin/TabContainer/VIDEO/ScrollContainer/Margin/VBox/BtnVisualMode" to="." method="_on_BtnVisualMode_value_changed"]
+[connection signal="pressed" from="Margin/TabContainer/VIDEO/ScrollContainer/Margin/VBox/BtnMainMenu" to="." method="_on_BtnMainMenu_pressed"]
+[connection signal="pressed" from="Margin/TabContainer/AUDIO/ScrollContainer/Margin/VBox/BtnMainMenu" to="." method="_on_BtnMainMenu_pressed"]
+[connection signal="pressed" from="Margin/TabContainer/GAMEPAD/ScrollContainer/Margin/VBox/BtnGmpdMapping" to="." method="_on_BtnGmpdMapping_pressed"]
+[connection signal="pressed" from="Margin/TabContainer/GAMEPAD/ScrollContainer/Margin/VBox/BtnChangeScheme" to="." method="_on_BtnChangeScheme_pressed"]
+[connection signal="pressed" from="Margin/TabContainer/GAMEPAD/ScrollContainer/Margin/VBox/BtnResetGamepadConf" to="." method="_on_BtnResetGamepadConf_pressed"]
+[connection signal="pressed" from="Margin/TabContainer/GAMEPAD/ScrollContainer/Margin/VBox/BtnMainMenu" to="." method="_on_BtnMainMenu_pressed"]
+[connection signal="pressed" from="Margin/TabContainer/KEYBOARD/ScrollContainer/Margin/VBox/BtnResetKeyboardConf" to="." method="_on_BtnResetKeyboardConf_pressed"]
+[connection signal="pressed" from="Margin/TabContainer/KEYBOARD/ScrollContainer/Margin/VBox/BtnMainMenu" to="." method="_on_BtnMainMenu_pressed"]
+[connection signal="popup_hide" from="PopupAboutFanmadeTranslation" to="." method="_on_PopupAboutFanmadeTranslation_popup_hide"]
+[connection signal="pressed" from="PopupAboutFanmadeTranslation/VBoxContainer/BtnCloseFanmadeLangNotif" to="." method="_on_BtnCloseFanmadeLangNotif_pressed"]
+[connection signal="pressed" from="PopupAboutFanmadeTranslation/VBoxContainer/BtnKnowMoreAboutFanmadeTranslation" to="." method="_on_BtnKnowMoreAboutFanmadeTranslation_pressed"]

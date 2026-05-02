@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/sprites/bg/eldralis_woods/bg_light.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/bg/eldralis_woods/bg_back.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/bg/eldralis_woods/bg_middle.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/bg/eldralis_woods/foreground.png" type="Texture" id=4]
+
+[node name="EldralisWoodsParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 448, 0 )
+
+[node name="BgLight" type="Sprite" parent="ParallaxLayer"]
+position = Vector2( 0, -230 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.2, 0.1 )
+motion_mirroring = Vector2( 448, 0 )
+
+[node name="BgBack" type="Sprite" parent="ParallaxLayer2"]
+position = Vector2( 224, -57 )
+texture = ExtResource( 2 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.3, 0.1 )
+motion_mirroring = Vector2( 448, 0 )
+
+[node name="BgMiddle" type="Sprite" parent="ParallaxLayer3"]
+position = Vector2( 224, -60 )
+texture = ExtResource( 3 )
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.5, 0.1 )
+motion_mirroring = Vector2( 448, 0 )
+
+[node name="Foreground" type="Sprite" parent="ParallaxLayer4"]
+position = Vector2( 224, -75 )
+texture = ExtResource( 4 )

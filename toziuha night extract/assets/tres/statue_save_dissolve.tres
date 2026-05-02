@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=2]
+
+[ext_resource path="res://src/gdshaders/dissolve_simple.gdshader" type="Shader" id=1]
+
+[sub_resource type="OpenSimplexNoise" id=1]
+
+[sub_resource type="NoiseTexture" id=2]
+width = 1024
+height = 1024
+noise = SubResource( 1 )
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/dissolve_value = 0.663
+shader_param/dissolve_texture = SubResource( 2 )

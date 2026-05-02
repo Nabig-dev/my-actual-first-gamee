@@ -1,0 +1,2741 @@
+[gd_scene load_steps=276 format=2]
+
+[ext_resource path="res://src/autoload/audio.gd" type="Script" id=1]
+[ext_resource path="res://assets/sfx/ui_device_unplug.wav" type="AudioStream" id=2]
+[ext_resource path="res://assets/sfx/ui_device_plug.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/sfx/ui_text_bip.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/sfx/ui_changed_value.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/sfx/ui_big_btn_focused.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/sfx/ui_incorrect.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/sfx/ui_btn_cancel.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/sfx/ui_btn_accept.wav" type="AudioStream" id=9]
+[ext_resource path="res://assets/sfx/ui_btn_focused.wav" type="AudioStream" id=10]
+[ext_resource path="res://assets/sfx/ui_success.wav" type="AudioStream" id=11]
+[ext_resource path="res://assets/bgm/main_menu_theme.mp3" type="AudioStream" id=12]
+[ext_resource path="res://assets/sfx/chains.wav" type="AudioStream" id=13]
+[ext_resource path="res://assets/sfx/floor_slide.wav" type="AudioStream" id=14]
+[ext_resource path="res://assets/sfx/woosh_jump_v2.wav" type="AudioStream" id=15]
+[ext_resource path="res://assets/sfx/woosh_jump.wav" type="AudioStream" id=16]
+[ext_resource path="res://assets/sfx/explosion_clean.ogg" type="AudioStream" id=17]
+[ext_resource path="res://assets/sfx/explosion_clean_short.ogg" type="AudioStream" id=18]
+[ext_resource path="res://assets/sfx/floor_foot.wav" type="AudioStream" id=19]
+[ext_resource path="res://assets/voices/xandria_attack_m1.wav" type="AudioStream" id=20]
+[ext_resource path="res://assets/voices/xandria_attack_m3.wav" type="AudioStream" id=21]
+[ext_resource path="res://assets/voices/xandria_attack_m2.wav" type="AudioStream" id=22]
+[ext_resource path="res://addons/RandomAudioNodePlayer/RandomAudioNodePlayer.gd" type="Script" id=23]
+[ext_resource path="res://assets/voices/xandria_move_up.wav" type="AudioStream" id=24]
+[ext_resource path="res://assets/voices/xandria_shout.wav" type="AudioStream" id=25]
+[ext_resource path="res://addons/interactive-music-g3/audio_stream_player_interactive.gd" type="Script" id=26]
+[ext_resource path="res://assets/sfx/impact_body_wall.wav" type="AudioStream" id=27]
+[ext_resource path="res://assets/voices/xandria_damage2.wav" type="AudioStream" id=28]
+[ext_resource path="res://assets/voices/xandria_damage1.wav" type="AudioStream" id=29]
+[ext_resource path="res://assets/voices/xandria_death_medium.wav" type="AudioStream" id=30]
+[ext_resource path="res://assets/voices/xandria_damage3.wav" type="AudioStream" id=31]
+[ext_resource path="res://assets/sfx/impact_player_hurt.wav" type="AudioStream" id=32]
+[ext_resource path="res://assets/sfx/mana_absorb.wav" type="AudioStream" id=33]
+[ext_resource path="res://assets/sfx/item_pickup.wav" type="AudioStream" id=34]
+[ext_resource path="res://assets/sfx/enemy_damage_slash.wav" type="AudioStream" id=35]
+[ext_resource path="res://assets/sfx/enemy_damage_stab.wav" type="AudioStream" id=36]
+[ext_resource path="res://assets/sfx/impact_glass_break.wav" type="AudioStream" id=37]
+[ext_resource path="res://assets/sfx/enemy_zombie_roar.wav" type="AudioStream" id=38]
+[ext_resource path="res://assets/sfx/enemy_damage_slap.wav" type="AudioStream" id=39]
+[ext_resource path="res://assets/sfx/impact_wood_fall.wav" type="AudioStream" id=40]
+[ext_resource path="res://assets/sfx/impact_iron_clang.wav" type="AudioStream" id=41]
+[ext_resource path="res://assets/sfx/water_splash_out.wav" type="AudioStream" id=42]
+[ext_resource path="res://assets/sfx/water_splash_move.wav" type="AudioStream" id=43]
+[ext_resource path="res://assets/sfx/water_splash_in.wav" type="AudioStream" id=44]
+[ext_resource path="res://assets/sfx/ec_absorbing.ogg" type="AudioStream" id=45]
+[ext_resource path="res://assets/sfx/ec_charging.ogg" type="AudioStream" id=46]
+[ext_resource path="res://assets/sfx/magic_shine.wav" type="AudioStream" id=47]
+[ext_resource path="res://assets/sfx/ec_shoot.wav" type="AudioStream" id=48]
+[ext_resource path="res://assets/sfx/enemy_death_flap.wav" type="AudioStream" id=49]
+[ext_resource path="res://assets/sfx/enemy_death_woosh.wav" type="AudioStream" id=50]
+[ext_resource path="res://assets/sfx/juicy_shoot.wav" type="AudioStream" id=51]
+[ext_resource path="res://assets/sfx/spell_ice_end.wav" type="AudioStream" id=52]
+[ext_resource path="res://assets/sfx/spell_ice_start.wav" type="AudioStream" id=53]
+[ext_resource path="res://assets/sfx/impact_particles.wav" type="AudioStream" id=54]
+[ext_resource path="res://assets/bgm/beginning_of_darkness_percussion_bass.mp3" type="AudioStream" id=55]
+[ext_resource path="res://assets/bgm/beginning_of_darkness_bg.mp3" type="AudioStream" id=56]
+[ext_resource path="res://assets/bgm/beginning_of_darkness_melody.mp3" type="AudioStream" id=57]
+[ext_resource path="res://assets/bgm/afternoon_ruins_bg.mp3" type="AudioStream" id=58]
+[ext_resource path="res://assets/bgm/afternoon_ruins_percussion.mp3" type="AudioStream" id=59]
+[ext_resource path="res://assets/bgm/rest_town_alternative_version_exterior.ogg" type="AudioStream" id=60]
+[ext_resource path="res://assets/bgm/afternoon_ruins_melody.mp3" type="AudioStream" id=61]
+[ext_resource path="res://assets/bgm/rest_town_alternative_version_interior.ogg" type="AudioStream" id=62]
+[ext_resource path="res://assets/sfx/ui_use_item.wav" type="AudioStream" id=63]
+[ext_resource path="res://assets/sfx/ui_fuish_quick.wav" type="AudioStream" id=64]
+[ext_resource path="res://assets/sfx/ui_zoom_out.wav" type="AudioStream" id=65]
+[ext_resource path="res://assets/sfx/ui_zoom_in.wav" type="AudioStream" id=66]
+[ext_resource path="res://assets/sfx/ui_put_object.wav" type="AudioStream" id=67]
+[ext_resource path="res://assets/sfx/axe_hit_blood.wav" type="AudioStream" id=68]
+[ext_resource path="res://assets/sfx/cinematic_hit_reverse.ogg" type="AudioStream" id=69]
+[ext_resource path="res://assets/sfx/cinematic_hit_enter_to_main_menu.ogg" type="AudioStream" id=70]
+[ext_resource path="res://assets/voices/xandria_death_large.wav" type="AudioStream" id=71]
+[ext_resource path="res://assets/sfx/death_gingle.wav" type="AudioStream" id=72]
+[ext_resource path="res://assets/sfx/cinematic_hit_jumpscare.wav" type="AudioStream" id=73]
+[ext_resource path="res://assets/bgm/crimson_moon.ogg" type="AudioStream" id=74]
+[ext_resource path="res://assets/sfx/coin_get.wav" type="AudioStream" id=75]
+[ext_resource path="res://assets/sfx/door_opening.wav" type="AudioStream" id=76]
+[ext_resource path="res://assets/sfx/door_closed.wav" type="AudioStream" id=77]
+[ext_resource path="res://assets/sfx/heartbeat.wav" type="AudioStream" id=78]
+[ext_resource path="res://assets/bgm/prepare_for_war.ogg" type="AudioStream" id=79]
+[ext_resource path="res://assets/sfx/monster_growl_0.wav" type="AudioStream" id=80]
+[ext_resource path="res://assets/bgm/ambient_forest_wind.ogg" type="AudioStream" id=81]
+[ext_resource path="res://assets/sfx/human_male_scream1.wav" type="AudioStream" id=82]
+[ext_resource path="res://assets/sfx/human_male_scream3.wav" type="AudioStream" id=83]
+[ext_resource path="res://assets/sfx/human_male_scream2.wav" type="AudioStream" id=84]
+[ext_resource path="res://assets/sfx/ignite_flame.wav" type="AudioStream" id=85]
+[ext_resource path="res://assets/sfx/bottle_breaking.wav" type="AudioStream" id=86]
+[ext_resource path="res://assets/sfx/window_breaking.wav" type="AudioStream" id=87]
+[ext_resource path="res://assets/sfx/impact_punch.wav" type="AudioStream" id=88]
+[ext_resource path="res://assets/sfx/laugh_clown.wav" type="AudioStream" id=89]
+[ext_resource path="res://assets/sfx/bats_flap_and_chirping.ogg" type="AudioStream" id=90]
+[ext_resource path="res://assets/sfx/paper_get.wav" type="AudioStream" id=91]
+[ext_resource path="res://assets/sfx/shoot_projectile.ogg" type="AudioStream" id=92]
+[ext_resource path="res://assets/sfx/sword_slash1.wav" type="AudioStream" id=93]
+[ext_resource path="res://assets/sfx/fire_burning_loop.ogg" type="AudioStream" id=94]
+[ext_resource path="res://assets/sfx/bubbling_large.wav" type="AudioStream" id=95]
+[ext_resource path="res://assets/sfx/monster_growl_1.wav" type="AudioStream" id=96]
+[ext_resource path="res://assets/sfx/lion_little_roar.wav" type="AudioStream" id=97]
+[ext_resource path="res://assets/bgm/beginning_of_darkness_underground.ogg" type="AudioStream" id=98]
+[ext_resource path="res://assets/bgm/beginning_of_darkness_underwater.ogg" type="AudioStream" id=99]
+[ext_resource path="res://assets/voices/xandria_damage_extra2.wav" type="AudioStream" id=100]
+[ext_resource path="res://assets/voices/xandria_damage_extra1.wav" type="AudioStream" id=101]
+[ext_resource path="res://assets/sfx/gas_loop.ogg" type="AudioStream" id=102]
+[ext_resource path="res://assets/voices/xandria_coff.wav" type="AudioStream" id=103]
+[ext_resource path="res://assets/voices/female1_miscellaneous_12.wav" type="AudioStream" id=104]
+[ext_resource path="res://assets/voices/female1_damage_4.wav" type="AudioStream" id=105]
+[ext_resource path="res://assets/voices/xandria_damage_extra4.wav" type="AudioStream" id=106]
+[ext_resource path="res://assets/voices/xandria_damage_extra3.wav" type="AudioStream" id=107]
+[ext_resource path="res://assets/voices/xandria_death_fall.wav" type="AudioStream" id=108]
+[ext_resource path="res://assets/sfx/motor_stop.wav" type="AudioStream" id=109]
+[ext_resource path="res://assets/sfx/motor_start.wav" type="AudioStream" id=110]
+[ext_resource path="res://assets/sfx/magic_spell2.wav" type="AudioStream" id=111]
+[ext_resource path="res://assets/sfx/magic_spell.wav" type="AudioStream" id=112]
+[ext_resource path="res://assets/bgm/flashback_theme_1.ogg" type="AudioStream" id=113]
+[ext_resource path="res://assets/sfx/monster_death_scream.wav" type="AudioStream" id=114]
+[ext_resource path="res://assets/sfx/decapitation.wav" type="AudioStream" id=115]
+[ext_resource path="res://assets/sfx/blood_spurt.wav" type="AudioStream" id=116]
+[ext_resource path="res://assets/bgm/eva_fight_theme.ogg" type="AudioStream" id=117]
+[ext_resource path="res://assets/sfx/gun_shoot.wav" type="AudioStream" id=118]
+[ext_resource path="res://assets/sfx/gun_shoot_b.wav" type="AudioStream" id=119]
+[ext_resource path="res://assets/bgm/ambient_fire_crackle.ogg" type="AudioStream" id=120]
+[ext_resource path="res://assets/bgm/ambient_sinester_ambient_horror.ogg" type="AudioStream" id=121]
+[ext_resource path="res://assets/sfx/skin_burn_b.wav" type="AudioStream" id=122]
+[ext_resource path="res://assets/sfx/skin_burn_a.wav" type="AudioStream" id=123]
+[ext_resource path="res://assets/sfx/iron_fall.wav" type="AudioStream" id=124]
+[ext_resource path="res://assets/bgm/nameless_symphony.ogg" type="AudioStream" id=125]
+[ext_resource path="res://assets/bgm/xandria's_theme.ogg" type="AudioStream" id=126]
+[ext_resource path="res://assets/sfx/chiptune_bat_wing.wav" type="AudioStream" id=127]
+[ext_resource path="res://assets/sfx/chiptune_jump_long.wav" type="AudioStream" id=128]
+[ext_resource path="res://assets/sfx/chiptune_sat_welcome.wav" type="AudioStream" id=129]
+[ext_resource path="res://assets/sfx/roar_dragon.wav" type="AudioStream" id=130]
+[ext_resource path="res://assets/sfx/thunder1.wav" type="AudioStream" id=131]
+[ext_resource path="res://assets/sfx/rain_loop.ogg" type="AudioStream" id=132]
+[ext_resource path="res://assets/sfx/thunder2.wav" type="AudioStream" id=133]
+[ext_resource path="res://assets/sfx/vlad_lance_impale.wav" type="AudioStream" id=134]
+[ext_resource path="res://assets/sfx/lamp_destroy.wav" type="AudioStream" id=135]
+[ext_resource path="res://assets/sfx/impact_wall.wav" type="AudioStream" id=136]
+[ext_resource path="res://assets/bgm/opening_theme.ogg" type="AudioStream" id=137]
+[ext_resource path="res://assets/sfx/vlad_spawn_start.wav" type="AudioStream" id=138]
+[ext_resource path="res://assets/sfx/vlad_spawn_end.wav" type="AudioStream" id=139]
+[ext_resource path="res://assets/sfx/carpatitia_death_use.wav" type="AudioStream" id=140]
+[ext_resource path="res://assets/sfx/whip_crack.wav" type="AudioStream" id=141]
+[ext_resource path="res://assets/sfx/rain_short.wav" type="AudioStream" id=142]
+[ext_resource path="res://assets/sfx/chew_meat.wav" type="AudioStream" id=143]
+[ext_resource path="res://assets/sfx/big_impact_jump.wav" type="AudioStream" id=144]
+[ext_resource path="res://assets/sfx/light_flash.wav" type="AudioStream" id=145]
+[ext_resource path="res://assets/sfx/boss_orb_generated.wav" type="AudioStream" id=146]
+[ext_resource path="res://assets/sfx/boss_orb_generating.wav" type="AudioStream" id=147]
+[ext_resource path="res://assets/sfx/meow_1.wav" type="AudioStream" id=148]
+[ext_resource path="res://assets/sfx/meow_2.wav" type="AudioStream" id=149]
+[ext_resource path="res://assets/sfx/meow_3.wav" type="AudioStream" id=150]
+[ext_resource path="res://assets/sfx/levelup.wav" type="AudioStream" id=151]
+[ext_resource path="res://assets/sfx/door_open.wav" type="AudioStream" id=152]
+[ext_resource path="res://assets/sfx/door_close.wav" type="AudioStream" id=153]
+[ext_resource path="res://assets/sfx/door_close_short.wav" type="AudioStream" id=154]
+[ext_resource path="res://assets/sfx/male_shriek.wav" type="AudioStream" id=155]
+[ext_resource path="res://assets/sfx/shriek.wav" type="AudioStream" id=156]
+[ext_resource path="res://assets/sfx/male_shriek_short.wav" type="AudioStream" id=157]
+[ext_resource path="res://assets/sfx/slash.wav" type="AudioStream" id=158]
+[ext_resource path="res://assets/sfx/slap.wav" type="AudioStream" id=159]
+[ext_resource path="res://assets/sfx/roar1.wav" type="AudioStream" id=160]
+[ext_resource path="res://assets/bgm/eldralis_woods_exterior.ogg" type="AudioStream" id=161]
+[ext_resource path="res://assets/bgm/eldralis_woods_interior.ogg" type="AudioStream" id=162]
+[ext_resource path="res://assets/bgm/the_order.ogg" type="AudioStream" id=163]
+[ext_resource path="res://assets/sfx/aetheril_death.wav" type="AudioStream" id=164]
+[ext_resource path="res://assets/sfx/bat_death.wav" type="AudioStream" id=165]
+[ext_resource path="res://assets/sfx/spell_prepare.wav" type="AudioStream" id=166]
+[ext_resource path="res://assets/sfx/spell_shoot.wav" type="AudioStream" id=167]
+[ext_resource path="res://assets/sfx/impact_wood_fall_inverse.wav" type="AudioStream" id=168]
+[ext_resource path="res://assets/sfx/demon_anger.wav" type="AudioStream" id=169]
+[ext_resource path="res://assets/sfx/sword_slash2.wav" type="AudioStream" id=170]
+[ext_resource path="res://assets/bgm/stralsund_ruins_exterior.ogg" type="AudioStream" id=171]
+[ext_resource path="res://assets/bgm/stralsund_ruins_interior.ogg" type="AudioStream" id=172]
+[ext_resource path="res://assets/bgm/alessandro_fight_theme.ogg" type="AudioStream" id=173]
+[ext_resource path="res://assets/sfx/wind_strong.wav" type="AudioStream" id=174]
+[ext_resource path="res://assets/sfx/ec_charging_enemy.ogg" type="AudioStream" id=175]
+[ext_resource path="res://assets/sfx/wing_flap.wav" type="AudioStream" id=176]
+[ext_resource path="res://assets/sfx/crow.wav" type="AudioStream" id=177]
+[ext_resource path="res://assets/sfx/horse_scream.wav" type="AudioStream" id=178]
+[ext_resource path="res://assets/sfx/ghost_galloping.wav" type="AudioStream" id=179]
+[ext_resource path="res://assets/sfx/horse_snore.wav" type="AudioStream" id=180]
+[ext_resource path="res://assets/bgm/athos_abbey_theme_2.ogg" type="AudioStream" id=181]
+[ext_resource path="res://assets/bgm/athos_abbey_theme_1.ogg" type="AudioStream" id=182]
+[ext_resource path="res://assets/bgm/iron_boss_theme_break.ogg" type="AudioStream" id=183]
+[ext_resource path="res://assets/bgm/iron_boss_theme_1.ogg" type="AudioStream" id=184]
+[ext_resource path="res://assets/bgm/iron_boss_theme_2.ogg" type="AudioStream" id=185]
+[ext_resource path="res://assets/sfx/light_flash_cut.wav" type="AudioStream" id=186]
+[ext_resource path="res://assets/sfx/shine_jump.wav" type="AudioStream" id=187]
+[ext_resource path="res://assets/voices/smol_xandria_jump.wav" type="AudioStream" id=188]
+[ext_resource path="res://assets/voices/smol_xandria_death.wav" type="AudioStream" id=189]
+[ext_resource path="res://assets/voices/smol_xandria_dodge.wav" type="AudioStream" id=190]
+[ext_resource path="res://assets/voices/smol_xandria_slide.wav" type="AudioStream" id=191]
+[ext_resource path="res://assets/voices/smol_xandria_hurt.wav" type="AudioStream" id=192]
+[ext_resource path="res://assets/sfx/foot_sand.wav" type="AudioStream" id=193]
+[ext_resource path="res://assets/sfx/moo.wav" type="AudioStream" id=194]
+[ext_resource path="res://assets/bgm/birstall_3.ogg" type="AudioStream" id=195]
+[ext_resource path="res://assets/bgm/birstall_2.ogg" type="AudioStream" id=196]
+[ext_resource path="res://assets/bgm/birstall_1.ogg" type="AudioStream" id=197]
+[ext_resource path="res://assets/bgm/eva_fight_theme_2nd_phase.ogg" type="AudioStream" id=198]
+[ext_resource path="res://assets/sfx/whistle.wav" type="AudioStream" id=199]
+[ext_resource path="res://assets/sfx/horror_kids_loop.ogg" type="AudioStream" id=200]
+[ext_resource path="res://assets/sfx/jumpscare1.wav" type="AudioStream" id=201]
+[ext_resource path="res://assets/sfx/signum_crucis_latin.wav" type="AudioStream" id=202]
+[ext_resource path="res://assets/sfx/juicy_shoot_short.wav" type="AudioStream" id=203]
+[ext_resource path="res://assets/bgm/eztilia_1.ogg" type="AudioStream" id=204]
+[ext_resource path="res://assets/bgm/eztilia_2.ogg" type="AudioStream" id=205]
+[ext_resource path="res://assets/bgm/sheal_boss_theme.ogg" type="AudioStream" id=206]
+[ext_resource path="res://assets/bgm/tahuatepet_underwater_layer1.ogg" type="AudioStream" id=207]
+[ext_resource path="res://assets/bgm/tahuatepet_volcano_layer2.ogg" type="AudioStream" id=208]
+[ext_resource path="res://assets/bgm/tahuatepet_volcano_layer1.ogg" type="AudioStream" id=209]
+[ext_resource path="res://assets/bgm/tahuatepet_underwater_layer2.ogg" type="AudioStream" id=210]
+[ext_resource path="res://assets/bgm/dirian_boss_theme.ogg" type="AudioStream" id=211]
+[ext_resource path="res://assets/sfx/rumble_short.wav" type="AudioStream" id=212]
+[ext_resource path="res://assets/bgm/aridiah_exterior.ogg" type="AudioStream" id=213]
+[ext_resource path="res://assets/bgm/aridiah_interior.ogg" type="AudioStream" id=214]
+[ext_resource path="res://assets/bgm/elisia_battle_theme.ogg" type="AudioStream" id=215]
+[ext_resource path="res://assets/sfx/galloping_horse_loop.ogg" type="AudioStream" id=216]
+[ext_resource path="res://assets/sfx/galloping_horse.ogg" type="AudioStream" id=217]
+[ext_resource path="res://assets/bgm/prologue_intro.ogg" type="AudioStream" id=218]
+[ext_resource path="res://assets/bgm/alessa_theme.ogg" type="AudioStream" id=219]
+[ext_resource path="res://assets/bgm/rachel_theme.ogg" type="AudioStream" id=220]
+[ext_resource path="res://assets/sfx/train_end.ogg" type="AudioStream" id=221]
+[ext_resource path="res://assets/sfx/train_start.ogg" type="AudioStream" id=222]
+[ext_resource path="res://assets/sfx/train_loop.ogg" type="AudioStream" id=223]
+[ext_resource path="res://assets/bgm/train_assault.ogg" type="AudioStream" id=224]
+[ext_resource path="res://assets/sfx/gas_release.wav" type="AudioStream" id=225]
+[ext_resource path="res://assets/sfx/rat.wav" type="AudioStream" id=226]
+[ext_resource path="res://assets/sfx/demon_anger_cut.wav" type="AudioStream" id=227]
+[ext_resource path="res://assets/sfx/worm_rumble.wav" type="AudioStream" id=228]
+[ext_resource path="res://assets/sfx/laserbeam.wav" type="AudioStream" id=229]
+[ext_resource path="res://assets/sfx/laser.wav" type="AudioStream" id=230]
+[ext_resource path="res://assets/sfx/goblin_death.wav" type="AudioStream" id=231]
+[ext_resource path="res://assets/sfx/gas_loop2.wav" type="AudioStream" id=232]
+[ext_resource path="res://assets/sfx/goblin_laugh.wav" type="AudioStream" id=233]
+[ext_resource path="res://assets/sfx/goblin_grunt.wav" type="AudioStream" id=234]
+[ext_resource path="res://assets/sfx/boar_grunt.wav" type="AudioStream" id=235]
+[ext_resource path="res://assets/sfx/boar_death.wav" type="AudioStream" id=236]
+[ext_resource path="res://assets/sfx/ui_scroll.wav" type="AudioStream" id=237]
+[ext_resource path="res://assets/sfx/electric_zap1.wav" type="AudioStream" id=238]
+[ext_resource path="res://assets/sfx/whispers.ogg" type="AudioStream" id=239]
+[ext_resource path="res://assets/sfx/whip_presnd.wav" type="AudioStream" id=240]
+[ext_resource path="res://assets/sfx/whip_wosh2.wav" type="AudioStream" id=241]
+[ext_resource path="res://assets/sfx/whip_wosh.wav" type="AudioStream" id=242]
+[ext_resource path="res://assets/sfx/whip_wosh3.wav" type="AudioStream" id=243]
+[ext_resource path="res://assets/bgm/prepare_for_war_b.ogg" type="AudioStream" id=244]
+[ext_resource path="res://assets/bgm/annette_boss_theme.ogg" type="AudioStream" id=245]
+[ext_resource path="res://assets/sfx/object_shake.wav" type="AudioStream" id=246]
+[ext_resource path="res://assets/sfx/dracula_fireball.wav" type="AudioStream" id=247]
+[ext_resource path="res://assets/sfx/firecrack.wav" type="AudioStream" id=248]
+[ext_resource path="res://assets/sfx/dracula_fireball_large.wav" type="AudioStream" id=249]
+[ext_resource path="res://assets/bgm/after_dirian_sheal.ogg" type="AudioStream" id=250]
+[ext_resource path="res://assets/bgm/after_johannes.ogg" type="AudioStream" id=251]
+[ext_resource path="res://assets/bgm/before_elisia.ogg" type="AudioStream" id=252]
+[ext_resource path="res://assets/bgm/before_alessa.ogg" type="AudioStream" id=253]
+[ext_resource path="res://assets/bgm/before_final_boss.ogg" type="AudioStream" id=254]
+[ext_resource path="res://assets/bgm/after_final_boss.ogg" type="AudioStream" id=255]
+[ext_resource path="res://assets/bgm/after_rachel.ogg" type="AudioStream" id=256]
+[ext_resource path="res://assets/bgm/before_annette_joseph.ogg" type="AudioStream" id=257]
+[ext_resource path="res://assets/bgm/after_annette_joseph.ogg" type="AudioStream" id=258]
+[ext_resource path="res://assets/bgm/after_alessa.ogg" type="AudioStream" id=259]
+[ext_resource path="res://assets/bgm/before_isaac_eva.ogg" type="AudioStream" id=260]
+[ext_resource path="res://assets/bgm/after_elisia.ogg" type="AudioStream" id=261]
+[ext_resource path="res://assets/bgm/after_isaac_eva.ogg" type="AudioStream" id=262]
+[ext_resource path="res://assets/bgm/before_dirian_sheal.ogg" type="AudioStream" id=263]
+[ext_resource path="res://assets/bgm/before_johannes.ogg" type="AudioStream" id=264]
+[ext_resource path="res://assets/bgm/before_rachel.ogg" type="AudioStream" id=265]
+[ext_resource path="res://assets/sfx/door_lock2.wav" type="AudioStream" id=266]
+[ext_resource path="res://assets/sfx/door_close2.wav" type="AudioStream" id=267]
+[ext_resource path="res://assets/sfx/evil_laugh_long.wav" type="AudioStream" id=268]
+[ext_resource path="res://assets/sfx/laugh_noise.wav" type="AudioStream" id=269]
+[ext_resource path="res://assets/sfx/woman_scream.wav" type="AudioStream" id=270]
+[ext_resource path="res://assets/sfx/bat_screech.wav" type="AudioStream" id=271]
+[ext_resource path="res://assets/sfx/achievement_granted.wav" type="AudioStream" id=272]
+[ext_resource path="res://assets/sfx/chrip.wav" type="AudioStream" id=273]
+[ext_resource path="res://assets/sfx/atreu_shoot.wav" type="AudioStream" id=274]
+[ext_resource path="res://assets/bgm/tension_battle.ogg" type="AudioStream" id=275]
+
+[node name="Audio" type="Node"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="Sfx" type="Node" parent="."]
+pause_mode = 1
+
+[node name="chiptune_wing" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 127 )
+bus = "Effects"
+
+[node name="chiptune_jump" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 128 )
+bus = "Effects"
+
+[node name="chiptune_jingle" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 129 )
+bus = "Effects"
+
+[node name="ui_accept" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 9 )
+volume_db = 3.0
+pitch_scale = 0.8
+bus = "Effects"
+
+[node name="ui_cancel" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 8 )
+volume_db = 3.0
+pitch_scale = 0.9
+bus = "Effects"
+
+[node name="ui_success" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 11 )
+volume_db = -3.0
+bus = "Effects"
+
+[node name="ui_achievement" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 272 )
+volume_db = -3.0
+bus = "Effects"
+
+[node name="ui_incorrect" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 7 )
+volume_db = -7.0
+bus = "Effects"
+
+[node name="ui_open_quickmenu" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 9 )
+pitch_scale = 1.45
+bus = "Effects"
+
+[node name="ui_close_quickmenu" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 8 )
+pitch_scale = 1.39
+bus = "Effects"
+
+[node name="ui_big_btn_focused" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 6 )
+volume_db = 2.0
+bus = "Effects"
+
+[node name="ui_btn_focused" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 10 )
+volume_db = -2.0
+pitch_scale = 0.8
+bus = "Effects"
+
+[node name="ui_changed_value" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 5 )
+bus = "Effects"
+
+[node name="ui_changed_value2" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 5 )
+volume_db = 10.0
+pitch_scale = 1.52
+bus = "Effects"
+
+[node name="ui_changed_value3" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 5 )
+volume_db = 10.0
+pitch_scale = 0.5
+bus = "Effects"
+
+[node name="ui_subweapon_switch" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 63 )
+volume_db = -8.0
+pitch_scale = 2.0
+bus = "Effects"
+
+[node name="ui_text_bip" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 4 )
+volume_db = 9.0
+bus = "Effects"
+
+[node name="ui_device_plug" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 3 )
+volume_db = -6.0
+bus = "Effects"
+
+[node name="ui_device_unplug" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 2 )
+volume_db = -6.0
+bus = "Effects"
+
+[node name="ui_not_enough_mana" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 7 )
+volume_db = -10.0
+pitch_scale = 1.67
+bus = "Effects"
+
+[node name="ui_item_use" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 63 )
+volume_db = -10.0
+bus = "Effects"
+
+[node name="ui_btn_calibrate_pressed" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 63 )
+volume_db = -15.0
+pitch_scale = 2.0
+bus = "Effects"
+
+[node name="ui_zoom_in" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 66 )
+volume_db = -10.0
+bus = "Effects"
+
+[node name="ui_zoom_out" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 65 )
+volume_db = -10.0
+bus = "Effects"
+
+[node name="ui_center_map" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 64 )
+volume_db = -5.0
+bus = "Effects"
+
+[node name="ui_put_object" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 67 )
+volume_db = -10.0
+bus = "Effects"
+
+[node name="ui_move_map" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 237 )
+pitch_scale = 0.7
+bus = "Effects"
+
+[node name="ui_erase" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 67 )
+pitch_scale = 2.0
+bus = "Effects"
+
+[node name="ui_saved" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 52 )
+bus = "Effects"
+
+[node name="ui_quickitem_use" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 47 )
+bus = "Effects"
+
+[node name="ui_player_reborn" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 73 )
+pitch_scale = 0.85
+bus = "Effects"
+
+[node name="ui_player_reborn2" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 73 )
+volume_db = -8.0
+pitch_scale = 1.3
+bus = "Effects"
+
+[node name="ui_carpatitia_death_use" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 140 )
+bus = "Effects"
+
+[node name="ui_levelup" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 63 )
+volume_db = 4.0
+pitch_scale = 0.3
+bus = "Effects"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="ui_gas_loop" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 102 )
+volume_db = -4.0
+pitch_scale = 0.8
+bus = "Effects"
+
+[node name="ui_levelup2" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 151 )
+volume_db = 8.0
+pitch_scale = 0.8
+bus = "Effects"
+
+[node name="crystal_soul_generated" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 146 )
+bus = "Effects"
+
+[node name="crystal_soul_generated2" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 146 )
+pitch_scale = 0.4
+bus = "Effects"
+
+[node name="crystal_soul_generating" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 147 )
+pitch_scale = 0.4
+bus = "Effects"
+
+[node name="crystal_soul_generating2" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 147 )
+bus = "Effects"
+
+[node name="crystal_soul_get" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 147 )
+volume_db = -5.0
+pitch_scale = 1.9
+bus = "Effects"
+
+[node name="crystal_soul_get2" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 147 )
+volume_db = -8.0
+pitch_scale = 3.0
+bus = "Effects"
+
+[node name="crystal_soul_get3" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 147 )
+pitch_scale = 0.8
+bus = "Effects"
+
+[node name="horse_galloping" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 217 )
+bus = "Effects"
+
+[node name="horse_galloping_loop" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 216 )
+bus = "Effects"
+
+[node name="dash_air" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 186 )
+pitch_scale = 1.5
+bus = "Effects"
+
+[node name="gas_loop" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 102 )
+volume_db = -4.0
+pitch_scale = 0.8
+bus = "Effects"
+
+[node name="ignite_bomb" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 232 )
+volume_db = 5.0
+pitch_scale = 0.8
+bus = "Effects"
+
+[node name="negative_status" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 53 )
+volume_db = -4.0
+pitch_scale = 0.8
+bus = "Effects"
+
+[node name="paper_get" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 91 )
+volume_db = 4.0
+bus = "Effects"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="paper_get2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 91 )
+volume_db = 4.0
+pitch_scale = 1.2
+bus = "Effects"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="axe_hit_blood" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 68 )
+pitch_scale = 0.75
+bus = "Effects"
+
+[node name="cinematic_hit_reverse" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 69 )
+bus = "Effects"
+
+[node name="cinematic_hit" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 70 )
+bus = "Effects"
+
+[node name="death_gingle" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 72 )
+pitch_scale = 0.9
+bus = "Effects"
+
+[node name="whip_pre" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 240 )
+volume_db = 5.0
+bus = "Effects"
+
+[node name="whoosh_fire" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 50 )
+volume_db = -5.0
+pitch_scale = 0.6
+bus = "Effects"
+
+[node name="whip_wosh_large" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 242 )
+pitch_scale = 0.7
+bus = "Effects"
+
+[node name="whip_wosh_rnd" type="Node" parent="Sfx"]
+script = ExtResource( 23 )
+
+[node name="whip_wosh1" type="AudioStreamPlayer" parent="Sfx/whip_wosh_rnd"]
+stream = ExtResource( 242 )
+bus = "Effects"
+
+[node name="whip_wosh2" type="AudioStreamPlayer" parent="Sfx/whip_wosh_rnd"]
+stream = ExtResource( 241 )
+pitch_scale = 1.2
+bus = "Effects"
+
+[node name="whip_wosh3" type="AudioStreamPlayer" parent="Sfx/whip_wosh_rnd"]
+stream = ExtResource( 243 )
+volume_db = -3.0
+bus = "Effects"
+
+[node name="whip_crack_rnd" type="Node" parent="Sfx"]
+script = ExtResource( 23 )
+
+[node name="whip_crack1" type="AudioStreamPlayer" parent="Sfx/whip_crack_rnd"]
+stream = ExtResource( 141 )
+bus = "Effects"
+
+[node name="whip_crack2" type="AudioStreamPlayer" parent="Sfx/whip_crack_rnd"]
+stream = ExtResource( 141 )
+pitch_scale = 1.3
+bus = "Effects"
+
+[node name="whip_crack3" type="AudioStreamPlayer" parent="Sfx/whip_crack_rnd"]
+stream = ExtResource( 141 )
+pitch_scale = 0.8
+bus = "Effects"
+
+[node name="whip_chain_rnd" type="Node" parent="Sfx"]
+script = ExtResource( 23 )
+
+[node name="whip_chain1" type="AudioStreamPlayer" parent="Sfx/whip_chain_rnd"]
+stream = ExtResource( 13 )
+volume_db = -10.0
+bus = "Effects"
+
+[node name="whip_chain2" type="AudioStreamPlayer" parent="Sfx/whip_chain_rnd"]
+stream = ExtResource( 13 )
+volume_db = -10.0
+pitch_scale = 1.3
+bus = "Effects"
+
+[node name="whip_chain3" type="AudioStreamPlayer" parent="Sfx/whip_chain_rnd"]
+stream = ExtResource( 13 )
+volume_db = -10.0
+pitch_scale = 0.8
+bus = "Effects"
+
+[node name="whip_chain_spin" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 13 )
+volume_db = 1.306
+pitch_scale = 1.68
+bus = "Effects"
+
+[node name="whip_chain_l" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 13 )
+volume_db = -15.0
+pitch_scale = 1.3
+bus = "Effects"
+
+[node name="whip_chain_m" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 13 )
+volume_db = -10.0
+bus = "Effects"
+
+[node name="whip_chain_h" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 13 )
+volume_db = 2.647
+pitch_scale = 0.59
+bus = "Effects"
+
+[node name="floor_slide" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 14 )
+volume_db = 3.0
+pitch_scale = 1.42
+bus = "Effects"
+
+[node name="floor_slide2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 14 )
+volume_db = 3.0
+pitch_scale = 2.2
+bus = "Effects"
+
+[node name="floor_backdash" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 14 )
+volume_db = 3.0
+pitch_scale = 2.0
+bus = "Effects"
+
+[node name="floor_foot" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 19 )
+volume_db = -8.0
+bus = "Effects"
+
+[node name="floor_foot_sand" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 193 )
+volume_db = -8.0
+bus = "Effects"
+
+[node name="ec_absorbing" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 45 )
+volume_db = 1.0
+bus = "Effects"
+
+[node name="ec_absorbed" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 47 )
+volume_db = -5.0
+bus = "Effects"
+
+[node name="ec_charging" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 46 )
+volume_db = 3.0
+bus = "Effects"
+
+[node name="ec_charging_enemy" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 175 )
+volume_db = 5.0
+pitch_scale = 0.8
+bus = "Effects"
+
+[node name="ec_shoot" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 48 )
+volume_db = -4.0
+bus = "Effects"
+
+[node name="ec_shoot2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 48 )
+volume_db = 3.0
+pitch_scale = 0.43
+bus = "Effects"
+
+[node name="ec_shoot_fast" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 48 )
+volume_db = -3.0
+pitch_scale = 2.63
+bus = "Effects"
+
+[node name="ec_pasive_activate" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 145 )
+volume_db = 2.0
+pitch_scale = 0.6
+bus = "Effects"
+
+[node name="ec_pasive_activate2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 145 )
+volume_db = 2.0
+pitch_scale = 0.4
+bus = "Effects"
+
+[node name="ec_blood_whip" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 227 )
+bus = "Effects"
+
+[node name="ec_ice_start" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 53 )
+pitch_scale = 1.39
+bus = "Effects"
+
+[node name="ec_ice_start2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 53 )
+pitch_scale = 0.6
+bus = "Effects"
+
+[node name="ec_ice_end" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 52 )
+pitch_scale = 0.83
+bus = "Effects"
+
+[node name="spell_prepare" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 166 )
+volume_db = -5.0
+pitch_scale = 0.72
+bus = "Effects"
+
+[node name="spell_prepare2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 112 )
+pitch_scale = 3.0
+bus = "Effects"
+
+[node name="spell_prepare3" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 166 )
+volume_db = -5.0
+bus = "Effects"
+
+[node name="spell_prepare4" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 166 )
+volume_db = -5.0
+pitch_scale = 2.0
+bus = "Effects"
+
+[node name="atk_charge_prepare" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 147 )
+pitch_scale = 1.3
+bus = "Effects"
+
+[node name="atk_blood_completed" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 145 )
+volume_db = 5.0
+bus = "Effects"
+
+[node name="atk_charge_completed" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 145 )
+volume_db = 5.0
+pitch_scale = 2.0
+bus = "Effects"
+
+[node name="spell_shoot" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 167 )
+volume_db = 3.0
+pitch_scale = 1.2
+bus = "Effects"
+
+[node name="spell_shoot2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 167 )
+pitch_scale = 0.8
+bus = "Effects"
+
+[node name="spell_shoot3" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 167 )
+volume_db = 3.0
+pitch_scale = 0.7
+bus = "Effects"
+
+[node name="spell_shoot4" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 167 )
+volume_db = 3.0
+pitch_scale = 2.0
+bus = "Effects"
+
+[node name="woosh_dust" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 14 )
+volume_db = 3.0
+pitch_scale = 0.24
+bus = "Effects"
+
+[node name="woosh_whip_l" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 16 )
+volume_db = -5.0
+pitch_scale = 1.52
+bus = "Effects"
+
+[node name="woosh_whip_m" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 16 )
+volume_db = -5.0
+bus = "Effects"
+
+[node name="woosh_jump" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 16 )
+volume_db = -10.0
+pitch_scale = 0.8
+bus = "Effects"
+
+[node name="woosh_jump2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 15 )
+volume_db = -14.0
+bus = "Effects"
+
+[node name="woosh_jump3" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 16 )
+volume_db = -10.0
+pitch_scale = 2.5
+bus = "Effects"
+
+[node name="shine_jump" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 187 )
+pitch_scale = 1.5
+bus = "Effects"
+
+[node name="shine_jump2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 47 )
+volume_db = -10.0
+pitch_scale = 2.0
+bus = "Effects"
+
+[node name="woosh_airkick" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 15 )
+volume_db = -12.0
+pitch_scale = 0.5
+bus = "Effects"
+
+[node name="woosh_knife" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 16 )
+volume_db = -5.0
+pitch_scale = 1.52
+bus = "Effects"
+
+[node name="woosh_throw" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 16 )
+volume_db = -5.0
+pitch_scale = 1.15
+bus = "Effects"
+
+[node name="woosh_attack" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 16 )
+volume_db = -5.0
+pitch_scale = 0.6
+bus = "Effects"
+
+[node name="woosh_ignite_fire" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 85 )
+volume_db = 3.0
+bus = "Effects"
+
+[node name="wind_strong" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 174 )
+volume_db = -10.0
+bus = "Effects"
+
+[node name="wind_strong2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 174 )
+volume_db = -5.0
+pitch_scale = 2.0
+bus = "Effects"
+
+[node name="whip_crack" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 141 )
+volume_db = -8.0
+bus = "Effects"
+
+[node name="whip_crack2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 141 )
+volume_db = -8.0
+pitch_scale = 1.5
+bus = "Effects"
+
+[node name="whip_crack3" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 141 )
+volume_db = -8.0
+pitch_scale = 1.8
+bus = "Effects"
+
+[node name="explosion_clean" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 17 )
+bus = "Effects"
+
+[node name="atreu_shoot" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 274 )
+volume_db = 5.0
+bus = "Effects"
+
+[node name="ice_shake" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 246 )
+volume_db = -5.0
+pitch_scale = 0.8
+bus = "Effects"
+
+[node name="ice_shake2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 246 )
+volume_db = -3.0
+pitch_scale = 1.89
+bus = "Effects"
+
+[node name="explosion_grijayla_cinematic" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 17 )
+pitch_scale = 1.75
+bus = "Effects"
+
+[node name="explosion_light" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 18 )
+pitch_scale = 1.2
+bus = "Effects"
+
+[node name="explosion_light2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 18 )
+pitch_scale = 1.8
+bus = "Effects"
+
+[node name="explosion_light3" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 18 )
+pitch_scale = 2.46
+bus = "Effects"
+
+[node name="gun_shoot_a" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 118 )
+pitch_scale = 0.61
+bus = "Effects"
+
+[node name="gun_shoot_b" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 119 )
+pitch_scale = 0.61
+bus = "Effects"
+
+[node name="impact_wall" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 136 )
+volume_db = 9.0
+bus = "Effects"
+
+[node name="impact_body_wall" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 27 )
+volume_db = 10.0
+pitch_scale = 0.8
+bus = "Effects"
+
+[node name="impact_mineral" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 27 )
+volume_db = 4.0
+pitch_scale = 1.3
+bus = "Effects"
+
+[node name="impact_mineral2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 27 )
+volume_db = 4.0
+pitch_scale = 1.5
+bus = "Effects"
+
+[node name="impact_mineral3" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 27 )
+volume_db = 5.0
+pitch_scale = 0.5
+bus = "Effects"
+
+[node name="impact_iron_clang" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 41 )
+volume_db = -4.0
+bus = "Effects"
+
+[node name="impact_shield_clang" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 41 )
+volume_db = -3.0
+pitch_scale = 1.77
+bus = "Effects"
+
+[node name="impact_shield_clang2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 41 )
+volume_db = -5.0
+pitch_scale = 2.0
+bus = "Effects"
+
+[node name="impact_player_hurt" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 32 )
+volume_db = 3.0
+pitch_scale = 0.8
+bus = "Effects"
+
+[node name="impact_player_hurt2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 32 )
+volume_db = 3.0
+pitch_scale = 0.48
+bus = "Effects"
+
+[node name="impact_earth" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 54 )
+volume_db = -5.0
+pitch_scale = 1.5
+bus = "Effects"
+
+[node name="impact_earth2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 54 )
+volume_db = -5.0
+pitch_scale = 0.88
+bus = "Effects"
+
+[node name="impact_smash" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 88 )
+volume_db = -5.0
+pitch_scale = 0.42
+bus = "Effects"
+
+[node name="impact_shuriken" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 37 )
+volume_db = -2.0
+pitch_scale = 1.75
+bus = "Effects"
+
+[node name="impact_bottle_break" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 86 )
+volume_db = -11.0
+bus = "Effects"
+
+[node name="impact_window_break" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 87 )
+bus = "Effects"
+
+[node name="bomb_bip" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 4 )
+volume_db = 5.0
+pitch_scale = 3.0
+bus = "Effects"
+
+[node name="mana_absorb" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 33 )
+volume_db = -5.0
+bus = "Effects"
+
+[node name="mana_absorb_x5" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 33 )
+volume_db = -5.0
+pitch_scale = 0.7
+bus = "Effects"
+
+[node name="blood_absorb" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 42 )
+volume_db = 3.0
+pitch_scale = 0.8
+bus = "Effects"
+
+[node name="damage_absorb" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 33 )
+pitch_scale = 1.5
+bus = "Effects"
+
+[node name="damage_weak" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 145 )
+pitch_scale = 1.5
+bus = "Effects"
+
+[node name="damage_weak2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 47 )
+pitch_scale = 2.0
+bus = "Effects"
+
+[node name="item_pickup" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 34 )
+volume_db = -5.0
+bus = "Effects"
+
+[node name="laserbeam" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 229 )
+bus = "Effects"
+
+[node name="laserbeam2" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 229 )
+pitch_scale = 0.5
+bus = "Effects"
+
+[node name="lasershort" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 230 )
+pitch_scale = 1.3
+bus = "Effects"
+
+[node name="lasershort2" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 230 )
+pitch_scale = 2.0
+bus = "Effects"
+
+[node name="lasershort3" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 230 )
+pitch_scale = 0.8
+bus = "Effects"
+
+[node name="lasershort4" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 230 )
+volume_db = 5.0
+pitch_scale = 3.0
+bus = "Effects"
+
+[node name="coin_get" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 75 )
+volume_db = -5.0
+pitch_scale = 1.3
+bus = "Effects"
+
+[node name="laugh_noise" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 269 )
+volume_db = -10.0
+bus = "Effects"
+
+[node name="laugh_evil_long" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 268 )
+pitch_scale = 0.8
+bus = "Effects"
+
+[node name="shoot_projectile" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 92 )
+volume_db = -5.0
+pitch_scale = 1.5
+bus = "Effects"
+
+[node name="shoot_projectile2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 92 )
+pitch_scale = 0.5
+bus = "Effects"
+
+[node name="shoot_projectile_light" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 92 )
+volume_db = -5.0
+pitch_scale = 3.06
+bus = "Effects"
+
+[node name="shoot_projectile_juicy" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 51 )
+volume_db = 5.0
+pitch_scale = 0.7
+bus = "Effects"
+
+[node name="shoot_projectile_arrow" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 203 )
+volume_db = 13.0
+pitch_scale = 0.5
+bus = "Effects"
+
+[node name="blood_full_a" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 111 )
+volume_db = -5.0
+pitch_scale = 0.53
+bus = "Effects"
+
+[node name="blood_full_b" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 112 )
+volume_db = -5.0
+pitch_scale = 2.1
+bus = "Effects"
+
+[node name="sword_slash_slow" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 93 )
+pitch_scale = 0.41
+bus = "Effects"
+
+[node name="sword_slash_slow2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 93 )
+pitch_scale = 0.63
+bus = "Effects"
+
+[node name="sword_slash_slow3" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 170 )
+pitch_scale = 0.63
+bus = "Effects"
+
+[node name="sword_slash_slow4" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 93 )
+volume_db = 5.0
+pitch_scale = 0.39
+bus = "Effects"
+
+[node name="sword_slash_light" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 93 )
+volume_db = 5.0
+bus = "Effects"
+
+[node name="torch_destroyed_slash" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 35 )
+volume_db = -5.0
+pitch_scale = 2.0
+bus = "Effects"
+
+[node name="torch_destroyed_lamp" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 135 )
+bus = "Effects"
+
+[node name="falling_platform" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 152 )
+volume_db = 4.0
+pitch_scale = 2.0
+bus = "Effects"
+
+[node name="door_simple_open" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 152 )
+volume_db = 4.0
+pitch_scale = 0.62
+bus = "Effects"
+
+[node name="door_simple_close" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 153 )
+volume_db = 4.0
+pitch_scale = 0.62
+bus = "Effects"
+
+[node name="door_simple_close_short" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 154 )
+volume_db = 4.0
+pitch_scale = 0.62
+bus = "Effects"
+
+[node name="door_opening" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 76 )
+volume_db = 1.5
+pitch_scale = 0.8
+bus = "Effects"
+
+[node name="door_closed" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 77 )
+volume_db = 3.0
+pitch_scale = 0.7
+bus = "Effects"
+
+[node name="door_boss_open" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 267 )
+pitch_scale = 1.3
+bus = "Effects"
+
+[node name="door_boss_close" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 266 )
+pitch_scale = 0.7
+bus = "Effects"
+
+[node name="door_open_chain" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 267 )
+pitch_scale = 0.8
+bus = "Effects"
+
+[node name="damage_slash" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 158 )
+pitch_scale = 1.4
+bus = "Effects"
+
+[node name="enemy_damage_stab" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 36 )
+bus = "Effects"
+
+[node name="enemy_damage_slap" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 39 )
+volume_db = -8.0
+pitch_scale = 0.65
+bus = "Effects"
+
+[node name="enemy_damage_slap2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 39 )
+volume_db = -8.0
+pitch_scale = 1.43
+bus = "Effects"
+
+[node name="enemy_damage_skeleton" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 40 )
+volume_db = -4.0
+pitch_scale = 3.0
+bus = "Effects"
+
+[node name="enemy_zombie_roar" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 38 )
+volume_db = -5.0
+pitch_scale = 0.71
+bus = "Effects"
+
+[node name="enemy_zombie_roar2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 38 )
+volume_db = -7.0
+pitch_scale = 1.13
+bus = "Effects"
+
+[node name="enemy_ahuizot_death" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 82 )
+pitch_scale = 0.69
+bus = "Effects"
+
+[node name="enemy_ahuizot_death2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 84 )
+pitch_scale = 0.69
+bus = "Effects"
+
+[node name="enemy_ahuizot_death3" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 83 )
+pitch_scale = 0.69
+bus = "Effects"
+
+[node name="enemy_ahuizot_death4" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 83 )
+pitch_scale = 0.55
+bus = "Effects"
+
+[node name="kryvon_death" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 169 )
+volume_db = -10.0
+pitch_scale = 1.88
+bus = "Effects"
+
+[node name="kryvon_startatk" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 227 )
+volume_db = 3.0
+pitch_scale = 0.6
+bus = "Effects"
+
+[node name="boar_grunt" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 235 )
+volume_db = -5.0
+pitch_scale = 1.3
+bus = "Effects"
+
+[node name="boar_death" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 236 )
+volume_db = -8.0
+pitch_scale = 1.3
+bus = "Effects"
+
+[node name="terrific_death" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 169 )
+volume_db = -10.0
+pitch_scale = 0.66
+bus = "Effects"
+
+[node name="terrific_death2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 169 )
+volume_db = -10.0
+pitch_scale = 2.0
+bus = "Effects"
+
+[node name="worm_rumble" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 228 )
+volume_db = 8.0
+pitch_scale = 0.56
+bus = "Effects"
+
+[node name="worm_rumble2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 228 )
+volume_db = 10.0
+pitch_scale = 0.8
+bus = "Effects"
+
+[node name="skeleton_destroyed" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 40 )
+volume_db = -4.0
+pitch_scale = 1.5
+bus = "Effects"
+
+[node name="skeleton_reborn" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 168 )
+volume_db = -4.0
+bus = "Effects"
+
+[node name="enemy_death_woosh" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 50 )
+volume_db = -8.0
+bus = "Effects"
+
+[node name="enemy_death_woosh2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 50 )
+volume_db = -8.0
+pitch_scale = 3.0
+bus = "Effects"
+
+[node name="enemy_death_flap" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 49 )
+volume_db = -6.0
+pitch_scale = 0.93
+bus = "Effects"
+
+[node name="enemy_damage_slap3" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 159 )
+pitch_scale = 1.13
+bus = "Effects"
+
+[node name="cegua_whistle" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 199 )
+volume_db = -10.0
+pitch_scale = 0.7
+bus = "Effects"
+
+[node name="cegua_death" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 199 )
+volume_db = -10.0
+pitch_scale = 0.2
+bus = "Effects"
+
+[node name="ghost_shriek" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 155 )
+pitch_scale = 0.65
+bus = "Effects"
+
+[node name="ghost_shriek_death" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 157 )
+pitch_scale = 0.6
+bus = "Effects"
+
+[node name="aetheril_death" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 164 )
+volume_db = 1.0
+pitch_scale = 1.2
+bus = "Effects"
+
+[node name="sword_master_shriek" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 164 )
+pitch_scale = 2.0
+bus = "Effects"
+
+[node name="sword_master_shriek2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 164 )
+pitch_scale = 3.0
+bus = "Effects"
+
+[node name="gas_release" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 225 )
+pitch_scale = 0.6
+bus = "Effects"
+
+[node name="gas_release2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 225 )
+bus = "Effects"
+
+[node name="toxic_release" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 225 )
+pitch_scale = 1.5
+bus = "Effects"
+
+[node name="toxic_release2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 225 )
+volume_db = 4.0
+pitch_scale = 0.3
+bus = "Effects"
+
+[node name="elyndra_death" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 164 )
+pitch_scale = 0.8
+bus = "Effects"
+
+[node name="skull_invocation" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 164 )
+pitch_scale = 3.0
+bus = "Effects"
+
+[node name="bat_death" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 165 )
+bus = "Effects"
+
+[node name="rat" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 226 )
+volume_db = 5.0
+pitch_scale = 1.5
+bus = "Effects"
+
+[node name="rat_death" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 165 )
+pitch_scale = 0.6
+bus = "Effects"
+
+[node name="shriek" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 156 )
+bus = "Effects"
+
+[node name="bat_shriek" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 271 )
+volume_db = 3.0
+pitch_scale = 0.76
+bus = "Effects"
+
+[node name="bat_shriek2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 271 )
+pitch_scale = 3.0
+bus = "Effects"
+
+[node name="bat_shriek3" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 271 )
+volume_db = 5.0
+pitch_scale = 0.48
+bus = "Effects"
+
+[node name="platform_rotating" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 76 )
+pitch_scale = 1.8
+bus = "Effects"
+
+[node name="laugh_low_tone_1" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 89 )
+pitch_scale = 0.51
+bus = "Effects"
+
+[node name="azche_sting" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 51 )
+bus = "Effects"
+
+[node name="water_splash_in" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 44 )
+volume_db = -4.0
+pitch_scale = 1.5
+bus = "Effects"
+
+[node name="water_splash_in2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 43 )
+volume_db = 2.0
+pitch_scale = 0.32
+bus = "Effects"
+
+[node name="water_splash_in3" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 43 )
+volume_db = 6.0
+pitch_scale = 0.41
+bus = "Effects"
+
+[node name="water_splash_out" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 42 )
+volume_db = -4.0
+pitch_scale = 1.5
+bus = "Effects"
+
+[node name="water_splash_out2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 42 )
+volume_db = 3.0
+pitch_scale = 0.5
+bus = "Effects"
+
+[node name="water_splash_move" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 43 )
+volume_db = -15.0
+pitch_scale = 1.5
+bus = "Effects"
+
+[node name="fire_burning_loop" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 94 )
+pitch_scale = 0.81
+bus = "Effects"
+
+[node name="heartbeat" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 78 )
+volume_db = 2.0
+bus = "Effects"
+
+[node name="boss_death" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 17 )
+pitch_scale = 2.0
+bus = "Effects"
+
+[node name="monster_growl_0" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 80 )
+pitch_scale = 1.26
+bus = "Effects"
+
+[node name="monster_growl_0_death" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 80 )
+pitch_scale = 0.8
+bus = "Effects"
+
+[node name="monster_growl_1_death" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 96 )
+volume_db = 6.0
+pitch_scale = 0.86
+bus = "Effects"
+
+[node name="monster_little_roar" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 97 )
+volume_db = 6.0
+bus = "Effects"
+
+[node name="monster_zombie_roar_slow" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 114 )
+volume_db = 2.0
+pitch_scale = 0.85
+bus = "Effects"
+
+[node name="monster_chew_meat" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 143 )
+pitch_scale = 0.6
+bus = "Effects"
+
+[node name="ghost_galloping" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 179 )
+volume_db = 5.0
+bus = "Effects"
+
+[node name="ghost_horse_scream" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 178 )
+pitch_scale = 0.6
+bus = "Effects"
+
+[node name="horse_snore" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 180 )
+volume_db = -10.0
+bus = "Effects"
+
+[node name="monster_impact" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 144 )
+volume_db = 3.0
+pitch_scale = 0.56
+bus = "Effects"
+
+[node name="skull_impact" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 144 )
+volume_db = 3.0
+pitch_scale = 1.2
+bus = "Effects"
+
+[node name="light_flash" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 145 )
+volume_db = 1.0
+bus = "Effects"
+
+[node name="light_flash2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 145 )
+volume_db = 3.0
+pitch_scale = 0.5
+bus = "Effects"
+
+[node name="light_flash3" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 145 )
+volume_db = 3.0
+pitch_scale = 2.0
+bus = "Effects"
+
+[node name="light_flash4" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 145 )
+volume_db = 3.0
+pitch_scale = 0.4
+bus = "Effects"
+
+[node name="floating_sword_prepared" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 145 )
+pitch_scale = 0.4
+bus = "Effects"
+
+[node name="roar_dragon" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 130 )
+pitch_scale = 1.25
+bus = "Effects"
+
+[node name="roar_hound" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 160 )
+pitch_scale = 2.0
+bus = "Effects"
+
+[node name="death_hound" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 160 )
+pitch_scale = 1.2
+bus = "Effects"
+
+[node name="death_goblin" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 231 )
+bus = "Effects"
+
+[node name="goblin_laugh" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 233 )
+volume_db = -8.0
+bus = "Effects"
+
+[node name="goblin_grunt" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 234 )
+bus = "Effects"
+
+[node name="goblin_grunt2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 234 )
+pitch_scale = 0.6
+bus = "Effects"
+
+[node name="slash_decapitation" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 115 )
+volume_db = -2.0
+bus = "Effects"
+
+[node name="blood_spurt" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 116 )
+pitch_scale = 0.5
+bus = "Effects"
+
+[node name="bats_flap" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 90 )
+volume_db = -3.0
+bus = "Effects"
+
+[node name="bubble_a" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 95 )
+pitch_scale = 2.71
+bus = "Effects"
+
+[node name="bubble_b" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 95 )
+volume_db = 3.0
+bus = "Effects"
+
+[node name="motor_start" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 110 )
+bus = "Effects"
+
+[node name="motor_stop" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 109 )
+bus = "Effects"
+
+[node name="motor_stop_b" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 77 )
+volume_db = 4.0
+pitch_scale = 1.45
+bus = "Effects"
+
+[node name="ambient_fire_crackle" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 120 )
+bus = "Effects"
+
+[node name="ambient_sinester" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 121 )
+volume_db = -5.0
+bus = "Effects"
+
+[node name="ambient_rain" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 132 )
+volume_db = 2.0
+bus = "Effects"
+
+[node name="rain" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 142 )
+bus = "Effects"
+
+[node name="thunder_0" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 131 )
+volume_db = -3.0
+pitch_scale = 0.38
+bus = "Effects"
+
+[node name="thunder_1" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 131 )
+bus = "Effects"
+
+[node name="thunder_2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 133 )
+bus = "Effects"
+
+[node name="thunder_3" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 131 )
+pitch_scale = 2.5
+bus = "Effects"
+
+[node name="pre_thunder" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 238 )
+pitch_scale = 1.5
+bus = "Effects"
+
+[node name="vlad_lance_impale" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 134 )
+volume_db = -4.0
+bus = "Effects"
+
+[node name="vlad_spawn_start" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 138 )
+bus = "Effects"
+
+[node name="vlad_spawn_end" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 139 )
+bus = "Effects"
+
+[node name="skin_burn_a" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 123 )
+bus = "Effects"
+
+[node name="skin_burn_b" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 122 )
+bus = "Effects"
+
+[node name="iron_fall" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 124 )
+pitch_scale = 0.33
+bus = "Effects"
+
+[node name="wing_flap" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 176 )
+pitch_scale = 0.9
+bus = "Effects"
+
+[node name="crow" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 177 )
+bus = "Effects"
+
+[node name="crow2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 177 )
+pitch_scale = 0.7
+bus = "Effects"
+
+[node name="crow_death" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 177 )
+pitch_scale = 1.5
+bus = "Effects"
+
+[node name="moo_scary" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 194 )
+pitch_scale = 0.5
+bus = "Effects"
+
+[node name="woman_scream" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 270 )
+pitch_scale = 0.8
+bus = "Effects"
+
+[node name="horror_kids_loop" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 200 )
+bus = "Effects"
+
+[node name="jumpscare_1" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 201 )
+volume_db = 5.0
+pitch_scale = 2.0
+bus = "Effects"
+
+[node name="jumpscare_2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 201 )
+volume_db = 3.0
+pitch_scale = 1.25
+bus = "Effects"
+
+[node name="signum_crucis" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 202 )
+bus = "Effects"
+
+[node name="rumble_short" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 212 )
+volume_db = -8.0
+pitch_scale = 1.22
+bus = "Effects"
+
+[node name="rumble_short2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 136 )
+volume_db = -8.0
+pitch_scale = 1.3
+bus = "Effects"
+
+[node name="rumble_long" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 212 )
+volume_db = -8.0
+pitch_scale = 0.72
+bus = "Effects"
+
+[node name="rumble_long2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 136 )
+volume_db = -8.0
+pitch_scale = 0.72
+bus = "Effects"
+
+[node name="train_start" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 222 )
+bus = "Effects"
+
+[node name="train_loop" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 223 )
+volume_db = 3.0
+pitch_scale = 0.2
+bus = "Effects"
+
+[node name="train_end" type="AudioStreamPlayer" parent="Sfx"]
+pause_mode = 2
+stream = ExtResource( 221 )
+bus = "Effects"
+
+[node name="whispers" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 239 )
+volume_db = 3.0
+bus = "Effects"
+
+[node name="firecrack" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 248 )
+pitch_scale = 1.4
+bus = "Effects"
+
+[node name="firecrack2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 248 )
+bus = "Effects"
+
+[node name="firecrack3" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 248 )
+pitch_scale = 0.6
+bus = "Effects"
+
+[node name="fireball" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 247 )
+bus = "Effects"
+
+[node name="fireball_large" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 249 )
+bus = "Effects"
+
+[node name="fireball_short" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 249 )
+pitch_scale = 3.0
+bus = "Effects"
+
+[node name="shine" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 47 )
+volume_db = -5.0
+pitch_scale = 1.8
+bus = "Effects"
+
+[node name="shine2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 47 )
+pitch_scale = 2.2
+bus = "Effects"
+
+[node name="shine3" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 47 )
+pitch_scale = 0.7
+bus = "Effects"
+
+[node name="electric_zap" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 238 )
+bus = "Effects"
+
+[node name="electric_zap2" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 238 )
+pitch_scale = 1.71
+bus = "Effects"
+
+[node name="electric_zap3" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 238 )
+pitch_scale = 0.8
+bus = "Effects"
+
+[node name="cat_meow" type="Node" parent="Sfx"]
+script = ExtResource( 23 )
+
+[node name="cat_meow_0" type="AudioStreamPlayer" parent="Sfx/cat_meow"]
+stream = ExtResource( 148 )
+volume_db = 3.0
+bus = "Effects"
+
+[node name="cat_meow_1" type="AudioStreamPlayer" parent="Sfx/cat_meow"]
+stream = ExtResource( 149 )
+volume_db = 3.0
+bus = "Effects"
+
+[node name="cat_meow_2" type="AudioStreamPlayer" parent="Sfx/cat_meow"]
+stream = ExtResource( 150 )
+volume_db = 3.0
+bus = "Effects"
+
+[node name="k" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 273 )
+volume_db = 5.0
+
+[node name="atreu_stab" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 36 )
+volume_db = 3.0
+pitch_scale = 0.6
+
+[node name="stair_mechanical" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 267 )
+pitch_scale = 2.0
+
+[node name="Bgm" type="Node" parent="."]
+pause_mode = 2
+
+[node name="nameless_symphony" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+__meta__ = {
+"_editor_description_": "OrchestrAlone (Diego Esquivel)"
+}
+
+[node name="song" type="AudioStreamPlayer" parent="Bgm/nameless_symphony"]
+stream = ExtResource( 125 )
+bus = "Music"
+
+[node name="prologue_intro" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+__meta__ = {
+"_editor_description_": "OrchestrAlone (Diego Esquivel)"
+}
+
+[node name="song" type="AudioStreamPlayer" parent="Bgm/prologue_intro"]
+stream = ExtResource( 218 )
+bus = "Music"
+
+[node name="the_order" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="song" type="AudioStreamPlayer" parent="Bgm/the_order"]
+stream = ExtResource( 163 )
+bus = "Music"
+
+[node name="opening_theme" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="song" type="AudioStreamPlayer" parent="Bgm/opening_theme"]
+stream = ExtResource( 137 )
+volume_db = 1.0
+bus = "Music"
+
+[node name="xandrias_theme" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="song" type="AudioStreamPlayer" parent="Bgm/xandrias_theme"]
+stream = ExtResource( 126 )
+bus = "Music"
+
+[node name="main_menu_theme" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="main" type="AudioStreamPlayer" parent="Bgm/main_menu_theme"]
+stream = ExtResource( 12 )
+volume_db = -5.0
+bus = "Music"
+
+[node name="flashback_theme_1" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="main" type="AudioStreamPlayer" parent="Bgm/flashback_theme_1"]
+stream = ExtResource( 113 )
+volume_db = 3.0
+bus = "Music"
+
+[node name="flashback_theme_slow" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="main" type="AudioStreamPlayer" parent="Bgm/flashback_theme_slow"]
+stream = ExtResource( 113 )
+volume_db = 3.0
+bus = "Music"
+
+[node name="flashback_theme_distort" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="main" type="AudioStreamPlayer" parent="Bgm/flashback_theme_distort"]
+stream = ExtResource( 113 )
+volume_db = 3.0
+pitch_scale = 2.0
+bus = "Music"
+
+[node name="ambient_forest_wind" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="main" type="AudioStreamPlayer" parent="Bgm/ambient_forest_wind"]
+stream = ExtResource( 81 )
+bus = "Music"
+
+[node name="crimson_moon" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="main" type="AudioStreamPlayer" parent="Bgm/crimson_moon"]
+stream = ExtResource( 74 )
+volume_db = 5.0
+bus = "Music"
+
+[node name="beginning_of_darkness" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+high_tracks = "0,1,2"
+low_tracks = "0,1"
+
+[node name="bg" type="AudioStreamPlayer" parent="Bgm/beginning_of_darkness"]
+stream = ExtResource( 56 )
+volume_db = 2.0
+bus = "Music"
+
+[node name="percussion" type="AudioStreamPlayer" parent="Bgm/beginning_of_darkness"]
+stream = ExtResource( 55 )
+volume_db = 2.0
+bus = "Music"
+
+[node name="melody" type="AudioStreamPlayer" parent="Bgm/beginning_of_darkness"]
+stream = ExtResource( 57 )
+volume_db = 2.0
+bus = "Music"
+
+[node name="beginning_of_darkness_underwater" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="track" type="AudioStreamPlayer" parent="Bgm/beginning_of_darkness_underwater"]
+stream = ExtResource( 99 )
+volume_db = -3.0
+bus = "Music"
+
+[node name="beginning_of_darkness_underground" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="track" type="AudioStreamPlayer" parent="Bgm/beginning_of_darkness_underground"]
+stream = ExtResource( 98 )
+volume_db = -2.0
+bus = "Music"
+
+[node name="afternoon_ruins" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+high_tracks = "0,1,2"
+low_tracks = "0,1"
+
+[node name="bg" type="AudioStreamPlayer" parent="Bgm/afternoon_ruins"]
+stream = ExtResource( 58 )
+volume_db = 1.0
+bus = "Music"
+
+[node name="percussion" type="AudioStreamPlayer" parent="Bgm/afternoon_ruins"]
+stream = ExtResource( 59 )
+volume_db = 1.0
+bus = "Music"
+
+[node name="melody" type="AudioStreamPlayer" parent="Bgm/afternoon_ruins"]
+stream = ExtResource( 61 )
+volume_db = 1.0
+bus = "Music"
+
+[node name="rest_town" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+low_tracks = "1"
+
+[node name="exterior" type="AudioStreamPlayer" parent="Bgm/rest_town"]
+stream = ExtResource( 60 )
+volume_db = 3.0
+bus = "Music"
+
+[node name="interior" type="AudioStreamPlayer" parent="Bgm/rest_town"]
+stream = ExtResource( 62 )
+bus = "Music"
+
+[node name="prepare_for_war" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="song" type="AudioStreamPlayer" parent="Bgm/prepare_for_war"]
+stream = ExtResource( 79 )
+volume_db = 3.0
+bus = "Music"
+
+[node name="prepare_for_war_b" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="song" type="AudioStreamPlayer" parent="Bgm/prepare_for_war_b"]
+stream = ExtResource( 244 )
+volume_db = 3.0
+bus = "Music"
+
+[node name="eva_fight_theme" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="song" type="AudioStreamPlayer" parent="Bgm/eva_fight_theme"]
+stream = ExtResource( 117 )
+volume_db = 2.0
+bus = "Music"
+
+[node name="eva_fight_theme2" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="song" type="AudioStreamPlayer" parent="Bgm/eva_fight_theme2"]
+stream = ExtResource( 198 )
+volume_db = 1.5
+bus = "Music"
+
+[node name="alessandro_fight_theme" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="song" type="AudioStreamPlayer" parent="Bgm/alessandro_fight_theme"]
+stream = ExtResource( 173 )
+volume_db = 2.0
+bus = "Music"
+
+[node name="sheal_fight_theme" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="song" type="AudioStreamPlayer" parent="Bgm/sheal_fight_theme"]
+stream = ExtResource( 206 )
+volume_db = 2.0
+bus = "Music"
+
+[node name="eldralis_woods" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+low_tracks = "1"
+
+[node name="exterior" type="AudioStreamPlayer" parent="Bgm/eldralis_woods"]
+stream = ExtResource( 161 )
+volume_db = 2.0
+bus = "Music"
+
+[node name="interior" type="AudioStreamPlayer" parent="Bgm/eldralis_woods"]
+stream = ExtResource( 162 )
+volume_db = 2.0
+bus = "Music"
+
+[node name="stralsund_ruins" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+low_tracks = "1"
+
+[node name="exterior" type="AudioStreamPlayer" parent="Bgm/stralsund_ruins"]
+stream = ExtResource( 171 )
+volume_db = 2.0
+bus = "Music"
+
+[node name="interior" type="AudioStreamPlayer" parent="Bgm/stralsund_ruins"]
+stream = ExtResource( 172 )
+volume_db = 2.0
+bus = "Music"
+
+[node name="athos_abbey" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+low_tracks = "1"
+
+[node name="exterior" type="AudioStreamPlayer" parent="Bgm/athos_abbey"]
+stream = ExtResource( 182 )
+volume_db = -2.0
+bus = "Music"
+
+[node name="interior" type="AudioStreamPlayer" parent="Bgm/athos_abbey"]
+stream = ExtResource( 181 )
+volume_db = -2.0
+bus = "Music"
+
+[node name="iron_boss_theme_1" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="theme" type="AudioStreamPlayer" parent="Bgm/iron_boss_theme_1"]
+stream = ExtResource( 184 )
+volume_db = -2.0
+bus = "Music"
+
+[node name="iron_boss_theme_2" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="theme" type="AudioStreamPlayer" parent="Bgm/iron_boss_theme_2"]
+stream = ExtResource( 185 )
+volume_db = -2.0
+bus = "Music"
+
+[node name="iron_boss_theme_break" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="theme" type="AudioStreamPlayer" parent="Bgm/iron_boss_theme_break"]
+stream = ExtResource( 183 )
+volume_db = -2.0
+bus = "Music"
+
+[node name="birstall" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+high_tracks = "1"
+low_tracks = "2"
+
+[node name="xandria_adulta" type="AudioStreamPlayer" parent="Bgm/birstall"]
+stream = ExtResource( 197 )
+bus = "Music"
+
+[node name="xandria_niña" type="AudioStreamPlayer" parent="Bgm/birstall"]
+stream = ExtResource( 196 )
+bus = "Music"
+
+[node name="xandria_niña2" type="AudioStreamPlayer" parent="Bgm/birstall"]
+stream = ExtResource( 196 )
+volume_db = -5.0
+bus = "Music"
+
+[node name="peligro" type="AudioStreamPlayer" parent="Bgm/birstall"]
+stream = ExtResource( 195 )
+bus = "Music"
+
+[node name="birstall_normal" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+low_tracks = "1"
+
+[node name="xandria_adulta" type="AudioStreamPlayer" parent="Bgm/birstall_normal"]
+stream = ExtResource( 197 )
+bus = "Music"
+
+[node name="xandria_niña" type="AudioStreamPlayer" parent="Bgm/birstall_normal"]
+stream = ExtResource( 196 )
+bus = "Music"
+
+[node name="peligro" type="AudioStreamPlayer" parent="Bgm/birstall_normal"]
+stream = ExtResource( 195 )
+bus = "Music"
+
+[node name="eztilia" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+low_tracks = "1"
+
+[node name="exterior" type="AudioStreamPlayer" parent="Bgm/eztilia"]
+stream = ExtResource( 204 )
+bus = "Music"
+
+[node name="interior" type="AudioStreamPlayer" parent="Bgm/eztilia"]
+stream = ExtResource( 205 )
+bus = "Music"
+
+[node name="tahuatepet_volcano" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+low_tracks = "1"
+
+[node name="exterior" type="AudioStreamPlayer" parent="Bgm/tahuatepet_volcano"]
+stream = ExtResource( 209 )
+bus = "Music"
+
+[node name="interior" type="AudioStreamPlayer" parent="Bgm/tahuatepet_volcano"]
+stream = ExtResource( 208 )
+bus = "Music"
+
+[node name="tahuatepet_underwater" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+low_tracks = "1"
+
+[node name="exterior" type="AudioStreamPlayer" parent="Bgm/tahuatepet_underwater"]
+stream = ExtResource( 207 )
+bus = "Music"
+
+[node name="interior" type="AudioStreamPlayer" parent="Bgm/tahuatepet_underwater"]
+stream = ExtResource( 210 )
+bus = "Music"
+
+[node name="aridiah" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+low_tracks = "1"
+
+[node name="exterior" type="AudioStreamPlayer" parent="Bgm/aridiah"]
+stream = ExtResource( 213 )
+bus = "Music"
+
+[node name="interior" type="AudioStreamPlayer" parent="Bgm/aridiah"]
+stream = ExtResource( 214 )
+bus = "Music"
+
+[node name="dirian_boss_theme" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="exterior" type="AudioStreamPlayer" parent="Bgm/dirian_boss_theme"]
+stream = ExtResource( 211 )
+bus = "Music"
+
+[node name="elisia_boss_theme" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="exterior" type="AudioStreamPlayer" parent="Bgm/elisia_boss_theme"]
+stream = ExtResource( 215 )
+bus = "Music"
+
+[node name="annette_boss_theme" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="exterior" type="AudioStreamPlayer" parent="Bgm/annette_boss_theme"]
+stream = ExtResource( 245 )
+bus = "Music"
+
+[node name="rachel_theme" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="exterior" type="AudioStreamPlayer" parent="Bgm/rachel_theme"]
+stream = ExtResource( 220 )
+bus = "Music"
+
+[node name="train_assault" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="exterior" type="AudioStreamPlayer" parent="Bgm/train_assault"]
+stream = ExtResource( 224 )
+bus = "Music"
+
+[node name="alessa_theme" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="exterior" type="AudioStreamPlayer" parent="Bgm/alessa_theme"]
+stream = ExtResource( 219 )
+bus = "Music"
+
+[node name="before_alessa" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="exterior" type="AudioStreamPlayer" parent="Bgm/before_alessa"]
+stream = ExtResource( 253 )
+bus = "Music"
+
+[node name="before_cavendish" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="exterior" type="AudioStreamPlayer" parent="Bgm/before_cavendish"]
+stream = ExtResource( 257 )
+bus = "Music"
+
+[node name="before_dirian_sheal" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="exterior" type="AudioStreamPlayer" parent="Bgm/before_dirian_sheal"]
+stream = ExtResource( 263 )
+bus = "Music"
+
+[node name="before_elisia" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="exterior" type="AudioStreamPlayer" parent="Bgm/before_elisia"]
+stream = ExtResource( 252 )
+bus = "Music"
+
+[node name="before_toziuha" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="exterior" type="AudioStreamPlayer" parent="Bgm/before_toziuha"]
+stream = ExtResource( 254 )
+bus = "Music"
+
+[node name="before_isaac_eva" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="exterior" type="AudioStreamPlayer" parent="Bgm/before_isaac_eva"]
+stream = ExtResource( 260 )
+bus = "Music"
+
+[node name="before_johannes" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="exterior" type="AudioStreamPlayer" parent="Bgm/before_johannes"]
+stream = ExtResource( 264 )
+bus = "Music"
+
+[node name="before_rachel" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="exterior" type="AudioStreamPlayer" parent="Bgm/before_rachel"]
+stream = ExtResource( 265 )
+bus = "Music"
+
+[node name="after_alessa" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="exterior" type="AudioStreamPlayer" parent="Bgm/after_alessa"]
+stream = ExtResource( 259 )
+bus = "Music"
+
+[node name="after_cavendish" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="exterior" type="AudioStreamPlayer" parent="Bgm/after_cavendish"]
+stream = ExtResource( 258 )
+bus = "Music"
+
+[node name="after_dirian_sheal" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="exterior" type="AudioStreamPlayer" parent="Bgm/after_dirian_sheal"]
+stream = ExtResource( 250 )
+bus = "Music"
+
+[node name="after_elisia" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="exterior" type="AudioStreamPlayer" parent="Bgm/after_elisia"]
+stream = ExtResource( 261 )
+bus = "Music"
+
+[node name="after_toziuha" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="exterior" type="AudioStreamPlayer" parent="Bgm/after_toziuha"]
+stream = ExtResource( 255 )
+bus = "Music"
+
+[node name="after_isaac_eva" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="exterior" type="AudioStreamPlayer" parent="Bgm/after_isaac_eva"]
+stream = ExtResource( 262 )
+bus = "Music"
+
+[node name="after_johannes" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="exterior" type="AudioStreamPlayer" parent="Bgm/after_johannes"]
+stream = ExtResource( 251 )
+bus = "Music"
+
+[node name="after_rachel" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="exterior" type="AudioStreamPlayer" parent="Bgm/after_rachel"]
+stream = ExtResource( 256 )
+bus = "Music"
+
+[node name="tension_battle" type="Node" parent="Bgm"]
+script = ExtResource( 26 )
+
+[node name="exterior" type="AudioStreamPlayer" parent="Bgm/tension_battle"]
+stream = ExtResource( 275 )
+bus = "Music"
+
+[node name="Voice" type="Node" parent="."]
+pause_mode = 1
+__meta__ = {
+"_editor_description_": "xandria pitch a 1.43
+
+voz mas infantil"
+}
+
+[node name="xandria_atk" type="Node" parent="Voice"]
+script = ExtResource( 23 )
+
+[node name="xandria_atkm0" type="AudioStreamPlayer" parent="Voice/xandria_atk"]
+volume_db = -7.0
+bus = "Voice"
+
+[node name="xandria_atkm1" type="AudioStreamPlayer" parent="Voice/xandria_atk"]
+stream = ExtResource( 20 )
+volume_db = -7.0
+bus = "Voice"
+
+[node name="xandria_atkm2" type="AudioStreamPlayer" parent="Voice/xandria_atk"]
+stream = ExtResource( 22 )
+volume_db = -7.0
+bus = "Voice"
+
+[node name="xandria_atkm3" type="AudioStreamPlayer" parent="Voice/xandria_atk"]
+stream = ExtResource( 21 )
+volume_db = -7.0
+bus = "Voice"
+
+[node name="xandria_null" type="AudioStreamPlayer" parent="Voice/xandria_atk"]
+bus = "Voice"
+
+[node name="xandria_extra_damage1" type="AudioStreamPlayer" parent="Voice"]
+stream = ExtResource( 101 )
+volume_db = -7.0
+bus = "Voice"
+
+[node name="xandria_extra_damage2" type="AudioStreamPlayer" parent="Voice"]
+stream = ExtResource( 100 )
+volume_db = -7.0
+bus = "Voice"
+
+[node name="xandria_extra_damage3" type="AudioStreamPlayer" parent="Voice"]
+stream = ExtResource( 107 )
+volume_db = -7.0
+bus = "Voice"
+
+[node name="xandria_extra_damage4" type="AudioStreamPlayer" parent="Voice"]
+stream = ExtResource( 106 )
+volume_db = -7.0
+bus = "Voice"
+
+[node name="xandria_coff" type="AudioStreamPlayer" parent="Voice"]
+stream = ExtResource( 103 )
+volume_db = -7.0
+bus = "Voice"
+
+[node name="xandria_damage" type="Node" parent="Voice"]
+script = ExtResource( 23 )
+
+[node name="xandria_damage1" type="AudioStreamPlayer" parent="Voice/xandria_damage"]
+stream = ExtResource( 29 )
+volume_db = -7.0
+bus = "Voice"
+
+[node name="xandria_damage2" type="AudioStreamPlayer" parent="Voice/xandria_damage"]
+stream = ExtResource( 28 )
+volume_db = -7.0
+bus = "Voice"
+
+[node name="xandria_damage3" type="AudioStreamPlayer" parent="Voice/xandria_damage"]
+stream = ExtResource( 31 )
+volume_db = -7.0
+bus = "Voice"
+
+[node name="xandria_death_medium" type="AudioStreamPlayer" parent="Voice"]
+stream = ExtResource( 30 )
+volume_db = -7.0
+bus = "Voice"
+
+[node name="xandria_death_fall" type="AudioStreamPlayer" parent="Voice"]
+stream = ExtResource( 108 )
+volume_db = -7.0
+bus = "Voice"
+
+[node name="xandria_death_large" type="AudioStreamPlayer" parent="Voice"]
+stream = ExtResource( 71 )
+volume_db = -11.0
+bus = "Voice"
+
+[node name="xandria_move" type="AudioStreamPlayer" parent="Voice"]
+stream = ExtResource( 24 )
+volume_db = -7.0
+bus = "Voice"
+
+[node name="xandria_shout" type="AudioStreamPlayer" parent="Voice"]
+stream = ExtResource( 25 )
+volume_db = -7.0
+bus = "Voice"
+
+[node name="eva_laugh" type="AudioStreamPlayer" parent="Voice"]
+stream = ExtResource( 104 )
+volume_db = -7.0
+pitch_scale = 0.86
+bus = "Voice"
+
+[node name="eva_damage" type="AudioStreamPlayer" parent="Voice"]
+stream = ExtResource( 105 )
+volume_db = -10.0
+pitch_scale = 0.7
+bus = "Voice"
+
+[node name="smol_xandria_jump" type="AudioStreamPlayer" parent="Voice"]
+stream = ExtResource( 188 )
+bus = "Voice"
+
+[node name="smol_xandria_dodge" type="AudioStreamPlayer" parent="Voice"]
+stream = ExtResource( 190 )
+bus = "Voice"
+
+[node name="smol_xandria_slide" type="AudioStreamPlayer" parent="Voice"]
+stream = ExtResource( 191 )
+bus = "Voice"
+
+[node name="smol_xandria_hurt" type="AudioStreamPlayer" parent="Voice"]
+stream = ExtResource( 192 )
+volume_db = -5.0
+bus = "Voice"
+
+[node name="smol_xandria_death" type="AudioStreamPlayer" parent="Voice"]
+stream = ExtResource( 189 )
+volume_db = -5.0
+pitch_scale = 1.2
+bus = "Voice"
+
+[node name="Tween" type="Tween" parent="."]
+pause_mode = 2
+
+[node name="TimerHitFilterAudio" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
+[connection signal="timeout" from="TimerHitFilterAudio" to="." method="_on_TimerHitFilterAudio_timeout"]

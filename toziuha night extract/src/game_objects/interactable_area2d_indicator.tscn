@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/ui_elements/helper_icon_btn.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/game_objects/iteractable_area2d_indicator.gd" type="Script" id=2]
+
+[node name="InteractableArea2DIndicator" type="Area2D"]
+collision_layer = 8
+collision_mask = 256
+script = ExtResource( 2 )
+
+[node name="HelperIconBtn" parent="." instance=ExtResource( 1 )]
+margin_left = -8.0
+margin_top = -80.0
+margin_right = 8.0
+margin_bottom = -64.0
+animated = true
+action = "ui_up"
+
+[node name="TimerAppearHelper" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="area_entered" from="." to="." method="_on_IteractableArea2DIndicator_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_IteractableArea2DIndicator_area_exited"]
+[connection signal="timeout" from="TimerAppearHelper" to="." method="_on_TimerAppearHelper_timeout"]

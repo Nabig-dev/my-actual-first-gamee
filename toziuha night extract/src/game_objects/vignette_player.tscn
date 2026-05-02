@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/gdshaders/player_vignette.gdshader" type="Shader" id=1]
+[ext_resource path="res://src/game_objects/vignette_player.gd" type="Script" id=2]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/player_position = Vector2( 0.5, 0.5 )
+shader_param/color = Color( 0, 0, 0, 1 )
+shader_param/MULTIPLIER = 0.56
+shader_param/SCALE = 0.03
+shader_param/SOFTNESS = 1.846
+
+[node name="VignettePlayer" type="Node2D" groups=["vignette_player"]]
+visible = false
+z_index = 100
+script = ExtResource( 2 )
+
+[node name="TimerStartFollowPlayer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+light_mask = 0
+material = SubResource( 1 )
+margin_left = -640.0
+margin_top = -382.0
+margin_right = 640.0
+margin_bottom = 338.0
+mouse_filter = 2
+
+[connection signal="timeout" from="TimerStartFollowPlayer" to="." method="_on_TimerStartFollowPlayer_timeout"]

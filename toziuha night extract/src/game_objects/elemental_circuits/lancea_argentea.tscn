@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/sprites/weapons/ec_lancea_argentea.png" type="Texture" id=1]
+[ext_resource path="res://src/game_objects/elemental_circuits/lancea_argentea.gd" type="Script" id=2]
+[ext_resource path="res://src/game_objects/ghost_trail.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hitbox_player.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+[node name="LanceaArgentea" type="Node2D" groups=["lancea_argentea"]]
+z_index = 3
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="EcLanceaArgentea" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="HitboxPlayer" parent="EcLanceaArgentea" instance=ExtResource( 4 )]
+identifier = "lancea_argentea"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EcLanceaArgentea/HitboxPlayer"]
+position = Vector2( 9, -2 )
+rotation = 1.0472
+shape = SubResource( 1 )
+
+[node name="GhostTrail" parent="." instance=ExtResource( 3 )]
+parent_sprite_path = NodePath("..")
+sprite_path = NodePath("../EcLanceaArgentea")
+scale_from_parent = false
+use_custom_z_index = true
+z_index = 1
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 0, 9.53674e-07 )
+scale = Vector2( 4.1, 3.85 )
+
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

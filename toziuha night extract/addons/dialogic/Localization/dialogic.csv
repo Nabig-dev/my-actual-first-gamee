@@ -1,0 +1,187 @@
+﻿key,en,zh_Hans_CN,es,fr,de
+NameLabelTabTitle,Name Label,名称标签,,,Namenstext
+Character Leave,Character Leave,角色离开,Personaje Sale,,Charakter verlassen
+Extra Font,Extra Font,额外字体,Extra Fuente,,Zusatzschrift
+Autofocus choice buttons,Autofocus choice buttons,自动对焦选择按钮,,,Optionen automatisch fokussieren
+Scale,Scale,尺度,Escala,Échelle,Größe
+Canvas layer:,Canvas layer:,帆布层:,Canvas layer:,,Canvas Layer:
+CustomScenePreview,[!] Can't show previews of custom scenes.,[!] 无法显示自定义场景的预览.,,,Szenen können nicht angezeigt werden.
+Position,Position,位置,Posicion,Position,Position
+Change Timeline,Change Timeline,改变时间线,Cambiar Secuencia,,Zeitlinie wechseln
+Remove Character,Remove Character,移除角色,,,Charakter löschen
+Saving,Game saving,游戏保存中,,,Speichern im Spiel
+,,,,,
+Default bus for Text event audio,Default bus for Text event audio,文本事件音频的默认总线,Audio bus predeterminado para eventos de texto,,Standard Audio-Bus für Text Ereignisse
+Speed (bigger = slower),Speed (bigger = slower),速度 (更大=更慢),Velocidad (a mayor número más lento),,Geschwindigkeit
+Regular Font,Regular Font,普通字体,Normal,,Normal
+RemoveFolderPopupTitle,Be sure you want to delete this folder!,请确定你要删除这个文件夹!,"Por favor, Confirma...",,Ordner wirklich löschen?
+Stretch background images ,Stretch background images,拉伸背景图像,,,Hintergrundbilder strecken
+Typing Sound Effects,Typing Sound Effects,'打字'音效,Sonido Del Texto,,Tipp-Geräusche
+Audio,Audio,音频,,,Audio
+seconds,seconds,秒,segundos,secondes,Sekunden
+Default action key,Default action key,默认动作按键,Tecla de acción predeterminada,,Standard Aktion
+File:,File:,文件:,Archivo:,,Datei
+Use Custom Buttons,Use Custom Buttons,使用自定义按钮,Usar botones propios,,Benutzerdefinierte Knöpfe
+Show,Show,显示,Mostrar,Afficher,Anzeigen
+Description:,Description:,描述:,Descripción:,,Beschreibung:
+Allow interrupt,Allow interrupt,允许中断,Permitir interrumpir,,Unterbrechen
+Edit Definitions File,Edit Definitions File,编辑定义文件,,,Definitions-Datei bearbeiten
+,,,,,
+Timeline,Timeline,时间线,Secuencia,Chronologie,Zeitlinie
+Input,Input,输入,,,Eingabe
+Delete Folder,Delete Folder,删除文件夹,,,Ordner löschen
+DeleteResourceText,"Are you sure you want to remove this [resource]? 
+ (Can't be restored)","是否确实要删除此 [resource]? 
+ (无法还原)",,,"Sind Sie sicher, dass Sie diese/s/n [resource] löschen wollen? 
+ (Kann nicht wiederhergestellt werden)"
+Enable choice options after,Enable choice options after,启用选择选项后,Habilitar las opciones después de,,Aktiviere Optionen nach
+,,,,,
+UseAudio,Use audio file(s),启用,Habilitar,Activer,Aktivieren
+Custom events,Custom events,自定义事件,,,Benutzerdefinierte Ereignisse
+CantDeleteLastTheme,Dialogic always needs a theme. You cannot delete the last theme. Sorry!,Dialogic总是需要一个主题. 很抱歉你不能删除最后的主题!,,,"Dialogic benötigt immer ein Theme, darum darf das Letzte nicht gelöscht werden!"
+,,,,,
+AudioTabTitle,Audio,音频,Audio,Audio,Audio
+Title Font,Title Font,标题字体,Título Fuente,,Titelschrift
+Size and Position,Size and Position,尺寸和位置,,,Größe und Position
+Settings,Settings,设置,,,Einstellungen
+Emit Signal,Emit Signal,发出信号,Emitir Señal,,Signal senden
+Separation,Separation,分离,Separación,Séparation,Abstand
+Advanced,Advanced,高级,Avanzado,Avancées,Fortgeschritten
+Full width,Full width,全宽,Ancho completo,,Gesamte Breite
+Use character Color,Use character Color,使用角色颜色,Usar el color del personaje,,Charakterfarbe nutzen
+Volume,Volume,音量,Volumen,Volume,Lautstärke
+Position on screen,Position on screen,屏幕上的位置,Posición en la pantalla,,Position
+Path,Path,路径,,,Datei
+Help,Help,帮助,Ayuda,Aide,Hilfe
+Default,Default Theme:,默认,Predeterminado,défaut,Standart Theme:
+Audio Bus,Audio Bus,音频总线,Bus de Audio,Bus Audio,Audio Bus
+Pitch,Pitch,音高,,,Tonhöhe
+Text Font,Text Font,文本字体,Texto Font,,Inhaltsschrift
+,,,,,
+GlossaryName,Name:,名称:,Nombre:,Nom:,Name:
+Image,Image,图片,Imágen,Image,Bild
+Offset x-y,Offset x-y,偏移 x-y,Compensación x-y,,
+Add Value,Add Value,添加价,,,Neuer Wert
+Enable audio for Text events,Enable audio for Text events,启用文本事件的音频,Habilitar audio para eventos de texto,,Audio für Text Ereignisse aktivieren
+Import folder,Import folder,从文件夹中导入图片,Importar carpeta,,Ordner importieren
+Set Value,Set Value,设定值,Actualizar Valor,,Wert ändern
+Propagate input to rest of the Tree,Propagate input to rest of the Tree,传播输入到树的其他部分,Propagar input al resto del Tree,,Eingabe an den Rest des Baumes weitergeben
+Alignment,Alignment,对齐,Alineación,,Ausrichtung
+Experimental Translations:,Experimental Translations:,实验性翻译:,Traducción experimental:,,Experimentelle Übersetzung:
+Box,Box,盒子,Box,Boîte,Textfeld
+Flat background,Flat background,扁平背景,Fondo plano,,Einfarbiger Hintergrund
+Copy Timeline Name,Copy Timeline Name,复制时间线名称,,,Name der Zeitlinie kopieren
+Choice Sound Effects,Choice Sound Effects,'选择'音效,,,
+RemoveResourcePopupTitle,Be sure you want to delete!,请确定你要删除!,"Por favor, Confirma...",,"Sicher, dass Sie das löschen möchten?"
+Placement,Placement,摆放位置,Colocación,Placement,Platzierung
+Website,Website,网站,Sitio Web,Site Web,Webseite
+Text color,Text color,文本颜色,Texto Color,,Inhaltsfarbe
+Action key,Action key,动作按键,Tecla de acción,Clé d'action,Eingabeaktion
+End Branch,End Branch,结束分支,Cerrar rama,,Zweig beenden
+Choice,Choice,选择,Opcion,,Option
+New lines will create extra messages,New lines will create extra messages,新的线条会产生额外的信息,Nuevas líneas crearan nuevos mensajes,,Zeilenumbrüche erstellen automatisch neue Nachrichten
+Condition,Condition,条件,Condicion,,Bedingung
+Remove Theme,Remove Theme,移除主题,,,Theme löschen
+Add Glossary Entry,Add Glossary Entry,添加术语条目,,,Neuer Glossar-Eintrag
+Shadow Offset,Shadow Offset,阴影偏移,Compensación,Décalage de l'ombre,Schattenabstand
+Background Panel,Background Panel,背景板,Panel de fondo,,Hintergrundpanel
+Shadow,Shadow,阴影,Sombra,Ombre,Schatten
+Actual Size,Actual Size,实际尺寸,,,Tasächliche Größe
+Change Scene,Change Scene,改变场景,Cambiar Escena,Changer la scène,Szene wechseln
+Remove empty messages,Remove empty messages,删除空信息,Borrar mensajes vacíos,,Leere Nachrichten entfernen
+Theme,Theme,主题,,,Theme
+Set Background,Set Background,设置背景,Cambiar Fondo,,Hintergrund wechseln
+Fade in time:,Fade in time:,淡入时间:,Tiempo de aparición:,,Einblendedauer
+Box size (pixels),Box size (pixels),盒子大小 (像素),Box size (pixels),,Textfeldgröße
+Nicknames:,Nicknames:,昵称:,Apodos:,,Spitznamen:
+ChoiceButtonTabTitle,Choice Buttons,选择按钮,,,Optionen
+Text,Text,文本,Texto,Texte,Text
+Remove Timeline,Remove Timeline,移除时间线,,,Zeitlinie löschen
+Don't Close After Last Event,Don't Close After Last Event,最后一次活动后不要关闭,,,
+Call Node,Call Node,呼叫节点,Llamar Nodo,,
+Enable default choice hotkeys,Enable default choice hotkeys,启用默认选择热键,,,Standard Hotkeys nutzen
+Godot,Godot,Godot,Godot,Godot,Godot
+Background Texture,Background Texture,背景纹理,Textura de fondo,,Hintergrundbild
+Bottom gap,Bottom gap,底部间隙,Bottom gap,,Abstand
+Italic Font,Italic Font,斜体字,Cursiva,Italic Font,Kursiv
+,,,,,
+Texture Modulation,Texture Modulation,纹理调制,Modulación de textura,Modulation de la texture,Texturfarbe
+File or folder path,File or folder path,文件或文件夹路径,Archivo o carpeta,,Datei- oder Ordnerpfad
+GlossaryContent,Content:,内容:,,,Inhalt:
+Full View,Full View,全视图,,,Ganze Ansicht
+Add Theme,Add Theme,添加主题,,,Neues Theme
+Value,Value:,值:,,,Wert:
+Add Character,Add Character,添加角色,,,Neuer Charakter
+Single Portrait Mode,Single Portrait Mode,单一肖像模式,Modo retrato único,,Alleinstehendes Portrait Modus
+Next Sound Effects,Next Sound Effects,'下一个'音效,,,
+Question,Question,问题,Pregunta,,Frage
+Inputs for text events will be treated as keys for tr(),Inputs for text events will be treated as keys for tr(),文本事件的输入将被视为tr()的按键,Inputs for text events will be treated as keys for tr(),,Behandele Text Ereignisse als Schlüssel für tr()
+Duplicate Theme,Duplicate Theme,复制主题,,,Theme duplizieren
+Behaviour,Behaviour,行为,Comportamiento,,Verhalten
+Animation,Animation,动画,Animación,Animation,Animation
+Dialog,Dialog,对话,,,
+Word color,Word color,文字颜色,Color de palabra,,Wort-Farbe
+The selected operator requires a number!,The selected operator requires a number!,所选的操作需要一个数字!,El operador seleccionado requiere un número,,Der ausgewählte Operator muss eine Zahl sein
+NoImagePreview,No image on this portrait entry.,此肖像条目上没有图像.,,,Dieses Portrait hat noch kein Bild.
+Text Event,Text Event,文本事件,Texto,Texte,Text Ereignis
+,,,,,
+Save,Save,保存,Guardar,Enregistrer,Speichern
+Layout,Layout,布局,Ordenar,Disposition,Layout
+Button layout,Button layout,按钮布局,Orden de botones,,
+Audio Event,Audio Event,音频事件,Evento de Audio,,Audio Ereignis
+,,,,,
+Add Timeline,Add Timeline,添加时间轴,,,Neue Timeline
+Logic,Logic,逻辑,Lógica,Logique,Logik
+Set Theme,Set Theme,设置主题,Cambiar Tema,,Theme wechseln
+Name:,Name:,名称:,Nombre:,Nom:,Name:
+Wait Seconds,Wait Seconds,等待秒数,Esperar Segundos,,Warten
+Colors,Colors,颜色,Colores,Couleurs,Farben
+Auto color character names in messages,Auto color character names in messages,信息中的字符名称自动着色,Colorear nombres automáticamente,,Automatisch Charakternamen einfärben
+Bold Font,Bold Font,粗体字,Negrita,,Fett
+,,,,,
+GlossaryTabTitle,Glossary,术语,,,Glossar
+Next Indicator,Next Indicator,下一个指示器,Indicador de siguiente,,Fortfahren-Indikator
+DialogTextTabTitle,Dialog Text,对话文本,,,Dialogtext
+Background Music,Background Music,背景音乐,Evento de Musica,,Hintergrundmusik
+Character Join,Character Join,角色加入,Personaje Entra,,Charakter beitreten
+Box padding,Box padding,箱体填充,Box padding,,
+,,,,,
+Fixed button size,Fixed button size,固定按钮尺寸,Tamaño fijo,,Feste Größe
+Main Events,Main Events,主要事件,Eventos principales,,Haupt Ereignisse
+New portrait,New portrait,添加新的肖像,Nuevo retrato,,Neues Portrait
+Visuals,Visuals,视觉效果,Visuales,,Aussehen
+Background Color,Background Color,背景颜色,Color de fondo,,Hintergrundfarbe
+Display Name:,Display Name:,显示名称:,Display Name:,,Anzeigename:
+Mirror portraits,Mirror portraits,镜像肖像,Espejar imágen,,Portraits spiegeln
+Extra color,Extra color,额外颜色,Extra Color,,Zusatzfarbe
+,,,,,
+Set Glossary,Set Glossary,设置术语,Actualizar Glosario,,Glossar ändern
+,,,,,
+Show in File Manager,Show in File Manager,在文件管理器中显示,,,Im Dateimanager öffnen
+Close Dialog,Close Dialog,关闭对话框,Cerrar Dialogo,,Dialog beenden
+Button Style,Button Style,按钮样式,Estilo de botones,,Knopf-Stil
+Preview changes,Preview changes,预览更改,,,Vorschau aktualisieren
+Preview of,Preview of,预览自,,,Vorschau von
+Volume random range,Volume random range,音量随机范围,Rango de volumen,,Lautstärkenvariation
+RemoveFolderPopupText,"Are you sure you want to remove this folder and all the items contained in it? 
+(Can't be restored)","确实要删除此文件夹及其包含的所有项目吗? 
+ (无法还原)",,,"Sind Sie sicher, dass Sie diesen Ordner und alle darin enthaltenen Resourcen löschen möchten? 
+(Nicht wiederherstellbar)"
+Name label Font,Name label Font,名称标签字体,Fuente del nombre,,Schrift
+This event needs a question event around it!,This event needs a question event around it!,这个事件需要一个围绕它的问题事件!,Este evento necesita estar dentro de una pregunta,,Dieses Ereignis muss Teil einer Frage sein
+Title color,Title color,标题颜色,Título Color,,Titelfarbe
+Autosave,Autosave,自动保存,,,Automatisch Speichern
+Custom Events,Custom Events,自定义事件,Eventos personalizados,Événements personnalisés,Benutzerdefinierte Ereignisse
+Portraits,Portraits,肖像,Retratos,,Portraits
+Remove Definition entry,Remove Definition entry,移除定义条目,,,Definition löschen
+Audio for Text events:,Audio for Text events:,文本事件的音频:,Audio para los eventos de texto:,,Audio für Text Ereignisse:
+Tapping on the dialog to continue,Tapping on the dialog to continue,点击对话框继续,,,Fortfahren durch Klicken des Textfeld
+Offset,Offset,偏移,Compensación,Décalage,Distanz
+GlossaryExplanation,A popup will display this information when a player hovers the word in a dialog.,"当玩家在对话框中悬停在该词时, 会有一个弹出窗口显示该信息.",,,"Diese Informationen werden in einem Popup gezeigt, wenn die Maus über disesem Wort ist."
+DialogBoxTabTitle,Dialog Box,对话框,,,Dialogfeld
+Toggle Editing Tools,Toggle Editing Tools,切换编辑工具,,,Bearbeitungswerkzeuge aktivieren
+Create Subfolder,Create Subfolder,创建子文件夹,,,Neuer Unterordner
+ValueName,Name:,名称:,Nombre:,Nom:,Name:
+Fonts,Fonts,字体,Fuentes,Polices,Schriften
+Pitch random range,Pitch random range,音高随机范围,Rango de tono,,Tonhöhenvariation
+Text Color,Text Color,文字颜色,Color de texto,Couleur du texte,Textfarbe

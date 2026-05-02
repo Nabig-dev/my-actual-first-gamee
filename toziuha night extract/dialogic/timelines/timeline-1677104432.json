@@ -1,0 +1,222 @@
+{
+	"events": [
+		{
+			"event_id": "noskip_dialog",
+			"skip_disabled": true
+		},
+		{
+			"event_id": "disable_advance",
+			"input_enabled": false
+		},
+		{
+			"event_id": "dialogic_024",
+			"set_theme": "theme-1666884860.cfg"
+		},
+		{
+			"background": "res://assets/sprites/art_dialog_bg/black.png",
+			"event_id": "dialogic_021",
+			"fade_duration": 0
+		},
+		{
+			"event_id": "screen_dialog_filter",
+			"filter_idx": 1
+		},
+		{
+			"action": 0,
+			"audio_name": "flashback_theme_1",
+			"event_id": "audio_event_custom",
+			"type": 1
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 3
+		},
+		{
+			"event_id": "disable_advance",
+			"input_enabled": true
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG8_1677104432"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG9_1677104432"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG10_1677104432"
+		},
+		{
+			"character": "character-1649630816.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DLG11_1677104432"
+		},
+		{
+			"event_id": "disable_advance",
+			"input_enabled": false
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 1.5
+		},
+		{
+			"background": "res://assets/sprites/art_dialog_bg/flashback_nana_a.png",
+			"event_id": "dialogic_021"
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 2
+		},
+		{
+			"background": "res://assets/sprites/art_dialog_bg/flashback_nana_d.png",
+			"event_id": "dialogic_021",
+			"fade_duration": 0.5
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 1.5
+		},
+		{
+			"background": "res://assets/sprites/art_dialog_bg/flashback_nana_b.png",
+			"event_id": "dialogic_021",
+			"fade_duration": 0.1
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 0.5
+		},
+		{
+			"background": "res://assets/sprites/art_dialog_bg/black.png",
+			"event_id": "dialogic_021",
+			"fade_duration": 0
+		},
+		{
+			"action": 0,
+			"audio_name": "slash_decapitation",
+			"event_id": "audio_event_custom",
+			"type": 0
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 0.2
+		},
+		{
+			"emit_signal": "music_filter",
+			"event_id": "dialogic_040"
+		},
+		{
+			"event_id": "flash_event",
+			"time_flash": 0.5
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 1
+		},
+		{
+			"background": "res://assets/sprites/art_dialog_bg/xandria_shock_a.png",
+			"event_id": "dialogic_021",
+			"fade_duration": 0
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 0.7
+		},
+		{
+			"background": "res://assets/sprites/art_dialog_bg/xandria_shock_b.png",
+			"event_id": "dialogic_021",
+			"fade_duration": 0
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 1.5
+		},
+		{
+			"background": "res://assets/sprites/art_dialog_bg/xandria_shock_c1.png",
+			"event_id": "dialogic_021"
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 0.2
+		},
+		{
+			"background": "res://assets/sprites/art_dialog_bg/xandria_shock_c2.png",
+			"event_id": "dialogic_021",
+			"fade_duration": 0
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 2
+		},
+		{
+			"event_id": "disable_advance",
+			"input_enabled": true
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 0.2
+		},
+		{
+			"background": "res://assets/sprites/art_dialog_bg/black.png",
+			"event_id": "dialogic_021",
+			"fade_duration": 2
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 1.5
+		},
+		{
+			"action": 1,
+			"audio_name": "flashback_theme_1",
+			"event_id": "audio_event_custom",
+			"type": 1
+		},
+		{
+			"event_id": "flash_event",
+			"time_flash": 0.5
+		},
+		{
+			"event_id": "screen_dialog_filter",
+			"filter_idx": 0
+		},
+		{
+			"background": "res://assets/sprites/art_dialog_bg/black.png",
+			"event_id": "dialogic_021",
+			"fade_duration": 4
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 4
+		},
+		{
+			"emit_signal": "reset_audio_filter",
+			"event_id": "dialogic_040"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1677104432.json",
+		"name": "post-prologue-nana-death"
+	}
+}
