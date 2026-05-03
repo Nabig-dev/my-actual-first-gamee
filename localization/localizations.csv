@@ -54,7 +54,7 @@ ACH3TITLE,Travel on the Orient Express,Viaje en el Expreso Oriental,Viagem no Ex
 ACCEPT_CANCEL_CONFLICT,Conflicting Accept and Cancel buttons,Botones Aceptar y Cancelar en conflicto,Botões de Aceitar e Cancelar em conflito
 DEVROOM,Hall of Tortured Souls,La sala de las almas torturadas,Salão das Almas Torturadas
 MULTIPLE_EQUIPMENT,Multiple Equipment,Equipamiento Múltiple,Equipamento Múltiplo
-XANDRIASHOUSE,Xandria's House,Casa de Xandria,Casa da Xandria
+XANDRIASHOUSE,Nabig's House,Casa de Nabig,Casa do Nabig
 DEATHS,Deaths,Muertes,Mortes
 POTIONMAX_TITLE,Potions Max,Maximo de pociones,Máximo de Poções
 OPACITY,Opacity,Opacidad,Opacidade
@@ -142,7 +142,7 @@ ATK_TITLE,Attack,Ataque,Ataque
 CONF_BY_DEFAULT_DONE,Default configuration complete,Configuración por defecto realizado,Configuração inicial realizado
 ACHIEVEMENT_OBTAINED,Achievement obtained,Logro obtenido,Conquista obtida
 DELETE,Delete,Eliminar,Apagar
-CURSED,Cursed,Maldito,Amaldiçoada
+CURSED,Cursed,Maldito,Amaldiçoado
 TO_START,to start,para comenzar,Para começar
 VISUALIZATION_MODE,Display Mode,Modo de visualización,Modo de visualização
 GETREWARD,Get reward,Obtener recompensa,Receber recompensa
@@ -184,7 +184,7 @@ CHANGE,Change,Cambiar,Trocar
 GAMEPAD_DISCONNECTED,Gamepad disconnected,Mando desconectado,Controle desconectado
 MINIMAP_VISIBILITY,Minimap visibility,Visibilidad de Minimapa,Visibilidade do mini-mapa
 INVENTORY,Inventory,Inventario,Inventário
-INJURED,Injured,Lesionado,Ferida
+INJURED,Injured,Lesionado,Ferido
 ACTION_UI_CANCEL,Cancel,Cancelar,Cancelar
 ATHOS_ABBEY,Athos Abbey,Abadía de Athos,Abadia de Athos
 FINDINGS,Findings,Textos,Achados
@@ -269,7 +269,7 @@ ZOOMIN,Zoom in,Acercar,Ampliar
 ERASE,Erase,Borrar,Apagar
 NO,No,No,Não
 TREASURE,Treasure,Tesoro,Tesouro
-POISONED,Poisoned,Envenenado,Envenenada
+POISONED,Poisoned,Envenenado,Envenenado
 ACH6TITLE,Critical mass,Masa crítica,Massa crítica
 EQUIP_MID,Mid Equip,Equipo Medio,Equipamento Médio
 ADD_MARKER,Add Marker,Añadir Marcador,Adicionar Marcador
