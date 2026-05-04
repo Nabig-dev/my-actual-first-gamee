@@ -5312,7 +5312,7 @@ frame = 9
 
 [node name="Sprite" type="Sprite" parent="BodyNode"]
 position = Vector2( 0, 0.086 )
-scale = Vector2( 0.096, 0.095 )
+scale = Vector2( 0.3, 0.297 )
 texture = ExtResource( 20 )
 hframes = 15
 vframes = 14
