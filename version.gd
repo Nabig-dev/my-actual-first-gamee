@@ -1,2 +1,2 @@
 extends Reference
-const VERSION = "0.5.0.8"
+const VERSION = "1.0"

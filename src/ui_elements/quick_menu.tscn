@@ -647,7 +647,6 @@ align = 1
 [node name="ElementalCircuit" parent="." instance=ExtResource( 9 )]
 visible = false
 position = Vector2( 200, 32 )
-circuit_mode = 2
 custom_color = Color( 0.615686, 0.0784314, 0.67451, 1 )
 is_for_ui = true
 delete_if_absorbed_anim_ends = false
@@ -771,8 +770,8 @@ margin_bottom = 11.0
 action = "ui_focus_next"
 
 [connection signal="timeout" from="TimerPlayOpenSnd" to="." method="_on_TimerPlayOpenSnd_timeout"]
-[connection signal="focus_entered" from="Control/HexaBG0" to="." method="_on_HexaBG0_focus_entered"]
 [connection signal="focus_entered" from="Control/HexaBG0" to="." method="_on_Btn_focus_entered" binds= [ "HexaBG0" ]]
+[connection signal="focus_entered" from="Control/HexaBG0" to="." method="_on_HexaBG0_focus_entered"]
 [connection signal="focus_exited" from="Control/HexaBG0" to="." method="_on_HexaBG0_focus_exited"]
 [connection signal="focus_entered" from="Control/ButtonItemAntidote" to="." method="_on_Btn_focus_entered" binds= [ "ButtonItemAntidote" ]]
 [connection signal="focus_entered" from="Control/ButtonItemAntidote/ButtonEquipB" to="." method="_on_Btn_focus_entered" binds= [ "ButtonEquipB" ]]
