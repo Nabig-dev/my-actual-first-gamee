@@ -41,7 +41,7 @@ animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
 "loop": true,
 "name": "default",
-"speed": 5.0
+"speed": 3.0
 } ]
 
 [sub_resource type="Animation" id=7]
@@ -325,10 +325,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -0.5
-margin_top = 32.0
-margin_right = 341.5
-margin_bottom = 224.0
+margin_left = -171.0
+margin_top = -64.0
+margin_right = 171.0
+margin_bottom = 128.0
 texture = ExtResource( 2 )
 
 [node name="TextureRect" type="TextureRect" parent="Node2D/Bg1"]
@@ -450,9 +450,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_top = 193.0
-margin_right = 341.0
-margin_bottom = 517.0
+margin_left = -170.5
+margin_top = 31.0
+margin_right = 170.5
+margin_bottom = 355.0
 grow_horizontal = 2
 
 [node name="Label" type="Label" parent="Node2D/ControlText/VBoxContainer"]

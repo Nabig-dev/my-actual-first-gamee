@@ -509,7 +509,7 @@ _global_script_class_icons={
 quick_scenes/selected_scene=-1
 quick_scenes/quick_run_shortcut=Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":true,"scancode":16777252,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
 
-quick_scenes/scene_list=PoolStringArray( "res://stages/oota/prologue/horses_scene.tscn" )
+quick_scenes/scene_list=PoolStringArray( "res://stages/oota/prologue/begin_scene.tscn" )
 instance_dock/scenes=[ {
 "name": "Enemies",
 "scenes": [ {
