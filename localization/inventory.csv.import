@@ -5,10 +5,10 @@ type="Translation"
 
 [deps]
 
-files=[ "res://localization/inventory.es.translation", "res://localization/inventory.en.translation", "res://localization/inventory.pt_BR.translation" ]
+files=[ "res://localization/inventory.en.translation", "res://localization/inventory.es.translation", "res://localization/inventory.pt_BR.translation" ]
 
 source_file="res://localization/inventory.csv"
-dest_files=[ "res://localization/inventory.es.translation", "res://localization/inventory.en.translation", "res://localization/inventory.pt_BR.translation" ]
+dest_files=[ "res://localization/inventory.en.translation", "res://localization/inventory.es.translation", "res://localization/inventory.pt_BR.translation" ]
 
 [params]
 

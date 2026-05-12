@@ -5,10 +5,10 @@ type="Translation"
 
 [deps]
 
-files=[ "res://localization/elemental_circuits.es.translation", "res://localization/elemental_circuits.en.translation", "res://localization/elemental_circuits.pt_BR.translation" ]
+files=[ "res://localization/elemental_circuits.en.translation", "res://localization/elemental_circuits.es.translation", "res://localization/elemental_circuits.pt_BR.translation" ]
 
 source_file="res://localization/elemental_circuits.csv"
-dest_files=[ "res://localization/elemental_circuits.es.translation", "res://localization/elemental_circuits.en.translation", "res://localization/elemental_circuits.pt_BR.translation" ]
+dest_files=[ "res://localization/elemental_circuits.en.translation", "res://localization/elemental_circuits.es.translation", "res://localization/elemental_circuits.pt_BR.translation" ]
 
 [params]
 
