@@ -57,6 +57,7 @@ func _process(delta: float) -> void :
 			VarsGlobal.Player.translate(Vector2.RIGHT * 200 * delta)
 		
 
+
 func _on_BtnSelectScenarioToChange_pressed() -> void :
 	get_node("%FileDialogOpenScenario").set_current_dir(
 		"res://stages/oota/"
@@ -64,26 +65,32 @@ func _on_BtnSelectScenarioToChange_pressed() -> void :
 	get_node("%FileDialogOpenScenario").popup()
 	get_node("%FileDialogOpenScenario").rect_position = Vector2.ZERO
 
+
 func _on_FileDialogOpenScenario_file_selected(path: String) -> void :
 	Audio.play_sfx("ui_changed_value2")
 	get_node("%LineChangeToPath").text = path
 	get_node("%BtnSelectScenarioToChange").text = path.get_file()
+
 
 func _on_BtnGoToPath_pressed() -> void :
 	Audio.play_sfx("ui_accept")
 	SceneChanger.change_scene(get_node("%LineChangeToPath").text)
 	get_node("%LblCurrentScene").text = get_node("%LineChangeToPath").text.get_file()
 
+
 func _on_ChkBxShowFPS_toggled(button_pressed: bool) -> void :
 	Audio.play_sfx("ui_changed_value2")
 	get_node("%FPSMonitor").enable_monitor(button_pressed)
 
+
 func _on_BtnOpenMenu_pressed() -> void :
 	get_node("%Menu").visible = not get_node("%Menu").visible
+
 
 func _on_ChkBxShowInput_toggled(button_pressed: bool) -> void :
 	Audio.play_sfx("ui_changed_value2")
 	get_node("%GamepadInput").visible = button_pressed
+
 
 func _on_ChkBxMovePlayer_toggled(button_pressed: bool) -> void :
 	Audio.play_sfx("ui_changed_value2")
@@ -93,6 +100,7 @@ func _on_ChkBxMovePlayer_toggled(button_pressed: bool) -> void :
 		VarsGlobal.Player.set_physics_process(true)
 	
 	_moving_player = button_pressed
+
 
 func _on_BtnFullHP_pressed() -> void :
 	VarsGlobal.game_data["player_hp_now"] = VarsGlobal.game_data["player_hp_max"]
@@ -113,9 +121,11 @@ func _on_BtnFullClearNegativeStatus_pressed() -> void :
 	Audio.play_sfx("ui_success")
 	VarsGlobal.GameInterface.update_hud_values(false)
 
+
 func _on_ChkBxNoDeath_toggled(button_pressed: bool) -> void :
 	Audio.play_sfx("ui_changed_value2")
 	player_no_death = button_pressed
+
 
 func _on_LnCommandConsole_focus_entered() -> void :
 	using_console = true
@@ -141,7 +151,7 @@ func _on_LnCommandConsole_text_entered(new_text: String) -> void :
 			new_text.replace("setint", "")
 		)
 	elif new_text.begins_with("setlvl"):
-		VarsGlobal.game_data["current_level"] = int(
+		VarsGlobal.game_data["lvl"] = int(
 			new_text.replace("setlvl", "")
 		)
 	elif new_text.begins_with("setexp"):
@@ -178,9 +188,11 @@ func _on_LnCommandConsole_text_entered(new_text: String) -> void :
 	VarsGlobal.GameInterface.update_hud_values(false)
 	get_node("%LnCommandConsole").text = ""
 
+
 func _on_ChkBxPause_toggled(button_pressed: bool) -> void :
 	Audio.play_sfx("ui_changed_value2")
 	get_tree().paused = button_pressed
+
 
 func _on_ChkBxDebugLabel_toggled(button_pressed: bool) -> void :
 	Audio.play_sfx("ui_changed_value2")

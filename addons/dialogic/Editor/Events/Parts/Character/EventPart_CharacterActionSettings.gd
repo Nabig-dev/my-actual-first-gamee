@@ -1,8 +1,11 @@
 tool 
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
+
 var enable_icon = null
 var disable_icon = null
+
+
 
 onready var animation_picker = $Animation / AnimationPicker
 onready var animation_length = $Animation / AnimationLength
@@ -12,6 +15,7 @@ onready var mirrored_checkbox = $Positioning / Mirrored
 onready var mirrored_checkbox_enable = $Positioning / EnableMirrored
 onready var animation_repeat = $Animation / Repeat
 onready var animation_wait_checkbox = $Animation / WaitForAnimation
+
 
 func _ready():
 	animation_picker.connect("about_to_show", self, "_on_AnimationPicker_about_to_show")
@@ -25,6 +29,8 @@ func _ready():
 	animation_wait_checkbox.connect("toggled", self, "on_WaitForAnimation_toggled")
 	enable_icon = get_icon("Edit", "EditorIcons")
 	disable_icon = get_icon("Reload", "EditorIcons")
+
+
 
 func load_data(data: Dictionary):
 	
@@ -65,6 +71,8 @@ func load_data(data: Dictionary):
 	z_index_enable.icon = enable_icon if not z_index_enable.pressed else disable_icon
 	mirrored_checkbox_enable.icon = enable_icon if not mirrored_checkbox_enable.pressed else disable_icon
 
+
+
 func get_preview():
 	return ""
 
@@ -89,6 +97,7 @@ func _on_AnimationPicker_about_to_show():
 			idx += 1
 	
 
+
 func _on_AnimationPicker_index_pressed(index):
 	event_data["animation"] = animation_picker.get_popup().get_item_metadata(index)["file"]
 	
@@ -107,6 +116,7 @@ func _on_AnimationLength_value_changed(value):
 	
 	
 	data_changed()
+
 
 func _on_Repeat_value_changed(value):
 	event_data["animation_repeat"] = value

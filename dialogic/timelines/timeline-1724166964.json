@@ -62,7 +62,7 @@
 			"character": "character-1706221744.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Tal como dijo shay, tenemos que hacer varias cosas para lograr nuestro objetivo."
+			"text": "Tal como dijo Sheal, tenemos que hacer varias cosas para lograr nuestro objetivo."
 		},
 		{
 			"character": "character-1706221744.json",
@@ -74,7 +74,7 @@
 			"character": "character-1706221744.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Es un proceso tardado donde la receta solo la sabe john."
+			"text": "Es un proceso tardado donde la receta solo la sabe Johannes."
 		},
 		{
 			"character": "character-1649630816.json",
@@ -98,7 +98,7 @@
 			"character": "character-1649630816.json",
 			"event_id": "dialogic_001",
 			"portrait": "Default",
-			"text": "¿En serio piensas que john compartirá su poder con ustedes, los Adeptis?"
+			"text": "¿En serio piensas que Johannes compartirá su poder con ustedes, los Adeptis?"
 		},
 		{
 			"character": "character-1649630816.json",
@@ -116,13 +116,13 @@
 			"character": "character-1706221744.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Hemos decidido seguirlo, porque para conseguir el Opus Magnum necesitamos ayuda. john nos necesita, y nosotros a él."
+			"text": "Hemos decidido seguirlo, porque para conseguir el Opus Magnum necesitamos ayuda. Johannes nos necesita, y nosotros a él."
 		},
 		{
 			"character": "character-1706221744.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Además john no es un mal empleador, nos paga bastante bien al menos."
+			"text": "Además Johannes no es un mal empleador, nos paga bastante bien al menos."
 		},
 		{
 			"character": "character-1706221744.json",

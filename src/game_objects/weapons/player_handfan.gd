@@ -42,5 +42,6 @@ func _on_VisibilityEnabler2D_screen_exited() -> void :
 	if _first_move_done:
 		queue_free()
 
+
 func _on_TimerWoosh_timeout() -> void :
 	Audio.play_sfx("woosh_whip_m")

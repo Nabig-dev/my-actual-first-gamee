@@ -4,6 +4,7 @@ extends GraphNode
 
 signal edit_request(room_panel_node)
 
+
 var scene_type: int = 0
 var file_path: String
 var description: String
@@ -22,8 +23,10 @@ func _enter_tree() -> void :
 
 	update_data()
 
+
 func get_dock() -> Object:
 	return get_parent().get_parent()
+
 
 func get_name() -> String:
 	return file_path.get_file().replace(".tscn", "")
@@ -33,6 +36,7 @@ func get_center_offset() -> Vector2:
 
 func set_visible_action_buttons(val: bool) -> void :
 	$VBoxContainer / HBoxContainer.visible = val
+
 
 func update_data() -> void :
 	
@@ -103,15 +107,20 @@ func _set_panel_color(clr: Color) -> void :
 	duplicate_style.bg_color = clr
 	get_node("%TopPanelIcons").add_stylebox_override("panel", duplicate_style)
 
+
+
 func _on_BtnGoTo_pressed() -> void :
 	get_dock().open_scene(file_path, scene_type)
+
 
 func _on_BtnPlay_pressed() -> void :
 	get_dock().play_scene(file_path)
 
+
 func _on_RoomPanel_focus_entered() -> void :
 	if description.empty() == false:
 		get_dock().show_notif(description)
+
 
 func _on_RoomPanel_focus_exited() -> void :
 	get_dock().hide_notif()

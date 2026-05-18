@@ -1,13 +1,22 @@
 tool 
 extends EditorPlugin
 
+
 const VERSION_SCRIPT_PATH = "res://version.gd"
+
+
+
 
 func _fetch_version(features: PoolStringArray, is_debug: bool, path: String, flags: int) -> String:
 	
 	
 	
 	
+
+
+
+
+
 
 	
 	
@@ -42,6 +51,8 @@ func _fetch_version(features: PoolStringArray, is_debug: bool, path: String, fla
 		push_error("Failed to fetch version. export_presets.cfg does not exist.")
 	
 	return ""
+
+
 
 var exporter: AEVExporter
 

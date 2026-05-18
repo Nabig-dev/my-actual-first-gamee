@@ -80,6 +80,8 @@ func _on_RoomPanel_tree_exiting() -> void :
 func _on_RoomPanel_offset_changed() -> void :
 	_update_line()
 
+
+
 func _on_BtnDisconnect_pressed() -> void :
 	queue_free()
 

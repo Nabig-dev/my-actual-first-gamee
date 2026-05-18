@@ -2,7 +2,18 @@ tool
 extends Node
 class_name DialogicCustomEvents
 
+
+
+
+
 var handlers: = {}
+
+
+
+
+
+
+
 
 func update() -> void :
 	var path: String = DialogicResources.get_working_directories()["CUSTOM_EVENTS_DIR"]

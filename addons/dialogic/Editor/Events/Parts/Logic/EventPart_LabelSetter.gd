@@ -1,13 +1,18 @@
 tool 
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
+
+
+
 onready var input_field = $NameInput
 onready var new_id = $NewIdButton
+
 
 func _ready():
 	input_field.connect("text_changed", self, "_on_InputField_text_changed")
 	new_id.icon = get_icon("RotateRight", "EditorIcons")
 	new_id.connect("pressed", self, "new_id")
+
 
 func load_data(data: Dictionary):
 	

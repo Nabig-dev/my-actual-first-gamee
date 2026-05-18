@@ -1,5 +1,6 @@
 extends Control
 
+
 func _on_FileDialog_files_selected(paths: PoolStringArray) -> void :
 	
 	var F: = File.new()
@@ -72,6 +73,7 @@ func _on_FileDialog_files_selected(paths: PoolStringArray) -> void :
 	
 	$MarginContainer / TextEdit.text = texts
 
+
 func set_json(path: String, data: Dictionary):
 	var file = File.new()
 	var err = file.open(path, File.WRITE)
@@ -82,6 +84,7 @@ func set_json(path: String, data: Dictionary):
 
 func _on_BtnOpen_pressed() -> void :
 	$FileDialog.popup_centered()
+
 
 func _on_BtnHelp_pressed() -> void :
 	OS.alert(

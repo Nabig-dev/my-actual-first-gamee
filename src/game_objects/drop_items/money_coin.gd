@@ -5,6 +5,7 @@ var texture_100 = preload("res://assets/sprites/coins_100.png")
 
 export (String, "1", "5", "50", "100", "500", "1000", "5000") var money = "5"
 
+
 export var ide: String
 
 func _ready() -> void :

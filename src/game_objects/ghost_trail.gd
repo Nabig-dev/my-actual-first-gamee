@@ -1,12 +1,15 @@
 extends Node
 
+
 export var parent_sprite_path: = NodePath()
 
 export var sprite_path: = NodePath()
 
 export var modulate_ghost: = Color("4f9cf6")
 
+
 export var scale_from_parent: = true
+
 
 export var use_custom_z_index: bool
 export var z_index: int = 0
@@ -43,6 +46,7 @@ func stop_trail() -> void :
 
 func _on_TimeTrail_timeout() -> void :
 	stop_trail()
+
 
 func _on_TimeBetweenGhosts_timeout() -> void :
 	

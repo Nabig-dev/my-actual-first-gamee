@@ -35,8 +35,10 @@ var list = {
 	"cards": []
 }
 
+
 func _ready():
 	enable_label_edit(false)
+
 
 func initialize_list(_list):
 	list = _list
@@ -50,6 +52,8 @@ func initialize_list(_list):
 		_card.connect("updated", self, "_on_Card_updated", [], CONNECT_DEFERRED)
 		cards_container.add_child(_card)
 		_card.setup_card(card_data)
+
+
 
 func _process(delta):
 	if selected:
@@ -81,6 +85,7 @@ func _unhandled_input(event):
 		if event.pressed and event.scancode == KEY_ESCAPE:
 			if edit_mode:
 				enable_label_edit(false)
+
 
 func enable_label_edit(_enable: bool):
 	edit_mode = _enable
@@ -205,11 +210,14 @@ func _on_Card_menu_pressed(_card):
 		enable_label_edit(false)
 	emit_signal("card_menu_pressed", self, _card)
 
+
 func _on_ListName_mouse_entered():
 	label_can_be_edited = true
 
+
 func _on_ListName_mouse_exited():
 	label_can_be_edited = false
+
 
 func _on_ListNameEdit_text_entered(new_text):
 	if edit_mode:
@@ -218,15 +226,18 @@ func _on_ListNameEdit_text_entered(new_text):
 		emit_signal("list_updated", self)
 		enable_label_edit(false)
 
+
 func _on_MoveLeftButton_pressed():
 	if edit_mode:
 		enable_label_edit(false)
 	emit_signal("move_list_pressed", self, "left")
 
+
 func _on_MoveRightButton_pressed():
 	if edit_mode:
 		enable_label_edit(false)
 	emit_signal("move_list_pressed", self, "right")
+
 
 func _on_MenuButton_pressed():
 	emit_signal("list_menu_pressed", self)

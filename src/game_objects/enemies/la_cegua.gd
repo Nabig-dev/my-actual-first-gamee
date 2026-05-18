@@ -39,6 +39,7 @@ func snd_whistle() -> void :
 func _on_EnemyBase_enemy_defeated(_NodeEnemy) -> void :
 	velocity.x = 0
 
+
 func _on_TimerMakeAtk_timeout() -> void :
 	if (
 		AreaSeePlayer.is_colliding() == true
@@ -54,13 +55,16 @@ func _on_TimerMakeAtk_timeout() -> void :
 		)
 		Enemy.change_state(new_atk)
 
+
 func _on_HurtboxEnemy_damaged() -> void :
 	if Enemy.state in ["walk", "idle"]:
 		Enemy.change_direction("to_player")
 
+
 func _on_EnemyBase_state_changed(_state: String) -> void :
 	$Sprite / ParticlesGas.emitting = false
 	$Sprite / GhostTrail.stop_trail()
+
 
 func _on_Area2DPlayerNear_area_entered(_area: Area2D) -> void :
 	if Enemy.state in ["walk", "idle"]:

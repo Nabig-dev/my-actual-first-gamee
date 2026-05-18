@@ -1,13 +1,17 @@
 tool 
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
+
+
 var join_icon = load("res://addons/dialogic/Images/Event Icons/character-join.svg")
 var leave_icon = load("res://addons/dialogic/Images/Event Icons/character-leave.svg")
 var update_icon = load("res://addons/dialogic/Images/Event Icons/character.svg")
 
+
 onready var action_picker = $ActionTypePicker
 onready var character_portrait_picker = $CharacterAndPortraitPicker
 onready var position_picker = $PositionPicker
+
 
 func _ready():
 	action_picker.connect("about_to_show", self, "_on_ActionTypePicker_about_to_show")
@@ -16,6 +20,7 @@ func _ready():
 	position_picker.connect("data_changed", self, "_on_PositionPicker_data_changed")
 	
 	
+
 
 func load_data(data: Dictionary):
 	
@@ -37,6 +42,7 @@ func load_data(data: Dictionary):
 	position_picker.load_data(data)
 	character_portrait_picker.load_data(data)
 
+
 func get_preview():
 	return ""
 
@@ -46,6 +52,7 @@ func _on_ActionTypePicker_about_to_show():
 	action_picker.get_popup().add_icon_item(join_icon, "Join")
 	action_picker.get_popup().add_icon_item(leave_icon, "Leave")
 	action_picker.get_popup().add_icon_item(update_icon, "Update")
+
 
 func _on_ActionTypePicker_index_pressed(index):
 	if index != event_data["type"]:

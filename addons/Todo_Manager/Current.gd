@@ -30,6 +30,7 @@ func build_tree(todo_item: TodoItem, patterns: Array) -> void :
 				item.set_custom_color(0, pattern[1])
 	emit_signal("tree_built")
 
+
 func sort_alphabetical(a, b) -> bool:
 	if a.script_path > b.script_path:
 		return true

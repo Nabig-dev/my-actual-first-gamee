@@ -20,6 +20,7 @@ var alert_visible = false
 func _ready() -> void :
 	project_board_name_input.grab_focus()
 
+
 func _on_CancelButton_pressed() -> void :
 	emit_signal("closed")
 	queue_free()
@@ -29,6 +30,7 @@ func show_alert(_text: String, _variant: String = "danger") -> void :
 	_alert.connect("closed", self, "_on_Alert_closed", [], CONNECT_DEFERRED)
 	alert_container.add_child(_alert)
 	_alert.start(_text, _variant)
+
 
 func _on_AddButton_pressed() -> void :
 	var _name = project_board_name_input.text
@@ -52,4 +54,5 @@ func _on_AddButton_pressed() -> void :
 
 func _on_Alert_closed():
 	alert_visible = false
+
 

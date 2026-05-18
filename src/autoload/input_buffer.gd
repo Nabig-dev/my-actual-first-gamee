@@ -1,14 +1,24 @@
 extends Node
 
+
+
+
+
+
+
+
+
 const BUFFER_WINDOW: int = 150
 
 var keyboard_timestamps: Dictionary
 var joypad_timestamps: Dictionary
 var touchpad_timestamps: Dictionary
 
+
 func _ready() -> void :
 	pause_mode = Node.PAUSE_MODE_PROCESS
 	clear_timestamps()
+
 
 func _input(event: InputEvent) -> void :
 
@@ -41,6 +51,7 @@ func clear_timestamps() -> void :
 	keyboard_timestamps = {}
 	joypad_timestamps = {}
 	touchpad_timestamps = {}
+
 
 func is_action_press_buffered(action: String) -> bool:
 	
@@ -75,6 +86,9 @@ func is_action_press_buffered(action: String) -> bool:
 			return true
 	
 	return false
+
+
+
 
 func _invalidate_action(action: String) -> void :
 	for event in InputMap.get_action_list(action):

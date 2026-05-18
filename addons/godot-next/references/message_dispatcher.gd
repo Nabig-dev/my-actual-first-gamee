@@ -1,7 +1,17 @@
 class_name MessageDispatcher
 extends Reference
 
+
+
+
+
+
+
 var _message_handlers: = {}
+
+
+
+
 
 func connect_message(message_type: String, obj: Object, function: String) -> void :
 	assert (obj.has_method(function))
@@ -10,12 +20,25 @@ func connect_message(message_type: String, obj: Object, function: String) -> voi
 
 	_message_handlers[message_type].push_back([obj, function])
 
+
+
+
+
+
 func disconnect_message(message_type: String, obj: Object, function: String) -> void :
 	assert (_message_handlers[message_type] != null)
 	_message_handlers[message_type].erase([obj, function])
 
+
+
 func disconnect_all_message() -> void :
 	_message_handlers = {}
+
+
+
+
+
+
 
 func emit_message(message_type: String, message_data: Dictionary) -> bool:
 	var handlers = _message_handlers[message_type]

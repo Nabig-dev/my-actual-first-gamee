@@ -3,7 +3,11 @@ extends MarginContainer
 
 signal close
 
+
+
 const file_scene = preload("./Components/File.tscn")
+
+
 
 onready var file_list: = $TabContainer / Textures / Files / Panel / ScrollContainer / FileList
 onready var file_dialog: = $TabContainer / Textures / Files / HeadingBox / AddTextureButton / FileDialog
@@ -14,13 +18,21 @@ onready var no_selection_overlay: = $TabContainer / Textures / FileSettings / No
 onready var font_preview: = $"TabContainer/Font Settings/Preview"
 onready var font_settings: = $"TabContainer/Font Settings"
 
+
+
 var selected_file_node
 var file_nodes: Array = []
 var font_ref: WeakRef
 
+
+
 func _ready():
 	file_settings.connect("change", self, "queue_save")
 	font_settings.connect("change", self, "queue_save")
+
+
+
+
 
 func edit_font(new_font) -> void :
 	if font_ref:
@@ -44,6 +56,7 @@ func edit_font(new_font) -> void :
 		font_settings.set_font(new_font)
 		font_preview.set_font(new_font)
 
+
 func get_font_from_ref() -> Font:
 	var font = font_ref.get_ref()
 	
@@ -52,11 +65,13 @@ func get_font_from_ref() -> Font:
 		emit_signal("close")
 		return font
 
+
 func update_overlay():
 	if is_instance_valid(selected_file_node):
 		no_selection_overlay.visible = false
 	else:
 		no_selection_overlay.visible = true
+
 
 var _queued_save_count: = 0
 func queue_save(timeout: = 2.5):
@@ -76,9 +91,11 @@ func queue_save(timeout: = 2.5):
 	elif _queued_save_count < 0:
 		_queued_save_count += 1
 
+
 func save_now():
 	_queued_save_count = 0
 	_save()
+
 
 func _save():
 	if font_ref and font_ref.get_ref():
@@ -96,6 +113,9 @@ func _save():
 			print("Saved Font: " + font.resource_path)
 	else:
 		emit_signal("close")
+
+
+
 
 func add_texture(texture: Texture, idx: = - 1):
 	_add_texture_ui(texture, idx)
@@ -118,6 +138,7 @@ func _add_texture_ui(texture: Texture, idx: = - 1):
 	file_node.connect("file_removed", self, "_on_file_removed")
 	file_node.connect("file_changed", self, "_on_file_changed")
 
+
 func delete_texture(node):
 	var index = file_nodes.find(node)
 	node.queue_free()
@@ -131,6 +152,7 @@ func delete_texture(node):
 	
 	update_overlay()
 	queue_save()
+
 
 func change_texture(index: int):
 	var file = file_nodes[index]
@@ -150,6 +172,9 @@ func change_texture(index: int):
 	
 	update_overlay()
 
+
+
+
 func _on_file_removed(file):
 	if file == selected_file_node:
 		selected_file_node = null
@@ -160,6 +185,7 @@ func _on_file_removed(file):
 	delete_texture(file)
 	update_overlay()
 
+
 func _on_file_changed(file):
 	var idx = file_nodes.find(file)
 	if idx == - 1:
@@ -167,8 +193,10 @@ func _on_file_changed(file):
 	
 	change_texture(idx)
 
+
 func _on_AddTextureButton_pressed():
 	file_dialog.popup_centered()
+
 
 func _on_FileDialog_file_selected(path):
 	var texture = load(path)

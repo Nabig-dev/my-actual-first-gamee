@@ -40,6 +40,7 @@ onready var _visible_layers_field = $margin / VBoxContainer / options / visible_
 onready var _ex_pattern_field = $margin / VBoxContainer / options / ex_pattern / LineEdit
 onready var _cleanup_hide_unused_nodes = $margin / VBoxContainer / options / auto_visible_track / CheckButton
 
+
 func _ready():
 	var cfg = wizard_config.load_config(target_node)
 	if cfg == null:
@@ -53,6 +54,7 @@ func _ready():
 		animation_creator = TextureRectAnimationCreator.new()
 
 	animation_creator.init(config, file_system)
+
 
 func _load_config(cfg):
 	if cfg.has("source"):
@@ -75,28 +77,34 @@ func _load_config(cfg):
 
 	_set_options_visible(cfg.get("op_exp", false))
 
+
 func _load_default_config():
 	_ex_pattern_field.text = config.get_default_exclusion_pattern()
 	_visible_layers_field.pressed = config.should_include_only_visible_layers_by_default()
 	_cleanup_hide_unused_nodes.pressed = config.is_set_visible_track_automatically_enabled()
 	_set_options_visible(false)
 
+
 func _set_source(source):
 	_source = source
 	_source_field.text = _source
 	_source_field.hint_tooltip = _source
 
+
 func _set_animation_player(player):
 	_animation_player_path = player
 	_options_field.add_item(_animation_player_path)
+
 
 func _set_layer(layer):
 	_layer = layer
 	_layer_field.add_item(_layer)
 
+
 func _set_slice(slice):
 	_slice = slice
 	_slice_field.add_item(_slice)
+
 
 func _on_options_button_down():
 	var animation_players = []
@@ -114,6 +122,7 @@ func _on_options_button_down():
 
 	_options_field.select(current)
 
+
 func _find_animation_players(root: Node, node: Node, players: Array):
 	if node is AnimationPlayer:
 		players.push_back(root.get_path_to(node))
@@ -121,12 +130,15 @@ func _find_animation_players(root: Node, node: Node, players: Array):
 	for c in node.get_children():
 		_find_animation_players(root, c, players)
 
+
 func _on_options_item_selected(index):
 	if index == 0:
 		_animation_player_path = ""
 		return
 	_animation_player_path = _options_field.get_item_text(index)
 	_save_config()
+
+
 
 func _on_layer_button_down():
 	if _source == "":
@@ -147,12 +159,14 @@ func _on_layer_button_down():
 			current = _layer_field.get_item_count() - 1
 	_layer_field.select(current)
 
+
 func _on_layer_item_selected(index):
 	if index == 0:
 		_layer = ""
 		return
 	_layer = _layer_field.get_item_text(index)
 	_save_config()
+
 
 func _on_slice_button_down():
 	if _source == "":
@@ -173,6 +187,7 @@ func _on_slice_button_down():
 			current = _slice_field.get_item_count() - 1
 	_slice_field.select(current)
 
+
 func _on_slice_item_selected(index):
 	if index == 0:
 		_slice = ""
@@ -180,8 +195,10 @@ func _on_slice_item_selected(index):
 	_slice = _slice_field.get_item_text(index)
 	_save_config()
 
+
 func _on_source_pressed():
 	_open_source_dialog()
+
 
 func _on_import_pressed():
 	if _importing:
@@ -216,6 +233,7 @@ func _on_import_pressed():
 	animation_creator.create_animations(target_node, root.get_node(_animation_player_path), options)
 	_importing = false
 
+
 func _save_config():
 	var cfg: = {
 		"player": _animation_player_path, 
@@ -234,12 +252,14 @@ func _save_config():
 
 	wizard_config.save_config(target_node, config.is_use_metadata_enabled(), cfg)
 
+
 func _open_source_dialog():
 	_file_dialog_aseprite = _create_aseprite_file_selection()
 	get_parent().add_child(_file_dialog_aseprite)
 	if _source != "":
 		_file_dialog_aseprite.current_dir = ProjectSettings.globalize_path(_source.get_base_dir())
 	_file_dialog_aseprite.popup_centered_ratio()
+
 
 func _create_aseprite_file_selection():
 	var file_dialog = FileDialog.new()
@@ -249,10 +269,12 @@ func _create_aseprite_file_selection():
 	file_dialog.set_filters(PoolStringArray(["*.ase", "*.aseprite"]))
 	return file_dialog
 
+
 func _on_aseprite_file_selected(path):
 	_set_source(ProjectSettings.localize_path(path))
 	_save_config()
 	_file_dialog_aseprite.queue_free()
+
 
 func _show_message(message: String):
 	var _warning_dialog = AcceptDialog.new()
@@ -261,13 +283,16 @@ func _show_message(message: String):
 	_warning_dialog.popup_centered()
 	_warning_dialog.connect("popup_hide", _warning_dialog, "queue_free")
 
+
 func _on_options_title_toggled(button_pressed):
 	_set_options_visible(button_pressed)
 	_save_config()
 
+
 func _set_options_visible(is_visible):
 	_options_container.visible = is_visible
 	_options_title.icon = config.get_icon("expanded") if is_visible else config.get_icon("collapsed")
+
 
 func _on_out_folder_pressed():
 	_output_folder_dialog = _create_output_folder_selection()
@@ -276,6 +301,7 @@ func _on_out_folder_pressed():
 		_output_folder_dialog.current_dir = _output_folder
 	_output_folder_dialog.popup_centered_ratio()
 
+
 func _create_output_folder_selection():
 	var file_dialog = FileDialog.new()
 	file_dialog.mode = FileDialog.MODE_OPEN_DIR
@@ -283,13 +309,16 @@ func _create_output_folder_selection():
 	file_dialog.connect("dir_selected", self, "_on_output_folder_selected")
 	return file_dialog
 
+
 func _on_output_folder_selected(path):
 	_set_out_folder(path)
 	_output_folder_dialog.queue_free()
 
+
 func _on_source_aseprite_file_dropped(path):
 	_set_source(path)
 	_save_config()
+
 
 func _on_animation_player_node_dropped(node_path):
 	var node = get_node(node_path)
@@ -303,8 +332,10 @@ func _on_animation_player_node_dropped(node_path):
 			break
 	_save_config()
 
+
 func _on_out_dir_dropped(path):
 	_set_out_folder(path)
+
 
 func _set_out_folder(path):
 	_output_folder = path

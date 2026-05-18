@@ -19,6 +19,7 @@ func _ready() -> void :
 	)
 	velocity = velocity.limit_length(300)
 
+
 func _physics_process(delta: float) -> void :
 	
 	velocity.y += gravity * delta
@@ -31,6 +32,7 @@ func _on_HurtboxEnemy_defeated() -> void :
 	
 	$RockFloor.visible = false
 	$CPUParticles2D.emitting = true
+
 
 func _on_VisibilityNotifier2D_screen_exited() -> void :
 	queue_free()

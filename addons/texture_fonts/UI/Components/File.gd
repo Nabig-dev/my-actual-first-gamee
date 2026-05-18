@@ -34,9 +34,11 @@ func set_texture(new_texture: Texture):
 		preview.texture = new_texture
 	texture = new_texture
 
+
 func _on_DeleteButton_pressed():
 	emit_signal("file_removed", self)
 	self.queue_free()
+
 
 func _on_ToolButton_pressed():
 	emit_signal("file_changed", self)

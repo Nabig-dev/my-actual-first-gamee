@@ -19,6 +19,7 @@ func _physics_process(_delta: float) -> void :
 		return
 	
 
+
 	
 	if _is_chasing == true and TimerPush.is_stopped():
 		Enemy.change_direction("to_player")
@@ -31,6 +32,7 @@ func _physics_process(_delta: float) -> void :
 		velocity = velocity / 2
 
 	velocity = move_and_slide(velocity)
+
 
 func push_body(direction: Vector2) -> void :
 	randomize()
@@ -66,6 +68,7 @@ func _on_HurtboxEnemy_area_entered(area: Area2D) -> void :
 		vector_opposite = - vector_opposite
 		
 		push_body(vector_opposite)
+
 
 func _on_TimerAtk_timeout() -> void :
 	

@@ -1,5 +1,10 @@
 extends KinematicBody2D
 
+
+
+
+
+
 var speed: float = 50
 var velocity: Vector2
 
@@ -28,6 +33,7 @@ func _physics_process(_delta: float) -> void :
 func _on_TimerActive_timeout() -> void :
 	_is_chasing = true
 	Enemy.change_state("fly")
+
 
 func _on_TimerAutoDead_timeout() -> void :
 	Enemy.change_state("dead")

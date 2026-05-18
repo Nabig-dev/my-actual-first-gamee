@@ -1,5 +1,24 @@
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 tool 
 extends AudioStreamPlayer
 
@@ -14,6 +33,7 @@ export (float, 0, 4) var random_pitch_range = 0
 var playing_sample_nb: int = - 1
 var last_played_sample_nb: int = - 1
 var to_play = []
+
 
 func play(from_position = 0.0, playing_sample_nb = - 1):
 	var number_of_samples = len(samples)

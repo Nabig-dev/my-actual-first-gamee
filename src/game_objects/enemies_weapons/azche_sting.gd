@@ -19,5 +19,6 @@ func _process(delta: float) -> void :
 func _on_VisibilityNotifier2D_screen_exited() -> void :
 	queue_free()
 
+
 func _on_HurtboxEnemySimple_defeated() -> void :
 	queue_free()

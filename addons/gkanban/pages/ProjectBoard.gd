@@ -9,8 +9,11 @@ signal list_updated(_project_data, _list_data)
 signal card_created(_project_board, _list, _card)
 signal card_updated(_project_board, _list, _card)
 
+
 var theme_manager = preload("res://addons/gkanban/scripts/theme_manager.gd").new()
 var theme_name = null
+
+
 
 export (NodePath) var project_board_name_label_path: NodePath
 onready var project_board_name_label: Label = get_node(project_board_name_label_path)
@@ -30,6 +33,7 @@ onready var project_board_name: Label = get_node(project_board_name_path)
 export (NodePath) var project_board_name_edit_path: NodePath
 onready var project_board_name_edit: LineEdit = get_node(project_board_name_edit_path)
 
+
 onready var list_scene = preload("res://addons/gkanban/components/List.tscn")
 onready var card_scene = preload("res://addons/gkanban/components/Card.tscn")
 
@@ -46,8 +50,10 @@ var project_board = {
 	"lists": []
 }
 
+
 func _ready():
 	enable_project_board_name_edit(false)
+
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -68,6 +74,7 @@ func _input(event):
 			if not selected and edit_mode_project_name:
 				enable_project_board_name_edit(false)
 
+
 func enable_project_board_name_edit(_enable):
 	edit_mode_project_name = _enable
 	if _enable:
@@ -79,6 +86,7 @@ func enable_project_board_name_edit(_enable):
 		project_board_name.show()
 		project_board_name_edit.hide()
 	
+
 
 func set_app_theme(_theme_name: String) -> void :
 	theme_name = _theme_name
@@ -104,6 +112,7 @@ func set_project_board(_project_board):
 		list_container.add_child(_list)
 		_list.initialize_list(list)
 
+
 func _on_BackButton_pressed():
 	emit_signal("closed")
 	queue_free()
@@ -125,6 +134,7 @@ func create_list(_opitions = null):
 
 func _on_List_card_created(_list, _card):
 	emit_signal("card_created", self, _list, _card)
+
 
 func _on_List_card_updated(_list, _card):
 	emit_signal("card_updated", self, _list, _card)
@@ -157,6 +167,7 @@ func _on_List_card_menu_pressed(_list, _card):
 	_menu.rect_global_position = Vector2(_x_pos, _y_pos)
 	_menu.setup_list_card(_list, _card)
 
+
 func _on_CardMenu_delete_card_pressed(_list, _card):
 	delete_menus()
 	var i = 0
@@ -188,6 +199,7 @@ func _on_CardMenu_move_card_pressed(_list, _card, _direction):
 	var list = list_container.get_child(current_list_index)
 
 	var cards_container = list.cards_container
+
 
 	match _direction:
 		"top":
@@ -242,6 +254,7 @@ func _on_MoveToListModal_list_menu_button_pressed(_list, _card, _from_list):
 	_card.queue_free()
 			
 
+
 func _on_List_list_menu_pressed(_list):
 	delete_menus()
 	var _menu = list_menu_scene.instance()
@@ -256,6 +269,7 @@ func _on_List_list_menu_pressed(_list):
 func _on_ListMenu_move_list_pressed(_list, _direction):
 	move_list(_list, _direction)
 	delete_menus()
+
 
 func _on_ListMenu_delete_list_pressed(_list):
 	var _list_index = get_list_index(_list)
@@ -312,6 +326,7 @@ func move_list(_list, _direction):
 			project_board.lists.insert(list_container.get_child_count() - 1, list_item)
 			emit_signal("updated", self)
 
+
 func _on_List_move_list_pressed(_list, _direction):
 	move_list(_list, _direction)
 
@@ -336,11 +351,13 @@ func _on_List_move_card_pressed(_list, _card, _direction):
 			_list.remove_card(_card.card)
 			_card.queue_free()
 
+
 func _on_ProjectBoardNameEdit_text_entered(new_text: String):
 	project_board_name.text = project_board_name_edit.text
 	project_board.name = project_board_name_edit.text
 	emit_signal("updated", self)
 	enable_project_board_name_edit(false)
+
 
 func _on_DeleteButton_pressed():
 	delete_menus()

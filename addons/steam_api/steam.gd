@@ -57,6 +57,7 @@ func _ready() -> void :
 	if not OS.has_feature("standalone"):
 		test_running_godot_from_steam()
 
+
 func _process(delta: float) -> void :
 	if api_:
 		api_.run_callbacks()

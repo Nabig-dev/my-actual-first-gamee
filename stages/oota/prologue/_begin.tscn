@@ -134,7 +134,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=11]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Bg2/nabig:position")
+tracks/0/path = NodePath("Bg2/Xandria:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -161,7 +161,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=12]
 resource_name = "show"
 tracks/0/type = "value"
-tracks/0/path = NodePath("Bg2/nabig:position")
+tracks/0/path = NodePath("Bg2/Xandria:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -345,7 +345,7 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 
-[node name="nabig" type="AnimatedSprite" parent="Node2D/Bg2"]
+[node name="Xandria" type="AnimatedSprite" parent="Node2D/Bg2"]
 position = Vector2( 0, 111 )
 frames = SubResource( 6 )
 playing = true

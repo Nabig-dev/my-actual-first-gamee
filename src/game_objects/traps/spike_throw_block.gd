@@ -5,6 +5,7 @@ var Arrow = preload("res://src/game_objects/traps/spike_throw_arrow.tscn")
 
 export (String, "up", "down", "left", "right") var direction = "right" setget set_dir
 
+
 func set_dir(dir: String) -> void :
 	direction = dir
 	match direction:

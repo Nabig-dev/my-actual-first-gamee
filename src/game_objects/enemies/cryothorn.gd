@@ -91,6 +91,7 @@ func _on_EnemyBase_state_changed(state: String) -> void :
 	elif state == "attack":
 		Enemy.change_direction("to_player")
 
+
 func _on_TimerRepeatAtk_timeout() -> void :
 
 	if Enemy.state == "fly" and VisibNotifier.is_on_screen():
@@ -102,11 +103,13 @@ func _on_TimerRepeatAtk_timeout() -> void :
 	elif Enemy.state == "attack":
 		TimerRepeatAtk.start(3)
 
+
 func _on_TimerRepeatMove_timeout() -> void :
 	if Enemy.state == "fly" and _is_chasing == false:
 		velocity = Vector2.ZERO
 		Enemy.change_direction("to_player")
 		move_to_rand_pos()
+
 
 func _on_EnemyBase_enemy_defeated(_NodeEnemy) -> void :
 	_is_chasing = false
@@ -115,6 +118,7 @@ func _on_EnemyBase_enemy_defeated(_NodeEnemy) -> void :
 	Tw.stop_all()
 	TimerRepeatAtk.stop()
 	$TimerRepeatMove.stop()
+
 
 func _on_TimerStart_timeout() -> void :
 	Enemy.change_state("fly", true)

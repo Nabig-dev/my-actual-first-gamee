@@ -1,5 +1,6 @@
 extends Node
 
+
 func handle_event(event_data, dialog_node):
 
 	if event_data["audio_name"] != "":

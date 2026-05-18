@@ -1,5 +1,6 @@
 extends Light2D
 
+
 export var only_light2d: bool = true
 
 onready var AdditiveLight = $AdditiveLight

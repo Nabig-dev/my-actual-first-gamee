@@ -1,5 +1,7 @@
 extends Node2D
 
+
+
 var far_detected: int
 var near_detected: int
 
@@ -44,6 +46,7 @@ func _on_AreaNear_area_exited(area: Area2D) -> void :
 		return
 	near_detected -= 1
 	_check_exited()
+
 
 func _on_Geiger_tree_exiting() -> void :
 	$Geiger.stop_all()

@@ -4,15 +4,18 @@ extends CheckBox
 var current_piece
 var is_disabled = false
 
+
 func _ready():
 	
 	
 	current_piece = get_parent().get_parent().get_parent().get_parent()
 	connect("toggled", self, "_on_VisibleToggle_toggled")
 
+
 func disabled():
 	self_modulate = Color(0, 0, 0, 0)
 	is_disabled = true
+
 
 func set_visible(visible: bool):
 	pressed = visible
@@ -38,6 +41,7 @@ func set_visible(visible: bool):
 				current_piece.get_node("PanelContainer/VBoxContainer/Header/Preview").text = current_piece.preview
 			current_piece.set("rect_size", Vector2(current_rect_size.x, 0))
 	release_focus()
+
 
 func _on_VisibleToggle_toggled(button_pressed):
 	if is_disabled:

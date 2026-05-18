@@ -1,12 +1,16 @@
 tool 
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
+
 export (String, "Audio", "Background", "Scene", "Resource") var Mode = "Background"
+
 
 onready var file_button = $FileButton
 onready var clear_button = $ClearButton
 
+
 var default_color = Color("ccced3")
+
 
 func _ready():
 	editor_reference = find_parent("EditorView")
@@ -28,6 +32,8 @@ func _ready():
 		"Resource":
 			$Label.text = "to"
 			$FileButton / icon.texture = get_icon("PackedScene", "EditorIcons")
+
+
 
 func load_data(event_data: Dictionary):
 	
@@ -63,7 +69,7 @@ func load_data(event_data: Dictionary):
 func _on_FileButton_pressed():
 	match Mode:
 		"Audio":
-			editor_reference.godot_dialog("*.wav, *.ogg, *.alchemy_gauge3")
+			editor_reference.godot_dialog("*.wav, *.ogg, *.mp3")
 		"Background":
 			editor_reference.godot_dialog("*.png, *.jpg, *.jpeg, *.tga, *.svg, *.svgz, *.bmp, *.webp, *.tscn")
 		"Scene":

@@ -34,6 +34,7 @@ func _on_AreaDetectPlayer_body_entered(_body: Node) -> void :
 func _on_AreaDetectPlayer_body_exited(_body: Node) -> void :
 	player_entered = false
 
+
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void :
 	if anim_name == "fall" and player_entered == true:
 		start_anim()

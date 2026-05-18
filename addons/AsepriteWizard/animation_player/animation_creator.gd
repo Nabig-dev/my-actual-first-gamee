@@ -6,10 +6,12 @@ var _aseprite = preload("../aseprite/aseprite.gd").new()
 var _config
 var _file_system
 
+
 func init(config, editor_file_system: EditorFileSystem = null):
 	_config = config
 	_file_system = editor_file_system
 	_aseprite.init(config)
+
 
 func create_animations(target_node: Node, player: AnimationPlayer, options: Dictionary):
 	if not _aseprite.test_command():
@@ -28,6 +30,7 @@ func create_animations(target_node: Node, player: AnimationPlayer, options: Dict
 
 	if result != result_code.SUCCESS:
 		printerr(result_code.get_error_message(result))
+
 
 func _create_animations_from_file(target_node: Node, player: AnimationPlayer, options: Dictionary):
 	var output
@@ -53,6 +56,7 @@ func _create_animations_from_file(target_node: Node, player: AnimationPlayer, op
 
 	return result
 
+
 func _import(target_node: Node, player: AnimationPlayer, data: Dictionary, options: Dictionary):
 	var source_file = data.data_file
 	var sprite_sheet = data.sprite_sheet
@@ -76,10 +80,12 @@ func _import(target_node: Node, player: AnimationPlayer, data: Dictionary, optio
 
 	return _cleanup_animations(target_node, player, content, options)
 
+
 func _load_texture(sprite_sheet: String) -> Texture:
 	var texture = ResourceLoader.load(sprite_sheet, "Image", true)
 	texture.take_over_path(sprite_sheet)
 	return texture
+
 
 func _configure_animations(target_node: Node, player: AnimationPlayer, content: Dictionary, context: Dictionary, options: Dictionary):
 	var frames = _aseprite.get_content_frames(content)
@@ -97,6 +103,7 @@ func _configure_animations(target_node: Node, player: AnimationPlayer, content: 
 		return result
 	else:
 		return _add_animation_frames(target_node, player, "default", frames, context, options)
+
 
 func _add_animation_frames(target_node: Node, player: AnimationPlayer, anim_name: String, frames: Array, context: Dictionary, options: Dictionary, direction = "forward", repeat = - 1):
 	var animation_name = anim_name
@@ -150,6 +157,7 @@ func _add_animation_frames(target_node: Node, player: AnimationPlayer, anim_name
 
 	return result_code.SUCCESS
 
+
 func _create_track(target_node: Node, animation: Animation, track: String):
 	var track_index = animation.find_track(track)
 
@@ -163,9 +171,11 @@ func _create_track(target_node: Node, animation: Animation, track: String):
 
 	return track_index
 
+
 func _get_property_track_path(player: AnimationPlayer, target_node: Node, prop: String) -> String:
 		var node_path = player.get_node(player.root_node).get_path_to(target_node)
 		return "%s:%s" % [node_path, prop]
+
 
 func _cleanup_animations(target_node: Node, player: AnimationPlayer, content: Dictionary, options: Dictionary):
 	if not (content.meta.has("frameTags") and content.meta.frameTags.size() > 0):
@@ -178,8 +188,31 @@ func _cleanup_animations(target_node: Node, player: AnimationPlayer, content: Di
 
 	return result_code.SUCCESS
 
+
 func _remove_unused_animations(content: Dictionary, player: AnimationPlayer):
 	pass
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 func _hide_unused_nodes(target_node: Node, player: AnimationPlayer, content: Dictionary):
 	var root_node: = player.get_node(player.root_node)
@@ -223,15 +256,19 @@ func _hide_unused_nodes(target_node: Node, player: AnimationPlayer, content: Dic
 			var visible_track_index = _create_track(node, animation, visible_track)
 			animation.track_insert_key(visible_track_index, 0, false)
 
+
 func _scan_filesystem():
 	_file_system.scan()
 	yield(_file_system, "filesystem_changed")
 
+
 func list_layers(file: String, only_visibles = false) -> Array:
 	return _aseprite.list_layers(file, only_visibles)
 
+
 func list_slices(file: String) -> Array:
 	return _aseprite.list_slices(file)
+
 
 func _remove_properties_from_path(path: NodePath) -> NodePath:
 	var string_path: = path as String
@@ -242,18 +279,23 @@ func _remove_properties_from_path(path: NodePath) -> NodePath:
 	string_path.erase((string_path).length() - property_path.length() - 1, property_path.length() + 1)
 	return string_path as NodePath
 
+
 func _setup_texture(target_node: Node, sprite_sheet: String, content: Dictionary, context: Dictionary, is_importing_slice: bool):
 	push_error("_setup_texture not implemented!")
+
 
 func _get_frame_property(is_importing_slice: bool) -> String:
 	push_error("_get_frame_property not implemented!")
 	return ""
 
+
 func _get_frame_key(target_node: Node, frame: Dictionary, context: Dictionary, slice_info):
 	push_error("_get_frame_key not implemented!")
 
+
 func _create_meta_tracks(target_node: Node, player: AnimationPlayer, animation: Animation):
 	push_error("_create_meta_tracks not implemented!")
+
 
 func _cleanup_tracks(target_node: Node, player: AnimationPlayer, animation: Animation):
 	for track_key in ["texture", "hframes", "vframes", "region_rect", "frame"]:

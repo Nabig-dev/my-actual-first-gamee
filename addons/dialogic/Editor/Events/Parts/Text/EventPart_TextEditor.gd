@@ -1,10 +1,14 @@
 tool 
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
+
+
+
 onready var text_editor = $TextEdit
 
 var timeline_area = null
 var text_gap = 50
+
 
 func _ready():
 	text_gap = (text_gap * DialogicUtil.get_editor_scale(self))
@@ -25,6 +29,8 @@ func _ready():
 	timeline_area.connect("resized", self, "_set_new_min_size")
 	_set_new_min_size()
 
+
+
 func load_data(data: Dictionary):
 	
 	.load_data(data)
@@ -42,6 +48,7 @@ func load_data(data: Dictionary):
 	
 	
 	_set_new_min_size()
+
 
 func get_preview():
 	var max_preview_characters = 35
@@ -75,6 +82,7 @@ func _on_TextEditor_text_changed():
 	
 	
 	data_changed()
+
 
 func _set_new_min_size():
 	
@@ -111,6 +119,7 @@ func get_max_x_size():
 func _on_TextEditor_focus_entered() -> void :
 	if (Input.is_mouse_button_pressed(BUTTON_LEFT)):
 		emit_signal("request_selection")
+
 
 func _on_TextEdit_focus_exited():
 	

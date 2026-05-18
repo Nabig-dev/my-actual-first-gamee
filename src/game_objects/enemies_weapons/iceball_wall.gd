@@ -21,5 +21,6 @@ func _on_HurtboxEnemySimple_defeated() -> void :
 	set_physics_process(false)
 	$AnimationPlayer.play("destroyed")
 
+
 func _on_VisibilityNotifier2D_screen_exited() -> void :
 	queue_free()

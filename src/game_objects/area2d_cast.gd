@@ -1,5 +1,8 @@
 extends Area2D
 
+
+
+
 signal object_entered(Obj)
 signal object_exited(Obj)
 

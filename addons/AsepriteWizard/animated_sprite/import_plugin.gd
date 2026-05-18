@@ -10,26 +10,34 @@ var file_system: EditorFileSystem
 func get_importer_name():
 	return "aseprite_wizard.plugin"
 
+
 func get_visible_name():
 	return "Aseprite SpriteFrames Importer"
+
 
 func get_recognized_extensions():
 	return ["aseprite", "ase"]
 
+
 func get_save_extension():
 	return "res"
+
 
 func get_resource_type():
 	return "SpriteFrames"
 
+
 func get_preset_count():
 	return 1
+
 
 func get_priority():
 	return 2.0 if config.get_default_importer() == config.IMPORTER_SPRITEFRAMES_NAME else 1.0
 
+
 func get_preset_name(i):
 	return "Default"
+
 
 func get_import_options(i):
 	return [
@@ -45,11 +53,14 @@ func get_import_options(i):
 		}, 
 	]
 
+
 func get_option_visibility(option, options):
 	return true
 
+
 func get_import_order():
 	return 1
+
 
 static func get_sheet_type_hint_string() -> String:
 	var hint_string: = "Packed"
@@ -57,6 +68,7 @@ static func get_sheet_type_hint_string() -> String:
 		hint_string += ",%s columns" % number
 	hint_string += ",Strip"
 	return hint_string
+
 
 func import(source_file, save_path, options, platform_variants, gen_files):
 	var absolute_source_file = ProjectSettings.globalize_path(source_file)

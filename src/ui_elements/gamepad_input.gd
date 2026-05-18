@@ -1,5 +1,7 @@
 extends Control
 
+
+
 export var active: bool = true
 
 var GamepadBtnIndicators: Array
@@ -66,4 +68,37 @@ func _input(event: InputEvent) -> void :
 				else:
 					node_show.visible = false
 			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

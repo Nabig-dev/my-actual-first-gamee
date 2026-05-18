@@ -4,9 +4,11 @@ var TimelinePicker = preload("res://addons/dialogic/Other/timeline_picker.gd")
 var dialogic_editor_plugin = null
 var dialogic_editor_view = null
 
+
 func can_handle(object):
 	
 	return true
+
 
 func parse_property(object, type, path, hint, hint_text, usage):
 	
@@ -22,6 +24,7 @@ func parse_property(object, type, path, hint, hint_text, usage):
 			
 			return true
 		return false
+
 
 func switch_to_dialogic_timeline(timeline: String):
 	if (dialogic_editor_plugin != null):

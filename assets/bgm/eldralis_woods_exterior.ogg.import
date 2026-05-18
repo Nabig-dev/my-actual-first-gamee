@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/eldralis_woods_exterior.ogg-1c7b391d07a9e8467e149cd438c57e2b.oggstr"
+
+[deps]
+
+source_file="res://assets/bgm/eldralis_woods_exterior.ogg"
+dest_files=[ "res://.import/eldralis_woods_exterior.ogg-1c7b391d07a9e8467e149cd438c57e2b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=5.4

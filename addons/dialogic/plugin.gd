@@ -5,6 +5,7 @@ var _editor_view
 var _parts_inspector
 var _export_plugin
 
+
 func _init():
 	if Engine.editor_hint:
 		
@@ -27,6 +28,7 @@ func _enter_tree() -> void :
 	_parts_inspector.dialogic_editor_plugin = self
 	_parts_inspector.dialogic_editor_view = _editor_view
 
+
 func _ready():
 	if Engine.editor_hint:
 		
@@ -38,15 +40,19 @@ func _exit_tree() -> void :
 	remove_inspector_plugin(_parts_inspector)
 	remove_export_plugin(_export_plugin)
 
+
 func has_main_screen():
 	return true
+
 
 func get_plugin_name():
 	return "Dialogic"
 
+
 func make_visible(visible):
 	if _editor_view:
 		_editor_view.visible = visible
+
 
 func get_plugin_icon():
 	var _scale = get_editor_interface().get_editor_scale()
@@ -56,9 +62,11 @@ func get_plugin_icon():
 		_theme = "light"
 	return load("res://addons/dialogic/Images/Plugin/plugin-editor-icon-" + _theme + "-theme-" + str(_scale) + ".svg")
 
+
 func _add_custom_editor_view():
 	_editor_view = preload("res://addons/dialogic/Editor/EditorView.tscn").instance()
 	
+
 
 func _remove_custom_editor_view():
 	if _editor_view:

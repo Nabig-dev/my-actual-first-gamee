@@ -47,6 +47,15 @@ func _physics_process(delta: float) -> void :
 			_on_HurtboxEnemy_defeated()
 			
 
+
+
+
+
+
+
+
+
+
 func instance_particle(pos: Vector2 = global_position) -> void :
 	var ObjInstance = Particle.instance()
 	ObjInstance.global_position = pos
@@ -66,12 +75,14 @@ func _on_HurtboxEnemy_defeated() -> void :
 	snd_collision()
 	queue_free()
 
+
 func _on_HurtboxEnemySimple_area_entered(area: Area2D) -> void :
 	_last_weapon_pos = area.global_position
 	instance_particle()
 
 func _on_Timer_timeout() -> void :
 	_detect_floor = true
+
 
 func _on_Area2D_body_entered(_body: Node) -> void :
 	_move_x = true
@@ -82,6 +93,7 @@ func _on_Area2D_body_entered(_body: Node) -> void :
 	$Weapon / HurtboxEnemySimple.max_hits = 1
 	snd_collision()
 	instance_particle()
+
 
 func _on_TimerAutoQueue_timeout() -> void :
 	_on_HurtboxEnemy_defeated()

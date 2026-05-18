@@ -1,6 +1,9 @@
 extends KinematicBody2D
 
+
+
 var Slash = preload("res://src/game_objects/enemies_weapons/aeria_slash.tscn")
+
 
 var velocity: = Vector2()
 
@@ -93,9 +96,11 @@ func _on_TimerChangePatrolState_timeout() -> void :
 		rand_range(1, 2.5)
 	)
 
+
 func _on_AreaPlayerFront_object_entered(_Obj) -> void :
 	if Enemy.state in ["walk", "idle"]:
 		make_attack()
+
 
 func _on_HurtboxEnemy_damaged() -> void :
 	if Enemy.state in ["walk", "idle"]:

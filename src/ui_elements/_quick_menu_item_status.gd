@@ -10,6 +10,9 @@ onready var Anim = $AnimationPlayer
 func _process(_delta: float) -> void :
 	
 
+
+
+
 	
 	if is_active and VarsGlobal.Player != null:
 		global_position = VarsGlobal.Player.global_position

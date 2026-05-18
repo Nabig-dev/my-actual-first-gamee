@@ -1,6 +1,9 @@
 class_name RNGTools
 extends Object
 
+
+
+
 static func randi_range(from: int, to: int, rng = null) -> int:
 	if from == to:
 		return from
@@ -11,6 +14,8 @@ static func randi_range(from: int, to: int, rng = null) -> int:
 
 	return (_randi(rng) % (to - from)) + from
 
+
+
 static func shuffle(array: Array, rng = null):
 	var size: = array.size()
 	for i in range(size - 1):
@@ -19,11 +24,16 @@ static func shuffle(array: Array, rng = null):
 		array[i] = array[swap]
 		array[swap] = tmp
 
+
+
 static func pick(array: Array, rng = null):
 	if array.empty():
 		return null
 	else:
 		return array[randi_range(0, array.size(), rng)]
+
+
+
 
 static func pick_weighted(bag: WeightedBag, rng = null):
 	if bag.weights.empty():
@@ -38,6 +48,8 @@ static func pick_weighted(bag: WeightedBag, rng = null):
 		i = bag._k[i]
 
 	return bag._keys[i]
+
+
 
 class WeightedBag:
 	
@@ -55,6 +67,7 @@ class WeightedBag:
 	var _p: PoolIntArray
 	
 	var _keys: = []
+
 
 	
 	
@@ -104,12 +117,16 @@ class WeightedBag:
 			elif _u[i] < _sum:
 				underfull.push_back(i)
 
+
+
+
 static func _randi(rng) -> int:
 	if rng == null:
 		return randi()
 	else:
 		var i = rng.randi()
 		return rng.randi()
+
 
 static func _randf(rng) -> float:
 	if rng == null:

@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 var Projectile = preload("res://src/game_objects/enemies_weapons/projectile_mummy.tscn")
 
+
 var velocity: = Vector2()
 
 var gravity: int = 250
@@ -74,6 +75,7 @@ func _on_TimerPatrol_timeout() -> void :
 	
 	$TimerPatrol.start(rand_range(2, 3))
 
+
 func _on_AreaBackPlayer_object_entered(_Obj) -> void :
 	if Enemy.state in ["idle", "walk"]:
 		Enemy.change_direction("inverse")
@@ -88,6 +90,7 @@ func _on_TimerMakeAtk_timeout() -> void :
 		Enemy.change_state("throw")
 	else:
 		$TimerMakeAtk.start(0.5)
+
 
 func _on_HurtboxEnemy_damaged() -> void :
 	if Enemy.state in ["idle", "walk"]:

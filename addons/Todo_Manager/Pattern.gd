@@ -12,6 +12,7 @@ func _ready() -> void :
 	line_edit.text = text
 	remove_button.disabled = disabled
 
+
 func set_text(value: String) -> void :
 	text = value
 	if line_edit:

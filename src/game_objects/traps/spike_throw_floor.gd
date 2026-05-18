@@ -7,6 +7,8 @@ signal player_entered
 
 export var one_shot: bool
 
+
+
 export (Array, NodePath) var spike_blocks: Array = []
 export var snow: bool = false setget set_snow
 
@@ -29,6 +31,7 @@ func set_snow(snw: bool) -> void :
 	snow = snw
 	$StaticBody2D / Platform.visible = not snow
 	$StaticBody2D / PlatformSnow.visible = snow
+
 
 func _on_AreaDetectPlayer_body_entered(_body: Node) -> void :
 	

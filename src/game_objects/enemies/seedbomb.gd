@@ -5,6 +5,7 @@ var VenomCloud = preload("res://src/game_objects/enemies_weapons/venom_cloud.tsc
 
 export var inverted_gravity: bool
 
+
 var velocity: = Vector2()
 
 var gravity: int = 350
@@ -16,6 +17,8 @@ var direction_up: Vector2 = Vector2.UP
 onready var Enemy = $EnemyBase
 onready var TimerPatrol = $TimerPatrol
 onready var RayCast2DNoFloor = $Sprite / RayCast2DNoFloor
+
+
 
 func _ready() -> void :
 	Enemy.change_state("walk", true)
@@ -91,6 +94,7 @@ func _on_Area2DDetectPlayerUp_area_entered(_area: Area2D) -> void :
 		Enemy.change_direction("to_player")
 		invert_gravity()
 
+
 func _on_HurtboxEnemy_damaged() -> void :
 	if Enemy.state == "dead":
 		return
@@ -98,6 +102,7 @@ func _on_HurtboxEnemy_damaged() -> void :
 	if randi() % 4 == 0 and inverted_gravity == true:
 		Enemy.change_direction("to_player")
 		invert_gravity()
+
 
 func _on_TimerStartExplosion_timeout() -> void :
 	if $Sprite / Area2DDetectPlayer.is_colliding() == true:

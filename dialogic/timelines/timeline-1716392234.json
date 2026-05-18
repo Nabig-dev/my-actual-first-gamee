@@ -56,7 +56,7 @@
 			"character": "character-1649630816.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "No podía creerlo, pero ahora estoy segura, tú eres ike."
+			"text": "No podía creerlo, pero ahora estoy segura, tú eres Isaac."
 		},
 		{
 			"character": "character-1649630816.json",
@@ -68,13 +68,13 @@
 			"character": "character-1649630816.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Lo has logrado ike, pero por qué... ¿¡Por qué peleas contra mí?"
+			"text": "Lo has logrado Isaac, pero por qué... ¿¡Por qué peleas contra mí?"
 		},
 		{
 			"character": "character-1649630816.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "¡Deja de seguir las órdenes de john! Estoy aquí, podemos pelear juntos contra él."
+			"text": "¡Deja de seguir las órdenes de Johannes! Estoy aquí, podemos pelear juntos contra él."
 		},
 		{
 			"action": 1,
@@ -178,13 +178,13 @@
 			"character": "character-1649630816.json",
 			"event_id": "dialogic_001",
 			"portrait": "Angry",
-			"text": "¡john!"
+			"text": "¡Johannes!"
 		},
 		{
 			"character": "character-1649630816.json",
 			"event_id": "dialogic_001",
 			"portrait": "Angry",
-			"text": "¿¡Qué le has hecho a ike!?"
+			"text": "¿¡Qué le has hecho a Isaac!?"
 		},
 		{
 			"character": "character-1677081398.json",
@@ -196,7 +196,7 @@
 			"character": "character-1677081398.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Tu querido ike murió, no soportó el entrenamiento."
+			"text": "Tu querido Isaac murió, no soportó el entrenamiento."
 		},
 		{
 			"character": "character-1677081398.json",
@@ -208,19 +208,19 @@
 			"character": "character-1677081398.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Así que elsa, habiendo dominado sus poderes como Alquimista de Silicio, logró algo importante."
+			"text": "Así que Elisia, habiendo dominado sus poderes como Alquimista de Silicio, logró algo importante."
 		},
 		{
 			"character": "character-1677081398.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Hizo que el cuerpo de ike pudiera seguir en funcionamiento, haciendo que la electricidad recorriera por su cuerpo."
+			"text": "Hizo que el cuerpo de Isaac pudiera seguir en funcionamiento, haciendo que la electricidad recorriera por su cuerpo."
 		},
 		{
 			"character": "character-1677081398.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "ike solo es un cuerpo reanimado, su corazón late, sus musculos se mueven, pero su alma se desvaneció hace tiempo."
+			"text": "Isaac solo es un cuerpo reanimado, su corazón late, sus musculos se mueven, pero su alma se desvaneció hace tiempo."
 		},
 		{
 			"character": "character-1677081398.json",
@@ -232,13 +232,13 @@
 			"character": "character-1677081398.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Y ahora que has acabado con elsa..."
+			"text": "Y ahora que has acabado con Elisia..."
 		},
 		{
 			"character": "character-1677081398.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Es solo cuestión de tiempo para que el cuerpo de ike se desmorone..."
+			"text": "Es solo cuestión de tiempo para que el cuerpo de Isaac se desmorone..."
 		},
 		{
 			"character": "character-1677081398.json",
@@ -268,6 +268,6 @@
 	"metadata": {
 		"dialogic-version": "1.5.1",
 		"file": "timeline-1716392234.json",
-		"name": "defeated-ike-phase1"
+		"name": "defeated-isaac-phase1"
 	}
 }

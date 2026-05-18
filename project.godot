@@ -538,7 +538,7 @@ instance_dock/scenes=[ {
 
 [application]
 
-config/name="Alchemistry"
+config/name="Alchemiss"
 run/main_scene="res://initial_scene.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="ToziuhaNight_OrderOfTheAlchemists"
@@ -602,7 +602,7 @@ scene_naming=2
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/AsepriteWizard/plugin.cfg", "res://addons/AutoExportVersion/plugin.cfg", "res://addons/GDScriptMacros/plugin.cfg", "res://addons/QuickSceneRunner/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/file_shorcuts_g3/plugin.cfg", "res://addons/godot-next/plugin.cfg", "res://addons/google_play_game_services_manager/plugin.cfg", "res://addons/midi/plugin.cfg", "res://addons/orphan_import_file_cleaner/plugin.cfg", "res://addons/steam_api/plugin.cfg", "res://addons/texture_fonts/plugin.cfg", "res://addons/uuid_generator/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/AsepriteWizard/plugin.cfg", "res://addons/AutoExportVersion/plugin.cfg", "res://addons/GDScriptMacros/plugin.cfg", "res://addons/QuickSceneRunner/plugin.cfg", "res://addons/RandomAudioNodePlayer/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg", "res://addons/carrousel_menu/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/file_shorcuts_g3/plugin.cfg", "res://addons/gamelevels_blueprint/plugin.cfg", "res://addons/gkanban/plugin.cfg", "res://addons/godot-next/plugin.cfg", "res://addons/google_play_game_services_manager/plugin.cfg", "res://addons/interactive-music-g3/plugin.cfg", "res://addons/localization_editor_plugin_g3/plugin.cfg", "res://addons/midi/plugin.cfg", "res://addons/multidir_joystick/plugin.cfg", "res://addons/nklbdev.parallax/plugin.cfg", "res://addons/orphan_import_file_cleaner/plugin.cfg", "res://addons/steam_api/plugin.cfg", "res://addons/texture_fonts/plugin.cfg", "res://addons/uuid_generator/plugin.cfg" )
 
 [global]
 

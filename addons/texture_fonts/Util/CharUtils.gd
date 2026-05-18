@@ -6,6 +6,7 @@ var unicode_regex: = RegEx.new()
 
 var regex_compiled: = false
 
+
 func chars_to_codes(chars: String) -> Array:
 	var codes = []
 	

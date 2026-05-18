@@ -10,6 +10,7 @@ var err: int
 
 onready var AnimPlayer = $AnimationPlayer
 
+
 func change_scene(path) -> bool:
 	
 	if ResourceLoader.exists(path):

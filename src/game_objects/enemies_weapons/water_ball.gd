@@ -37,6 +37,8 @@ func _on_HurtboxEnemySimple_defeated() -> void :
 	set_physics_process(false)
 	$AnimationPlayer.play_backwards("show")
 
+
+
 func _on_TimerChangeSpeed_timeout() -> void :
 	
 	var tween_to: float = 0
@@ -50,14 +52,17 @@ func _on_TimerChangeSpeed_timeout() -> void :
 		self, "speed", tween_to, $TimerChangeSpeed.wait_time
 	)
 
+
 func _on_HurtboxEnemySimple_damaged() -> void :
 	velocity = Vector2.ZERO
+
 
 func _on_HitboxEnemy_area_entered(_area):
 	if _destroyed == true:
 		return
 	yield($TimerAutoQueue, "timeout")
 	_on_HurtboxEnemySimple_defeated()
+
 
 func _on_Area2DDetectPlayer_area_entered(_area: Area2D) -> void :
 	_on_HurtboxEnemySimple_defeated()

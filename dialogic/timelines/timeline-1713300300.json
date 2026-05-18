@@ -50,7 +50,7 @@
 			"character": "character-1649630816.json",
 			"event_id": "dialogic_001",
 			"portrait": "Angry",
-			"text": "shay Avicena, Adeptis del Nitrogeno..."
+			"text": "Sheal Avicena, Adeptis del Nitrogeno..."
 		},
 		{
 			"character": "character-1649630816.json",
@@ -104,6 +104,6 @@
 	"metadata": {
 		"dialogic-version": "1.5.1",
 		"file": "timeline-1713300300.json",
-		"name": "shay-prebattle"
+		"name": "sheal-prebattle"
 	}
 }

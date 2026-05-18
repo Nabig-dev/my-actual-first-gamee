@@ -26,15 +26,18 @@ func _enter_tree() -> void :
 	find_tokens_from_path(find_scripts())
 	_dockUI.build_tree()
 
+
 func _exit_tree() -> void :
 	_dockUI.create_config_file()
 	remove_control_from_bottom_panel(_dockUI)
 	_dockUI.free()
 
+
 func queue_remove(file: String):
 	for i in _dockUI.todo_items.size() - 1:
 		if _dockUI.todo_items[i].script_path == file:
 			_dockUI.todo_items.remove(i)
+
 
 func find_tokens_from_path(scripts: Array) -> void :
 	for script_path in scripts:
@@ -46,6 +49,7 @@ func find_tokens_from_path(scripts: Array) -> void :
 
 func find_tokens_from_script(script: Resource) -> void :
 	find_tokens(script.source_code, script.resource_path)
+
 
 func find_tokens(text: String, script_path: String) -> void :
 	var regex = RegEx.new()
@@ -69,6 +73,7 @@ func find_tokens(text: String, script_path: String) -> void :
 			i += 1
 		if not match_found:
 			_dockUI.todo_items.append(create_todo_item(result, text, script_path))
+
 
 func create_todo_item(regex_results: Array, text: String, script_path: String) -> TodoItem:
 	var todo_item = TodoItem.new()
@@ -96,6 +101,7 @@ func create_todo_item(regex_results: Array, text: String, script_path: String) -
 		todo_item.todos.append(new_todo)
 	return todo_item
 
+
 func update_todo_item(todo_item: TodoItem, regex_results: Array, text: String, script_path: String) -> TodoItem:
 	todo_item.todos.clear()
 	var lines: = text.split("\n")
@@ -118,6 +124,7 @@ func update_todo_item(todo_item: TodoItem, regex_results: Array, text: String, s
 		todo_item.todos.append(new_todo)
 	return todo_item
 
+
 func get_line_number(what: String, from: String, start: = 0) -> int:
 	what = what.split("\n")[0]
 	var temp_array: = from.split("\n")
@@ -131,9 +138,15 @@ func get_line_number(what: String, from: String, start: = 0) -> int:
 			line_number = 0
 	return line_number
 
+
 func check_saved_file(script: Resource) -> void :
 
 	pass
+
+
+
+
+
 
 func _on_filesystem_changed() -> void :
 	if not refresh_lock:
@@ -163,10 +176,12 @@ func find_scripts() -> Array:
 	cache_scripts(scripts)
 	return scripts
 
+
 func cache_scripts(scripts: Array) -> void :
 	for script in scripts:
 		if not script_cache.has(script):
 			script_cache.append(script)
+
 
 func get_dir_contents(dir: Directory, scripts: Array, directory_queue: Array) -> void :
 	dir.list_dir_begin(true, true)
@@ -188,12 +203,14 @@ func get_dir_contents(dir: Directory, scripts: Array, directory_queue: Array) ->
 					scripts.append(dir.get_current_dir() + "/" + file_name)
 		file_name = dir.get_next()
 
+
 func rescan_files() -> void :
 	_dockUI.todo_items.clear()
 	script_cache.clear()
 	combined_pattern = combine_patterns(_dockUI.patterns)
 	find_tokens_from_path(find_scripts())
 	_dockUI.build_tree()
+
 
 func combine_patterns(patterns: Array) -> String:
 	if patterns.size() == 1:
@@ -208,7 +225,13 @@ func combine_patterns(patterns: Array) -> String:
 				pattern_string += "|" + patterns[i][0]
 		pattern_string += ")(?(2)[\\s\\S]*?\\*\\/|.*)"
 
+
+
+
+
+
 		return pattern_string
+
 
 func create_todo(todo_string: String, script_path: String) -> Todo:
 	var todo: = Todo.new()
@@ -227,6 +250,7 @@ func create_todo(todo_string: String, script_path: String) -> Todo:
 	todo.content = todo_string
 	todo.script_path = script_path
 	return todo
+
 
 func _on_active_script_changed(script) -> void :
 	if _dockUI:

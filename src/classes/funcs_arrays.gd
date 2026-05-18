@@ -2,12 +2,18 @@ extends Node
 
 class_name FuncsArrays
 
+
 static func get_array_unique(array: Array) -> Array:
 	var unique: Array = []
 	for item in array:
 		if not unique.has(item):
 			unique.append(item)
 	return unique
+
+
+
+
+
 
 static func get_new_position_on_array(
 		arr: Array, current_pos: = 0, direction: = "prev"
@@ -39,10 +45,14 @@ static func get_new_position_on_array(
 	
 	return new_pos
 
+
 static func is_out_index(arr: Array, idx: int) -> bool:
 	if arr.size() - 1 > idx:
 		return true
 	return false
+
+
+
 
 static func get_flags(string_bin: String) -> Array:
 	

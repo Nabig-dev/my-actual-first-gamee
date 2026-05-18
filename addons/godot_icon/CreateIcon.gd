@@ -3,6 +3,7 @@ extends SceneTree
 var error_handler: Object
 var error_callback: String
 
+
 func _init() -> void :
 	var arguments = OS.get_cmdline_args()
 	if arguments.size() != 4 and arguments.size() != 9:
@@ -37,6 +38,7 @@ func _init() -> void :
 		save_icon(arguments[2], images)
 	quit()
 
+
 func load_images(paths: Array) -> Array:
 	var images: = []
 	for path in paths:
@@ -60,6 +62,7 @@ func load_images(paths: Array) -> Array:
 		index += 1
 	return images
 
+
 func prepare_images(path: String) -> Array:
 	var images: = []
 	for size in [16, 32, 48, 64, 128, 256]:
@@ -73,6 +76,7 @@ func prepare_images(path: String) -> Array:
 		images.append(image)
 	return images
 
+
 func save_icon(destination_path: String, images: Array) -> void :
 	var file = File.new()
 	var error = file.open(destination_path, File.WRITE)
@@ -83,13 +87,16 @@ func save_icon(destination_path: String, images: Array) -> void :
 	file.store_buffer(icon_creator.generate_icon(images))
 	file.close()
 
+
 func print_error(error_message: String) -> void :
 	printerr(error_message)
 	if error_handler and error_callback:
 		error_handler.call(error_callback, error_message)
 
+
 static func sort_images_by_size(a: Image, b: Image) -> bool:
 	return a.get_width() < b.get_width()
+
 
 class IconCreator:
 	const PNG_SIGNATURE: = PoolByteArray([137, 80, 78, 71, 13, 10, 26, 10])
@@ -103,8 +110,10 @@ class IconCreator:
 
 	var crc_table: Array
 
+
 	func _init() -> void :
 		crc_table = generate_crc_table()
+
 
 	func generate_icon(images: Array) -> PoolByteArray:
 		var result: = PoolByteArray()
@@ -122,12 +131,14 @@ class IconCreator:
 			result.append_array(png)
 		return result
 
+
 	func generate_icon_header(size: int) -> PoolByteArray:
 		var result: = PoolByteArray()
 		result.append_array(lsb_first(0, 2))
 		result.append_array(lsb_first(1, 2))
 		result.append_array(lsb_first(size, 2))
 		return result
+
 
 	func generate_icon_entry(image: Image, size: int, offset: int) -> PoolByteArray:
 		var result: = PoolByteArray()
@@ -141,6 +152,7 @@ class IconCreator:
 		result.append_array(lsb_first(offset))
 		return result
 
+
 	func generate_png(image: Image) -> PoolByteArray:
 		var result: = PoolByteArray()
 		var header_chunk: = generate_header_chunk(image.get_width(), image.get_height())
@@ -152,12 +164,14 @@ class IconCreator:
 		result.append_array(generate_chunk(end_chunk))
 		return result
 
+
 	func generate_chunk(chunk: PoolByteArray) -> PoolByteArray:
 		var result: = PoolByteArray()
 		result.append_array(msb_first(chunk.size() - 4))
 		result.append_array(chunk)
 		result.append_array(msb_first(crc(chunk)))
 		return result
+
 
 	func generate_header_chunk(width: int, height: int) -> PoolByteArray:
 		var result = PoolByteArray()
@@ -170,6 +184,7 @@ class IconCreator:
 		result.append(0)
 		result.append(0)
 		return result
+
 
 	func generate_data_chunk(image: Image) -> PoolByteArray:
 		var filtered_pixels: = filtered_pixels(image.get_width(), image.get_height(), image.get_data())
@@ -188,8 +203,10 @@ class IconCreator:
 		result.append_array(msb_first(adler(filtered_pixels)))
 		return result
 
+
 	func generate_end_chunk() -> PoolByteArray:
 		return IEND_SIGNATURE
+
 
 	func filtered_pixels(width: int, height: int, pixels: PoolByteArray) -> PoolByteArray:
 		var result = PoolByteArray()
@@ -198,6 +215,7 @@ class IconCreator:
 			for column in range(width * 4):
 				result.append(pixels[row * width * 4 + column])
 		return result
+
 
 	func generate_crc_table() -> Array:
 		var result = []
@@ -212,11 +230,13 @@ class IconCreator:
 			result.append(c)
 		return result
 
+
 	func crc(bytes: PoolByteArray) -> int:
 		var c: = 4294967295
 		for i in range(bytes.size()):
 			c = crc_table[(c ^ bytes[i]) & 255] ^ (c >> 8)
 		return c ^ 4294967295
+
 
 	func adler(bytes: PoolByteArray) -> int:
 		var a: = 1
@@ -226,6 +246,7 @@ class IconCreator:
 			b = (a + b) % ADLER_MOD
 		return b << 16 | a
 
+
 	func msb_first(i: int) -> PoolByteArray:
 		var result: = PoolByteArray()
 		result.append((i >> 24) & 255)
@@ -234,12 +255,14 @@ class IconCreator:
 		result.append(i & 255)
 		return result
 
+
 	func lsb_first(i: int, size = 4) -> PoolByteArray:
 		var result: = PoolByteArray()
 		for _s in range(size):
 			result.append(i & 255)
 			i = i >> 8
 		return result
+
 
 	func block_size(i: int) -> PoolByteArray:
 		var result: = PoolByteArray()

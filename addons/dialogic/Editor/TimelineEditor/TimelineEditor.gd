@@ -116,6 +116,7 @@ func _ready():
 			while button.get_index() != 0 and button.sorting_index < get_node("ScrollContainer/EventContainer/FlexContainer" + str(button.event_category + 1)).get_child(button.get_index() - 1).sorting_index:
 				get_node("ScrollContainer/EventContainer/FlexContainer" + str(button.event_category + 1)).move_child(button, button.get_index() - 1)
 
+
 func _process(delta):
 	if moving_piece != null:
 		var current_position = get_global_mouse_position()
@@ -133,6 +134,8 @@ func _process(delta):
 			if current_position.y > node_position + down_offset:
 				move_block(moving_piece, "down")
 				piece_was_dragged = true
+
+
 
 func _on_event_block_gui_input(event, item: Node):
 	if event is InputEventMouseButton and event.button_index == 1:
@@ -161,6 +164,11 @@ func _on_event_block_gui_input(event, item: Node):
 				pass
 			else:
 				piece_was_dragged = false
+
+
+
+
+
 
 func _input(event):
 	
@@ -388,6 +396,10 @@ func _unhandled_key_input(event):
 				indent_events()
 				get_tree().set_input_as_handled()
 
+
+
+
+
 func get_events_indexed(events: Array) -> Dictionary:
 	var indexed_dict = {}
 	for event in events:
@@ -442,13 +454,16 @@ func delete_selected_events():
 	
 	indent_events()
 
+
 func cut_selected_events():
 	copy_selected_events()
 	delete_selected_events()
 
+
 func cut_events_indexed(indexed_events: Dictionary) -> void :
 	select_indexed_events(indexed_events)
 	cut_selected_events()
+
 
 func copy_selected_events():
 	if len(selected_items) == 0:
@@ -505,8 +520,13 @@ func paste_events_indexed(indexed_events):
 func duplicate_events_indexed(indexed_events):
 	pass
 
+
+
+
+
 func _is_item_selected(item: Node):
 	return item in selected_items
+
 
 func select_item(item: Node, multi_possible: bool = true):
 	if item == null:
@@ -546,17 +566,25 @@ func select_item(item: Node, multi_possible: bool = true):
 	
 	visual_update_selection()
 
+
+
 func visual_update_selection():
 	for item in timeline.get_children():
 		item.visual_deselect()
 	for item in selected_items:
 		item.visual_select()
 
+
+
 func sort_selection():
 	selected_items.sort_custom(self, "custom_sort_selection")
 
+
+
 func custom_sort_selection(item1, item2):
 	return item1.get_index() < item2.get_index()
+
+
 
 func select_all_items():
 	selected_items = []
@@ -564,9 +592,15 @@ func select_all_items():
 		selected_items.append(event)
 	visual_update_selection()
 
+
 func deselect_all_items():
 	selected_items = []
 	visual_update_selection()
+
+
+
+
+
 
 func _on_event_options_action(action: String, item: Node):
 	
@@ -576,9 +610,16 @@ func _on_event_options_action(action: String, item: Node):
 		move_block(item, action)
 	indent_events()
 
+
 func delete_event(event):
 	event.get_parent().remove_child(event)
 	event.queue_free()
+
+
+
+
+
+
 
 func _create_event_button_pressed(event_id):
 	var at_index = - 1
@@ -592,6 +633,8 @@ func _create_event_button_pressed(event_id):
 	TimelineUndoRedo.commit_action()
 	scroll_to_piece(at_index)
 	indent_events()
+
+
 
 func _on_ButtonQuestion_pressed() -> void :
 	var at_index = - 1
@@ -620,6 +663,8 @@ func create_question(at_position):
 		create_event("dialogic_011", {"no-data": true}, true)
 		create_event("dialogic_013", {"no-data": true}, true)
 
+
+
 func _on_ButtonCondition_pressed() -> void :
 	var at_index = - 1
 	if selected_items:
@@ -642,6 +687,7 @@ func create_condition(at_position):
 	else:
 		create_event("dialogic_012", {"no-data": true}, true)
 		create_event("dialogic_013", {"no-data": true}, true)
+
 
 func update_custom_events() -> void :
 	
@@ -704,6 +750,11 @@ func update_custom_events() -> void :
 		button.connect("pressed", self, "_create_event_button_pressed", [custom_event_id])
 		custom_events_container.add_child(button)
 
+
+
+
+
+
 func create_drag_and_drop_event(event_id: String):
 	var index = get_index_under_cursor()
 	var piece = create_event(event_id)
@@ -714,6 +765,7 @@ func create_drag_and_drop_event(event_id: String):
 	set_event_ignore_save(piece, true)
 	select_item(piece)
 	return piece
+
 
 func drop_event():
 	if moving_piece != null:
@@ -729,12 +781,19 @@ func drop_event():
 		add_extra_scroll_area_to_timeline()
 		
 
+
 func cancel_drop_event():
 	if moving_piece != null:
 		moving_piece = null
 		piece_was_dragged = false
 		delete_selected_events()
 		deselect_all_items()
+
+
+
+
+
+
 
 func create_event(event_id: String, data: Dictionary = {"no-data": true}, indent: bool = false, at_index: int = - 1, auto_select: bool = false):
 	var piece = null
@@ -744,6 +803,12 @@ func create_event(event_id: String, data: Dictionary = {"no-data": true}, indent
 	
 	elif event_id in id_to_scene_name.keys():
 		piece = load("res://addons/dialogic/Editor/Events/" + id_to_scene_name[event_id] + ".tscn").instance()
+
+
+
+
+
+
 
 	
 	else:
@@ -779,6 +844,7 @@ func create_event(event_id: String, data: Dictionary = {"no-data": true}, indent
 	
 	return piece
 
+
 func load_timeline(filename: String):
 	clear_timeline()
 	update_custom_events()
@@ -804,8 +870,10 @@ func load_timeline(filename: String):
 	$TimelineArea.scroll_vertical = 0
 	
 
+
 func batch_events(array, size, batch_number):
 	return array.slice((batch_number - 1) * size, batch_number * size - 1)
+
 
 func load_batch(data):
 	
@@ -814,6 +882,7 @@ func load_batch(data):
 		for i in current_batch:
 			create_event(i["event_id"], i, false, timeline.get_child_count())
 	emit_signal("batch_loaded")
+
 
 func _on_batch_loaded():
 	if batches.size() > 0:
@@ -827,10 +896,16 @@ func _on_batch_loaded():
 	add_extra_scroll_area_to_timeline()
 	
 
+
 func clear_timeline():
 	deselect_all_items()
 	for event in timeline.get_children():
 		event.free()
+
+
+
+
+
 
 func get_block_above(block):
 	var block_index = block.get_index()
@@ -839,6 +914,7 @@ func get_block_above(block):
 		item = timeline.get_child(block_index - 1)
 	return item
 
+
 func get_block_below(block):
 	var block_index = block.get_index()
 	var item = null
@@ -846,11 +922,13 @@ func get_block_below(block):
 		item = timeline.get_child(block_index + 1)
 	return item
 
+
 func get_block_height(block):
 	if block != null:
 		return block.rect_size.y
 	else:
 		return null
+
 
 func get_index_under_cursor():
 	var current_position = get_global_mouse_position()
@@ -860,6 +938,8 @@ func get_index_under_cursor():
 		if c.rect_global_position.y < current_position.y:
 			top_pos = i
 	return top_pos
+
+
 
 func move_block(block, direction):
 	var block_index = block.get_index()
@@ -877,6 +957,11 @@ func move_block(block, direction):
 func move_block_to_index(block_index, index):
 	timeline.move_child(timeline.get_child(block_index), index)
 
+
+
+
+
+
 func create_timeline():
 	timeline_file = "timeline-" + str(OS.get_unix_time()) + ".json"
 	var timeline = {
@@ -888,6 +973,7 @@ func create_timeline():
 	}
 	DialogicResources.set_timeline(timeline)
 	return timeline
+
 
 func generate_save_data():
 	var info_to_save = {
@@ -905,6 +991,7 @@ func generate_save_data():
 			info_to_save["events"].append(event.event_data)
 	return info_to_save
 
+
 func set_event_ignore_save(event: Node, ignore: bool):
 	event.ignore_save = ignore
 	
@@ -912,11 +999,18 @@ func set_event_ignore_save(event: Node, ignore: bool):
 func get_event_ignore_save(event: Node) -> bool:
 	return event.ignore_save
 
+
 func save_timeline() -> void :
 	if timeline_file != "" and building_timeline == false:
 		var info_to_save = generate_save_data()
 		DialogicResources.set_timeline(info_to_save)
 		
+
+
+
+
+
+
 
 func scroll_to_piece(piece_index) -> void :
 	var height = 0
@@ -924,6 +1018,7 @@ func scroll_to_piece(piece_index) -> void :
 		height += $TimelineArea / TimeLine.get_child(i).rect_size.y
 	if height < $TimelineArea.scroll_vertical or height > $TimelineArea.scroll_vertical + $TimelineArea.rect_size.y - (200 * DialogicUtil.get_editor_scale(self)):
 		$TimelineArea.scroll_vertical = height
+
 
 func indent_events() -> void :
 	
@@ -978,10 +1073,14 @@ func indent_events() -> void :
 		starter = false
 	$TimelineArea.update()
 
+
+
 func fold_all_nodes():
 	for event in timeline.get_children():
 		event.set_expanded(false)
 	add_extra_scroll_area_to_timeline()
+
+
 
 func unfold_all_nodes():
 	for event in timeline.get_children():
@@ -1003,6 +1102,8 @@ func add_extra_scroll_area_to_timeline():
 		if timeline.rect_size.y + 200 > $TimelineArea.rect_size.y:
 			timeline.rect_min_size = Vector2(0, timeline.rect_size.y + 200)
 
+
+
 func _read_event_data():
 	var dir = "res://addons/dialogic/Editor/Events/"
 	var file = File.new()
@@ -1020,6 +1121,7 @@ func _read_event_data():
 					c[scene.get_node_property_name(0, p)] = scene.get_node_property_value(0, p)
 				events_data.append(c)
 	return events_data
+
 
 func play_timeline():
 	DialogicResources.set_settings_value("QuickTimelineTest", "timeline_file", timeline_file)

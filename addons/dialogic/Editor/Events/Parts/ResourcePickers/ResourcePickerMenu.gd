@@ -5,6 +5,7 @@ export (Texture) var custom_icon setget set_custom_icon
 var custom_icon_modulation setget set_custom_icon_modulation
 var menu_background
 
+
 var default_color = Color("ccced3")
 
 func _ready():

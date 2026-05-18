@@ -1,5 +1,8 @@
 extends CanvasLayer
 
+
+
+
 var _start_pos_y = - 25
 var _destiny_pos_y = 4
 
@@ -58,6 +61,8 @@ func _activate_tween(obj, prop, init_val, final_val, duration, trans = Tween.TRA
 
 func _on_Timer_timeout() -> void :
 	hide_notif()
+
+
 
 func _on_Tween_tween_all_completed() -> void :
 	pass

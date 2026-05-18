@@ -1,5 +1,9 @@
 extends KinematicBody2D
 
+
+
+
+
 var Frigus = preload("res://src/game_objects/enemies_weapons/frigus_bocuk.tscn")
 
 var speed: int = 40
@@ -108,6 +112,7 @@ func _set_pos_y_equal_player() -> void :
 func _on_TimerStartActive_timeout() -> void :
 	return_to_chase(false)
 
+
 func _on_AreaDetectPlayer_object_entered(_Obj) -> void :
 	
 	if $VisibilityEnabler2D.is_on_screen() == false:
@@ -127,15 +132,18 @@ func _on_AreaDetectPlayer_object_entered(_Obj) -> void :
 		else:
 			Audio.play_sfx("eva_laugh")
 
+
 func _on_TimerRepeatAtk_timeout() -> void :
 	if AreaDetectPlayer.is_colliding() == true:
 		AreaDetectPlayer.emit_signal("object_entered", Node.new())
+
 
 func _on_EnemyBase_enemy_defeated(_NodeEnemy) -> void :
 	chase_move = false
 	tween_to(
 		global_position + Vector2(0, 80), 3
 	)
+
 
 func _on_Sprite_frame_changed() -> void :
 	Spr2.frame = Spr.frame

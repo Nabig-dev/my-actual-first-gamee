@@ -14,5 +14,6 @@ func _ready() -> void :
 		$SpriteTest.material = $SpriteTest.material.duplicate()
 		parent_n.material = $SpriteTest.material
 
+
 func _on_Timer_timeout() -> void :
 	$AnimationPlayer.play("flash_oneshot")

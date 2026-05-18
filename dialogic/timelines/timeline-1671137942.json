@@ -130,7 +130,7 @@
 			"character": "character-1677087468.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "NABIGDOTX3"
+			"text": "XANDRIADOTX3"
 		},
 		{
 			"event_id": "dialogic_023",
@@ -163,7 +163,7 @@
 			"character": "character-1677087468.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "NABIGDOTX3"
+			"text": "XANDRIADOTX3"
 		},
 		{
 			"character": "character-1649630816.json",
@@ -724,6 +724,6 @@
 	"metadata": {
 		"dialogic-version": "1.5.1",
 		"file": "timeline-1671137942.json",
-		"name": "the_outpost-flashback-before-atreu"
+		"name": "grijayla-flashback-before-atreu"
 	}
 }

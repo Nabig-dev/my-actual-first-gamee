@@ -9,6 +9,7 @@ onready var Tw = $Tween
 onready var Enemy = $EnemyBase
 onready var VisibNotif = $VisibilityNotifier2D
 
+
 func _physics_process(_delta: float) -> void :
 	if (
 		VisibNotif.is_on_screen() == true
@@ -65,6 +66,7 @@ func _on_HurtboxEnemy_area_entered(area: Area2D) -> void :
 func _on_show_anim_ended() -> void :
 	chasing = true
 	Enemy.change_state("fly")
+
 
 func _on_Timer_timeout() -> void :
 	Enemy.change_state("show")

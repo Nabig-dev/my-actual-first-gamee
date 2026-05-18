@@ -12,6 +12,10 @@ var _hits_received: int
 func _ready() -> void :
 	Enemy.change_state("idle", true)
 
+
+
+
+
 func spawn_fireball(angle_variation: float = 0) -> void :
 	randomize()
 	var ObjInstance = FireBall.instance()
@@ -36,6 +40,8 @@ func _on_teleport_end() -> void :
 	_on_TimerNextMove_timeout()
 
 func _on_EnemyBase_state_changed(_state: String) -> void :
+
+
 
 	pass
 
@@ -64,6 +70,7 @@ func _on_HurtboxEnemy_damaged() -> void :
 		if Enemy.state == "idle":
 			Enemy.change_state("teleport")
 	
+
 
 func _on_TimerCheckFreezeState_timeout() -> void :
 	if $AnimationPlayer.is_playing() == false:

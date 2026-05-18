@@ -18,6 +18,7 @@ func _on_TimerStart_timeout() -> void :
 func _on_TimerLoop_timeout() -> void :
 	$AnimationPlayer.play("show_no_loop")
 
+
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void :
 	if anim_name == "show_no_loop":
 		$TimerLoop.start(delay_loop)

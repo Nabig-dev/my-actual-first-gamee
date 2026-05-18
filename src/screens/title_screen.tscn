@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/tres/ThemeBasic.tres" type="Theme" id=1]
-[ext_resource path="res://assets/images/logos/logo_revemped_outline.png" type="Texture" id=2]
-[ext_resource path="res://assets/images/nabig_sketch.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/logos/logo_revamped_outline.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/xandria_sketch.png" type="Texture" id=3]
 [ext_resource path="res://src/ui_elements/helper_icon_btn.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/screens/title_screen.gd" type="Script" id=5]
 [ext_resource path="res://assets/images/texture_chemical_links.jpg" type="Texture" id=6]
@@ -132,7 +132,7 @@ position = Vector2( 2, -46.5 )
 shape = SubResource( 1 )
 action = "ui_accept"
 
-[node name="nabig" type="TextureRect" parent="."]
+[node name="Xandria" type="TextureRect" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

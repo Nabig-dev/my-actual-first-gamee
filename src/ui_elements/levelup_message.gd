@@ -27,6 +27,7 @@ func _play_sfx() -> void :
 func _on_AnimationPlayer_animation_finished(_anim_name: String) -> void :
 	emit_signal("animation_ended")
 
+
 func _on_Label_font_replaced() -> void :
 	$Label.material = null
 	$Label2.material = null

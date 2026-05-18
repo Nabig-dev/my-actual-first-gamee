@@ -1,5 +1,6 @@
 extends RigidBody2D
 
+
 var Rock = preload("res://src/game_objects/enemies_weapons/rock_ogre.tscn")
 
 onready var Enemy = $EnemyBase

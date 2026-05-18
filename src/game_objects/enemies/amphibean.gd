@@ -64,5 +64,6 @@ func _on_Timer_timeout() -> void :
 	elif VisibleNotif.is_on_screen() == false:
 		$Timer.start(0.5)
 
+
 func _on_TimerAtk_timeout() -> void :
-	$AnimAtk.play("attack_power")
+	$AnimAtk.play("atk")

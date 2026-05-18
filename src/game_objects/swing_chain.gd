@@ -1,5 +1,9 @@
 extends Node2D
 
+
+
+
+
 var _active: bool = false
 
 onready var AnchorActive = $AnchorActive
@@ -10,6 +14,7 @@ onready var EndPendulum = $EndPendulum
 onready var AnimPlayer = $AnimationPlayer
 onready var TimerJumpCoolDown = $TimerJumpCoolDown
 var dir: int = 0
+
 
 var _reached_limit: bool = false
 
@@ -162,6 +167,7 @@ func _on_AreaDetectChain_area_entered(area: Area2D) -> void :
 	else:
 		Audio.play_sfx("ui_incorrect")
 
+
 func _on_AreaPendulumDisable_area_entered(area: Area2D) -> void :
 	if area.get_groups().has(_group_name) == false:
 		return
@@ -169,16 +175,19 @@ func _on_AreaPendulumDisable_area_entered(area: Area2D) -> void :
 	StartPendulum.angular_acceleration = StartPendulum.angular_acceleration / 2
 	StartPendulum.angular_velocity = StartPendulum.angular_velocity / 2
 
+
 func _on_AreaPendulumDisable_area_exited(area: Area2D) -> void :
 	if area.get_groups().has(_group_name) == false:
 		return
 	_reached_limit = false
+
 
 func _on_Tween_tween_completed(_object: Object, _key: NodePath) -> void :
 	if _active == true:
 		_update_player_pos_on_process = true
 		StartPendulum.set_physics_process(true)
 		Chain.visible = true
+
 
 func _on_TimerConnectSignals_timeout() -> void :
 	

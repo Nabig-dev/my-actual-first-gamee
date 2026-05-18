@@ -12,6 +12,7 @@ func _enter_tree():
 func handles(object: Object) -> bool:
 	return object is AnimationPlayer
 
+
 func edit(object: Object) -> void :
 	dock.Anim = object
 	dock.update_anim_list()

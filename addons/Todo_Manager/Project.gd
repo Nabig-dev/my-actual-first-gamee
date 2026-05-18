@@ -47,6 +47,7 @@ func build_tree(todo_items: Array, ignore_paths: Array, patterns: Array, sort_al
 					item.set_custom_color(0, pattern[1])
 	emit_signal("tree_built")
 
+
 func sort_alphabetical(a, b) -> bool:
 	if _full_path:
 		if a.script_path < b.script_path:

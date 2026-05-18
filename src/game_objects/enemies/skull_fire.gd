@@ -1,10 +1,14 @@
 extends KinematicBody2D
 
+
+
 var Fireball = preload("res://src/game_objects/enemies_weapons/fireball.tscn")
+
 
 var velocity: = Vector2()
 
 var gravity: int = 300
+
 
 var _firewalls_throws: int = 0
 
@@ -27,6 +31,11 @@ func _physics_process(delta) -> void :
 	
 	
 	
+
+
+
+
+
 
 func start_attack() -> void :
 	ParticlesFire.emitting = false
@@ -67,10 +76,12 @@ func repeat_fireball() -> void :
 	else:
 		Enemy.change_state("spawn", true)
 
+
 func _on_AreaSeePlayer_object_entered(_Obj) -> void :
 	if Enemy.state == "idle":
 		Enemy.change_direction("to_player")
 		start_attack()
+
 
 func _on_EnemyBase_state_changed(state: String) -> void :
 	

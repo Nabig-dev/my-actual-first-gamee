@@ -16,17 +16,21 @@ func _ready():
 	$History.connect("request_edit", self, "_on_edit_request")
 	$History.connect("request_import", self, "_on_import_request")
 
+
 func init(config, editor_file_system: EditorFileSystem):
 	_config = config
 	_file_system = editor_file_system
+
 
 func _on_AsWizardDockContainer_tab_changed(tab: int):
 	if tab == 1:
 		$History.reload()
 
+
 func _on_edit_request(import_cfg: Dictionary):
 	$Import.load_import_config(import_cfg)
 	self.current_tab = 0
+
 
 func _on_import_request(import_cfg: Dictionary):
 	$Import.load_import_config(import_cfg)

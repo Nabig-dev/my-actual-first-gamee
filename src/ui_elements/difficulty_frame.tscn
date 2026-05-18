@@ -2,9 +2,9 @@
 
 [ext_resource path="res://assets/images/shadow_gradient_0.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/difficulty_frames.png" type="Texture" id=2]
-[ext_resource path="res://assets/images/artwork/nabig_skull.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/artwork/xandria_skull.png" type="Texture" id=3]
 [ext_resource path="res://src/gdshaders/pixel_rotation.gdshader" type="Shader" id=4]
-[ext_resource path="res://assets/images/artwork/annie_chibi.png" type="Texture" id=5]
+[ext_resource path="res://assets/images/artwork/annette_chibi.png" type="Texture" id=5]
 [ext_resource path="res://assets/sprites/art_dialog_chars/atreu_default.png" type="Texture" id=6]
 [ext_resource path="res://src/ui_elements/difficulty_frame.gd" type="Script" id=7]
 [ext_resource path="res://assets/sprites/enemies/aetheril.png" type="Texture" id=8]

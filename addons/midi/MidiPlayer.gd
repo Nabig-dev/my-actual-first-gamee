@@ -8,7 +8,11 @@ extends Node
 
 class_name MidiPlayer, "icon.png"
 
+
+
 const ADSR = preload("ADSR.tscn")
+
+
 
 const max_track: int = 16
 const max_channel: int = 16
@@ -18,6 +22,8 @@ const drum_track_channel: int = 9
 
 const midi_master_bus_name: String = "arlez80_GMP_MASTER_BUS"
 const midi_channel_bus_name: String = "arlez80_GMP_CHANNEL_BUS%d"
+
+
 
 class GodotMIDIPlayerChannelAudioEffect:
 	var ae_panner: AudioEffectPanner = null
@@ -149,6 +155,10 @@ class GodotMIDIPlayerChannelStatusRPN:
 		self.modulation_sensitivity_msb = 0.25
 		self.modulation_sensitivity_lsb = 0.0
 
+
+
+
+
 export (int, 0, 256) var max_polyphony: int = 96 setget set_max_polyphony
 
 export (String, FILE, "*.mid") var file: String = "" setget set_file
@@ -174,6 +184,10 @@ export (int, "MIX_TARGET_STEREO", "MIX_TARGET_SURROUND", "MIX_TARGET_CENTER") va
 export (String) var bus: String = "Master"
 
 export (int, 10, 480) var sequence_per_seconds: int = 120
+
+
+
+
 
 var thread: Thread = null
 var mutex: Mutex = Mutex.new()
@@ -218,6 +232,7 @@ var drum_assign_groups: Dictionary = {
 
 onready var sys_ex: GodotMIDIPlayerSysEx = GodotMIDIPlayerSysEx.new()
 
+
 var _midi_channel_prefix: int = 0
 
 var _used_program_numbers: Array = []
@@ -235,6 +250,9 @@ var prepared_to_play: bool = false
 var is_audio_server_inited: bool = false
 
 var _previous_time: float
+
+
+
 
 signal changed_tempo(tempo)
 signal appeared_text_event(text)
@@ -561,7 +579,7 @@ func set_file(path: String) -> void :
 	self.stop()
 	self.smf_data = null
 
-func set_max_polyphony(alchemy_gauge: int) -> void :
+func set_max_polyphony(mp: int) -> void :
 	
 	
 	
@@ -569,7 +587,7 @@ func set_max_polyphony(alchemy_gauge: int) -> void :
 
 	self._lock("set_max_polyphony")
 
-	max_polyphony = alchemy_gauge
+	max_polyphony = mp
 
 	
 	for asp in self.audio_stream_players:

@@ -13,6 +13,7 @@ var card = {
 	"color": ""
 }
 
+
 export (NodePath) var title_path: NodePath
 onready var title: RichTextLabel = get_node(title_path)
 
@@ -73,6 +74,7 @@ var colors: = {
 	}
 }
 
+
 func _ready():
 	edit_mode(false)
 
@@ -116,6 +118,7 @@ func _process(delta):
 		card_buttons_container.modulate = Color(1, 1, 1, 0)
 		buttons_bg.get("custom_styles/panel").bg_color = colors.get(card_color).normal
 
+
 func _input(event):
 	if event is InputEventMouseMotion:
 		var _left_boundary = rect_global_position.x
@@ -154,48 +157,61 @@ func edit_mode(_enable: bool):
 		card_title_edit_container.hide()
 		card_title_container.show()
 
+
+
+
 func _on_EditCardButton_pressed():
 	if quick_edit_on:
 		return
+
 
 func _on_DeleteCardButton_pressed():
 	if quick_edit_on:
 		return
 	emit_signal("delete_card_pressed", self)
 
+
 func _on_MoveCardUpButton_pressed():
 	if quick_edit_on:
 		return
 	emit_signal("move_card_pressed", self, "up")
+
 
 func _on_MoveCardDownButton_pressed():
 	if quick_edit_on:
 		return
 	emit_signal("move_card_pressed", self, "down")
 
+
 func _on_MoveCardLeftButton_pressed():
 	if quick_edit_on:
 		return
 	emit_signal("move_card_pressed", self, "left")
+
 
 func _on_MoveCardRightButton_pressed():
 	if quick_edit_on:
 		return
 	emit_signal("move_card_pressed", self, "right")
 
+
 func _on_CardMenuButton_pressed():
 	if quick_edit_on:
 		return
 	emit_signal("menu_pressed", self)
 
+
 func _on_CardTitleContainer_mouse_entered():
 	can_switch_to_quick_edit = true
+
 
 func _on_CardTitleContainer_mouse_exited():
 	can_switch_to_quick_edit = false
 
+
 func _on_CancelEditButton_pressed():
 	edit_mode(false)
+
 
 func _on_SaveChangesButton_pressed():
 	title.bbcode_text = title_edit.text
@@ -208,20 +224,24 @@ func _on_DefaultColorButton_pressed():
 	card.color = "default"
 	emit_signal("updated", self)
 
+
 func _on_GreenColorButton_pressed():
 	card_color = "green"
 	card.color = "green"
 	emit_signal("updated", self)
+
 
 func _on_RedColorButton_pressed():
 	card_color = "red"
 	card.color = "red"
 	emit_signal("updated", self)
 
+
 func _on_YellowColorButton_pressed():
 	card_color = "yellow"
 	card.color = "yellow"
 	emit_signal("updated", self)
+
 
 func _on_CardTitleEdit_focus_exited() -> void :
 	_on_SaveChangesButton_pressed()

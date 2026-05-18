@@ -1,6 +1,12 @@
 class_name Trail3D, "../icons/icon_trail_3d.svg"
 extends ImmediateGeometry
 
+
+
+
+
+
+
 export (float) var length = 10.0
 export var max_radius = 0.5
 export (int) var density_lengthwise = 25
@@ -22,9 +28,11 @@ func _ready():
 	for i in range(density_lengthwise):
 		points.append(global_transform.origin)
 
+
 func _process(_delta):
 	update_trail()
 	render_trail()
+
 
 func update_trail():
 	var ind = 0
@@ -39,6 +47,7 @@ func update_trail():
 		last_p = p
 		points[ind] = p
 		ind += 1
+
 
 func render_trail():
 	clear()

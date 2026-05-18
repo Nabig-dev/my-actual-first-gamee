@@ -1,5 +1,8 @@
 extends KinematicBody2D
 
+
+
+
 var speed: int = 200
 var velocity: Vector2
 var chasing: bool = true
@@ -111,6 +114,7 @@ func push_body(direction: Vector2) -> void :
 func _on_TimerChase_timeout() -> void :
 	start_chase()
 
+
 func _on_Tween_tween_completed(_object: Object, _key: NodePath) -> void :
 
 	if VisibilityNotifierCameraArea.is_on_screen() == false:
@@ -120,6 +124,7 @@ func _on_Tween_tween_completed(_object: Object, _key: NodePath) -> void :
 		$TimerChase.start(0.5)
 	else:
 		random_move()
+
 
 func _on_VisibilityNotifierCameraArea_screen_entered() -> void :
 	if Enemy.state == "fly":
@@ -131,6 +136,7 @@ func _on_VisibilityNotifierCameraArea_screen_entered() -> void :
 
 func _on_VisibilityNotifierCameraArea_screen_exited() -> void :
 	pass
+
 
 func _on_HurtboxEnemy_area_entered(area: Area2D) -> void :
 	Tw.remove_all()
@@ -146,14 +152,18 @@ func _on_HurtboxEnemy_area_entered(area: Area2D) -> void :
 	
 	push_body(vector_opposite)
 
+
 func _on_Tween_tween_started(_object: Object, _key: NodePath) -> void :
 	$GhostTrail.start_trail(0.0, 0.1)
+
 
 func _on_Sprite_frame_changed() -> void :
 	SprCopy.frame = Spr.frame
 
+
 func _on_EnemyBase_enemy_defeated(_NodeEnemy) -> void :
 	$GhostTrail.stop_trail()
+
 
 func _on_TimerActive_timeout() -> void :
 	Enemy.change_state("fly")

@@ -1,6 +1,8 @@
 tool 
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
+
+
 onready var enabled_view = $HBox / Values
 onready var definition_picker = $HBox / Values / DefinitionPicker
 onready var condition_type_picker = $HBox / Values / ConditionTypePicker
@@ -8,6 +10,7 @@ onready var value_input = $HBox / Values / Value
 
 onready var optional_view = $HBox / HasCondition
 onready var use_condition_check = $HBox / HasCondition / UseCondition
+
 
 func _ready():
 	definition_picker.connect("data_changed", self, "_on_DefinitionPicker_data_changed")
@@ -18,6 +21,7 @@ func _ready():
 
 	use_condition_check.connect("toggled", self, "_on_UseCondition_toggled")
 	
+
 
 func load_data(data: Dictionary):
 	
@@ -42,6 +46,7 @@ func load_data(data: Dictionary):
 
 func get_preview():
 	return ""
+
 
 func _on_UseCondition_toggled(checkbox_value):
 	enabled_view.visible = checkbox_value
@@ -72,6 +77,9 @@ func _on_Value_text_changed(text):
 	data_changed()
 
 func check_data():
+
+
+
 
 	
 	emit_signal("remove_warning")

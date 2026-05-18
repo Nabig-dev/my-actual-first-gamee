@@ -6,6 +6,8 @@
 
 class_name SoundFont
 
+
+
 const sample_link_mono_sample: int = 1
 const sample_link_right_sample: int = 2
 const sample_link_left_sample: int = 4
@@ -14,6 +16,8 @@ const sample_link_rom_mono_sample: int = 32769
 const sample_link_rom_right_sample: int = 32770
 const sample_link_rom_left_sample: int = 32772
 const sample_link_rom_linked_sample: int = 32776
+
+
 
 const gen_oper_start_addrs_offset: int = 0
 const gen_oper_end_addrs_offset: int = 1
@@ -77,10 +81,14 @@ const gen_oper_overriding_root_key: int = 58
 const gen_oper_unused5: int = 59
 const gen_oper_end_oper: int = 60
 
+
+
 const sample_mode_no_loop: int = 0
 const sample_mode_loop_continuously: int = 1
 const sample_mode_unused_no_loop: int = 2
 const sample_mode_loop_ends_by_key_depression: int = 3
+
+
 
 class SoundFontData:
 	var info: SoundFontInfo
@@ -112,7 +120,7 @@ class SoundFontInfo:
 
 class SoundFontSampleData:
 	var smpl: PoolByteArray
-	var state_machine24: PoolByteArray
+	var sm24: PoolByteArray
 
 class SoundFontPresetData:
 	var phdr: Array
@@ -179,6 +187,7 @@ class SoundFontSampleHeader:
 	var pitch_correction: int = 0
 	var sample_link: int = 0
 	var sample_type: int = 0
+
 
 class SoundFontParseResult:
 	var error: int = OK
@@ -360,8 +369,8 @@ func _read_sdta(stream: StreamPeerBuffer) -> SoundFontSampleData:
 	sdta.smpl = smpl.stream.get_partial_data(smpl.size)[1]
 
 	if 0 < chunk.stream.get_available_bytes():
-		var state_machine24_chunk: SoundFontChunk = self._read_chunk(chunk.stream, "state_machine24")
-		sdta.state_machine24 = state_machine24_chunk.stream.get_partial_data(state_machine24_chunk.size)[1]
+		var sm24_chunk: SoundFontChunk = self._read_chunk(chunk.stream, "sm24")
+		sdta.sm24 = sm24_chunk.stream.get_partial_data(sm24_chunk.size)[1]
 
 	return sdta
 

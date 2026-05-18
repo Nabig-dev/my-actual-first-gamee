@@ -1,6 +1,7 @@
 tool 
 extends Control
 
+
 export (PackedScene) var HistoryRow = load("res://addons/dialogic/Example Assets/History/HistoryRow.tscn")
 export (PackedScene) var HistoryDefaultBackground = load("res://addons/dialogic/Example Assets/History/HistoryBackground.tscn")
 export (PackedScene) var HistoryOpenButton = load("res://addons/dialogic/Example Assets/History/HistoryButton.tscn")
@@ -56,6 +57,7 @@ func handle_scrollbar_changed():
 			ScrollHistoryContainer.scroll_vertical = scrollbar.max_value
 		else:
 			ScrollHistoryContainer.scroll_vertical = 0
+
 
 func initalize_history():
 	if get_parent().settings.get_value("history", "enable_open_button", true):
@@ -170,6 +172,8 @@ func initalize_history():
 		
 		button.rect_global_position = button.get_parent().rect_global_position + position_offset
 
+
+
 func add_history_row_event(eventData):
 	
 	if not eventsToLog.has(eventData.event_id) or (eventData.event_id == "dialogic_002" and eventData.get("type") == 2):
@@ -235,38 +239,50 @@ func add_history_row_event(eventData):
 			newHistoryRow.add_history(choiceString, audioData)
 		lastQuestionNode = newHistoryRow
 
+
 func add_answer_to_question(stringData):
 	if lastQuestionNode != null:
 		lastQuestionNode.add_history(str("\n\t", stringData), lastQuestionNode.audioPath)
 		lastQuestionNode = null
 
+
 func change_theme(newTheme: ConfigFile):
 	if get_parent().settings.get_value("history", "enable_dynamic_theme", false):
 		curTheme = newTheme
 
+
 func load_theme(theme: ConfigFile):
 	curTheme = theme
+
 
 func _on_audio_trigger(audioFilepath):
 	HistoryAudio.stream = load(audioFilepath)
 	HistoryAudio.play()
 
+
 func _on_HistoryPopup_popup_hide():
 	HistoryAudio.stop()
+
 
 func _on_HistoryPopup_about_to_show():
 	if HistoryButton != null:
 		scrollToggle = true
 		HistoryButton.show()
 
+
+
 func _on_HistoryButton_mouse_entered():
 	is_mouse_on_button = true
+
 
 func _on_HistoryButton_mouse_exited():
 	is_mouse_on_button = false
 
+
 func history_advance_block() -> bool:
 	return is_mouse_on_button or is_history_open
+
+
 
 func _on_toggle_history():
 	if HistoryPopup.visible == false:
@@ -291,4 +307,5 @@ func _on_toggle_history():
 			CloseButton.hide()
 		is_history_open = false
 		is_mouse_on_button = false
+
 

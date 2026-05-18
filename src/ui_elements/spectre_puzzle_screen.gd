@@ -46,6 +46,7 @@ func close() -> void :
 	save_spectres()
 	emit_signal("closed")
 
+
 func is_all_spectres_ok() -> bool:
 	for n in get_node("%VBxElementsSpectres").get_children():
 		if n is HBoxContainer:
@@ -74,6 +75,9 @@ func load_spectres() -> void :
 		if spect_from_flag[0].empty() == false:
 			ObjInstance.set_spectre(spect_from_flag[1])
 		ObjInstance.update_spectre_visible()
+
+
+
 
 func get_spectre_flag(element: String = "PB") -> Array:
 	var _spectre: Dictionary = {
@@ -134,8 +138,10 @@ func _convert_spectre_element_to_str(element: String = "PB", spect: Dictionary =
 		i += 1
 	return str_result
 
+
 func _on_HelperIcon_visibility_changed() -> void :
 	get_node("%HbxHelperIncreasePuzzle").visible = get_node("SpectraPuzzle/HBoxContainer/HbxHelperIncreasePuzzle/HelperIconBtn").visible
+
 
 func _on_InteractEspectraMenuPuzzle_interact_requested() -> void :
 	if get_node("%SpectraPuzzle").visible == true:
@@ -153,6 +159,7 @@ func _on_InteractEspectraMenuPuzzle_interact_requested() -> void :
 		if n is HBoxContainer:
 			n.focus_btn()
 			return
+
 
 func _on_BtnExitPuzzle_pressed() -> void :
 	if is_active() == true:

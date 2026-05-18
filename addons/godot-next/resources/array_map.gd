@@ -2,20 +2,38 @@ tool
 class_name ArrayMap
 extends Resource
 
+
+
+
+
+
+
+
+
+
+
+
 var values: = []
 var keys: = {}
 
+
 export var name: = ""
+
+
 
 var _type: = TYPE_NIL
 var _hint: = PROPERTY_HINT_NONE
 var _hint_string: = ""
 
+
 func _init(p_name: String = "") -> void :
 	name = p_name
 
+
 func has(p_key: String) -> bool:
 	return keys.has(p_key)
+
+
 
 func insert(p_key: String, p_value) -> void :
 	if not keys:
@@ -34,15 +52,20 @@ func insert(p_key: String, p_value) -> void :
 		keys[p_key] = values.size()
 		values.append(p_value)
 
+
 func erase(p_key: String) -> void :
 	assert (keys.has(p_key))
 	values.remove(keys[p_key])
 	
 	keys.erase(p_key)
 
+
+
 func get_value(p_key: String):
 	assert (keys.has(p_key))
 	return values[keys[p_key]]
+
+
 
 func find(p_value) -> String:
 	for i in values.size():
@@ -52,11 +75,17 @@ func find(p_value) -> String:
 					return a_key as String
 	return ""
 
+
+
 func keys() -> Array:
 	return keys.keys()
 
+
+
 func values_ref() -> Array:
 	return values
+
+
 
 func dict() -> Dictionary:
 	var ret: = {}
@@ -64,9 +93,12 @@ func dict() -> Dictionary:
 		ret[a_key] = values[keys[a_key]]
 	return ret
 
+
 func clear() -> void :
 	values.clear()
 	keys.clear()
+
+
 
 func _get_property_list():
 	var ret: = []
@@ -88,6 +120,8 @@ func _get_property_list():
 		})
 	return ret
 
+
+
 func _get(p_name: String):
 	if p_name.begins_with("values/"):
 		var i = int(p_name.replace("values/", ""))
@@ -98,6 +132,8 @@ func _get(p_name: String):
 		var key = p_name.replace("keys/", "")
 		if keys.has(key):
 			return keys[key]
+
+
 
 func _set(p_name: String, p_value):
 	if p_name.begins_with("values/"):

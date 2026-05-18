@@ -6,6 +6,12 @@ var _config
 func init(config):
 	_config = config
 
+
+
+
+
+
+
 func export_file(file_name: String, output_folder: String, options: Dictionary) -> Dictionary:
 	var exception_pattern = options.get("exception_pattern", "")
 	var only_visible_layers = options.get("only_visible_layers", false)
@@ -35,6 +41,7 @@ func export_file(file_name: String, output_folder: String, options: Dictionary) 
 		"sprite_sheet": ProjectSettings.localize_path(sprite_sheet)
 	}
 
+
 func export_layers(file_name: String, output_folder: String, options: Dictionary) -> Array:
 	var exception_pattern = options.get("exception_pattern", "")
 	var only_visible_layers = options.get("only_visible_layers", false)
@@ -48,6 +55,7 @@ func export_layers(file_name: String, output_folder: String, options: Dictionary
 			output.push_back(export_layer(file_name, layer, output_folder, options))
 
 	return output
+
 
 func export_layer(file_name: String, layer_name: String, output_folder: String, options: Dictionary) -> Dictionary:
 	var output_prefix = options.get("output_filename", "").strip_edges()
@@ -72,6 +80,7 @@ func export_layer(file_name: String, layer_name: String, output_folder: String, 
 		"sprite_sheet": ProjectSettings.localize_path(sprite_sheet)
 	}
 
+
 func _add_ignore_layer_arguments(file_name: String, arguments: Array, exception_pattern: String):
 	var layers = _get_exception_layers(file_name, exception_pattern)
 	if not layers.empty():
@@ -88,6 +97,7 @@ func _add_sheet_type_arguments(arguments: Array, options: Dictionary):
 	else:
 		arguments.push_back("--sheet-pack")
 
+
 func _get_exception_layers(file_name: String, exception_pattern: String) -> Array:
 	var layers = list_layers(file_name)
 	var regex = _compile_regex(exception_pattern)
@@ -100,6 +110,7 @@ func _get_exception_layers(file_name: String, exception_pattern: String) -> Arra
 			exception_layers.push_back(layer)
 
 	return exception_layers
+
 
 func list_layers(file_name: String, only_visible = false) -> Array:
 	var output = []
@@ -124,6 +135,7 @@ func list_layers(file_name: String, only_visible = false) -> Array:
 		sanitized.append(s.strip_edges())
 	return sanitized
 
+
 func list_slices(file_name: String) -> Array:
 	var output = []
 	var arguments = ["-b", "--list-slices", file_name]
@@ -144,6 +156,7 @@ func list_slices(file_name: String) -> Array:
 		sanitized.append(s.strip_edges())
 	return sanitized
 
+
 func _export_command_common_arguments(source_name: String, data_path: String, spritesheet_path: String) -> Array:
 	return [
 		"-b", 
@@ -158,14 +171,18 @@ func _export_command_common_arguments(source_name: String, data_path: String, sp
 		source_name
 	]
 
+
 func _execute(arguments, output):
 	return OS.execute(_aseprite_command(), arguments, true, output, true)
+
 
 func _aseprite_command() -> String:
 	return _config.get_command()
 
+
 func _get_file_basename(file_path: String) -> String:
 	return file_path.get_file().trim_suffix(".%s" % file_path.get_extension())
+
 
 func _compile_regex(pattern):
 	if pattern == "":
@@ -177,15 +194,19 @@ func _compile_regex(pattern):
 
 	printerr("exception regex error")
 
+
 func test_command():
 	var exit_code = OS.execute(_aseprite_command(), ["--version"], true)
 	return exit_code == 0
 
+
 func is_valid_spritesheet(content):
 	return content.has("frames") and content.has("meta") and content.meta.has("image")
 
+
 func get_content_frames(content):
 	return content.frames if typeof(content.frames) == TYPE_ARRAY else content.frames.values()
+
 
 func get_slice_rect(content: Dictionary, slice_name: String):
 	if not content.has("meta") or not content.meta.has("slices"):

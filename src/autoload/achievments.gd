@@ -32,6 +32,7 @@ func _ready() -> void :
 
 	check_ach_filesave()
 
+
 func check_ach_filesave() -> void :
 	var D: = Directory.new()
 	var F: = File.new()
@@ -55,6 +56,7 @@ func check_ach_filesave() -> void :
 		
 		pass
 
+
 func erase_ach(idach: String) -> void :
 	if is_ach_unlocked(idach) == true:
 		var unlocked_achs: Array = get_unlocked_ach()
@@ -69,6 +71,7 @@ func erase_ach(idach: String) -> void :
 		if Steam.is_init():
 			Steam.clear_achievement(idach)
 		print_debug("Achievment erased: %s" % [idach])
+
 
 func clear_ach() -> void :
 
@@ -87,11 +90,13 @@ func clear_ach() -> void :
 	
 	print_debug("All achievments erased")
 
+
 func get_total_achievements() -> int:
 	if Steam.is_init():
 		return Steam.user_stats.get_num_achievements()
 	else:
 		return achievs.size()
+
 
 func get_unlocked_ach() -> Array:
 	var F: = File.new()
@@ -108,6 +113,7 @@ func get_unlocked_ach() -> Array:
 	F.close()
 	return achievments_list
 
+
 func is_ach_unlocked(idach: String) -> bool:
 	var unlocked_achs: Array = get_unlocked_ach()
 	
@@ -118,6 +124,7 @@ func is_ach_unlocked(idach: String) -> bool:
 		return true
 	else:
 		return false
+
 
 func obtain_ach(idach: String) -> void :
 	
@@ -143,6 +150,8 @@ func obtain_ach(idach: String) -> void :
 		if Steam.is_init() == false and _loggedin_playstore == false:
 			emit_signal("achievment_obtained", idach)
 		Audio.play_sfx("ui_achievement")
+
+
 
 func get_ach_data(idach: String) -> Dictionary:
 

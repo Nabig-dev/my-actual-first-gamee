@@ -1,5 +1,7 @@
 extends Control
 
+
+
 export var edit_mode: bool = true
 export var scene_path_on_close: String
 
@@ -243,17 +245,23 @@ func _on_BtnReset_pressed() -> void :
 		)
 	)
 
+
+
+
 func _on_X2_pressed() -> void :
 	if edit_mode == false:
-		VarsGlobal.Player.whip_attack("attack_power-m")
+		VarsGlobal.Player.whip_attack("atk-m")
+
 
 func _on_VirtualGamepad_visibility_changed() -> void :
 	if visible == false:
 		return
 	hide_on_touch()
 
+
 func _on_GamepadConnection(_connected: bool) -> void :
 	hide_on_touch()
+
 
 func _on_B_pressed() -> void :
 	if edit_mode == false and ElementalCircuits.was_obtained(
@@ -295,6 +303,7 @@ func _on_SetArea_mouse_exited(set: String) -> void :
 	get_node("%Set" + set + "/LightSet").visible = false
 	_set_selected_to_change = - 1
 
+
 func _on_C_pressed() -> void :
 	get_node("%Commands").visible = not get_node("%Commands").visible
 
@@ -322,6 +331,7 @@ func _on_command_btn_pressed(nodename: String) -> void :
 		
 		"BtnWhipSpin":
 			VarsGlobal.Player.execute_command("whip_spin")
+
 
 func _on_Area2DQuickMenuTouch_area_entered(area: Area2D) -> void :
 	if area.name in ["SetA", "SetB", "SetC"]:

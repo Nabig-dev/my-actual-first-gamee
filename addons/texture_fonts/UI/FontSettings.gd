@@ -22,6 +22,7 @@ const kerning_pair_scene: = preload("./Components/KerningPair.tscn")
 var font_settings
 var font_ref: WeakRef
 
+
 func set_font(new_font):
 	font_ref = weakref(new_font)
 	
@@ -54,6 +55,7 @@ func set_font(new_font):
 	preview.set_preview_text(font_settings.preview_chars)
 	preview.set_preview_color(font_settings.preview_color)
 
+
 func _add_char_setting(char_setting_node = null, for_char = null):
 	if char_setting_node == null:
 		char_setting_node = char_setting_scene.instance()
@@ -69,6 +71,7 @@ func _add_char_setting(char_setting_node = null, for_char = null):
 	char_setting_node.connect("delete", self, "_on_char_setting_delete")
 	
 	_value_changed()
+
 
 func _add_kerning_pair(kerning_pair_node = null, pair = null):
 	if kerning_pair_node == null:
@@ -88,12 +91,14 @@ func _add_kerning_pair(kerning_pair_node = null, pair = null):
 	
 	_value_changed()
 
+
 func _on_kerning_pair_delete(node):
 	var idx = node.get_index()
 	
 	node.queue_free()
 	font_settings.remove_kerning_pair(idx)
 	_value_changed()
+
 
 func _on_char_setting_delete(node):
 	var for_char = node.for_char
@@ -102,14 +107,18 @@ func _on_char_setting_delete(node):
 	font_settings.remove_setting(for_char)
 	_value_changed()
 
+
 func _value_changed():
 	emit_signal("change")
+
 
 func _on_AddCharSettingButton_pressed():
 	_add_char_setting()
 
+
 func _on_AddKerningButton_pressed():
 	_add_kerning_pair()
+
 
 func _on_Height_value_changed(value):
 	var font = font_ref.get_ref()
@@ -117,13 +126,16 @@ func _on_Height_value_changed(value):
 		font.height = value
 	_value_changed()
 
+
 func _on_Gap_value_changed(value):
 	font_settings.gap = value
 	_value_changed()
 
+
 func _on_HorizontalAlign_value_changed(value):
 	font_settings.horizontal_align = value
 	_value_changed()
+
 
 func _on_Ascent_value_changed(value):
 	var font = font_ref.get_ref()
@@ -131,20 +143,25 @@ func _on_Ascent_value_changed(value):
 		font.ascent = value
 	_value_changed()
 
+
 func _on_MonoSpaced_toggled(button_pressed):
 	font_settings.monospace = button_pressed
 	_value_changed()
+
 
 func _on_VerticalAlign_value_changed(value):
 	font_settings.vertical_align = value
 	_value_changed()
 
+
 func _on_TextEdit_text_changed():
 	font_settings.preview_chars = preview_textbox.text
 	_value_changed()
 
+
 func _on_Scale_value_changed(value):
 	preview.set_preview_scale(value / 100.0)
+
 
 func _on_ColorPickerButton_color_changed(color):
 	preview.set_preview_color(color)

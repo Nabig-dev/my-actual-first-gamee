@@ -1,5 +1,7 @@
 
 
+
+
 tool 
 extends Node2D
 class_name joystick, "res://addons/multidir_joystick/icons/icon.svg"
@@ -20,6 +22,7 @@ export var texture_offset: = 64.0
 export var draw_line: = false setget _draw_line
 export var draw_circle: = true setget _draw_circle
 export var draw_sensitivity_area: = false setget _draw_area
+
 
 export (Color) var sensitivity_color: = Color("#6a00c3ff")
 export (Color) var circle_color: = Color.white
@@ -97,6 +100,8 @@ func _input(event: InputEvent) -> void :
 			emit_signal("update_pos", pos_normalized)
 			_last_normalized_pos = pos_normalized
 
+
+
 	
 	update()
 
@@ -119,6 +124,7 @@ func _on_ButtonArea_press_changed(pressed: bool) -> void :
 	if pressed == false:
 		stop_update_pos()
 		update()
+
 
 func _draw_line(value: bool) -> void :
 	draw_line = value
@@ -165,6 +171,7 @@ func _get_configuration_warning() -> String:
 		return "For it to be fixed on the screen, this scene must be son of a CanvasLayer"
 	return ""
 
+
 func _draw() -> void :
 	
 	draw_texture(bigger_texture, bigger_pos, Color("dfffffff"))
@@ -182,6 +189,8 @@ func _draw() -> void :
 func _set_emulate_touch(value: bool) -> void :
 	emulate_touc = value
 	ProjectSettings.set("input_devices/pointing/emulate_touch_from_mouse", emulate_touc)
+
+
 
 func get_dirs(vec: Vector2) -> Array:
 	var dirs: Array = []

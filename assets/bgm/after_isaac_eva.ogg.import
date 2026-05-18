@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/after_isaac_eva.ogg-085e0f73667e664ac568df4d51044ba5.oggstr"
+
+[deps]
+
+source_file="res://assets/bgm/after_isaac_eva.ogg"
+dest_files=[ "res://.import/after_isaac_eva.ogg-085e0f73667e664ac568df4d51044ba5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

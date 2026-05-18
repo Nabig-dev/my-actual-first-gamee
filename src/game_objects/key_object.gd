@@ -6,6 +6,7 @@ export (
 	GVar.KEYS_OBJECTS
 ) var item = GVar.KEYS_OBJECTS.BRONZE_KEY
 
+
 onready var Spr = $Sprite
 
 func _ready() -> void :

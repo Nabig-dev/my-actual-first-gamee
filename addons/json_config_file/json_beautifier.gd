@@ -1,6 +1,17 @@
 
 
+
+
+
+
+
+
+
 class_name JSONBeautifier
+
+
+
+
 
 static func beautify_json(json: String, spaces: = 0) -> String:
 	var error_message: String = validate_json(json)
@@ -90,6 +101,9 @@ static func beautify_json(json: String, spaces: = 0) -> String:
 			bracket_start = json.find(i[0], bracket_start + 1)
 
 	return json
+
+
+
 
 static func uglify_json(json: String) -> String:
 	var quotation_start: = - 1

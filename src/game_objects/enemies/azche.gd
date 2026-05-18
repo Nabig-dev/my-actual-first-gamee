@@ -15,6 +15,7 @@ onready var VisibilityNode = $VisibilityNotifierCameraArea
 onready var GhostTrail = $GhostTrail
 onready var TimerPush = $TimerPush
 
+
 func _ready() -> void :
 	Enemy.change_state("fly")
 
@@ -105,6 +106,7 @@ func _on_TimerRandomSting_timeout() -> void :
 	Enemy.change_state("throw")
 	velocity = Vector2.ZERO
 
+
 func _on_DetectPlayerNear_object_entered(Obj) -> void :
 	if Enemy.state != "fly" or Enemy.state == "dead":
 		return
@@ -113,6 +115,7 @@ func _on_DetectPlayerNear_object_entered(Obj) -> void :
 	)
 	vector_opposite = - vector_opposite
 	push_body(vector_opposite)
+
 
 func _on_VisibilityNotifierCameraArea_screen_exited() -> void :
 	if Enemy.state == "dead":

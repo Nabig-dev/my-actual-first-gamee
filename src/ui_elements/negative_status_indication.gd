@@ -1,5 +1,6 @@
 extends Node2D
 
+
 var status: String = "POISONED"
 
 func _ready() -> void :

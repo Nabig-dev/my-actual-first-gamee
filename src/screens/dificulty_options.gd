@@ -14,10 +14,12 @@ func _on_BtnFocus(opt: String) -> void :
 		_:
 			$Label.text = ""
 
+
 func _on_BtnResetDefault_focus_entered() -> void :
 	$Label.text = ""
 func _on_BtnReturn_focus_entered() -> void :
 	$Label.text = ""
+
 
 func _on_BtnResetDefault_pressed() -> void :
 	Audio.play_sfx("ui_success")
@@ -31,6 +33,7 @@ func _on_BtnResetDefault_pressed() -> void :
 		"difficulty", "desperation_attack", true
 	)
 	Notification.show_notif(tr("CONF_BY_DEFAULT_DONE"))
+
 
 func _on_BtnReturn_pressed() -> void :
 	Audio.play_sfx("ui_cancel")

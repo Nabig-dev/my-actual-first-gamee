@@ -5,10 +5,10 @@ type="Translation"
 
 [deps]
 
-files=[ "res://localization/tuto_messages.en.translation", "res://localization/tuto_messages.es.translation", "res://localization/tuto_messages.pt_BR.translation" ]
+files=[ "res://localization/tuto_messages.es.translation", "res://localization/tuto_messages.en.translation", "res://localization/tuto_messages.pt_BR.translation" ]
 
 source_file="res://localization/tuto_messages.csv"
-dest_files=[ "res://localization/tuto_messages.en.translation", "res://localization/tuto_messages.es.translation", "res://localization/tuto_messages.pt_BR.translation" ]
+dest_files=[ "res://localization/tuto_messages.es.translation", "res://localization/tuto_messages.en.translation", "res://localization/tuto_messages.pt_BR.translation" ]
 
 [params]
 

@@ -1,6 +1,24 @@
 class_name Trail2D, "../icons/icon_trail_2d.svg"
 extends Line2D
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 enum Persistence{
 	OFF, 
 	ALWAYS, 
@@ -11,6 +29,7 @@ enum PersistWhen{
 	ON_MOVEMENT, 
 	CUSTOM, 
 }
+
 
 export var target_path: NodePath = @".." setget set_target_path
 
@@ -26,6 +45,7 @@ export var auto_z_index: bool = true
 
 export var auto_alpha_gradient: bool = true
 
+
 var target: Node2D setget set_target
 
 func _init():
@@ -39,6 +59,7 @@ func _init():
 		gradient.set_color(0, first)
 		gradient.set_color(1, default_color)
 
+
 func _notification(p_what: int):
 	match p_what:
 		NOTIFICATION_PARENTED:
@@ -48,6 +69,7 @@ func _notification(p_what: int):
 		NOTIFICATION_UNPARENTED:
 			self.target_path = @""
 			self.trail_length = 0
+
 
 func _process(_delta: float):
 	if target:
@@ -77,10 +99,12 @@ func _process(_delta: float):
 							for i in range(degen_rate):
 								remove_point(0)
 
+
 func erase_trail():
 	
 	for i in range(get_point_count()):
 		remove_point(0)
+
 
 func set_target(p_value: Node2D):
 	if p_value:
@@ -89,12 +113,15 @@ func set_target(p_value: Node2D):
 	else:
 		target_path = @""
 
+
 func set_target_path(p_value: NodePath):
 	target_path = p_value
 	target = get_node(p_value) as Node2D if has_node(p_value) else null
 
+
 func _should_grow() -> bool:
 	return true
+
 
 func _should_shrink() -> bool:
 	return true

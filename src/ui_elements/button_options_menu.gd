@@ -11,6 +11,9 @@ export var bool_value = false
 
 export var item_idx: int = 0
 
+
+
+
 export (Array, String) var items_values
 export (Array, String) var items_text
 
@@ -66,6 +69,8 @@ func _process(_delta: float) -> void :
 		_update_value()
 		Audio.play_sfx("ui_changed_value")
 	
+
+
 
 func _show_actual_value() -> void :
 	
@@ -126,6 +131,7 @@ func _on_Config_updated(_section, _key, _value) -> void :
 	_show_actual_value()
 	_update_value(false)
 
+
 func _on_Button_value_changed(_btn_name, is_bool, value, _section, _key) -> void :
 	
 	if $Timer.get_time_left() != 0:
@@ -139,6 +145,7 @@ func _on_Button_value_changed(_btn_name, is_bool, value, _section, _key) -> void
 	if section != "" and key != "":
 		
 		Config.set_value(_section, _key, value)
+
 
 func _activate_arrow_tween(arrow = "left") -> void :
 	

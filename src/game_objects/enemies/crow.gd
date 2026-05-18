@@ -159,6 +159,7 @@ func _on_Area2DDetectPlayer_area_entered(_area: Area2D) -> void :
 func _on_Sprite_frame_changed() -> void :
 	SpriteCopy.frame = SpriteOriginal.frame
 
+
 func _on_TimerRepeatAtk_timeout() -> void :
 	if Enemy.state != "fly":
 		return

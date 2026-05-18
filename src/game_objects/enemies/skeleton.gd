@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 var Bone = preload("res://src/game_objects/enemies_weapons/bone.tscn")
 
+
 var velocity: = Vector2()
 
 var gravity: int = 300
@@ -52,7 +53,11 @@ func spawn_bone() -> void :
 	BoneInstance.direction = Enemy.facing
 	BoneInstance.target_position = Enemy.get_player_position(Vector2(0, - 32))
 
+
+
+
 	VarsGlobal.GameScenario.add_child(BoneInstance)
+
 
 func _on_BoneThrowed() -> void :
 	if AreaPlayerRange.is_colliding() and VisibleBody.is_on_screen():
@@ -71,11 +76,13 @@ func _on_BoneThrowed() -> void :
 	else:
 		Enemy.change_state("walk")
 
+
 func _on_AreaPlayerRange_object_entered(_Obj) -> void :
 	if VisibleBody.is_on_screen() == true:
 		Enemy.change_direction("to_player")
 		Enemy.change_direction("to_player")
 		Enemy.change_state("throw")
+
 
 func _on_VisibilityNotifierCameraArea_screen_entered() -> void :
 	Enemy.change_direction("to_player")
@@ -86,16 +93,20 @@ func _on_VisibilityNotifierCameraArea_screen_exited() -> void :
 	if Enemy.state in ["walk", "walk-inverse"]:
 		Enemy.change_state("idle")
 
+
 func _on_HurtboxEnemy_damaged() -> void :
 	if Enemy.state in ["idle", "walk", "walk-inverse"]:
 		Enemy.change_direction("to_player")
 
+
 func _on_AreaPlayerRange_object_exited(_Obj) -> void :
 	Enemy.change_direction("to_player")
+
 
 func _on_AreaBack_object_entered(_Obj) -> void :
 	if Enemy.state in ["idle", "walk", "walk-inverse"]:
 		Enemy.change_direction("to_player")
+
 
 func _on_TimerEndWalkInverse_timeout() -> void :
 	if Enemy.state != "walk-inverse":
@@ -105,15 +116,18 @@ func _on_TimerEndWalkInverse_timeout() -> void :
 	else:
 		Enemy.change_state("walk")
 
+
 func _on_DetectNoFloor_object_exited(_Obj) -> void :
 	if Enemy.state in ["walk", "walk-inverse"] and is_on_floor():
 		velocity.y = - 140
+
 
 func _on_TimerMoveAfterJump_timeout() -> void :
 	if Enemy.state == "throw" and is_on_floor() == false:
 		randomize()
 		var velx: float = RNGTools.pick([ - 60, 60])
 		velocity.x = velx
+
 
 func _on_EnemyBase_state_changed(state: String) -> void :
 	if state == "throw":

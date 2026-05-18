@@ -22,8 +22,10 @@ func _physics_process(delta: float):
 	
 	move_and_collide(velocity * delta)
 
+
 func _on_VisibilityNotifier2D_screen_exited() -> void :
 	queue_free()
+
 
 func _on_HurtboxEnemySimple_defeated() -> void :
 	set_physics_process(false)

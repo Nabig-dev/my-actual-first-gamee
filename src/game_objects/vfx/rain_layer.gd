@@ -13,5 +13,6 @@ func stop_rain() -> void :
 	Audio.stop_sfx("ambient_rain")
 	$AnimationPlayer.play_backwards("show")
 
+
 func _on_RainLayer_tree_exiting() -> void :
 	Audio.stop_sfx("ambient_rain")

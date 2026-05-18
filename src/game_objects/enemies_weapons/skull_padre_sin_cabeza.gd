@@ -12,6 +12,7 @@ func _ready() -> void :
 	velocity.y = - 80
 	$ElPadreSinCabeza / CPUParticles2DSkulls.emitting = true
 
+
 func _physics_process(delta: float):
 	
 	move_and_collide(velocity * delta)
@@ -43,6 +44,7 @@ func _on_Timer_timeout() -> void :
 	
 	if VarsGlobal.Player.global_position < global_position:
 		$ElPadreSinCabeza.scale.x = - 1
+
 
 func _on_VisibilityNotifier2D_screen_exited() -> void :
 	queue_free()

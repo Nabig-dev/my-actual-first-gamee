@@ -19,6 +19,7 @@ export var copy_tiledata: bool setget copydata
 
 export (TYPES) var type = TYPES.WALL setget update_name
 
+
 func copydata(val: bool) -> void :
 	copy_tiledata = val
 	if type == TYPES.ROOM_DATA_COPY:

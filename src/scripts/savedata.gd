@@ -8,7 +8,7 @@ var dir = Directory.new()
 var file = File.new()
 
 var _path_savefolder: String = "user://saves"
-var _path_fullsavefile: String = _path_savefolder + "/%s-%d.alchemsave"
+var _path_fullsavefile: String = _path_savefolder + "/%s-%d.toziuhasave"
 
 var _playstore_logged: bool
 
@@ -30,6 +30,7 @@ func serialize_data(quick_save: bool = false) -> Dictionary:
 		"game_data": VarsGlobal.game_data
 	}
 	return save_data
+
 
 func get_game_resume(
 	slot: int = VarsGlobal.selected_slot, 
@@ -177,6 +178,8 @@ func delete_game(
 		return dir.remove(file_path)
 	return ERR_FILE_NOT_FOUND
 
+
+
 func update_flag_game(new_flag: String) -> void :
 
 	
@@ -206,6 +209,8 @@ func update_flag_game(new_flag: String) -> void :
 		
 		file.close()
 
+
+
 func increase_death_counter() -> void :
 	
 	if game_exists() == false:
@@ -228,6 +233,7 @@ func increase_death_counter() -> void :
 		
 	file.close()
 
+
 func _save_to_playstore() -> void :
 	GooglePlayGamesServices.snapshots_save_game(
 		"%s_%s" % [VarsGlobal.selected_stage, VarsGlobal.selected_slot], 
@@ -243,11 +249,12 @@ func _save_to_playstore() -> void :
 		int(VarsGlobal.get_map_percentage(VarsGlobal.game_data["visited_tiles"].size()))
 	)
 
+
 func replace_gamedata_to_savefile(gamedata: Dictionary, slot: int = 0, stage: String = "oota") -> int:
 	var _err: int
 	
 	if game_exists(slot, stage, false) == false:
-		_err = save_game(slot, stage, "nabig", false, false)
+		_err = save_game(slot, stage, "XANDRIA", false, false)
 		if _err != OK:
 			return _err
 	VarsGlobal.game_data = gamedata

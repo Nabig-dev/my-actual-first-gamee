@@ -1,5 +1,7 @@
 extends Control
 
+
+
 export (String, "TimelineDropdown") var timeline: String
 export (bool) var add_canvas = true
 export (bool) var reset_saves = true
@@ -24,6 +26,7 @@ func _copy_signals(dialogic: Node):
 		for c in conns:
 			dialogic.connect(c["signal"], c["target"], c["method"], c["binds"], c["flags"])
 
+
 var _signals_to_copy = [
 	"event_start", 
 	"event_end", 
@@ -35,6 +38,9 @@ var _signals_to_copy = [
 	"letter_displayed", 
 	"auto_advance_toggled", 
 ]
+
+
+
 
 signal event_start(type, event)
 signal event_end(type)

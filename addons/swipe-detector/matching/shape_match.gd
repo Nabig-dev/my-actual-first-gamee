@@ -1,6 +1,10 @@
 extends "gesture_match.gd"
 
+
 const ShapeSimilarityAlgorithm = preload("shape_similarity_algorithm.gd")
+
+
+
 
 func _init(sample, pattern, threshold).(sample, pattern, threshold):
 	pass

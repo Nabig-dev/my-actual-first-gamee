@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+
+
 signal defeated
 
 export (int, 8, 11) var frame = 8
@@ -102,8 +104,10 @@ func _moved_to_target() -> void :
 	yield(Tw, "finished")
 	GhostTrail.stop_trail()
 
+
 func _on_TimerStartChase_timeout() -> void :
 	move_to_target()
+
 
 func _on_HurtboxEnemy_defeated() -> void :
 	Spr2.material.set_shader_param("line_thickness", 0)

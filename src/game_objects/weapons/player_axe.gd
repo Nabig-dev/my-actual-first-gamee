@@ -9,6 +9,9 @@ onready var Tw = $Tween
 func _ready() -> void :
 	
 
+
+
+
 	
 	Audio.play_sfx("woosh_whip_m")
 	
@@ -26,9 +29,11 @@ func _ready() -> void :
 	
 	apply_impulse(Vector2(0, 0), Vector2(100 * dir, - 350))
 
+
 func _on_VisibilityEnabler2D_screen_exited() -> void :
 	if linear_velocity.y > 0:
 		queue_free()
+
 
 func _on_Tween_tween_completed(_object: Object, _key: NodePath) -> void :
 	Audio.play_sfx("woosh_whip_m")

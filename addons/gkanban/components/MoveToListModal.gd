@@ -39,5 +39,6 @@ func _on_MenuButton_pressed(_list, _card):
 	emit_signal("list_menu_button_pressed", _list, _card)
 	queue_free()
 
+
 func _on_PrimaryButton_pressed():
 	queue_free()

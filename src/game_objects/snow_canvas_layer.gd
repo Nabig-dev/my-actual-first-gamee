@@ -6,6 +6,8 @@ export var speed: float = 0.5 setget set_speed
 export var layers: int = 20 setget set_layers
 export var modulate: Color = Color.white setget set_modulate
 
+
+
 func set_modulate(modu: Color) -> void :
 	modulate = modu
 	$ColorRect.modulate = modu

@@ -1,7 +1,9 @@
 tool 
 extends EditorPlugin
 
+
 const NativeDialogs = preload("./native_dialogs.gd")
+
 
 func _enter_tree():
 	add_custom_type(
@@ -38,6 +40,7 @@ func _enter_tree():
 		NativeDialogs.SelectFolder, 
 		preload("./icons/native_dialog_select_folder.png")
 	)
+
 
 func _exit_tree():
 	remove_custom_type("NativeDialogMessage")

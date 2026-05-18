@@ -1,6 +1,8 @@
 extends Position2D
 
+
 export var pendulum: NodePath
+
 
 export var cooldown_node: NodePath
 
@@ -11,18 +13,22 @@ export var gravity: float = 6.0
 
 export var damping: float = 0.995
 
+
 var PendulumNode: Object = null
 
 var CoolDown: Object = null
 
 var arm_length: float
 
+
 var angle: float
 
 var angular_velocity: float = 0.0
 var angular_acceleration: float = 0.0
 
+
 var _pivot_point: = Vector2()
+
 
 var _end_position: = Vector2()
 
@@ -110,6 +116,7 @@ func _physics_process(delta) -> void :
 	
 	
 
+
 func kick(dir: int = 0) -> void :
 	
 	if CoolDown != null:
@@ -119,4 +126,7 @@ func kick(dir: int = 0) -> void :
 		CoolDown.start()
 	
 	add_angular_velocity(dir * kick_impulse)
+
+
+
 

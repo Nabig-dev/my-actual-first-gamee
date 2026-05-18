@@ -5,6 +5,8 @@ onready var AnimPlayer = $AnimationPlayer
 onready var AnimCritic = $AnimCritic
 onready var Tw = $Tween
 
+
+
 func show_number(
 	numb: int = 0, glob_pos: Vector2 = Vector2.ZERO, 
 	font: String = "normal", 
@@ -48,4 +50,5 @@ func show_number(
 		Tween.TRANS_CUBIC, Tween.EASE_OUT
 	)
 	Tw.start()
+
 

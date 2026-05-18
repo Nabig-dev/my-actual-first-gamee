@@ -1,5 +1,7 @@
 extends Control
 
+
+
 var letter_lines: Array = [
 	tr("ALESSALETTER1"), 
 	tr("ALESSALETTER2"), 
@@ -72,10 +74,12 @@ func _on_letter_end() -> void :
 	
 	get_node("%HorsesScene").play_end()
 
+
 func _on_TimerCoolDown_timeout() -> void :
 	get_node("%HbxBtnNext").visible = true
+
 
 func _on_ButtonSkip_pressed() -> void :
 	_can_read = false
 	set_process(false)
-	SceneChanger.change_scene("res://stages/oota/the_outpost/grijayla_entrance.tscn")
+	SceneChanger.change_scene("res://stages/oota/grijayla/grijayla_entrance.tscn")

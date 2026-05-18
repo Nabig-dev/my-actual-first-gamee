@@ -14,12 +14,17 @@ func _started_reaction(type: String) -> void :
 		"pyro":
 			Audio.play_sfx("explosion_clean")
 
+
+
 func _on_Timer_timeout() -> void :
 	queue_free()
 
 func _on_AreaDetectPlayerWeaponAttrbs_attr_detected(attrb_elemental: Array) -> void :
 	if attrb_elemental.has("pyro") == true:
 		$AnimationPlayer.play("explode")
+
+
+
 
 func _on_TimerEnableDetect_timeout() -> void :
 	

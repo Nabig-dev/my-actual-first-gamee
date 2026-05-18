@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+
+
 export var active: bool = true
 
 var speed: int = 300
@@ -13,6 +15,7 @@ onready var Enemy = $EnemyBase
 onready var Tw = $Tween
 onready var TimerRepeatAtk = $TimerRepeatAtk
 onready var VisibNotifier = $VisibilityNotifierCameraArea
+
 
 func _ready() -> void :
 	Enemy.change_state("sleep", true)
@@ -100,6 +103,7 @@ func _on_TimerAwake_timeout() -> void :
 	if Enemy.state == "sleep":
 		Enemy.change_state("awake")
 
+
 func _on_EnemyBase_state_changed(state: String) -> void :
 	if state == "fly":
 		randomize()
@@ -107,6 +111,7 @@ func _on_EnemyBase_state_changed(state: String) -> void :
 		TimerRepeatAtk.start(rand_range(2, 4))
 	elif state == "attack":
 		Enemy.change_direction("to_player")
+
 
 func _on_TimerRepeatAtk_timeout() -> void :
 
@@ -119,11 +124,13 @@ func _on_TimerRepeatAtk_timeout() -> void :
 	elif Enemy.state == "attack":
 		TimerRepeatAtk.start(3)
 
+
 func _on_TimerRepeatMove_timeout() -> void :
 	if Enemy.state == "fly" and _is_chasing == false:
 		velocity = Vector2.ZERO
 		Enemy.change_direction("to_player")
 		move_to_rand_pos()
+
 
 func _on_EnemyBase_enemy_defeated(_NodeEnemy) -> void :
 	_is_chasing = false

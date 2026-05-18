@@ -33,9 +33,9 @@ func update_anim_list() -> void :
 	
 	$VBoxContainer / OptionButtonAnimList.add_item("- - -", 0)
 	var i: int = 1
-	for animation_player in anim_list:
-		if animation_player != "RESET":
-			$VBoxContainer / OptionButtonAnimList.add_item(animation_player, i)
+	for anim in anim_list:
+		if anim != "RESET":
+			$VBoxContainer / OptionButtonAnimList.add_item(anim, i)
 		i += 1
 
 func is_valid_animplayer() -> bool:

@@ -2,6 +2,7 @@ extends Node
 
 class_name GScenario, "res://assets/icons/blueprint.png"
 
+
 signal enemy_defeated(enemy_id)
 signal character_ready
 
@@ -24,10 +25,10 @@ export (
 	"beginning_of_darkness_underground", 
 	"beginning_of_darkness_underwater", 
 	"afternoon_ruins", "rest_town", 
-	"grey_woods", "the_order", 
+	"eldralis_woods", "the_order", 
 	"stralsund_ruins", "athos_abbey", "birstall", 
-	"birstall_normal", "the_sinkhole", 
-	"tahuatepet_volcano", "tahuatepet_underwater", "the_barrens", 
+	"birstall_normal", "eztilia", 
+	"tahuatepet_volcano", "tahuatepet_underwater", "aridiah", 
 	"train_assault"
 ) var music = "silence"
 
@@ -40,11 +41,14 @@ export (
 	"cold"
 ) var thermal_condition = "none"
 
+
 export var sound_reverb: bool = false
 export var active_camera: = true
 export var camera_follow_player: = true
 
+
 var reparented: = false
+
 
 var boss_battle_active: bool
 
@@ -52,6 +56,7 @@ var _damage_number_instance = null
 var _hits_sparks_instance = null
 var _hits_lines_instance = null
 var _blood_drop_instance = null
+
 
 var _camera_limits: = []
 
@@ -127,7 +132,8 @@ func start_teleport(where: int = 1) -> void :
 		VarsGlobal.current_building_door = ""
 		VarsGlobal.game_data.current_room_changer = ""
 		VarsGlobal.game_data.current_building_door = ""
-		SceneChanger.change_scene("res://stages/oota/the_core/amerithia_central.tscn")
+		SceneChanger.change_scene("res://stages/oota/amerithia/amerithia_central.tscn")
+
 
 func start_boss_battle() -> void :
 	for b in get_tree().get_nodes_in_group("boss"):
@@ -137,8 +143,10 @@ func start_boss_battle() -> void :
 			VarsGlobal.Player.velocity.x = 0
 			b.start_battle()
 
+
 func cancel_quick_menu_use() -> void :
 	VarsGlobal.GameScenario.get_node("%QuickMenuItemStatus").cancel_use()
+
 
 func get_facing_pointing_to(node: Object, target_node: Object) -> int:
 	if node.global_position.x > target_node.global_position.x:
@@ -192,6 +200,7 @@ func _on_Playable_character_added() -> void :
 	CameraNode.current = active_camera
 	CameraNode.follow_player = camera_follow_player
 	emit_signal("character_ready")
+
 
 func _on_TimerEnableSmooth_timeout() -> void :
 	CameraNode.smoothing_enabled = true

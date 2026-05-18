@@ -24,12 +24,14 @@ signal animation_finished
 func init(expression: String = "") -> void :
 	set_portrait(expression)
 
+
 func _ready():
 	if debug:
 		print("Character data loaded: ", character_data)
 		print(rect_position, $TextureRect.rect_size)
 	
 	$AnimationTween.connect("finished_animation", self, "emit_signal", ["animation_finished"])
+
 
 func set_portrait(expression: String) -> void :
 	if expression == "(Don't change)":
@@ -91,6 +93,8 @@ func set_portrait(expression: String) -> void :
 			$TextureRect.texture = ImageTexture.new()
 		return
 
+
+
 func set_mirror(value):
 	current_state["mirrored"] = value
 	if character_data["data"].has("mirror_portraits"):
@@ -109,6 +113,7 @@ func set_mirror(value):
 			custom_instance.scale.x *= get_mirror_scale(custom_instance.scale.x, value)
 		else:
 			$TextureRect.flip_h = value
+
 
 func move_to_position(position_offset):
 	var positions = {
@@ -164,15 +169,18 @@ func animate(animation_name = "[No Animation]", time = 1, loop = 1, delete = fal
 		if not $AnimationTween.is_connected("tween_all_completed", self, "queue_free"):
 			$AnimationTween.connect("tween_all_completed", self, "queue_free")
 
+
 func focus():
 	if not fading_out:
 		tween_modulate(modulate, Color(1, 1, 1, 1))
+
 
 func focusout(dim_color = Color(0.5, 0.5, 0.5, 1.0)):
 	if single_portrait_mode:
 		dim_color.a = 0
 	if not fading_out:
 		tween_modulate(modulate, dim_color)
+
 
 func tween_modulate(from_value, to_value):
 	$ModulationTween.stop(self, "modulation")
@@ -182,6 +190,7 @@ func tween_modulate(from_value, to_value):
 	)
 	$ModulationTween.start()
 	return $ModulationTween
+
 
 func is_scene(path) -> bool:
 	if ".tscn" in path.to_lower():

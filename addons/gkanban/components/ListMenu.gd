@@ -4,6 +4,7 @@ extends Control
 signal move_list_pressed(_list, _direction)
 signal delete_list_pressed(_list)
 
+
 var selected: bool = false
 
 var list = null
@@ -26,6 +27,7 @@ func _input(event):
 				
 				queue_free()
 
+
 func _on_MoveToFirstButton_pressed():
 	emit_signal("move_list_pressed", list, "first")
 
@@ -35,14 +37,18 @@ func set_list(_list):
 func _on_MoveLeftButton_pressed():
 	emit_signal("move_list_pressed", list, "left")
 
+
 func _on_MoveRightButton_pressed():
 	emit_signal("move_list_pressed", list, "right")
+
 
 func _on_Delete_pressed():
 	emit_signal("delete_list_pressed", list)
 
+
 func _on_MoveToLast_pressed():
 	emit_signal("move_list_pressed", list, "last")
+
 
 func _on_CloseButton_pressed():
 	queue_free()

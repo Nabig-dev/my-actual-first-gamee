@@ -2,6 +2,9 @@ extends RigidBody2D
 
 signal obtained
 
+
+
+
 export var ide: String
 
 export (GVar.ALLOYS) var element = - 1
@@ -21,6 +24,7 @@ func _ready() -> void :
 		return
 	
 	$AlloysElements.frame = element
+
 
 func _on_AreaDetectPlayer_area_entered(_area: Area2D) -> void :
 	

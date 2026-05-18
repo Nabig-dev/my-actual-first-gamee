@@ -1,6 +1,7 @@
 tool 
 extends EditorPlugin
 
+
 var script_editor: TextEdit
 var cursor_line = - 1
 
@@ -43,6 +44,7 @@ func check_macro(line: int) -> void :
 		if constructLine.ends_with("\n"):
 			script_editor.cursor_set_line(line + 1)
 
+
 func get_indentation(string: String) -> String:
 	var indentation: = ""
 	for i in string:
@@ -51,6 +53,7 @@ func get_indentation(string: String) -> String:
 		else:
 			break
 	return indentation
+
 
 func _init_macro_file() -> void :
 	var file: = File.new()
@@ -90,13 +93,16 @@ func _init_macro_file() -> void :
 				break
 	file.close()
 
+
 func _ready():
 	get_viewport().connect("gui_focus_changed", self, "_on_gui_focus_changed")
 	_init_macro_file()
 
+
 func _notification(what: int):
 	if what == MainLoop.NOTIFICATION_WM_FOCUS_IN:
 		_init_macro_file()
+
 
 func _on_cursor_changed():
 	if is_instance_valid(script_editor):

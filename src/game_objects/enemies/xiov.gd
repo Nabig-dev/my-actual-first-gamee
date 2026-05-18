@@ -108,6 +108,7 @@ func _set_pos_y_equal_player() -> void :
 func _on_TimerActive_timeout() -> void :
 	return_to_chase(false)
 
+
 func _on_TimerRepeatAtk_timeout() -> void :
 	randomize()
 	$TimerRepeatAtk.start(
@@ -125,6 +126,12 @@ func _on_TimerRepeatAtk_timeout() -> void :
 			Enemy.change_state("attack_a")
 		else:
 			Enemy.change_state("attack_b")
+
+
+
+
+
+
 
 func _on_Timer_timeout() -> void :
 	randomize()

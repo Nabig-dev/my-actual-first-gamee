@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 var revive_anim: bool = false
 
+
 var velocity: = Vector2()
 
 var gravity: int = 250
@@ -32,17 +33,21 @@ func _physics_process(delta) -> void :
 	if is_on_floor() and Enemy.state == "walk" and is_on_wall():
 		Enemy.change_direction("inverse")
 
+
 func _on_HurtboxEnemy_damaged() -> void :
 	if Enemy.state in ["idle", "walk"]:
 		Enemy.change_direction("to_player")
+
 
 func _on_VisibilityEnabler2D_screen_entered() -> void :
 	if Enemy.state in ["idle", "walk"]:
 		Enemy.change_direction("to_player")
 
+
 func _on_Area2DDetectPlayer_area_entered(_area: Area2D) -> void :
 	if Enemy.state in ["idle", "walk"]:
 		Enemy.change_direction("to_player")
+
 
 func _on_DetectNoFloor_object_exited(_Obj) -> void :
 	Enemy.change_direction("inverse")

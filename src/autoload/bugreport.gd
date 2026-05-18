@@ -157,8 +157,19 @@ func _on_BtnSend_pressed() -> void :
 	)
 	
 
+
+
 func _array_to_form_data(array: Array) -> String:
 	
+
+
+
+
+
+
+
+
+
 
 	var file_counter: = 0
 	var output = ""
@@ -180,10 +191,16 @@ func _array_to_form_data(array: Array) -> String:
 			file_counter += 1
 		
 
+
+
+
+
+
 	
 	output += "--boundary--"
 
 	return output
+
 
 func _texture_to_png_bytes(texture: Texture, max_size: = 8000000) -> PoolByteArray:
 	var img: = texture.get_data()
@@ -197,11 +214,13 @@ func _texture_to_png_bytes(texture: Texture, max_size: = 8000000) -> PoolByteArr
 	
 	return bytes
 
+
 func _on_BtnClose_pressed() -> void :
 	Audio.play_sfx("ui_cancel")
 	get_parent().visible = false
 	emit_signal("closed")
 	get_tree().paused = _prev_paused_value
+
 
 func _on_HTTPRequest_request_completed(result, response_code, _headers, _body) -> void :
 	
@@ -239,6 +258,7 @@ func _on_TxtMsg_text_changed() -> void :
 	
 	get_node("%LblCharLimit").text = "(%s)" % [str(700 - txt_lenght)]
 
+
 func _on_LnNickname_text_changed(new_text: String) -> void :
 	_check_enable_send_btn()
 	var txt_lenght: int = new_text.length()
@@ -248,9 +268,11 @@ func _on_LnNickname_text_changed(new_text: String) -> void :
 	else:
 		get_node("%LnNickname").modulate = Color.white
 
+
 func _on_BtnOpenImg_pressed() -> void :
 	get_node("%NativeDialogOpenFile").show()
 	Audio.play_sfx("ui_accept")
+
 
 func _on_NativeDialogOpenFile_files_selected(files: PoolStringArray) -> void :
 	
@@ -262,6 +284,7 @@ func _on_NativeDialogOpenFile_files_selected(files: PoolStringArray) -> void :
 		get_node("%BtnClearImg").visible = true
 	
 	get_node("%NativeDialogOpenFile").hide()
+
 
 func _on_BtnScreenshot_pressed() -> void :
 	modulate.a = 0
@@ -277,6 +300,7 @@ func _on_BtnScreenshot_pressed() -> void :
 	Audio.play_sfx("ui_accept")
 	get_node("%LnImgPath").text = "attachment://screenshot0.png"
 	modulate.a = 1
+
 
 func _on_BtnClearImg_pressed() -> void :
 	get_node("%LnImgPath").text = ""

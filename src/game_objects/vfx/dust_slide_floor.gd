@@ -1,5 +1,6 @@
 extends Node2D
 
+
 var node_emitter = null
 
 var node_target = null

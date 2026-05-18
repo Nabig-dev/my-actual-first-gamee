@@ -1,9 +1,13 @@
 tool 
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
+
+
+
 onready var file_picker = $FilePicker
 onready var preview_button = $ButtonPreviewPlay
 onready var audio_preview = $AudioPreview
+
 
 func _ready():
 	file_picker.connect("data_changed", self, "_on_FilePicker_data_changed")
@@ -20,8 +24,10 @@ func load_data(data: Dictionary):
 	file_picker.load_data(event_data)
 	preview_button.visible = not event_data["file"].empty()
 
+
 func get_preview():
 	return ""
+
 
 func _on_FilePicker_data_changed(data):
 	event_data = data
@@ -45,6 +51,7 @@ func _on_PreviewButton_pressed():
 
 func _on_AudioPreview_finished():
 	preview_button.icon = get_icon("Play", "EditorIcons")
+
 
 func _process(_delta):
 	

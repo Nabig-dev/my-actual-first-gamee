@@ -76,6 +76,11 @@ func _on_Icon_Selected(frame: int) -> void :
 	Config.set_value("helper_btn_icon", _selected_action, frame)
 	
 
+
+
+
+
+
 	_restore_left_panel()
 
 func _restore_left_panel() -> void :
@@ -100,6 +105,7 @@ func _restore_left_panel() -> void :
 	)
 	
 	_selected_action = ""
+
 
 func _on_BtnReturn_pressed() -> void :
 	Audio.play_sfx("ui_cancel")

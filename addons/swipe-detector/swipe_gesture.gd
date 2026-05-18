@@ -5,6 +5,8 @@ const EIGHT_DIRECTIONS_MODE = "Eight Directions"
 
 var Directions = preload("directions.gd").new()
 
+
+
 var area
 
 var points

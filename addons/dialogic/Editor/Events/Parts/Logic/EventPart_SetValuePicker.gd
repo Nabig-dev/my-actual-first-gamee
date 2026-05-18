@@ -1,6 +1,9 @@
 tool 
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
+
+
+
 onready var input_feature = $HBox / InputValue
 onready var input_field = $HBox / InputValue / InputField
 onready var definition_picker = $HBox / DefinitionPicker
@@ -11,12 +14,14 @@ onready var random_features = $HBox / RandomValue
 onready var random_lower_limit = $HBox / RandomValue / LowerLimit
 onready var random_upper_limit = $HBox / RandomValue / UpperLimit
 
+
 func _ready():
 	input_field.connect("text_changed", self, "_on_InputField_text_changed")
 	definition_picker.connect("data_changed", self, "_on_DefintionPicker_data_changed")
 	operation_picker.connect("data_changed", self, "_on_OperationPicker_data_changed")
 	
 	random_enabled_button.icon = get_icon("MaterialPreviewCube", "EditorIcons")
+
 
 func load_data(data: Dictionary):
 	
@@ -31,6 +36,7 @@ func load_data(data: Dictionary):
 	
 	random_lower_limit.value = data.get("random_lower_limit", 0)
 	random_upper_limit.value = data.get("random_upper_limit", 100)
+
 
 func get_preview():
 	return ""
@@ -77,6 +83,7 @@ func switch_random_features(enabled):
 	input_feature.visible = not enabled
 	random_enabled_button.pressed = enabled
 	event_data["set_random"] = enabled
+
 
 func _on_LowerLimit_value_changed(value):
 	event_data["random_lower_limit"] = value

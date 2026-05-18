@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+
+
 export var cat: int
 export var dir: int = 1
 export var auto_queue: bool = true
@@ -43,6 +45,7 @@ func change_state(new_state: String) -> void :
 
 func _on_TimerMeow_timeout() -> void :
 	change_state("meow")
+
 
 func _on_InteractableArea2DIndicator_interact_requested():
 	

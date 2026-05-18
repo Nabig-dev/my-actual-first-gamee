@@ -86,7 +86,7 @@
 			"character": "character-1710264325.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Nadie... ni siquiera john se volverá a interesar en otra persona más que yo."
+			"text": "Nadie... ni siquiera Johannes se volverá a interesar en otra persona más que yo."
 		},
 		{
 			"character": "character-1649630816.json",
@@ -107,6 +107,6 @@
 	"metadata": {
 		"dialogic-version": "1.5.1",
 		"file": "timeline-1714772128.json",
-		"name": "elsa-prebattle"
+		"name": "elisia-prebattle"
 	}
 }

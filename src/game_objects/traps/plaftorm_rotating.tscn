@@ -3,8 +3,8 @@
 [ext_resource path="res://assets/sprites/traps/platform_rotation.png" type="Texture" id=1]
 [ext_resource path="res://src/game_objects/traps/plaftorm_rotating.gd" type="Script" id=2]
 [ext_resource path="res://assets/images/vfx/particles/smoke_07.png" type="Texture" id=3]
-[ext_resource path="res://src/game_objects/tilemaps/the_sinkhole.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/sprites/tiles/solid/the_sinkhole_snow.png" type="Texture" id=5]
+[ext_resource path="res://src/game_objects/tilemaps/eztilia.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/sprites/tiles/solid/eztilia_snow.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 23, 2.5 )
@@ -411,7 +411,7 @@ points = PoolVector2Array( 0, 4, 16, 12, 32, 20, 32, 28, 0, 12 )
 points = PoolVector2Array( 0, 4, 16, 20, 16, 20, 16, 32, 0, 16 )
 
 [sub_resource type="TileSet" id=53]
-0/name = "the_sinkhole.png 0"
+0/name = "eztilia.png 0"
 0/texture = ExtResource( 5 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )

@@ -68,7 +68,7 @@
 			"character": "character-1676994716.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Eres una perra confianzuda, lo que pasó en the_outpost no es nada en comparación a lo que te haré ahora."
+			"text": "Eres una perra confianzuda, lo que pasó en Grijayla no es nada en comparación a lo que te haré ahora."
 		},
 		{
 			"event_id": "shake_dialog_node"
@@ -83,6 +83,6 @@
 	"metadata": {
 		"dialogic-version": "1.5.1",
 		"file": "timeline-1715101405.json",
-		"name": "eve-prebattle"
+		"name": "eva-prebattle"
 	}
 }

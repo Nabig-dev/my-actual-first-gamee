@@ -10,11 +10,14 @@ func _ready():
 	_aseprite_command_field.text = _config.get_command()
 	_version_label.modulate.a = 0
 
+
 func init(config):
 	_config = config
 
+
 func _on_close_button_up():
 	self.hide()
+
 
 func _on_test_pressed():
 	var output = []
@@ -23,6 +26,7 @@ func _on_test_pressed():
 	else:
 		_version_label.text = "Command not found."
 	_version_label.modulate.a = 1
+
 
 func _test_command(output):
 	var exit_code = OS.execute(_aseprite_command_field.text, ["--version"], true, output, true)

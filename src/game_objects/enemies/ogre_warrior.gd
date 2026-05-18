@@ -5,6 +5,7 @@ var FloorAtk = preload("res://src/game_objects/enemies_weapons/golum_floor_atk.t
 var _now_floor_attacks: int
 var _max_floor_attacks: int = 6
 
+
 var velocity: = Vector2()
 
 var gravity: int = 450
@@ -23,6 +24,7 @@ onready var PositionFloorAtk = $Sprite / PositionFloorAtk
 
 func _ready() -> void :
 	Enemy.change_state("walk")
+
 
 func _physics_process(delta: float) -> void :
 		
@@ -113,12 +115,15 @@ func _on_TimerChangeDirection_timeout() -> void :
 	elif Enemy.state == "idle":
 		Enemy.change_state("walk")
 
+
 func _on_AreaSeePlayer_object_entered(_Obj) -> void :
 	make_attack()
+
 
 func _on_AreaBack_object_entered(_Obj) -> void :
 	if Enemy.state in ["idle", "walk"]:
 		Enemy.change_direction("to_player")
+
 
 func _on_EnemyBase_enemy_defeated(_NodeEnemy) -> void :
 	velocity.x = 0
@@ -129,8 +134,10 @@ func _on_HurtboxEnemy_damaged() -> void :
 	elif Enemy.state == "walk" and AreaSeePlayer.is_colliding() == true:
 		make_attack()
 
+
 func _on_TimerSpawnFloorAtk_timeout() -> void :
 	_spawn_floor_atk(false)
+
 
 func _on_HurtboxEnemy_defeated() -> void :
 	TimerSpawnFloorAtk.stop()

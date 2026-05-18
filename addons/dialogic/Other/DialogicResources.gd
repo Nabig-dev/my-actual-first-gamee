@@ -1,8 +1,17 @@
 tool 
 class_name DialogicResources
 
+
+
+
+
+
 const RESOURCES_DIR: String = "res://dialogic"
 const WORKING_DIR: String = "user://dialogic"
+
+
+
+
 
 static func load_json(path: String, default: Dictionary = {}) -> Dictionary:
 	
@@ -25,6 +34,7 @@ static func load_json(path: String, default: Dictionary = {}) -> Dictionary:
 	
 	return default
 
+
 static func set_json(path: String, data: Dictionary):
 	var file = File.new()
 	var err = file.open(path, File.WRITE)
@@ -32,6 +42,10 @@ static func set_json(path: String, data: Dictionary):
 		file.store_line(JSON.print(data, "\t", true))
 		file.close()
 	return err
+
+
+
+
 
 static func init_dialogic_files() -> void :
 	
@@ -52,6 +66,7 @@ static func init_dialogic_files() -> void :
 		if not directory.file_exists(files[f]):
 			create_empty_file(files[f])
 
+
 static func get_working_directories() -> Dictionary:
 	return {
 		"RESOURCES_DIR": RESOURCES_DIR, 
@@ -63,6 +78,7 @@ static func get_working_directories() -> Dictionary:
 		"SOUNDS": RESOURCES_DIR + "/sounds"
 	}
 
+
 static func get_config_files_paths() -> Dictionary:
 	return {
 		"SETTINGS_FILE": RESOURCES_DIR + "/settings.cfg", 
@@ -72,6 +88,10 @@ static func get_config_files_paths() -> Dictionary:
 		"STATE_DEFAULT_SAVE": WORKING_DIR + "/state_default_save.json"
 	}
 
+
+
+
+
 static func get_path(name: String, extra: String = "") -> String:
 	var paths: Dictionary = get_working_directories()
 	if extra != "":
@@ -79,11 +99,13 @@ static func get_path(name: String, extra: String = "") -> String:
 	else:
 		return paths[name]
 
+
 static func get_filename_from_path(path: String, extension = false) -> String:
 	var file_name: String = path.split("/")[ - 1]
 	if extension == false:
 		file_name = file_name.split(".")[0]
 	return file_name
+
 
 static func listdir(path: String) -> Array:
 	
@@ -102,11 +124,13 @@ static func listdir(path: String) -> Array:
 		print("[Dialogic] Error while accessing path " + path + " - Error: " + str(err))
 	return files
 
+
 static func create_empty_file(path):
 	var file = File.new()
 	file.open(path, File.WRITE)
 	file.store_string("")
 	file.close()
+
 
 static func remove_file(path: String):
 	var dir = Directory.new()
@@ -116,6 +140,7 @@ static func remove_file(path: String):
 		print("[D] There was an error when deleting file at {filepath}. Error: {error}".format(
 			{"filepath": path, "error": _err}
 		))
+
 
 static func copy_file(path_from, path_to):
 	if (path_from == ""):
@@ -144,6 +169,10 @@ static func copy_file(path_from, path_to):
 	return OK
 	pass
 
+
+
+
+
 static func get_config(id: String) -> ConfigFile:
 	var paths: = get_config_files_paths()
 	var config: = ConfigFile.new()
@@ -153,27 +182,49 @@ static func get_config(id: String) -> ConfigFile:
 			print("[Dialogic] Error while opening config file " + paths[id] + ". Error: " + str(err))
 	return config
 
+
+
+
+
+
+
 static func get_timeline_json(path: String):
 	return load_json(get_path("TIMELINE_DIR", path))
+
 
 static func set_timeline(timeline: Dictionary):
 	
 	set_json(get_path("TIMELINE_DIR", timeline["metadata"]["file"]), timeline)
 
+
 static func delete_timeline(filename: String):
 	
 	remove_file(get_path("TIMELINE_DIR", filename))
 
+
+
+
+
+
+
 static func get_character_json(path: String):
 	return load_json(get_path("CHAR_DIR", path))
+
 
 static func set_character(character: Dictionary):
 	
 	set_json(get_path("CHAR_DIR", character["id"]), character)
 
+
 static func delete_character(filename: String):
 	
 	remove_file(get_path("CHAR_DIR", filename))
+
+
+
+
+
+
 
 static func get_theme_config(filename: String):
 	var config = ConfigFile.new()
@@ -186,14 +237,17 @@ static func get_theme_config(filename: String):
 	if err == OK:
 		return config
 
+
 static func set_theme_value(filename: String, section: String, key: String, value):
 	
 	var config = get_theme_config(filename)
 	config.set_value(section, key, value)
 	config.save(get_path("THEME_DIR", filename))
 
+
 static func add_theme(filename: String):
 	create_empty_file(get_path("THEME_DIR", filename))
+
 
 static func delete_theme(filename: String):
 	remove_file(get_path("THEME_DIR", filename))
@@ -202,8 +256,15 @@ static func delete_theme(filename: String):
 static func duplicate_theme(from_filename: String, to_filename: String):
 	copy_file(get_path("THEME_DIR", from_filename), get_path("THEME_DIR", to_filename))
 
+
+
+
+
+
+
 static func get_settings_config() -> ConfigFile:
 	return get_config("SETTINGS_FILE")
+
 
 static func set_settings_value(section: String, key: String, value):
 	var config = get_settings_config()
@@ -214,15 +275,25 @@ static func get_settings_value(section: String, key: String, default):
 	var config = get_settings_config()
 	return config.get_value(section, key, default)
 
+
+
+
+
+
+
+
 static func get_default_definitions() -> Dictionary:
 	return load_json(get_config_files_paths()["DEFAULT_DEFINITIONS_FILE"], {"variables": [], "glossary": []})
+
 
 static func save_default_definitions(data: Dictionary):
 	set_json(get_config_files_paths()["DEFAULT_DEFINITIONS_FILE"], data)
 
+
 static func get_default_definition_item(id: String):
 	var data = get_default_definitions()
 	return DialogicDefinitionsUtil.get_definition_by_id(data, id)
+
 
 static func set_default_definition_variable(id: String, name: String, value):
 	
@@ -230,17 +301,28 @@ static func set_default_definition_variable(id: String, name: String, value):
 	DialogicDefinitionsUtil.set_definition_variable(data, id, name, value)
 	save_default_definitions(data)
 
+
 static func set_default_definition_glossary(id: String, name: String, extra_title: String, extra_text: String, extra_extra: String):
 	
 	var data = get_default_definitions()
 	DialogicDefinitionsUtil.set_definition_glossary(data, id, name, extra_title, extra_text, extra_extra)
 	save_default_definitions(data)
 
+
 static func delete_default_definition(id: String):
 	
 	var data = get_default_definitions()
 	DialogicDefinitionsUtil.delete_definition(data, id)
 	save_default_definitions(data)
+
+
+
+
+
+
+
+
+
 
 static func get_saves_folders() -> Array:
 	var save_folders = []
@@ -265,6 +347,7 @@ static func get_saves_folders() -> Array:
 
 	return save_folders
 
+
 static func add_save_folder(save_name: String) -> void :
 	var directory: = Directory.new()
 	if directory.open(WORKING_DIR) != OK:
@@ -281,6 +364,7 @@ static func add_save_folder(save_name: String) -> void :
 		file.store_string("")
 		file.close()
 
+
 static func remove_save_folder(save_name: String) -> void :
 	var directory: = Directory.new()
 	if directory.open(WORKING_DIR + "/" + save_name) != OK:
@@ -294,9 +378,11 @@ static func remove_save_folder(save_name: String) -> void :
 		file_name = directory.get_next()
 	directory.remove(WORKING_DIR + "/" + save_name)
 
+
 static func reset_save(save_name: String = "") -> void :
 	save_state_info(save_name, {})
 	save_definitions(save_name, get_default_definitions())
+
 
 static func save_state_info(save_name: String, state_info: Dictionary) -> void :
 	if save_name == "":
@@ -308,6 +394,7 @@ static func save_state_info(save_name: String, state_info: Dictionary) -> void :
 	
 	set_json(WORKING_DIR + "/" + save_name + "/state.json", state_info)
 
+
 static func get_saved_state_info(save_name: String) -> Dictionary:
 	if save_name == "":
 		return load_json(get_config_files_paths()["STATE_DEFAULT_SAVE"], {})
@@ -316,6 +403,7 @@ static func get_saved_state_info(save_name: String) -> Dictionary:
 		return {}
 	
 	return load_json(WORKING_DIR + "/" + save_name + "/state.json", {})
+
 
 static func save_definitions(save_name: String, definitions_info: Dictionary) -> void :
 	if save_name == "":
@@ -327,6 +415,7 @@ static func save_definitions(save_name: String, definitions_info: Dictionary) ->
 	
 	set_json(WORKING_DIR + "/" + save_name + "/definitions.json", definitions_info)
 
+
 static func get_saved_definitions(save_name: String = "") -> Dictionary:
 	if save_name == "":
 		return load_json(get_config_files_paths()["DEFINITIONS_DEFAULT_SAVE"], get_default_definitions())
@@ -335,6 +424,7 @@ static func get_saved_definitions(save_name: String = "") -> Dictionary:
 		print("[D] Wasn't able to find save '" + save_name + "'. Loaded the default definitions.")
 		return get_default_definitions()
 	
+
 
 	var default_definitions: Dictionary = get_default_definitions()
 
@@ -379,6 +469,12 @@ static func get_saved_definitions(save_name: String = "") -> Dictionary:
 	saved_definitions.variables = distilled_saved_data
 
 	return saved_definitions
+
+
+
+
+
+
 
 static func get_resource_folder_structure() -> Dictionary:
 	return load_json(get_config_files_paths()["FOLDER_STRUCTURE_FILE"], 

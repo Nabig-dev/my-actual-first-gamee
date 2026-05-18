@@ -19,6 +19,7 @@ func _exit_tree():
 	_output_folder_dialog.queue_free()
 	_warning_dialog.queue_free()
 
+
 func init(config, editor_file_system: EditorFileSystem):
 	_config = config
 	_file_system = editor_file_system
@@ -34,6 +35,7 @@ func init(config, editor_file_system: EditorFileSystem):
 
 	_load_persisted_config()
 
+
 func _load_persisted_config():
 	_split_mode_field().pressed = _config.should_split_layers()
 	_only_visible_layers_field().pressed = _config.should_include_only_visible_layers()
@@ -45,6 +47,7 @@ func _load_persisted_config():
 	var output_folder = _config.get_last_output_path()
 	_output_folder_field().text = output_folder if output_folder != "" else "res://"
 
+
 func load_import_config(import_config: Dictionary):
 	_split_mode_field().pressed = import_config.options.export_mode == _sf_creator.LAYERS_EXPORT_MODE
 	_only_visible_layers_field().pressed = import_config.options.only_visible_layers
@@ -54,17 +57,20 @@ func load_import_config(import_config: Dictionary):
 	_do_not_create_res_field().pressed = import_config.options.do_not_create_resource
 	_output_folder_field().text = import_config.output_location if import_config.output_location != "" else "res://"
 
+
 func _open_aseprite_file_selection_dialog():
 	var current_selection = _file_location_field().text
 	if current_selection != "":
 		_file_dialog_aseprite.current_dir = current_selection.get_base_dir()
 	_file_dialog_aseprite.popup_centered_ratio()
 
+
 func _open_output_folder_selection_dialog():
 	var current_selection = _output_folder_field().text
 	if current_selection != "":
 		_output_folder_dialog.current_dir = current_selection
 	_output_folder_dialog.popup_centered_ratio()
+
 
 func _create_aseprite_file_selection():
 	var file_dialog = FileDialog.new()
@@ -74,6 +80,7 @@ func _create_aseprite_file_selection():
 	file_dialog.set_filters(PoolStringArray(["*.ase", "*.aseprite"]))
 	return file_dialog
 
+
 func _create_outuput_folder_selection():
 	var file_dialog = FileDialog.new()
 	file_dialog.mode = FileDialog.MODE_OPEN_DIR
@@ -81,14 +88,17 @@ func _create_outuput_folder_selection():
 	file_dialog.connect("dir_selected", self, "_on_output_folder_selected")
 	return file_dialog
 
+
 func _on_aseprite_file_selected(path):
 	var localized_path = ProjectSettings.localize_path(path)
 	_file_location_field().text = localized_path
 	_config.set_last_source_path(localized_path)
 
+
 func _on_output_folder_selected(path):
 	_output_folder_field().text = path
 	_config.set_last_output_path(path)
+
 
 func _on_next_btn_up():
 	var aseprite_file = _file_location_field().text
@@ -121,15 +131,19 @@ func _on_next_btn_up():
 	})
 	_show_import_success_message()
 
+
 func trigger_import():
 	_on_next_btn_up()
+
 
 func _on_close_btn_up():
 	_close_window()
 
+
 func _close_window():
 	_save_config()
 	self.emit_signal("close_requested")
+
 
 func _save_config():
 	_config.set_split_layers(_split_mode_field().pressed)
@@ -138,35 +152,45 @@ func _save_config():
 	_config.set_include_only_visible_layers(_only_visible_layers_field().pressed)
 	_config.set_do_not_create_resource(_do_not_create_res_field().pressed)
 
+
 func _show_error(code: int):
 	_show_error_message(result_code.get_error_message(code))
+
 
 func _show_error_message(message: String):
 	_warning_dialog.dialog_text = "Error: %s" % message
 	_warning_dialog.popup_centered()
+
 
 func _show_import_success_message():
 	_warning_dialog.dialog_text = "Aseprite import succeeded"
 	_warning_dialog.popup_centered()
 	_save_config()
 
+
 func _file_location_field() -> LineEdit:
 	return $container / options / file_location / HBoxContainer / file_location_path as LineEdit
+
 
 func _output_folder_field() -> LineEdit:
 	return $container / options / output_folder / HBoxContainer / file_location_path as LineEdit
 
+
 func _exception_pattern_field() -> LineEdit:
 	return $container / options / exclude_pattern / pattern as LineEdit
+
 
 func _split_mode_field() -> CheckBox:
 	return $container / options / layer_importing_mode / split_layers / field as CheckBox
 
+
 func _only_visible_layers_field() -> CheckBox:
 	return $container / options / layer_importing_mode / visible_layers / field as CheckBox
 
+
 func _custom_name_field() -> LineEdit:
 	return $container / options / custom_filename / pattern as LineEdit
+
 
 func _do_not_create_res_field() -> CheckBox:
 	return $container / options / layer_importing_mode / disable_resource_creation / field as CheckBox

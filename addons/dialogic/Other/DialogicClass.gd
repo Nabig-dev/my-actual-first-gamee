@@ -1,12 +1,45 @@
 extends Node
 
+
+
+
+
+
+
+
+
 class_name Dialogic
+
+
+
+
+
+
 
 static func prepare():
 
 	var flat_structure = DialogicUtil.get_flat_folders_list()
 
 	Engine.get_main_loop().set_meta("dialogic_tree", flat_structure)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 static func start(timeline: String = "", default_timeline: String = "", dialog_scene_path: String = "res://addons/dialogic/Nodes/DialogNode.tscn", use_canvas_instead = true):
 	var dialog_scene = load(dialog_scene_path)
@@ -85,6 +118,10 @@ static func start(timeline: String = "", default_timeline: String = "", dialog_s
 	
 	return returned_dialog_node
 
+
+
+
+
 static func change_timeline(timeline: String) -> void :
 	
 	set_current_timeline(timeline)
@@ -100,6 +137,9 @@ static func change_timeline(timeline: String) -> void :
 	else:
 		print("[D] Tried to change timeline, but no DialogNode exists!")
 
+
+
+
 static func next_event(discreetly: bool = false):
 	
 	
@@ -108,6 +148,15 @@ static func next_event(discreetly: bool = false):
 		
 		dialog_node.next_event(discreetly)
 
+
+
+
+
+
+
+
+
+
 static func timeline_exists(timeline: String):
 	var timeline_file = _get_timeline_file_from_name(timeline)
 	if timeline_file != "":
@@ -115,9 +164,20 @@ static func timeline_exists(timeline: String):
 	else:
 		return false
 
+
+
+
+
+
+
 static func load(slot_name: String = ""):
 	_load_from_slot(slot_name)
 	Engine.get_main_loop().set_meta("current_save_slot", slot_name)
+
+
+
+
+
 
 static func save(slot_name: String = "", is_autosave = false) -> void :
 	
@@ -141,24 +201,45 @@ static func save(slot_name: String = "", is_autosave = false) -> void :
 	
 	_save_state_and_definitions(slot_name, save_data)
 
+
+
 static func get_slot_names() -> Array:
 	return DialogicResources.get_saves_folders()
+
+
+
+
 
 static func erase_slot(slot_name: String) -> void :
 	DialogicResources.remove_save_folder(slot_name)
 
+
+
+
+
 static func has_current_dialog_node() -> bool:
 	return Engine.get_main_loop().has_meta("latest_dialogic_node") and is_instance_valid(Engine.get_main_loop().get_meta("latest_dialogic_node"))
+
+
+
+
 
 static func reset_saves(slot_name: String = "", reload: = true) -> void :
 	DialogicResources.reset_save(slot_name)
 	if reload: _load_from_slot(slot_name)
+
+
 
 static func get_current_slot():
 	if Engine.get_main_loop().has_meta("current_save_slot"):
 		return Engine.get_main_loop().get_meta("current_save_slot")
 	else:
 		return ""
+
+
+
+
+
 
 static func export (dialog_node = null) -> Dictionary:
 	
@@ -179,6 +260,8 @@ static func export (dialog_node = null) -> Dictionary:
 		"dialog_state": current_dialog_info
 	}
 
+
+
 static func import(data: Dictionary, rebuld_definitions = false) -> void :
 	
 	Engine.get_main_loop().set_meta("current_save_lot", "/")
@@ -196,9 +279,16 @@ static func import(data: Dictionary, rebuld_definitions = false) -> void :
 	Engine.get_main_loop().set_meta("last_dialog_state", data.get("dialog_state", null))
 	set_current_timeline(get_saved_state_general_key("timeline"))
 
+
+
+
+
+
+
 static func clear_all_variables():
 	for d in _get_definitions()["variables"]:
 		d["value"] = ""
+
 
 static func set_variable(name: String, value):
 	var exists = false
@@ -221,6 +311,7 @@ static func set_variable(name: String, value):
 		print("[Dialogic] Warning! the variable [" + name + "] doesn't exists. Create it from the Dialogic editor.")
 	return value
 
+
 static func get_variable(name: String, default = null):
 	if "/" in name:
 		var variable_id = _get_variable_from_file_name(name)
@@ -236,6 +327,14 @@ static func get_variable(name: String, default = null):
 		print("[Dialogic] Warning! the variable [" + name + "] doesn't exists.")
 		return default
 
+
+
+
+
+
+
+
+
 static func get_saved_state_general_key(key: String, default = "") -> String:
 	if not Engine.get_main_loop().has_meta("game_state"):
 		return default
@@ -244,11 +343,20 @@ static func get_saved_state_general_key(key: String, default = "") -> String:
 	else:
 		return default
 
+
+
 static func set_saved_state_general_key(key: String, value) -> void :
 	if not Engine.get_main_loop().has_meta("game_state"):
 		Engine.get_main_loop().set_meta("game_state", {})
 	Engine.get_main_loop().get_meta("game_state")[key] = str(value)
 	save("", true)
+
+
+
+
+
+
+
 
 static func toggle_history():
 	if has_current_dialog_node():
@@ -256,6 +364,9 @@ static func toggle_history():
 		dialog_node.HistoryTimeline._on_toggle_history()
 	else:
 		print("[D] Tried to toggle history, but no dialog node exists.")
+
+
+
 
 static func auto_advance_on(toggle: bool, delay: float = 2):
 	if has_current_dialog_node():
@@ -265,17 +376,25 @@ static func auto_advance_on(toggle: bool, delay: float = 2):
 	else:
 		print("[D] Tried to toggle auto advance mode, but no dialog node exists.")
 
+
+
+
+
+
 static func get_autosave() -> bool:
 	if Engine.get_main_loop().has_meta("autoload"):
 		return Engine.get_main_loop().get_meta("autoload")
 	return true
 
+
 static func set_autosave(autoload):
 	Engine.get_main_loop().set_meta("autoload", autoload)
+
 
 static func set_current_timeline(timeline):
 	Engine.get_main_loop().set_meta("current_timeline", timeline)
 	return timeline
+
 
 static func get_current_timeline():
 	var timeline
@@ -284,8 +403,14 @@ static func get_current_timeline():
 		timeline = ""
 	return timeline
 
+
+
 static func get_action_button():
 	return DialogicResources.get_settings_value("input", "default_action_key", "dialogic_default_action")
+
+
+
+
 
 static func _load_from_slot(slot_name: String = "") -> Dictionary:
 	Engine.get_main_loop().set_meta("definitions", DialogicResources.get_saved_definitions(slot_name))
@@ -296,9 +421,13 @@ static func _load_from_slot(slot_name: String = "") -> Dictionary:
 	
 	return state_info.get("dialog_state", {})
 
+
+
 static func _save_state_and_definitions(save_name: String, state_info: Dictionary) -> void :
 	DialogicResources.save_definitions(save_name, _get_definitions())
 	DialogicResources.save_state_info(save_name, state_info)
+
+
 
 static func _get_definitions() -> Dictionary:
 	var definitions
@@ -308,6 +437,8 @@ static func _get_definitions() -> Dictionary:
 		definitions = DialogicResources.get_default_definitions()
 		Engine.get_main_loop().set_meta("definitions", definitions)
 	return definitions
+
+
 
 static func set_glossary_from_id(id: String, title: String, text: String, extra: String) -> void :
 	var target_def: Dictionary;
@@ -321,6 +452,7 @@ static func set_glossary_from_id(id: String, title: String, text: String, extra:
 			target_def["text"] = text
 		if extra and extra != "[No Change]":
 			target_def["extra"] = extra
+
 
 static func set_variable_from_id(id: String, value: String, operation: String) -> void :
 	var target_def: Dictionary;
@@ -352,6 +484,7 @@ static func set_variable_from_id(id: String, value: String, operation: String) -
 					result = converted_target_value / converted_set_value
 		target_def["value"] = str(result)
 
+
 static func _get_timeline_file_from_name(timeline_name_path: String) -> String:
 	if timeline_name_path == "":
 		return ""
@@ -362,6 +495,7 @@ static func _get_timeline_file_from_name(timeline_name_path: String) -> String:
 		
 	if not Engine.get_main_loop().has_meta("dialogic_tree"):
 		prepare()
+
 
 	var timelines = Engine.get_main_loop().get_meta("dialogic_tree")["Timelines"]
 	
@@ -385,6 +519,7 @@ static func _get_variable_from_file_name(variable_name_path: String) -> String:
 		
 	if not Engine.get_main_loop().has_meta("dialogic_tree"):
 		prepare()
+
 
 	var definitions = Engine.get_main_loop().get_meta("dialogic_tree")["Definitions"]
 	

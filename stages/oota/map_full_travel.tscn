@@ -113,14 +113,14 @@ margin_left = -3.5
 margin_top = 40.0
 margin_right = 4.5
 margin_bottom = 48.0
-scene_path = "res://stages/oota/the_core/amerithia_station.tscn"
+scene_path = "res://stages/oota/amerithia/amerithia_station.tscn"
 
 [node name="MapFullPositionButton2" parent="TextureBG/Control/Buttons" instance=ExtResource( 4 )]
 margin_left = 117.5
 margin_top = 86.0
 margin_right = 125.5
 margin_bottom = 94.0
-scene_path = "res://stages/oota/the_barrens/aridiah_station.tscn"
+scene_path = "res://stages/oota/aridiah/aridiah_station.tscn"
 
 [node name="MapFullPositionButton3" parent="TextureBG/Control/Buttons" instance=ExtResource( 4 )]
 margin_left = -134.5
@@ -134,7 +134,7 @@ margin_left = 175.5
 margin_top = 19.0
 margin_right = 183.5
 margin_bottom = 27.0
-scene_path = "res://stages/oota/the_outpost/grijayla_32b.tscn"
+scene_path = "res://stages/oota/grijayla/grijayla_32b.tscn"
 
 [node name="MapFullPositionButton5" parent="TextureBG/Control/Buttons" instance=ExtResource( 4 )]
 margin_left = -21.5
@@ -148,7 +148,7 @@ margin_left = 35.5
 margin_top = 95.0
 margin_right = 43.5
 margin_bottom = 103.0
-scene_path = "res://stages/oota/highwall/stralsund34.tscn"
+scene_path = "res://stages/oota/stralsund/stralsund34.tscn"
 
 [node name="TravelStationIndication" parent="TextureBG" instance=ExtResource( 5 )]
 

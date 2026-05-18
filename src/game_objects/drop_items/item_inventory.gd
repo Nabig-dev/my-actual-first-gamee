@@ -2,6 +2,7 @@ extends RigidBody2D
 
 signal obtained
 
+
 export var ide: String
 
 export (

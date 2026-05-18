@@ -6,7 +6,7 @@ export (
 	"Gabriel", "Margaret", "Waitress", "Alessa", 
 	"Isabel", "Evelyn", "Kalev", "Aura"
 ) var character = "Gabriel" setget _update_spriteframes
-export var animation_player: String = "idle"
+export var anim: String = "idle"
 
 export var auto_facing: bool = true
 
@@ -45,19 +45,22 @@ func _update_spriteframes(ch: String) -> void :
 	name = "NPC" + ch
 	$AnimatedSprite.frames = _spriteframes[ch]
 
-func play(anima: String = animation_player) -> void :
+func play(anima: String = anim) -> void :
 	if AnmSprite.frames.has_animation(anima) == true:
 		AnmSprite.play(anima)
+
 
 func _on_TimerAutoFacing_timeout() -> void :
 	if auto_facing == false:
 		return
 	facing_to_player()
 
+
 func _on_AreaDetectPlayer_area_exited(_area: Area2D) -> void :
 	if auto_facing == false:
 		return
 	facing_to_player()
+
 
 func _on_VisibilityNotifier2D_screen_entered() -> void :
 	facing_to_player()

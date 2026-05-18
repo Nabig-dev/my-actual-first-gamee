@@ -9,6 +9,7 @@ enum TYPES{BOSS, SACRIFICE, BRONZE_KEY, SILVER_KEY, GOLDEN_KEY}
 
 export (TYPES) var type_door = TYPES.BRONZE_KEY setget _update_type
 
+
 export var door_locked: bool = true
 
 export var ide_sacrifice_door: String
@@ -42,6 +43,7 @@ func _ready() -> void :
 			get_node("AreaDetectPlayer").disconnect("area_entered", self, "_on_AreaDetectPlayer_area_entered")
 			get_node("AreaDetectPlayer").disconnect("area_exited", self, "_on_AreaDetectPlayer_area_exited")
 
+
 func quick_open_door() -> void :
 	$Top.position.y = - 64
 	$Bottom.position.y = 0
@@ -64,6 +66,7 @@ func close_door() -> void :
 		if SceneChanger.changing_scene == false:
 			
 			Audio.play_sfx("door_boss_open")
+
 
 func _is_key_obtained() -> bool:
 	var is_obtained: bool = true
@@ -110,6 +113,7 @@ func _on_AreaDetectPlayer_area_entered(_area: Area2D) -> void :
 	if _is_key_obtained() == true and is_opened == false:
 		open_door()
 
+
 func _on_AreaDetectPlayer_area_exited(_area: Area2D) -> void :
 	if Engine.is_editor_hint() == true:
 		return
@@ -120,6 +124,7 @@ func _on_AreaDetectPlayer_area_exited(_area: Area2D) -> void :
 	
 	if not_close_again == false:
 		close_door()
+
 
 func _on_TimerReady_timeout() -> void :
 	if Engine.is_editor_hint() == true:
@@ -136,6 +141,7 @@ func _on_TimerReady_timeout() -> void :
 			emit_signal("sacrifice_completed")
 			sacrificies_needed = 0
 			quick_open_door()
+
 
 func _on_AnimationPlayer_animation_finished(_anim_name: String) -> void :
 	if is_opened == false:

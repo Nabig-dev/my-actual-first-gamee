@@ -2,6 +2,8 @@ tool
 class_name EditorTools
 extends Reference
 
+
+
 static func is_in_edited_scene(p_node: Node):
 	if not p_node.is_inside_tree():
 		return false

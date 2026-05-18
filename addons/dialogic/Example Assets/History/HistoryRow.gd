@@ -27,6 +27,7 @@ func _ready():
 	assert (TextLabel is RichTextLabel, "Text_Label must be a rich text label.")
 	assert (AudioButton is Button, "Audio_Button must be a button.")
 
+
 func add_history(historyString, newAudio = ""):
 	var regex = RegEx.new()
 	regex.compile("\\[\\s*(nw|(nw|speed|signal|play|pause)\\s*=\\s*(.+?)\\s*)\\](.*?)")
@@ -41,6 +42,8 @@ func add_history(historyString, newAudio = ""):
 		AudioButton.disabled = true
 		
 	AudioButton.focus_mode = FOCUS_NONE
+
+
 
 func load_theme(theme: ConfigFile):
 	

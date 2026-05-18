@@ -40,14 +40,17 @@ func _ready() -> void :
 	_vel_y = 0
 	_returning = true
 
+
 func _physics_process(_delta: float) -> void :
 	velocity.x = speed * dir
 	velocity.y = _vel_y
 	velocity = move_and_slide(velocity, Vector2.UP)
 
+
 func _on_VisibilityNotifier2D_screen_exited() -> void :
 	if _returning == true or _defeated == true:
 		queue_free()
+
 
 func _on_HurtboxEnemySimple_defeated() -> void :
 	$GhostTrail.stop_trail()
@@ -61,4 +64,13 @@ func _on_HurtboxEnemySimple_defeated() -> void :
 		$AnimationPlayer.play_backwards("destroyed")
 	
 	set_physics_process(false)
+
+
+
+
+
+
+
+
+
 

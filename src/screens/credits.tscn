@@ -247,7 +247,7 @@ autowrap = true
 margin_top = 15.0
 margin_right = 321.0
 margin_bottom = 29.0
-text = "- nabig's voice sfx -"
+text = "- Xandria's voice sfx -"
 align = 1
 
 [node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/Control/CreditsScroll/VBoxContainer/VBoxContainer8"]

@@ -16,6 +16,7 @@ func _ready() -> void :
 		f_path.get_file()
 	]
 
+
 func _on_BtnRemove_pressed() -> void :
 	emit_signal("removed", name, f_path)
 

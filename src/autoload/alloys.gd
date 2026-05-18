@@ -6,6 +6,7 @@ func _ready() -> void :
 	
 	alloys_dict = CSVDBLoader.get_db("alloys_elements")
 
+
 func get_attrbs_physical(_alloy_ide: int) -> int:
 	
 	return 0

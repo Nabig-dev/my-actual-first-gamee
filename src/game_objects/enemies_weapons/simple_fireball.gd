@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+
 var angle_degrees: float = 0.0
 
 var speed: float = 200.0
@@ -21,8 +22,10 @@ func _physics_process(delta: float):
 	move_and_collide(velocity * delta)
 	
 
+
 func _on_VisibilityNotifier2D_screen_exited() -> void :
 	queue_free()
+
 
 func _on_HurtboxEnemySimple_defeated() -> void :
 	queue_free()

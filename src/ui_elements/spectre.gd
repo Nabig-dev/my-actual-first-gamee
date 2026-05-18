@@ -14,6 +14,7 @@ var _colors_elements: Dictionary = {
 	"PB": ["RD", "OR", "YE", "GR", "CY", "PR"]
 }
 
+
 var _colors: Dictionary = {
 	"RD": "e30013", 
 	"OR": "ff8a00", 
@@ -29,6 +30,7 @@ var hash_colors: Dictionary
 func _ready() -> void :
 	if auto_start_see_spectre == true:
 		update_spectre(true)
+
 
 func get_spectre_hashes(elemnt_custom: String = element) -> Dictionary:
 	var _hash_clrs: Dictionary = {
@@ -47,6 +49,7 @@ func get_spectre_hashes(elemnt_custom: String = element) -> Dictionary:
 		else:
 			_hash_clrs[cl] = 0
 	return _hash_clrs
+
 
 func get_current_spectre_hashes() -> Dictionary:
 	var _hash_clrs: Dictionary = {
@@ -113,7 +116,7 @@ func update_spectre(userealhash: bool = true) -> void :
 			nod.color = _colors[clr_list[i]]
 			i += 1
 
-func hash_word_to_number(word: String = "nabig", _element: String = element, color: String = "BLACK") -> int:
+func hash_word_to_number(word: String = "XANDRIA", _element: String = element, color: String = "BLACK") -> int:
 	var hash_value: int = 0
 	
 	for c in word + _element + color:

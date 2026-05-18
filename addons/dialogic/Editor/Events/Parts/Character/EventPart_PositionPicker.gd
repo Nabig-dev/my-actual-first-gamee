@@ -1,9 +1,11 @@
 tool 
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
+
 var default_icon_color = Color("#65989898")
 var enable_icon
 var disable_icon
+
 
 onready var positions_container = $HBox / PositionsContainer
 onready var enable_position = $HBox / EnablePosition
@@ -14,6 +16,7 @@ func _ready():
 	enable_position.connect("toggled", self, "on_EnablePosition_toggled")
 	enable_icon = get_icon("Edit", "EditorIcons")
 	disable_icon = get_icon("Reload", "EditorIcons")
+
 
 func load_data(data: Dictionary):
 	
@@ -34,6 +37,7 @@ func load_data(data: Dictionary):
 	
 	
 	check_active_position()
+
 
 func get_preview():
 	return ""
@@ -63,6 +67,7 @@ func clear_all_positions():
 	for p in positions_container.get_children():
 		p.set("self_modulate", default_icon_color)
 		p.pressed = false
+
 
 func check_active_position(active_color = Color("#ffffff")):
 	if not event_data.get("position", false): return

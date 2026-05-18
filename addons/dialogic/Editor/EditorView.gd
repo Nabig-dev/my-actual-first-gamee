@@ -10,6 +10,7 @@ var flat_structure = {}
 
 var editor_interface = null
 
+
 var editor_scene_cache = {}
 
 func _ready():
@@ -114,6 +115,7 @@ func on_master_tree_editor_selected(editor: String):
 	$ToolBar / FoldTools.visible = editor == "timeline"
 	$ToolBar / DocumentationNavigation.visible = editor == "documentation"
 
+
 func popup_remove_confirmation(what):
 	
 	if $RemoveConfirmation.is_connected(
@@ -134,9 +136,11 @@ func popup_remove_confirmation(what):
 	
 	$RemoveConfirmation.popup_centered()
 
+
 func _on_RemoveFolderConfirmation_confirmed():
 	var item_data = $MainPanel / MasterTreeContainer / MasterTree.get_selected().get_metadata(0)
 	$MainPanel / MasterTreeContainer / MasterTree.remove_selected()
+
 
 func _on_RemoveConfirmation_confirmed(what: String = ""):
 	if what == "Timeline":
@@ -158,12 +162,15 @@ func _on_RemoveConfirmation_confirmed(what: String = ""):
 	$MainPanel / MasterTreeContainer / MasterTree.remove_selected()
 	$MainPanel / MasterTreeContainer / MasterTree.hide_all_editors()
 
+
+
 func godot_dialog(filter, mode = EditorFileDialog.MODE_OPEN_FILE):
 	editor_file_dialog.mode = mode
 	editor_file_dialog.clear_filters()
 	editor_file_dialog.popup_centered_ratio(0.75)
 	editor_file_dialog.add_filter(filter)
 	return editor_file_dialog
+
 
 func godot_dialog_connect(who, method_name, signal_name = "file_selected"):
 	

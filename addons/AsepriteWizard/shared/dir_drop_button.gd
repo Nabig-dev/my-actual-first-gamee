@@ -9,5 +9,6 @@ func can_drop_data(_pos, data):
 		return dir.dir_exists(data.files[0])
 	return false
 
+
 func drop_data(_pos, data):
 	emit_signal("dir_dropped", data.files[0])

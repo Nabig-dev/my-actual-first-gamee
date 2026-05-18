@@ -2,6 +2,21 @@ extends Control
 
 var ModLoader: = preload("res://src/scripts/mod_loader.gd").new()
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 func _notification(what: int) -> void :
 	if what == NOTIFICATION_EXIT_TREE:
 		ModLoader.queue_free()

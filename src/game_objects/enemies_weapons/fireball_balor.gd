@@ -12,5 +12,6 @@ func _physics_process(_delta: float) -> void :
 	velocity.x = speed * dir
 	velocity = move_and_slide(velocity)
 
+
 func _on_VisibilityNotifier2D_screen_exited() -> void :
 	queue_free()

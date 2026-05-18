@@ -2,6 +2,7 @@ extends Node
 
 class_name FuncsNumbers
 
+
 static func add_value(
 	add_val: float, val: float, val_max: float
 ) -> float:
@@ -10,6 +11,8 @@ static func add_value(
 	if val > val_max:
 		val = val_max
 	return val
+
+
 
 static func decrease_value(
 	minus_val: float, val: float, minimum: float = 0.0
@@ -20,9 +23,12 @@ static func decrease_value(
 		val = minimum
 	return val
 
+
 static func get_percentage(val: float = 1.0, val_max: float = 1.0) -> float:
 	var percent: float = val * (100.0 / val_max)
 	return percent
+
+
 
 static func dec2bin(decimal_value: int) -> int:
 	var binary_string: String

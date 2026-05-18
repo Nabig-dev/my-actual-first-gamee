@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+
 var velocity: = Vector2()
 
 var gravity: int = 250
@@ -18,14 +19,14 @@ var _original_hurtbox_def: int
 
 func _ready() -> void :
 	Enemy.change_state("idle", true)
-	_original_hurtbox_def = $HurtboxEnemy.defense_rating
+	_original_hurtbox_def = $HurtboxEnemy.def
 	
 	
 	if $PutEnemyHere.get_children().size() > 0:
 		var EnemyScene = $PutEnemyHere.get_children()[0]
 		if EnemyScene.get_node_or_null("EnemyBase") != null:
-			$HurtboxEnemy.defense_rating = 9999999999
-			$HurtboxEnemy.data_enemy["defense_rating"] = 9999999999
+			$HurtboxEnemy.def = 9999999999
+			$HurtboxEnemy.data_enemy["def"] = 9999999999
 			EnemyScene.get_node("EnemyBase").connect(
 				"enemy_defeated", self, "_on_carried_enemy_defeated"
 			)
@@ -48,14 +49,16 @@ func _physics_process(delta: float) -> void :
 
 	velocity = move_and_slide(velocity, Vector2.UP, true)
 
+
 	if is_on_floor() and Enemy.state == "walk" and is_on_wall():
 		Enemy.change_direction("inverse")
 	elif is_on_floor() and Enemy.state == "walk-inverse" and is_on_wall():
 		Enemy.change_state("walk")
 
+
 func _on_carried_enemy_defeated(_EnemyNode) -> void :
-	$HurtboxEnemy.defense_rating = _original_hurtbox_def
-	$HurtboxEnemy.data_enemy["defense_rating"] = _original_hurtbox_def
+	$HurtboxEnemy.def = _original_hurtbox_def
+	$HurtboxEnemy.data_enemy["def"] = _original_hurtbox_def
 
 func _on_VisibilityNotifier2D_screen_entered() -> void :
 	Enemy.change_state("walk")
@@ -66,6 +69,7 @@ func _on_AreaDetectPlayerFront_object_entered(_Obj) -> void :
 		return
 	Enemy.change_state("walk-inverse")
 	TimerDirCoolDown.start(0.5)
+
 
 func _on_AreaDetectPlayerFront_object_exited(_Obj) -> void :
 	if TimerDirCoolDown.is_stopped() == false:
@@ -78,6 +82,7 @@ func _on_AreaDetectPlayerBack_object_entered(_Obj) -> void :
 		return
 	Enemy.change_direction("to_player")
 	TimerDirCoolDown.start(0.5)
+
 
 func _on_HurtboxEnemy_damaged() -> void :
 	if AreaDetectPlayerFront.is_colliding() and Enemy.state in ["walk", "idle"]:

@@ -2,6 +2,9 @@ extends RigidBody2D
 
 signal obtained
 
+
+
+
 export var ide: String
 
 export (GVar.EQUIPMENT) var item = - 1
@@ -22,10 +25,12 @@ func _ready() -> void :
 	
 	$Sprite.frame = item
 
+
 func _on_AreaDetectPlayer_area_entered(_area: Area2D) -> void :
 	
 	Audio.play_sfx("item_pickup")
 	
+
 
 	
 	VarsGlobal.game_data["player_equip_items"].append(item)

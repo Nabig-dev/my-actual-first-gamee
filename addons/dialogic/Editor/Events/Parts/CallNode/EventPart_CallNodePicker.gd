@@ -1,15 +1,20 @@
 tool 
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
+
+
+
 onready var target_path_input = $Properties / TargetNodeEdit
 onready var method_name_input = $Properties / CallMethodEdit
 onready var argument_length = $Properties / ArgumentsSpinBox
 onready var arguments_container = $Arguments
 
+
 func _ready():
 	target_path_input.connect("text_changed", self, "_on_TargetPathInput_text_changed")
 	method_name_input.connect("text_changed", self, "_on_MethodName_text_changed")
 	argument_length.connect("value_changed", self, "_on_AgrumentLength_value_changed")
+
 
 func load_data(data: Dictionary):
 	
@@ -67,6 +72,7 @@ func _on_argument_value_changed(value, arg_index):
 	
 	data_changed()
 	
+
 
 func _create_argument_controls():
 	if ( not event_data["call_node"]["arguments"] is Array):

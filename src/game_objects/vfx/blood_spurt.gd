@@ -41,6 +41,7 @@ func _physics_process(delta: float) -> void :
 		$Sprite.frame = RNGTools.pick([2, 3, 4])
 		$Sprite.scale.x = RNGTools.pick([1, - 1])
 
+
 func _on_VisibilityNotifier2D_screen_exited() -> void :
 	if _active == true:
 		queue_free()

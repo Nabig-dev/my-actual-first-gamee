@@ -1,11 +1,14 @@
 tool 
 extends EditorPlugin
 
+
+
 var plugin_interface = preload("res://addons/gkanban/components/PluginInterface.tscn").instance()
 
 func _enter_tree():
 	get_editor_interface().get_editor_viewport().add_child(plugin_interface)
 	make_visible(false)
+
 
 func _exit_tree():
 	if plugin_interface:

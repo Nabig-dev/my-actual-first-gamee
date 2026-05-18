@@ -1,23 +1,28 @@
 tool 
 extends EditorPlugin
 
+
 var _orphan_imports: Array = []
 
 onready var confirmation_dialog: ConfirmationDialog = $ConfirmationDialog
 onready var accept_dialog: AcceptDialog = $AcceptDialog
 
+
 func _ready():
 	confirmation_dialog.connect("confirmed", self, "_on_ConfirmationDialog_confirmed")
+
 
 func _enter_tree():
 	add_tool_menu_item("Orphan .import file cleaner", self, "_on_cleaner_pressed")
 	add_child(preload("./confirmation_dialog.tscn").instance())
 	add_child(preload("./accept_dialog.tscn").instance())
 
+
 func _exit_tree():
 	remove_tool_menu_item("Orphan .import file cleaner")
 	confirmation_dialog.free()
 	accept_dialog.free()
+
 
 func _on_cleaner_pressed(ub):
 	accept_dialog.rect_size = Vector2(83, 58)
@@ -66,6 +71,7 @@ func _on_cleaner_pressed(ub):
 	else:
 		accept_dialog.dialog_text = "No orphan .import files to delete."
 		accept_dialog.popup_centered()
+
 
 func _on_ConfirmationDialog_confirmed():
 	var dir: Directory = Directory.new()

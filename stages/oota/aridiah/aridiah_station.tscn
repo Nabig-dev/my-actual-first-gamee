@@ -1,0 +1,189 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://src/game_objects/camera_limit.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/game_objects/characters/playable_character.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/game_objects/train_station.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game_objects/game_scenario.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/game_objects/tilemaps/aridiah_tilemap.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/game_objects/game_interface.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/game_objects/backgrounds/aridiah_desert_bg.tscn" type="PackedScene" id=7]
+[ext_resource path="res://addons/nklbdev.parallax/Parallax.gd" type="Script" id=8]
+[ext_resource path="res://src/game_objects/room_changer.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/sprites/bg_decoration/palmtree_a.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/bg_decoration/desert_rock_c.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/bg_decoration/desert_rock_a.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/bg_decoration/palmtree_b.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/bg_decoration/desert_rock_b.png" type="Texture" id=14]
+[ext_resource path="res://src/game_objects/npc/npc.tscn" type="PackedScene" id=15]
+[ext_resource path="res://stages/oota/aridiah/aridiah_station.gd" type="Script" id=16]
+
+[node name="Node" type="Node"]
+script = ExtResource( 16 )
+
+[node name="GameInterface" parent="." instance=ExtResource( 6 )]
+
+[node name="GameScenario" parent="." instance=ExtResource( 4 )]
+
+[node name="AridiahDesertParallaxBackground" parent="GameScenario" instance=ExtResource( 7 )]
+
+[node name="CameraLimit" parent="GameScenario" instance=ExtResource( 1 )]
+margin_top = -184.0
+margin_bottom = 8.0
+
+[node name="RoomChanger" parent="GameScenario" instance=ExtResource( 9 )]
+position = Vector2( 0, -16 )
+scale = Vector2( -1, 1 )
+direction = 2
+identifier = "dl"
+id_destination = "dr"
+path_destination = "res://stages/oota/aridiah/aridiah10.tscn"
+size_area = 127
+offset_area = -55
+
+[node name="PlayableCharacter" parent="GameScenario" instance=ExtResource( 2 )]
+position = Vector2( 183, -16 )
+
+[node name="TrainStation" parent="GameScenario" instance=ExtResource( 3 )]
+modulate = Color( 1, 0.772549, 0.454902, 1 )
+position = Vector2( 183, -17 )
+active = false
+
+[node name="BG" type="Node2D" parent="GameScenario"]
+
+[node name="Parallax3" type="Node2D" parent="GameScenario/BG"]
+visible = false
+position = Vector2( 101.602, -15.5002 )
+script = ExtResource( 8 )
+enabled_in_editor = true
+motion_scale = Vector2( 0.4, 0.3 )
+
+[node name="AridiahTileMap2" parent="GameScenario/BG/Parallax3" instance=ExtResource( 5 )]
+modulate = Color( 0.733333, 0.470588, 0.176471, 1 )
+position = Vector2( -93, 28 )
+collision_layer = 0
+collision_mask = 0
+tile_data = PoolIntArray( -65542, 0, 0, -65541, 0, 1, -65540, 0, 393217, -65539, 0, 1, -65538, 0, 393217, -65537, 0, 1, -131072, 0, 393217, -131071, 0, 1, -131070, 0, 393217, -131069, 0, 1, -131068, 0, 1, -131067, 0, 1, -131066, 0, 393217, -131065, 0, 1, -131064, 0, 393217, -131063, 0, 1, -131062, 0, 393217, -131061, 0, 1, -131060, 0, 1, -131059, 0, 1, -131058, 0, 1, -131057, 0, 1, -131056, 0, 1, -131055, 0, 393217, -131054, 0, 1, -131053, 0, 1, -131052, 0, 1, -131051, 0, 1, -131050, 0, 1, -131049, 0, 1, -131048, 0, 1, -131047, 0, 393217, -131046, 0, 1, -131045, 0, 393217, -131044, 0, 393217, -131043, 0, 1, -131042, 0, 1, -131041, 0, 2, -6, 0, 65536, -5, 0, 65537, -4, 0, 65537, -3, 0, 65537, -2, 0, 65537, -1, 0, 65537, -65536, 0, 65537, -65535, 0, 65537, -65534, 0, 65537, -65533, 0, 65537, -65532, 0, 65537, -65531, 0, 65537, -65530, 0, 65537, -65529, 0, 65537, -65528, 0, 65537, -65527, 0, 65537, -65526, 0, 65537, -65525, 0, 65537, -65524, 0, 65537, -65523, 0, 65537, -65522, 0, 65537, -65521, 0, 65537, -65520, 0, 65537, -65519, 0, 65537, -65518, 0, 65537, -65517, 0, 65537, -65516, 0, 65537, -65515, 0, 65537, -65514, 0, 65537, -65513, 0, 65537, -65512, 0, 65537, -65511, 0, 65537, -65510, 0, 65537, -65509, 0, 65537, -65508, 0, 65537, -65507, 0, 65537, -65506, 0, 65537, -65505, 0, 65538, 65530, 0, 131072, 65531, 0, 262145, 65532, 0, 262145, 65533, 0, 262145, 65534, 0, 262145, 65535, 0, 262145, 0, 0, 131073, 1, 0, 262145, 2, 0, 262145, 3, 0, 262145, 4, 0, 262145, 5, 0, 262145, 6, 0, 262146, 7, 0, 65537, 8, 0, 65537, 9, 0, 65537, 10, 0, 65537, 11, 0, 65537, 12, 0, 65537, 13, 0, 65537, 14, 0, 65537, 15, 0, 262144, 16, 0, 131073, 17, 0, 131073, 18, 0, 262145, 19, 0, 262145, 20, 0, 131073, 21, 0, 262145, 22, 0, 131073, 23, 0, 131073, 24, 0, 131073, 25, 0, 262145, 26, 0, 262145, 27, 0, 262145, 28, 0, 131073, 29, 0, 262145, 30, 0, 131073, 31, 0, 131074, 65542, 0, 131072, 65543, 0, 262145, 65544, 0, 131073, 65545, 0, 131073, 65546, 0, 262145, 65547, 0, 131073, 65548, 0, 131073, 65549, 0, 131073, 65550, 0, 131073, 65551, 0, 131074 )
+
+[node name="Parallax" type="Node2D" parent="GameScenario/BG"]
+visible = false
+position = Vector2( 63.5012, 0 )
+script = ExtResource( 8 )
+enabled_in_editor = true
+motion_scale = Vector2( 0.25, 0 )
+
+[node name="PalmtreeA" type="Sprite" parent="GameScenario/BG/Parallax"]
+modulate = Color( 1, 0.968627, 0.176471, 1 )
+position = Vector2( 47.7066, -84 )
+texture = ExtResource( 10 )
+
+[node name="PalmtreeA2" type="Sprite" parent="GameScenario/BG/Parallax"]
+modulate = Color( 1, 0.968627, 0.176471, 1 )
+position = Vector2( 157.707, -58 )
+texture = ExtResource( 10 )
+
+[node name="PalmtreeA3" type="Sprite" parent="GameScenario/BG/Parallax"]
+modulate = Color( 1, 0.968627, 0.176471, 1 )
+position = Vector2( 347.707, -57 )
+texture = ExtResource( 10 )
+flip_h = true
+
+[node name="PalmtreeB" type="Sprite" parent="GameScenario/BG/Parallax"]
+modulate = Color( 1, 0.968627, 0.176471, 1 )
+position = Vector2( 439.296, -64 )
+texture = ExtResource( 13 )
+
+[node name="PalmtreeB2" type="Sprite" parent="GameScenario/BG/Parallax"]
+modulate = Color( 1, 0.968627, 0.176471, 1 )
+position = Vector2( 250.752, -64 )
+texture = ExtResource( 13 )
+flip_h = true
+
+[node name="Parallax2" type="Node2D" parent="GameScenario/BG"]
+visible = false
+modulate = Color( 0.905882, 1, 0.243137, 1 )
+position = Vector2( 25.4005, 0 )
+script = ExtResource( 8 )
+enabled_in_editor = true
+motion_scale = Vector2( 0.1, 0 )
+
+[node name="DesertRockC" type="Sprite" parent="GameScenario/BG/Parallax2"]
+position = Vector2( 387.17, -10 )
+texture = ExtResource( 11 )
+
+[node name="DesertRockC2" type="Sprite" parent="GameScenario/BG/Parallax2"]
+position = Vector2( 347.17, -2 )
+texture = ExtResource( 11 )
+
+[node name="DesertRockC3" type="Sprite" parent="GameScenario/BG/Parallax2"]
+position = Vector2( 549.764, -8 )
+texture = ExtResource( 11 )
+
+[node name="DesertRockC4" type="Sprite" parent="GameScenario/BG/Parallax2"]
+position = Vector2( 493.764, -2 )
+texture = ExtResource( 11 )
+
+[node name="DesertRockC5" type="Sprite" parent="GameScenario/BG/Parallax2"]
+position = Vector2( 472.558, -2 )
+texture = ExtResource( 11 )
+
+[node name="DesertRockC6" type="Sprite" parent="GameScenario/BG/Parallax2"]
+position = Vector2( 432.558, -2 )
+texture = ExtResource( 11 )
+
+[node name="DesertRockC7" type="Sprite" parent="GameScenario/BG/Parallax2"]
+position = Vector2( 292.828, -15 )
+texture = ExtResource( 11 )
+
+[node name="DesertRockC8" type="Sprite" parent="GameScenario/BG/Parallax2"]
+position = Vector2( 45.5993, -24 )
+texture = ExtResource( 11 )
+flip_h = true
+
+[node name="DesertRockC9" type="Sprite" parent="GameScenario/BG/Parallax2"]
+position = Vector2( 105.637, -8 )
+texture = ExtResource( 11 )
+
+[node name="DesertRockC10" type="Sprite" parent="GameScenario/BG/Parallax2"]
+position = Vector2( 208.267, -10 )
+texture = ExtResource( 11 )
+
+[node name="Top" type="Node2D" parent="GameScenario/BG"]
+
+[node name="DesertRockC" type="Sprite" parent="GameScenario/BG/Top"]
+position = Vector2( 16, -96 )
+texture = ExtResource( 11 )
+
+[node name="DesertRockC4" type="Sprite" parent="GameScenario/BG/Top"]
+position = Vector2( -11, -44 )
+texture = ExtResource( 11 )
+
+[node name="DesertRockC2" type="Sprite" parent="GameScenario/BG/Top"]
+position = Vector2( 35, -68 )
+texture = ExtResource( 11 )
+flip_h = true
+
+[node name="DesertRockC3" type="Sprite" parent="GameScenario/BG/Top"]
+position = Vector2( 32, -25 )
+texture = ExtResource( 11 )
+flip_h = true
+
+[node name="DesertRockA" type="Sprite" parent="GameScenario/BG/Top"]
+position = Vector2( 86, -34 )
+texture = ExtResource( 12 )
+
+[node name="DesertRockB" type="Sprite" parent="GameScenario/BG/Top"]
+position = Vector2( 7, -32 )
+texture = ExtResource( 14 )
+
+[node name="DesertRockB2" type="Sprite" parent="GameScenario/BG/Top"]
+position = Vector2( 271, -35 )
+texture = ExtResource( 14 )
+
+[node name="AridiahTileMap" parent="GameScenario" instance=ExtResource( 5 )]
+position = Vector2( 0, 8 )
+show_collision = true
+tile_data = PoolIntArray( -917508, 0, 0, -917507, 0, 393217, -917506, 0, 393217, -917505, 0, 1, -983040, 0, 1, -983039, 0, 1, -983038, 0, 1, -983037, 0, 1, -983036, 0, 393217, -983035, 0, 1, -983034, 0, 393217, -983033, 0, 393217, -983032, 0, 393217, -983031, 0, 393217, -983030, 0, 393217, -983029, 0, 1, -983028, 0, 1, -983027, 0, 1, -983026, 0, 393217, -983025, 0, 393217, -983024, 0, 393217, -983023, 0, 1, -983022, 0, 393217, -983021, 0, 393217, -983020, 0, 1, -983019, 0, 2, -851972, 0, 131072, -851971, 0, 131073, -851970, 0, 262145, -851969, 0, 131073, -917504, 0, 262145, -917503, 0, 262145, -917502, 0, 131073, -917501, 0, 131073, -917500, 0, 262145, -917499, 0, 131073, -917498, 0, 131073, -917497, 0, 262145, -917496, 0, 262145, -917495, 0, 262145, -917494, 0, 262145, -917493, 0, 262145, -917492, 0, 262145, -917491, 0, 262145, -917490, 0, 131073, -917489, 0, 131073, -917488, 0, 262145, -917487, 0, 131073, -917486, 0, 262146, -917485, 0, 65537, -917484, 0, 65537, -917483, 0, 327680, -851950, 0, 65536, -851949, 0, 65537, -851948, 0, 65537, -851947, 0, 65538, -786414, 0, 65536, -786413, 0, 65537, -786412, 0, 65537, -786411, 0, 65538, -720878, 0, 65536, -720877, 0, 65537, -720876, 0, 65537, -720875, 0, 65538, -655342, 0, 327682, -655341, 0, 65537, -655340, 0, 65537, -655339, 0, 327680, -589806, 0, 131072, -589805, 0, 131073, -589804, 0, 131073, -589803, 0, 131074, -458756, 0, 0, -458755, 0, 1, -458754, 0, 1, -458753, 0, 1, -524288, 0, 1, -524287, 0, 1, -524286, 0, 393217, -524285, 0, 393217, -524284, 0, 1, -524283, 0, 1, -524282, 0, 1, -524281, 0, 1, -524280, 0, 1, -524279, 0, 393217, -524278, 0, 1, -524277, 0, 1, -524276, 0, 1, -524275, 0, 1, -524274, 0, 1, -524273, 0, 2, -393220, 0, 65536, -393219, 0, 65537, -393218, 0, 65537, -393217, 0, 65537, -458752, 0, 65537, -458751, 0, 65537, -458750, 0, 65537, -458749, 0, 65537, -458748, 0, 65537, -458747, 0, 65537, -458746, 0, 65537, -458745, 0, 65537, -458744, 0, 65537, -458743, 0, 65537, -458742, 0, 65537, -458741, 0, 65537, -458740, 0, 65537, -458739, 0, 65537, -458738, 0, 65537, -458737, 0, 327680, -327684, 0, 131072, -327683, 0, 131073, -327682, 0, 262145, -327681, 0, 262145, -393216, 0, 262145, -393215, 0, 262145, -393214, 0, 131073, -393213, 0, 262145, -393212, 0, 131073, -393211, 0, 262145, -393210, 0, 262145, -393209, 0, 131073, -393208, 0, 131073, -393207, 0, 262146, -393206, 0, 65537, -393205, 0, 65537, -393204, 0, 65537, -393203, 0, 65537, -393202, 0, 65537, -393201, 0, 327680, -327671, 0, 65536, -327670, 0, 65537, -327669, 0, 65537, -327668, 0, 65537, -327667, 0, 65537, -327666, 0, 65537, -327665, 0, 327680, -262135, 0, 327682, -262134, 0, 65537, -262133, 0, 65537, -262132, 0, 65537, -262131, 0, 65537, -262130, 0, 65537, -262129, 0, 327680, -196599, 0, 327682, -196598, 0, 65537, -196597, 0, 65537, -196596, 0, 65537, -196595, 0, 65537, -196594, 0, 65537, -196593, 0, 65538, -65540, 0, 0, -65539, 0, 393217, -65538, 0, 2, -131063, 0, 65536, -131062, 0, 65537, -131061, 0, 65537, -131060, 0, 65537, -131059, 0, 65537, -131058, 0, 65537, -131057, 0, 65538, -131051, 0, 0, -131050, 0, 1, -131049, 0, 2, -4, 0, 327682, -3, 0, 65537, -2, 0, 393216, -1, 0, 393217, -65536, 0, 1, -65535, 0, 393217, -65534, 0, 393217, -65533, 0, 1, -65532, 0, 1, -65531, 0, 393217, -65530, 0, 1, -65529, 0, 393217, -65528, 0, 393217, -65527, 0, 393218, -65526, 0, 65537, -65525, 0, 65537, -65524, 0, 65537, -65523, 0, 65537, -65522, 0, 65537, -65521, 0, 393216, -65520, 0, 393217, -65519, 0, 1, -65518, 0, 1, -65517, 0, 1, -65516, 0, 1, -65515, 0, 393218, -65514, 0, 65537, -65513, 0, 65538, 65532, 0, 65536, 65533, 0, 65537, 65534, 0, 65537, 65535, 0, 65537, 0, 0, 65537, 1, 0, 65537, 2, 0, 65537, 3, 0, 65537, 4, 0, 65537, 5, 0, 65537, 6, 0, 65537, 7, 0, 65537, 8, 0, 65537, 9, 0, 65537, 10, 0, 65537, 11, 0, 65537, 12, 0, 65537, 13, 0, 65537, 14, 0, 65537, 15, 0, 65537, 16, 0, 65537, 17, 0, 65537, 18, 0, 65537, 19, 0, 65537, 20, 0, 65537, 21, 0, 65537, 22, 0, 65537, 23, 0, 327680, 131068, 0, 131072, 131069, 0, 131073, 131070, 0, 131073, 131071, 0, 262145, 65536, 0, 131073, 65537, 0, 131073, 65538, 0, 131073, 65539, 0, 131073, 65540, 0, 262145, 65541, 0, 131073, 65542, 0, 262145, 65543, 0, 262145, 65544, 0, 131073, 65545, 0, 262145, 65546, 0, 131073, 65547, 0, 131073, 65548, 0, 131073, 65549, 0, 262145, 65550, 0, 262145, 65551, 0, 131073, 65552, 0, 131073, 65553, 0, 131073, 65554, 0, 262145, 65555, 0, 131073, 65556, 0, 131073, 65557, 0, 262145, 65558, 0, 262145, 65559, 0, 131074 )
+
+[node name="NPCAlessa" parent="GameScenario" instance=ExtResource( 15 )]
+position = Vector2( 50, -16 )
+character = "Alessa"

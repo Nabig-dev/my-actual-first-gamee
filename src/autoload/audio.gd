@@ -1,10 +1,12 @@
 extends Node
 
+
 var sound_nodes: Dictionary
 
 var effects_idx: int = AudioServer.get_bus_index("Effects")
 var music_idx: int = AudioServer.get_bus_index("Music")
 var voice_idx: int = AudioServer.get_bus_index("Voice")
+
 
 var _current_music: String = "silence"
 
@@ -28,6 +30,7 @@ func _ready() -> void :
 			s.editor_description = String(s.volume_db)
 		
 		sound_nodes[s.name] = s
+
 
 func set_enabled_reverb(rev_enabled: bool = true) -> void :
 	AudioServer.set_bus_effect_enabled(
@@ -68,7 +71,18 @@ func hit_filter_audio_start(just_music_filter: bool = false) -> void :
 		voice_idx, 3, true
 	)
 
+
+
+
 	
+
+
+
+
+
+
+
+
 
 func sfx_is_playing(name_sfx: String) -> bool:
 	return sound_nodes[name_sfx].is_playing()
@@ -132,12 +146,14 @@ func stop_music(name_music: String = "all", duration_fade: float = 3.0) -> void 
 	for m in music_nodes:
 		sound_nodes[m.name].stop_all(duration_fade)
 
+
 func change_music_style(opt: String = "high") -> void :
 	if _current_music == "silence":
 		return
 	
 	if sound_nodes[_current_music].is_stopped() == false:
 		sound_nodes[_current_music].play(opt, 3.0)
+
 
 func _apply_fade(audiostream, type: String = "in", duration: float = 1) -> void :
 	
@@ -176,6 +192,7 @@ func _on_Tween_tween_completed(object: Object, key: NodePath) -> void :
 	
 	if key == "volume_db" and object is AudioStreamPlayer or AudioStreamPlayer2D and object.volume_db <= - 20.0:
 		object.stop()
+
 
 func _on_TimerHitFilterAudio_timeout() -> void :
 	AudioServer.set_bus_effect_enabled(

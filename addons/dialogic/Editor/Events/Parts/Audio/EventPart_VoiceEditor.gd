@@ -1,9 +1,13 @@
 tool 
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
+
 export (PackedScene) var audio_picker
 
+
+
 var audio_lines = 1
+
 
 func load_data(data):
 	.load_data(data)
@@ -39,6 +43,7 @@ func repopulate() -> void :
 		
 		a_picker.load_data({"file": "", "audio_bus": settings.get_value("dialog", "text_event_audio_default_bus", "Master")})
 
+
 func _on_text_changed(text: String) -> void :
 	
 	
@@ -54,6 +59,8 @@ func _on_text_changed(text: String) -> void :
 	
 	if prev_lines != audio_lines:
 		repopulate()
+
+
 
 func _get_audio_picker(index: int):
 	var data = $List.get_child(index * 2 + 1)
@@ -71,6 +78,7 @@ func _on_audio_picker_audio_loaded(data, index: int) -> void :
 	
 	
 	data_changed()
+
 
 func update_data():
 	if not event_data.has("voice_data"):

@@ -1,5 +1,6 @@
 extends Control
 
+
 var BtnImg = preload("res://src/ui_elements/gallery_img_button.tscn")
 onready var NodeTabContainer = $MarginContainer / VBoxContainer / TabContainer
 var _can_change_tabs: bool = true
@@ -60,6 +61,8 @@ func _ready() -> void :
 		).add_child(ObjInstance)
 		i += 1
 
+
+
 	focus_btnimg()
 	
 	get_node("%ClrRectLoading").visible = false
@@ -90,6 +93,7 @@ func _process(_delta: float) -> void :
 			_on_BtnRotateImage_pressed()
 		
 
+
 func load_textures(path: String) -> Dictionary:
 	
 	var files_dict: Dictionary
@@ -100,6 +104,7 @@ func load_textures(path: String) -> Dictionary:
 				f.split(".")[0]
 			] = load(path + f)
 	return files_dict
+
 
 func focus_btnimg() -> void :
 	if _btnimg_focused != null:
@@ -162,14 +167,17 @@ func _on_BtnImg_pressed(filename: String, textur: Texture, snd: bool = true) -> 
 	get_node("%BtnCloseFullView").grab_focus()
 	release_focus()
 
+
 func _on_BtnCloseFullView_pressed() -> void :
 	Audio.play_sfx("ui_cancel")
 	get_node("%ImageFull").visible = false
 	focus_btnimg()
 
+
 func _on_BtnReturn_pressed() -> void :
 	Audio.play_sfx("ui_cancel")
 	SceneChanger.change_scene("res://src/screens/main_menu.tscn")
+
 
 func _on_BtnRotateImage_pressed() -> void :
 	
@@ -179,6 +187,7 @@ func _on_BtnRotateImage_pressed() -> void :
 	else:
 		get_node("%ImageTextureFull").visible = true
 		get_node("%RectCtrlFullRotated").visible = false
+
 
 func _on_TabContainer_tab_changed(_tab: int) -> void :
 	_btnimg_focused = null

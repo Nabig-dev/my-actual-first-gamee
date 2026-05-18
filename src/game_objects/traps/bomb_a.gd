@@ -6,6 +6,7 @@ onready var Anim = $AnimationPlayer
 onready var TimerPreExplode = $TimerPreExplode
 onready var HurtBox = $HurtboxEnemySimple
 
+
 export var dir: int = 0
 
 var speed: float = 100
@@ -33,6 +34,7 @@ func _on_TimerPreExplode_timeout() -> void :
 	
 	queue_free()
 
+
 func _on_HurtboxEnemySimple_defeated() -> void :
 
 	
@@ -41,10 +43,12 @@ func _on_HurtboxEnemySimple_defeated() -> void :
 	TimerPreExplode.start(3)
 	Anim.play("pre_explode")
 
+
 func _on_Area2DDetectPlayer_area_entered(_area: Area2D) -> void :
 	if Anim.current_animation != "pre_explode":
 		_on_HurtboxEnemySimple_defeated()
 		HurtBox.queue_free()
+
 
 func _on_BombA_body_shape_entered(_body_rid: RID, _body: Node, _body_shape_index: int, _local_shape_index: int) -> void :
 	
@@ -55,6 +59,7 @@ func _on_BombA_body_shape_entered(_body_rid: RID, _body: Node, _body_shape_index
 	if Audio.sfx_is_playing("impact_shield_clang") == false:
 		Audio.play_sfx("impact_shield_clang")
 		_clang_sound += 1
+
 
 func _on_Area2DDetectPlayerNear_area_entered(_area: Area2D) -> void :
 	$TimerPreExplode.stop()

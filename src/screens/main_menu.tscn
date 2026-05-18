@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=2]
 
-[ext_resource path="res://assets/images/logos/logo_revemped_outline.png" type="Texture" id=1]
+[ext_resource path="res://assets/images/logos/logo_revamped_outline.png" type="Texture" id=1]
 [ext_resource path="res://src/gdshaders/player_vignette.gdshader" type="Shader" id=2]
 [ext_resource path="res://src/ui_elements/button_list_vertical_scroll.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/tres/ThemeBasic.tres" type="Theme" id=4]

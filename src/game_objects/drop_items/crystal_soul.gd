@@ -24,6 +24,7 @@ func _on_Area2D_area_entered(_area: Area2D) -> void :
 	VarsGlobal.GameInterface.can_pause = false
 	VarsGlobal.GameInterface.update_hud_values(false)
 
+
 func _on_TimerDelay_timeout() -> void :
 	$AnimationPlayer.play("show")
 	Audio.play_sfx("crystal_soul_generating")

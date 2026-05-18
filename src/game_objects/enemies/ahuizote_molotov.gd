@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 var Molotov = preload("res://src/game_objects/enemies_weapons/molotov.tscn")
 
+
 var velocity: = Vector2()
 
 var gravity: int = 280
@@ -17,6 +18,7 @@ onready var TimerPatrolWait = $TimerPatrolWait
 onready var TimerRepeatThrow = $TimerRepeatThrow
 onready var VisibleEnabler = $VisibilityNotifierCameraArea
 onready var TimerCoolDownFirstThrow = $TimerCoolDownFirstThrow
+
 
 func _ready() -> void :
 	start_patrol()
@@ -111,6 +113,7 @@ func _on_TimerRepeatThrow_timeout() -> void :
 
 func _on_AreaPlayerRange_object_entered(_Obj) -> void :
 	start_throw()
+
 
 func _on_DetectPlayerBack_object_entered(_Obj) -> void :
 	if Enemy.state in ["idle", "walk"]:

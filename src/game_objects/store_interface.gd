@@ -4,6 +4,7 @@ signal closed
 
 var ButtonBuy = preload("res://src/ui_elements/_store_button_buy.tscn")
 
+
 var current_func: String = "none"
 
 var current_item_btn: Control
@@ -13,7 +14,9 @@ var max_stock: int = 9
 
 var opened: bool
 
+
 var price_buy_multiplier: float = 1
+
 
 var items_store: Dictionary = {
 	"KEY_MAGIC_MEDALLION": [
@@ -161,7 +164,7 @@ func _ready() -> void :
 	
 	
 	if (
-		VarsGlobal.game_data["current_level"] <= 15
+		VarsGlobal.game_data["lvl"] <= 15
 		and VarsGlobal.game_data["cycle_game"] == 1
 		and VarsGlobal.game_data["difficulty_base"] == 1
 	):
@@ -267,7 +270,7 @@ func _get_dict_buy_items() -> Dictionary:
 					else:
 						data_item["price"] = 100
 					
-					data_item["type"] = "inventory_manager"
+					data_item["type"] = "inv"
 					dict["INV_" + str(inv_id)] = data_item
 			
 			
@@ -375,10 +378,11 @@ func _update_buy_info(clear: bool = true) -> void :
 		if current_items_bought >= current_player_stock:
 			get_node("%BtnBuyNow").disabled = false
 
+
 func _get_player_current_stock(ide_item: int, type: String) -> int:
 	var stock_return: int = 0
 	match type:
-		"inventory_manager":
+		"inv":
 			if VarsGlobal.game_data["player_inventory"].has(ide_item) == true:
 				stock_return = VarsGlobal.game_data[
 					"player_inventory"
@@ -465,6 +469,7 @@ func _on_BtnClose_pressed() -> void :
 		get_node("%BtnBuy").grab_focus()
 		get_node("%BtnClose").text = tr("CLOSE")
 
+
 func _on_BtnBuy_pressed() -> void :
 	
 	if (
@@ -483,6 +488,7 @@ func _on_BtnBuy_pressed() -> void :
 		Audio.play_sfx("ui_incorrect")
 		return
 
+
 	if current_func == "buy":
 		
 		
@@ -490,7 +496,7 @@ func _on_BtnBuy_pressed() -> void :
 			current_player_stock * current_item_btn.price
 		)
 		
-		if current_item_btn.type == "inventory_manager":
+		if current_item_btn.type == "inv":
 			for _n in range(current_player_stock):
 				if (
 					VarsGlobal.game_data["player_inventory"].keys().has(current_item_btn.ide)
@@ -515,7 +521,7 @@ func _on_BtnBuy_pressed() -> void :
 			current_player_stock * current_item_btn.price
 		)
 		
-		if current_item_btn.type == "inventory_manager":
+		if current_item_btn.type == "inv":
 			var player_stock: int = _get_player_current_stock(
 				current_item_btn.ide, 
 				current_item_btn.type

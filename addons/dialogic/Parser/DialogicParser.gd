@@ -1,6 +1,8 @@
 extends Node
 class_name DialogicParser
 
+
+
 static func parse_characters(dialog_script):
 	var characters = DialogicUtil.get_character_list()
 	var event_index: = 0
@@ -9,10 +11,39 @@ static func parse_characters(dialog_script):
 		if event.get("event_id") in ["dialogic_001", "dialogic_010"]:
 			var text: String = event.get({"dialogic_001": "text", "dialogic_010": "question"}[event.get("event_id")], "")
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		
 		event_index += 1
 
 	return dialog_script
+
+
 
 static func parse_text_lines(unparsed_dialog_script: Dictionary, preview: bool = false) -> Dictionary:
 	var parsed_dialog: Dictionary = unparsed_dialog_script
@@ -56,6 +87,8 @@ static func parse_text_lines(unparsed_dialog_script: Dictionary, preview: bool =
 
 	return parsed_dialog
 
+
+
 static func parse_definitions(current_dialog, text: String, variables: bool = true, glossary: bool = true):
 	var final_text: String = text
 	if not current_dialog.preview:
@@ -65,6 +98,8 @@ static func parse_definitions(current_dialog, text: String, variables: bool = tr
 	if glossary and current_dialog._should_show_glossary():
 		final_text = _insert_glossary_definitions(current_dialog, final_text)
 	return final_text
+
+
 
 static func parse_branches(current_dialog, dialog_script: Dictionary) -> Dictionary:
 	current_dialog.questions = []
@@ -127,6 +162,7 @@ static func parse_branches(current_dialog, dialog_script: Dictionary) -> Diction
 
 	return dialog_script
 
+
 static func parse_anchors(current_dialog):
 	current_dialog.anchors = {}
 	var idx = 0
@@ -134,6 +170,8 @@ static func parse_anchors(current_dialog):
 		if event["event_id"] == "dialogic_015":
 			current_dialog.anchors[event["id"]] = idx
 		idx += 1
+
+
 
 static func parse_alignment(current_dialog, text):
 	var alignment = current_dialog.current_theme.get_value("text", "alignment", 0)
@@ -143,6 +181,8 @@ static func parse_alignment(current_dialog, text):
 	elif alignment in [2, 5, 8]:
 		text = "[right]" + text + "[/right]"
 	return text
+
+
 
 static func _insert_variable_definitions(current_dialog, text: String):
 	var final_text: = text;
@@ -181,6 +221,7 @@ static func _insert_variable_definitions(current_dialog, text: String):
 							final_text = final_text.replace(r_string, d["value"])
 	
 	return final_text
+
 
 static func _insert_glossary_definitions(current_dialog, text: String):
 	var color = current_dialog.current_theme.get_value("definitions", "color", "#ffbebebe")

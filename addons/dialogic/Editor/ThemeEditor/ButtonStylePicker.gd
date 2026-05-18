@@ -6,6 +6,7 @@ signal picking_background(section)
 
 var real_file_path = "res://addons/dialogic/Example Assets/backgrounds/background-2.png"
 
+
 func load_style(data):
 	$TextColor / CheckBox.pressed = data[0]
 	$TextColor / ColorPickerButton.color = data[1]
@@ -21,6 +22,7 @@ func load_style(data):
 	$TextureModulation / ColorPickerButton.color = data[7]
 	
 	check_visible_buttons()
+
 
 func get_style_array():
 	var results = []
@@ -38,8 +40,10 @@ func get_style_array():
 	
 	return results
 
+
 func set_path(path):
 	$BackgroundTexture / Button.text = DialogicResources.get_filename_from_path(path)
+
 
 func check_visible_buttons():
 	$FlatBackground / ColorPickerButton.visible = $FlatBackground / CheckBox.pressed
@@ -55,18 +59,23 @@ func check_visible_buttons():
 		$TextureModulation.visible = true
 		$TextureModulationLabel.visible = true
 
+
 func _on_CheckBox_toggled(button_pressed):
 	emit_signal("style_modified", name.to_lower())
 	check_visible_buttons()
 
+
 func _on_ColorPickerButton_color_changed(color):
 	emit_signal("style_modified", name.to_lower())
+
 
 func _on_Button_pressed():
 	emit_signal("picking_background", name.to_lower())
 
+
 func _on_button_texture_selected(path, target) -> void :
 	emit_signal("style_modified", name.to_lower())
+
 
 func _on_TextColor_ColorPickerButton_color_changed(color):
 	$TextColor / CheckBox.pressed = true

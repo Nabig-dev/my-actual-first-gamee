@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/stralsund_ruins_interior.ogg-2fba6953d3b5dbf232a72d9fc3c83cd1.oggstr"
+
+[deps]
+
+source_file="res://assets/bgm/stralsund_ruins_interior.ogg"
+dest_files=[ "res://.import/stralsund_ruins_interior.ogg-2fba6953d3b5dbf232a72d9fc3c83cd1.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=49.783

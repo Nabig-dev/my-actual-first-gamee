@@ -25,10 +25,12 @@ func _weapon_impact() -> void :
 func _on_VisibilityEnabler2D_screen_exited() -> void :
 	queue_free()
 
+
 func _on_AreaDetectSolid_body_entered(_body: Node) -> void :
 	
 	
 	pass
+
 
 func _on_HitboxWeapon_area_entered(_area: Area2D) -> void :
 	

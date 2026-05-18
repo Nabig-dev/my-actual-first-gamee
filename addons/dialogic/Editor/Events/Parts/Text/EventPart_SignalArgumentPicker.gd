@@ -1,10 +1,15 @@
 tool 
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
+
+
+
 onready var input_field = $HBox / InputField
+
 
 func _ready():
 	input_field.connect("text_changed", self, "_on_InputField_text_changed")
+
 
 func load_data(data: Dictionary):
 	
@@ -12,6 +17,7 @@ func load_data(data: Dictionary):
 	
 	
 	input_field.text = event_data["emit_signal"]
+
 
 func get_preview():
 	return ""

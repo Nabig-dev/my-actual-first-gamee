@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/xandria_coff.wav-ef66e3c1284a8a05f1783f9af4b1a700.sample"
+
+[deps]
+
+source_file="res://assets/voices/xandria_coff.wav"
+dest_files=[ "res://.import/xandria_coff.wav-ef66e3c1284a8a05f1783f9af4b1a700.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

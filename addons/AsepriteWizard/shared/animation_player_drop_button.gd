@@ -9,5 +9,6 @@ func can_drop_data(_pos, data):
 		return node is AnimationPlayer
 	return false
 
+
 func drop_data(_pos, data):
 	emit_signal("node_dropped", data.nodes[0])

@@ -28,7 +28,9 @@ var themes_tree
 var settings_tree
 var documentation_tree
 
+
 var item_path_before_edit = ""
+
 
 var dragging_item = null
 var drag_preview = load("res://addons/dialogic/Editor/MasterTree/DragPreview.tscn")
@@ -136,6 +138,10 @@ func _ready():
 	
 	$AutoSave.connect("timeout", self, "_on_autosave_timeout")
 	$AutoSave.start(0.5)
+
+
+
+
 
 func build_full_tree(selected_item: String = ""):
 
@@ -270,6 +276,7 @@ func _clear_tree_children(parent: TreeItem):
 	while parent.get_children() != null:
 		parent.get_children().free()
 
+
 func build_resource_folder(parent_folder_item: TreeItem, folder_data: Dictionary, selected_item: String, folder_editor: String, resource_type: String):
 	
 	for folder in folder_data["folders"].keys():
@@ -301,6 +308,7 @@ func build_resource_folder(parent_folder_item: TreeItem, folder_data: Dictionary
 	
 	return true if (parent_folder_item.get_children() != null) else false
 
+
 func _add_folder_item(parent_item: TreeItem, folder_name: String, editor: String, meta_folder_info: Dictionary):
 	
 	var folder_item: TreeItem = tree.create_item(parent_item)
@@ -319,6 +327,7 @@ func _add_folder_item(parent_item: TreeItem, folder_name: String, editor: String
 	
 	editor_reference.editor_reference.flat_structure[parent_path + "/" + "folder_name" + "/."] = {"color": null, "folded": folder_item.collapsed}
 	return folder_item
+
 
 func _add_resource_item(resource_type, parent_item, resource_data, select):
 	resource_data["category"] = resource_type
@@ -360,20 +369,25 @@ func _add_resource_item(resource_type, parent_item, resource_data, select):
 	if select:
 		item.select(0)
 
+
+
 func build_timelines(selected_item: String = ""):
 	_clear_tree_children(timelines_tree)
 	
 	build_flat_tree_items("Timelines")
+
 
 func build_characters(selected_item: String = ""):
 	_clear_tree_children(characters_tree)
 	
 	build_flat_tree_items("Characters")
 
+
 func build_definitions(selected_item: String = ""):
 	_clear_tree_children(definitions_tree)
 	
 	build_flat_tree_items("Definitions")
+
 
 func build_themes(selected_item: String = ""):
 	_clear_tree_children(themes_tree)
@@ -392,6 +406,9 @@ func build_documentation(selected_item: String = ""):
 	$DocsTreeHelper.build_documentation_tree(self, documentation_tree, {"editor": "Documentation Root", "editable": false}, {"editor": "Documentation", "editable": false}, filter_tree_term)
 	call_deferred("update")
 	
+
+
+
 
 func _on_item_selected():
 	
@@ -454,20 +471,24 @@ func show_theme_editor():
 	hide_editors()
 	theme_editor.visible = true
 
+
 func show_settings_editor():
 	emit_signal("editor_selected", "theme")
 	hide_editors()
 	settings_editor.visible = true
+
 
 func show_documentatio_editor():
 	emit_signal("editor_selected", "documentation")
 	hide_editors()
 	documentation_viewer.visible = true
 
+
 func hide_all_editors():
 	emit_signal("editor_selected", "none")
 	hide_editors()
 	empty_editor.visible = true
+
 
 func hide_editors():
 	character_editor.visible = false
@@ -478,6 +499,10 @@ func hide_editors():
 	settings_editor.visible = false
 	documentation_viewer.visible = false
 	empty_editor.visible = false
+
+
+
+
 
 func create_rmb_context_menus():
 	
@@ -589,6 +614,9 @@ func _on_item_rmb_selected(position):
 		rmb_popup_menus[item["editor"]].rect_position = get_viewport().get_mouse_position()
 		rmb_popup_menus[item["editor"]].popup()
 
+
+
+
 func get_item_folder(item: TreeItem, root: String):
 	if not item:
 		return root
@@ -599,6 +627,7 @@ func get_item_folder(item: TreeItem, root: String):
 		return root
 	return current_path
 
+
 func get_item_path(item: TreeItem) -> Dictionary:
 	if item == null:
 		return {"path": "", "step": "0"}
@@ -606,6 +635,7 @@ func get_item_path(item: TreeItem) -> Dictionary:
 	if not "path" in item.get_metadata(0):
 		return {"path": "/", "step": "0"}
 	return {"path": item.get_metadata(0)["path"], "step": item.get_metadata(0)["step"]}
+
 
 func create_item_path_recursive(item: TreeItem, path: String) -> String:
 	
@@ -617,6 +647,9 @@ func create_item_path_recursive(item: TreeItem, path: String) -> String:
 		path = create_item_path_recursive(item.get_parent(), path)
 	return path
 
+
+
+
 func _on_TimelinePopupMenu_id_pressed(id):
 	if id == 0:
 		OS.shell_open(ProjectSettings.globalize_path(DialogicResources.get_path("TIMELINE_DIR")))
@@ -627,6 +660,8 @@ func _on_TimelinePopupMenu_id_pressed(id):
 	elif id == 3:
 		editor_reference.popup_remove_confirmation("Timeline")
 
+
+
 func _on_CharacterPopupMenu_id_pressed(id):
 	if id == 0:
 		OS.shell_open(ProjectSettings.globalize_path(DialogicResources.get_path("CHAR_DIR")))
@@ -634,6 +669,8 @@ func _on_CharacterPopupMenu_id_pressed(id):
 		OS.set_clipboard(get_selected().get_metadata(0).get("file"))
 	elif id == 2:
 		editor_reference.popup_remove_confirmation("Character")
+
+
 
 func _on_ThemePopupMenu_id_pressed(id):
 	if id == 0:
@@ -645,6 +682,8 @@ func _on_ThemePopupMenu_id_pressed(id):
 		theme_editor.duplicate_theme(filename)
 	elif id == 3:
 		editor_reference.popup_remove_confirmation("Theme")
+
+
 
 func _on_DefinitionPopupMenu_id_pressed(id):
 	if id == 0:
@@ -659,6 +698,8 @@ func _on_DefinitionPopupMenu_id_pressed(id):
 			editor_reference.popup_remove_confirmation("GlossaryEntry")
 	
 
+
+
 func _on_TimelineRootPopupMenu_id_pressed(id):
 	if id == 0:
 		new_timeline()
@@ -669,6 +710,8 @@ func _on_TimelineRootPopupMenu_id_pressed(id):
 		if get_selected().get_parent() == get_root():
 			return
 		editor_reference.get_node("RemoveFolderConfirmation").popup_centered()
+
+
 
 func _on_CharacterRootPopupMenu_id_pressed(id):
 	if id == 0:
@@ -681,6 +724,8 @@ func _on_CharacterRootPopupMenu_id_pressed(id):
 		if get_selected().get_parent() == get_root():
 			return
 		editor_reference.get_node("RemoveFolderConfirmation").popup_centered()
+
+
 
 func _on_DefinitionRootPopupMenu_id_pressed(id):
 	if id == 0:
@@ -695,6 +740,8 @@ func _on_DefinitionRootPopupMenu_id_pressed(id):
 			return
 		editor_reference.get_node("RemoveFolderConfirmation").popup_centered()
 
+
+
 func _on_ThemeRootPopupMenu_id_pressed(id):
 	if id == 0:
 		new_theme()
@@ -706,9 +753,15 @@ func _on_ThemeRootPopupMenu_id_pressed(id):
 			return
 		editor_reference.get_node("RemoveFolderConfirmation").popup_centered()
 
+
 func _on_DocumentationPopupMenu_id_pressed(id):
 	if id == 0:
 		documentation_viewer.toggle_editing()
+
+
+
+
+
 
 func new_timeline():
 	var timeline = editor_reference.get_node("MainPanel/TimelineEditor").create_timeline()
@@ -720,6 +773,10 @@ func new_timeline():
 	hide_all_editors()
 	
 
+
+
+
+
 func new_character():
 	var character = editor_reference.get_node("MainPanel/CharacterEditor").create_character()
 	var folder = {"category": "Characters", "editor": "Character Root", "name": "", "path": "", "step": 0}
@@ -729,6 +786,8 @@ func new_character():
 	build_characters(character["metadata"]["file"])
 	hide_all_editors()
 	
+
+
 
 func new_theme():
 	var theme_file = editor_reference.get_node("MainPanel/ThemeEditor").create_theme()
@@ -740,6 +799,8 @@ func new_theme():
 	hide_all_editors()
 	
 
+
+
 func new_value_definition():
 	var definition_id = editor_reference.get_node("MainPanel/ValueEditor").create_value()
 	var folder = {"category": "Definitions", "editor": "Definition Root", "name": "", "path": "", "step": 0}
@@ -750,6 +811,8 @@ func new_value_definition():
 	build_definitions(definition_id)
 	hide_all_editors()
 	
+
+
 
 func new_glossary_entry():
 	var definition_id = editor_reference.get_node("MainPanel/GlossaryEntryEditor").create_glossary_entry()
@@ -777,11 +840,16 @@ func remove_selected():
 	hide_all_editors()
 	build_flat_tree_items(folder["category"])
 
+
 func rename_selected():
 	yield(get_tree(), "idle_frame")
 	_start_rename()
 	edit_selected()
 	hide_all_editors()
+
+
+
+
 
 func can_drop_data(position, data) -> bool:
 	if tree.drop_mode_flags == DROP_MODE_DISABLED:
@@ -859,13 +927,21 @@ func _process(delta):
 			dragging_item.queue_free()
 			dragging_item = null
 
+
+
+
+
+
+
 func _on_renamer_reset_timeout():
 	get_selected().set_editable(0, false)
+
 
 func _on_gui_input(event):
 	if event is InputEventMouseButton and event.button_index == 1:
 		if event.is_pressed() and event.doubleclick:
 			_start_rename()
+
 
 func _start_rename():
 	var item = get_selected()
@@ -874,6 +950,7 @@ func _start_rename():
 		item_path_before_edit = get_item_path(item)["path"]
 		item.set_editable(0, true)
 		$RenamerReset.start(0.5)
+
 
 func _on_item_edited():
 	var item = get_selected()
@@ -920,6 +997,9 @@ func _on_item_edited():
 	hide_all_editors()
 			
 
+
+
+
 func _on_autosave_timeout():
 	save_current_resource()
 
@@ -943,6 +1023,12 @@ func save_current_resource():
 				glossary_entry_editor.save_definition()
 			
 
+
+
+
+
+
+
 func _on_filter_tree_edit_changed(value):
 	filter_tree_term = value
 	if not filter_tree_term.empty():
@@ -960,6 +1046,11 @@ func _on_filter_tree_edit_changed(value):
 	
 	
 	build_documentation()
+
+
+
+
+
 
 func select_timeline_item(timeline_name):
 	if (timeline_name == ""):
@@ -1011,6 +1102,7 @@ func select_timeline_item(timeline_name):
 	
 	hide_all_editors()
 	pass
+
 
 func select_documentation_item(docs_page_path):
 	if not $DocsTreeHelper.search_and_select_docs(documentation_tree, docs_page_path):

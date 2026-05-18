@@ -5,6 +5,7 @@ signal obtained
 export (GVar.NOTES) var text = 0
 export (int, "paper", "parchment", "letter", "book") var type = 0
 
+
 onready var Spr = $Sprite
 
 func _ready() -> void :

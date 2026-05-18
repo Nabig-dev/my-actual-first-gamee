@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+
 var Son = preload("res://src/game_objects/enemies/mocuana_dead_son.tscn")
 
 var speed: int = 50
@@ -35,6 +36,7 @@ func _physics_process(_delta: float) -> void :
 
 	velocity = move_and_slide(velocity)
 
+
 func spawn_son() -> void :
 	randomize()
 	
@@ -50,6 +52,7 @@ func _on_TimerActive_timeout() -> void :
 	Enemy.change_state("fly")
 	_is_chasing = true
 
+
 func _on_EnemyBase_state_changed(state) -> void :
 	
 	Enemy.change_direction("to_player")
@@ -63,6 +66,7 @@ func _on_EnemyBase_state_changed(state) -> void :
 		AnimPlayer2.play("fly")
 	else:
 		AnimPlayer2.play("RESET")
+
 
 func _on_TimerNewAtk_timeout() -> void :
 	if Enemy.state == "fly":
@@ -83,12 +87,15 @@ func _on_TimerNewAtk_timeout() -> void :
 		
 		velocity = velocity / Vector2(4, 4)
 
+
 func _on_TimerLloro_timeout() -> void :
 	if Enemy.state == "fly":
 		$Llorona.play()
 
+
 func _on_Mocuana_tree_exiting() -> void :
 	$Llorona.stop()
+
 
 func _on_EnemyBase_enemy_defeated(_NodeEnemy) -> void :
 	$Llorona.stop()

@@ -1,5 +1,9 @@
 extends KinematicBody2D
 
+
+
+
+
 var chasing: bool
 
 onready var Tw = $Tween
@@ -30,6 +34,7 @@ func start_chase() -> void :
 		chase_duration, Tween.TRANS_LINEAR, Tween.EASE_IN
 	)
 	Tw.start()
+
 
 func _on_TimerChase_timeout() -> void :
 	start_chase()

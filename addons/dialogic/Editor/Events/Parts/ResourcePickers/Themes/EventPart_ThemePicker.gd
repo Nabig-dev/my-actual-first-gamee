@@ -1,13 +1,17 @@
 tool 
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
+
 export (String) var default_text = "Select Theme"
 
+
 onready var picker_menu = $MenuButton
+
 
 func _ready():
 	picker_menu.connect("about_to_show", self, "_on_PickerMenu_about_to_show")
 	picker_menu.custom_icon = load("res://addons/dialogic/Images/Resources/theme.svg")
+
 
 func load_data(data: Dictionary):
 	
@@ -28,6 +32,7 @@ func select_theme():
 	else:
 		picker_menu.text = default_text
 
+
 func _on_PickerMenu_selected(index, menu):
 	event_data["set_theme"] = menu.get_item_metadata(index).get("file", "")
 	
@@ -35,6 +40,7 @@ func _on_PickerMenu_selected(index, menu):
 	
 	
 	data_changed()
+
 
 func _on_PickerMenu_about_to_show():
 	build_PickerMenu()
@@ -45,6 +51,7 @@ func build_PickerMenu():
 
 	
 	build_PickerMenuFolder(picker_menu.get_popup(), folder_structure, "MenuButton")
+
 
 func build_PickerMenuFolder(menu: PopupMenu, folder_structure: Dictionary, current_folder_name: String):
 	var index = 0

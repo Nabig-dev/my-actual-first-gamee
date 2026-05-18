@@ -10,8 +10,10 @@ var _sprite: Node
 func can_handle(object):
 	return object is AnimatedSprite or object is AnimatedSprite3D
 
+
 func parse_begin(object):
 	_sprite = object
+
 
 func parse_end():
 	var dock = AsepriteInspectorDock.instance()

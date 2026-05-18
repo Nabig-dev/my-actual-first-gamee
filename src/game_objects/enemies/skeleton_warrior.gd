@@ -2,11 +2,13 @@ extends KinematicBody2D
 
 export var only_shield: bool
 
+
 var velocity: = Vector2()
 
 var gravity: int = 250
 
 var speed: int = 50
+
 
 var _original_def: int = 0
 
@@ -36,7 +38,7 @@ func _ready() -> void :
 	TimerWalkToIdle.start(randi() % 2 + 1)
 	Enemy.change_state("walk")
 	
-	_original_def = HurtboxEnemy.defense_rating
+	_original_def = HurtboxEnemy.def
 	
 func _physics_process(delta) -> void :
 	
@@ -65,7 +67,7 @@ func _physics_process(delta) -> void :
 	):
 		if RayCastNearPlayerFront.is_colliding() or RayCastNearPlayerFront2.is_colliding():
 			velocity.x = 0
-			HurtboxEnemy.defense_rating = HurtboxEnemy.defense_rating * 4
+			HurtboxEnemy.def = HurtboxEnemy.def * 4
 			TimerIdleToWalk.stop()
 			TimerWalkToIdle.stop()
 			
@@ -75,17 +77,19 @@ func _physics_process(delta) -> void :
 			HurtboxEnemy.damage_sounds[0] = "impact_shield_clang"
 		else:
 			HurtboxEnemy.damage_sounds[0] = "enemy_damage_skeleton"
-			HurtboxEnemy.defense_rating = _original_def
+			HurtboxEnemy.def = _original_def
 
 func _whoosh_sfx() -> void :
 	Audio.play_sfx("woosh_knife")
 
+
 func _stop_defend() -> void :
 	HurtboxEnemy.damage_sounds[0] = "enemy_damage_skeleton"
-	HurtboxEnemy.defense_rating = _original_def
+	HurtboxEnemy.def = _original_def
 	
 	Enemy.change_state("idle")
 	TimerIdleToWalk.start(1)
+
 
 func _on_HurtboxEnemy_damaged() -> void :
 	if Enemy.state in ["walk", "idle"]:
@@ -123,10 +127,12 @@ func _on_TimerIdleToWalk_timeout() -> void :
 	if Enemy.state != "attack":
 		Enemy.change_state("walk")
 
+
 func _on_AreaDetectPlayerForPunch_body_entered(_body: Node) -> void :
 	if Enemy.state != "defend":
 		velocity.x = 0
 		Enemy.change_state("attack")
+
 
 func _on_EnemyBase_state_changed(state) -> void :
 	if state == "attack" and only_shield == true:

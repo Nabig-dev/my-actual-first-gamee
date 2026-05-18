@@ -1,22 +1,33 @@
 class_name InspectorControls
 extends Reference
 
+
+
+
+
+
+
 const ADD_ICON = preload("res://addons/godot-next/icons/icon_add.svg")
 
 class DropdownAppender extends HBoxContainer:
 	func get_button() -> ToolButton:
 		return get_node("ToolButton") as ToolButton
 
+
 	func get_dropdown() -> OptionButton:
 		return get_node("Dropdown") as OptionButton
+
 
 	func get_selected_label() -> String:
 		var dropdown: = get_dropdown()
 		var index: = dropdown.get_selected_id()
 		return dropdown.get_item_text(index)
 
+
 	func get_selected_meta():
 		return get_dropdown().get_selected_metadata()
+
+
 
 static func new_label(p_label: String, p_align: int = Label.ALIGN_LEFT) -> Label:
 	var label = Label.new()
@@ -24,12 +35,17 @@ static func new_label(p_label: String, p_align: int = Label.ALIGN_LEFT) -> Label
 	label.align = p_align
 	return label
 
+
+
 static func new_space(p_size: Vector2, p_horizontal_flag: int = Control.SIZE_EXPAND_FILL, p_vertical_flag: int = Control.SIZE_EXPAND_FILL) -> Control:
 	var control = Control.new()
 	control.size_flags_horizontal = p_horizontal_flag
 	control.size_flags_vertical = p_vertical_flag
 	control.rect_min_size = p_size
 	return control
+
+
+
 
 static func new_button(p_label: String, p_toggle_mode: bool = false, p_object: Object = null, p_callback: String = "") -> Button:
 	var button = Button.new()
@@ -45,6 +61,9 @@ static func new_button(p_label: String, p_toggle_mode: bool = false, p_object: O
 
 	return button
 
+
+
+
 static func new_tool_button(p_icon: Texture, p_toggle_mode: bool = false, p_object: Object = null, p_callback: String = "") -> ToolButton:
 	var button = ToolButton.new()
 	button.icon = p_icon
@@ -58,6 +77,7 @@ static func new_tool_button(p_icon: Texture, p_toggle_mode: bool = false, p_obje
 			button.connect("pressed", p_object, p_callback)
 
 	return button
+
 
 static func new_dropdown(p_elements: Dictionary, p_object: Object = null, p_callback: String = "") -> OptionButton:
 	var dropdown: = OptionButton.new()
@@ -73,6 +93,7 @@ static func new_dropdown(p_elements: Dictionary, p_object: Object = null, p_call
 		dropdown.connect("item_selected", p_object, p_callback, [dropdown])
 
 	return dropdown
+
 
 static func new_dropdown_appender(p_elements: Dictionary, p_object: Object = null, p_callback: String = "") -> DropdownAppender:
 	var dropdown_appender: = DropdownAppender.new()

@@ -1,5 +1,6 @@
 extends Node
 
+
 func handle_event(_event_data, dialog_node):
 	Gamepad.start_vibration(0, 0.8, 0.8, 0.3)
 	dialog_node.play_shake()

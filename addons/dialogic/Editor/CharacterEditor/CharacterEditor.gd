@@ -1,6 +1,10 @@
 tool 
 extends Control
 
+
+
+
+
 var editor_reference
 onready var master_tree = get_node("../MasterTreeContainer/MasterTree")
 var portrait_entry = load("res://addons/dialogic/Editor/CharacterEditor/PortraitEntry.tscn")
@@ -32,8 +36,14 @@ onready var nodes = {
 	"image_label": $Split / Preview / Background / TLabel10, 
 }
 
+
 var opened_character_data
 var selected_theme_file = ""
+
+
+
+
+
 
 func _ready():
 	editor_reference = find_parent("EditorView")
@@ -68,6 +78,7 @@ func _ready():
 	$Split / Preview / Background / PreviewMode.set_item_text(0, editor_reference.dialogicTranslator.translate("Full View"))
 	$Split / Preview / Background / PreviewMode.set_item_text(1, editor_reference.dialogicTranslator.translate("Actual Size"))
 
+
 func clear_character_editor():
 	nodes["file"].text = ""
 	nodes["name"].text = ""
@@ -94,6 +105,7 @@ func clear_character_editor():
 	nodes["portrait_preview_real"].texture = null
 	nodes["portrait_preview_real"].rect_scale = Vector2(1, 1)
 
+
 func create_character():
 	var character_file = "character-" + str(OS.get_unix_time()) + ".json"
 	var character = {
@@ -105,6 +117,11 @@ func create_character():
 	DialogicResources.set_character(character)
 	character["metadata"] = {"file": character_file}
 	return character
+
+
+
+
+
 
 func generate_character_data_to_save():
 	var portraits = []
@@ -135,11 +152,13 @@ func generate_character_data_to_save():
 	
 	return info_to_save
 
+
 func save_character():
 	var info_to_save = generate_character_data_to_save()
 	if info_to_save["id"]:
 		DialogicResources.set_character(info_to_save)
 		opened_character_data = info_to_save
+
 
 func load_character(filename: String):
 	clear_character_editor()
@@ -180,6 +199,11 @@ func load_character(filename: String):
 				current_item = create_portrait_entry(p["name"], p["path"])
 			
 
+
+
+
+
+
 func _on_PortraitSearch_text_changed(text):
 	for portrait_item in nodes["portrait_list"].get_children():
 		if text.empty() or text.to_lower() in portrait_item.get_node("NameEdit").text.to_lower() or text.to_lower() in portrait_item.get_node("PathEdit").text.to_lower():
@@ -203,6 +227,7 @@ func build_ThemePickerMenu():
 
 	
 	build_PickerMenuFolder(nodes["theme"].get_popup(), folder_structure, "MenuButton")
+
 
 func build_PickerMenuFolder(menu: PopupMenu, folder_structure: Dictionary, current_folder_name: String):
 	var index = 0
@@ -237,6 +262,7 @@ func build_PickerMenuFolder(menu: PopupMenu, folder_structure: Dictionary, curre
 	
 	return current_folder_name
 
+
 func _on_theme_selected(index, menu):
 	refresh_themes_and_select(menu.get_item_metadata(index).get("file", ""))
 	
@@ -245,6 +271,7 @@ func _on_display_name_toggled(button_pressed):
 	nodes["display_name"].visible = button_pressed
 	if button_pressed: nodes["display_name"].grab_focus()
 
+
 func _on_nickname_toggled(button_pressed):
 	nodes["nickname"].visible = button_pressed
 	if button_pressed: nodes["nickname"].grab_focus()
@@ -252,8 +279,10 @@ func _on_nickname_toggled(button_pressed):
 func is_selected(file: String):
 	return nodes["file"].text == file
 
+
 func _on_name_changed(value):
 	save_character()
+
 
 func _update_name_on_tree():
 	var item = master_tree.get_selected()
@@ -267,14 +296,19 @@ func _input(event):
 			if event.scancode == KEY_ENTER:
 				nodes["name"].release_focus()
 
+
 func _on_color_changed(color):
 	var item = master_tree.get_selected()
 	if not item == null:
 		self.set_meta("current_color", color)
 		item.set_icon_modulate(0, color)
 
+
+
+
 func _on_New_Portrait_Button_pressed():
 	create_portrait_entry("", "", true)
+
 
 func create_portrait_entry(p_name = "", path = "", grab_focus = false):
 	if grab_focus and nodes["portrait_list"].get_child_count() == 1 and nodes["portrait_list"].get_child(0).get_node("PathEdit").text == "":
@@ -297,9 +331,11 @@ func create_portrait_entry(p_name = "", path = "", grab_focus = false):
 		p._on_ButtonSelect_pressed()
 	return p
 
+
 func _on_Import_Portrait_Folder_Button_pressed():
 	editor_reference.godot_dialog("*", EditorFileDialog.MODE_OPEN_DIR)
 	editor_reference.godot_dialog_connect(self, "_on_dir_selected", "dir_selected")
+
 
 func _on_dir_selected(path, target):
 	var dir = Directory.new()
@@ -317,9 +353,11 @@ func _on_dir_selected(path, target):
 	else:
 		print("An error occurred when trying to access the path.")
 
+
 func _on_MirrorPortraitsCheckBox_toggled(button_pressed):
 	nodes["portrait_preview_full"].flip_h = button_pressed
 	nodes["portrait_preview_real"].flip_h = button_pressed
+
 
 func _on_Scale_value_changed(value):
 	

@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+
+
 var CRTShaderMaterial = preload("res://assets/tres/crt_shader_material.tres")
 
 var vhs_add: bool = false

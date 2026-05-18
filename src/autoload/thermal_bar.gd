@@ -1,5 +1,18 @@
 extends Node
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 signal started(type)
 signal value_changed(val, type)
 signal max_reached(type)
@@ -10,14 +23,20 @@ var max_value: int = 100
 
 var max_reached: bool = false
 
+
+
 var mode_stat = "add"
+
 
 var type: String = "none"
 
 onready var TimerAddStat = $TimerAddStat
 
+
 func is_active() -> bool:
 	return not TimerAddStat.is_stopped()
+
+
 
 func start(t: String = "heat", initial_value: int = 0) -> void :
 	
@@ -57,6 +76,7 @@ func reduce_bar(val: int) -> void :
 		)
 		emit_signal("value_changed", value, type)
 
+
 func _on_TimerAddStat_timeout() -> void :
 	
 	if type == "none":
@@ -79,8 +99,8 @@ func _on_TimerAddStat_timeout() -> void :
 			VarsGlobal.Player.HurtBox.reduce_hp(int(
 				VarsGlobal.game_data["player_hp_max"] * 0.05
 			))
-			if VarsGlobal.game_data["player_hp_now"] == 0 and VarsGlobal.Player.has_method("endgame"):
-				VarsGlobal.Player.endgame()
+			if VarsGlobal.game_data["player_hp_now"] == 0 and VarsGlobal.Player.has_method("death"):
+				VarsGlobal.Player.death()
 			VarsGlobal.GameInterface.update_hud_values()
 	
 	

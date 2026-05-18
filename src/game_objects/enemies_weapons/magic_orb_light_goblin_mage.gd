@@ -52,9 +52,11 @@ func _physics_process(delta: float):
 func _on_Orb1_frame_changed() -> void :
 	$Orb2.frame = $Orb1.frame
 
+
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void :
 	if anim_name == "start":
 		$AnimationPlayer.play("loop")
+
 
 func _on_TimerActive_timeout() -> void :
 	

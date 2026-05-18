@@ -2,6 +2,8 @@ extends Control
 
 signal set_changed
 
+
+
 var circuit_set_obtained: bool = false
 
 var enabled_input: bool = true
@@ -58,6 +60,7 @@ func _process(_delta: float) -> void :
 	elif Input.is_action_just_pressed("ui_focus_next"):
 		print_debug("change set")
 	
+
 
 func update_status_data() -> void :
 	var status_list: Array = []
@@ -177,8 +180,10 @@ func _on_HexaBG0_focus_entered() -> void :
 func _on_HexaBG0_focus_exited() -> void :
 	get_node("%CloseIcon").visible = false
 
+
 func _on_TimerPlayOpenSnd_timeout() -> void :
 	Audio.play_sfx("ui_open_quickmenu")
+
 
 func _on_Btn_focus_entered(nodename: String) -> void :
 	var text_use: String

@@ -1,9 +1,11 @@
 tool 
 extends LineEdit
 
+
 func set_entry(entry: Dictionary):
 	self.text = entry.source_file
 	self.hint_tooltip = _format_hint(entry)
+
 
 func _format_hint(entry: Dictionary) -> String:
 	return\

@@ -1,11 +1,17 @@
 extends Node2D
 
+
 var ColorFlatShader = preload("res://src/gdshaders/flat_color.gdshader")
 onready var Node2DMap = get_node("%NodeMap")
 onready var Cam = $Camera
 
 func _ready() -> void :
 	load_map_stage()
+
+
+
+
+
 
 func load_map_stage(nocache: bool = false) -> void :
 	
@@ -23,6 +29,7 @@ func load_map_stage(nocache: bool = false) -> void :
 		yield(get_tree(), "idle_frame")
 		Node2DMap.set_initial_data()
 
+
 func refresh_minimap_limits() -> void :
 	
 	
@@ -32,7 +39,23 @@ func refresh_minimap_limits() -> void :
 		Cam.limit_right = VarsGlobal.GameScenario.CameraNode.get_limit(2)
 		Cam.limit_bottom = VarsGlobal.GameScenario.CameraNode.get_limit(3)
 
+
+
 func add_object(_obj: Object, _colour: Color) -> void :
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	pass
 
@@ -41,6 +64,7 @@ func _apply_shader(obj: Object, colour: Color) -> void :
 	obj.material.shader = ColorFlatShader
 	obj.material.set_shader_param("active", true)
 	obj.material.set_shader_param("colour", colour)
+
 
 func _on_Timer_timeout() -> void :
 	var GridWin = VarsGlobal.GameScenario.get_node_or_null(

@@ -34,6 +34,7 @@ func _ready() -> void :
 	$HelperIconBtn.action = action_input
 	$HelperIconBtn.update_icon()
 
+
 func _input(event: InputEvent) -> void :
 	
 	
@@ -129,9 +130,52 @@ func _apply_remap(new_event: InputEvent) -> void :
 		yield(get_tree(), "idle_frame")
 		Gamepad.refresh_mapping_controller()
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 	
 	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	if type_input == "keyboard":
 		_update_godot_event(new_event)
@@ -174,6 +218,9 @@ func _update_godot_event(new_event: InputEvent, action_in: String = action_input
 					"keyboard", action_in, new_event.button_index * - 1
 				)
 
+
+
+
 			break
 	
 
@@ -210,6 +257,7 @@ func _on_Config_updated(_section: String, _key, _value) -> void :
 	_update_text()
 	$HelperIconBtn.update_icon()
 	
+
 
 func _notification(what):
 	if (

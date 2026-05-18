@@ -1,5 +1,6 @@
 extends Node2D
 
+
 func _has_ag_alloy() -> bool:
 	if VarsGlobal.game_data["player_ec_alloy_selected"][
 		VarsGlobal.game_data["player_current_set"]

@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+
 var velocity: = Vector2()
 
 var gravity: int = 450
@@ -10,8 +11,10 @@ onready var Enemy = $EnemyBase
 onready var RayCastFloorFront = $Sprite / RayCastFloorFront
 onready var AreaSeePlayer = $Sprite / AreaSeePlayer
 
+
 func _ready() -> void :
 	Enemy.change_state("idle", true)
+
 
 func _physics_process(delta: float) -> void :
 		
@@ -44,9 +47,11 @@ func _on_HurtboxEnemy_damaged() -> void :
 	if Enemy.state == "idle":
 		Enemy.change_direction("to_player")
 
+
 func _on_VisibilityNotifier2D_screen_entered() -> void :
 	if Enemy.state == "idle":
 		Enemy.change_direction("to_player")
+
 
 func _on_TimerCheckSeePlayerStart_timeout() -> void :
 	if Enemy.state == "idle" and AreaSeePlayer.is_colliding():

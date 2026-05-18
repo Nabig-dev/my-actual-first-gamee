@@ -1,5 +1,7 @@
 extends Path2D
 
+
+
 export (float, 0.1, 1) var playback_speed = 0.5
 
 export var delay_start: float = 0.0
@@ -19,6 +21,7 @@ func _ready() -> void :
 		_on_TimerDelay_timeout()
 	else:
 		$TimerDelay.start(delay_start)
+
 
 func _on_TimerDelay_timeout() -> void :
 	if curve != null:

@@ -2,6 +2,11 @@ tool
 class_name PhysicsLayers
 extends Resource
 
+
+
+
+
+
 const _PHYSICS_LAYERS_BIT: Dictionary = {}
 const _PHYSICS_2D_PREFIX = "2d_physics"
 const _PHYSICS_3D_PREFIX = "3d_physics"
@@ -19,6 +24,8 @@ static func setup() -> void :
 			var layer_key: String = prefix.plus_file(layer_name)
 			_PHYSICS_LAYERS_BIT[layer_key] = i - 1
 
+
+
 static func _get_physics_layer_index(layer_name: String) -> int:
 	if not _PHYSICS_LAYERS_BIT.has(layer_name):
 		setup()
@@ -26,12 +33,15 @@ static func _get_physics_layer_index(layer_name: String) -> int:
 	assert (_PHYSICS_LAYERS_BIT.has(layer_name))
 	return _PHYSICS_LAYERS_BIT[layer_name]
 
+
+
 static func get_physics_layer(layer_names: Array, is_layer_3d: = false) -> int:
 	var res: int = 0
 	for i in range(layer_names.size()):
 		var layer_bit: int = get_physics_layer_index(layer_names[i], is_layer_3d)
 		res |= 1 << layer_bit
 	return res
+
 
 static func get_physics_layer_index(layer_name: String, is_layer_3d: = false) -> int:
 	var res: int

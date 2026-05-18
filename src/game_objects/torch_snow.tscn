@@ -6,7 +6,7 @@
 [ext_resource path="res://assets/images/vfx/light_01.png" type="Texture" id=4]
 [ext_resource path="res://src/game_objects/area_recover_thermalbar.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/sprites/props/torch_blue.png" type="Texture" id=6]
-[ext_resource path="res://assets/sprites/bg_decoration/the_sinkhole_deco.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/bg_decoration/eztilia_deco.png" type="Texture" id=7]
 
 [sub_resource type="AtlasTexture" id=74]
 atlas = ExtResource( 6 )

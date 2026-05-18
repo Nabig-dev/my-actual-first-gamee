@@ -2,6 +2,12 @@ tool
 class_name PropertyInfo
 extends Reference
 
+
+
+
+
+
+
 var name: String
 var type: int
 var hint: int
@@ -15,6 +21,7 @@ func _init(p_name: String = "", p_type: int = TYPE_NIL, p_hint: int = PROPERTY_H
 	hint_string = p_hint_string
 	usage = p_usage
 
+
 func to_dict() -> Dictionary:
 	return {
 		"name": name, 
@@ -23,4 +30,5 @@ func to_dict() -> Dictionary:
 		"hint_string": hint_string, 
 		"usage": usage
 	}
+
 

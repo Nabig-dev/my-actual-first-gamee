@@ -1,12 +1,16 @@
 tool 
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
+
+
+
 onready var title_input = $Title / Input
 onready var title_check = $Title / Check
 onready var text_input = $Text / Input
 onready var text_check = $Text / Check
 onready var extra_input = $Extra / Input
 onready var extra_check = $Extra / Check
+
 
 func _ready():
 	title_input.connect("text_changed", self, "_on_TitleField_text_changed")
@@ -16,6 +20,8 @@ func _ready():
 	title_check.connect("toggled", self, "_on_TitleCheck_toggled")
 	text_check.connect("toggled", self, "_on_TextCheck_toggled")
 	extra_check.connect("toggled", self, "_on_ExtraCheck_toggled")
+
+
 
 func load_data(data: Dictionary):
 	
@@ -61,6 +67,7 @@ func load_data(data: Dictionary):
 		extra_check.pressed = false
 		extra_input.text = event_data["extra"]
 	
+
 
 func get_preview():
 	if event_data["glossary_id"]:

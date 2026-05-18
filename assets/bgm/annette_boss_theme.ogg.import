@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/annette_boss_theme.ogg-f64b3bddb316b9a3da38e916bbe95c4a.oggstr"
+
+[deps]
+
+source_file="res://assets/bgm/annette_boss_theme.ogg"
+dest_files=[ "res://.import/annette_boss_theme.ogg-f64b3bddb316b9a3da38e916bbe95c4a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=25.726

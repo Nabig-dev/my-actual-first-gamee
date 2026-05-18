@@ -1,15 +1,20 @@
 tool 
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
+
+
 export (bool) var allow_no_character: = false
+
 
 onready var picker_menu = $HBox / MenuButton
 onready var no_character_button = $NoCharacterContainer / NoCharacterButton
 onready var no_character_container = $NoCharacterContainer
 
+
 var no_character_icon
 var all_characters_icon
 var single_character_icon
+
 
 func _ready():
 	if DialogicUtil.get_character_list().size() > 0:
@@ -38,6 +43,7 @@ func _ready():
 	single_character_icon = load("res://addons/dialogic/Images/Resources/character.svg")
 	
 
+
 func load_data(data: Dictionary):
 	
 	.load_data(data)
@@ -46,8 +52,12 @@ func load_data(data: Dictionary):
 	
 	update_to_character()
 
+
+
 func get_preview():
 	return ""
+
+
 
 func update_to_character():
 	if event_data["character"] != "":
@@ -70,6 +80,7 @@ func update_to_character():
 			picker_menu.custom_icon = single_character_icon
 		picker_menu.reset_modulation()
 
+
 func _on_PickerMenu_selected(index, menu):
 	var metadata = menu.get_item_metadata(index)
 	if event_data["character"] != metadata.get("file", ""):
@@ -85,8 +96,10 @@ func _on_PickerMenu_selected(index, menu):
 	
 	data_changed()
 
+
 func _on_PickerMenu_about_to_show():
 	build_PickerMenu()
+
 
 func build_PickerMenu():
 	picker_menu.get_popup().clear()
@@ -94,6 +107,8 @@ func build_PickerMenu():
 
 	
 	build_PickerMenuFolder(picker_menu.get_popup(), folder_structure, "MenuButton")
+
+
 
 func build_PickerMenuFolder(menu: PopupMenu, folder_structure: Dictionary, current_folder_name: String):
 	var index = 0

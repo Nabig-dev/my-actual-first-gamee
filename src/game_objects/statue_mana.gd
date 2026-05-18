@@ -1,5 +1,8 @@
 extends Node2D
 
+
+
+
 var Mana = preload("res://src/game_objects/drop_items/mana.tscn")
 
 var _mana_instance: Object = null
@@ -40,11 +43,13 @@ func _on_AreaDetectPlayer_body_exited(_body: Node) -> void :
 	TimerSpawn.stop()
 	HelperIconBtn.visible = false
 
+
 func _on_TimerSpawn_timeout() -> void :
 	_mana_instance = Mana.instance()
 	_mana_instance.mana_double = true
 	_mana_instance.global_position = ManaPosition.global_position
 	VarsGlobal.GameScenario.add_child(_mana_instance)
+
 
 func _on_HurtboxEnemySimple_damaged() -> void :
 	SpriteStatue.frame += 1
@@ -57,6 +62,9 @@ func _on_HurtboxEnemySimple_defeated() -> void :
 	VarsGlobal.game_data["player_hp_now"] = VarsGlobal.game_data["player_hp_max"]
 	VarsGlobal.GameInterface.update_hud_values()
 	Notification.show_notif(tr("HEALTH_RECOVERED"))
+
+
+
 
 func _on_InteractableArea2DIndicator_interact_requested() -> void :
 	pass

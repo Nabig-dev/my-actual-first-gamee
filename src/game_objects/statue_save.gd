@@ -7,6 +7,7 @@ export var inverse: bool = false
 var _saved: bool
 var _player_entered: bool
 
+
 func _ready() -> void :
 	
 	VarsGlobal.GameInterface.enabled_quicksave = false
@@ -69,6 +70,7 @@ func save_game() -> void :
 		Notification.show_notif(tr("GAME_SAVED"))
 	else:
 		Notification.show_notif("Error Saving: " + str(err))
+
 
 func _on_InteractableArea2DIndicator_interact_requested() -> void :
 	if (
