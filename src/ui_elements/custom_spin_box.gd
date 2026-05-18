@@ -44,7 +44,6 @@ func _on_BtnUp_pressed() -> void :
 	emit_signal("value_changed", current_value)
 	_update_label()
 
-
 func _on_CustomSpinBox_focus_entered() -> void :
 	_is_focused = true
 	get_node("%LblFocusInd").visible = true

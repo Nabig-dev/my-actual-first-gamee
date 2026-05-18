@@ -1,0 +1,389 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://src/gdshaders/color_manipulation.gdshader" type="Shader" id=1]
+[ext_resource path="res://src/game_objects/characters/playable_character.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/game_objects/game_scenario.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game_objects/game_interface.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/game_objects/grid_window_size.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/game_objects/backgrounds/normal_sky.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/game_objects/camera_limit.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/game_objects/tilemaps/solid/tilemap_swamp_forest.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/sprites/misc/rachel_in_chair.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/props/herb.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/props/grass_and_rocks.png" type="Texture" id=11]
+[ext_resource path="res://addons/nklbdev.parallax/Parallax.gd" type="Script" id=12]
+[ext_resource path="res://assets/sprites/props/summer_tree_7.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/bg/plains/foreground.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/props/summer_tree_5.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/props/summer_tree_1.png" type="Texture" id=16]
+[ext_resource path="res://src/game_objects/tilemaps/solid/tilemap_building_32px.tscn" type="PackedScene" id=17]
+[ext_resource path="res://src/game_objects/room_changer.tscn" type="PackedScene" id=19]
+[ext_resource path="res://src/game_objects/tilemaps/background/area_connection.png" type="Texture" id=20]
+[ext_resource path="res://assets/sprites/bg_decoration/village_a_interior.png" type="Texture" id=21]
+[ext_resource path="res://assets/sprites/props/eldralis_tree.png" type="Texture" id=22]
+[ext_resource path="res://src/game_objects/light2d_custom.tscn" type="PackedScene" id=23]
+[ext_resource path="res://assets/images/vfx/light4.png" type="Texture" id=24]
+[ext_resource path="res://stages/oota/the_core/library_garden.gd" type="Script" id=25]
+[ext_resource path="res://src/game_objects/interactable_area2d_indicator.tscn" type="PackedScene" id=26]
+[ext_resource path="res://src/game_objects/store_interface.tscn" type="PackedScene" id=27]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 1 )
+shader_param/brightness = 0.0
+shader_param/contrast = 1.143
+shader_param/saturation = 1.0
+shader_param/redVal = 1.0
+shader_param/greenVal = 1.0
+shader_param/blueVal = 1.0
+shader_param/tint_color = Color( 1, 1, 1, 1 )
+shader_param/tint_effect_factor = 0.0
+
+[sub_resource type="CanvasItemMaterial" id=4]
+blend_mode = 1
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/brightness = 0.284
+shader_param/contrast = 1.59
+shader_param/saturation = 1.0
+shader_param/redVal = 1.0
+shader_param/greenVal = 1.0
+shader_param/blueVal = 1.0
+shader_param/tint_color = Color( 1, 1, 1, 1 )
+shader_param/tint_effect_factor = 0.0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 32, 10 )
+
+[node name="Node" type="Node"]
+script = ExtResource( 25 )
+
+[node name="GameInterface" parent="." instance=ExtResource( 4 )]
+enabled_quicksave = false
+
+[node name="GameScenario" parent="." instance=ExtResource( 3 )]
+
+[node name="NormalSky" parent="GameScenario" instance=ExtResource( 6 )]
+
+[node name="ParallaxLayer2" parent="GameScenario/NormalSky" index="0"]
+modulate = Color( 0.858824, 0.858824, 0.858824, 1 )
+
+[node name="ParallaxLayer" parent="GameScenario/NormalSky" index="1"]
+modulate = Color( 0.858824, 0.858824, 0.858824, 1 )
+
+[node name="ParallaxLayer3" parent="GameScenario/NormalSky" index="2"]
+modulate = Color( 0.858824, 0.858824, 0.858824, 1 )
+
+[node name="ParallaxLayer4" parent="GameScenario/NormalSky" index="3"]
+modulate = Color( 0.858824, 0.858824, 0.858824, 1 )
+
+[node name="Node2D" type="Node2D" parent="GameScenario"]
+
+[node name="Parallax2" type="Node2D" parent="GameScenario/Node2D"]
+modulate = Color( 0.905882, 0.905882, 0.905882, 1 )
+position = Vector2( 226.131, 0 )
+script = ExtResource( 12 )
+enabled_in_editor = true
+motion_scale = Vector2( 0.45, 0 )
+
+[node name="Foreground" type="Sprite" parent="GameScenario/Node2D/Parallax2"]
+material = SubResource( 2 )
+position = Vector2( -209.849, -110 )
+texture = ExtResource( 14 )
+
+[node name="Foreground2" type="Sprite" parent="GameScenario/Node2D/Parallax2"]
+material = SubResource( 2 )
+position = Vector2( 173.335, -110 )
+texture = ExtResource( 14 )
+
+[node name="Foreground3" type="Sprite" parent="GameScenario/Node2D/Parallax2"]
+material = SubResource( 2 )
+position = Vector2( 557.132, -110 )
+texture = ExtResource( 14 )
+
+[node name="Foreground4" type="Sprite" parent="GameScenario/Node2D/Parallax2"]
+material = SubResource( 2 )
+position = Vector2( 940.904, -110 )
+texture = ExtResource( 14 )
+
+[node name="Parallax3" type="Node2D" parent="GameScenario/Node2D"]
+position = Vector2( 125.628, 0 )
+script = ExtResource( 12 )
+enabled_in_editor = true
+motion_scale = Vector2( 0.25, 0 )
+
+[node name="GrassAndRocks" type="Sprite" parent="GameScenario/Node2D/Parallax3"]
+position = Vector2( 31.6243, -40 )
+texture = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 48, 32 )
+
+[node name="GrassAndRocks2" type="Sprite" parent="GameScenario/Node2D/Parallax3"]
+position = Vector2( 296.158, -48 )
+texture = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 48, 32 )
+
+[node name="GrassAndRocks3" type="Sprite" parent="GameScenario/Node2D/Parallax3"]
+position = Vector2( 471.927, -36 )
+texture = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 48, 32 )
+
+[node name="GrassAndRocks4" type="Sprite" parent="GameScenario/Node2D/Parallax3"]
+position = Vector2( 573.779, -48 )
+texture = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 48, 32 )
+
+[node name="GrassAndRocks5" type="Sprite" parent="GameScenario/Node2D/Parallax3"]
+position = Vector2( 597.779, -48 )
+texture = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 48, 32 )
+
+[node name="GrassAndRocks6" type="Sprite" parent="GameScenario/Node2D/Parallax3"]
+position = Vector2( 57.0625, -48 )
+texture = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 48, 32 )
+
+[node name="GrassAndRocks7" type="Sprite" parent="GameScenario/Node2D/Parallax3"]
+position = Vector2( 235.063, -48 )
+texture = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 48, 32 )
+
+[node name="GrassAndRocks8" type="Sprite" parent="GameScenario/Node2D/Parallax3"]
+position = Vector2( 176.063, -40 )
+texture = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 48, 32 )
+
+[node name="GrassAndRocks9" type="Sprite" parent="GameScenario/Node2D/Parallax3"]
+position = Vector2( 355.875, -40 )
+texture = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 48, 32 )
+
+[node name="SummerTree7" type="Sprite" parent="GameScenario/Node2D/Parallax3"]
+visible = false
+modulate = Color( 1, 0.901961, 0.717647, 1 )
+position = Vector2( 415.688, -97 )
+texture = ExtResource( 13 )
+
+[node name="SummerTree1" type="Sprite" parent="GameScenario/Node2D/Parallax3"]
+visible = false
+modulate = Color( 1, 0.901961, 0.717647, 1 )
+position = Vector2( 128.594, -96 )
+texture = ExtResource( 16 )
+
+[node name="SummerTree5" type="Sprite" parent="GameScenario/Node2D/Parallax3"]
+visible = false
+modulate = Color( 1, 0.901961, 0.717647, 1 )
+position = Vector2( 610.366, -96 )
+texture = ExtResource( 15 )
+
+[node name="SummerTree6" type="Sprite" parent="GameScenario/Node2D/Parallax3"]
+visible = false
+modulate = Color( 1, 0.901961, 0.717647, 1 )
+position = Vector2( 419.2, -264 )
+texture = ExtResource( 15 )
+
+[node name="EldralisTree" type="Sprite" parent="GameScenario/Node2D/Parallax3"]
+light_mask = 3
+position = Vector2( 110.639, -130 )
+texture = ExtResource( 22 )
+
+[node name="EldralisTree2" type="Sprite" parent="GameScenario/Node2D/Parallax3"]
+light_mask = 3
+position = Vector2( 294.456, -130 )
+texture = ExtResource( 22 )
+
+[node name="EldralisTree3" type="Sprite" parent="GameScenario/Node2D/Parallax3"]
+light_mask = 3
+position = Vector2( 458.347, -130 )
+texture = ExtResource( 22 )
+
+[node name="Parallax" type="Node2D" parent="GameScenario/Node2D"]
+position = Vector2( 25.1257, 0 )
+script = ExtResource( 12 )
+enabled_in_editor = true
+motion_scale = Vector2( 0.05, 0 )
+
+[node name="GrassFlowers" type="Sprite" parent="GameScenario/Node2D/Parallax"]
+position = Vector2( 387.732, -48 )
+texture = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 48, 0, 48, 32 )
+
+[node name="GrassFlowers2" type="Sprite" parent="GameScenario/Node2D/Parallax"]
+position = Vector2( 189.732, -48 )
+texture = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 48, 0, 48, 32 )
+
+[node name="GrassFlowers3" type="Sprite" parent="GameScenario/Node2D/Parallax"]
+position = Vector2( 207.732, -40 )
+texture = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 48, 0, 48, 32 )
+
+[node name="GrassFlowers4" type="Sprite" parent="GameScenario/Node2D/Parallax"]
+position = Vector2( 483.732, -40 )
+texture = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 48, 0, 48, 32 )
+
+[node name="GrassFlowers5" type="Sprite" parent="GameScenario/Node2D/Parallax"]
+position = Vector2( 459.732, -40 )
+texture = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 48, 0, 48, 32 )
+
+[node name="GrassFlowers6" type="Sprite" parent="GameScenario/Node2D/Parallax"]
+position = Vector2( 603.732, -48 )
+texture = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 48, 0, 48, 32 )
+
+[node name="GrassFlowers7" type="Sprite" parent="GameScenario/Node2D/Parallax"]
+position = Vector2( 289.732, -40 )
+texture = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 48, 0, 48, 32 )
+
+[node name="Herb" type="Sprite" parent="GameScenario/Node2D/Parallax"]
+position = Vector2( 85.7324, -56 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 144, 96, 32, 48 )
+
+[node name="Herb2" type="Sprite" parent="GameScenario/Node2D/Parallax"]
+position = Vector2( 344.732, -56 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 144, 96, 32, 48 )
+
+[node name="Herb3" type="Sprite" parent="GameScenario/Node2D/Parallax"]
+position = Vector2( 256.732, -48 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 144, 208, 32, 32 )
+
+[node name="Herb4" type="Sprite" parent="GameScenario/Node2D/Parallax"]
+position = Vector2( 579.732, -48 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 144, 208, 32, 32 )
+
+[node name="Herb5" type="Sprite" parent="GameScenario/Node2D/Parallax"]
+position = Vector2( 675.732, -48 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 336, 240, 32, 48 )
+
+[node name="Herb6" type="Sprite" parent="GameScenario/Node2D/Parallax"]
+position = Vector2( 144.732, -56 )
+texture = ExtResource( 10 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 336, 240, 32, 48 )
+
+[node name="AreaConnection" type="Sprite" parent="GameScenario/Node2D"]
+position = Vector2( -352, 156 )
+texture = ExtResource( 20 )
+flip_h = true
+
+[node name="EldralisTree" type="Sprite" parent="GameScenario/Node2D"]
+modulate = Color( 0.737255, 1, 0.729412, 1 )
+light_mask = 3
+position = Vector2( 625, -120 )
+texture = ExtResource( 22 )
+
+[node name="Light4" type="Sprite" parent="GameScenario/Node2D"]
+modulate = Color( 1, 0.92549, 0.72549, 0.4 )
+material = SubResource( 4 )
+position = Vector2( 496, -152 )
+rotation = 0.560251
+scale = Vector2( 0.433424, 1.62766 )
+z_index = 5
+texture = ExtResource( 24 )
+
+[node name="Light5" type="Sprite" parent="GameScenario/Node2D"]
+modulate = Color( 1, 0.92549, 0.72549, 0.4 )
+material = SubResource( 4 )
+position = Vector2( 280, -88 )
+rotation = 0.560251
+scale = Vector2( 0.433424, 1.62766 )
+z_index = 5
+texture = ExtResource( 24 )
+
+[node name="Light6" type="Sprite" parent="GameScenario/Node2D"]
+modulate = Color( 1, 0.92549, 0.72549, 0.4 )
+material = SubResource( 4 )
+position = Vector2( 100, -108 )
+rotation = 0.560251
+scale = Vector2( 0.433424, 1.62766 )
+z_index = 5
+texture = ExtResource( 24 )
+
+[node name="VillageAInterior2" type="Sprite" parent="GameScenario"]
+position = Vector2( 553, -49 )
+texture = ExtResource( 21 )
+region_enabled = true
+region_rect = Rect2( 1008, 512, 64, 48 )
+
+[node name="TileMapSwampForest" parent="GameScenario" instance=ExtResource( 8 )]
+material = SubResource( 1 )
+tile_data = PoolIntArray( -1048535, 1, 0, -1048534, 1, 3, -1048533, 1, 262147, -1048532, 1, 6, -917509, 1, 0, -917508, 1, 4, -917507, 1, 2, -917506, 1, 3, -917505, 1, 5, -983040, 1, 2, -983039, 1, 1, -983038, 1, 4, -983037, 1, 5, -983036, 1, 4, -983035, 1, 3, -983034, 1, 3, -983033, 1, 262147, -983032, 1, 2, -983031, 1, 1, -983030, 1, 5, -983029, 1, 5, -983028, 1, 262147, -983027, 1, 3, -983026, 1, 4, -983025, 1, 262147, -983024, 1, 262147, -983023, 1, 262147, -983022, 1, 4, -983021, 1, 4, -983020, 1, 4, -983019, 1, 1, -983018, 1, 5, -983017, 1, 3, -983016, 1, 2, -983015, 1, 2, -983014, 1, 4, -983013, 1, 2, -983012, 1, 1, -983011, 1, 2, -983010, 1, 4, -983009, 1, 3, -983008, 1, 1, -983007, 1, 1, -983006, 1, 2, -983005, 1, 3, -983004, 1, 2, -983003, 1, 4, -983002, 1, 3, -983001, 1, 5, -983000, 1, 262147, -982999, 1, 262148, -982998, 1, 196609, -982997, 1, 196609, -982996, 1, 262146, -982995, 1, 262147, -982994, 1, 6, -851973, 1, 327680, -851972, 1, 131075, -851971, 1, 327681, -851970, 1, 327684, -851969, 1, 327683, -917504, 1, 327683, -917503, 1, 327683, -917502, 1, 131075, -917501, 1, 131075, -917500, 1, 327681, -917499, 1, 131075, -917498, 1, 327684, -917497, 1, 327684, -917496, 1, 131075, -917495, 1, 327684, -917494, 1, 327684, -917493, 1, 327684, -917492, 1, 327683, -917491, 1, 327683, -917490, 1, 327684, -917489, 1, 327684, -917488, 1, 327681, -917487, 1, 131075, -917486, 1, 327681, -917485, 1, 327681, -917484, 1, 327684, -917483, 1, 131075, -917482, 1, 327683, -917481, 1, 131075, -917480, 1, 327684, -917479, 1, 327683, -917478, 1, 327683, -917477, 1, 131075, -917476, 1, 131075, -917475, 1, 327684, -917474, 1, 131075, -917473, 1, 131075, -917472, 1, 327684, -917471, 1, 327684, -917470, 1, 327681, -917469, 1, 327684, -917468, 1, 327684, -917467, 1, 131075, -917466, 1, 131075, -917465, 1, 131075, -917464, 1, 327683, -917463, 1, 131076, -917462, 1, 65537, -917461, 1, 262149, -917460, 1, 65540, -917459, 1, 131077, -917458, 1, 262146, -917457, 1, 6, -851927, 1, 131072, -851926, 1, 196613, -851925, 1, 65537, -851924, 1, 65539, -851923, 1, 65537, -851922, 1, 196609, -851921, 1, 65542, -786391, 1, 65536, -786390, 1, 262149, -786389, 1, 196609, -786388, 1, 262149, -786387, 1, 131073, -786386, 1, 65537, -786385, 1, 196610, -720855, 1, 65536, -720854, 1, 65540, -720853, 1, 65538, -720852, 1, 65541, -720851, 1, 196613, -720850, 1, 196609, -720849, 1, 196614, -655319, 1, 65536, -655318, 1, 65537, -655317, 1, 65540, -655316, 1, 196609, -655315, 1, 65539, -655314, 1, 262149, -655313, 1, 196614, -589783, 1, 262144, -589782, 1, 131073, -589781, 1, 65537, -589780, 1, 65540, -589779, 1, 65540, -589778, 1, 65538, -589777, 1, 196614, -524247, 1, 65536, -524246, 1, 65537, -524245, 1, 65541, -524244, 1, 196613, -524243, 1, 65539, -524242, 1, 65541, -524241, 1, 262150, -458711, 1, 196608, -458710, 1, 65538, -458709, 1, 65541, -458708, 1, 65538, -458707, 1, 196609, -458706, 1, 65537, -458705, 1, 65542, -393175, 1, 262144, -393174, 1, 262149, -393173, 1, 262149, -393172, 1, 65538, -393171, 1, 65538, -393170, 1, 65540, -393169, 1, 196610, -327639, 1, 262144, -327638, 1, 65538, -327637, 1, 65541, -327636, 1, 262145, -327635, 1, 65539, -327634, 1, 196609, -327633, 1, 196614, -262103, 1, 196608, -262102, 1, 262149, -262101, 1, 196609, -262100, 1, 65541, -262099, 1, 131073, -262098, 1, 65541, -262097, 1, 196610, -131075, 9, 0, -131074, 9, 2, -131073, 9, 3, -196608, 9, 2, -196607, 9, 1, -196606, 9, 2, -196605, 9, 1, -196604, 9, 1, -196603, 9, 1, -196602, 9, 1, -196601, 9, 3, -196600, 9, 2, -196599, 9, 3, -196598, 9, 3, -196597, 9, 3, -196596, 9, 1, -196595, 9, 2, -196594, 9, 2, -196593, 9, 1, -196592, 9, 3, -196591, 9, 1, -196590, 9, 3, -196589, 9, 2, -196588, 9, 1, -196587, 9, 2, -196586, 9, 1, -196585, 9, 1, -196584, 9, 1, -196583, 9, 3, -196582, 9, 3, -196581, 9, 2, -196580, 9, 1, -196579, 9, 2, -196578, 9, 2, -196577, 9, 3, -196576, 9, 3, -196575, 9, 1, -196574, 9, 2, -196573, 9, 3, -196572, 9, 3, -196571, 9, 2, -196570, 9, 1, -196569, 9, 3, -196568, 9, 4, -196567, 1, 196612, -196566, 1, 65537, -196565, 1, 262149, -196564, 1, 65537, -196563, 1, 65537, -196562, 1, 262145, -196561, 1, 65542, -65540, 1, 0, -65539, 1, 1, -65538, 1, 262147, -65537, 1, 4, -131072, 1, 262147, -131071, 1, 5, -131070, 1, 5, -131069, 1, 262147, -131068, 1, 3, -131067, 1, 3, -131066, 1, 2, -131065, 1, 262147, -131064, 1, 2, -131063, 1, 2, -131062, 1, 5, -131061, 1, 262147, -131060, 1, 3, -131059, 1, 2, -131058, 1, 262147, -131057, 1, 3, -131056, 1, 3, -131055, 1, 3, -131054, 1, 262147, -131053, 1, 4, -131052, 1, 4, -131051, 1, 5, -131050, 1, 2, -131049, 1, 2, -131048, 1, 1, -131047, 1, 4, -131046, 1, 262147, -131045, 1, 262147, -131044, 1, 3, -131043, 1, 3, -131042, 1, 3, -131041, 1, 3, -131040, 1, 4, -131039, 1, 262147, -131038, 1, 262147, -131037, 1, 1, -131036, 1, 5, -131035, 1, 262147, -131034, 1, 262147, -131033, 1, 3, -131032, 1, 3, -131031, 1, 262148, -131030, 1, 65541, -131029, 1, 65540, -131028, 1, 65538, -131027, 1, 131077, -131026, 1, 196613, -131025, 1, 131078, -4, 1, 65536, -3, 1, 131077, -2, 1, 65538, -1, 1, 65539, -65536, 1, 131073, -65535, 1, 196609, -65534, 1, 65539, -65533, 1, 196613, -65532, 1, 65539, -65531, 1, 65539, -65530, 1, 65537, -65529, 1, 65538, -65528, 1, 65541, -65527, 1, 65541, -65526, 1, 65540, -65525, 1, 131073, -65524, 1, 65537, -65523, 1, 65537, -65522, 1, 65539, -65521, 1, 196613, -65520, 1, 196613, -65519, 1, 65539, -65518, 1, 131077, -65517, 1, 131077, -65516, 1, 131073, -65515, 1, 196609, -65514, 1, 196609, -65513, 1, 196609, -65512, 1, 65539, -65511, 1, 262149, -65510, 1, 65540, -65509, 1, 131077, -65508, 1, 65539, -65507, 1, 131077, -65506, 1, 65539, -65505, 1, 131077, -65504, 1, 65539, -65503, 1, 196613, -65502, 1, 65540, -65501, 1, 196613, -65500, 1, 262149, -65499, 1, 131077, -65498, 1, 65540, -65497, 1, 65537, -65496, 1, 65540, -65495, 1, 262149, -65494, 1, 262149, -65493, 1, 65537, -65492, 1, 262145, -65491, 1, 65538, -65490, 1, 65541, -65489, 1, 131078, 65532, 1, 196608, 65533, 1, 131077, 65534, 1, 131077, 65535, 1, 196613, 0, 1, 65538, 1, 1, 131077, 2, 1, 262149, 3, 1, 65539, 4, 1, 131077, 5, 1, 196609, 6, 1, 65538, 7, 1, 65540, 8, 1, 196613, 9, 1, 65540, 10, 1, 65538, 11, 1, 65541, 12, 1, 196609, 13, 1, 65537, 14, 1, 196613, 15, 1, 196609, 16, 1, 131077, 17, 1, 65537, 18, 1, 65537, 19, 1, 196609, 20, 1, 65538, 21, 1, 65537, 22, 1, 65537, 23, 1, 131077, 24, 1, 65541, 25, 1, 65540, 26, 1, 131073, 27, 1, 262145, 28, 1, 65538, 29, 1, 196613, 30, 1, 131077, 31, 1, 65537, 32, 1, 262149, 33, 1, 196609, 34, 1, 262149, 35, 1, 65537, 36, 1, 65540, 37, 1, 196613, 38, 1, 65538, 39, 1, 65541, 40, 1, 65537, 41, 1, 262145, 42, 1, 131077, 43, 1, 65541, 44, 1, 65538, 45, 1, 262149, 46, 1, 65538, 47, 1, 131078, 131068, 1, 327680, 131069, 1, 327681, 131070, 1, 327681, 131071, 1, 327681, 65536, 1, 131075, 65537, 1, 327683, 65538, 1, 327684, 65539, 1, 327683, 65540, 1, 327683, 65541, 1, 131075, 65542, 1, 327681, 65543, 1, 327684, 65544, 1, 327681, 65545, 1, 327684, 65546, 1, 327684, 65547, 1, 327681, 65548, 1, 131075, 65549, 1, 327683, 65550, 1, 327681, 65551, 1, 327683, 65552, 1, 327683, 65553, 1, 327684, 65554, 1, 327684, 65555, 1, 131075, 65556, 1, 131075, 65557, 1, 131075, 65558, 1, 327683, 65559, 1, 327683, 65560, 1, 131075, 65561, 1, 327684, 65562, 1, 327681, 65563, 1, 131075, 65564, 1, 131075, 65565, 1, 327683, 65566, 1, 131075, 65567, 1, 327684, 65568, 1, 131075, 65569, 1, 327683, 65570, 1, 327683, 65571, 1, 131075, 65572, 1, 327681, 65573, 1, 327683, 65574, 1, 131075, 65575, 1, 327684, 65576, 1, 131075, 65577, 1, 327681, 65578, 1, 327681, 65579, 1, 327681, 65580, 1, 327683, 65581, 1, 327684, 65582, 1, 327681, 65583, 1, 327686 )
+
+[node name="TileMapBuilding" parent="GameScenario" instance=ExtResource( 17 )]
+show_collision = true
+tile_data = PoolIntArray( -458754, 2, 0, -458753, 2, 2, -524288, 2, 3, -393218, 2, 65536, -393217, 2, 65538, -458752, 2, 65539, -327682, 2, 65536, -327681, 2, 65538, -393216, 2, 65539, -262146, 2, 131072, -262145, 2, 131073, -327680, 2, 131075, -65538, 2, 0, -65537, 2, 2, -131072, 2, 1, -131071, 2, 2, -131070, 2, 3, -2, 2, 65536, -1, 2, 65537, -65536, 2, 65537, -65535, 2, 65537, -65534, 2, 65539, 65534, 2, 131072, 65535, 2, 131073, 0, 2, 131074, 1, 2, 131073, 2, 2, 131075 )
+
+[node name="RoomChanger" parent="GameScenario" instance=ExtResource( 19 )]
+position = Vector2( 0, -60 )
+scale = Vector2( -1, 1 )
+direction = 2
+identifier = "dl"
+id_destination = "dr"
+path_destination = "res://stages/oota/the_core/library.tscn"
+
+[node name="PlayableCharacter" parent="GameScenario" instance=ExtResource( 2 )]
+position = Vector2( 16, -60 )
+
+[node name="RachelInChair" type="Sprite" parent="GameScenario"]
+position = Vector2( 591, -63 )
+texture = ExtResource( 9 )
+
+[node name="Light2DCustom" parent="GameScenario" instance=ExtResource( 23 )]
+position = Vector2( 592, -104 )
+rotation = 0.319395
+texture = ExtResource( 24 )
+color = Color( 0.584314, 0.972549, 0.156863, 1 )
+range_item_cull_mask = 2
+
+[node name="CameraLimit" parent="GameScenario" instance=ExtResource( 7 )]
+visible = false
+margin_top = -200.0
+margin_right = 682.0
+margin_bottom = -8.0
+
+[node name="GridWindowSize" parent="GameScenario/CameraLimit" instance=ExtResource( 5 )]
+margin_right = 682.0
+horizontal = 2
+
+[node name="InteractableArea2DIndicator" parent="GameScenario" instance=ExtResource( 26 )]
+position = Vector2( 590, -37 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScenario/InteractableArea2DIndicator"]
+position = Vector2( -44, 0 )
+shape = SubResource( 3 )
+
+[node name="StoreInterface" parent="." instance=ExtResource( 27 )]
+
+[connection signal="interact_requested" from="GameScenario/InteractableArea2DIndicator" to="." method="_on_InteractableArea2DIndicator_interact_requested"]
+[connection signal="closed" from="StoreInterface" to="." method="_on_CircuitsImproveInterface_closed"]
+
+[editable path="GameScenario/NormalSky"]

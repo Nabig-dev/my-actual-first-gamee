@@ -1,12 +1,8 @@
 tool 
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
-
-
-
 onready var slot_picker = $MenuButton
 onready var custom_slot = $CustomSlot
-
 
 func _ready():
 	custom_slot.connect("text_changed", self, "_on_CustomSlot_text_changed")
@@ -15,7 +11,6 @@ func _ready():
 	slot_picker.get_popup().add_icon_item(get_icon("Save", "EditorIcons"), "Default slot")
 	slot_picker.get_popup().add_icon_item(get_icon("Tools", "EditorIcons"), "Custom slot")
 	slot_picker.custom_icon = get_icon("Save", "EditorIcons")
-
 
 func load_data(data: Dictionary):
 	
@@ -44,7 +39,6 @@ func on_SlotPicker_index_pressed(index):
 	
 	
 	data_changed()
-
 
 func _on_CustomSlot_text_changed(text):
 	event_data["custom_slot"] = text

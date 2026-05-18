@@ -18,12 +18,6 @@ func _ready() -> void :
 		AnimP.play_backwards("spin")
 	
 
-
-
-
-
-
-
 	
 	var arc_height = target_position.y - global_position.y - 64
 	
@@ -55,7 +49,6 @@ func _on_HurtboxEnemy_defeated() -> void :
 	Audio.play_sfx("explosion_clean")
 	set_physics_process(false)
 	AnimP.play("explosion")
-
 
 func _on_AreaDetectSolid_body_entered(body: Node) -> void :
 	if body == VarsGlobal.Player:

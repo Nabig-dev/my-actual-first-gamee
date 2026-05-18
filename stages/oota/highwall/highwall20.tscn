@@ -1,0 +1,145 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://src/game_objects/game_scenario.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/game_objects/tilemaps/highwall_ruins.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/game_objects/camera_limit.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game_objects/characters/playable_character.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/game_objects/game_interface.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/game_objects/tilemaps/background/tilemap_walls_32px.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/game_objects/backgrounds/fog_parallax.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/game_objects/backgrounds/highwall_desolated_bg.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/game_objects/door.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/game_objects/statue_save.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/sprites/props/pipe_wall.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/props/pipe_long.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/props/pipe_small.png" type="Texture" id=13]
+[ext_resource path="res://src/game_objects/room_changer.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/sprites/props/pipes_brown_tiles.png" type="Texture" id=15]
+[ext_resource path="res://src/game_objects/drop_items/item_inventory.tscn" type="PackedScene" id=16]
+
+[sub_resource type="TileSet" id=1]
+0/name = "pipes_brown_tiles.png 0"
+0/texture = ExtResource( 15 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 32 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "pipes_brown_tiles.png 1"
+1/texture = ExtResource( 15 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 80, 0, 64, 32 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "pipes_brown_tiles.png 2"
+2/texture = ExtResource( 15 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 160, 0, 64, 32 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+
+[node name="Node" type="Node"]
+
+[node name="GameInterface" parent="." instance=ExtResource( 5 )]
+
+[node name="GameScenario" parent="." instance=ExtResource( 1 )]
+music = "stralsund_ruins"
+low_music_mode = true
+
+[node name="StralsundDesolatedBG" parent="GameScenario" instance=ExtResource( 8 )]
+
+[node name="FogParallax" parent="GameScenario" instance=ExtResource( 7 )]
+layer = -1
+modulate = Color( 0.176471, 0.109804, 0.0509804, 0.219608 )
+
+[node name="PipeWall" type="Sprite" parent="GameScenario"]
+position = Vector2( 112, -192 )
+z_index = -1
+texture = ExtResource( 11 )
+
+[node name="PipeWall2" type="Sprite" parent="GameScenario"]
+position = Vector2( 146, -120 )
+z_index = -1
+texture = ExtResource( 13 )
+
+[node name="PipeWall3" type="Sprite" parent="GameScenario"]
+position = Vector2( 336, -136 )
+z_index = -1
+texture = ExtResource( 12 )
+
+[node name="RoomChanger" parent="GameScenario" instance=ExtResource( 14 )]
+position = Vector2( 0, -96 )
+scale = Vector2( -1, 1 )
+direction = 2
+identifier = "dl"
+id_destination = "dr"
+path_destination = "res://stages/oota/highwall/stralsund19.tscn"
+
+[node name="RoomChanger2" parent="GameScenario" instance=ExtResource( 14 )]
+position = Vector2( 341, -128 )
+identifier = "dr"
+id_destination = "dl"
+path_destination = "res://stages/oota/highwall/stralsund_boss_adeptis.tscn"
+
+[node name="PlayableCharacter" parent="GameScenario" instance=ExtResource( 4 )]
+position = Vector2( 208, -128 )
+
+[node name="CameraLimit" parent="GameScenario" instance=ExtResource( 3 )]
+margin_top = -255.0
+margin_bottom = -63.0
+
+[node name="TileMapPipe" type="TileMap" parent="GameScenario"]
+modulate = Color( 0.478431, 0.909804, 0.85098, 1 )
+position = Vector2( -1, 34 )
+z_index = -1
+tile_set = SubResource( 1 )
+format = 1
+tile_data = PoolIntArray( -196607, 0, 0, -196606, 0, 0, -196605, 0, 0, -196604, 0, 0, -196603, 0, 0, -196602, 0, 0, -65537, 0, 0, -131072, 0, 0, -131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 2, 0, -131066, 1, 0, -131065, 0, 0, -131064, 0, 0, -131063, 1, 0, -131062, 0, 0, -131061, 0, 0 )
+
+[node name="TileMapWalls" parent="GameScenario" instance=ExtResource( 6 )]
+z_index = -1
+tile_data = PoolIntArray( -655357, 0, 0, -655356, 0, 1, -655355, 0, 65539, -655354, 0, 65539, -589822, 0, 0, -589821, 0, 131079, -589820, 0, 131073, -589819, 0, 131076, -524287, 0, 0, -524286, 0, 65539, -524285, 0, 262147, -524284, 0, 262147, -524283, 0, 262148, -393218, 0, 0, -393217, 0, 1, -458752, 0, 3, -458751, 0, 131079, -458750, 0, 196612, -327683, 0, 0, -327682, 0, 131079, -327681, 0, 131075, -393216, 0, 131075, -393215, 0, 196611, -393214, 0, 65540, -262147, 0, 65536, -262146, 0, 196609, -262145, 0, 65539, -327680, 0, 196610, -327679, 0, 65539, -327678, 0, 131077, -327677, 0, 4, -196611, 0, 65536, -196610, 0, 131073, -196609, 0, 65538, -262144, 0, 196609, -262143, 0, 196610, -262142, 0, 131074, -262141, 0, 196612, -131075, 0, 131072, -131074, 0, 196609, -131073, 0, 5, -196608, 0, 6, -196607, 0, 7, -196606, 0, 131073, -196605, 0, 65541, -65539, 0, 262144, -65538, 0, 262147, -65537, 0, 262148, -131071, 0, 262144, -131070, 0, 6, -131069, 0, 262148 )
+
+[node name="StralsundRuinsTileMap" parent="GameScenario" instance=ExtResource( 2 )]
+z_index = -1
+tile_data = PoolIntArray( -1310716, 0, 0, -1310715, 0, 4, -1245183, 0, 0, -1245182, 0, 1, -1245181, 0, 2, -1245180, 0, 196614, -1245179, 0, 196613, -1245178, 0, 2, -1245177, 0, 4, -1114115, 0, 0, -1114114, 0, 2, -1114113, 0, 1, -1179648, 0, 1, -1179647, 0, 196614, -1179646, 0, 65538, -1179645, 0, 131075, -1179644, 0, 65539, -1179643, 0, 131075, -1179642, 0, 131075, -1179641, 0, 196613, -1179640, 0, 1, -1179639, 0, 1, -1179638, 0, 1, -1179637, 0, 2, -1179636, 0, 2, -1179635, 0, 2, -1179634, 0, 3, -1179633, 0, 1, -1179632, 0, 2, -1179631, 0, 3, -1179630, 0, 1, -1179629, 0, 2, -1179628, 0, 2, -1179627, 0, 3, -1179626, 0, 2, -1179625, 0, 2, -1179624, 0, 4, -1048580, 0, 0, -1048579, 0, 196614, -1048578, 0, 65538, -1048577, 0, 65538, -1114112, 0, 65537, -1114111, 0, 65538, -1114110, 0, 131075, -1114109, 0, 65537, -1114108, 0, 131075, -1114107, 0, 131073, -1114106, 0, 131073, -1114105, 0, 65539, -1114104, 0, 131077, -1114103, 0, 196609, -1114102, 0, 196609, -1114101, 0, 196609, -1114100, 0, 196609, -1114099, 0, 196609, -1114098, 0, 196609, -1114097, 0, 196609, -1114096, 0, 196609, -1114095, 0, 196609, -1114094, 0, 196609, -1114093, 0, 196609, -1114092, 0, 196609, -1114091, 0, 196609, -1114090, 0, 196609, -1114089, 0, 196609, -1114088, 0, 196612, -983044, 0, 131072, -983043, 0, 65537, -983042, 0, 65539, -983041, 0, 65538, -1048576, 0, 65538, -1048575, 0, 65537, -1048574, 0, 131075, -1048573, 0, 131075, -1048572, 0, 131075, -1048571, 0, 131075, -1048570, 0, 131077, -1048569, 0, 196609, -1048568, 0, 196612, -917509, 0, 2, -917508, 0, 2, -917507, 0, 65538, -917506, 0, 65539, -917505, 0, 65538, -983040, 0, 65537, -983039, 0, 131075, -983038, 0, 65539, -983037, 0, 65537, -983036, 0, 65538, -983035, 0, 131077, -983034, 0, 196612, -851972, 0, 131072, -851971, 0, 65539, -851970, 0, 65537, -851969, 0, 65538, -917504, 0, 131075, -917503, 0, 131075, -917502, 0, 65538, -917501, 0, 131075, -917500, 0, 131077, -917499, 0, 196612, -786437, 0, 2, -786436, 0, 2, -786435, 0, 131075, -786434, 0, 131075, -786433, 0, 65539, -851968, 0, 65538, -851967, 0, 131077, -851966, 0, 196609, -851965, 0, 196609, -851964, 0, 196612, -720900, 0, 65536, -720899, 0, 131075, -720898, 0, 131075, -720897, 0, 131075, -786432, 0, 131075, -786431, 0, 131076, -655364, 0, 131072, -655363, 0, 65539, -655362, 0, 65537, -655361, 0, 65539, -720896, 0, 131073, -720895, 0, 65540, -589828, 0, 196608, -589827, 0, 196609, -589826, 0, 196609, -589825, 0, 196609, -655360, 0, 196609, -655359, 0, 196612, -589805, 5, 1, -524281, 0, 0, -524280, 0, 2, -524279, 0, 1, -524278, 0, 2, -524277, 0, 2, -524276, 0, 1, -524275, 0, 1, -524274, 0, 1, -524273, 0, 2, -524272, 0, 1, -524271, 0, 2, -524270, 0, 1, -524269, 0, 3, -524268, 0, 1, -524267, 0, 1, -524266, 0, 1, -524265, 0, 4, -393219, 1, 0, -393218, 1, 3, -393217, 1, 3, -458752, 1, 3, -458751, 1, 3, -458750, 1, 3, -458749, 1, 1, -458748, 1, 2, -458747, 1, 2, -458746, 1, 4, -458745, 0, 131072, -458744, 0, 65539, -458743, 0, 65538, -458742, 0, 65537, -458741, 0, 65539, -458740, 0, 131075, -458739, 0, 65539, -458738, 0, 65538, -458737, 0, 65539, -458736, 0, 131075, -458735, 0, 131075, -458734, 0, 65539, -458733, 0, 65539, -458732, 0, 131075, -458731, 0, 131075, -458730, 0, 65538, -458729, 0, 131076, -327683, 0, 0, -327682, 0, 3, -327681, 0, 2, -393216, 0, 3, -393215, 0, 2, -393214, 0, 2, -393213, 0, 1, -393212, 0, 2, -393211, 0, 2, -393210, 0, 2, -393209, 0, 196614, -393208, 0, 65537, -393207, 0, 65537, -393206, 0, 65539, -393205, 0, 131075, -393204, 0, 65539, -393203, 0, 65539, -393202, 0, 131075, -393201, 0, 131075, -393200, 0, 65539, -393199, 0, 65538, -393198, 0, 131075, -393197, 0, 65539, -393196, 0, 65538, -393195, 0, 131075, -393194, 0, 65539, -393193, 0, 131076, -262147, 0, 131072, -262146, 0, 131075, -262145, 0, 131075, -327680, 0, 65538, -327679, 0, 65538, -327678, 0, 65539, -327677, 0, 65539, -327676, 0, 65538, -327675, 0, 65538, -327674, 0, 65539, -327673, 0, 65539, -327672, 0, 65538, -327671, 0, 65538, -327670, 0, 65539, -327669, 0, 131075, -327668, 0, 65539, -327667, 0, 65539, -327666, 0, 65538, -327665, 0, 131075, -327664, 0, 131075, -327663, 0, 131075, -327662, 0, 131075, -327661, 0, 65537, -327660, 0, 65538, -327659, 0, 65537, -327658, 0, 131075, -327657, 0, 65540, -196611, 0, 196608, -196610, 0, 196609, -196609, 0, 196609, -262144, 0, 196609, -262143, 0, 196609, -262142, 0, 196609, -262141, 0, 196609, -262140, 0, 196609, -262139, 0, 196609, -262138, 0, 196609, -262137, 0, 196609, -262136, 0, 196609, -262135, 0, 196609, -262134, 0, 196609, -262133, 0, 196609, -262132, 0, 196609, -262131, 0, 196609, -262130, 0, 196609, -262129, 0, 196609, -262128, 0, 196609, -262127, 0, 196609, -262126, 0, 196609, -262125, 0, 196609, -262124, 0, 196609, -262123, 0, 196609, -262122, 0, 196609, -262121, 0, 196612 )
+
+[node name="DoorBoss" parent="GameScenario" instance=ExtResource( 9 )]
+position = Vector2( 312, -128 )
+type_door = 0
+door_locked = false
+ide_boss = "boss_alessandro1"
+
+[node name="StralsundRuinsTileMap2" parent="GameScenario" instance=ExtResource( 2 )]
+tile_data = PoolIntArray( -1245165, 0, 0, -1245164, 0, 1, -1245163, 0, 3, -1245162, 0, 4, -1179629, 0, 65536, -1179628, 0, 65539, -1179627, 0, 65539, -1179626, 0, 65540, -1114093, 0, 131072, -1114092, 0, 65539, -1114091, 0, 65537, -1114090, 0, 65540, -1048557, 0, 65536, -1048556, 0, 65539, -1048555, 0, 65537, -1048554, 0, 65540, -983021, 0, 65536, -983020, 0, 131073, -983019, 0, 65539, -983018, 0, 65540, -917485, 0, 131072, -917484, 0, 65539, -917483, 0, 131075, -917482, 0, 65540, -851949, 0, 196608, -851948, 0, 196609, -851947, 0, 196609, -851946, 0, 196612, -589817, 5, 0, -589816, 5, 2, -589815, 5, 1, -589814, 5, 1, -589813, 5, 2, -589812, 5, 2, -589811, 5, 2, -589810, 5, 2, -589809, 5, 2, -589808, 5, 2, -589807, 5, 2, -589806, 5, 2, -589804, 5, 2, -589803, 5, 2, -589802, 5, 2, -589801, 5, 2, -589800, 5, 3, -524281, 4, 0, -524280, 4, 2, -524279, 4, 2, -524278, 4, 2, -524277, 4, 1, -524276, 4, 1, -524275, 4, 2, -524274, 4, 2, -524273, 4, 2, -524272, 4, 1, -524271, 4, 2, -524270, 4, 1, -524269, 4, 2, -524268, 4, 1, -524267, 4, 1, -524266, 4, 2, -524265, 4, 2, -524264, 4, 3, -458734, 0, 131075, -458733, 0, 131075, -458732, 0, 131075, -393198, 0, 131075, -393197, 0, 131075, -393196, 0, 131075, -327662, 0, 131075, -327661, 0, 131075, -327660, 0, 131075, -327659, 0, 131075 )
+
+[node name="StatueSave" parent="GameScenario" instance=ExtResource( 10 )]
+position = Vector2( 208, -128 )
+
+[node name="ItemInventory" parent="GameScenario" instance=ExtResource( 16 )]
+position = Vector2( 285, -128 )
+ide = "150907a5-f9a2-4dc3-a4e0-916f4e33db02"
+item = 11

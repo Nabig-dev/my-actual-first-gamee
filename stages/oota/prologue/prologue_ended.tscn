@@ -2,8 +2,8 @@
 
 [ext_resource path="res://assets/tres/fonts/alkemikal_small.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/tres/ThemeBasic.tres" type="Theme" id=2]
-[ext_resource path="res://assets/images/logos/logo_revamped_outline.png" type="Texture" id=3]
-[ext_resource path="res://assets/images/artwork/bloody_xandria.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/logos/logo_revemped_outline.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/artwork/bloody_nabig.png" type="Texture" id=4]
 [ext_resource path="res://src/ui_elements/social_buttons.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/ui_elements/helper_icon_btn.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/sprites/social_icons/playstore.png" type="Texture" id=7]

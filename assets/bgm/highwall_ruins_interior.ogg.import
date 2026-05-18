@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/highwall_ruins_interior.ogg-260fd44aa9c9222d7a55056dd141a891.oggstr"
+
+[deps]
+
+source_file="res://assets/bgm/highwall_ruins_interior.ogg"
+dest_files=[ "res://.import/highwall_ruins_interior.ogg-260fd44aa9c9222d7a55056dd141a891.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=49.783

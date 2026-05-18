@@ -1,15 +1,10 @@
 tool 
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
-
-
-
 onready var texture_rect = $Box / TextureRect
-
 
 func _ready():
 	pass
-
 
 func load_data(data: Dictionary):
 	
@@ -26,7 +21,6 @@ func load_data(data: Dictionary):
 				editor_reference.editor_interface.get_resource_previewer().queue_resource_preview(event_data["background"], self, "show_scene_preview", null)
 	else:
 		emit_signal("request_set_body_enabled", false)
-
 
 func get_preview():
 	return ""

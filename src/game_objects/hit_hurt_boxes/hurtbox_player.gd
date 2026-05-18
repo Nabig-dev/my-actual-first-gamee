@@ -2,8 +2,6 @@ extends Area2D
 
 var BloodSpurt = preload("res://src/game_objects/vfx/blood_spurt.tscn")
 
-
-
 var damage_multiplier: float = 1
 
 onready var TimerCoolDownDamage = $TimerCoolDownDamage
@@ -24,11 +22,6 @@ func reduce_hp(val: int) -> void :
 	VarsGlobal.GameScenario.show_damage_number(
 		val, global_position - Vector2(0, 25), "red"
 	)
-
-
-
-
-
 
 func _apply_floor_damage(add_neg_status: int = - 1) -> void :
 	
@@ -71,14 +64,13 @@ func _apply_floor_damage(add_neg_status: int = - 1) -> void :
 		VarsGlobal.GameInterface.update_hud_values(false)
 	
 	
-	if VarsGlobal.game_data["player_hp_now"] == 0 and parent.has_method("death"):
-		parent.death()
+	if VarsGlobal.game_data["player_hp_now"] == 0 and parent.has_method("endgame"):
+		parent.endgame()
 	
 	
 	
 	if parent.has_method("hurt"):
 		parent.hurt(2, AreaFoo)
-
 
 func _on_HurtBoxPlayer_area_entered(area: Area2D) -> void :
 	
@@ -104,7 +96,7 @@ func _on_HurtBoxPlayer_area_entered(area: Area2D) -> void :
 	
 	var damage: int = 0
 	
-	var player_def: = VarsGlobal.get_stat("def")
+	var player_def: = VarsGlobal.get_stat("defense_rating")
 	
 	
 	var data_enemy: Dictionary
@@ -122,7 +114,7 @@ func _on_HurtBoxPlayer_area_entered(area: Area2D) -> void :
 		data_enemy = CSVDBLoader.get_db("enemies_weapons")
 	
 	
-	damage = data_enemy[area.identifier]["atk"]
+	damage = data_enemy[area.identifier]["attack_power"]
 	
 	
 	
@@ -244,8 +236,8 @@ func _on_HurtBoxPlayer_area_entered(area: Area2D) -> void :
 	if (
 		VarsGlobal.game_data["player_hp_now"] == 0
 		or equip_accesory_ide == GVar.EQUIPMENT.DEMONSLAYERARMOR
-	) and parent.has_method("death"):
-		parent.death()
+	) and parent.has_method("endgame"):
+		parent.endgame()
 
 	
 	
@@ -279,7 +271,6 @@ func _on_HurtBoxPlayer_area_entered(area: Area2D) -> void :
 			VarsGlobal.game_data["player_injured"] = true
 			VarsGlobal.GameInterface.start_timers_negative_status()
 			VarsGlobal.GameInterface.update_hud_values(false)
-
 
 func _on_HurtBoxPlayer_body_entered(body: Node) -> void :
 	if body.is_in_group("damage_floor"):

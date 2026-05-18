@@ -29,10 +29,8 @@ func look_at_target():
 	
 	$Sprite.set_rotation(angle_to_target)
 
-
 func _on_HurtboxEnemy_defeated() -> void :
 	queue_free()
-
 
 func _on_VisibilityNotifier2D_screen_exited() -> void :
 	queue_free()

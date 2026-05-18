@@ -43,7 +43,6 @@ func reload_project_board(_project_board):
 	load_project_board(_active_project_board)
 	_project_board.queue_free()
 
-
 func load_project_board(_project_board):
 	
 	var project_board = pages[1].scene.instance()
@@ -74,7 +73,6 @@ func _on_Project_board_updated(_project_board):
 func _on_Project_board_list_created(_project_board, _list_data):
 	dbms.add_list_to_project_board(_project_board, _list_data)
 	reload_project_board(_project_board)
-
 
 func _on_StartPage_project_board_added(_project_board_data) -> void :
 	var _projects = dbms.add_project_board(_project_board_data)

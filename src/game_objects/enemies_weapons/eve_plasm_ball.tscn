@@ -1,0 +1,123 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/sprites/weapons_enemies/eve_plasmball.png" type="Texture" id=1]
+[ext_resource path="res://src/game_objects/enemies_weapons/eve_plasm_ball.gd" type="Script" id=2]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hurtbox_enemy_simple.tscn" type="PackedScene" id=3]
+
+[sub_resource type="PhysicsMaterial" id=2]
+bounce = 0.3
+
+[sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:collision_mask")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "collision"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:collision_mask")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 9 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "nocollision"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:collision_mask")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 15.02
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 18.71
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.530682 ), -1.56084, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=9]
+offsets = PoolRealArray( 0, 0.546012, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[node name="EvaPlasmBall" type="RigidBody2D" groups=["atk_eva"]]
+collision_layer = 8
+physics_material_override = SubResource( 2 )
+gravity_scale = 4.0
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="EvaPlasmball" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 3 )
+anims/collision = SubResource( 4 )
+anims/nocollision = SubResource( 7 )
+
+[node name="HurtboxEnemySimple" parent="." instance=ExtResource( 3 )]
+sprite_flash = NodePath("../EvaPlasmball")
+max_hits = 1
+damage_sounds = [ "damage_slash" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxEnemySimple"]
+shape = SubResource( 5 )
+
+[node name="Area2DDetectPlayer" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DDetectPlayer"]
+shape = SubResource( 6 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2( 0, -6 )
+emitting = false
+amount = 50
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 1.0
+texture = ExtResource( 1 )
+direction = Vector2( 0, -1 )
+spread = 127.35
+initial_velocity = 150.0
+initial_velocity_random = 1.0
+angular_velocity = 720.0
+angular_velocity_random = 1.0
+linear_accel = 1.24
+angle = 720.0
+scale_amount = 0.5
+scale_amount_curve = SubResource( 8 )
+color_ramp = SubResource( 9 )
+
+[connection signal="defeated" from="HurtboxEnemySimple" to="." method="_on_HurtboxEnemySimple_defeated"]
+[connection signal="area_entered" from="Area2DDetectPlayer" to="." method="_on_Area2DDetectPlayer_area_entered"]

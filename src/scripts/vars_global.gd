@@ -1,6 +1,5 @@
 extends Node
 
-
 var GameScenario = null
 
 var GameInterface = null
@@ -11,12 +10,9 @@ var selected_slot: int = 0
 
 var selected_stage: String = "oota"
 
-
-var current_player_char: String = "xandria"
-
+var current_player_char: String = "nabig"
 
 var respawned_savestatue_no_hp_item: bool
-
 
 var current_building_door: String
 
@@ -24,12 +20,10 @@ var current_room_changer: String
 
 var game_data: Dictionary
 
-
 var flags: Array
 
 func _ready()->void :
 	reset_data()
-
 
 func has_item_inv(itemid: int)->bool:
 	
@@ -55,8 +49,6 @@ func set_diff_stats(diff: int = 1)->void :
 			VarsGlobal.game_data["price_buy"] = 1.5
 	VarsGlobal.game_data["difficulty_base"] = diff
 
-
-
 func add_flag(flag: String, type: int = 0)->void :
 	if has_flag(flag, type) == false:
 		if type == 0:
@@ -72,7 +64,6 @@ func erase_flag(flag: String, type: int = 0)->void :
 		else :
 			flags.erase(flag)
 
-
 func has_flag(flag: String, type: int = 0)->bool:
 	if type == 0:
 		return game_data["flags"].has(flag)
@@ -83,9 +74,9 @@ func reset_data()->void :
 	current_room_changer = ""
 	current_building_door = ""
 	game_data = {
-		"character": "xandria", 
+		"character": "nabig", 
 		"player_facing": 1, 
-		"lvl": 1, 
+		"current_level": 1, 
 		"exp": 0, 
 		"player_hp_now": 50, 
 		"player_hp_max": 50, 
@@ -121,7 +112,7 @@ func reset_data()->void :
 		"player_ec_action": [], 
 		"player_ec_ability": [], 
 		"player_ec_subweapon": [], 
-		"save_name": "XANDRIA", 
+		"save_name": "nabig", 
 		"current_room": "", 
 		"current_room_path": "", 
 		"current_area_title": "", 
@@ -144,8 +135,6 @@ func reset_data()->void :
 		"enemies_deaths": {}
 	}
 
-
-
 func add_exp(expval: int)->bool:
 	
 	var max_lvl: int = 20
@@ -154,7 +143,7 @@ func add_exp(expval: int)->bool:
 		max_lvl = 255
 	
 	
-	if expval <= 0 or game_data["lvl"] >= max_lvl:
+	if expval <= 0 or game_data["current_level"] >= max_lvl:
 		return false
 	
 	
@@ -166,14 +155,14 @@ func add_exp(expval: int)->bool:
 	
 	var exp_next: int = get_exp_required()
 	
-	var lvl: int = game_data["lvl"]
+	var current_level: int = game_data["current_level"]
 	
 	
 	while exp_acum >= exp_next:
 		
 		lvlup = true
 		
-		if lvl < max_lvl:
+		if current_level < max_lvl:
 			
 			game_data["player_hp_max"] += 10
 			game_data["player_mp_max"] += 5
@@ -183,7 +172,7 @@ func add_exp(expval: int)->bool:
 			game_data["player_def"] += 1
 			game_data["player_int"] += 1
 			
-			lvl += 1
+			current_level += 1
 		
 		exp_acum -= exp_next
 		
@@ -191,10 +180,9 @@ func add_exp(expval: int)->bool:
 	
 	
 	game_data["exp"] = exp_total + expval
-	game_data["lvl"] = lvl
+	game_data["current_level"] = current_level
 	
 	return lvlup
-
 
 func get_version_status()->String:
 	var ver_st: String = "stable"
@@ -206,26 +194,20 @@ func get_version_status()->String:
 		ver_st = "beta"
 	return ver_st
 
-
-
 func get_exp_next()->int:
 	
 	var next_exp: int = get_exp_required()
 	var now_exp: int = game_data["exp"]
 	return next_exp - now_exp
 
-
 func get_exp_required()->int:
-	var lvlnow: int = game_data["lvl"] + 1
+	var lvlnow: int = game_data["current_level"] + 1
 	
 	
 	
 	
 	var exp_required: int = 2 * lvlnow + 5 * pow(lvlnow, 2) + 3 * pow(lvlnow, 3)
 	return exp_required
-
-
-
 
 func get_stat(stat: String, get_val: int = 2, ret_zero_neg: bool = true)->int:
 	var equip_sheet = CSVDBLoader.get_db("equipment_objects")
@@ -261,7 +243,7 @@ func get_stat(stat: String, get_val: int = 2, ret_zero_neg: bool = true)->int:
 	
 	
 	if (
-		stat == "atk"
+		stat == "attack_power"
 		 and get_tree().get_nodes_in_group("scutum_alligatios").size() > 0
 	):
 		val_to_return -= int(val_to_return * 30.0 / 100.0)
@@ -271,7 +253,6 @@ func get_stat(stat: String, get_val: int = 2, ret_zero_neg: bool = true)->int:
 		val_to_return = 0
 	
 	return val_to_return
-
 
 func get_map_percentage(total_visited_tiles: int = 0)->float:
 	var Dir = Directory.new()
@@ -295,7 +276,6 @@ func get_map_percentage(total_visited_tiles: int = 0)->float:
 	
 	return percentage
 
-
 func get_medallion_order()->String:
 	var str_result: String = "Si.H.S.O.N.Fe.Cl"
 	
@@ -305,7 +285,6 @@ func get_medallion_order()->String:
 			return str_result
 
 	return str_result
-
 
 func get_dict_parsed_fixed(dict: Dictionary)->Dictionary:
 	for k in dict:
@@ -323,7 +302,6 @@ func get_dict_parsed_fixed(dict: Dictionary)->Dictionary:
 			dict[k] = _get_fixed_dictionary(dict[k])
 	return dict
 
-
 func _get_fixed_array(arr: Array)->Array:
 	var new_arr: Array = []
 	for it in arr:
@@ -339,7 +317,6 @@ func _get_fixed_array(arr: Array)->Array:
 			it = false
 		new_arr.append(it)
 	return new_arr
-
 
 func _get_fixed_dictionary(dict: Dictionary)->Dictionary:
 	var new_dict: Dictionary = {}

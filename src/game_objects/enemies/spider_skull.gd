@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-
 var velocity: = Vector2()
 
 var gravity: int = 300
@@ -29,11 +28,9 @@ func _physics_process(delta: float) -> void :
 	if is_on_floor() and Enemy.state == "walk" and is_on_wall():
 		Enemy.change_direction("inverse")
 
-
 func _on_DetectNoFloor_object_exited(_Obj) -> void :
 	if Enemy.state != "dead":
 		Enemy.change_direction("inverse")
-
 
 func _on_VisibilityNotifier2D_screen_exited() -> void :
 	if AreaNoFloor.is_colliding() == true and Enemy.state != "dead":

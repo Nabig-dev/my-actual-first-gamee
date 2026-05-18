@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-
 var velocity: = Vector2()
 
 var gravity: int = 280
@@ -37,7 +36,7 @@ func _physics_process(delta) -> void :
 func return_to_patrol() -> void :
 	if Enemy.state in ["idle", "walk"] and SeePlayer.is_colliding():
 		make_atk()
-	elif Enemy.state in ["pre-atk", "attack"] and SeePlayer.is_colliding() == false:
+	elif Enemy.state in ["pre-attack_power", "attack"] and SeePlayer.is_colliding() == false:
 		start_patrol()
 
 func start_patrol() -> void :
@@ -57,7 +56,7 @@ func make_atk() -> void :
 		TimerPatrolWait.stop()
 		Enemy.change_direction("to_player")
 		velocity.x = 0
-		Enemy.change_state("pre-atk")
+		Enemy.change_state("pre-attack_power")
 
 func _on_DetectNoFloor_object_exited(_Obj) -> void :
 	if Enemy.state in ["idle", "walk"]:
@@ -71,7 +70,7 @@ func _on_VisibilityEnabler2D_screen_exited() -> void :
 	return_to_patrol()
 
 func _on_DetectPlayerBack_object_entered(_Obj) -> void :
-	if Enemy.state in ["attack", "pre-atk"]:
+	if Enemy.state in ["attack", "pre-attack_power"]:
 		Enemy.change_state("idle", true)
 		yield(get_tree(), "idle_frame")
 		return_to_patrol()

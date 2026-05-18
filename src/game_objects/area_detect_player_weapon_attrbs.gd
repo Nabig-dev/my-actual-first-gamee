@@ -2,7 +2,6 @@ extends Area2D
 
 signal attr_detected(attrb_elemental)
 
-
 func _on_AreaDetectPlayerWeaponAttrbs_area_entered(area: Area2D) -> void :
 	var attrb_elemental: Array
 	var current_set = VarsGlobal.game_data["player_current_set"]

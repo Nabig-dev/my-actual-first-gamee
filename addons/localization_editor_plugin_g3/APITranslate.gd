@@ -27,7 +27,7 @@ func _create_url(from_lang: String, to_lang: String, text: String) -> String:
 	var url = "https://translate.googleapis.com/translate_a/single?client=gtx"
 	url += "&sl=" + from_lang
 	url += "&tl=" + to_lang
-	url += "&dt=t"
+	url += "&delta_time=t"
 	url += "&q=" + text.http_escape()
 	return url
 

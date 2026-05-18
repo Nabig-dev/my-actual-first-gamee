@@ -14,6 +14,5 @@ func _ready() -> void :
 func _on_Button_pressed() -> void :
 	emit_signal("delete_item", f_path)
 
-
 func _on_LinkButton_pressed() -> void :
 	emit_signal("open_item", f_path)

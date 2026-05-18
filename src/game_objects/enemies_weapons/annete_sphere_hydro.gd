@@ -44,10 +44,8 @@ func adjust_angle():
 	
 	velocity = Vector2(cos(adjusted_angle), sin(adjusted_angle)) * speed
 
-
 func _on_TimerEnd_timeout() -> void :
 	queue_free()
-
 
 func _on_TimerIncreaseSpeed_timeout() -> void :
 	speed += 30

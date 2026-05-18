@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/eve_fight_theme.ogg-3804cb51774bed9f280665aeb075a5ad.oggstr"
+
+[deps]
+
+source_file="res://assets/bgm/eve_fight_theme.ogg"
+dest_files=[ "res://.import/eve_fight_theme.ogg-3804cb51774bed9f280665aeb075a5ad.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=6.75

@@ -1,8 +1,5 @@
 extends Control
 
-
-
-
 onready var BarDamage = $BarDamage
 onready var BarProgress = $BarProgress
 

@@ -42,11 +42,9 @@ func _on_achiev_card_focused(title: String, description: String) -> void :
 	get_node("%LblTitle").text = title
 	get_node("%LblDesc").text = description
 
-
 func _on_BtnReturn_pressed() -> void :
 	Audio.play_sfx("ui_cancel")
 	SceneChanger.change_scene("res://src/screens/main_menu.tscn")
-
 
 func _on_BtnReward_pressed() -> void :
 	pass

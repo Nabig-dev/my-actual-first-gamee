@@ -6,7 +6,6 @@ var heading3_font = "res://addons/dialogic/Documentation/Theme/DocumentationH3.t
 var heading4_font = "res://addons/dialogic/Documentation/Theme/DocumentationH4.tres"
 var heading5_font = "res://addons/dialogic/Documentation/Theme/DocumentationH5.tres"
 
-
 var heading1s = []
 var heading2s = []
 var heading3s = []
@@ -28,10 +27,6 @@ var accent_color: = Color()
 var sub_accent_color: = Color()
 
 var editor_scale: = 1.0
-
-
-
-
 
 func set_accent_colors(new_accent_color: Color, new_sub_accent_color: Color) -> void :
 	accent_color = new_accent_color
@@ -85,9 +80,6 @@ func parse(content: String, file_path: String = "", docs_path: String = ""):
 	if result:
 		for res in result:
 			parsed_text = parsed_text.replace("*" + res.get_string("italictext") + "*", "[i]" + res.get_string("italictext") + "[/i]")
-
-
-
 
 	
 	

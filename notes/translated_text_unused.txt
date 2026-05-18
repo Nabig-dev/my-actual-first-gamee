@@ -8,7 +8,7 @@ LANCEA_ARGENTEA,Alabarda Argentea,Argentea Halberd,Alabarda Argentea
 
 RUBRUS_DRACO_DESC,"Invoca al dragon de la familia Tepes. Gasta 20 de Sangre, la cantidad restante determinará daño adicional.",Summons the dragon of the Tepes family. Spend 20 Blood; the remaining amount will determine additional damage.,"Invoca o dragão da família Tepes. Gasta 20 de Sangue, a quantidade restante determinará o dano adicional."
 
-PLUVIA_SANGRI_DESC,Deja caer una lluvia sangrienta sobre los enemigos en pantalla. Cada muerte otorgará 30 HP. La duración depende de cuanta sangre se haya acumulado.,Rain blood on the enemies on the screen. Each death grants 30 HP. The duration depends on how much blood has accumulated.,Produz uma chuva de sangue nos inimigos da tela. Concede 30 HP por cada morte. A duração depende de quanto Sangue acumulado.
+PLUVIA_SANGRI_DESC,Deja caer una lluvia sangrienta sobre los enemigos en pantalla. Cada muerte otorgará 30 HP. La duración depende de cuanta sangre se haya acumulado.,Rain blood on the enemies on the screen. Each endgame grants 30 HP. The duration depends on how much blood has accumulated.,Produz uma chuva de sangue nos inimigos da tela. Concede 30 HP por cada morte. A duração depende de quanto Sangue acumulado.
 
 LANCEA_ARGENTEA_DESC,Lanza en diagonal el arma de cierto alquimista de Plata.,Throw the weapon of a certain Silver alchemist diagonally.,Lança diagonalmente a arma de um certo Alquimista Prateado.
 

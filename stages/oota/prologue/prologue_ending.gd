@@ -2,7 +2,7 @@ extends Control
 
 func _ready() -> void :
 	Audio.play_sfx("ambient_sinester", true, 5)
-	var Dialog = Dialogic.start("grijayla-last-flashback")
+	var Dialog = Dialogic.start("the_outpost-last-flashback")
 	Dialog.connect("timeline_end", self, "_on_dialog_end")
 	Dialog.connect("dialogic_signal", self, "_on_dialog_signal")
 	add_child(Dialog)
@@ -19,7 +19,6 @@ func _on_dialog_signal(dialog_signal: String) -> void :
 			Audio.play_sfx("iron_fall")
 		"skinburn":
 			Audio.stop_sfx("ambient_fire_crackle", true, 5)
-
 
 func _on_AnimationPlayer_animation_finished(_anim_name: String) -> void :
 	Audio.stop_sfx("ambient_sinester")

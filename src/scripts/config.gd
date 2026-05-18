@@ -1,14 +1,10 @@
 extends Node
 
-
-
 signal value_changed(section, key, value)
 
 var Cnf = ConfigFile.new()
 
 var CnfJson = preload("res://addons/json_config_file/json_conf.gd").new()
-
-
 
 var joystick_enabled: bool
 
@@ -19,7 +15,6 @@ var icons_buttons: String
 var camera_shake: bool
 
 var gamepad_vibration: bool
-
 
 var default_virtualpad_positions: Dictionary = {
 	"Start": Vector2(4, - 113), 
@@ -33,7 +28,6 @@ var default_virtualpad_positions: Dictionary = {
 	"R": Vector2( - 3, - 71), 
 	"C": Vector2( - 102, 4), 
 }
-
 
 var xb_scheme: Dictionary = {
 	"a": 0, 
@@ -180,10 +174,7 @@ var deck_scheme: Dictionary = {
 	"y": 17
 }
 
-
-
 var _file_path: String = "user://settings.json"
-
 
 var _opened: bool = false
 
@@ -192,7 +183,6 @@ var _err: int
 func _notification(what: int) -> void :
 	if what == NOTIFICATION_EXIT_TREE:
 		CnfJson.queue_free()
-
 
 func _enter_tree() -> void :
 	
@@ -208,7 +198,6 @@ func _enter_tree() -> void :
 			TranslationServer.add_translation(
 				ResourceLoader.load(dir_locale + f)
 			)
-
 
 func _input(event: InputEvent) -> void :
 	if (
@@ -233,7 +222,6 @@ func open_file(config_file: String = _file_path) -> int:
 	if _err == OK:
 		_file_path = config_file
 	return _err
-
 
 func check_file() -> int:
 	
@@ -292,11 +280,6 @@ func check_file() -> int:
 			langlocale = "es"
 		
 
-
-
-
-
-
 		
 		else:
 			langlocale = "en"
@@ -321,7 +304,7 @@ func check_file() -> int:
 	_check_setting("misc", "preload_room", false)
 	
 	
-	_check_setting("audio", "sfx", 0.9)
+	_check_setting("audio", "sound_effect_player", 0.9)
 	_check_setting("audio", "bgm", 0.9)
 	_check_setting("audio", "voice", 0.9)
 	
@@ -451,12 +434,10 @@ func check_file() -> int:
 	
 	return _err
 
-
 func get_value(section: String, key: String, default_value):
 	
 	
 	return CnfJson.get_value(section, key, default_value)
-
 
 func set_value(section: String, key: String, value) -> void :
 	
@@ -468,7 +449,7 @@ func set_value(section: String, key: String, value) -> void :
 			value = float(value)
 	
 	
-	if section == "audio" and key in ["sfx", "bgm", "voice"]:
+	if section == "audio" and key in ["sound_effect_player", "bgm", "voice"]:
 		value = value / 100
 
 	CnfJson.set_value(section, key, value)
@@ -489,13 +470,10 @@ func get_section_keys(section: String) -> PoolStringArray:
 	keys = CnfJson.get_section_keys(section)
 	return keys
 
-
-
 func _check_setting(section: String, key: String, value) -> void :
 	if not CnfJson.has_section_key(section, key):
 		CnfJson.set_value(section, key, value)
 	_apply_setting(section, key, CnfJson.get_value(section, key, value))
-
 
 func _apply_setting(section: String, key: String, value) -> void :
 
@@ -547,7 +525,7 @@ func _apply_setting(section: String, key: String, value) -> void :
 		
 		"audio":
 			match key:
-				"sfx":
+				"sound_effect_player":
 					AudioServer.set_bus_volume_db(
 						AudioServer.get_bus_index("Effects"), linear2db(value)
 					)

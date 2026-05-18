@@ -2,7 +2,6 @@ extends Area2D
 
 onready var TimerRecover = $TimerRecover
 
-
 func _on_AreaRecoverThermal_body_entered(_body: Node) -> void :
 	if (
 		ThermalBar.is_active() == true
@@ -10,10 +9,8 @@ func _on_AreaRecoverThermal_body_entered(_body: Node) -> void :
 	):
 		TimerRecover.start()
 
-
 func _on_AreaRecoverThermal_body_exited(_body: Node) -> void :
 	TimerRecover.stop()
-
 
 func _on_TimerRecover_timeout() -> void :
 	if (

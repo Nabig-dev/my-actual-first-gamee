@@ -2,10 +2,7 @@ tool
 
 extends GraphEdit
 
-
-
 signal scene_dropped(filepath, node_position)
-
 
 func snap(pos: Vector2):
 
@@ -16,14 +13,12 @@ func snap(pos: Vector2):
 		
 	return pos
 
-
 func can_drop_data(position, data):
 	
 	if data["files"].size() > 1 or data["files"][0].get_extension() != "tscn":
 		return false
 	
 	return true
-
 
 func drop_data(position, data):
 	var filepath = data["files"][0]
@@ -35,7 +30,4 @@ func drop_data(position, data):
 		offset = snap(offset)
 	
 	emit_signal("scene_dropped", filepath, offset)
-
-
-
 

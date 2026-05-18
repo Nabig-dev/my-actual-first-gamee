@@ -1,12 +1,9 @@
 tool 
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
-
-
 onready var character_picker = $HBox / CharacterPicker
 onready var portrait_picker = $HBox / PortraitPicker
 onready var definition_picker = $HBox / DefinitionPicker
-
 
 func _ready():
 	if DialogicUtil.get_character_list().size() == 0:
@@ -36,16 +33,13 @@ func load_data(data: Dictionary):
 			portrait_picker.hide()
 			definition_picker.hide()
 
-
 func get_preview():
 	return ""
-
 
 func get_character_data():
 	for ch in DialogicUtil.get_character_list():
 		if ch["file"] == event_data["character"]:
 			return ch
-
 
 func _on_CharacterPicker_data_changed(data):
 	event_data = data
@@ -59,7 +53,6 @@ func _on_CharacterPicker_data_changed(data):
 	
 	data_changed()
 
-
 func _on_PortraitPicker_data_changed(data):
 	event_data = data
 	
@@ -69,7 +62,6 @@ func _on_PortraitPicker_data_changed(data):
 	
 	
 	data_changed()
-
 
 func _on_DefinitionPicker_data_changed(data):
 	event_data["port_defn"] = data["definition"]

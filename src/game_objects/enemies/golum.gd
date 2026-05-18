@@ -2,7 +2,6 @@ extends KinematicBody2D
 
 var FloorAtk = preload("res://src/game_objects/enemies_weapons/golum_floor_atk.tscn")
 
-
 var velocity: = Vector2()
 
 var gravity: int = 250
@@ -81,11 +80,9 @@ func _on_HurtboxEnemy_defeated() -> void :
 func _on_TimerSpawnFloorAtk_timeout() -> void :
 	_spawn_floor_atk(false)
 
-
 func _on_EnemyBase_state_changed(state: String) -> void :
 	if state == "idle":
 		TimerNewAttack.start()
-
 
 func _on_TimerNewAttack_timeout() -> void :
 	_prepare_next_attack()

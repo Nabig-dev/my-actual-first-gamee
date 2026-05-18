@@ -1,8 +1,5 @@
 extends KinematicBody2D
 
-
-
-
 var speed: int = 70
 var velocity: Vector2
 
@@ -38,7 +35,6 @@ func start_random_shriek_timer() -> void :
 	if $TimerStartShriek.is_stopped() == false:
 		return
 	$TimerStartShriek.start(2)
-
 
 func push_body(direction: Vector2) -> void :
 	
@@ -93,7 +89,6 @@ func _on_Area2D_area_entered(_area: Area2D) -> void :
 		Enemy.change_state("idle")
 		start_random_shriek_timer()
 
-
 func _on_Area2D_area_exited(_area: Area2D) -> void :
 	if Enemy.state in ["dead", "shriek"]:
 		return
@@ -101,13 +96,11 @@ func _on_Area2D_area_exited(_area: Area2D) -> void :
 	
 	
 
-
 func _on_HurtboxEnemy_defeated() -> void :
 	$Circles.visible = false
 	Audio.stop_sfx("ghost_shriek")
 	_is_chasing = false
 	velocity = Vector2.ZERO
-
 
 func _on_TimerStartShriek_timeout() -> void :
 	randomize()
@@ -123,12 +116,10 @@ func _on_TimerStartShriek_timeout() -> void :
 		):
 			Enemy.change_state("shriek")
 
-
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void :
 	if anim_name == "shriek":
 		Enemy.change_state("idle")
 		_on_Area2D_area_entered(Area2D.new())
-
 
 func _on_HurtboxEnemy_area_entered(area: Area2D) -> void :
 	if Enemy.state != "idle":
@@ -140,7 +131,6 @@ func _on_HurtboxEnemy_area_entered(area: Area2D) -> void :
 	
 	push_body(vector_opposite)
 
-
 func _on_DetectAnotherEnemiesHitbox_object_entered(_Obj) -> void :
 	if Enemy.state != "idle":
 		return
@@ -150,7 +140,6 @@ func _on_DetectAnotherEnemiesHitbox_object_entered(_Obj) -> void :
 	vector_opposite = - vector_opposite
 	
 	push_body(vector_opposite)
-
 
 func _on_EnemyBase_state_changed(state: String) -> void :
 	if state == "idle":

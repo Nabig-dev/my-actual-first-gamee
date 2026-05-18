@@ -24,8 +24,7 @@ func _process(delta: float) -> void :
 func play_end() -> void :
 	$AnimationPlayer.play("end")
 	yield($AnimationPlayer, "animation_finished")
-	SceneChanger.change_scene("res://stages/oota/grijayla/grijayla_entrance.tscn")
-
+	SceneChanger.change_scene("res://stages/oota/the_outpost/grijayla_entrance.tscn")
 
 func _on_Node2D_tree_exiting() -> void :
 	

@@ -1,11 +1,9 @@
 tool 
 extends ScrollContainer
 
-
 var _is_drag_receiving = false
 var _last_event_button_drop_attempt = ""
 var _mouse_exited = false
-
 
 onready var timeline_editor = get_parent()
 
@@ -13,7 +11,6 @@ func _ready():
 	connect("mouse_entered", self, "_on_mouse_entered")
 	connect("mouse_exited", self, "_on_mouse_exited")
 	connect("gui_input", self, "_on_gui_input")
-
 
 func can_drop_data(position, data):
 	if data != null and data is Dictionary and data.has("source"):
@@ -24,7 +21,6 @@ func can_drop_data(position, data):
 			_last_event_button_drop_attempt = data["event_id"]
 			return true
 	return false
-
 
 func cancel_drop():
 	_is_drag_receiving = false
@@ -38,7 +34,6 @@ func drop_data(position, data):
 		timeline_editor.drop_event()
 	_is_drag_receiving = false
 	_last_event_button_drop_attempt = ""
-
 
 func _on_mouse_exited():
 	if _is_drag_receiving and not _mouse_exited:
@@ -61,7 +56,6 @@ func _input(event):
 		if (_mouse_exited and _is_drag_receiving):
 			cancel_drop()
 
-
 func _on_gui_input(event):
 	
 	if (event is InputEventMouseButton and event.button_index == BUTTON_LEFT):
@@ -69,7 +63,6 @@ func _on_gui_input(event):
 			if (_last_event_button_drop_attempt != ""):
 				drop_data(Vector2.ZERO, {"source": "EventButton", "event_id": _last_event_button_drop_attempt})
 			_is_drag_receiving = false
-
 
 func rendering_scale_correction(s, vector: Vector2) -> Vector2:
 	if s == 1.25:
@@ -82,7 +75,6 @@ func rendering_scale_correction(s, vector: Vector2) -> Vector2:
 		return vector - Vector2(13, 8)
 	return vector
 		
-
 
 func _draw():
 	var timeline_children = $TimeLine.get_children()

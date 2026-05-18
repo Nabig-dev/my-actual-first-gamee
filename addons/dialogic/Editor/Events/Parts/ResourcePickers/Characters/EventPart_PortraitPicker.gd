@@ -1,11 +1,8 @@
 tool 
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
-
-
 export (bool) var allow_dont_change: = true
 export (bool) var allow_definition: = true
-
 
 onready var picker_menu = $HBox / MenuButton
 onready var preview = $Preview / PreviewContainer
@@ -15,12 +12,9 @@ var current_hovered = null
 
 var character_data = null
 
-
 var no_change_icon
 var definition_icon
 var portrait_icon
-
-
 
 func _ready():
 	picker_menu.get_popup().connect("index_pressed", self, "_on_PickerMenu_selected")
@@ -36,7 +30,6 @@ func _ready():
 	no_change_icon = get_icon("GuiRadioUnchecked", "EditorIcons")
 	definition_icon = load("res://addons/dialogic/Images/Resources/definition.svg")
 	portrait_icon = load("res://addons/dialogic/Images/Event Icons/Portrait.svg")
-
 
 func load_data(data: Dictionary):
 	
@@ -65,7 +58,6 @@ func load_data(data: Dictionary):
 		else:
 			picker_menu.text = event_data["portrait"]
 			picker_menu.custom_icon = portrait_icon
-
 
 func get_preview():
 	return ""
@@ -159,11 +151,9 @@ func popup_gui_input(event):
 				preview_texture.texture = null
 			preview.show()
 
-
 func mouse_exited_popup():
 	preview.hide()
 	current_hovered = null
-
 
 func show_scene_preview(path: String, preview: Texture, user_data):
 	if preview:

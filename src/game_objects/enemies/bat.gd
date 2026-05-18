@@ -9,9 +9,7 @@ var initial_position: Vector2
 
 var dir_x: int = 0
 
-
 var dir_y: int = 1
-
 
 onready var TimerMove = $TimerMove
 onready var Enemy = $EnemyBase
@@ -56,17 +54,14 @@ func start_tween() -> void :
 func _on_TimerMove_timeout() -> void :
 	start_tween()
 
-
 func _on_HurtboxEnemy_defeated() -> void :
 	velocity.x = 0
 	TimerMove.stop()
 	$Tween.stop_all()
 
-
 func _on_VisibilityNotifier2D_screen_exited() -> void :
 	if Enemy.state in ["fly", "dead"]:
 		queue_free()
-
 
 func _on_VisibilityNotifier2D_screen_entered() -> void :
 	var max_speed: float = speed

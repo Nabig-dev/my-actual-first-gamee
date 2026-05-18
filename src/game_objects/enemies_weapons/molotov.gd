@@ -79,6 +79,5 @@ func _on_HurtboxEnemySimple_defeated() -> void :
 		_explosion_make_dmg = false
 	explode()
 
-
 func _on_Area2DDetectPlayer_area_entered(_area: Area2D) -> void :
 	explode()

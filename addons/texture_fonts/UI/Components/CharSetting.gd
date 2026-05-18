@@ -17,10 +17,8 @@ func _ready():
 		advance.value = font_settings.get_advance(for_char)
 		offset.value = font_settings.get_offset(for_char)
 
-
 func _on_DeleteButton_pressed():
 	emit_signal("delete", self)
-
 
 func _on_Char_text_changed(to_char: String):
 	
@@ -48,12 +46,10 @@ func _on_Char_text_changed(to_char: String):
 	
 	emit_signal("change")
 
-
 func _on_SpinBox_value_changed(value):
 	if for_char:
 		font_settings.set_advance(for_char, value)
 		emit_signal("change")
-
 
 func _on_Vector2Edit_value_changed(value):
 	if for_char:

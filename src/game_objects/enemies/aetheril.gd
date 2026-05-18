@@ -113,7 +113,6 @@ func push_body(direction: Vector2) -> void :
 func _on_TimerChase_timeout() -> void :
 	start_chase()
 
-
 func _on_Tween_tween_completed(_object: Object, _key: NodePath) -> void :
 	$GhostTrail.stop_trail()
 	if VisibilityNotifierCameraArea.is_on_screen() == false:
@@ -123,7 +122,6 @@ func _on_Tween_tween_completed(_object: Object, _key: NodePath) -> void :
 		$TimerChase.start(0.5)
 	else:
 		random_move()
-
 
 func _on_VisibilityNotifierCameraArea_screen_entered() -> void :
 	if Enemy.state == "fly":
@@ -137,7 +135,6 @@ func _on_VisibilityNotifierCameraArea_screen_entered() -> void :
 
 func _on_VisibilityNotifierCameraArea_screen_exited() -> void :
 	pass
-
 
 func _on_HurtboxEnemy_area_entered(area: Area2D) -> void :
 	Tw.remove_all()
@@ -153,10 +150,8 @@ func _on_HurtboxEnemy_area_entered(area: Area2D) -> void :
 	
 	push_body(vector_opposite)
 
-
 func _on_Tween_tween_started(_object: Object, _key: NodePath) -> void :
 	$GhostTrail.start_trail()
-
 
 func _on_HurtboxEnemy_defeated() -> void :
 	$GhostTrail.stop_trail()

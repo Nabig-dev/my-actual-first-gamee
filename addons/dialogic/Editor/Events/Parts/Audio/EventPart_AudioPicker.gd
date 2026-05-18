@@ -1,11 +1,9 @@
 tool 
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
-
 signal audio_loaded
 
 export (String) var event_name = "Audio Event"
-
 
 onready var file_picker: = $VBox / AudioFilePicker
 
@@ -14,7 +12,6 @@ onready var region_group: = $VBox / adv_settings / AudioRegion
 onready var start_at_input: = $VBox / adv_settings / AudioRegion / VBox / HBox / StartAt
 onready var stop_at_input: = $VBox / adv_settings / AudioRegion / VBox / HBox / StopAt
 onready var bus_selector: = $VBox / adv_settings / AudioBus / VBox / BusSelector
-
 
 func _ready():
 	
@@ -31,7 +28,6 @@ func _ready():
 	
 	
 	file_picker.hide()
-
 
 func load_data(data: Dictionary):
 	

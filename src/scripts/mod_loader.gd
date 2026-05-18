@@ -1,7 +1,5 @@
 extends Node
 
-
-
 var Dir: = Directory.new()
 var F: = File.new()
 

@@ -1,15 +1,11 @@
 tool 
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
-
-
-
 onready var character_portrait_picker = $HBox / CharacterAndPortraitPicker
 onready var position_picker = $HBox / PositionPicker
 onready var mirror_button = $HBox / MirrorButton
 onready var no_character_button = $NoCharacterContainer / NoCharacterButton
 onready var no_character_container = $NoCharacterContainer
-
 
 func _ready():
 	if DialogicUtil.get_character_list().size() > 0:
@@ -33,7 +29,6 @@ func _ready():
 	
 	mirror_button.icon = get_icon("MirrorX", "EditorIcons")
 
-
 func load_data(data: Dictionary):
 	
 	.load_data(data)
@@ -42,7 +37,6 @@ func load_data(data: Dictionary):
 	character_portrait_picker.load_data(data)
 	position_picker.load_data(data)
 	mirror_button.pressed = data["mirror"]
-
 
 func get_preview():
 	return ""

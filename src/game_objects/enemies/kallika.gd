@@ -1,9 +1,6 @@
 extends KinematicBody2D
 
-
-
 var HandKallika = preload("res://src/game_objects/enemies_weapons/hand_kallika.tscn")
-
 
 var velocity: = Vector2()
 
@@ -17,7 +14,6 @@ onready var TimerChangeDirection = $TimerChangeDirection
 onready var TimerIdle = $TimerIdle
 onready var AreaSeePlayer = $Sprite / AreaSeePlayer
 onready var VisibNotifier = $VisibilityNotifierCameraArea
-
 
 func _ready() -> void :
 	Enemy.change_state("walk")
@@ -88,7 +84,6 @@ func _on_TimerChangeDirection_timeout() -> void :
 		Enemy.change_state("walk")
 	
 
-
 func _on_AreaSeePlayer_object_entered(_Obj) -> void :
 	randomize()
 	if randi() % 2 == 1:
@@ -101,7 +96,6 @@ func _on_HurtboxEnemy_damaged() -> void :
 		Enemy.change_direction("to_player")
 	elif Enemy.state == "walk" and AreaSeePlayer.is_colliding() == true:
 		make_attack()
-
 
 func _on_AreaBack_object_entered(_Obj) -> void :
 	if Enemy.state in ["idle", "walk"]:

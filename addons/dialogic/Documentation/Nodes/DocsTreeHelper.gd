@@ -1,57 +1,17 @@
 tool 
 extends Control
 
-
 export (String) var documentation_path: String = "res://addons/dialogic/Documentation"
-
-
-
-
-
-
 
 var use_folder_files = true
 
-
 var file_ignore_list = ["Welcome.md"]
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 func get_documentation_content():
 	return get_dir_contents(documentation_path + "/Content")
 
-
-
-
-
-
-
-
-
-
-
 func build_documentation_tree(tree: Tree, root_item: TreeItem = null, def_folder_info: Dictionary = {}, def_page_info: Dictionary = {}, filter_term: String = ""):
 	return _build_documentation_tree(tree, root_item, def_folder_info, def_page_info, filter_term)
-
-
-
-
-
-
-
-
-
 
 func get_dir_contents(rootPath: String) -> Dictionary:
 	var directory_structure = {}
@@ -95,9 +55,6 @@ func _add_dir_contents(dir: Directory) -> Dictionary:
 	dir.list_dir_end()
 	return structure
 
-
-
-
 func _build_documentation_tree(tree: Tree, root_item: TreeItem = null, def_folder_info: Dictionary = {}, def_page_info: Dictionary = {}, filter_term: String = ""):
 
 	var documentation_tree
@@ -119,7 +76,6 @@ func _build_documentation_tree(tree: Tree, root_item: TreeItem = null, def_folde
 	
 	create_doc_tree(tree, documentation_tree, def_folder_info, def_page_info, doc_structure, filter_term)
 	return documentation_tree
-
 
 func create_doc_tree(tree, parent_item, def_folder_info, def_page_info, doc_structure, filter_term):
 	for key in doc_structure.keys():
@@ -144,7 +100,6 @@ func merge_dir(target: Dictionary, patch: Dictionary):
 		copy[key] = patch[key]
 	return copy
 
-
 func _add_documentation_folder(tree, parent_item, folder_info, default_info):
 	var item = tree.create_item(parent_item)
 	item.set_text(0, folder_info["name"])
@@ -163,7 +118,6 @@ func _add_documentation_folder(tree, parent_item, folder_info, default_info):
 		item.set_icon_modulate(0, get_color("property_color", "Editor"))
 	return item
 
-
 func _add_documentation_page(tree, parent, page_info, default_info):
 	var item = tree.create_item(parent)
 	item.set_text(0, get_title(page_info["path"], page_info["name"]))
@@ -177,7 +131,6 @@ func _add_documentation_page(tree, parent, page_info, default_info):
 		item.set_icon_modulate(0, get_color("property_color", "Editor"))
 	return item
 
-
 func get_title(path, default_name):
 	
 	var f = File.new()
@@ -187,11 +140,6 @@ func get_title(path, default_name):
 		return arr[0].trim_prefix("#").strip_edges()
 	else:
 		return default_name
-
-
-
-
-
 
 func search_and_select_docs(docs_tree_item: TreeItem, info: String, key: String = "path"):
 	if info == "": return
@@ -216,9 +164,4 @@ func search_and_select_docs(docs_tree_item: TreeItem, info: String, key: String 
 			return true
 		item = item.get_next()
 	return false
-
-
-
-
-
 

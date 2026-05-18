@@ -1,7 +1,5 @@
 extends MarginContainer
 
-
-
 func _on_Button_pressed() -> void :
 	$VBoxContainer / HBoxContainer / TextEdit2.text = ""
 	var ide: String = "%s%s" % [
@@ -28,7 +26,6 @@ func _on_Button_pressed() -> void :
 	$VBoxContainer / HBoxContainer / TextEdit2.text = txt_parsed
 	
 	_on_Button2_pressed()
-
 
 func _on_Button2_pressed() -> void :
 	OS.set_clipboard(

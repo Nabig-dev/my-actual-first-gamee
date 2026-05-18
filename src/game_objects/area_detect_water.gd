@@ -2,7 +2,6 @@ extends Area2D
 
 var WaterSplashParticle = preload("res://src/game_objects/vfx/water_splash.tscn")
 
-
 export var is_char_head: bool
 
 var _water_splash_instance: Object = null
@@ -13,7 +12,6 @@ var _use_custom_splash_color: bool
 var _water_splash_color: Gradient
 
 onready var TimerSplashMove = $TimerSplashMove
-
 
 func _ready() -> void :
 	

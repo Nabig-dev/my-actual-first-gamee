@@ -5,7 +5,6 @@ extends Node2D
 export var color: Color = Color.black setget _update_color
 export var vignette_scale: float = 0.03 setget _update_vignette_scale
 
-
 export var vignette_extra_scale: float = 0.0 setget _update_vignette_extra_scale
 
 var running_on_editor: bool

@@ -1,8 +1,6 @@
 tool 
 
-
 extends Area2D
-
 
 signal player_positioned
 
@@ -50,13 +48,11 @@ func _update_destination_path(new_path) -> void :
 
 func _update_collision_size(col_size: int) -> void :
 
-
 	$CollisionShape2D.shape = $CollisionShape2D.shape.duplicate()
 	size_area = col_size
 	$CollisionShape2D.shape.extents.y = col_size
 
 func _update_collision_offset(col_offset: int) -> void :
-
 
 	offset_area = col_offset
 	$CollisionShape2D.position.y = col_offset

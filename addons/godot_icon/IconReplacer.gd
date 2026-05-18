@@ -8,7 +8,6 @@ var executable_path: String
 var icon_path: String
 var error: = false
 
-
 func _ready() -> void :
 	replace_icon.error_handler = self
 	replace_icon.error_callback = "print_error"
@@ -19,14 +18,12 @@ func _ready() -> void :
 	connect("confirmed", self, "on_confirmed")
 	disable_ok()
 
-
 func on_executable_selected(_executable_path: String) -> void :
 	executable_path = _executable_path
 	$Buttons / ChooseExecutable.text = executable_path
 	$Buttons / Errors.text = ""
 	error = false
 	disable_ok()
-
 
 func on_icon_path_selected(_icon_path: String) -> void :
 	icon_path = _icon_path
@@ -44,14 +41,12 @@ func on_icon_path_selected(_icon_path: String) -> void :
 		$Buttons / ChooseIcon.text = "Choose icon"
 	disable_ok()
 
-
 func validate_icon_header(bytes: PoolByteArray) -> bool:
 	var header: = PoolByteArray([0, 0, 1, 0, 6, 0])
 	for offset in header.size():
 		if bytes[offset] != header[offset]:
 			return false
 	return true
-
 
 func create_texture_rect(bytes: PoolByteArray) -> TextureRect:
 	var image: = Image.new()
@@ -61,7 +56,6 @@ func create_texture_rect(bytes: PoolByteArray) -> TextureRect:
 	var texture_rect: = TextureRect.new()
 	texture_rect.texture = texture
 	return texture_rect
-
 
 func on_confirmed() -> void :
 	error = false
@@ -73,20 +67,16 @@ func on_confirmed() -> void :
 			OS.execute("ie4uinit.exe", PoolStringArray(["-ClearIconCache"]))
 		hide()
 
-
 func disable_ok() -> void :
 	get_ok().disabled = executable_path == "" or icon_path == "" or error
-
 
 func print_error(error_message) -> void :
 	$Buttons / Errors.text += str(error_message, "\n")
 	error = true
 
-
 func remove_all_children(parent: Node) -> void :
 	while parent.get_child_count():
 		parent.remove_child(parent.get_child(0))
-
 
 func read_icon(icon_path: String) -> PoolByteArray:
 	var file: = File.new()

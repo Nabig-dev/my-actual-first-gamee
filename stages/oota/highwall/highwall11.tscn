@@ -1,0 +1,93 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://src/game_objects/camera_limit.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/game_objects/tilemaps/highwall_ruins.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/game_objects/game_scenario.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game_objects/game_interface.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/game_objects/characters/playable_character.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/game_objects/backgrounds/highwall_industrial_2_bg.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/game_objects/tilemaps/background/tilemap_walls_32px.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/game_objects/statue_save.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/game_objects/room_changer.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/game_objects/drop_items/item_inventory.tscn" type="PackedScene" id=10]
+
+[node name="Node" type="Node"]
+
+[node name="GameInterface" parent="." instance=ExtResource( 4 )]
+
+[node name="GameScenario" parent="." instance=ExtResource( 3 )]
+music = "stralsund_ruins"
+
+[node name="StralsundIndustrial2BG" parent="GameScenario" instance=ExtResource( 6 )]
+
+[node name="TileMapWalls" parent="GameScenario" instance=ExtResource( 7 )]
+modulate = Color( 1, 0.764706, 0.513726, 1 )
+tile_data = PoolIntArray( -655359, 0, 0, -655358, 0, 131078, -655357, 0, 2, -655356, 0, 3, -655355, 0, 1, -655354, 0, 4, -589823, 0, 65543, -589822, 0, 65539, -589821, 0, 196610, -589820, 0, 65537, -589819, 0, 65537, -589818, 0, 131077, -589817, 0, 1, -589816, 0, 131078, -589815, 0, 4, -524287, 0, 65536, -524286, 0, 131074, -524285, 0, 5, -524284, 0, 262147, -524283, 0, 7, -524282, 0, 65538, -524281, 0, 65537, -524280, 0, 65539, -524279, 0, 196612, -458751, 0, 262144, -458750, 0, 262146, -458749, 0, 262148, -458747, 0, 65543, -458746, 0, 131073, -458745, 0, 5, -458744, 0, 262146, -458743, 0, 262148, -393211, 0, 131072, -393210, 0, 5, -393209, 0, 262148, -262146, 0, 0, -262145, 0, 2, -327680, 0, 4, -327675, 0, 65543, -327674, 0, 65540, -196611, 0, 65539, -196610, 0, 65539, -196609, 0, 65537, -262144, 0, 131077, -262143, 0, 1, -262142, 0, 4, -262140, 0, 0, -262139, 0, 131079, -262138, 0, 131077, -262137, 0, 1, -262136, 0, 4, -131074, 0, 262144, -131073, 0, 6, -196608, 0, 262145, -196607, 0, 6, -196606, 0, 65539, -196605, 0, 65539, -196604, 0, 65539, -196603, 0, 131074, -196602, 0, 196610, -196601, 0, 131073, -196600, 0, 65541, -131068, 0, 65543, -131067, 0, 131073, -131066, 0, 196611, -131065, 0, 5, -131064, 0, 262148, -65532, 0, 65543, -65531, 0, 131075, -65530, 0, 5, -65529, 0, 262148, 4, 0, 262144, 5, 0, 6, 6, 0, 262148 )
+
+[node name="RoomChanger" parent="GameScenario" instance=ExtResource( 9 )]
+position = Vector2( 104, -244 )
+rotation = -1.5708
+direction = 3
+identifier = "du"
+id_destination = "dd"
+path_destination = "res://stages/oota/highwall/stralsund10.tscn"
+
+[node name="RoomChanger2" parent="GameScenario" instance=ExtResource( 9 )]
+position = Vector2( 192, -48 )
+rotation = 1.5708
+direction = 1
+identifier = "dd"
+id_destination = "du"
+path_destination = "res://stages/oota/highwall/stralsund12.tscn"
+
+[node name="CollisionShape2D" parent="GameScenario/RoomChanger2" index="0"]
+modulate = Color( 0, 1, 0.0627451, 1 )
+
+[node name="PlayerPosition" parent="GameScenario/RoomChanger2" index="1"]
+position = Vector2( -49, 0 )
+
+[node name="CollisionLR" parent="GameScenario/RoomChanger2/AreaDetectPlayer" index="0"]
+visible = false
+disabled = true
+
+[node name="CollisionUD" parent="GameScenario/RoomChanger2/AreaDetectPlayer" index="1"]
+visible = true
+disabled = false
+
+[node name="RoomChanger3" parent="GameScenario" instance=ExtResource( 9 )]
+position = Vector2( 0, -128 )
+scale = Vector2( -1, 1 )
+direction = 2
+identifier = "dl"
+id_destination = "dr"
+path_destination = "res://stages/oota/highwall/stralsund13.tscn"
+
+[node name="RoomChanger4" parent="GameScenario" instance=ExtResource( 9 )]
+position = Vector2( 341, -96 )
+identifier = "dr"
+id_destination = "dl"
+path_destination = "res://stages/oota/highwall/stralsund14.tscn"
+
+[node name="PlayableCharacter" parent="GameScenario" instance=ExtResource( 5 )]
+position = Vector2( 148, -96 )
+
+[node name="StralsundRuinsTileMap" parent="GameScenario" instance=ExtResource( 2 )]
+tile_data = PoolIntArray( -1245176, 0, 0, -1245175, 0, 2, -1245174, 0, 2, -1245173, 0, 4, -1179648, 0, 0, -1179647, 0, 2, -1179646, 0, 2, -1179645, 0, 2, -1179644, 0, 4, -1179640, 0, 65536, -1179639, 0, 131075, -1179638, 0, 65539, -1179637, 0, 196613, -1179636, 0, 2, -1179635, 0, 2, -1179634, 0, 1, -1179633, 0, 2, -1179632, 0, 4, -1048577, 0, 0, -1114112, 0, 196614, -1114111, 0, 65539, -1114110, 0, 131075, -1114109, 0, 65537, -1114108, 0, 65540, -1114104, 0, 131072, -1114103, 0, 65538, -1114102, 0, 65537, -1114101, 0, 131075, -1114100, 0, 65538, -1114099, 0, 131075, -1114098, 0, 65538, -1114097, 0, 65539, -1114096, 0, 196613, -1114095, 0, 2, -1114094, 0, 1, -1114093, 0, 1, -1114092, 0, 1, -1114091, 0, 1, -1114090, 0, 4, -983042, 0, 0, -983041, 0, 196614, -1048576, 0, 65539, -1048575, 0, 65538, -1048574, 0, 131075, -1048573, 0, 131075, -1048572, 0, 65540, -1048568, 0, 131072, -1048567, 0, 65537, -1048566, 0, 131075, -1048565, 0, 65539, -1048564, 0, 65539, -1048563, 0, 65539, -1048562, 0, 65539, -1048561, 0, 65539, -1048560, 0, 65538, -1048559, 0, 65539, -1048558, 0, 131075, -1048557, 0, 65538, -1048556, 0, 65539, -1048555, 0, 65539, -1048554, 0, 65540, -917507, 0, 2, -917506, 0, 2, -917505, 0, 131078, -983040, 0, 131077, -983039, 0, 196609, -983038, 0, 196609, -983037, 0, 196609, -983036, 0, 196612, -983032, 0, 196608, -983031, 0, 196609, -983030, 0, 196609, -983029, 0, 196609, -983028, 0, 196609, -983027, 0, 196609, -983026, 0, 196609, -983025, 0, 196609, -983024, 0, 196609, -983023, 0, 131078, -983022, 0, 131075, -983021, 0, 131075, -983020, 0, 131075, -983019, 0, 65539, -983018, 0, 65540, -851969, 0, 65536, -917504, 0, 65540, -917487, 0, 131072, -917486, 0, 65539, -917485, 0, 65538, -917484, 0, 65539, -917483, 0, 65539, -917482, 0, 65540, -786433, 0, 196608, -851968, 0, 196612, -851951, 0, 131072, -851950, 0, 65537, -851949, 0, 131075, -851948, 0, 65538, -851947, 0, 131075, -851946, 0, 65540, -786415, 0, 196608, -786414, 0, 196609, -786413, 0, 131078, -786412, 0, 65539, -786411, 0, 131075, -786410, 0, 65540, -720877, 0, 196608, -720876, 0, 196609, -720875, 0, 196609, -720874, 0, 196612, -655356, 22, 0, -655354, 22, 0, -524290, 1, 0, -524289, 1, 3, -589824, 1, 3, -589823, 1, 4, -458755, 0, 0, -458754, 0, 3, -458753, 0, 3, -524288, 0, 2, -524287, 0, 4, -524284, 23, 0, -524282, 23, 0, -393219, 0, 131072, -393218, 0, 65538, -393217, 0, 65537, -458752, 0, 65539, -458751, 0, 65540, -458750, 1, 0, -458749, 1, 2, -458748, 1, 3, -458747, 1, 3, -458746, 1, 2, -458745, 1, 3, -458744, 1, 1, -458743, 1, 1, -458742, 1, 4, -458739, 1, 0, -458738, 1, 1, -458737, 1, 1, -458736, 1, 1, -458735, 1, 3, -458734, 1, 1, -458733, 1, 3, -458732, 1, 1, -458731, 1, 4, -327683, 0, 131072, -327682, 0, 65539, -327681, 0, 65539, -393216, 0, 131075, -393215, 0, 196613, -393214, 0, 2, -393213, 0, 2, -393212, 0, 2, -393211, 0, 2, -393210, 0, 1, -393209, 0, 1, -393208, 0, 1, -393207, 0, 1, -393206, 0, 4, -393203, 0, 0, -393202, 0, 2, -393201, 0, 2, -393200, 0, 1, -393199, 0, 2, -393198, 0, 1, -393197, 0, 1, -393196, 0, 2, -393195, 0, 4, -262147, 0, 131072, -262146, 0, 131075, -262145, 0, 65538, -327680, 0, 65539, -327679, 0, 65538, -327678, 0, 65539, -327677, 0, 65538, -327676, 0, 65539, -327675, 0, 131075, -327674, 0, 65539, -327673, 0, 65538, -327672, 0, 131075, -327671, 0, 65538, -327670, 0, 131076, -327667, 0, 65536, -327666, 0, 65538, -327665, 0, 131075, -327664, 0, 65538, -327663, 0, 65539, -327662, 0, 65537, -327661, 0, 131075, -327660, 0, 65539, -327659, 0, 131076, -196611, 0, 196608, -196610, 0, 131078, -196609, 0, 65538, -262144, 0, 65537, -262143, 0, 131075, -262142, 0, 65539, -262141, 0, 131075, -262140, 0, 131075, -262139, 0, 131075, -262138, 0, 65538, -262137, 0, 131077, -262136, 0, 196609, -262135, 0, 196609, -262134, 0, 196612, -262131, 0, 196608, -262130, 0, 196609, -262129, 0, 196609, -262128, 0, 196609, -262127, 0, 196609, -262126, 0, 196609, -262125, 0, 196609, -262124, 0, 196609, -262123, 0, 196612, -131074, 0, 196608, -131073, 0, 196609, -196608, 0, 196609, -196607, 0, 196609, -196606, 0, 196609, -196605, 0, 196609, -196604, 0, 196609, -196603, 0, 196609, -196602, 0, 196609, -196601, 0, 196612 )
+
+[node name="OnewayStralsundRuinsTileMap2" parent="GameScenario" instance=ExtResource( 2 )]
+collision_layer = 4
+tile_data = PoolIntArray( -655356, 6, 0, -655355, 6, 2, -655354, 6, 3, -458748, 24, 0, -458746, 24, 0, -458741, 7, 0, -458740, 7, 3, -393205, 6, 0, -393204, 6, 3 )
+
+[node name="CameraLimit" parent="GameScenario" instance=ExtResource( 1 )]
+margin_top = -244.0
+margin_bottom = -52.0
+
+[node name="StatueSave" parent="GameScenario" instance=ExtResource( 8 )]
+position = Vector2( 148, -96 )
+
+[node name="ItemInventory" parent="GameScenario" instance=ExtResource( 10 )]
+position = Vector2( 249, -98 )
+ide = "42f98a83-3f37-4bb4-b823-17196cfc5d90"
+item = 11
+
+[editable path="GameScenario/RoomChanger2"]

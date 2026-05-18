@@ -1,6 +1,5 @@
 extends TextureRect
 
-
 var TextureRed = preload("res://assets/sprites/attributes/elemental_red.png")
 var TextureBlue = preload("res://assets/sprites/attributes/elemental_blue.png")
 var TextureGray = preload("res://assets/sprites/attributes/elemental_gray.png")

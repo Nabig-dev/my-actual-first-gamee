@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/annie_boss_theme.ogg-506e23d39146549454bfd8d1487ce64d.oggstr"
+
+[deps]
+
+source_file="res://assets/bgm/annie_boss_theme.ogg"
+dest_files=[ "res://.import/annie_boss_theme.ogg-506e23d39146549454bfd8d1487ce64d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=25.726

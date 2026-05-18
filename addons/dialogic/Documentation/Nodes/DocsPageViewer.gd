@@ -13,17 +13,6 @@ onready var Content = $Content
 
 signal open_non_html_link(link, section)
 
-
-
-
-
-
-
-
-
-
-
-
 func load_page(page_path: String, section: String = ""):
 	Content.set("custom_styles/normal", StyleBoxEmpty.new())
 	Content.get("custom_styles/normal").content_margin_left = 15
@@ -85,8 +74,6 @@ func load_page(page_path: String, section: String = ""):
 	yield(get_tree(), "idle_frame")
 	_on_Up_pressed()
 
-
-
 func scroll_to_section(title):
 	if not title:
 		return
@@ -103,16 +90,11 @@ func scroll_to_section(title):
 			return true
 	
 
-
-
-
-
 func _ready():
 	$Up.icon = get_icon("ArrowUp", "EditorIcons")
 	
 	$Editing.visible = enable_editing
 	
-
 
 func create_content_menu(headings):
 	for child in $ContentMenu / Panel / VBox.get_children():
@@ -130,12 +112,9 @@ func create_content_menu(headings):
 		button.connect("pressed", self, "content_button_pressed", [heading])
 		$ContentMenu / Panel / VBox.add_child(button)
 
-
 func content_button_pressed(heading):
 	scroll_to_section(heading)
 	$ContentMenu / ToggleContents.pressed = false
-
-
 
 func _on_meta_clicked(meta):
 	
@@ -173,20 +152,16 @@ func _on_meta_clicked(meta):
 
 		emit_signal("open_non_html_link", link, section)
 
-
 func _on_EditPage_pressed():
 	var x = File.new()
 	x.open(current_path, File.READ)
 	OS.shell_open(x.get_path_absolute())
 
-
 func _on_RefreshPage_pressed():
 	load_page(current_path)
 
-
 func _on_Up_pressed():
 	Content.scroll_to_line(0)
-
 
 func _on_ToggleContents_toggled(button_pressed):
 	$ContentMenu / Panel.visible = button_pressed

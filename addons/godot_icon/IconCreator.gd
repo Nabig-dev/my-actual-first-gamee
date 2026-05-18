@@ -8,7 +8,6 @@ var create_icon: = CreateIconScript.new()
 var image_paths: = PoolStringArray()
 var images: Array
 
-
 func _ready() -> void :
 	create_icon.error_handler = self
 	create_icon.error_callback = "print_error"
@@ -20,15 +19,12 @@ func _ready() -> void :
 	connect("confirmed", self, "on_confirmed")
 	disable_ok()
 
-
 func on_confirmed() -> void :
 	create_icon.save_icon($ChooseIconDialog.current_path, images)
-
 
 func on_icon_path_selected(icon_path: String) -> void :
 	$Buttons / ChooseIcon.text = icon_path
 	disable_ok()
-
 
 func on_images_selected(paths: PoolStringArray) -> void :
 	$Buttons / ChooseImages.text = "Choose image(s)"
@@ -47,7 +43,6 @@ func on_images_selected(paths: PoolStringArray) -> void :
 		$Buttons / Images.add_child(texture_rect)
 	disable_ok()
 
-
 func create_texture_rect(image: Image) -> TextureRect:
 	var texture: = ImageTexture.new()
 	texture.create_from_image(image)
@@ -55,14 +50,11 @@ func create_texture_rect(image: Image) -> TextureRect:
 	texture_rect.texture = texture
 	return texture_rect
 
-
 func disable_ok() -> void :
 	get_ok().disabled = $ChooseIconDialog.current_file == "" or images.size() != 1 and images.size() != 6
 
-
 func print_error(error_message) -> void :
 	$Buttons / Errors.text += str(error_message, "\n")
-
 
 func remove_all_children(parent: Node) -> void :
 	while parent.get_child_count():

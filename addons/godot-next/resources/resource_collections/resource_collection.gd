@@ -2,11 +2,6 @@ tool
 class_name ResourceCollection
 extends Resource
 
-
-
-
-
-
 const SETUP_PREFIX = "setup/"
 const DATA_PREFIX = "data/"
 
@@ -19,10 +14,8 @@ var _class_type: ClassType = ClassType.new()
 func clear() -> void :
 	assert (false)
 
-
 func get_base_type() -> Script:
 	return _type
-
 
 func set_base_type(p_type: Script) -> void :
 	if _type == p_type:
@@ -30,10 +23,8 @@ func set_base_type(p_type: Script) -> void :
 	_type = p_type
 	property_list_changed_notify()
 
-
 func is_type_readonly() -> bool:
 	return _type_readonly
-
 
 func set_type_readonly(read_only: bool) -> void :
 	if _type_readonly == read_only:
@@ -41,13 +32,11 @@ func set_type_readonly(read_only: bool) -> void :
 	_type_readonly = read_only
 	property_list_changed_notify()
 
-
 func _get(p_property: String):
 	match p_property.trim_prefix(SETUP_PREFIX):
 		"base_type":
 			return _type
 	return null
-
 
 func _set(p_property: String, p_value) -> bool:
 	match p_property.trim_prefix(SETUP_PREFIX):
@@ -57,7 +46,6 @@ func _set(p_property: String, p_value) -> bool:
 				property_list_changed_notify()
 			return true
 	return false
-
 
 func _get_property_list() -> Array:
 	var list: = []
@@ -69,28 +57,17 @@ func _get_property_list() -> Array:
 	list += _export_data_group()
 	return list
 
-
-
-
 func _add_element(p_script: Script) -> void :
 	assert (false)
-
-
 
 func _refresh_data() -> void :
 	assert (false)
 
-
-
 func _export_data_group() -> Array:
 	return [PropertyInfoFactory.new_editor_only(DATA_PREFIX + "dropdown").to_dict()]
 
-
-
 func _export_setup_group() -> Array:
 	return [PropertyInfoFactory.new_resource(SETUP_PREFIX + "base_type", "Script").to_dict()] if not _type_readonly else []
-
-
 
 func _parse_property(p_plugin: EditorInspectorPlugin, p_pinfo: PropertyInfo) -> bool:
 	match p_pinfo.name.trim_prefix(DATA_PREFIX):
@@ -101,7 +78,6 @@ func _parse_property(p_plugin: EditorInspectorPlugin, p_pinfo: PropertyInfo) -> 
 			return true
 	return false
 
-
 func _instantiate_script(p_script: Script) -> Resource:
 	var res: Resource = null
 	if ClassDB.is_parent_class(p_script.get_instance_base_type(), "Resource"):
@@ -111,7 +87,6 @@ func _instantiate_script(p_script: Script) -> Resource:
 		push_error("Must assign non-Script Resource instances. Fallback error: cannot auto-instantiate non-Resource scripts into ResourceCollection.")
 	return res
 
-
 func _find_inheritors() -> Dictionary:
 	_class_type.res = _type
 	var list = _class_type.get_deep_inheritors_list()
@@ -120,7 +95,6 @@ func _find_inheritors() -> Dictionary:
 	for a_name in list:
 		inheritors[a_name] = load(type_map[a_name].path)
 	return inheritors
-
 
 func _on_dropdown_selector_selected(dropdown_selector):
 	var script = dropdown_selector.get_selected_meta()

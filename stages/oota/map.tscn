@@ -42,13 +42,13 @@ script = ExtResource( 7 )
 update_debug_info = false
 show_label_name = true
 
-[node name="plasmoid boss" type="Label" parent="BgColorTileMap/Node2D"]
+[node name="vial boss" type="Label" parent="BgColorTileMap/Node2D"]
 visible = false
 margin_left = -560.0
 margin_top = 80.0
 margin_right = -465.0
 margin_bottom = 111.0
-text = "plasmoid boss
+text = "vial boss
 "
 script = ExtResource( 7 )
 update_debug_info = false
@@ -126,13 +126,13 @@ script = ExtResource( 7 )
 update_debug_info = false
 show_label_name = true
 
-[node name="dirian boss" type="Label" parent="BgColorTileMap/Node2D"]
+[node name="darryl boss" type="Label" parent="BgColorTileMap/Node2D"]
 visible = false
 margin_left = -656.0
 margin_top = 134.0
 margin_right = -580.0
 margin_bottom = 165.0
-text = "dirian boss
+text = "darryl boss
 "
 script = ExtResource( 7 )
 update_debug_info = false

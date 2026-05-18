@@ -1,11 +1,8 @@
 extends Node2D
 
-
-
 export var player_facing: int = - 1
 export var id_destination: String
 export var go_to: String
-
 
 func _on_InteractableArea2DIndicator_interact_requested() -> void :
 

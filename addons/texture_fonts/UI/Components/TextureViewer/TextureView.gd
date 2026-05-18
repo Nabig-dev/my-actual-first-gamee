@@ -1,14 +1,11 @@
 tool 
 extends TextureRect
 
-
 var hover: = false
 var texture_font_mapping
 
-
 onready var rect_preview: = $RectPreview
 onready var label: = $RectPreview / Label
-
 
 func _on_TextureView_mouse_entered():
 	hover = true

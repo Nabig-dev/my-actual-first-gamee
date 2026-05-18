@@ -1,6 +1,5 @@
 extends CanvasLayer
 
-
 var global_position: Vector2
 
 onready var TimerActive = $TimerActive
@@ -46,13 +45,11 @@ func _start_damage() -> void :
 	TimerActive.start()
 	TimerApplyDamage.start()
 
-
 func get_visib_node(EnNode: Object) -> Object:
 	var VisibNode: Object = EnNode.get_node_or_null("VisibilityEnabler2D")
 	if VisibNode == null:
 		VisibNode = EnNode.get_node_or_null("VisibilityNotifier2D")
 	return VisibNode
-
 
 func _on_EnemyDefeated(EnemyNode: Object) -> void :
 	
@@ -71,7 +68,6 @@ func _on_AnimationPlayer_animation_started(anim_name: String) -> void :
 func _on_TimerActive_timeout() -> void :
 	Audio.stop_sfx("ambient_rain", true, 2.0)
 	Anim.play("hide")
-
 
 func _on_TimerApplyDamage_timeout() -> void :
 	for e in _enemies:

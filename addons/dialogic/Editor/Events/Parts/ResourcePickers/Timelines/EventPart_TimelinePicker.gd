@@ -1,16 +1,11 @@
 tool 
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
-
-
-
 onready var picker_menu = $MenuButton
-
 
 func _ready():
 	picker_menu.connect("about_to_show", self, "_on_PickerMenu_about_to_show")
 	picker_menu.custom_icon = load("res://addons/dialogic/Images/Resources/timeline.svg")
-
 
 func load_data(data: Dictionary):
 	
@@ -24,12 +19,8 @@ func load_data(data: Dictionary):
 	else:
 		picker_menu.text = "Select Timeline"
 
-
-
 func get_preview():
 	return ""
-
-
 
 func _on_PickerMenu_selected(index, menu):
 	var text = menu.get_item_text(index)
@@ -40,10 +31,8 @@ func _on_PickerMenu_selected(index, menu):
 	
 	data_changed()
 
-
 func _on_PickerMenu_about_to_show():
 	build_PickerMenu()
-
 
 func build_PickerMenu():
 	picker_menu.get_popup().clear()
@@ -52,9 +41,6 @@ func build_PickerMenu():
 	var files_info = build_PickerMenuFiles(timeline_structure)
 	
 	build_PickerMenuFolder(picker_menu.get_popup(), folder_structure, "MenuButton", files_info)
-
-
-
 
 func build_PickerMenuFolderFlat(menu: PopupMenu, folder_structure: Dictionary, current_folder_name: String):
 	var nested = {}

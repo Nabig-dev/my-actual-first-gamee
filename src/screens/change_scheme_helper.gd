@@ -1,7 +1,5 @@
 extends Control
 
-
-
 var previous_scheme: Dictionary = {
 	"a": 0, 
 	"b": 0, 
@@ -21,8 +19,6 @@ var previous_scheme: Dictionary = {
 	"y": 0
 }
 
-
-
 func _ready() -> void :
 	$VBoxContainer / BtnScheme.grab_focus()
 	$VBoxContainer / BtnScheme._update_value(false)
@@ -35,7 +31,6 @@ func update_icons(scheme: Dictionary) -> void :
 	
 	for n in $ControlGamepad / GamepadTester.get_children():
 		n.frame = scheme[n.name]
-
 
 func _on_BtnScheme_value_changed(_btn_name, _is_bool, value, _section, _key) -> void :
 	match value:
@@ -58,13 +53,11 @@ func _on_BtnScheme_value_changed(_btn_name, _is_bool, value, _section, _key) -> 
 		_:
 			update_icons(previous_scheme)
 
-
 func _on_BtnSave_pressed() -> void :
 	Audio.play_sfx("ui_success")
 	Notification.show_notif("CHANGESSAVED")
 	for n in $ControlGamepad / GamepadTester.get_children():
 		Config.set_value("controller_helper", n.name, n.frame)
-
 
 func _on_BtnReturn_pressed() -> void :
 	Audio.play_sfx("ui_accept")

@@ -50,7 +50,7 @@
 			"character": "character-1710263881.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Oh, señorita Xandria, usted es un ángel."
+			"text": "Oh, señorita nabig, usted es un ángel."
 		},
 		{
 			"character": "character-1649630816.json",
@@ -237,7 +237,7 @@
 			"character": "character-1649630816.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Señora, no soy ningún Adeptis. Mi nombre es Xandria, Alquimista Oficial de La Orden."
+			"text": "Señora, no soy ningún Adeptis. Mi nombre es nabig, Alquimista Oficial de La Orden."
 		},
 		{
 			"character": "character-1710263881.json",
@@ -287,7 +287,7 @@
 			"character": "character-1649630816.json",
 			"event_id": "dialogic_001",
 			"portrait": "Default",
-			"text": "Ahora entiendo las cosas... Ese maldito de Johannes ha estado metiendo basura en las mentes de estas personas durante años..."
+			"text": "Ahora entiendo las cosas... Ese maldito de john ha estado metiendo basura en las mentes de estas personas durante años..."
 		},
 		{
 			"character": "character-1649630816.json",
@@ -299,7 +299,7 @@
 			"character": "character-1649630816.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Debo adentrarme en esta ciudad, podría encontrar más pistas sobre Johannes."
+			"text": "Debo adentrarme en esta ciudad, podría encontrar más pistas sobre john."
 		},
 		{
 			"animation": "[Default]",
@@ -791,7 +791,7 @@
 			"character": "character-1649630816.json",
 			"event_id": "dialogic_001",
 			"portrait": "Angry",
-			"text": "Johannes Trithemius es un lobo disfrazado de oveja."
+			"text": "john Trithemius es un lobo disfrazado de oveja."
 		},
 		{
 			"character": "character-1649630816.json",
@@ -833,7 +833,7 @@
 			"character": "character-1710263881.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Gracias señorita Xandria."
+			"text": "Gracias señorita nabig."
 		},
 		{
 			"animation": "[Default]",

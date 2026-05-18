@@ -21,7 +21,6 @@ func _ready() -> void :
 func _on_ElementalCircuit_absorbed_anim_end() -> void :
 	queue_free()
 
-
 func _on_TimerSpawnKnife_timeout() -> void :
 	
 	knife_instance = Knife.instance()

@@ -1,6 +1,5 @@
 extends Line2D
 
-
 export var TargetPosition: NodePath
 
 var _target: Position2D = null

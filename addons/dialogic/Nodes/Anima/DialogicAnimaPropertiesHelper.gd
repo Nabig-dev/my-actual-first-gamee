@@ -1,14 +1,5 @@
 class_name DialogicAnimaPropertiesHelper
 
-
-
-
-
-
-
-
-
-
 enum PIVOT{
 	CENTER, 
 	CENTER_BOTTOM, 

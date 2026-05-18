@@ -1,0 +1,295 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://assets/sprites/enemies/boss_ike.png" type="Texture" id=1]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hitbox_enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/game_objects/enemies_weapons/ike_bounce.gd" type="Script" id=3]
+[ext_resource path="res://src/game_objects/ghost_trail.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hurtbox_enemy_simple.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/game_objects/vfx/shine_particle.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/sprites/vfx/particle_shine.png" type="Texture" id=7]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 28.0
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite2:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 45.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite3:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 150.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("HurtboxEnemySimple/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("HitboxEnemy/CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "destroyed"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HurtboxEnemySimple/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HitboxEnemy/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "spin"
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite2:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 45.0, -315.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite3:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 150.0, 510.0 ]
+}
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 30.62
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 26.42
+
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0, 0.785276, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[node name="IsaacBounce" type="KinematicBody2D" groups=["isaac_weapon"]]
+z_index = 1
+collision_layer = 520
+collision_mask = 9
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+modulate = Color( 0.517647, 0.517647, 0.517647, 1 )
+rotation = 2.61799
+texture = ExtResource( 1 )
+hframes = 10
+vframes = 10
+frame = 50
+
+[node name="Sprite2" type="Sprite" parent="."]
+modulate = Color( 0.741176, 0.247059, 0.247059, 1 )
+rotation = 0.785398
+texture = ExtResource( 1 )
+hframes = 10
+vframes = 10
+frame = 50
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 10
+vframes = 10
+frame = 50
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 2 )
+anims/destroyed = SubResource( 5 )
+anims/spin = SubResource( 3 )
+
+[node name="HurtboxEnemySimple" parent="." instance=ExtResource( 5 )]
+sprite_flash = NodePath("../Sprite")
+max_hits = 3
+damage_sounds = [  ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxEnemySimple"]
+shape = SubResource( 6 )
+
+[node name="HitboxEnemy" parent="." instance=ExtResource( 2 )]
+identifier = "isaacboomerang"
+hurtbox_node = NodePath("../HurtboxEnemySimple")
+is_weapon = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxEnemy"]
+shape = SubResource( 4 )
+
+[node name="GhostTrail" parent="." instance=ExtResource( 4 )]
+parent_sprite_path = NodePath("..")
+sprite_path = NodePath("../Sprite")
+modulate_ghost = Color( 0.396078, 0.0352941, 0.52549, 0.745098 )
+use_custom_z_index = true
+
+[node name="CoolDown" type="Timer" parent="."]
+one_shot = true
+
+[node name="ShineParticle" parent="." instance=ExtResource( 6 )]
+amount = 100
+texture = ExtResource( 7 )
+emission_sphere_radius = 16.48
+initial_velocity = 168.81
+initial_velocity_random = 1.0
+color = Color( 1, 0.639216, 0.968627, 1 )
+color_ramp = SubResource( 7 )
+auto_delete = false
+
+[node name="TimerActive" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[connection signal="damaged" from="HurtboxEnemySimple" to="." method="_on_HurtboxEnemySimple_damaged"]
+[connection signal="defeated" from="HurtboxEnemySimple" to="." method="_on_HurtboxEnemySimple_defeated"]
+[connection signal="timeout" from="TimerActive" to="." method="_on_TimerActive_timeout"]

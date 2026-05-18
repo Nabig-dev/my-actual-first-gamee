@@ -42,13 +42,11 @@ func _ready():
 	add_color_override("font_color_hover", get_color("accent_color", "Editor"))
 	t_rect.modulate = get_color("font_color", "Editor")
 
-
 func set_icon(texture):
 	
 	event_icon = texture
 	var _scale = DialogicUtil.get_editor_scale(self)
 	$TextureRect.texture = texture
-
 
 func get_drag_data(position):
 	var preview_label = Label.new()

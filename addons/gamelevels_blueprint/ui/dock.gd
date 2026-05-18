@@ -6,13 +6,9 @@ var room_connector = load("res://addons/gamelevels_blueprint/ui/room_connector.t
 
 var button_recent_file = preload("res://addons/gamelevels_blueprint/ui/button_recent_file.tscn")
 
-
-
 var _edit_mode: int = 0
 
-
 var _opened_map: String = ""
-
 
 var _rooms_to_connect: Array
 
@@ -29,7 +25,6 @@ func _ready() -> void :
 
 	_show_recent_list()
 
-
 func open_scene(file_path, scene_type) -> void :
 	
 	var interface = get_tree().get_meta("editor_interface")
@@ -40,7 +35,6 @@ func open_scene(file_path, scene_type) -> void :
 		interface.set_main_screen_editor("3D")
 	
 	interface.open_scene_from_path(file_path)
-
 
 func play_scene(file_path) -> void :
 	
@@ -62,7 +56,6 @@ func show_notif(txt: String = "Hello, this is a Notification!", hide_time: int =
 func hide_notif() -> void :
 	if $PanelToolBar / MarginContainer / HBx / LabelMsgs.modulate.a > 0:
 		_tween_notif(Color("ffffff"), Color("00ffffff"))
-
 
 func clean_graph_edit() -> void :
 
@@ -187,7 +180,6 @@ func open_map() -> void :
 	Conf.set_value("main", "recent_list", recent_list)
 	Conf.save(_configfile_path)
 
-
 func _show_recent_list() -> void :
 	
 	
@@ -211,7 +203,6 @@ func _show_recent_list() -> void :
 		get_node("%RecenListControl").visible = true
 	else:
 		get_node("%RecenListControl").visible = false
-
 
 func _add_room_panel(room_data: Dictionary) -> void :
 	
@@ -240,7 +231,6 @@ func _add_room_panel(room_data: Dictionary) -> void :
 	
 	$GraphEdit.add_child(room_panel_instance)
 
-
 func _add_room_connector(rooms_nodename: Array, focusline: bool = false) -> void :
 	var connector_instance = room_connector.instance()
 	connector_instance.node_a_path = NodePath(str(get_path()) + "/GraphEdit/" + rooms_nodename[0])
@@ -252,7 +242,6 @@ func _add_room_connector(rooms_nodename: Array, focusline: bool = false) -> void
 		connector_instance.unfocus_line()
 	
 	_on_BtnCancelLink_pressed()
-
 
 func _is_already_connected(nodepath_a: NodePath, nodepath_b: NodePath) -> bool:
 	for n in get_tree().get_nodes_in_group("room_connector"):
@@ -272,7 +261,6 @@ func _tween_notif(from: Color, to: Color) -> void :
 	)
 	$Tween.start()
 
-
 func _on_GraphEdit_scene_dropped(filepath, node_position) -> void :
 	
 	get_node("%BtnOpenRecentFiles").visible = false
@@ -285,7 +273,6 @@ func _on_GraphEdit_scene_dropped(filepath, node_position) -> void :
 	}
 	
 	_add_room_panel(room_panel_data)
-
 
 func _on_RecentFile_opened(f_path: String) -> void :
 	_opened_map = f_path
@@ -309,7 +296,6 @@ func _on_RoomPanel_edit_request(room: Object) -> void :
 func _on_TimerHideNotif_timeout() -> void :
 	hide_notif()
 
-
 func _on_BtnSave_pressed() -> void :
 	if _opened_map == "":
 		
@@ -318,7 +304,6 @@ func _on_BtnSave_pressed() -> void :
 	else:
 		
 		save_map()
-
 
 func _on_FileDialogOpenMap_file_selected(path: String) -> void :
 	
@@ -330,14 +315,12 @@ func _on_FileDialogOpenMap_file_selected(path: String) -> void :
 	_opened_map = path
 	open_map()
 
-
 func _on_FileDialogSaveMap_file_selected(path: String) -> void :
 	if _opened_map.empty() == true:
 		_opened_map = path
 	save_map()
 	$PanelFileMapNameOpened / HBx / Lbl.text = _opened_map.get_file().replace(".lvlmap", "")
 	$PanelFileMapNameOpened.visible = true
-
 
 func _on_RoomPanel_raise_request(room_panel_name: String) -> void :
 	
@@ -376,7 +359,6 @@ func _on_RoomPanel_raise_request(room_panel_name: String) -> void :
 				
 				$LabelTooltipLinkMode.set_mode(0)
 
-
 func _on_BtnClose_pressed() -> void :
 	$PanelFileMapNameOpened.visible = false
 	_opened_map = ""
@@ -385,7 +367,6 @@ func _on_BtnClose_pressed() -> void :
 
 func _on_BtnOpen_pressed() -> void :
 	$FileDialogOpenMap.popup_centered()
-
 
 func _on_BtnLink_pressed() -> void :
 	_edit_mode = 1
@@ -407,10 +388,8 @@ func _on_BtnCancelLink_pressed() -> void :
 	get_tree().call_group("room_connector", "set_visible", true)
 	$LabelTooltipLinkMode.set_mode(0)
 
-
 func _on_BtnAbout_pressed() -> void :
 	$PopupAbout.popup()
-
 
 func _on_Tween_tween_completed(_object: Object, key: NodePath) -> void :
 	if (
@@ -421,30 +400,23 @@ func _on_Tween_tween_completed(_object: Object, key: NodePath) -> void :
 	):
 		$PanelToolBar / MarginContainer / HBx / LabelMsgs.text = ""
 
-
 func _on_BtnCloseAbout_pressed() -> void :
 	$PopupAbout.hide()
-
 
 func _on_BtnWebsite_pressed() -> void :
 	OS.shell_open("https://dannygaray60.github.io/")
 
-
 func _on_BtnDonation_pressed() -> void :
 	OS.shell_open("https://ko-fi.com/dannygaray60")
-
 
 func _on_BtnHowToUse_pressed() -> void :
 	OS.shell_open("https://github.com/dannygaray60/godot-gamelevels-blueprint#how-to-use")
 
-
 func _on_BtnGithubRepo_pressed() -> void :
 	OS.shell_open("https://github.com/dannygaray60/godot-gamelevels-blueprint")
 
-
 func _on_BtnCloseRecenList_pressed() -> void :
 	get_node("%RecenListControl").visible = false
-
 
 func _on_BtnOpenRecentFiles_pressed() -> void :
 	_show_recent_list()

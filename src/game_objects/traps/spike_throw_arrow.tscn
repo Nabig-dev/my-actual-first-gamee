@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/sprites/traps/eztilia_traps.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/traps/the_sinkhole_traps.png" type="Texture" id=1]
 [ext_resource path="res://src/game_objects/traps/spike_throw_arrow.gd" type="Script" id=2]
 [ext_resource path="res://src/game_objects/hit_hurt_boxes/hitbox_enemy.tscn" type="PackedScene" id=3]
 

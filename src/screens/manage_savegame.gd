@@ -1,15 +1,9 @@
 extends Control
 
-
-
-
-
-
 var data_ini_path: String = "res://stages/%s/data.json" % [
 	VarsGlobal.selected_stage
 ]
 var DataConf = preload("res://addons/json_config_file/json_conf.gd").new()
-
 
 var _slot_to_load: int
 var _slot_to_restore: int
@@ -144,7 +138,6 @@ func _set_disabled_snapshot_btns(disable: bool) -> void :
 	
 	get_node("%BtnStartRestoreSnapshot").disabled = disable
 
-
 func _on_EraseGameData(slot: int) -> void :
 	Audio.play_sfx("ui_success")
 	var err = Savedata.delete_game(
@@ -196,12 +189,10 @@ func _on_LoadSaveGame(slot: int) -> void :
 			
 			load_game()
 
-
 func _on_BtnLetter_pressed(letter: String) -> void :
 	Audio.play_sfx("ui_put_object")
 	if get_node("%LblSaveNameTitle").text.length() < 13:
 		get_node("%LblSaveNameTitle").text = get_node("%LblSaveNameTitle").text + letter
-
 
 func _on_BtnEraseLetter_pressed() -> void :
 	Audio.play_sfx("ui_erase")
@@ -212,19 +203,15 @@ func _on_BtnEraseLetter_pressed() -> void :
 			txt.right(txt.length() - 1)
 		)
 
-
 func _on_BtnCreatedSaveName_pressed() -> void :
 	Audio.play_sfx("ui_accept")
 	get_node("%PopupDifficulty").show()
 	get_node("%CarouselMenu").active = true
 
-
 func _on_BtnCancelSaveName_pressed() -> void :
 	Audio.play_sfx("ui_cancel")
 	get_node("%PopupKeyboard").hide()
 	get_node("%BtnSave" + str(VarsGlobal.selected_slot)).grab_focus()
-
-
 
 func _on_BtnQuickLoad_pressed() -> void :
 	Audio.play_sfx("ui_accept")
@@ -239,23 +226,18 @@ func _on_BtnExitQuickSaveMenu_pressed() -> void :
 	get_node("%PopupQuicksaveExists").hide()
 	get_node("%BtnSave" + str(VarsGlobal.selected_slot)).grab_focus()
 
-
-
 func _on_BtnDeleteSaveData_pressed() -> void :
 	Audio.play_sfx("ui_accept")
 	get_node("%PopupDeleteData").show()
 	get_node("%BtnReturnFromDeleteMenu").grab_focus()
-
 
 func _on_BtnReturnFromDeleteMenu_pressed() -> void :
 	Audio.play_sfx("ui_cancel")
 	get_node("%PopupDeleteData").hide()
 	get_node("%BtnSave" + str(VarsGlobal.selected_slot)).grab_focus()
 
-
 func _on_HelperIconBtnSelectKybrd_visibility_changed() -> void :
 	$PopupKeyboard / HBoxContainer2 / HBoxContainer2.visible = $PopupKeyboard / HBoxContainer2 / HBoxContainer2 / HelperIconBtnSelectKybrd.visible
-
 
 func _on_CarouselMenu_focused_to(item_index: int) -> void :
 	if get_node("%PopupDifficulty").visible == true:
@@ -293,7 +275,7 @@ func _on_BtnDiffSelected_pressed() -> void :
 	VarsGlobal.reset_data()
 	
 	if get_node("%LblSaveNameTitle").text == "":
-		get_node("%LblSaveNameTitle").text = "XANDRIA"
+		get_node("%LblSaveNameTitle").text = "nabig"
 	
 	
 	VarsGlobal.game_data["save_name"] = get_node("%LblSaveNameTitle").text
@@ -329,7 +311,6 @@ func _on_playstore_signin(is_auth: bool) -> void :
 	if is_auth == true and VarsGlobal.selected_stage == "oota":
 		get_node("%BtnRestoreData").visible = true
 
-
 func _on_playstore_snapshots_game_loaded(snapshot: Dictionary) -> void :
 	_set_disabled_snapshot_btns(false)
 	get_node("%HBxRestoreInfo").visible = true
@@ -356,7 +337,6 @@ func _on_BtnRestoreData_pressed() -> void :
 	get_node("%PopupRestoreData").show()
 	get_node("%BtnSelectSnapshotPlaystore").grab_focus()
 
-
 func _on_BtnCloseRestoreDataPopup_pressed() -> void :
 	Audio.play_sfx("ui_cancel")
 	get_node("%PopupRestoreData").hide()
@@ -379,7 +359,6 @@ func _on_SpinBoxSlotSnapshotLoad_value_changed(value_now: int) -> void :
 func _on_SpinBoxSlotSnapshotSave_value_changed(value_now: int) -> void :
 	_slot_to_restore = value_now - 1
 
-
 func _on_BtnStartRestoreSnapshot_pressed() -> void :
 	if _snapshot_game_data_to_load.empty() == true:
 		Audio.play_sfx("ui_incorrect")
@@ -390,7 +369,6 @@ func _on_BtnStartRestoreSnapshot_pressed() -> void :
 	get_node("%LblSlotNumConfirm").text = str(_slot_to_restore + 1)
 	get_node("%PopupRestoreDataConfirmation").show()
 	get_node("%BtnConfirmedRestoreSnapshot").grab_focus()
-
 
 func _on_BtnCancelRestoreSnapshot_pressed() -> void :
 	Audio.play_sfx("ui_cancel")
@@ -416,7 +394,6 @@ func _on_BtnConfirmedRestoreSnapshot_pressed() -> void :
 		get_node("%LblFinalSnapshotRestoreResult").text = "ERROR: " + str(err)
 	
 	get_node("%BtnAcceptDataRestored").grab_focus()
-
 
 func _on_BtnAcceptDataRestored_pressed() -> void :
 	get_tree().reload_current_scene()

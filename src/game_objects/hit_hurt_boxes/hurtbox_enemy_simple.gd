@@ -1,6 +1,5 @@
 extends Area2D
 
-
 signal defeated
 
 signal damaged
@@ -9,10 +8,7 @@ var ColorFlatShader = preload("res://src/gdshaders/flat_color.gdshader")
 
 export var sprite_flash: NodePath
 
-
 export (Array, String) var hitboxes = ["all"]
-
-
 
 export var max_hits: int = 0
 
@@ -20,9 +16,7 @@ export (Array, String) var damage_sounds = ["enemy_damage_stab"]
 
 export (Array, String) var death_sounds = []
 
-
 var _last_area_cont_damage_entered = null
-
 
 var SpriteFlashNode: Object = null
 
@@ -39,7 +33,6 @@ func _ready() -> void :
 		SpriteFlashNode.material = ShaderMaterial.new()
 		SpriteFlashNode.material.shader = ColorFlatShader
 		SpriteFlashNode.material.set_shader_param("colour", Color("ffffff"))
-
 
 func play_death_sfx() -> void :
 	for s in death_sounds:
@@ -58,7 +51,6 @@ func set_enabled_hurtbox(val: bool = true) -> void :
 	
 	elif is_in_group("enemy_hurtboxes"):
 		add_to_group("enemy_hurtboxes")
-
 
 func _on_HurtBoxEnemy_area_entered(area: Area2D) -> void :
 
@@ -171,8 +163,6 @@ func _on_TimeRepeatDamage_timeout() -> void :
 	if _last_area_cont_damage_entered != null:
 		_on_HurtBoxEnemy_area_entered(_last_area_cont_damage_entered)
 		emit_signal("area_entered", _last_area_cont_damage_entered)
-
-
 
 func _on_TimerFlashHit_timeout() -> void :
 	SpriteFlashNode.material.set_shader_param("active", false)

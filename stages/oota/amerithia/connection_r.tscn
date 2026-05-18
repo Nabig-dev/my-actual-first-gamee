@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://src/game_objects/area_connection.tscn" type="PackedScene" id=1]
-
-[node name="AreaConnection" instance=ExtResource( 1 )]
-destination_l = "res://stages/oota/amerithia/entrance_r.tscn"
-destination_r = "res://stages/oota/eldralis_woods/eldralis_31.tscn"

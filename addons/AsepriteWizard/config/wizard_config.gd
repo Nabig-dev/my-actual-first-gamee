@@ -13,7 +13,6 @@ static func encode(object: Dictionary):
 
 	return Marshalls.utf8_to_base64(text)
 
-
 static func decode(string: String):
 	var decoded = _decode_base64(string)
 	if not _is_wizard_config(decoded):
@@ -41,12 +40,10 @@ static func decode(string: String):
 				
 	return config
 
-
 static func _decode_base64(string: String):
 	if string != "":
 		return Marshalls.base64_to_utf8(string)
 	return null
-
 
 static func _is_wizard_config(cfg) -> bool:
 	return cfg != null and cfg.begins_with(WIZARD_CONFIG_MARKER)

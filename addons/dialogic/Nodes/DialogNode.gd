@@ -1,20 +1,14 @@
 tool 
 extends Control
 
-
-
-
-
 var timeline: String
 var timeline_name: String
-
 
 var preview: bool = false
 
 var noSkipMode: bool = false
 var autoPlayMode: bool = false
 var autoWaitTime: float = 2.0
-
 
 var input_enable: bool = true
 onready var AnimationPlayerShake = $AnimationPlayerShake
@@ -38,18 +32,14 @@ var last_mouse_mode = null
 
 var current_default_theme = null
 
-
 var settings: ConfigFile
 var custom_events = {}
 var record_history: bool = false
 
-
 var definitions = {}
-
 
 var questions
 var anchors = {}
-
 
 var current_timeline: String = ""
 var dialog_script: Dictionary = {}
@@ -59,26 +49,17 @@ var is_last_text: bool
 
 var current_background = ""
 
-
 var current_theme: ConfigFile
 var current_theme_file_name = null
 var history_theme: ConfigFile
 var audio_data = {}
 
-
 var button_container = null
-
-
-
 
 onready var ChoiceButton = load("res://addons/dialogic/Nodes/ChoiceButton.tscn")
 onready var Portrait = load("res://addons/dialogic/Nodes/Portrait.tscn")
 onready var Background = load("res://addons/dialogic/Nodes/Background.tscn")
 onready var HistoryTimeline = $History
-
-
-
-
 
 signal event_start(type, event)
 signal event_end(type)
@@ -93,12 +74,8 @@ signal dialogic_signal(value)
 
 signal letter_displayed(lastLetter)
 
-
 var custom_choice_stylebox_normal = load("res://assets/tres/button_dialog_choice_normal.tres")
 var custom_choice_stylebox_focus = load("res://assets/tres/button_dialog_choice_focus.tres")
-
-
-
 
 func _ready():
 	
@@ -151,7 +128,6 @@ func _ready():
 func play_shake() -> void :
 	AnimationPlayerShake.play("shake")
 
-
 func load_config_files():
 	
 	if not Engine.is_editor_hint():
@@ -176,11 +152,6 @@ func load_config_files():
 		if settings.has_section_key("history", "enable_history_logging"):
 			if settings.get_value("history", "enable_history_logging"):
 				HistoryTimeline.initalize_history()
-
-
-
-
-
 
 func update_custom_events() -> void :
 	custom_events = {}
@@ -212,12 +183,6 @@ func update_custom_events() -> void :
 			file_name = dir.get_next()
 	else:
 		print("[D] An error occurred when trying to access the custom event folder.")
-
-
-
-
-
-
 
 func resize_main():
 	
@@ -328,12 +293,10 @@ func resize_main():
 		portraits.rect_position.x = reference.x / 2
 		portraits.rect_position.y = reference.y
 
-
 func deferred_resize(current_size, result, anchor):
 	$TextBubble.rect_size = result
 	if current_size != $TextBubble.rect_size or current_theme.get_value("box", "anchor", 9) != anchor:
 		resize_main()
-
 
 func load_theme(filename):
 	var current_theme_anchor = - 1
@@ -370,11 +333,6 @@ func load_theme(filename):
 		move_child($Portraits, 1)
 	
 	return theme
-
-
-
-
-
 
 func load_audio(theme):
 	
@@ -413,31 +371,20 @@ func play_audio(name):
 		if audio_data[name].allow_interrupt or not node.is_playing():
 			node.play()
 
-
-
-
-
-
 func set_current_dialog(dialog_path: String):
 	current_timeline = dialog_path
 	dialog_script = DialogicResources.get_timeline_json(dialog_path)
 	return load_dialog()
-
 
 func load_dialog():
 	
 	
 	
 
-
 	dialog_script = DialogicParser.parse_text_lines(dialog_script, preview)
 	dialog_script = DialogicParser.parse_branches(self, dialog_script)
 	DialogicParser.parse_anchors(self)
 	return dialog_script
-
-
-
-
 
 func _process(delta):
 	
@@ -462,7 +409,6 @@ func _process(delta):
 	if Engine.is_editor_hint() == false and is_state(state.ANIMATING) == false:
 		if Input.is_action_just_pressed("ui_start") and $ControlSkip.visible == true:
 			_on_ButtonSkip_pressed()
-
 
 func _input(event: InputEvent) -> void :
 	if not Engine.is_editor_hint() and event.is_action_pressed(Dialogic.get_action_button()) and autoPlayMode:
@@ -505,8 +451,6 @@ func next_event(discreetly: bool):
 	if not discreetly:
 		play_audio("passing")
 	_load_next_event()
-
-
 
 func _on_text_completed():
 	emit_signal("text_complete", current_event)
@@ -567,11 +511,8 @@ func _on_text_completed():
 			if dialog_index == current_index:
 				_load_next_event()
 
-
-
 func _on_signal_request(name):
 	emit_signal("dialogic_signal", name)
-
 
 func on_timeline_start():
 	if not Engine.is_editor_hint():
@@ -588,7 +529,6 @@ func on_timeline_start():
 	emit_signal("event_start", "timeline", timeline_name)
 	emit_signal("timeline_start", timeline_name)
 
-
 func on_timeline_end():
 	if not Engine.is_editor_hint():
 		if settings.get_value("saving", "autosave", true):
@@ -598,7 +538,6 @@ func on_timeline_end():
 	emit_signal("event_end", "timeline")
 	emit_signal("timeline_end", timeline_name)
 
-
 func _emit_timeline_signals():
 	if dialog_script.has("events"):
 		if dialog_index == 0:
@@ -606,26 +545,20 @@ func _emit_timeline_signals():
 		elif _is_dialog_finished():
 			on_timeline_end()
 
-
-
 func _init_dialog():
 	dialog_index = 0
 	_load_event()
-
 
 func _load_event_at_index(index: int):
 	dialog_index = index
 	_load_event()
 
-
 func _load_next_event():
 	dialog_index += 1
 	_load_event()
 
-
 func _is_dialog_finished():
 	return dialog_index >= dialog_script["events"].size()
-
 
 func _load_event():
 	
@@ -666,7 +599,6 @@ func _load_event():
 			
 			if not current_theme.get_value("settings", "dont_close_after_last_event", false):
 				queue_free()
-
 
 func event_handler(event: Dictionary):
 	$TextBubble.reset()
@@ -1066,11 +998,6 @@ func change_timeline(timeline):
 	timeline_name = dialog_script["metadata"]["name"]
 	_init_dialog()
 
-
-
-
-
-
 func update_name(character) -> void :
 	if character.has("name"):
 		var parsed_name = character["name"]
@@ -1082,8 +1009,6 @@ func update_name(character) -> void :
 	else:
 		$TextBubble.update_name("")
 
-
-
 func update_text(text: String) -> String:
 	if settings.get_value("dialog", "translations", false):
 		text = tr(text)
@@ -1093,18 +1018,10 @@ func update_text(text: String) -> String:
 	$TextBubble.update_text(final_text)
 	return final_text
 
-
 func _on_letter_written(lastLetter):
 	if lastLetter != " ":
 		play_audio("typing")
 	emit_signal("letter_displayed", lastLetter)
-
-
-
-
-
-
-
 
 func answer_question(i, event_idx, question_idx):
 	play_audio("selecting")
@@ -1123,12 +1040,10 @@ func answer_question(i, event_idx, question_idx):
 		Input.set_mouse_mode(last_mouse_mode)
 		last_mouse_mode = null
 
-
 func clear_options():
 	
 	for option in button_container.get_children():
 		option.queue_free()
-
 
 func add_choice_button(option: Dictionary) -> Button:
 	var button = get_classic_choice_button(option["label"])
@@ -1158,10 +1073,6 @@ func add_choice_button(option: Dictionary) -> Button:
 		button.shortcut_in_tooltip = false
 	
 	
-
-
-
-
 
 	
 	var autofocus_enabled: bool = settings.get_value("input", "autofocus_choices", false)
@@ -1196,7 +1107,6 @@ func add_choice_button(option: Dictionary) -> Button:
 	
 	return button
 
-
 func _should_add_choice_button(option: Dictionary):
 	if not option["definition"].empty():
 		var def_value = null
@@ -1207,7 +1117,6 @@ func _should_add_choice_button(option: Dictionary):
 	else:
 		return true
 
-
 func get_custom_choice_button(label: String):
 	var theme = current_theme
 	var custom_path = current_theme.get_value("buttons", "custom_path", "")
@@ -1215,8 +1124,6 @@ func get_custom_choice_button(label: String):
 	var button = CustomChoiceButton.instance()
 	button.text = label
 	return button
-
-
 
 func get_classic_choice_button(label: String):
 	var theme = current_theme
@@ -1234,68 +1141,10 @@ func get_classic_choice_button(label: String):
 	button.size_flags_horizontal = SIZE_EXPAND_FILL
 	
 
-
-
-
-
-
-
-
-
-
-
 	button_container.set("custom_constants/separation", theme.get_value("buttons", "gap", 20))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	
 	return button
-
 
 func button_style_setter(section, data, button, theme):
 	var style_box = StyleBoxTexture.new()
@@ -1317,23 +1166,16 @@ func button_style_setter(section, data, button, theme):
 	style_box.set("margin_bottom", padding.y)
 	button.set("custom_styles/" + section, style_box)
 
-
 func _on_option_hovered(button):
 	button.grab_focus()
 
-
 func _on_option_focused():
 	play_audio("hovering")
-
 
 func _on_OptionsDelayedInput_timeout():
 	for button in button_container.get_children():
 		if button.is_connected("pressed", self, "answer_question") == false:
 			button.connect("pressed", self, "answer_question", [button, button.get_meta("event_idx"), button.get_meta("question_idx")])
-
-
-
-
 
 func handle_voice(event):
 	var settings_file = DialogicResources.get_settings_config()
@@ -1351,10 +1193,6 @@ func handle_voice(event):
 	
 	$FX / CharacterVoice.stop_voice()
 
-
-
-
-
 func grab_portrait_focus(character_data, event: Dictionary = {}) -> bool:
 	var exists = false
 	for portrait in $Portraits.get_children():
@@ -1370,14 +1208,12 @@ func grab_portrait_focus(character_data, event: Dictionary = {}) -> bool:
 			portrait.focusout(Color(current_theme.get_value("animation", "dim_color", "#ff808080")))
 	return exists
 
-
 func portrait_exists(character_data) -> bool:
 	var exists = false
 	for portrait in $Portraits.get_children():
 		if portrait.character_data.get("file", true) == character_data.get("file", false):
 			exists = true
 	return exists
-
 
 func get_character_position(positions) -> String:
 	if positions["0"]:
@@ -1392,7 +1228,6 @@ func get_character_position(positions) -> String:
 		return "right"
 	return "left"
 
-
 func get_portrait_name(event_data):
 	var char_portrait = event_data["portrait"]
 	if char_portrait == "":
@@ -1406,7 +1241,6 @@ func get_portrait_name(event_data):
 					char_portrait = d["value"]
 					break
 	return char_portrait
-
 
 func insert_animation_data(event_data, type = "join", default = "fade_in_up"):
 	var animation = event_data.get("animation", "[Default]")
@@ -1425,21 +1259,16 @@ func characters_leave_all(animation, time):
 		for p in portraits.get_children():
 			p.animate(animation, time, 1, true)
 
-
 func get_portrait_z_index_point(z_index):
 	for i in range($Portraits.get_child_count()):
 		if $Portraits.get_child(i).z_index >= z_index:
 			return i
 	return $Portraits.get_child_count()
 
-
-
-
 func _should_show_glossary():
 	if current_theme != null:
 		return current_theme.get_value("definitions", "show_glossary", true)
 	return true
-
 
 func _on_RichTextLabel_meta_hover_started(meta):
 	var correct_type = false
@@ -1458,34 +1287,23 @@ func _on_RichTextLabel_meta_hover_started(meta):
 		
 		$DefinitionInfo / Timer.stop()
 
-
 func _on_RichTextLabel_meta_hover_ended(meta):
 	
 	$DefinitionInfo / Timer.start(0.1)
 
-
 func _hide_definition_popup():
 	definition_visible = false
 	$DefinitionInfo.visible = definition_visible
-
 
 func _on_Definition_Timer_timeout():
 	
 	definition_visible = false
 	$DefinitionInfo.visible = definition_visible
 
-
-
-
-
-
-
-
 func _hide_dialog():
 	$TextBubble.clear()
 	$TextBubble.modulate = Color(1, 1, 1, 0)
 	dialog_faded_in_already = false
-
 
 func fade_in_dialog(time = 0.5):
 	visible = true
@@ -1513,16 +1331,11 @@ func fade_in_dialog(time = 0.5):
 			return true
 	return false
 
-
 func finished_fade_in_dialog(object, key, node):
 	node.queue_free()
 	if not current_event.has("options"):
 		set_state(state.IDLE)
 	dialog_faded_in_already = true
-
-
-
-
 
 func get_current_state_info():
 	var state = {}
@@ -1545,15 +1358,12 @@ func get_current_state_info():
 
 	return state
 
-
 func resume_state_from_info(state_info):
 
 	
 	do_fade_in = false
 	yield(self, "ready")
 	
-
-
 
 	
 	for saved_portrait in state_info["portraits"]:
@@ -1625,16 +1435,6 @@ func resume_state_from_info(state_info):
 
 	_load_event_at_index(state_info["event_idx"])
 
-
-
-
-
-
-
-
-
-
-
 func set_state(new_state):
 	var state_string = ["IDLE", "READY", "TYPING", "WAITING", "WAITING_INPUT", "ANIMATING", ]
 	
@@ -1645,7 +1445,6 @@ func is_state(check_state):
 	if _state == check_state:
 		return true
 	return false
-
 
 func _on_ButtonSkip_pressed() -> void :
 	

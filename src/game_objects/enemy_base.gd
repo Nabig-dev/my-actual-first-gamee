@@ -3,12 +3,9 @@ extends Node
 signal enemy_defeated(NodeEnemy)
 signal state_changed(state)
 
-
 export var node_facing: NodePath
 
-
 export var anim_player: NodePath
-
 
 export var auto_dead_state: bool = true
 
@@ -24,7 +21,6 @@ var facing: int = 1
 var NodeParent: Object = null
 var NodeFacing: Object = null
 var AnimPlayer: Object = null
-
 
 var _is_animation_tree: bool = false
 
@@ -63,7 +59,6 @@ func _ready() -> void :
 	if auto_facing_on_ready == true:
 		change_direction("to_player")
 
-
 func change_state(
 	new_state: String, forced: bool = false, anim_travel: bool = false
 ) -> void :
@@ -90,9 +85,6 @@ func change_state(
 			_anim_state_machine.start(state)
 		
 		emit_signal("state_changed", state)
-
-
-
 
 func change_direction(opt: String = "inverse") -> void :
 	
@@ -137,7 +129,6 @@ func get_player_position(add_offset: Vector2 = Vector2.ZERO) -> Vector2:
 
 func get_player_distance() -> float:
 	return NodeParent.global_position.distance_to(VarsGlobal.Player.global_position)
-
 
 func is_player_up() -> bool:
 	if VarsGlobal.Player.global_position.y < NodeParent.global_position.y:

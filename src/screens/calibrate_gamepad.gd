@@ -17,10 +17,7 @@ var names_btn_list: Array = [
 
 var events_list: Dictionary
 
-
 var _codes_added: Array
-
-
 
 var _ready_to_detect: bool
 
@@ -234,7 +231,6 @@ func _on_end_calibration() -> void :
 func _on_BtnStart_pressed() -> void :
 	_on_start_calibration()
 
-
 func _on_BtnCancel_pressed() -> void :
 	$OptionButton.visible = true
 	
@@ -245,10 +241,8 @@ func _on_BtnCancel_pressed() -> void :
 	$GamepadCtrl.visible = false
 	current_phase = 0
 
-
 func _on_BtnSkip_pressed() -> void :
 	_go_next_phase()
-
 
 func _on_BtnReturn_pressed() -> void :
 	Audio.play_sfx("ui_cancel")
@@ -258,7 +252,6 @@ func _on_BtnReturn_pressed() -> void :
 		SceneChanger.change_scene("res://src/screens/title_screen.tscn")
 	else:
 		SceneChanger.change_scene("res://src/screens/options.tscn")
-
 
 func _on_OptionButton_item_selected(index: int) -> void :
 	var item_id: int = $OptionButton.get_item_id(index)
@@ -273,7 +266,6 @@ func _on_gamepad_connection_changed(_device_connected: bool) -> void :
 		return
 	refresh_gamepads_list()
 
-
 func _on_BtnResetDefault_pressed() -> void :
 	Audio.play_sfx("ui_cancel")
 	
@@ -287,7 +279,6 @@ func _on_BtnResetDefault_pressed() -> void :
 	
 	Notification.show_notif("CONF_BY_DEFAULT_DONE")
 	refresh_gamepads_list()
-
 
 func _on_CalibrateGamepad_tree_exiting() -> void :
 	

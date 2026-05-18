@@ -16,12 +16,6 @@ func _ready() -> void :
 		AnimP.play_backwards("spin")
 	
 
-
-
-
-
-
-
 	
 	var arc_height = target_position.y - global_position.y - 64
 	
@@ -37,7 +31,6 @@ func _physics_process(delta: float) -> void :
 	
 	move_and_collide(velocity * delta)
 	
-
 
 func _on_VisibilityNotifier2D_screen_exited() -> void :
 	queue_free()
@@ -58,7 +51,6 @@ func _on_HurtboxEnemy_defeated() -> void :
 	new_vel.y = abs(new_vel.y) * - 1
 
 	velocity = new_vel
-
 
 func _on_HurtboxEnemySimple_area_entered(area: Area2D) -> void :
 	_last_weapon_pos = area.global_position

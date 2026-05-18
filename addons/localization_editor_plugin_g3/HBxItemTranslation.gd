@@ -16,7 +16,6 @@ var trans_txt: String = "Text Translated" setget update_trans_txt
 var need_revision: bool = false
 var annotations: String
 
-
 var _is_ready_for_emit_signals: bool
 
 func _ready() -> void :
@@ -46,7 +45,6 @@ func focus_line_edit() -> void :
 func has_translation() -> bool:
 	return not get_node("%LineEditTranslation").text.strip_edges().empty()
 
-
 func _orig_txt_changed(txt: String) -> void :
 	orig_txt = txt
 	
@@ -57,19 +55,11 @@ func _orig_txt_changed(txt: String) -> void :
 	
 	
 
-
-
-
 func update_trans_txt(txt: String) -> void :
 	trans_txt = txt
 	get_node("%LineEditTranslation").text = trans_txt
 	
 	
-
-
-
-
-
 
 	
 	_on_LineEditTranslation_text_changed(trans_txt)
@@ -89,7 +79,6 @@ func _on_CheckBoxRevision_toggled(button_pressed: bool) -> void :
 	
 	if _is_ready_for_emit_signals == true:
 		emit_signal("need_revision_check_pressed", key_str, need_revision)
-
 
 func _on_LineEditTranslation_focus_entered() -> void :
 	pass
@@ -120,15 +109,11 @@ func _on_BtnTranslate_pressed() -> void :
 	get_node("%LineEditTranslation").text = trans_txt
 	emit_signal("translate_requested", name, orig_txt)
 
-
 func _on_BtnTranslateDeepL_pressed() -> void :
 	emit_signal("deepl_open_link_requested", name)
 
-
 func _on_ButtonCopyKey_pressed() -> void :
 	OS.set_clipboard(key_str)
-
-
 
 func _on_LineEditTranslation_text_entered(_new_text: String) -> void :
 	var next_node: Control = get_node("%LineEditTranslation").find_next_valid_focus()

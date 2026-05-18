@@ -13,7 +13,6 @@ var initial_position: Vector2
 
 var dir_x: int = 0
 
-
 var dir_y: int = 1
 
 onready var Enemy = $EnemyBase
@@ -85,7 +84,6 @@ func _on_TimerMove_timeout() -> void :
 	
 	if Enemy.state == "idle":
 		Enemy.change_direction("to_player")
-
 
 func _on_TimerFireball_timeout() -> void :
 	if Enemy.state in ["flying", "dead"]:

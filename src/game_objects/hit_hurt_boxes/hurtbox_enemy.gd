@@ -1,12 +1,8 @@
 extends Area2D
 
-
-
-
 signal defeated
 
 signal damaged
-
 
 signal defeated_by_weakness
 
@@ -30,37 +26,27 @@ export (Array, String) var damage_sounds = ["enemy_damage_stab"]
 
 export (Array, String) var death_sounds = []
 
-
 export var blood_drop: int = 0
 
 export var emit_defeated_signal: bool = true
 
 export var add_to_death_count_on_defeat: bool = true
 
-
 var hp_now: int = 0
 
 var hp_max: int = 0
 
-
-var def: int = 0
-
+var defense_rating: int = 0
 
 var exp_val: int = 0
 
-
 var data_enemy: Dictionary
-
-
 
 var health_multiplier: float = 1
 
-
 var _last_area_cont_damage_entered = null
 
-
 var SpriteFlashNode: Object = null
-
 
 onready var DropNode = $Drop
 onready var TimeRepeatDamage = $TimeRepeatDamage
@@ -89,15 +75,15 @@ func _ready() -> void :
 	
 	if is_weapon == false:
 		
-		hp_now = int(data_enemy["hp"] * health_multiplier)
+		hp_now = int(data_enemy["health_points"] * health_multiplier)
 		hp_max = hp_now
 		
-		def = data_enemy["def"]
+		defense_rating = data_enemy["defense_rating"]
 		exp_val = data_enemy["exp"]
 	else:
 		hp_now = 1
 		hp_max = 1
-		def = 0
+		defense_rating = 0
 		exp_val = 0
 
 func set_enabled_hurtbox(val: bool = true) -> void :
@@ -111,7 +97,6 @@ func set_enabled_hurtbox(val: bool = true) -> void :
 	
 	elif is_in_group("enemy_hurtboxes"):
 		add_to_group("enemy_hurtboxes")
-
 
 func _on_HurtBoxEnemy_area_entered(area: Area2D) -> void :
 	
@@ -136,7 +121,7 @@ func _on_HurtBoxEnemy_area_entered(area: Area2D) -> void :
 	var damage_indicator_position: Vector2
 	
 	
-	def = data_enemy["def"]
+	defense_rating = data_enemy["defense_rating"]
 	
 	
 	var facing_to: int = VarsGlobal.GameScenario.get_facing_pointing_to(
@@ -193,17 +178,17 @@ func _on_HurtBoxEnemy_area_entered(area: Area2D) -> void :
 	match area.identifier:
 		
 		"whip_a":
-			damage = VarsGlobal.get_stat("atk")
+			damage = VarsGlobal.get_stat("attack_power")
 		"whip_b":
-			damage = int(VarsGlobal.get_stat("atk") * 1.2)
+			damage = int(VarsGlobal.get_stat("attack_power") * 1.2)
 		"whip_c":
-			damage = int(VarsGlobal.get_stat("atk") * 1.3)
+			damage = int(VarsGlobal.get_stat("attack_power") * 1.3)
 		"whip_d":
-			damage = int(VarsGlobal.get_stat("atk") * 1.6)
+			damage = int(VarsGlobal.get_stat("attack_power") * 1.6)
 		
 		
 		"whip_m":
-			damage = int(VarsGlobal.get_stat("atk") * 3)
+			damage = int(VarsGlobal.get_stat("attack_power") * 3)
 			
 			var increase: int = damage * 0.5
 			damage = int(damage + increase)
@@ -212,39 +197,21 @@ func _on_HurtBoxEnemy_area_entered(area: Area2D) -> void :
 			
 			
 
-
-
-
-
-
-
-
-
-
-
-
 		
 		"whip_h":
-			damage = int(VarsGlobal.get_stat("atk") * 5)
+			damage = int(VarsGlobal.get_stat("attack_power") * 5)
 			
 			var increase: int = damage * 0.7
 			damage = damage + increase
 			
 
-
-
-
-
 			
 
 			
-
-
-
 
 		
 		"slidekick", "kick":
-			damage = VarsGlobal.get_stat("atk")
+			damage = VarsGlobal.get_stat("attack_power")
 			if damage > 0:
 				
 				damage = damage / 4
@@ -278,53 +245,8 @@ func _on_HurtBoxEnemy_area_entered(area: Area2D) -> void :
 	
 	
 
-
 	
 	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	
 	if VarsGlobal.game_data["player_injured"] == true and damage > 0:
@@ -394,11 +316,10 @@ func _on_HurtBoxEnemy_area_entered(area: Area2D) -> void :
 	
 	
 	damage = int(
-		FuncsNumbers.decrease_value(def, damage)
+		FuncsNumbers.decrease_value(defense_rating, damage)
 	)
 	
 	
-
 
 	
 	
@@ -573,17 +494,6 @@ func _on_HurtBoxEnemy_area_entered(area: Area2D) -> void :
 		
 		
 
-
-
-
-
-
-
-
-
-
-
-
 		
 
 	
@@ -605,8 +515,6 @@ func _on_TimeContinuedDamage_timeout() -> void :
 func _on_TimeRepeatDamage_timeout() -> void :
 	if _last_area_cont_damage_entered != null:
 		_on_HurtBoxEnemy_area_entered(_last_area_cont_damage_entered)
-
-
 
 func _on_TimerFlashHit_timeout() -> void :
 	SpriteFlashNode.material.set_shader_param("active", false)

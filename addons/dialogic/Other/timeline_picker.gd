@@ -1,27 +1,21 @@
 tool 
 extends EditorProperty
 
-
 var timelines_dropdown = MenuButton.new()
 var container = HBoxContainer.new()
 var edit_button = Button.new()
 
-
 var editor_inspector_plugin = null
-
 
 var current_value = ""
 
 var updating = false
 
-
 func get_tooltip_text():
 	return "Click to select a Dialogic timeline.\nPress the tool button to directly switch to the editor"
 
-
 func _ready():
 	edit_button.icon = get_icon("Tools", "EditorIcons")
-
 
 func _init():
 	
@@ -45,7 +39,6 @@ func _init():
 	timelines_dropdown.get_popup().connect("index_pressed", self, "_on_timeline_selected")
 	edit_button.connect("pressed", self, "_on_editTimelineButton_pressed")
 
-
 func _about_to_show_menu():
 	
 	if (updating):
@@ -58,7 +51,6 @@ func _about_to_show_menu():
 		timelines_dropdown.get_popup().add_item(c["name"])
 		timelines_dropdown.get_popup().set_item_metadata(index, {"file": c["file"], "color": c["color"]})
 		index += 1
-
 
 func _on_timeline_selected(index):
 	var text = timelines_dropdown.get_popup().get_item_text(index)
@@ -73,7 +65,6 @@ func _on_timeline_selected(index):
 func _on_editTimelineButton_pressed():
 	if (current_value != "" and editor_inspector_plugin != null):
 		editor_inspector_plugin.switch_to_dialogic_timeline(current_value)
-
 
 func update_property():
 	

@@ -18,7 +18,6 @@ export (
 export var time_spawn: float = 0.5
 export var max_spawns: int = 3
 
-
 export var limit_top: int = - 10000000
 export var limit_bottom: int = 10000000
 export var limit_left: int = - 10000000
@@ -64,7 +63,6 @@ func spawn() -> void :
 	
 	_total_spawned += 1
 
-
 func is_player_off_limit() -> bool:
 	var player_pos: Vector2 = VarsGlobal.Player.global_position
 	if (
@@ -75,7 +73,6 @@ func is_player_off_limit() -> bool:
 		return true
 	else:
 		return false
-
 
 func is_player_near_to_camera_limit(treshold: float = 180) -> bool:
 	var CameraNode: Camera2D = VarsGlobal.GameScenario.CameraNode

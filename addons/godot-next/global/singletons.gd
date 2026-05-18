@@ -2,14 +2,7 @@ tool
 class_name Singletons
 extends Reference
 
-
-
-
-
-
 const SINGLETON_CACHE = preload("res://addons/godot-next/data/singleton_cache.tres")
-
-
 
 static func fetch(p_script: Script) -> Object:
 	var cache: Dictionary = SINGLETON_CACHE.get_cache()
@@ -26,15 +19,11 @@ static func fetch(p_script: Script) -> Object:
 			cache[p_script] = p_script.new()
 	return cache[p_script]
 
-
-
 static func fetchs(p_name: String) -> Object:
 	var ct = ClassType.new(p_name)
 	if ct.res:
 		return fetch(ct.res)
 	return null
-
-
 
 static func fetch_editor(p_class: GDScriptNativeClass) -> Object:
 	if not Engine.editor_hint:
@@ -46,8 +35,6 @@ static func fetch_editor(p_class: GDScriptNativeClass) -> Object:
 		return cache[p_class]
 	return null
 
-
-
 static func erase(p_script: Script) -> bool:
 	var cache: Dictionary = SINGLETON_CACHE.get_cache()
 	var paths: Dictionary = SINGLETON_CACHE.get_paths()
@@ -55,7 +42,6 @@ static func erase(p_script: Script) -> bool:
 	
 	paths.erase(p_script)
 	return erased
-
 
 static func save(p_script: Script) -> void :
 	var paths: Dictionary = SINGLETON_CACHE.get_paths()
@@ -65,7 +51,6 @@ static func save(p_script: Script) -> void :
 	
 	ResourceSaver.save(paths[p_script], cache[p_script])
 
-
 static func save_all() -> void :
 	var cache: Dictionary = SINGLETON_CACHE.get_cache()
 	var paths: Dictionary = SINGLETON_CACHE.get_paths()
@@ -73,11 +58,8 @@ static func save_all() -> void :
 		
 		ResourceSaver.save(paths[a_script], cache[a_script])
 
-
 static func _get_persistent_path(p_script: Script):
 	return p_script.get("SELF_RESOURCE")
-
-
 
 static func _register_editor_singletons(plugin: EditorPlugin):
 	var cache: Dictionary = SINGLETON_CACHE.get_cache()

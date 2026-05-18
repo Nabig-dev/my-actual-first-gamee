@@ -30,6 +30,5 @@ func set_offset(new_offset: Vector2):
 func get_offset() -> Vector2:
 	return offset
 
-
 func _on_TextureContainer_resized():
 	set_offset(offset)

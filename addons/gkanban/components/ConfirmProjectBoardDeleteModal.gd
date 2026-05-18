@@ -12,7 +12,6 @@ func set_project_board(_project_board):
 func _on_CancelButton_pressed():
 	queue_free()
 
-
 func _on_DeleteButton_pressed():
 	emit_signal("project_board_deleted", project_board)
 	queue_free()

@@ -1,17 +1,13 @@
 tool 
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
-
 export (String) var default_text = "Select Glossary Item"
 
-
 onready var picker_menu = $MenuButton
-
 
 func _ready():
 	picker_menu.connect("about_to_show", self, "_on_PickerMenu_about_to_show")
 	picker_menu.custom_icon = get_icon("ListSelect", "EditorIcons")
-
 
 func load_data(data: Dictionary):
 	
@@ -32,7 +28,6 @@ func select_glossary_by_id(id):
 	else:
 		picker_menu.text = default_text
 
-
 func _on_PickerMenu_selected(index, menu):
 	event_data["glossary_id"] = menu.get_item_metadata(index).get("file", "")
 	
@@ -50,7 +45,6 @@ func build_PickerMenu():
 
 	
 	build_PickerMenuFolder(picker_menu.get_popup(), folder_structure, "MenuButton")
-
 
 func build_PickerMenuFolder(menu: PopupMenu, folder_structure: Dictionary, current_folder_name: String):
 	var index = 0

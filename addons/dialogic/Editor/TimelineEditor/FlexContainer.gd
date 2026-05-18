@@ -1,31 +1,16 @@
 tool 
 extends Container
 
-
-
-
-
-
-
-
-
-
-
 export var horizontal_margin: float = 5
 export var vertical_margin: float = 5
 
-
-
 var _reported_height_at_last_minimum_size_call: float = 0
-
 
 func _init() -> void :
 	size_flags_horizontal = SIZE_EXPAND_FILL
 
-
 func _ready():
 	pass
-
 
 func _get_minimum_size() -> Vector2:
 	var max_child_width: float = 0
@@ -43,16 +28,12 @@ func _get_minimum_size() -> Vector2:
 	
 	return Vector2(max_child_width, height)
 
-
 func _notification(what):
 	if (what == NOTIFICATION_SORT_CHILDREN):
 		var height = _calculate_layout(true)
 		
 		if height != _reported_height_at_last_minimum_size_call:
 			_make_parent_reevaluate_our_size()
-
-
-
 
 func _calculate_layout(apply: bool) -> float:
 	var child_position: Vector2 = Vector2(0, 0)
@@ -88,32 +69,9 @@ func _calculate_layout(apply: bool) -> float:
 	
 	return child_position.y + row_height
 
-
 func _make_parent_reevaluate_our_size():
 	
 	rect_min_size = Vector2(0, 20000)
 	rect_min_size = Vector2(0, 0)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	

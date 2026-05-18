@@ -57,19 +57,19 @@
 			"character": "character-1677081590.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Vaya, tenemos a una visitante. Saludos señorita, mi nombre es Kalev, bienvenida a Eztilia."
+			"text": "Vaya, tenemos a una visitante. Saludos señorita, mi nombre es Kalev, bienvenida a the_sinkhole."
 		},
 		{
 			"character": "character-1649630816.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Hola. Soy Xandria, Alquimista de La Orden."
+			"text": "Hola. Soy nabig, Alquimista de La Orden."
 		},
 		{
 			"character": "character-1677081590.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "¿Xandria? Una alquimista... Ya veo... ¿De casualidad eres la discipula de Rachel?"
+			"text": "¿nabig? Una alquimista... Ya veo... ¿De casualidad eres la discipula de Rachel?"
 		},
 		{
 			"character": "character-1649630816.json",
@@ -99,13 +99,13 @@
 			"character": "character-1649630816.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "¿Así que esta es la ciudad de Eztilia? No pensé que hiciera tanto frío aquí."
+			"text": "¿Así que esta es la ciudad de the_sinkhole? No pensé que hiciera tanto frío aquí."
 		},
 		{
 			"character": "character-1677081590.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Bueno, realmente Eztilia era un lugar más placentero. Hasta que un Adeptis llegó."
+			"text": "Bueno, realmente the_sinkhole era un lugar más placentero. Hasta que un Adeptis llegó."
 		},
 		{
 			"character": "character-1649630816.json",
@@ -123,7 +123,7 @@
 			"character": "character-1677081590.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "En los pueblos cercanos a Eztilia sufrieron una crisis a partir de una sustancia adictiva."
+			"text": "En los pueblos cercanos a the_sinkhole sufrieron una crisis a partir de una sustancia adictiva."
 		},
 		{
 			"character": "character-1677081590.json",
@@ -141,7 +141,7 @@
 			"character": "character-1677081590.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Se trataba de [color=yellow]Sheal Avicena[/color], un comerciante que vino desde tierras lejanas."
+			"text": "Se trataba de [color=yellow]shay Avicena[/color], un comerciante que vino desde tierras lejanas."
 		},
 		{
 			"character": "character-1677081590.json",
@@ -153,13 +153,13 @@
 			"character": "character-1677081590.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Logramos ponerle fin a la distribución del Mercurio Rojo. Pero el desgraciado de Sheal escapó."
+			"text": "Logramos ponerle fin a la distribución del Mercurio Rojo. Pero el desgraciado de shay escapó."
 		},
 		{
 			"character": "character-1677081590.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Ya en mi retiro me enteré que Sheal había regresado, esta vez siendo uno de los Adeptis de los Ahuizotes."
+			"text": "Ya en mi retiro me enteré que shay había regresado, esta vez siendo uno de los Adeptis de los Ahuizotes."
 		},
 		{
 			"character": "character-1677081590.json",
@@ -177,7 +177,7 @@
 			"character": "character-1677081590.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Así es, Xandria."
+			"text": "Así es, nabig."
 		},
 		{
 			"character": "character-1677081590.json",
@@ -189,7 +189,7 @@
 			"character": "character-1677081590.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Por lo que Sheal, siendo Alquimista que domina este elemento, ha logrado bajar la temperatura del aire, provocando este invierno imparable."
+			"text": "Por lo que shay, siendo Alquimista que domina este elemento, ha logrado bajar la temperatura del aire, provocando este invierno imparable."
 		},
 		{
 			"character": "character-1677081590.json",
@@ -279,7 +279,7 @@
 			"character": "character-1677081590.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Cuando Sheal sea derrotado, regresa. Me gustaría seguir hablando contigo."
+			"text": "Cuando shay sea derrotado, regresa. Me gustaría seguir hablando contigo."
 		},
 		{
 			"character": "character-1677081590.json",

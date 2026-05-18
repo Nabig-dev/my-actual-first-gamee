@@ -8,32 +8,9 @@ var current_theme: String = ""
 var preview_character_selected: String = "random"
 var current_choice_modifier_selected = "hover"
 
-
-
-
-
-
 var loading: bool = true
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 var first_time_loading_theme_full_size_bug: = 0
-
-
-
-
-
 
 onready var n: Dictionary = {
 	
@@ -159,10 +136,6 @@ onready var n: Dictionary = {
 	"text_preview": $"VBoxContainer/VBoxContainer/HBoxContainer3/TextEdit", 
 	"character_picker": $"VBoxContainer/VBoxContainer/HBoxContainer/CharacterPicker", 
 }
-
-
-
-
 
 func _ready() -> void :
 	editor_reference = find_parent("EditorView")
@@ -312,7 +285,6 @@ func _ready() -> void :
 	
 	_on_visibility_changed()
 
-
 func character_picker_update():
 	n["character_picker"].clear()
 	n["character_picker"].add_item("Random Character")
@@ -344,7 +316,6 @@ func character_picker_selected(index):
 	preview_character_selected = n["character_picker"].get_item_metadata(index)
 	n["character_picker"].text = n["character_picker"].get_item_text(index)
 	_on_PreviewButton_pressed()
-
 
 func load_theme(filename):
 	loading = true
@@ -513,7 +484,6 @@ func load_theme(filename):
 	
 	_update_name_fields_editable()
 
-
 func create_theme() -> String:
 	var theme_file: String = "theme-" + str(OS.get_unix_time()) + ".cfg"
 	DialogicResources.add_theme(theme_file)
@@ -524,7 +494,6 @@ func create_theme() -> String:
 		
 		settings_editor.set_value("theme", "default", theme_file)
 	return theme_file
-
 
 func duplicate_theme(from_filename) -> void :
 	var duplicate_theme: String = "theme-" + str(OS.get_unix_time()) + ".cfg"
@@ -537,7 +506,6 @@ func duplicate_theme(from_filename) -> void :
 	
 	master_tree.build_themes(duplicate_theme)
 	load_theme(duplicate_theme)
-
 
 func _on_visibility_changed() -> void :
 	if visible:
@@ -577,11 +545,8 @@ func _update_name_fields_editable() -> void :
 	
 	$"VBoxContainer/TabContainer/Name Label/Column/VBoxContainer2/GridContainer/RegularFont/NameFontOpen".disabled = hide_name_labels
 
-
-
 func _on_DelayPreview_timer_timeout() -> void :
 	_on_PreviewButton_pressed()
-
 
 func _on_PreviewButton_pressed() -> void :
 	for i in $VBoxContainer / Panel.get_children():
@@ -622,17 +587,10 @@ func _on_PreviewButton_pressed() -> void :
 	$VBoxContainer / Panel.rect_size.y = 0
 	preview_dialog.call_deferred("resize_main")
 
-
 func _on_Preview_text_changed() -> void :
 	if loading:
 		return
 	DialogicResources.set_theme_value(current_theme, "text", "preview", n["text_preview"].text)
-
-
-
-
-
-
 
 func _on_generic_checkbox(button_pressed, section, key, update_preview = true) -> void :
 	
@@ -643,7 +601,6 @@ func _on_generic_checkbox(button_pressed, section, key, update_preview = true) -
 	if update_preview:
 		_on_PreviewButton_pressed()
 
-
 func _on_generic_value_change(value, section, key, update_preview = true) -> void :
 	if loading:
 		return
@@ -651,14 +608,9 @@ func _on_generic_value_change(value, section, key, update_preview = true) -> voi
 	if update_preview:
 		_on_PreviewButton_pressed()
 
-
-
-
-
 func _on_FontButton_pressed() -> void :
 	editor_reference.godot_dialog("*.tres")
 	editor_reference.godot_dialog_connect(self, "_on_Font_selected")
-
 
 func _on_Font_selected(path, target) -> void :
 	if loading:
@@ -667,16 +619,13 @@ func _on_Font_selected(path, target) -> void :
 	n["theme_font"].text = DialogicResources.get_filename_from_path(path)
 	_on_PreviewButton_pressed()
 
-
 func _on_FontOpen_pressed():
 	var theme = DialogicResources.get_theme_config(current_theme)
 	editor_reference.editor_interface.inspect_object(load(theme.get_value("text", "font", "res://addons/dialogic/Example Assets/Fonts/DefaultFont.tres")))
 
-
 func _on_BoldFontButton_pressed():
 	editor_reference.godot_dialog("*.tres")
 	editor_reference.godot_dialog_connect(self, "_on_BoldFont_selected")
-
 
 func _on_BoldFont_selected(path, target) -> void :
 	if loading:
@@ -685,16 +634,13 @@ func _on_BoldFont_selected(path, target) -> void :
 	n["theme_font_bold"].text = DialogicResources.get_filename_from_path(path)
 	_on_PreviewButton_pressed()
 
-
 func _on_BoldFontOpen_pressed():
 	var theme = DialogicResources.get_theme_config(current_theme)
 	editor_reference.editor_interface.inspect_object(load(theme.get_value("text", "bold_font", "res://addons/dialogic/Example Assets/Fonts/DefaultBoldFont.tres")))
 
-
 func _on_ItalicFontButton_pressed():
 	editor_reference.godot_dialog("*.tres")
 	editor_reference.godot_dialog_connect(self, "_on_ItalicFont_selected")
-
 
 func _on_ItalicFont_selected(path, target) -> void :
 	if loading:
@@ -703,16 +649,13 @@ func _on_ItalicFont_selected(path, target) -> void :
 	n["theme_font_italic"].text = DialogicResources.get_filename_from_path(path)
 	_on_PreviewButton_pressed()
 
-
 func _on_ItalicFontOpen_pressed():
 	var theme = DialogicResources.get_theme_config(current_theme)
 	editor_reference.editor_interface.inspect_object(load(theme.get_value("text", "italic_font", "res://addons/dialogic/Example Assets/Fonts/DefaultItalicFont.tres")))
 
-
 func _on_NameFont_pressed():
 	editor_reference.godot_dialog("*.tres")
 	editor_reference.godot_dialog_connect(self, "_on_NameFont_selected")
-
 
 func _on_NameFont_selected(path, target) -> void :
 	if loading:
@@ -721,11 +664,9 @@ func _on_NameFont_selected(path, target) -> void :
 	n["name_font"].text = DialogicResources.get_filename_from_path(path)
 	_on_PreviewButton_pressed()
 
-
 func _on_NameFontOpen_pressed():
 	var theme = DialogicResources.get_theme_config(current_theme)
 	editor_reference.editor_interface.inspect_object(load(theme.get_value("name", "font", "res://addons/dialogic/Example Assets/Fonts/NameFont.tres")))
-
 
 func _on_Alignment_item_selected(index) -> void :
 	if loading:
@@ -733,13 +674,11 @@ func _on_Alignment_item_selected(index) -> void :
 	DialogicResources.set_theme_value(current_theme, "text", "alignment", n["alignment"].get_item_id(index))
 	_on_PreviewButton_pressed()
 
-
 func _on_ColorPickerButton_color_changed(color) -> void :
 	if loading:
 		return
 	DialogicResources.set_theme_value(current_theme, "text", "color", "#" + color.to_html())
 	$DelayPreviewTimer.start(0.5)
-
 
 func _on_ColorPickerButtonShadow_color_changed(color) -> void :
 	if loading:
@@ -747,15 +686,11 @@ func _on_ColorPickerButtonShadow_color_changed(color) -> void :
 	DialogicResources.set_theme_value(current_theme, "text", "shadow_color", "#" + color.to_html())
 	$DelayPreviewTimer.start(0.5)
 
-
 func _on_ShadowOffset_value_changed(_value) -> void :
 	if loading:
 		return
 	DialogicResources.set_theme_value(current_theme, "text", "shadow_offset", Vector2(n["theme_shadow_offset_x"].value, n["theme_shadow_offset_y"].value))
 	_on_PreviewButton_pressed()
-
-
-
 
 func _on_BoxSize_value_changed(value) -> void :
 	if loading:
@@ -770,12 +705,9 @@ func _on_button_dialogbox_anchor_selected(index):
 	DialogicResources.set_theme_value(current_theme, "box", "anchor", index)
 	_on_PreviewButton_pressed()
 
-
-
 func _on_BackgroundTextureButton_pressed() -> void :
 	editor_reference.godot_dialog("*.png")
 	editor_reference.godot_dialog_connect(self, "_on_background_selected")
-
 
 func _on_background_selected(path, target) -> void :
 	if loading:
@@ -784,13 +716,11 @@ func _on_background_selected(path, target) -> void :
 	n["theme_background_image"].text = DialogicResources.get_filename_from_path(path)
 	_on_PreviewButton_pressed()
 
-
 func _on_ColorPicker_Background_texture_modulation_color_changed(color) -> void :
 	if loading:
 		return
 	DialogicResources.set_theme_value(current_theme, "background", "modulation_color", "#" + color.to_html())
 	$DelayPreviewTimer.start(0.5)
-
 
 func _on_BackgroundColor_ColorPickerButton_color_changed(color) -> void :
 	if loading:
@@ -798,24 +728,19 @@ func _on_BackgroundColor_ColorPickerButton_color_changed(color) -> void :
 	DialogicResources.set_theme_value(current_theme, "background", "color", "#" + color.to_html())
 	$DelayPreviewTimer.start(0.5)
 
-
 func _on_DimColor_ColorPickerButton_color_changed(color) -> void :
 	if loading:
 		return
 	DialogicResources.set_theme_value(current_theme, "animation", "dim_color", "#" + color.to_html())
-
 
 func _on_PortraitDimTime_value_changed(value):
 	if loading:
 		return
 	DialogicResources.set_theme_value(current_theme, "animation", "dim_time", value)
 
-
-
 func _on_NextIndicatorButton_pressed() -> void :
 	editor_reference.godot_dialog("*.png")
 	editor_reference.godot_dialog_connect(self, "_on_indicator_selected")
-
 
 func _on_indicator_selected(path, target) -> void :
 	if loading:
@@ -832,11 +757,9 @@ func _on_indicator_selected(path, target) -> void :
 	n["next_indicator_offset_y"].value = 10
 	_on_PreviewButton_pressed()
 
-
 func _on_NextAnimation_item_selected(index) -> void :
 	DialogicResources.set_theme_value(current_theme, "next_indicator", "animation", n["next_animation"].get_item_text(index))
 	_on_PreviewButton_pressed()
-
 
 func _on_NextOffset_value_changed(value):
 	if loading:
@@ -844,10 +767,6 @@ func _on_NextOffset_value_changed(value):
 	var offset_value = Vector2(n["next_indicator_offset_x"].value, n["next_indicator_offset_y"].value)
 	DialogicResources.set_theme_value(current_theme, "next_indicator", "offset", offset_value)
 	_on_PreviewButton_pressed()
-
-
-
-
 
 func _on_name_hide_toggled(button_pressed) -> void :
 	if loading:
@@ -857,14 +776,11 @@ func _on_name_hide_toggled(button_pressed) -> void :
 	_on_PreviewButton_pressed()
 	_update_name_fields_editable()
 
-
 func _on_name_auto_color_toggled(button_pressed) -> void :
 	if loading:
 		return
 	DialogicResources.set_theme_value(current_theme, "name", "auto_color", button_pressed)
 	_on_PreviewButton_pressed()
-
-
 
 func _on_name_background_color_changed(color) -> void :
 	if loading:
@@ -872,12 +788,9 @@ func _on_name_background_color_changed(color) -> void :
 	DialogicResources.set_theme_value(current_theme, "name", "background", "#" + color.to_html())
 	$DelayPreviewTimer.start(0.5)
 
-
-
 func _on_name_image_pressed() -> void :
 	editor_reference.godot_dialog("*.png")
 	editor_reference.godot_dialog_connect(self, "_on_name_texture_selected")
-
 
 func _on_name_texture_selected(path, target) -> void :
 	if loading:
@@ -886,20 +799,17 @@ func _on_name_texture_selected(path, target) -> void :
 	n["name_image"].text = DialogicResources.get_filename_from_path(path)
 	_on_PreviewButton_pressed()
 
-
 func _on_ColorPicker_NameLabel_modulation_color_changed(color) -> void :
 	if loading:
 		return
 	DialogicResources.set_theme_value(current_theme, "name", "modulation_color", "#" + color.to_html())
 	$DelayPreviewTimer.start(0.5)
 
-
 func _on_name_shadow_color_changed(color) -> void :
 	if loading:
 		return
 	DialogicResources.set_theme_value(current_theme, "name", "shadow", "#" + color.to_html())
 	$DelayPreviewTimer.start(0.5)
-
 
 func _on_name_ShadowOffset_value_changed(_value) -> void :
 	if loading:
@@ -908,14 +818,12 @@ func _on_name_ShadowOffset_value_changed(_value) -> void :
 			Vector2(n["name_shadow_offset_x"].value, n["name_shadow_offset_y"].value))
 	_on_PreviewButton_pressed()
 
-
 func _on_name_padding_value_changed(_value) -> void :
 	if loading:
 		return
 	DialogicResources.set_theme_value(current_theme, "name", "name_padding", 
 			Vector2(n["name_padding_x"].value, n["name_padding_y"].value))
 	_on_PreviewButton_pressed()
-
 
 func _on_name_BottomGap_value_changed(value) -> void :
 	if loading:
@@ -925,20 +833,17 @@ func _on_name_BottomGap_value_changed(value) -> void :
 	DialogicResources.set_theme_value(current_theme, "name", "horizontal_offset", n["name_horizontal_offset"].value)
 	_on_PreviewButton_pressed()
 
-
 func _on_name_position_selected(index):
 	if loading:
 		return
 	DialogicResources.set_theme_value(current_theme, "name", "position", index)
 	_on_PreviewButton_pressed()
 
-
 func _on_ButtonSize_value_changed(value):
 	if loading:
 		return
 	DialogicResources.set_theme_value(current_theme, "buttons", "fixed_size", Vector2(n["button_fixed_x"].value, n["button_fixed_y"].value))
 	_on_PreviewButton_pressed()
-
 
 func _on_ButtonOffset_value_changed(value) -> void :
 	if loading:
@@ -949,20 +854,17 @@ func _on_ButtonOffset_value_changed(value) -> void :
 	)
 	DialogicResources.set_theme_value(current_theme, "buttons", "padding", final_vector)
 
-
 func _on_button_layout_selected(index):
 	if loading:
 		return
 	DialogicResources.set_theme_value(current_theme, "buttons", "layout", index)
 	_on_PreviewButton_pressed()
 
-
 func _on_button_anchor_selected(index):
 	if loading:
 		return
 	DialogicResources.set_theme_value(current_theme, "buttons", "anchor", index)
 	_on_PreviewButton_pressed()
-
 
 func _on_button_offset_changed(_value):
 	if loading:
@@ -971,19 +873,15 @@ func _on_button_offset_changed(_value):
 	DialogicResources.set_theme_value(current_theme, "buttons", "offset", offset_vector)
 	_on_PreviewButton_pressed()
 
-
 func _on_VerticalSeparation_value_changed(value) -> void :
 	if loading:
 		return
 	DialogicResources.set_theme_value(current_theme, "buttons", "gap", n["button_separation"].value)
 
-
-
 func _on_button_texture_toggled(button_pressed) -> void :
 	if loading:
 		return
 	DialogicResources.set_theme_value(current_theme, "buttons", "use_image", button_pressed)
-
 
 func _on_ButtonTextureButton_pressed(section = "") -> void :
 	editor_reference.godot_dialog("*.png")
@@ -991,7 +889,6 @@ func _on_ButtonTextureButton_pressed(section = "") -> void :
 		
 		current_choice_modifier_selected = section
 		editor_reference.godot_dialog_connect(self, "_on_modifier_button_image_selected")
-
 
 func _on_modifier_button_image_selected(path, _target):
 	if loading:
@@ -1011,12 +908,10 @@ func _on_native_button_toggled(button_pressed) -> void :
 	DialogicResources.set_theme_value(current_theme, "buttons", "use_native", button_pressed)
 	toggle_button_customization_fields(button_pressed, false)
 
-
 func toggle_button_customization_fields(native_enabled: bool, custom_enabled: bool) -> void :
 	var customization_disabled = native_enabled or custom_enabled
 	n["button_padding_x"].editable = not customization_disabled
 	n["button_padding_y"].editable = not customization_disabled
-
 
 func _on_CustomButtonsCheckBox_toggled(button_pressed):
 	if loading:
@@ -1024,11 +919,9 @@ func _on_CustomButtonsCheckBox_toggled(button_pressed):
 	DialogicResources.set_theme_value(current_theme, "buttons", "use_custom", button_pressed)
 	toggle_button_customization_fields(false, button_pressed)
 
-
 func _on_CustomButtonsButton_pressed():
 	editor_reference.godot_dialog("*.tscn")
 	editor_reference.godot_dialog_connect(self, "_on_custom_button_selected")
-
 
 func _on_choice_show_toggled(button_pressed) -> void :
 	if loading:
@@ -1038,19 +931,13 @@ func _on_choice_show_toggled(button_pressed) -> void :
 	_on_PreviewButton_pressed()
 	_update_name_fields_editable()
 
-
-
-
-
 func _on_Glossary_TitleFontButton_pressed():
 	editor_reference.godot_dialog("*.tres")
 	editor_reference.godot_dialog_connect(self, "_on_Glossary_TitleFont_selected")
 
-
 func _on_Glossary_TitleFontOpen_pressed():
 	var theme = DialogicResources.get_theme_config(current_theme)
 	editor_reference.editor_interface.inspect_object(load(theme.get_value("definitions", "font", "res://addons/dialogic/Example Assets/Fonts/GlossaryFont.tres")))
-
 
 func _on_Glossary_TitleFont_selected(path, target) -> void :
 	if loading:
@@ -1059,19 +946,15 @@ func _on_Glossary_TitleFont_selected(path, target) -> void :
 	n["glossary_title_font"].text = DialogicResources.get_filename_from_path(path)
 	_on_PreviewButton_pressed()
 
-
 func _on_Glossary_TitleColorPicker_color_changed(color):
 	if loading:
 		return
 	DialogicResources.set_theme_value(current_theme, "definitions", "title_color", "#" + color.to_html())
 	$DelayPreviewTimer.start(0.5)
 
-
-
 func _on_Glossary_TextFontButton_pressed():
 	editor_reference.godot_dialog("*.tres")
 	editor_reference.godot_dialog_connect(self, "_on_Glossary_TextFont_selected")
-
 
 func _on_Glossary_TextFont_selected(path, target):
 	if loading:
@@ -1080,11 +963,9 @@ func _on_Glossary_TextFont_selected(path, target):
 	n["glossary_text_font"].text = DialogicResources.get_filename_from_path(path)
 	_on_PreviewButton_pressed()
 
-
 func _on_Glossary_TextFontOpen_pressed():
 	var theme = DialogicResources.get_theme_config(current_theme)
 	editor_reference.editor_interface.inspect_object(load(theme.get_value("definitions", "text_font", "res://addons/dialogic/Example Assets/Fonts/GlossaryFont.tres")))
-
 
 func _on_Glossary_TextColorPicker_color_changed(color):
 	if loading:
@@ -1092,12 +973,9 @@ func _on_Glossary_TextColorPicker_color_changed(color):
 	DialogicResources.set_theme_value(current_theme, "definitions", "text_color", "#" + color.to_html())
 	$DelayPreviewTimer.start(0.5)
 
-
-
 func _on_Glossary_ExtraFontButton_pressed():
 	editor_reference.godot_dialog("*.tres")
 	editor_reference.godot_dialog_connect(self, "_on_Glossary_ExtraFont_selected")
-
 
 func _on_Glossary_ExtraFont_selected(path, target):
 	if loading:
@@ -1106,11 +984,9 @@ func _on_Glossary_ExtraFont_selected(path, target):
 	n["glossary_extra_font"].text = DialogicResources.get_filename_from_path(path)
 	_on_PreviewButton_pressed()
 
-
 func _on_Glossary_ExtraFontOpen_pressed():
 	var theme = DialogicResources.get_theme_config(current_theme)
 	editor_reference.editor_interface.inspect_object(load(theme.get_value("definitions", "extra_font", "res://addons/dialogic/Example Assets/Fonts/GlossaryFont.tres")))
-
 
 func _on_Glossary_ExtraColorPicker_color_changed(color):
 	if loading:
@@ -1118,26 +994,19 @@ func _on_Glossary_ExtraColorPicker_color_changed(color):
 	DialogicResources.set_theme_value(current_theme, "definitions", "extra_color", "#" + color.to_html())
 	$DelayPreviewTimer.start(0.5)
 
-
-
 func _on_Glossary_HighlightColorPicker_color_changed(color):
 	if loading:
 		return
 	DialogicResources.set_theme_value(current_theme, "definitions", "color", "#" + color.to_html())
 	$DelayPreviewTimer.start(0.5)
 
-
-
-
 func _on_BgPanelSelection_pressed():
 	editor_reference.godot_dialog("*.tres")
 	editor_reference.godot_dialog_connect(self, "_on_Glossary_BackgroundPanel_selected")
 
-
 func _on_BGPanelOpen_pressed():
 	var theme = DialogicResources.get_theme_config(current_theme)
 	editor_reference.editor_interface.inspect_object(load(theme.get_value("definitions", "background_panel", "res://addons/dialogic/Example Assets/backgrounds/GlossaryBackground.tres")))
-
 
 func _on_Glossary_BackgroundPanel_selected(path, target):
 	if loading:
@@ -1145,7 +1014,6 @@ func _on_Glossary_BackgroundPanel_selected(path, target):
 	DialogicResources.set_theme_value(current_theme, "definitions", "background_panel", path)
 	n["glossary_background_panel"].text = DialogicResources.get_filename_from_path(path)
 	_on_PreviewButton_pressed()
-
 
 func _on_audio_data_updated(section):
 	DialogicResources.set_theme_value(current_theme, "audio", section, n["audio_pickers"][section].get_data())

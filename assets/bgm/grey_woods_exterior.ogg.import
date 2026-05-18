@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/grey_woods_exterior.ogg-043db4893cc8375a3bb75ce24e5b9c9d.oggstr"
+
+[deps]
+
+source_file="res://assets/bgm/grey_woods_exterior.ogg"
+dest_files=[ "res://.import/grey_woods_exterior.ogg-043db4893cc8375a3bb75ce24e5b9c9d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=5.4

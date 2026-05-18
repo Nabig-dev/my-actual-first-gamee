@@ -50,12 +50,10 @@ func spawn_skull_a() -> void :
 	VarsGlobal.GameScenario.call_deferred("add_child", ObjInstance)
 	
 
-
 func _on_EnemyBase_enemy_defeated(_NodeEnemy) -> void :
 	velocity.x = 0
 	$AnimationFly.stop(true)
 	_on_ElPadreSinCabeza_tree_exiting()
-
 
 func _on_TimerMakeAtk_timeout() -> void :
 	randomize()
@@ -71,7 +69,6 @@ func _on_TimerMakeAtk_timeout() -> void :
 	$TimerMakeAtk.start(
 		rand_range(5, 7)
 	)
-
 
 func _on_ElPadreSinCabeza_tree_exiting() -> void :
 	Audio.stop_sfx("signum_crucis")

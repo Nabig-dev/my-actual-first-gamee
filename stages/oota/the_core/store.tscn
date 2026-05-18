@@ -1,0 +1,269 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://src/game_objects/game_scenario.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/game_objects/game_interface.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/game_objects/characters/playable_character.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game_objects/tilemaps/solid/tilemap_building.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/game_objects/camera_limit.tscn" type="PackedScene" id=5]
+[ext_resource path="res://addons/gamelevels_blueprint/img/shadow_gradient_0.png" type="Texture" id=6]
+[ext_resource path="res://src/game_objects/room_changer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/game_objects/door_interior.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/sprites/bg_decoration/castle_decoration.png" type="Texture" id=9]
+[ext_resource path="res://src/game_objects/tilemaps/background/tilemap_walls_32px.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/sprites/bg_decoration/village_a_interior.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/tiles/background/building_decoration_32px.png" type="Texture" id=12]
+[ext_resource path="res://src/game_objects/destructibles/torch_roof.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/game_objects/npc/npc.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/sprites/bg_decoration/table_store.png" type="Texture" id=15]
+[ext_resource path="res://src/game_objects/interactable_area2d_indicator.tscn" type="PackedScene" id=16]
+[ext_resource path="res://src/game_objects/store_interface.tscn" type="PackedScene" id=17]
+[ext_resource path="res://stages/oota/the_core/store.gd" type="Script" id=18]
+[ext_resource path="res://src/game_objects/drop_items/equipment_item.tscn" type="PackedScene" id=19]
+[ext_resource path="res://src/game_objects/key_object.tscn" type="PackedScene" id=20]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 20.5, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 15.5, 10 )
+
+[node name="Node" type="Node"]
+script = ExtResource( 18 )
+
+[node name="GameInterface" parent="." instance=ExtResource( 2 )]
+area_title = "SHOP"
+enabled_quicksave = false
+dialogs_change_music = false
+
+[node name="GameScenario" parent="." instance=ExtResource( 1 )]
+music = "rest_town"
+low_music_mode = true
+
+[node name="TileMapWalls" parent="GameScenario" instance=ExtResource( 10 )]
+modulate = Color( 0.501961, 0.843137, 0.278431, 1 )
+tile_data = PoolIntArray( -1048575, 1, 0, -1048572, 1, 0, -1048569, 1, 0, -1048566, 1, 0, -917504, 1, 0, -917501, 1, 0, -917498, 1, 0, -917495, 1, 0, -786432, 1, 0, -786429, 1, 0, -786426, 1, 0, -786423, 1, 0 )
+
+[node name="ShadowGradient1" type="Sprite" parent="GameScenario"]
+position = Vector2( 199, -464 )
+scale = Vector2( 3.57, 0.8 )
+texture = ExtResource( 6 )
+
+[node name="ShadowGradient5" type="Sprite" parent="GameScenario"]
+position = Vector2( 188.5, -394 )
+scale = Vector2( 0.27, 0.16 )
+texture = ExtResource( 6 )
+
+[node name="ShadowGradient6" type="Sprite" parent="GameScenario"]
+position = Vector2( 188.5, -381 )
+scale = Vector2( 0.27, 0.16 )
+texture = ExtResource( 6 )
+
+[node name="ShadowGradient7" type="Sprite" parent="GameScenario"]
+position = Vector2( 157.225, -354.409 )
+rotation = -1.25664
+scale = Vector2( 0.637218, 0.544502 )
+texture = ExtResource( 6 )
+
+[node name="ShadowGradient8" type="Sprite" parent="GameScenario"]
+position = Vector2( 251, -369 )
+rotation = -1.25664
+scale = Vector2( 0.637218, 0.544502 )
+texture = ExtResource( 6 )
+
+[node name="ShadowGradient2" type="Sprite" parent="GameScenario"]
+position = Vector2( 198.5, -348 )
+scale = Vector2( 3.57, 0.72 )
+texture = ExtResource( 6 )
+flip_v = true
+
+[node name="ShadowGradient3" type="Sprite" parent="GameScenario"]
+position = Vector2( 338.043, -387.827 )
+rotation = -1.5708
+scale = Vector2( 2.20654, 0.769916 )
+texture = ExtResource( 6 )
+flip_v = true
+
+[node name="ShadowGradient4" type="Sprite" parent="GameScenario"]
+position = Vector2( 26.4207, -387.827 )
+rotation = -1.5708
+scale = Vector2( 2.20654, 0.548413 )
+texture = ExtResource( 6 )
+
+[node name="Decoration" type="Node2D" parent="GameScenario"]
+
+[node name="VillageAInterior" type="Sprite" parent="GameScenario/Decoration"]
+position = Vector2( 191, -352 )
+texture = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 832, 288, 32, 32 )
+
+[node name="VillageAInterior2" type="Sprite" parent="GameScenario/Decoration"]
+position = Vector2( 227, -381 )
+texture = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 768, 256, 32, 64 )
+
+[node name="VillageAInterior3" type="Sprite" parent="GameScenario/Decoration"]
+position = Vector2( 189, -400 )
+texture = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 1056, 128, 32, 32 )
+
+[node name="VillageAInterior4" type="Sprite" parent="GameScenario/Decoration"]
+position = Vector2( 136, -368 )
+texture = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 960, 128, 64, 64 )
+
+[node name="BuildingDecoration32Px" type="Sprite" parent="GameScenario/Decoration"]
+position = Vector2( 320, -385 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 0, 176, 64, 80 )
+
+[node name="BuildingDecoration32Px2" type="Sprite" parent="GameScenario/Decoration"]
+position = Vector2( 174, -351 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 96, 160, 32, 32 )
+
+[node name="BuildingDecoration32Px3" type="Sprite" parent="GameScenario/Decoration"]
+position = Vector2( 120, -367 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 128, 160, 32, 32 )
+
+[node name="BuildingDecoration32Px4" type="Sprite" parent="GameScenario/Decoration"]
+position = Vector2( 91, -376 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 160, 208, 32, 48 )
+
+[node name="BuildingDecoration32Px5" type="Sprite" parent="GameScenario/Decoration"]
+position = Vector2( 286, -369 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 160, 208, 32, 48 )
+
+[node name="BuildingDecoration32Px6" type="Sprite" parent="GameScenario/Decoration"]
+position = Vector2( 255, -367 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 160, 208, 32, 48 )
+
+[node name="CastleDecoration" type="Sprite" parent="GameScenario"]
+position = Vector2( 58, -461 )
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 400, 16, 32, 44 )
+
+[node name="CastleDecoration2" type="Sprite" parent="GameScenario"]
+position = Vector2( 321, -456 )
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 496, 17, 112, 80 )
+
+[node name="NPCGabriel" parent="GameScenario" instance=ExtResource( 14 )]
+position = Vector2( 281, -343 )
+
+[node name="TableStore" type="Sprite" parent="GameScenario"]
+position = Vector2( 280, -352 )
+texture = ExtResource( 15 )
+
+[node name="ShadowGradient9" type="Sprite" parent="GameScenario"]
+position = Vector2( 279.337, -340 )
+scale = Vector2( 1.41327, 0.16 )
+texture = ExtResource( 6 )
+flip_v = true
+
+[node name="TorchRoof" parent="GameScenario" instance=ExtResource( 13 )]
+position = Vector2( 112, -431 )
+
+[node name="TorchRoof2" parent="GameScenario" instance=ExtResource( 13 )]
+position = Vector2( 188, -431 )
+
+[node name="TorchRoof3" parent="GameScenario" instance=ExtResource( 13 )]
+position = Vector2( 265, -431 )
+
+[node name="DoorInterior" parent="GameScenario" instance=ExtResource( 8 )]
+position = Vector2( 12, -384 )
+spawn_position_name = "PositionStore"
+
+[node name="TileMapBuilding" parent="GameScenario" instance=ExtResource( 4 )]
+tile_data = PoolIntArray( -2031617, 3, 0, -2097152, 3, 0, -2097151, 3, 0, -2097150, 3, 0, -2097149, 3, 0, -2097148, 3, 0, -2097147, 3, 0, -2097146, 3, 0, -2097145, 3, 0, -2097144, 3, 0, -2097143, 3, 0, -2097142, 3, 0, -2097141, 3, 0, -2097140, 3, 0, -2097139, 3, 0, -2097138, 3, 0, -2097137, 3, 0, -2097136, 3, 0, -2097135, 3, 0, -2097134, 3, 0, -2097133, 3, 0, -2097132, 3, 0, -2097131, 3, 0, -2097130, 3, 0, -1966081, 3, 0, -2031616, 3, 0, -2031615, 3, 0, -2031614, 3, 0, -2031594, 3, 0, -1900545, 3, 0, -1966080, 3, 0, -1966079, 3, 0, -1966078, -536870908, 0, -1966058, 3, 0, -1835009, 3, 0, -1900544, 3, 0, -1900543, 3, 0, -1900522, 3, 0, -1769473, 3, 0, -1834986, 3, 0, -1703937, 3, 0, -1769450, 3, 0, -1638401, 3, 0, -1703914, 3, 0, -1572865, 3, 0, -1638378, 3, 0, -1507333, 536870915, 0, -1507332, 536870915, 0, -1507331, 536870915, 0, -1507330, 536870915, 0, -1507329, 536870915, 0, -1572864, 536870915, 0, -1572863, 536870915, 0, -1572862, 536870914, 0, -1572860, 3, 0, -1572859, 5, 0, -1572842, 3, 0, -1441797, 536870915, 0, -1441796, 536870915, 0, -1441795, 536870915, 0, -1441794, 536870915, 0, -1441793, 536870915, 0, -1507328, 536870915, 0, -1507327, 536870915, 0, -1507324, 536870914, 0, -1507322, 5, 0, -1507306, 3, 0, -1376261, 536870915, 0, -1376260, 536870915, 0, -1376259, 536870915, 0, -1376258, 536870915, 0, -1376257, 536870915, 0, -1441792, 536870915, 0, -1441791, 536870915, 0, -1441790, 536870915, 0, -1441789, 536870915, 0, -1441786, 536870915, 0, -1441785, 536870915, 0, -1441784, 3, 0, -1441783, 5, 0, -1441770, 3, 0, -1310722, 2, 0, -1376256, 2, 0, -1376254, 2, 0, -1376252, 4, 0, -1376250, 4, 0, -1376248, 4, 0, -1376246, 4, 0, -1376244, 4, 0, -1376242, 3, 0, -1376241, 3, 0, -1376240, 3, 0, -1376239, 2, 0, -1376237, 4, 0, -1376235, 3, 0, -1376234, 3, 0, -1310716, 4, 0, -1310714, 4, 0, -1310712, 3, 0, -1310711, 3, 0, -1310710, 4, 0, -1310708, 3, 0, -1310707, 3, 0, -1310706, 3, 0, -1310705, 4, 0, -1310701, 3, 0, -1310700, 3, 0, -1310699, 3, 0, -1310698, 3, 0, -1179650, 2, 0, -1245184, 2, 0, -1245182, 2, 0, -1245180, 2, 0, -1245178, 3, 0, -1245177, 3, 0, -1245176, 3, 0, -1245175, 3, 0, -1245174, 3, 0, -1245173, 3, 0, -1245172, 2, 0, -1245170, 3, 0, -1245169, 3, 0, -1245168, 3, 0, -1245167, 3, 0, -1245166, 3, 0, -1245165, 3, 0, -1245164, 3, 0, -1245163, 3, 0, -1245162, 3, 0, -1179642, 4, 0, -1179640, 4, 0, -1179638, 2, 0, -1179634, 3, 0, -1179633, 3, 0, -1179632, 3, 0, -1179631, 3, 0, -1179630, 3, 0, -1179629, 3, 0, -1179628, 3, 0, -1179627, 3, 0, -1179626, 3, 0, -1114100, 2, 0 )
+
+[node name="PlayableCharacter" parent="GameScenario" instance=ExtResource( 3 )]
+position = Vector2( 28, -384 )
+
+[node name="CameraLimit" parent="GameScenario" instance=ExtResource( 5 )]
+visible = false
+margin_left = 12.0
+margin_top = -483.0
+margin_right = 353.0
+margin_bottom = -291.0
+
+[node name="ShadowGradient0" type="Sprite" parent="GameScenario"]
+position = Vector2( 191, -312 )
+scale = Vector2( 3.74, 0.48 )
+texture = ExtResource( 6 )
+flip_v = true
+
+[node name="RoomChanger" parent="GameScenario" instance=ExtResource( 7 )]
+position = Vector2( 12, -384 )
+scale = Vector2( -1, 1 )
+direction = 2
+path_destination = "res://stages/oota/the_core/amerithia_central.tscn"
+offset_area = -64
+
+[node name="InteractableArea2DIndicator" parent="GameScenario" instance=ExtResource( 16 )]
+position = Vector2( 281, -345 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScenario/InteractableArea2DIndicator"]
+position = Vector2( -0.5, 5 )
+shape = SubResource( 1 )
+
+[node name="Aura" type="Node2D" parent="GameScenario"]
+position = Vector2( 225, -367 )
+
+[node name="InteractableArea2DIndicator" parent="GameScenario/Aura" instance=ExtResource( 16 )]
+position = Vector2( 0, 33 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScenario/Aura/InteractableArea2DIndicator"]
+position = Vector2( -29.5, -6 )
+shape = SubResource( 2 )
+
+[node name="NPCAura" parent="GameScenario/Aura" instance=ExtResource( 14 )]
+character = "Aura"
+anim = "crouchtable"
+
+[node name="EquipmentItem" parent="GameScenario" instance=ExtResource( 19 )]
+position = Vector2( 323, -520 )
+mode = 1
+ide = "359bf052-01a7-4ac2-aa12-a371e03c2e07"
+item = 12
+
+[node name="PositionGabrielReward" type="Position2D" parent="GameScenario"]
+position = Vector2( 320, -367 )
+
+[node name="KeyObject" parent="GameScenario" instance=ExtResource( 20 )]
+position = Vector2( 220, -525 )
+item = 7
+
+[node name="KeyObject2" parent="GameScenario" instance=ExtResource( 20 )]
+position = Vector2( 263, -524 )
+item = 8
+
+[node name="PositionCat0" type="Position2D" parent="GameScenario"]
+position = Vector2( 344, -368 )
+
+[node name="PositionCat1" type="Position2D" parent="GameScenario"]
+position = Vector2( 127, -352 )
+
+[node name="PositionCat2" type="Position2D" parent="GameScenario"]
+position = Vector2( 235, -408 )
+
+[node name="StoreInterface" parent="." instance=ExtResource( 17 )]
+
+[connection signal="interact_requested" from="GameScenario/InteractableArea2DIndicator" to="." method="_on_InteractableArea2DIndicator_interact_requested"]
+[connection signal="interact_requested" from="GameScenario/Aura/InteractableArea2DIndicator" to="." method="_on_Aura_interact_requested"]
+[connection signal="closed" from="StoreInterface" to="." method="_on_StoreInterface_closed"]

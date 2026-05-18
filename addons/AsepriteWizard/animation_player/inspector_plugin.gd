@@ -10,10 +10,8 @@ var _target_node: Node
 func can_handle(object):
 	return object is Sprite or object is Sprite3D or object is TextureRect
 
-
 func parse_begin(object):
 	_target_node = object
-
 
 func parse_end():
 	var dock = AsepriteInspectorDock.instance()

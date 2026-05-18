@@ -35,7 +35,6 @@ func _on_Timer_timeout() -> void :
 	yield($AnimationPlayer, "animation_finished")
 	$TimerActive.start(time_active)
 
-
 func _on_TimerActive_timeout() -> void :
 	if Enemy.state == "dead":
 		return
@@ -45,7 +44,6 @@ func _on_TimerActive_timeout() -> void :
 	yield($AnimationPlayer, "animation_finished")
 	Enemy.change_state("inactive")
 	$Timer.start(time_to_start)
-
 
 func _on_HurtboxEnemy_defeated() -> void :
 	$Timer.stop()

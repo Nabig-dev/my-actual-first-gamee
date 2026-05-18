@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/before_john.ogg-cc81dabf9d55a5227f8bbb679d1f1940.oggstr"
+
+[deps]
+
+source_file="res://assets/bgm/before_john.ogg"
+dest_files=[ "res://.import/before_john.ogg-cc81dabf9d55a5227f8bbb679d1f1940.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,6 +1,5 @@
 extends Node
 
-
 func handle_event(event_data, dialog_node):
 	
 	dialog_node.input_enable = event_data["input_enabled"]

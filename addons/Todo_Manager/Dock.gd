@@ -1,8 +1,6 @@
 tool 
 extends Control
 
-
-
 const Project: = preload("res://addons/Todo_Manager/Project.gd")
 const Current: = preload("res://addons/Todo_Manager/Current.gd")
 
@@ -42,7 +40,6 @@ func _ready() -> void :
 	load_config()
 	populate_settings()
 
-
 func build_tree() -> void :
 	if tabs:
 		match tabs.current_tab:
@@ -56,7 +53,6 @@ func build_tree() -> void :
 				pass
 			_:
 				pass
-
 
 func get_active_script() -> TodoItem:
 	var current_script: Script = plugin.get_editor_interface().get_script_editor().get_current_script()
@@ -75,7 +71,6 @@ func get_active_script() -> TodoItem:
 		var todo_item: = TodoItem.new()
 		todo_item.script_path = "res://Documentation"
 		return todo_item
-
 
 func go_to_script(script_path: String, line_number: int = 0) -> void :
 	if plugin.get_editor_interface().get_editor_settings().get_setting("text_editor/external/use_external_editor"):
@@ -118,7 +113,6 @@ func sort_backwards(a, b) -> bool:
 	else:
 		return false
 
-
 func populate_settings() -> void :
 	for i in patterns.size():
 		
@@ -148,7 +142,6 @@ func populate_settings() -> void :
 	ignore_paths_text.rstrip(" ").rstrip(",")
 	ignore_paths_field.text = ignore_paths_text
 
-
 func rebuild_settings() -> void :
 	for node in colours_container.get_children():
 		node.queue_free()
@@ -157,8 +150,6 @@ func rebuild_settings() -> void :
 			continue
 		node.queue_free()
 	populate_settings()
-
-
 
 func create_config_file() -> void :
 	var config = ConfigFile.new()
@@ -174,7 +165,6 @@ func create_config_file() -> void :
 	
 	var err = config.save("res://addons/Todo_Manager/todo.cfg")
 
-
 func load_config() -> void :
 	var config: = ConfigFile.new()
 	if config.load("res://addons/Todo_Manager/todo.cfg") == OK:
@@ -187,8 +177,6 @@ func load_config() -> void :
 		builtin_enabled = config.get_value("config", "builtin_enabled", false)
 	else:
 		create_config_file()
-
-
 
 func _on_SettingsButton_toggled(button_pressed: bool) -> void :
 	settings_panel.visible = button_pressed

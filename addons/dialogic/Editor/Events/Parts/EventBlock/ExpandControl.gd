@@ -16,13 +16,11 @@ func _ready():
 	set_enabled(false)
 	visible_toggle.connect("toggled", self, "_on_VisibleToggle_toggled")
 
-
 func set_preview(text: String):
 	if len(text) > 50:
 		text = text.substr(0, 50)
 		text += "..."
 	preview.text = text
-
 
 func set_enabled(enabled: bool):
 	self.enabled = enabled
@@ -31,7 +29,6 @@ func set_enabled(enabled: bool):
 		show()
 	else:
 		hide()
-
 
 func set_expanded(expanded: bool):
 	if not enabled:
@@ -44,7 +41,6 @@ func set_expanded(expanded: bool):
 		preview.show()
 	visible_toggle.release_focus()
 	emit_signal("state_changed", expanded)
-
 
 func _on_VisibleToggle_toggled(button_pressed: bool):
 	if enabled:

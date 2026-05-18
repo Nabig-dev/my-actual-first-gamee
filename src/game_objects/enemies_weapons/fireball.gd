@@ -7,7 +7,6 @@ var velocity: Vector2
 var speed: float = 250
 var gravity: int = 200
 
-
 func _ready() -> void :
 	$Fireball.scale.x = dir
 	Audio.play_sfx("shoot_projectile")
@@ -35,7 +34,6 @@ func _on_HurtboxEnemy_defeated() -> void :
 	$AnimationPlayer.play("dead")
 	velocity = Vector2.ZERO
 	speed = 0
-
 
 func _on_VisibilityNotifier2D_screen_exited() -> void :
 	queue_free()

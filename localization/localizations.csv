@@ -54,7 +54,7 @@ ACH3TITLE,Travel on the Orient Express,Viaje en el Expreso Oriental,Viagem no Ex
 ACCEPT_CANCEL_CONFLICT,Conflicting Accept and Cancel buttons,Botones Aceptar y Cancelar en conflicto,Botões de Aceitar e Cancelar em conflito
 DEVROOM,Hall of Tortured Souls,La sala de las almas torturadas,Salão das Almas Torturadas
 MULTIPLE_EQUIPMENT,Multiple Equipment,Equipamiento Múltiple,Equipamento Múltiplo
-XANDRIASHOUSE,Nabig's House,Casa de Nabig,Casa do Nabig
+NABIGSHOUSE,Nabig's House,Casa de Nabig,Casa do Nabig
 DEATHS,Deaths,Muertes,Mortes
 POTIONMAX_TITLE,Potions Max,Maximo de pociones,Máximo de Poções
 OPACITY,Opacity,Opacidad,Opacidade
@@ -152,7 +152,7 @@ TOBECONTINUED,To be continued...,Esta historia continuará...,Continua…
 FOCUS_BTN_CONFLICT,Conflicting Previous Page and Next Page buttons,Conflicting Previous Page and Next Page buttons,Botões de Página Anterior e Próxima Página em conflito
 START_CALIBRATION,Start calibration,Iniciar calibración,Começar calibragem
 ICONS_BTNS,Button icons,Íconos de botones,Ícones dos botões
-ELDRALIS_WOODS,Eldralis Woods,Bosque de Eldralis,Floresta de Eldralis
+grey_woods,Grey Woods,Bosque de Eldralis,Floresta de Eldralis
 PRESS_DIR_TO_USE_QUICKMENU,Press any direction to use the desired item,Mantén presionado cualquier dirección para usar el item,Pressione qualquer direção para usar o item desejado
 ACH6DESC,Destroy the [ultimate weapon] of the Ahuizotes.,Destruye el [arma definitiva] de los Ahuizotes.,Destrua a [arma definitiva] dos Ahuizotes.
 ACHIEVEMENTS,Achievements,Logros,Conquistas
@@ -196,7 +196,7 @@ GAMEPAD_CONNECTED,Gamepad connected,Mando conectado,Controle conectado
 WAITRESS,Waitress,Camarera,Garçonete
 PROLOGUEFINISHED,Prologue finished,Prólogo finalizado,Prólogo finalizado.
 PRESSLETTERFILTERSCREEN,Press the letter option for screen filter,Presiona la letra del filtro de pantalla deseado,Pressione a opção de letra para o filtro de tela
-STRALSUND_RUINS,Stralsund Ruins,Ruinas de Stralsund,Ruínas de Stralsund
+STRALSUND_RUINS,highwall Ruins,Ruinas de highwall,Ruínas de highwall
 ENEMIES,Enemies,Enemigos,Inimigos
 CUSTOM_GAMEPAD_ICONS,Customize button icons,Personalizar íconos de botones,Personalizar os ícones dos botões
 MP_TITLE,Mana,Mana,Mana
@@ -213,7 +213,7 @@ PRESSSPACETOSTART,"Press ""Space"" to start","Presiona ""Espacio"" para comenzar
 PRESSSESCTOEXIT,"Press ""Escape"" key to exit from calibration menu.","Presione la tecla ""Escape"" para salir del menú de calibración.",Pressione “Escape” para sair do menu de calibragem.
 CONTINUE,Continue,Continuar,Continuar
 PREVIOUS,Previous,Anterior,Anterior
-SHOW_DEATH_COUNTER,Show death counter,Mostrar contador de muertes,Mostrar contador de mortes
+SHOW_DEATH_COUNTER,Show endgame counter,Mostrar contador de muertes,Mostrar contador de mortes
 <!MissingKey:212:Birstall City>,Birstall City,Ciudad de Birstall,Cidade de Birstall
 DEF_TITLE,Defense,Defensa,Defesa
 ABOUTUNBREAKABLEWILL,"If the player has more than 20% health, then will not die when critically hit.","Teniendo más del 20% de vida, al recibir daño critico el jugador todavía no morirá.","Se o jogador tem menos de 20% de saúde, não morrerá quando receber dano crítico."
@@ -243,13 +243,13 @@ SHOW_MINIMAP,Show Minimap,Mostrar Minimapa,Mostrar mini-mapa
 SELECT,Select,Seleccionar,Selecionar
 ALCHEMY_LABORATORY,Alchemy Laboratory,Laboratorio de Alquimia,Laboratório de Alquimia
 STATUS,Status,Estado,Estado
-GRIJAYLA_TOWN,Grijayla Town,Ciudad de Grijayla,Cidade de Grijayla
+GRIJAYLA_TOWN,the_outpost Town,Ciudad de the_outpost,Cidade de the_outpost
 CHANGESSAVED,Changes saved,Cambios guardados,Mudanças salvas
 SELECT_SLOT_TO_DELETE,Select save slot to delete,Seleccione Slot para eliminar,Selecione arquivo salvo para apagar
 DIFFCHANGEDTOEASY,"Difficulty changed to ""easy""","Dificultad cambiada a ""fácil""",Dificuldade modificada para “fácil”
 SLIDE,Slide,Deslizarse,Deslizar
 SHADERS_DYNAMIC_LIGHTS,Shaders and dynamic lights (High),Shaders y luces dinámicas (Alto),Shaders e luzes dinâmicas (Alta)
-RETURNAMERITHIA,Return to Amerithia?,¿Regresar a Amerithia?,Retornar a Amerithia?
+RETURNAMERITHIA,Return to the_core?,¿Regresar a the_core?,Retornar a the_core?
 DYNAMICKNOCKBACK,Dynamic Knockback,Knockback Dinamico,Empurrão Dinâmico
 SWAPSET,Change Set,Cambiar Set,Mudar Set
 OPENING_LINK_WEB,Opening weblink,Abriendo enlace web,Abrindo link
@@ -257,7 +257,7 @@ BUY,Buy,Comprar,Comprar
 GETFULLGAME,Get full game,Juego completo,
 SKIP,Skip,Omitir,Pular
 DATA_RESTORED,Data has been restored.,Los datos han sido restaurados.,
-ARIDIAH_DESERT,Aridiah Desert,Desierto de Aridiah,Deserto de Aridiah
+ARIDIAH_DESERT,the_barrens Desert,Desierto de the_barrens,Deserto de the_barrens
 ACTION_UI_UP,Up,Arriba,Cima
 EQUIP,Equip,Equipo,Equipar
 THEBUTTONALREADYADDED,The button has already been assigned,El botón ya ha sido asignado,O botão já foi atribuído

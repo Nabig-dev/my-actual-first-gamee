@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://stages/oota/prologue/prologue_ending.gd" type="Script" id=1]
-[ext_resource path="res://assets/images/logos/logo_revamped_outline.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/logos/logo_revemped_outline.png" type="Texture" id=2]
 [ext_resource path="res://assets/tres/fonts/alkemikal_small.tres" type="DynamicFont" id=3]
 
 [sub_resource type="Animation" id=1]

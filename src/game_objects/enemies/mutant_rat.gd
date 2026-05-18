@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-
 var velocity: = Vector2()
 
 var gravity: int = 350
@@ -12,7 +11,6 @@ var _patrol: bool = true
 onready var Enemy = $EnemyBase
 onready var AreNoFloor = $Sprite / DetectNoFloor
 onready var AreaPlayerFront = $Sprite / AreaPlayerFront
-
 
 func _ready() -> void :
 	Enemy.change_state("walk", true)
@@ -58,10 +56,10 @@ func return_to_patrol() -> void :
 	Enemy.change_state("idle")
 	$TimerChangePatrolState.start(1)
 
-func jump_atk(vel: = Vector2(180, - 170)) -> void :
+func jump_atk(velocity_vector: = Vector2(180, - 170)) -> void :
 	
-	velocity.y = vel.y
-	velocity.x = vel.x * Enemy.facing
+	velocity.y = velocity_vector.y
+	velocity.x = velocity_vector.x * Enemy.facing
 
 func _on_TimerChangePatrolState_timeout() -> void :
 	
@@ -88,16 +86,9 @@ func _on_TimerChangePatrolState_timeout() -> void :
 		rand_range(2, 4)
 	)
 
-
-
 func _on_AreaPlayerFront_object_entered(_Obj) -> void :
 	if Enemy.state in ["walk", "idle"]:
 		make_attack()
-
-
-
-
-
 
 func _on_AreaPlayerJump_object_entered(_Obj) -> void :
 	if Enemy.state in ["idle", "run", "walk"]:
@@ -107,7 +98,6 @@ func _on_AreaPlayerJump_object_entered(_Obj) -> void :
 		else:
 			velocity.x = 0
 		make_attack()
-
 
 func _on_HurtboxEnemy_damaged() -> void :
 	if Enemy.state in ["idle", "walk"]:

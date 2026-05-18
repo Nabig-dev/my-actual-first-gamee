@@ -1,7 +1,5 @@
 extends VisibilityNotifier2D
 
-
-
 onready var Zombie = preload("res://src/game_objects/enemies/zombie.tscn")
 onready var Zombie0 = preload("res://src/game_objects/enemies/zombie0.tscn")
 

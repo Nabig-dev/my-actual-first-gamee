@@ -53,6 +53,5 @@ func _on_TimerMakeAtk_timeout() -> void :
 		Enemy.change_state("idle")
 		$TimerMakeAtk.start(rand_range(1, 2))
 
-
 func _on_HurtboxEnemy_defeated() -> void :
 	Audio.stop_sfx("goblin_laugh")

@@ -1,8 +1,6 @@
 extends Control
 
-
 var times: = []
-
 
 var fps: = 0
 
@@ -23,7 +21,6 @@ func _process(_delta: float) -> void :
 
 	
 	DbgLbl.text = str(fps).pad_zeros(1)
-
 
 func enable_monitor(val: bool = true) -> void :
 	visible = val

@@ -1,21 +1,14 @@
 tool 
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
-
-
-
 onready var file_picker = $HBox / FilePicker
 
 onready var fade_duration_label = $HBox / FadeLabel
 onready var fade_duration = $HBox / NumberBox
 
-
 func _ready():
 	file_picker.connect("data_changed", self, "_on_FilePicker_data_changed")
 	fade_duration.connect("value_changed", self, "_on_fade_duration_changed")
-
-
-
 
 func load_data(data: Dictionary):
 	
@@ -34,7 +27,6 @@ func load_data(data: Dictionary):
 
 	fade_duration.value = event_data.get("fade_duration", 1)
 
-
 func get_preview():
 	return ""
 
@@ -51,21 +43,6 @@ func _on_FilePicker_data_changed(data):
 		
 	
 	data_changed()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 func _on_fade_duration_changed(value: float):
 	event_data["fade_duration"] = value

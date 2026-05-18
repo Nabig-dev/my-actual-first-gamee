@@ -16,11 +16,9 @@ func set_zoom(new_zoom):
 func get_zoom():
 	return _zoom
 
-
 var texture_font_mapping setget set_mapping
 func set_mapping(new_mapping):
 	texture_view.texture_font_mapping = new_mapping
-
 
 func zoom_in():
 	self.zoom *= 1.1
@@ -29,7 +27,6 @@ func zoom_in():
 func zoom_out():
 	self.zoom *= 0.9
 	zoom_spinbox.value = self.zoom
-
 
 func set_texture(texture: Texture):
 	if is_inside_tree():
@@ -52,14 +49,11 @@ func _input(event):
 			if event.button_mask & BUTTON_LEFT:
 				texture_container.offset += event.relative
 
-
 func _on_SpinBox_value_changed(value):
 	self.zoom = value
 
-
 func _on_TextureContainer_mouse_entered():
 	hover = true
-
 
 func _on_TextureContainer_mouse_exited():
 	hover = false

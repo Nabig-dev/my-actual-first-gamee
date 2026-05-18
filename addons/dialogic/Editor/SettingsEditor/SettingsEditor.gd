@@ -167,7 +167,6 @@ func update_data():
 	load_values(settings, "animations", ANIMATION_KEYS)
 	select_bus(settings.get_value("dialog", "text_event_audio_default_bus", "Master"))
 
-
 func load_values(settings: ConfigFile, section: String, key: Array):
 	for k in key:
 		if settings.has_section_key(section, k):
@@ -181,7 +180,6 @@ func load_values(settings: ConfigFile, section: String, key: Array):
 				nodes[k].value = settings.get_value(section, k)
 			else:
 				nodes[k].pressed = settings.get_value(section, k, false)
-
 
 func refresh_themes(settings: ConfigFile):
 	
@@ -207,27 +205,17 @@ func refresh_themes(settings: ConfigFile):
 			
 			set_value("theme", "default", theme_list[0]["file"])
 
-
-
-
-
-
-
 func _on_delay_options_text_changed(text):
 	set_value("input", "delay_after_options", text)
-
 
 func _on_item_toggled(value: bool, section: String, key: String):
 	set_value(section, key, value)
 
-
 func _on_button_history_button_position_selected(index):
 	set_value("history", "history_button_position", str(index))
 
-
 func _spinbox_val_changed(newValue: float, spinbox_name):
 	set_value("history", spinbox_name, newValue)
-
 
 func _on_default_action_key_presssed(settingName = "default_action_key") -> void :
 	var settings = DialogicResources.get_settings_config()
@@ -248,24 +236,18 @@ func _on_hotkey_action_key_presssed(settingName = "choice_hotkey_1") -> void :
 			nodes[settingName].add_item(prop.name.trim_prefix("input/"))
 	
 
-
 func _on_default_action_key_item_selected(index, settingName = "default_action_key") -> void :
 	set_value("input", settingName, nodes[settingName].text)
 
-
 func _on_canvas_layer_text_changed(text) -> void :
 	set_value("theme", "canvas_layer", text)
-
 
 func _on_text_changed(text, section: String, key: String) -> void :
 	set_value(section, key, text)
 	
 
-
-
 func set_value(section, key, value):
 	DialogicResources.set_settings_value(section, key, value)
-
 
 func update_bus_selector():
 	if nodes["text_event_audio_default_bus"] != null:
@@ -281,7 +263,6 @@ func update_bus_selector():
 			if previous_selected_bus_name == bus_name:
 				nodes["text_event_audio_default_bus"].select(i)
 
-
 func select_bus(text):
 	for item_idx in range(nodes["text_event_audio_default_bus"].get_item_count()):
 		if nodes["text_event_audio_default_bus"].get_item_text(item_idx) == text:
@@ -289,19 +270,12 @@ func select_bus(text):
 			return
 	nodes["text_event_audio_default_bus"].select(0)
 
-
 func _on_text_audio_default_bus_item_selected(index):
 	var text = nodes["text_event_audio_default_bus"].get_item_text(index)
 	set_value("dialog", "text_event_audio_default_bus", text)
 
-
-
-
-
-
 func open_custom_event_docs():
 	editor_reference.get_node("MainPanel/MasterTreeContainer/MasterTree").select_documentation_item("res://addons/dialogic/Documentation/Content/Events/CustomEvents/CreateCustomEvents.md")
-
 
 func new_custom_event_pressed():
 	nodes["new_custom_event_section"].show()
@@ -312,24 +286,20 @@ func new_custom_event_pressed():
 	nodes["new_custom_event_create"].disabled = true
 	$VBoxContainer / HBoxContainer3 / VBoxContainer2 / CustomEvents / HBoxContainer / Message.text = ""
 
-
 func custom_event_name_entered(text: String):
 	nodes["new_custom_event_directory"].text = text
 	
 	nodes["new_custom_event_create"].disabled = nodes["new_custom_event_id"].text != ""
 	$VBoxContainer / HBoxContainer3 / VBoxContainer2 / CustomEvents / HBoxContainer / Message.text = ""
 
-
 func custom_event_id_entered(text):
 	if nodes["new_custom_event_name"].text != "":
 		nodes["new_custom_event_create"].disabled = false
 	$VBoxContainer / HBoxContainer3 / VBoxContainer2 / CustomEvents / HBoxContainer / Message.text = ""
 
-
 func cancel_custom_event():
 	nodes["new_custom_event_section"].hide()
 	$VBoxContainer / HBoxContainer3 / VBoxContainer2 / CustomEvents / HBoxContainer / Message.text = ""
-
 
 func create_custom_event():
 	
@@ -386,10 +356,6 @@ func create_custom_event():
 	editor_reference.editor_interface.get_resource_filesystem().scan()
 	$VBoxContainer / HBoxContainer3 / VBoxContainer2 / CustomEvents / HBoxContainer / Message.text = ""
 
-
-
-
-
 func _on_AnimationDefault_about_to_show(picker, filter):
 	picker.get_popup().clear()
 	var animations = DialogicAnimaResources.get_available_animations()
@@ -407,17 +373,12 @@ func _on_AnimationDefault_index_pressed(index, picker, key):
 func _on_AnimationDefaultLength_value_changed(value, key):
 	set_value("animations", key, value)
 
-
-
-
-
 func build_PickerMenu():
 	nodes["themes"].get_popup().clear()
 	var folder_structure = DialogicUtil.get_theme_folder_structure()
 
 	
 	build_PickerMenuFolder(nodes["themes"].get_popup(), folder_structure, "MenuButton")
-
 
 func build_PickerMenuFolder(menu: PopupMenu, folder_structure: Dictionary, current_folder_name: String):
 	var index = 0

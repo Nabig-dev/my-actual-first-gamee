@@ -7,12 +7,4 @@ func _ready() -> void :
 		$ParallaxLayer2 / Waves.visible = false
 	
 
-
-
-
-
-
-
-
-
 	

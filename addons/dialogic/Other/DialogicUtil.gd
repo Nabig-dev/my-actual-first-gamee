@@ -1,18 +1,11 @@
 tool 
 class_name DialogicUtil
 
-
-
-
 static func list_to_dict(list):
 	var dict: = {}
 	for val in list:
 		dict[val["file"]] = val
 	return dict
-
-
-
-
 
 static func get_character_list() -> Array:
 	var characters: Array = []
@@ -31,18 +24,13 @@ static func get_character_list() -> Array:
 			})
 	return characters
 
-
-
 static func get_characters_dict():
 	return list_to_dict(get_character_list())
-
 
 static func get_sorted_character_list():
 	var array = get_character_list()
 	array.sort_custom(DialgicSorter, "sort_resources")
 	return array
-
-
 
 static func get_character(character_id):
 	var characters = get_character_list()
@@ -50,11 +38,6 @@ static func get_character(character_id):
 		if c["file"] == character_id:
 			return c
 	return {}
-
-
-
-
-
 
 static func get_timeline_list() -> Array:
 	var timelines: Array = []
@@ -71,20 +54,13 @@ static func get_timeline_list() -> Array:
 						timelines.append({"name": file.split(".")[0], "color": color, "file": file})
 	return timelines
 
-
 static func get_timeline_dict() -> Dictionary:
 	return list_to_dict(get_timeline_list())
-
 
 static func get_sorted_timeline_list():
 	var array = get_timeline_list()
 	array.sort_custom(DialgicSorter, "sort_resources")
 	return array
-
-
-
-
-
 
 static func get_theme_list() -> Array:
 	var themes: Array = []
@@ -98,24 +74,16 @@ static func get_theme_list() -> Array:
 			})
 	return themes
 
-
 static func get_theme_dict() -> Dictionary:
 	return list_to_dict(get_theme_list())
-
 
 static func get_sorted_theme_list():
 	var array = get_theme_list()
 	array.sort_custom(DialgicSorter, "sort_resources")
 	return array
 
-
-
-
-
-
 static func get_default_definitions_list() -> Array:
 	return DialogicDefinitionsUtil.definitions_json_to_array(DialogicResources.get_default_definitions())
-
 
 static func get_default_definitions_dict():
 	var dict = {}
@@ -123,12 +91,10 @@ static func get_default_definitions_dict():
 		dict[val["id"]] = val
 	return dict
 
-
 static func get_sorted_default_definitions_list():
 	var array = get_default_definitions_list()
 	array.sort_custom(DialgicSorter, "sort_resources")
 	return array
-
 
 static func compare_definitions(def_value: String, event_value: String, condition: String):
 	var definitions
@@ -169,19 +135,8 @@ static func compare_definitions(def_value: String, event_value: String, conditio
 				condition_met = converted_def_value <= converted_event_value
 	return condition_met
 
-
-
-
-
-
-
-
-
 static func get_parent_path(path: String):
 	return path.replace("/" + path.split("/")[ - 1], "")
-
-
-
 
 static func get_full_resource_folder_structure():
 	return DialogicResources.get_resource_folder_structure()
@@ -198,8 +153,6 @@ static func get_definitions_folder_structure():
 static func get_theme_folder_structure():
 	return get_folder_at_path("Themes")
 
-
-
 static func get_folder_at_path(path):
 	var folder_data = get_full_resource_folder_structure()
 	
@@ -211,9 +164,6 @@ static func get_folder_at_path(path):
 		folder_data = {"folders": {}, "files": []}
 	return folder_data
 
-
-
-
 static func set_folder_meta(flat_structure: Dictionary, item: Dictionary, key: String, value):
 	if "category" in item:
 		if flat_structure[item["category"] + "_Array"][item["step"]]["value"][key] != value:
@@ -224,8 +174,6 @@ static func set_folder_meta(flat_structure: Dictionary, item: Dictionary, key: S
 
 static func get_folder_meta(folder_path: String, key: String):
 	return get_folder_at_path(folder_path)["metadata"][key]
-
-
 
 static func add_folder(flat_structure: Dictionary, tree: String, path: Dictionary, folder_name: String):
 	
@@ -354,7 +302,6 @@ static func move_folder_to_folder(flat_structure: Dictionary, tree: String, orig
 	
 	return OK
 
-
 static func move_file_to_folder(flat_structure: Dictionary, tree: String, original_data: Dictionary, destination_data: Dictionary, drop_position = 0):
 	
 	if original_data["category"] != destination_data["category"]:
@@ -413,7 +360,6 @@ static func move_file_to_folder(flat_structure: Dictionary, tree: String, origin
 	
 	flat_structure = editor_array_to_flat_structure(flat_structure, tree)
 	DialogicResources.save_resource_folder_flat_structure(flat_structure)
-
 
 static func add_file_to_folder(flat_structure: Dictionary, tree: String, path: Dictionary, file_name: String, existing_data: Dictionary = {}):
 	var insert_position_data = flat_structure[tree + "_Array"][path["step"]]
@@ -477,8 +423,6 @@ static func rename_file(flat_structure: Dictionary, tree: String, path: Dictiona
 	flat_structure = editor_array_to_flat_structure(flat_structure, tree)
 	DialogicResources.save_resource_folder_flat_structure(flat_structure)
 
-
-
 static func update_resource_folder_structure():
 	var character_files = DialogicResources.listdir(DialogicResources.get_path("CHAR_DIR"))
 	var timeline_files = DialogicResources.listdir(DialogicResources.get_path("TIMELINE_DIR"))
@@ -493,7 +437,6 @@ static func update_resource_folder_structure():
 	folder_structure["folders"]["Definitions"] = check_folders_section(folder_structure["folders"]["Definitions"], definition_files)
 	
 	DialogicResources.save_resource_folder_structure(folder_structure)
-
 
 static func check_folders_section(section_structure: Dictionary, section_files: Array):
 	var result = check_folders_recursive(section_structure, section_files)
@@ -515,7 +458,6 @@ static func check_folders_recursive(folder_data: Dictionary, file_names: Array):
 		else:
 			file_names.erase(file)
 	return [folder_data, file_names]
-
 
 static func beautify_filename(animation_name: String) -> String:
 	if animation_name == "[Default]" or animation_name == "[No Animation]":
@@ -582,14 +524,8 @@ static func editor_array_to_flat_structure(flat_structure: Dictionary, tree: Str
 		
 	return flat_structure
 
-
-
-
-
-
 static func generate_random_id() -> String:
 	return str(OS.get_unix_time()) + "-" + str(100 + randi() % 899 + 1)
-
 
 static func compare_dicts(dict_1: Dictionary, dict_2: Dictionary) -> bool:
 	
@@ -598,7 +534,6 @@ static func compare_dicts(dict_1: Dictionary, dict_2: Dictionary) -> bool:
 		if str(dict_1) == str(dict_2):
 			return true
 	return false
-
 
 static func path_fixer_load(path):
 	
@@ -621,8 +556,6 @@ static func path_fixer_load(path):
 			return load("res://addons/dialogic/Example Assets/next-indicator/next-indicator.png")
 
 	return load(path)
-
-
 
 static func resource_fixer():
 	var update_index = DialogicResources.get_settings_config().get_value("updates", "updatenumber", 0)
@@ -786,7 +719,6 @@ static func get_editor_scale(ref) -> float:
 	
 	return _scale
 
-
 static func list_dir(path: String) -> Array:
 	var files = []
 	var dir = Directory.new()
@@ -799,9 +731,6 @@ static func list_dir(path: String) -> Array:
 		file = dir.get_next()
 	return files
 	
-
-
-
 
 static func get_flat_folders_list(include_folders: bool = true) -> Dictionary:
 	
@@ -869,14 +798,12 @@ static func get_flat_folders_list(include_folders: bool = true) -> Dictionary:
 		elif include_folders:
 			character_folder_breakdown[character] = structure["Characters"][character]
 
-
 	for definition in structure["Definitions"].keys():
 		
 		if not "/." in definition:
 			definition_folder_breakdown[structure["Definitions"][definition]["path"]] = structure["Definitions"][definition]
 		elif include_folders:
 			definition_folder_breakdown[definition] = structure["Definitions"][definition]
-
 
 	for theme in structure["Themes"].keys():
 		if ".json" in theme:
@@ -891,12 +818,6 @@ static func get_flat_folders_list(include_folders: bool = true) -> Dictionary:
 	flatten["Themes"] = theme_folder_breakdown
 	
 	return flatten
-
-
-
-
-
-
 
 class DialgicSorter:
 
@@ -923,5 +844,4 @@ class DialgicSorter:
 
 	static func sort_resources(a: Dictionary, b: Dictionary):
 		return get_compare_value(a).to_lower() < get_compare_value(b).to_lower()
-
 

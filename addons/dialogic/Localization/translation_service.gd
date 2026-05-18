@@ -1,16 +1,12 @@
 
 
-
-
 tool 
 class_name DTS
 
 var translations = {}
 
-
 func _init():
 	translations_initial_load()
-
 
 func translate(message: String) -> String:
 	var translation
@@ -30,11 +26,8 @@ func translations_initial_load():
 		else:
 			translations[t.locale] = [t]
 
-
-
 func get_translations() -> Dictionary:
 	return translations
-
 
 func _get_translation(message) -> String:
 	var returned_translation = message

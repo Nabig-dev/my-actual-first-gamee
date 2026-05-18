@@ -4,7 +4,6 @@ extends Control
 onready var DocTree = $HSplit / VBoxContainer / DocumentationTree
 onready var DocPageViewer = $HSplit / DocsPageViewer
 
-
 func _on_DocsPageViewer_open_non_html_link(link, section):
 	DocTree.select_item(link)
 	DocPageViewer.scroll_to_section(section)

@@ -1,8 +1,5 @@
 extends Node2D
 
-
-
-
 var F: = File.new()
 
 var settings_path: String = "user://settings.json"
@@ -33,7 +30,6 @@ func load_file(filepath: String) -> int:
 		settings_path = filepath
 
 	return err
-
 
 func save_file(conf_path: String = settings_path) -> int:
 	var err: int = OK

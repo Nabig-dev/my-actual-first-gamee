@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-
 export var dir: int = 1
 export var move_by_rotation: bool = true
 export var invert_gravity: bool = false
@@ -88,7 +87,6 @@ func _physics_process(delta: float) -> void :
 		if dir_move == Vector2.UP or dir_move == Vector2.DOWN:
 			dir = dir * - 1
 			dir_move = Vector2(dir, 0)
-
 
 func _invert_slide_vectors() -> void :
 	

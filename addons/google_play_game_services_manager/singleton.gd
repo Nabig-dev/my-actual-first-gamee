@@ -1,16 +1,11 @@
 extends Node
 
-
-
-
 signal achievements_loaded(achievements)
 signal achievements_revealed(revealed, achievement_id)
 signal achievements_unlocked(is_unlocked, achievement_id)
 
-
 signal events_loaded(events)
 signal events_loaded_by_ids(events)
-
 
 signal leaderboards_score_submitted(submitted, leaderboard_id)
 signal leaderboards_score_loaded(leaderboard_id, score)
@@ -19,24 +14,18 @@ signal leaderboards_loaded(leaderboard)
 signal leaderboards_player_centered_scores_loaded(leaderboard_id, leaderboard_scores)
 signal leaderboards_top_scores_loaded(leaderboard_id, leaderboard_scores)
 
-
 signal players_current_loaded(player)
 signal players_friends_loaded(friends)
 signal players_searched(player)
 
-
 signal sign_in_user_authenticated(is_authenticated)
 signal sign_in_requested_server_side_access(token)
-
 
 signal snapshots_game_saved(saved, file_name, description)
 signal snapshots_game_loaded(snapshot)
 signal snapshots_conflict_emitted(conflict)
 
-
 signal image_stored(image)
-
-
 
 enum TimeSpan{
 	TIME_SPAN_DAILY = 0, 
@@ -49,11 +38,7 @@ enum Collection{
 	COLLECTION_FRIENDS = 3
 }
 
-
-
 var android_plugin: JNISingleton
-
-
 
 func _ready() -> void :
 	if OS.get_name() != "Android":
@@ -103,111 +88,85 @@ func _ready() -> void :
 
 	android_plugin.initialize()
 
-
-
-
 func achievements_increment(achievement_id: String, amount: int, immediate: = true) -> void :
 	if android_plugin:
 		android_plugin.achievementsIncrement(achievement_id, amount, immediate)
-
 
 func achievements_load(force_reload: = false) -> void :
 	if android_plugin:
 		android_plugin.achievementsLoad(force_reload)
 
-
 func achievements_reveal(achievement_id: String, immediate: = true) -> void :
 	if android_plugin:
 		android_plugin.achievementsReveal(achievement_id, immediate)
-
 
 func achievements_set_steps(achievement_id: String, amount: int, immediate: = true) -> void :
 	if android_plugin:
 		android_plugin.achievementsSetSteps(achievement_id, amount, immediate)
 
-
 func achievements_show() -> void :
 	if android_plugin:
 		android_plugin.achievementsShow()
-
 
 func achievements_unlock(achievement_id: String, immediate: = true) -> void :
 	if android_plugin:
 		android_plugin.achievementsUnlock(achievement_id, immediate)
 
-
-
 func events_increment(event_id: String, amount: int) -> void :
 	if android_plugin:
 		android_plugin.eventsIncrement(event_id, amount)
-
 
 func events_load(force_reload: bool) -> void :
 	if android_plugin:
 		android_plugin.eventsLoad(force_reload)
 
-
 func events_load_by_ids(force_reload: bool, event_ids: Array) -> void :
 	if android_plugin:
 		android_plugin.eventsLoadByIds(force_reload, event_ids)
-
-
 
 func leaderboards_show_all() -> void :
 	if android_plugin:
 		android_plugin.leaderboardsShowAll()
 
-
 func leaderboards_show(leaderboard_id: String) -> void :
 	if android_plugin:
 		android_plugin.leaderboardsShow(leaderboard_id)
-
 
 func leaderboards_show_for_time_span(leaderboard_id: String, time_span: int) -> void :
 	if android_plugin:
 		android_plugin.leaderboardsShowForTimeSpan(leaderboard_id, time_span)
 
-
 func leaderboards_show_for_time_span_and_collection(leaderboard_id: String, time_span: int, collection: int) -> void :
 	if android_plugin:
 		android_plugin.leaderboardsShowForTimeSpanAndCollection(leaderboard_id, time_span, collection)
-
 
 func leaderboards_submit_score(leaderboard_id: String, score: float) -> void :
 	if android_plugin:
 		android_plugin.leaderboardsSubmitScore(leaderboard_id, score)
 
-
 func leaderboards_load_player_score(leaderboard_id: String, time_span: int, collection: int) -> void :
 	if android_plugin:
 		android_plugin.leaderboardsLoadPlayerScore(leaderboard_id, time_span, collection)
-
 
 func leaderboards_load_all(force_reload: bool) -> void :
 	if android_plugin:
 		android_plugin.leaderboardsLoadAll(force_reload)
 
-
 func leaderboards_load(leaderboard_id: String, force_reload: bool) -> void :
 	if android_plugin:
 		android_plugin.leaderboardsLoad(leaderboard_id, force_reload)
-
 
 func leaderboards_load_player_centered_scores(leaderboard_id: String, time_span: int, collection: int, max_results: int, force_reload: bool) -> void :
 	if android_plugin:
 		android_plugin.leaderboardsLoadPlayerCenteredScores(leaderboard_id, time_span, collection, max_results, force_reload)
 
-
 func leaderboards_load_top_scores(leaderboard_id: String, time_span: int, collection: int, max_results: int, force_reload: bool) -> void :
 	if android_plugin:
 		android_plugin.leaderboardsLoadTopScores(leaderboard_id, time_span, collection, max_results, force_reload)
 
-
-
 func players_compare_profile(other_player_id: String, other_player_in_game_name: = "", current_player_in_game_name: = "") -> void :
 	if android_plugin:
 		android_plugin.playersCompareProfile(other_player_id)
-
 
 func players_compare_profile_with_alternative_name_hints(other_player_id: String, other_player_in_game_name: String, current_player_in_game_name: String) -> void :
 	if android_plugin:
@@ -217,43 +176,33 @@ func players_compare_profile_with_alternative_name_hints(other_player_id: String
 			current_player_in_game_name
 		)
 
-
 func players_load_current(force_reload: bool) -> void :
 	if android_plugin:
 		android_plugin.playersLoadCurrent(force_reload)
-
 
 func players_load_friends(page_size: int, force_reload: bool, ask_for_permission: bool) -> void :
 	if android_plugin:
 		android_plugin.playersLoadFriends(page_size, force_reload, ask_for_permission)
 
-
 func players_search() -> void :
 	if android_plugin:
 		android_plugin.playersSearch()
-
-
 
 func sign_in_is_authenticated() -> void :
 	if android_plugin:
 		android_plugin.signInIsAuthenticated()
 
-
 func sign_in_request_server_side_access(client_id: String, force_refresh_token: bool) -> void :
 	if android_plugin:
 		android_plugin.signInRequestServerSideAccess(client_id, force_refresh_token)
-
 
 func sign_in_show_popup() -> void :
 	if android_plugin:
 		android_plugin.signInShowPopup()
 
-
-
 func snapshots_load_game(file_name: String) -> void :
 	if android_plugin:
 		android_plugin.snapshotsLoadGame(file_name)
-
 
 func snapshots_save_game(
 	file_name: String, 
@@ -265,84 +214,60 @@ func snapshots_save_game(
 	if android_plugin:
 		android_plugin.snapshotsSaveGame(file_name, description, save_data, played_time_millis, progress_value)
 
-
 func snapshots_show_saved_games(title: String, allow_add_button: bool, allow_delete: bool, max_snapshots: int) -> void :
 	if android_plugin:
 		android_plugin.snapshotsShowSavedGames(title, allow_add_button, allow_delete, max_snapshots)
 
-
-
-
 func _on_achievements_loaded(achievements: String) -> void :
 	emit_signal("achievements_loaded", JSON.parse(achievements).result)
-
 
 func _on_achievements_revealed(revealed: bool, achievement_id: String) -> void :
 	emit_signal("achievements_revealed", revealed, achievement_id)
 
-
 func _on_achievements_unlocked(is_unlocked: bool, achievement_id: String) -> void :
 	emit_signal("achievements_unlocked", is_unlocked, achievement_id)
-
 
 func _on_events_loaded(events: String) -> void :
 	emit_signal("events_loaded", JSON.parse(events).result)
 
-
 func _on_events_loaded_by_ids(events: String) -> void :
 	emit_signal("events_loaded_by_ids", JSON.parse(events).result)
-
-
 
 func _on_leaderboards_score_submitted(submitted: bool, leaderboard_id: String) -> void :
 	emit_signal("leaderboards_score_submitted", submitted, leaderboard_id)
 
-
 func _on_leaderboards_score_loaded(leaderboard_id: String, score: String) -> void :
 	emit_signal("leaderboards_score_loaded", leaderboard_id, JSON.parse(score).result)
-
 
 func _on_leaderboards_all_loaded(leaderboards: String) -> void :
 	emit_signal("leaderboards_all_loaded", JSON.parse(leaderboards).result)
 
-
 func _on_leaderboards_loaded(leaderboard: String) -> void :
 	emit_signal("leaderboards_loaded", JSON.parse(leaderboard).result)
-
 
 func _on_leaderboards_load_player_centered_scores(leaderboard_id: String, scores: String) -> void :
 	emit_signal("leaderboards_player_centered_scores_loaded", leaderboard_id, JSON.parse(scores).result)
 
-
 func _on_leaderboards_load_top_scores(leaderboard_id: String, scores: String) -> void :
 	emit_signal("leaderboards_top_scores_loaded", leaderboard_id, JSON.parse(scores).result)
-
 
 func _on_players_current_loaded(player: String) -> void :
 	emit_signal("players_current_loaded", JSON.parse(player).result)
 
-
 func _on_players_friends_loaded(friends: String) -> void :
 	emit_signal("players_friends_loaded", JSON.parse(friends).result)
-
 
 func _on_players_searched(player: String) -> void :
 	emit_signal("players_friends_loaded", JSON.parse(player).result)
 
-
-
 func _on_sign_in_user_authenticated(_is_authenticated: bool) -> void :
 	emit_signal("sign_in_user_authenticated", _is_authenticated)
-
 
 func _on_sign_in_requested_server_side_access(token: String) -> void :
 	emit_signal("sign_in_requested_server_side_access", token)
 
-
-
 func _on_snapshots_game_saved(saved: bool, file_name: String, description: String) -> void :
 	emit_signal("snapshots_game_saved", saved, file_name, description)
-
 
 func _on_snapshots_game_loaded(snapshot: String) -> void :
 	var parsed_snapshot: Dictionary = JSON.parse(snapshot).result
@@ -353,10 +278,8 @@ func _on_snapshots_game_loaded(snapshot: String) -> void :
 
 	emit_signal("snapshots_game_loaded", parsed_snapshot)
 
-
 func _on_snapshots_conflict_emitted(conflict: String) -> void :
 	emit_signal("snapshots_conflict_emitted", JSON.parse(conflict).result)
-
 
 func _on_image_stored(image: String) -> void :
 	emit_signal("image_stored", image)

@@ -20,7 +20,6 @@ var drops_list: Dictionary = {
 	"coin_100": 0, 
 }
 
-
 var drops_list_from_db: String = "*"
 
 func _ready() -> void :
@@ -127,9 +126,6 @@ func drop() -> void :
 	if item_instance != null:
 		item_instance.global_position = global_position
 		VarsGlobal.GameScenario.call_deferred("add_child", item_instance)
-
-
-
 
 func get_property_names() -> Array:
 	var property_list = get_script().get_script_property_list()

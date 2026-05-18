@@ -1,18 +1,11 @@
 extends Camera2D
 
-
-
-
-
-
-
 signal camera_positioned_on_player
 
 signal tweened_to_position
 signal tweened_to_player
 
 export var offset_position: = Vector2(0, 0)
-
 
 var decay: = 0.8
 
@@ -27,7 +20,6 @@ var trauma_power: = 2
 var _noise_y: = 0
 
 var _shake_enabled: bool = false
-
 
 var _auto_moving: bool
 
@@ -85,7 +77,6 @@ func get_center_limits() -> Vector2:
 	var center_y: int = (limit_top + limit_bottom) / 2
 	return Vector2(center_x, center_y)
 
-
 func get_limit_l() -> float:
 	var limit: float = global_position.x - 150
 	if limit < limit_left:
@@ -97,8 +88,6 @@ func get_limit_r() -> float:
 		limit = limit_right - 10
 	return limit
 
-
-
 func set_limits(camera_limiter: ColorRect) -> void :
 	var left_top: = camera_limiter.get_begin()
 	var right_bottom: = camera_limiter.get_end()
@@ -107,7 +96,6 @@ func set_limits(camera_limiter: ColorRect) -> void :
 	limit_top = int(left_top.y)
 	limit_right = int(right_bottom.x)
 	limit_bottom = int(right_bottom.y)
-
 
 func move_to(pos: Vector2, duration: float = 1.0) -> void :
 	var Tw: = get_tree().create_tween()
@@ -126,7 +114,6 @@ func move_to(pos: Vector2, duration: float = 1.0) -> void :
 	yield(Tw, "finished")
 	emit_signal("tweened_to_position")
 
-
 func return_to_player(duration: float = 1.0) -> void :
 	var Tw: = get_tree().create_tween()
 	var pos: Vector2 = VarsGlobal.Player.global_position
@@ -139,10 +126,6 @@ func return_to_player(duration: float = 1.0) -> void :
 	yield(Tw, "finished")
 	follow_player = true
 	emit_signal("tweened_to_player")
-
-
-
-
 
 func start_shake(
 	amount: float = 1.0, add_trauma: bool = false, 

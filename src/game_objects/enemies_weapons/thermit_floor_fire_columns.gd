@@ -87,7 +87,6 @@ func spawn(dir: int = 1) -> void :
 	
 	is_active = false
 
-
 func get_position_outside_area(side: int = 1) -> Vector2:
 	var result: Vector2
 	var camera_pos: Vector2 = VarsGlobal.GameScenario.CameraNode.get_camera_position()

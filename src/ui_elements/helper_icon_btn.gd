@@ -1,6 +1,5 @@
 extends Control
 
-
 export (
 	String, "no_hide", "visible", "modulate"
 ) var hide_method_touch = "no_hide"
@@ -24,7 +23,6 @@ export (String,
 	"circuit", 
 	"backdash"
 ) var action = "ui_start"
-
 
 export var show_custom_frame: int = - 1
 

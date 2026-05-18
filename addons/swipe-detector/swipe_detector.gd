@@ -1,14 +1,5 @@
 extends Node
 
-
-
-
-
-
-
-
-
-
 const SwipeGesture = preload("swipe_gesture.gd")
 
 const DetectionState = preload("detection_state.gd")
@@ -17,84 +8,48 @@ const GesturePattern = preload("gesture/pattern.gd")
 const ShapeMatch = preload("matching/shape_match.gd")
 const EuclideanMatch = preload("matching/euclidean_match.gd")
 
-
-
-
 var Directions = preload("directions.gd").new()
 var InputProvider = preload("input/input_provider.gd").new()
-
-
-
-
 
 signal swiped(gesture)
 signal swipe_ended(gesture)
 
-
 signal swipe_started(partial_gesture)
-
 
 signal swipe_updated(partial_gesture)
 signal swipe_updated_with_delta(partial_gesture, delta)
 
-
-
-
 signal swipe_failed()
-
 
 signal pattern_detected(pattern_name, actual_gesture)
 
-
-
-
 export var detect_gesture = true setget detect
-
 
 const PROCESS_FIXED = "Fixed"
 const PROCESS_IDLE = "Idle"
 export (String, "Idle", "Fixed") var process_method = PROCESS_FIXED
 
-
 export var distance_threshold = 25.0
 
-
-
-
 export var duration_threshold = 0.05
-
-
 
 export var limit_duration = false
 export var maximum_duration = - 1.0
 
-
-
 export var minimum_points = 2
-
-
 
 export var limit_points = false
 export var maximum_points = - 1
 
-
 export var pattern_detection_score_threshold = 80
-
-
-
 
 export (String, "Four Directions", "Eight Directions") var directions_mode = "Eight Directions"
 
-
 export var debug_mode = false
-
-
 
 func debug(message, more1 = "", more2 = "", more3 = ""):
 	if debug_mode:
 		print("[DEBUG][SwipeDetector] ", message, more1, more2, more3)
-
-
 
 onready var gesture_history = []
 var swipe_input
@@ -189,10 +144,8 @@ func process_swipe(delta, area = null):
 		swipe_stop(area)
 	state.was_swiping = swiping(area)
 
-
 func clean_states():
 	initialize_states()
-
 
 func swiping_started(area):
 	return not state(area).was_swiping and swiping(area)
@@ -200,10 +153,8 @@ func swiping_started(area):
 func swiping(area):
 	return swipe_input.swiping(area)
 
-
 func swipe_point(area):
 	return swipe_input.swipe_point(area)
-
 
 func swipe_start(area):
 	var state = state(area)
@@ -215,7 +166,6 @@ func swipe_start(area):
 	add_gesture_data(area, point)
 	emit_signal("swipe_started", state.gesture)
 	return self
-
 
 func swipe_stop(area, forced = false):
 	var state = state(area)
@@ -236,7 +186,6 @@ func swipe_stop(area, forced = false):
 	clean_states()
 	return self
 
-
 func swipe_update(delta, area):
 	var state = state(area)
 	var gesture = state.gesture
@@ -249,22 +198,18 @@ func swipe_update(delta, area):
 		emit_signal("swipe_updated_with_delta", state.gesture, state.last_update_delta)
 		state.last_update_delta = 0.0
 
-
 func add_gesture_data(area, point, delta = 0):
 	var gesture = state(area).gesture
 	gesture.add_point(point)
 	gesture.add_duration(delta)
 	return self
 
-
 func history():
 	return gesture_history
-
 
 func set_duration_threshold(value):
 	duration_threshold = value
 	return self
-
 
 func set_distance_threshold(value):
 	distance_threshold = value
@@ -272,11 +217,6 @@ func set_distance_threshold(value):
 
 func points_to_gesture(points, area = null):
 	return SwipeGesture.new(area, points)
-
-
-
-
-
 
 func add_pattern_detection(name, gesture):
 	pattern_detections[name] = GesturePattern.new(name, gesture)

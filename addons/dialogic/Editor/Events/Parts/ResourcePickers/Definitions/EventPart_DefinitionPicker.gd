@@ -1,12 +1,9 @@
 tool 
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
-
 export (String) var default_text = "Select Definition"
 
-
 onready var picker_menu = $HBox / MenuButton
-
 
 func _ready():
 	picker_menu.connect("about_to_show", self, "_on_PickerMenu_about_to_show")
@@ -14,7 +11,6 @@ func _ready():
 	
 	picker_menu.custom_icon_modulation = get_color("font_color", "Editor")
 	picker_menu.custom_icon = load("res://addons/dialogic/Images/Resources/definition.svg")
-
 
 func load_data(data: Dictionary):
 	
@@ -35,7 +31,6 @@ func select_definition_by_id(id):
 	else:
 		picker_menu.text = default_text
 
-
 func _on_PickerMenu_selected(index, menu):
 	var text = menu.get_item_text(index)
 	var metadata = menu.get_item_metadata(index)
@@ -50,7 +45,6 @@ func _on_PickerMenu_about_to_show():
 	picker_menu.get_popup().clear()
 	
 	build_PickerMenuFolder(picker_menu.get_popup(), DialogicUtil.get_definitions_folder_structure(), "MenuButton")
-
 
 func build_PickerMenuFolder(menu: PopupMenu, folder_structure: Dictionary, current_folder_name: String):
 	var index = 0

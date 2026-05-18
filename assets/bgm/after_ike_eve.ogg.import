@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/after_ike_eve.ogg-aec7a2078248fa611573bb8dcbc7ace0.oggstr"
+
+[deps]
+
+source_file="res://assets/bgm/after_ike_eve.ogg"
+dest_files=[ "res://.import/after_ike_eve.ogg-aec7a2078248fa611573bb8dcbc7ace0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

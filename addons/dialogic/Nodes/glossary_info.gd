@@ -10,13 +10,11 @@ onready var nodes = {
 var in_theme_editor = false
 var margin = 10
 
-
 func _ready():
 	set_deferred("rect_size.y", 0)
 	nodes["title"].bbcode_enabled = true
 	nodes["body"].bbcode_enabled = true
 	nodes["extra"].bbcode_enabled = true
-
 
 func _process(_delta):
 	if Engine.is_editor_hint() == false or in_theme_editor == true:
@@ -26,7 +24,6 @@ func _process(_delta):
 			else:
 				rect_global_position = get_global_mouse_position() - rect_size - Vector2(0, (margin * 2))
 			rect_size.y = 0
-
 
 func load_preview(info):
 	nodes["title"].visible = false
@@ -44,7 +41,6 @@ func load_preview(info):
 	if info["extra"] != "":
 		nodes["extra"].bbcode_text = info["extra"]
 		nodes["extra"].visible = true
-
 
 func load_theme(theme):
 	

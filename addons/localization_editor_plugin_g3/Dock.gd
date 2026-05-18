@@ -21,7 +21,6 @@ var _selected_translation_panel: String
 var _current_file: String
 var _current_path: String
 
-
 var _self_data_folder_path: String = "res://addons/localization_editor_plugin_g3"
 
 func _ready() -> void :
@@ -125,7 +124,6 @@ func _OnRecentFile_removed(NodeName: String, f_path: String) -> void :
 
 	get_node("%VBxRecentFiles").get_node(NodeName).queue_free()
 
-
 func get_plugin_info(val: String) -> String:
 	var ConfPlugin: = ConfigFile.new()
 	ConfPlugin.load("res://addons/localization_editor_plugin_g3/plugin.cfg")
@@ -201,10 +199,8 @@ func add_translation_panel(
 
 	get_node("%VBxTranslations").call_deferred("add_child", TransInstance)
 
-
 func get_opened_file() -> String:
 	return _current_path + "/" + _current_file
-
 
 func get_langs() -> Array:
 	var langs_list: Array
@@ -216,7 +212,6 @@ func get_langs() -> Array:
 		)
 		i += 1
 	return langs_list
-
 
 func get_selected_lang(mode: String = "ref") -> String:
 	var nod: String = "%RefLangItemList"
@@ -342,7 +337,6 @@ func _on_FileDialog_files_selected(paths: PoolStringArray) -> void :
 	
 	clear_search()
 
-
 func _on_OpenedFilesList_item_selected(index: int) -> void :
 	_current_file = get_node("%OpenedFilesList").get_item_text(index)
 
@@ -356,8 +350,6 @@ func _on_OpenedFilesList_item_selected(index: int) -> void :
 		alert(
 			err_msg, "Translation Manager - Error"
 		)
-
-
 
 		return
 
@@ -404,9 +396,6 @@ func _on_OpenedFilesList_item_selected(index: int) -> void :
 
 	_on_FilesLoaded()
 
-
-
-
 func _on_LangItemList_item_selected(_index: int) -> void :
 	
 	clear_search()
@@ -429,7 +418,6 @@ func _on_LangItemList_item_selected(_index: int) -> void :
 			_translations[t_key][selected_lang_trans]
 		)
 
-
 func _on_deepl_open_link_requested(TransNodeName: String) -> void :
 	var TranslationObj = get_node("%VBxTranslations").get_node(TransNodeName)
 	
@@ -450,15 +438,12 @@ func _on_deepl_open_link_requested(TransNodeName: String) -> void :
 	OS.shell_open(url)
 	print(url)
 
-
-
 func _on_Translation_translate_requested(TransNodeName: String, text_to_trans: String) -> void :
 	$ApiTranslate.translate(
 		get_selected_lang("ref"), 
 		get_selected_lang("trans"), 
 		text_to_trans, TransNodeName
 	)
-
 
 func _on_Translation_edit_requested(TransNodeName: String) -> void :
 	
@@ -496,7 +481,6 @@ func _on_Translation_edit_requested(TransNodeName: String) -> void :
 	
 	
 
-
 func _on_Translation_text_updated(NodeName: String, keystr: String, txt: String) -> void :
 	_translations[keystr][get_selected_lang("trans")] = txt
 	
@@ -507,7 +491,6 @@ func _on_Translation_text_updated(NodeName: String, keystr: String, txt: String)
 	if get_selected_lang("ref") == get_selected_lang("trans"):
 		get_node("%VBxTranslations").get_node(NodeName).orig_txt = txt
 
-
 func _on_Translation_need_revision_check_pressed(key: String, pressed: bool) -> void :
 	var extra_data_path: String = _current_path + "/translation_manager_extra_data.ini"
 	var TransConf = ConfigFile.new()
@@ -515,13 +498,10 @@ func _on_Translation_need_revision_check_pressed(key: String, pressed: bool) -> 
 	TransConf.set_value(key, "need_rev", pressed)
 	TransConf.save(extra_data_path)
 
-
 func _on_CTCheckEditKey_toggled(button_pressed: bool) -> void :
 	get_node("%CTLineEdit").editable = button_pressed
 	
 	get_node("%CTBtnDeleteKey").visible = button_pressed
-
-
 
 func _on_CTBtnDeleteKey_pressed() -> void :
 	var TranslationObj = get_node("%VBxTranslations").get_node(_selected_translation_panel)
@@ -548,7 +528,6 @@ func _on_CTBtnDeleteKey_pressed() -> void :
 	get_node("%DialogEditTranslation").hide()
 
 	_on_BtnSaveFile_pressed()
-
 
 func _on_CTBtnSaveKey_pressed() -> void :
 	var extra_data_path: String = _current_path + "/translation_manager_extra_data.ini"
@@ -624,7 +603,6 @@ func _on_CTBtnSaveKey_pressed() -> void :
 func _on_CTCheckEnableOriginalTxt_toggled(button_pressed: bool) -> void :
 	get_node("%TxtOriginalTxt").readonly = not button_pressed
 
-
 func _on_BtnSaveFile_pressed() -> void :
 	var err = CSVLoader.save_csv_translation(
 		get_opened_file(), 
@@ -636,13 +614,10 @@ func _on_BtnSaveFile_pressed() -> void :
 
 	emit_signal("scan_files_requested")
 
-
 func _on_Preferences_popup_hide() -> void :
 	Conf.set_value("csv", "f_cell", get_node("%TxtSettingFCell").text)
 	Conf.set_value("csv", "delimiter", get_node("%TxtSettingDelimiter").text)
 	Conf.save(_self_data_folder_path + "/translation_manager_conf.ini")
-
-
 
 func _on_TextEditPanel_text_changed() -> void :
 	
@@ -666,15 +641,6 @@ func _on_TextEditPanel_text_changed() -> void :
 	
 	
 
-
-
-
-
-
-
-
-
-
 func _on_ApiTranslate_text_translated(
 	id, _from_lang, _to_lang, _original_text, translated_text
 ) -> void :
@@ -683,12 +649,10 @@ func _on_ApiTranslate_text_translated(
 		TransObj.update_trans_txt(translated_text)
 		TransObj._on_LineEditTranslation_text_changed(translated_text)
 
-
 func _on_CheckBoxSettingReopenFile_toggled(button_pressed: bool) -> void :
 	Conf.set_value("main", "reopen_last_file", button_pressed)
 func _on_CheckBoxSettingHideDeepLButton_toggled(button_pressed: bool) -> void :
 	Conf.set_value("main", "hide_deepl_button", button_pressed)
-
 
 func _on_LinkHowToUse_pressed() -> void :
 	
@@ -701,7 +665,6 @@ func _on_LinkButtonGithub_pressed() -> void :
 	OS.shell_open("https://github.com/dannygaray60/localization-editor-g3")
 func _on_LinkButtonKofi_pressed() -> void :
 	OS.shell_open("https://ko-fi.com/dannygaray60")
-
 
 func _on_BtnAddTranslation_pressed() -> void :
 	
@@ -721,7 +684,6 @@ func _on_BtnAddTranslation_pressed() -> void :
 		get_node("%LineEditTransTxtNewTransItem").visible = false
 	else:
 		get_node("%LineEditTransTxtNewTransItem").visible = true
-
 
 func _on_WindowDialogAddNewLang_about_to_show() -> void :
 	pass
@@ -774,14 +736,11 @@ func _on_BtnNewFileAddLang_pressed() -> void :
 	
 	get_node("%TextEditNewFileLangsAdded").text = new_text
 
-
 func _on_FileDialogNewFilePath_dir_selected(dir: String) -> void :
 	get_node("%LineEditNewFilePath").text = dir
 
-
 func _on_BtnNewFileExplorePath_pressed() -> void :
 	get_node("%FileDialogNewFilePath").popup_centered()
-
 
 func _on_BtnNewFileCreate_pressed() -> void :
 	var f_cell: String = Conf.get_value("csv", "f_cell", "keys")
@@ -828,7 +787,6 @@ func _on_BtnNewFileCreate_pressed() -> void :
 		OS.alert("Error creating file. Error #" + str(err))
 		F.close()
 
-
 func _on_NewTransLineEdit_text_changed(_new_text: String) -> void :
 	var strkey: String = get_node("%LineEditKeyStrNewTransItem").text.strip_edges()
 	var reftxt: String = get_node("%LineEditRefTxtNewTransItem").text.strip_edges()
@@ -841,7 +799,6 @@ func _on_NewTransLineEdit_text_changed(_new_text: String) -> void :
 		get_node("%BtnAddTransItem").disabled = true
 	else:
 		get_node("%BtnAddTransItem").disabled = false
-
 
 func _on_BtnAddTransItem_pressed() -> void :
 	var ref_lang: String = get_selected_lang("ref")
@@ -913,13 +870,11 @@ func _on_BtnRemoveLang_pressed() -> void :
 	
 	get_node("%WindowDialogRemoveLang").hide()
 
-
 func _on_LineEditKeyStrNewTransItem_text_changed(new_text: String) -> void :
 	if get_node("%CheckBoxNewSTRKeyUppercase").pressed == true:
 		get_node("%LineEditKeyStrNewTransItem").text = get_node("%LineEditKeyStrNewTransItem").text.to_upper().replace(" ", "_")
 	
 	get_node("%LineEditKeyStrNewTransItem").caret_position = get_node("%LineEditKeyStrNewTransItem").text.length()
-
 
 func _on_CheckBoxNewSTRKeyUppercase_toggled(button_pressed: bool) -> void :
 	Conf.set_value("main", "uppercase_on_input", button_pressed)
@@ -930,7 +885,6 @@ func _on_CheckBoxNewSTRKeyUppercase_toggled(button_pressed: bool) -> void :
 	else:
 		get_node("%LineEditKeyStrNewTransItem").text = get_node("%LineEditKeyStrNewTransItem").text.to_lower().replace(" ", "_")
 	get_node("%LineEditKeyStrNewTransItem").caret_position = get_node("%LineEditKeyStrNewTransItem").text.length()
-
 
 func _on_CheckBoxHideCompleted_pressed() -> void :
 	if get_node("%CheckBoxHideCompleted").pressed == true:
@@ -944,7 +898,6 @@ func _on_CheckBoxShowNeedRev_pressed() -> void :
 func _on_LineEditSearchBox_text_changed(new_text: String) -> void :
 	get_node("%BtnClearSearch").disabled = new_text.strip_edges().empty()
 	start_search()
-
 
 func _on_CheckBoxSearch_pressed() -> void :
 	
@@ -970,8 +923,6 @@ func _on_BtnClearSearch_pressed() -> void :
 	clear_search()
 	start_search()
 
-
-
 func _on_BtnWow_mouse_entered() -> void :
 	get_node("%TextureRectGodette").texture = GodetteWowTexture
 func _on_BtnWow_mouse_exited() -> void :
@@ -979,14 +930,11 @@ func _on_BtnWow_mouse_exited() -> void :
 func _on_BtnWow_pressed() -> void :
 	_on_LinkButtonKofi_pressed()
 
-
-
 func _on_Dock_resized() -> void :
 	if Engine.is_editor_hint() == false:
 		Conf.set_value("main", "maximized", OS.window_maximized)
 		Conf.save(_self_data_folder_path + "/translation_manager_conf.ini")
 		
-
 
 func _on_BtnCloseFile_pressed() -> void :
 	
@@ -1001,7 +949,6 @@ func _on_BtnCloseFile_pressed() -> void :
 	else:
 		get_node("%OpenedFilesList").select(0)
 		_on_OpenedFilesList_item_selected(0)
-
 
 func _on_BtnOpenDeepL_pressed() -> void :
 	OS.shell_open("https://www.deepl.com/translator")

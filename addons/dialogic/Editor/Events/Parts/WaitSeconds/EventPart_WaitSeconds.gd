@@ -1,19 +1,14 @@
 tool 
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
-
-
-
 onready var seconds_selector = $HBoxContainer / SecondsBox
 onready var skippable_selector = $HBoxContainer / SkippableCheckbox
 onready var hideBox_selector = $HBoxContainer / HideDialogBoxCheckbox
-
 
 func _ready():
 	seconds_selector.connect("value_changed", self, "_on_SecondsSelector_value_changed")
 	skippable_selector.connect("toggled", self, "_on_SkippableSelector_toggled")
 	hideBox_selector.connect("toggled", self, "_on_HideDialogBox_toggled")
-
 
 func load_data(data: Dictionary):
 	
@@ -43,7 +38,6 @@ func _on_SkippableSelector_toggled(checkbox_value):
 func _on_HideDialogBox_toggled(checkbox_value):
 	event_data["hide_dialogbox"] = checkbox_value
 	data_changed()
-
 
 func get_preview():
 	return ""

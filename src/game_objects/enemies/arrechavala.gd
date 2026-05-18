@@ -1,10 +1,7 @@
 extends KinematicBody2D
 
-
-
 var Bullet = preload("res://src/game_objects/enemies_weapons/feather_crown.tscn")
 var Explosion = preload("res://src/game_objects/enemies_weapons/bomb_a_explosion.tscn")
-
 
 var velocity: = Vector2()
 
@@ -76,7 +73,6 @@ func _on_TimerPatrol_timeout() -> void :
 	else:
 		TimerPatrol.stop()
 		return_to_patrol()
-
 
 func _on_EnemyBase_enemy_defeated(_NodeEnemy) -> void :
 	velocity.x = 0

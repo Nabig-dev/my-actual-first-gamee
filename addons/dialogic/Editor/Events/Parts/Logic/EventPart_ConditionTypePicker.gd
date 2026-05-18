@@ -1,7 +1,6 @@
 tool 
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
-
 var options = [
 	{
 		"text": "Equal to", 
@@ -31,13 +30,11 @@ var options = [
 
 onready var picker_menu = $MenuButton
 
-
 func _ready():
 	
 	picker_menu.get_popup().connect("index_pressed", self, "_on_PickerMenu_selected")
 	picker_menu.connect("about_to_show", self, "_on_PickerMenu_about_to_show")
 	picker_menu.custom_icon = get_icon("GDScript", "EditorIcons")
-
 
 func load_data(data: Dictionary):
 	
@@ -46,7 +43,6 @@ func load_data(data: Dictionary):
 	
 	select_condition_type(data["condition"])
 	
-
 
 func get_preview():
 	return ""

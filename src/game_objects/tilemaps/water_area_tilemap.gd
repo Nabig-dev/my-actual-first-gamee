@@ -4,7 +4,6 @@ export var custom_splash_color: Gradient
 
 export var change_music_mode: bool = true
 
-
 export var can_congelate: bool
 
 onready var TileLimit = $TileMapLimit
@@ -38,12 +37,6 @@ func _ready() -> void :
 	
 	TileSnow.set_collision_layer_bit(0, false)
 
-
-
-
-
-
-
 func _on_player_circuit_activated() -> void :
 	
 	var spawned_circuit: int = VarsGlobal.game_data["player_ec_action_selected"][VarsGlobal.game_data["player_current_set"]]
@@ -54,12 +47,6 @@ func _on_player_circuit_activated() -> void :
 	TileSnow.visible = true
 	
 	TileSnow.set_collision_layer_bit(0, true)
-
-
-
-
-
-
 
 func _on_TimerMakeConnection_timeout():
 	if VarsGlobal.Player.has_signal("circuit_charge_ended"):

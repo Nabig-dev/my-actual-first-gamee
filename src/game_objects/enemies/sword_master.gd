@@ -1,7 +1,5 @@
 extends KinematicBody2D
 
-
-
 var speed: int = 20
 var velocity: Vector2
 
@@ -85,7 +83,6 @@ func push_body(direction: Vector2) -> void :
 	
 	velocity = Vector2.ZERO
 
-
 func _shriek_snd() -> void :
 	Audio.play_sfx("sword_master_shriek")
 
@@ -95,7 +92,6 @@ func _on_FloatingSword_defeated() -> void :
 		Audio.play_sfx("sword_slash_slow3")
 		Enemy.change_state("awake")
 
-
 func _on_Tween_tween_all_completed(degrees: int = 0) -> void :
 	if Enemy.state != "dead":
 		Enemy.change_direction("to_player")
@@ -103,7 +99,6 @@ func _on_Tween_tween_all_completed(degrees: int = 0) -> void :
 		Spr, "rotation_degrees", degrees, 360 * Enemy.facing, 2
 	)
 	Tw.start()
-
 
 func _on_HurtboxEnemy_area_entered(area: Area2D) -> void :
 	if Enemy.state == "dead":
@@ -114,7 +109,6 @@ func _on_HurtboxEnemy_area_entered(area: Area2D) -> void :
 	vector_opposite = - vector_opposite
 	
 	push_body(vector_opposite)
-
 
 func _on_TimerSendSword_timeout() -> void :
 	randomize()

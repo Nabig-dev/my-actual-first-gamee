@@ -1,9 +1,6 @@
 extends KinematicBody2D
 
-
-
 var VenomCloud = preload("res://src/game_objects/enemies_weapons/venom_cloud.tscn")
-
 
 var velocity: = Vector2()
 
@@ -81,7 +78,6 @@ func _on_TimerPatrol_timeout() -> void :
 	
 	$TimerPatrol.start(rand_range(2, 3))
 
-
 func _on_AreaBackPlayer_object_entered(_Obj) -> void :
 	if Enemy.state in ["idle", "walk"]:
 		Enemy.change_direction("inverse")
@@ -97,16 +93,10 @@ func _on_TimerMakeAtk_timeout() -> void :
 	else:
 		$TimerMakeAtk.start(0.5)
 
-
 func _on_HurtboxEnemy_damaged() -> void :
 	if Enemy.state in ["idle", "walk"]:
 		Enemy.change_direction("to_player")
 
-
 func _on_HurtboxEnemy_defeated() -> void :
 	pass
-
-
-
-
 

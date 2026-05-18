@@ -26,7 +26,6 @@ func _on_BtnClose_pressed() -> void :
 	Audio.play_sfx("ui_cancel")
 	SceneChanger.change_scene("res://src/screens/main_menu.tscn")
 
-
 func _on_BtnBuyGame_pressed() -> void :
 	Audio.play_sfx("ui_accept")
 	OS.shell_open("https://play.google.com/store/apps/details?id=com.danny_garay.toziuha_night_oota")

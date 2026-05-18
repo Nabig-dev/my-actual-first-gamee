@@ -12,11 +12,8 @@ var gravity: = 350
 var _limit_l: Vector2
 var _limit_r: Vector2
 
-
 onready var Spr = $Sprite
 onready var Enemy = $EnemyBase
-
-
 
 func _ready() -> void :
 	
@@ -57,9 +54,8 @@ func _physics_process(delta: float) -> void :
 
 	velocity = move_and_slide(velocity, Vector2.UP, true)
 
-func _set_velocity_x(vel: float) -> void :
-	velocity.x = vel
-
+func _set_velocity_x(velocity_vector: float) -> void :
+	velocity.x = velocity_vector
 
 func _on_EnemyBase_enemy_defeated(_NodeEnemy) -> void :
 	_on_CarretaNahua_tree_exiting()
@@ -67,7 +63,6 @@ func _on_EnemyBase_enemy_defeated(_NodeEnemy) -> void :
 	ObjInstance.global_position = $Sprite / Position2DParca.global_position
 	VarsGlobal.GameScenario.call_deferred("add_child", ObjInstance)
 	
-
 
 func _on_CarretaNahua_tree_exiting() -> void :
 	velocity.x = 0

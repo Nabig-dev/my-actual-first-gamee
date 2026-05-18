@@ -33,12 +33,5 @@ func _player_set_changed() -> void :
 func _on_TimerDecreaseMana_timeout() -> void :
 	
 
-
-
-
-
-
-
-
 	
 	pass

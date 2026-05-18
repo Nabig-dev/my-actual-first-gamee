@@ -4,7 +4,6 @@ var is_active: = false
 
 var millis_elapsed: = 0.0
 
-
 func _enter_tree() -> void :
 	pause_mode = PAUSE_MODE_PROCESS
 
@@ -26,7 +25,6 @@ func stop() -> void :
 	is_active = false
 	millis_elapsed = 0.0
 
-
 func get_friendly_time(time: float) -> Dictionary:
 	
 	var dict_time: Dictionary
@@ -36,7 +34,6 @@ func get_friendly_time(time: float) -> Dictionary:
 	dict_time["seconds"] = int(fmod(time, 60))
 	dict_time["milliseconds"] = float(time - int(time))
 	return dict_time
-
 
 func convert_to_milli_int(millis: float) -> int:
 	var secs_total: int = 0
@@ -54,7 +51,6 @@ func convert_to_milli_int(millis: float) -> int:
 	millis_total = (secs_total * 1000) + time_friendly["milliseconds"]
 
 	return millis_total
-
 
 func get_friendly_text_time(time: float) -> String:
 	var time_dict = get_friendly_time(time)

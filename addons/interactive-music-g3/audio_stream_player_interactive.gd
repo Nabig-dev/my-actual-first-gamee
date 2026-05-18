@@ -1,18 +1,10 @@
 extends Node
 
-
-
-
-
-
-
 export var high_tracks: String = "0"
-
 
 export var low_tracks: String = "0"
 
 var Tw: Tween
-
 
 var audio_tracks: Array = []
 
@@ -44,16 +36,13 @@ func _ready() -> void :
 func is_stopped() -> bool:
 	return _all_is_stopped
 
-
 func play_track(track: int, fadein_time: float = 1.0) -> void :
 	_play_muted_all()
 	if fadein_time >= 0.0:
 		_fade(audio_tracks[track], true, fadein_time)
 
-
 func stop_track(track: int, fadeout_time: float = 1.0) -> void :
 	_fade(audio_tracks[track], false, fadeout_time)
-
 
 func play(opt: String = "high", fadein_time: float = 1.0) -> void :
 	var i: int = 0
@@ -82,7 +71,6 @@ func play(opt: String = "high", fadein_time: float = 1.0) -> void :
 		
 		i += 1
 
-
 func stop(opt: String = "high", fadeout_time: float = 1.0) -> void :
 	var i: int = 0
 	var track_list: Array
@@ -105,13 +93,11 @@ func stop(opt: String = "high", fadeout_time: float = 1.0) -> void :
 			
 		i += 1
 
-
 func play_all(fadein_time: float = 1.0) -> void :
 	for t in audio_tracks:
 		_fade(t, true, fadein_time)
 		t.play()
 	_all_is_stopped = false
-
 
 func stop_all(fadeout_time: float = 1.0):
 	if _all_is_stopped == true:
@@ -119,7 +105,6 @@ func stop_all(fadeout_time: float = 1.0):
 	for t in audio_tracks:
 		_fade(t, false, fadeout_time)
 	_all_is_stopped = true
-
 
 func _play_muted_all() -> void :
 	
@@ -132,10 +117,8 @@ func _play_muted_all() -> void :
 
 	_all_is_stopped = false
 
-
 func _original_db(audiotrack: AudioStreamPlayer) -> float:
 	return float(audiotrack.editor_description)
-
 
 func _fade(audiotrack: AudioStreamPlayer, fadein: bool = true, time: float = 0.5) -> void :
 
@@ -161,7 +144,6 @@ func _fade(audiotrack: AudioStreamPlayer, fadein: bool = true, time: float = 0.5
 	)
 
 	Tw.start()
-
 
 func _on_Tween_tween_completed(object: Object, key: NodePath) -> void :
 	if (

@@ -1,7 +1,6 @@
 tool 
 extends EditorPlugin
 
-
 const UUID = preload("res://addons/uuid/uuid.gd")
 
 func _enter_tree() -> void :

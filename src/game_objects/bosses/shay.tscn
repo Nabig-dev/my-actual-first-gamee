@@ -1,0 +1,925 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://assets/sprites/enemies/boss_shay.png" type="Texture" id=1]
+[ext_resource path="res://src/game_objects/enemy_base.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/game_objects/bosses/shay.gd" type="Script" id=3]
+[ext_resource path="res://src/game_objects/boss_node.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hurtbox_enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/game_objects/hit_hurt_boxes/hitbox_enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/game_objects/area2d_cast.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/game_objects/elemental_circuit.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/game_objects/ghost_trail.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/game_objects/vfx/particles_teleport.tscn" type="PackedScene" id=10]
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 4.968, 24 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 10, 24 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 8.895, 20.856 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 20.5, 3 )
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 32, 15.5 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 8, 17 )
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/HitboxEnemy/ColSword:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Circuits/Circuit1:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/Circuits/Circuit2:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite/Circuits:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Sprite/Circuits/Circuit3:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Sprite/Circuits/CircuitHand:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Sprite/HitboxEnemy/ColSword2:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Sprite/ParticlesTeleport:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Sprite/ParticlesTeleport:amount")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 20 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Sprite/Circuits:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "dead"
+length = 13.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5, 2.8, 3.1, 3.4, 3.7, 4, 4.3, 4.6, 4.9, 5.2, 5.5, 5.8, 6.1, 6.4, 6.7, 7, 7.3, 7.6, 7.9, 8.2, 8.5, 8.8, 9.1, 9.4, 10.6, 10.8, 11, 11.2, 11.4, 11.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 33, 34, 35, 34, 35, 34, 35, 34, 35, 34, 35, 34, 35, 34, 35, 34, 35, 34, 35, 34, 35, 34, 35, 34, 35, 33, 37, 38, 39, 40, 41 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/ParticlesTeleport:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 9.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/ParticlesTeleport:amount")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 50 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/Circuits:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 2.5, 3.8, 5, 6.5, 8.2, 13 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ -1 ],
+"method": "spawn_icefloor"
+}, {
+"args": [  ],
+"method": "spawn_icerocks"
+}, {
+"args": [ 1 ],
+"method": "spawn_icefloor"
+}, {
+"args": [ -1 ],
+"method": "spawn_icefloor"
+}, {
+"args": [  ],
+"method": "spawn_icerocks"
+}, {
+"args": [  ],
+"method": "_on_dead_anim_end"
+} ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "dead2"
+length = 4.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.35, 2.55, 2.75, 2.95, 3.05 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 33, 37, 38, 39, 40, 41 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/ParticlesTeleport:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/ParticlesTeleport:amount")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 50 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/Circuits:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_on_dead_anim_end"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "fastatk"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.7, 0.8, 0.9, 1, 1.1, 1.5, 1.6, 1.7, 1.8, 1.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 4, 5, 6, 7, 8, 9, 10, 4, 1, 2, 1, 2 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7, 0.8, 0.9, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ false ],
+"method": "_set_dash"
+}, {
+"args": [ true ],
+"method": "_set_dash"
+}, {
+"args": [  ],
+"method": "_spawn_boomerang"
+}, {
+"args": [ false ],
+"method": "_set_dash"
+}, {
+"args": [  ],
+"method": "_on_attack_finished"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_snd_sword_slash"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/HitboxEnemy/ColSword:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.7, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("GhostTrail")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.6, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ 0.0, 0.1 ],
+"method": "start_trail"
+}, {
+"args": [  ],
+"method": "stop_trail"
+} ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "floor"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 12, 13, 14, 15, 16, 17, 18 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "_icefloor"
+}, {
+"args": [  ],
+"method": "_on_attack_finished"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "floorslash"
+length = 2.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 2, 2.1, 2.2, 2.3, 2.4, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 4, 26, 27, 28, 26, 27, 28, 26, 27, 28, 26, 27, 28, 26, 27, 28, 29, 30, 31, 13, 12, 1 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_snd_sword_slash"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.9, 2.3, 2.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"values": [ {
+"args": [ false ],
+"method": "_set_dash"
+}, {
+"args": [ true ],
+"method": "_set_dash"
+}, {
+"args": [ false ],
+"method": "_set_dash"
+}, {
+"args": [  ],
+"method": "_on_attack_finished"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/HitboxEnemy/ColSword2:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2, 2.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("GhostTrail")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1.7, 2.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ 0.0, 0.1 ],
+"method": "start_trail"
+}, {
+"args": [  ],
+"method": "stop_trail"
+} ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "icefloor"
+length = 2.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.6, 1.7, 1.8, 1.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 20, 21, 22, 23, 24, 23, 24, 23, 24, 22, 21, 20, 1, 2 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.3, 2.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ 0 ],
+"method": "spawn_icefloor"
+}, {
+"args": [  ],
+"method": "_on_attack_finished"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "idle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 1, 2 ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "invoke"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6, 3.8, 4, 4.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 1, 2, 20, 21, 24, 23, 24, 23, 24, 23, 24, 23, 22 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "projectile"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 20, 21 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/Circuits:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 1, 1.9, 2.6, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Circuits/CircuitHand:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 1.9, 2.5, 2.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 0.7, 0.7 ), Vector2( 0.7, 0.7 ), Vector2( 2, 2 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.3, 1.9, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "_snd_spell"
+}, {
+"args": [  ],
+"method": "_spawn_iceball_wall"
+}, {
+"args": [  ],
+"method": "_spawn_iceball_wall"
+}, {
+"args": [  ],
+"method": "_on_attack_finished"
+} ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("EnemyBase")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1.1, 1.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "to_player" ],
+"method": "change_direction"
+}, {
+"args": [ "to_player" ],
+"method": "change_direction"
+} ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "sphere"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 3.4, 3.5, 3.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 4, 5, 4, 2, 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/Circuits/Circuit1:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Circuits/Circuit2:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/Circuits:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.8, 1.5, 2.2, 2.9, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "_snd_spell"
+}, {
+"args": [ true, Vector2( 0, 0 ) ],
+"method": "_spawn_projectile_ice"
+}, {
+"args": [ true, Vector2( 0, 0 ) ],
+"method": "_spawn_projectile_ice"
+}, {
+"args": [ true, Vector2( 0, 0 ) ],
+"method": "_spawn_projectile_ice"
+}, {
+"args": [ true, Vector2( 0, 0 ) ],
+"method": "_spawn_projectile_ice"
+}, {
+"args": [  ],
+"method": "_on_attack_finished"
+} ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Sprite/Circuits/Circuit3:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.8, 1.5, 2.2, 2.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "_spawn_projectile_circuit3"
+}, {
+"args": [  ],
+"method": "_spawn_projectile_circuit3"
+}, {
+"args": [  ],
+"method": "_spawn_projectile_circuit3"
+}, {
+"args": [  ],
+"method": "_spawn_projectile_circuit3"
+} ]
+}
+
+[node name="shay" type="KinematicBody2D"]
+collision_layer = 512
+collision_mask = 5
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -24 )
+shape = SubResource( 10 )
+
+[node name="HurtboxEnemy" parent="." instance=ExtResource( 5 )]
+position = Vector2( 0, -29 )
+identifier = "boss_sheal"
+sprite_flash = NodePath("../Sprite")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxEnemy"]
+position = Vector2( 0, 5 )
+shape = SubResource( 11 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -32 )
+z_index = 1
+texture = ExtResource( 1 )
+hframes = 5
+vframes = 9
+frame = 1
+
+[node name="HitboxEnemy" parent="Sprite" instance=ExtResource( 6 )]
+position = Vector2( 0, 8 )
+identifier = "boss_sheal"
+hurtbox_node = NodePath("../../HurtboxEnemy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/HitboxEnemy"]
+position = Vector2( 0, 2 )
+shape = SubResource( 12 )
+
+[node name="ColSword" type="CollisionShape2D" parent="Sprite/HitboxEnemy"]
+position = Vector2( 28.5, -12 )
+shape = SubResource( 14 )
+disabled = true
+
+[node name="ColSword2" type="CollisionShape2D" parent="Sprite/HitboxEnemy"]
+position = Vector2( 16, 0.5 )
+shape = SubResource( 15 )
+disabled = true
+
+[node name="DetectWallFront" parent="Sprite" instance=ExtResource( 7 )]
+collision_layer = 512
+collision_mask = 1
+detect = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/DetectWallFront"]
+position = Vector2( 8, 7 )
+shape = SubResource( 13 )
+
+[node name="PosBoomerang" type="Position2D" parent="Sprite"]
+position = Vector2( 30, -3 )
+
+[node name="Circuits" type="Node2D" parent="Sprite"]
+
+[node name="Circuit3" parent="Sprite/Circuits" instance=ExtResource( 8 )]
+unique_name_in_owner = true
+position = Vector2( -19, -88 )
+scale = Vector2( 1e-05, 1e-05 )
+circuit_mode = -1
+custom_color = Color( 0, 1, 1, 1 )
+is_for_ui = true
+delete_if_absorbed_anim_ends = false
+speed_anim = 3.0
+
+[node name="CircuitHand" parent="Sprite/Circuits" instance=ExtResource( 8 )]
+unique_name_in_owner = true
+show_behind_parent = true
+position = Vector2( 20, -8 )
+scale = Vector2( 1e-05, 1e-05 )
+circuit_mode = -1
+custom_color = Color( 0, 1, 1, 1 )
+is_for_ui = true
+delete_if_absorbed_anim_ends = false
+speed_anim = 3.0
+
+[node name="Circuit2" parent="Sprite/Circuits" instance=ExtResource( 8 )]
+unique_name_in_owner = true
+position = Vector2( -54, -15 )
+scale = Vector2( 1e-05, 1e-05 )
+circuit_mode = -1
+custom_color = Color( 0, 1, 1, 1 )
+is_for_ui = true
+delete_if_absorbed_anim_ends = false
+speed_anim = 3.0
+
+[node name="Circuit1" parent="Sprite/Circuits" instance=ExtResource( 8 )]
+unique_name_in_owner = true
+position = Vector2( -32, 20 )
+scale = Vector2( 1e-05, 1e-05 )
+circuit_mode = -1
+custom_color = Color( 0, 1, 1, 1 )
+is_for_ui = true
+delete_if_absorbed_anim_ends = false
+speed_anim = 3.0
+
+[node name="ParticlesTeleport" parent="Sprite" instance=ExtResource( 10 )]
+position = Vector2( 0, 4 )
+z_index = 2
+initial_velocity = 71.0
+color = Color( 0.0705882, 0.129412, 1, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/dead = SubResource( 9 )
+anims/dead2 = SubResource( 16 )
+anims/fastatk = SubResource( 2 )
+anims/floor = SubResource( 5 )
+anims/floorslash = SubResource( 6 )
+anims/icefloor = SubResource( 8 )
+anims/idle = SubResource( 3 )
+anims/invoke = SubResource( 17 )
+anims/projectile = SubResource( 7 )
+anims/sphere = SubResource( 4 )
+
+[node name="EnemyBase" parent="." instance=ExtResource( 2 )]
+node_facing = NodePath("../Sprite")
+anim_player = NodePath("../AnimationPlayer")
+hurtbox = NodePath("../HurtboxEnemy")
+
+[node name="BossNode" parent="." instance=ExtResource( 4 )]
+boss_ide = "boss_sheal"
+hurtbox_node = NodePath("../HurtboxEnemy")
+battle_song = "sheal_fight_theme"
+open_doors_on_defeat = false
+
+[node name="GhostTrail" parent="." instance=ExtResource( 9 )]
+parent_sprite_path = NodePath("..")
+sprite_path = NodePath("../Sprite")
+modulate_ghost = Color( 0.109804, 0.164706, 0.741176, 0.87451 )
+use_custom_z_index = true
+
+[connection signal="damaged" from="HurtboxEnemy" to="." method="_on_HurtboxEnemy_damaged"]
+[connection signal="defeated" from="HurtboxEnemy" to="." method="_on_HurtboxEnemy_defeated"]

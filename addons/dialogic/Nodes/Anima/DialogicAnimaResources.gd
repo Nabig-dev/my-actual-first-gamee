@@ -5,9 +5,6 @@ const BASE_PATH: = "res://addons/dialogic/Nodes/Anima/animations/"
 
 static func get_animation_script(animation_name: String):
 
-
-
-
 	var resource_file = get_animation_script_with_path(animation_name)
 	if resource_file:
 		return load(resource_file).new()
@@ -15,7 +12,6 @@ static func get_animation_script(animation_name: String):
 	printerr("No animation found with name: ", animation_name)
 
 	return null
-
 
 static func get_animation_script_with_path(animation_name: String) -> String:
 	if not animation_name.ends_with(".gd"):
@@ -29,7 +25,6 @@ static func get_animation_script_with_path(animation_name: String) -> String:
 
 	return ""
 
-
 static func get_available_animations() -> Array:
 	var list = _get_animations_list()
 	var filtered: = []
@@ -40,7 +35,6 @@ static func get_available_animations() -> Array:
 			filtered.push_back(file.replace(".gdc", ".gd"))
 
 	return filtered
-
 
 static func _get_animations_list() -> Array:
 	var files = _get_scripts_in_dir(BASE_PATH)

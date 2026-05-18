@@ -1,8 +1,5 @@
 extends KinematicBody2D
 
-
-
-
 var velocity: = Vector2()
 
 var gravity: int = 350
@@ -73,7 +70,6 @@ func _on_VisibilityNotifierCameraArea_screen_entered() -> void :
 	if AreaDetectPlayer.is_colliding() == true:
 		start_run()
 
-
 func _on_AreaDetectPlayer_object_entered(_Obj) -> void :
 	if Enemy.state == "dead":
 		return
@@ -85,19 +81,16 @@ func _on_VisibilityNotifierCameraArea_screen_exited() -> void :
 	if Enemy.state != "dead" and _running == true and is_on_floor():
 		Enemy.change_direction("to_player")
 
-
 func _on_DetectNoFloor_object_exited(_Obj) -> void :
 	if Enemy.state != "dead" and _running == true:
 		_running = false
 		velocity.x = 0
 		Enemy.change_state("jump")
 
-
 func _on_DetectNoFloor_object_entered(_Obj) -> void :
 	if _running == false and Enemy.state == "jump":
 		_running = true
 		Enemy.change_state("run")
-
 
 func _on_HurtboxEnemy_defeated() -> void :
 	$GhostTrail.stop_trail()

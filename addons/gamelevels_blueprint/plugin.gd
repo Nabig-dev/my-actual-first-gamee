@@ -16,7 +16,6 @@ func _enter_tree():
 	
 	get_tree().set_meta("editor_interface", get_editor_interface())
 
-
 func _exit_tree():
 	if dock_instance:
 		dock_instance.queue_free()

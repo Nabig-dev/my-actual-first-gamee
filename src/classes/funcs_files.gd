@@ -2,7 +2,6 @@ extends Node
 
 class_name FuncsFiles
 
-
 static func get_files(path: String) -> Array:
 	var files: Array = []
 	var dir: = Directory.new()

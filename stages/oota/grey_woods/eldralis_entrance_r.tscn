@@ -1,0 +1,238 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://src/game_objects/tilemaps/grey_woods.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/game_objects/characters/playable_character.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/game_objects/game_interface.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game_objects/game_scenario.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/game_objects/camera_limit.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/game_objects/backgrounds/grey_woods_bg.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/sprites/props/herb.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/props/eldralis_house.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/props/eldralis_tree.png" type="Texture" id=9]
+[ext_resource path="res://addons/nklbdev.parallax/Parallax.gd" type="Script" id=10]
+[ext_resource path="res://assets/sprites/props/eldralis_tree2.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/props/grass_and_rocks.png" type="Texture" id=12]
+[ext_resource path="res://src/game_objects/destructibles/torch_floor.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/game_objects/interactable_area2d_indicator.tscn" type="PackedScene" id=14]
+[ext_resource path="res://stages/oota/grey_woods/eldralis_entrance_r.gd" type="Script" id=15]
+[ext_resource path="res://src/game_objects/room_changer.tscn" type="PackedScene" id=16]
+[ext_resource path="res://src/game_objects/backgrounds/fog_parallax.tscn" type="PackedScene" id=17]
+[ext_resource path="res://src/game_objects/tilemaps/background/area_connection.png" type="Texture" id=18]
+[ext_resource path="res://src/game_objects/grid_window_size.tscn" type="PackedScene" id=19]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[node name="Node" type="Node"]
+script = ExtResource( 15 )
+
+[node name="GameInterface" parent="." instance=ExtResource( 3 )]
+area_title = "grey_woods"
+
+[node name="GameScenario" parent="." instance=ExtResource( 4 )]
+music = "grey_woods"
+
+[node name="EldralisWoodsParallaxBackground" parent="GameScenario" instance=ExtResource( 6 )]
+
+[node name="FogParallax" parent="GameScenario" instance=ExtResource( 17 )]
+
+[node name="CameraLimit" parent="GameScenario" instance=ExtResource( 5 )]
+margin_left = -386.0
+margin_top = -500.0
+margin_right = 296.0
+margin_bottom = -308.0
+
+[node name="GridWindowSize" parent="GameScenario/CameraLimit" instance=ExtResource( 19 )]
+margin_right = 682.0
+horizontal = 2
+
+[node name="BG" type="Node2D" parent="GameScenario"]
+
+[node name="Parallax" type="Node2D" parent="GameScenario/BG"]
+modulate = Color( 0.482353, 0.737255, 0.847059, 1 )
+position = Vector2( -27.15, 0 )
+script = ExtResource( 10 )
+enabled_in_editor = true
+motion_scale = Vector2( 0.3, 0 )
+
+[node name="EldralisTree" type="Sprite" parent="GameScenario/BG/Parallax"]
+modulate = Color( 0.682353, 0.776471, 0.682353, 1 )
+position = Vector2( -142.262, -248 )
+texture = ExtResource( 9 )
+
+[node name="EldralisTree2" type="Sprite" parent="GameScenario/BG/Parallax"]
+modulate = Color( 0.682353, 0.776471, 0.682353, 1 )
+position = Vector2( -260.939, -256 )
+texture = ExtResource( 9 )
+flip_h = true
+
+[node name="EldralisTree3" type="Sprite" parent="GameScenario/BG/Parallax"]
+modulate = Color( 0.682353, 0.776471, 0.682353, 1 )
+position = Vector2( 235.019, -264 )
+texture = ExtResource( 9 )
+
+[node name="EldralisTree4" type="Sprite" parent="GameScenario/BG/Parallax"]
+modulate = Color( 0.682353, 0.776471, 0.682353, 1 )
+position = Vector2( -380.939, -267 )
+texture = ExtResource( 9 )
+
+[node name="EldralisTree5" type="Sprite" parent="GameScenario/BG/Parallax"]
+modulate = Color( 0.682353, 0.776471, 0.682353, 1 )
+position = Vector2( 22.5461, -320 )
+texture = ExtResource( 9 )
+
+[node name="EldralisTree6" type="Sprite" parent="GameScenario/BG/Parallax"]
+modulate = Color( 0.682353, 0.776471, 0.682353, 1 )
+position = Vector2( 137.929, -392 )
+texture = ExtResource( 9 )
+
+[node name="Parallax2" type="Node2D" parent="GameScenario/BG"]
+modulate = Color( 0.482353, 0.737255, 0.847059, 1 )
+position = Vector2( -18.1, 0 )
+script = ExtResource( 10 )
+enabled_in_editor = true
+motion_scale = Vector2( 0.2, 0 )
+
+[node name="EldralisTree2" type="Sprite" parent="GameScenario/BG/Parallax2"]
+position = Vector2( -160, -400 )
+texture = ExtResource( 11 )
+
+[node name="EldralisTree3" type="Sprite" parent="GameScenario/BG/Parallax2"]
+position = Vector2( -212.837, -392 )
+texture = ExtResource( 11 )
+
+[node name="EldralisTree4" type="Sprite" parent="GameScenario/BG/Parallax2"]
+position = Vector2( -76.8372, -376 )
+texture = ExtResource( 11 )
+
+[node name="EldralisTree5" type="Sprite" parent="GameScenario/BG/Parallax2"]
+position = Vector2( 225.999, -400 )
+texture = ExtResource( 11 )
+
+[node name="Parallax3" type="Node2D" parent="GameScenario/BG"]
+modulate = Color( 0.482353, 0.737255, 0.847059, 1 )
+position = Vector2( -9.05, 0 )
+script = ExtResource( 10 )
+enabled_in_editor = true
+motion_scale = Vector2( 0.1, 0 )
+
+[node name="GrassAndRocks" type="Sprite" parent="GameScenario/BG/Parallax3"]
+position = Vector2( -106.687, -352 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 48, 0, 48, 32 )
+
+[node name="GrassAndRocks2" type="Sprite" parent="GameScenario/BG/Parallax3"]
+position = Vector2( -228.391, -352 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 48, 32 )
+
+[node name="GrassAndRocks3" type="Sprite" parent="GameScenario/BG/Parallax3"]
+position = Vector2( -186.953, -344 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 48, 32 )
+
+[node name="GrassAndRocks4" type="Sprite" parent="GameScenario/BG/Parallax3"]
+position = Vector2( 240.72, -352 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 48, 0, 48, 32 )
+
+[node name="AreaConnection" type="Sprite" parent="GameScenario"]
+position = Vector2( 656, -128 )
+texture = ExtResource( 18 )
+
+[node name="EldralisHouse" type="Sprite" parent="GameScenario"]
+modulate = Color( 0.698039, 0.843137, 1, 1 )
+position = Vector2( 49, -389 )
+texture = ExtResource( 8 )
+
+[node name="Bg" type="Sprite" parent="GameScenario/EldralisHouse"]
+show_behind_parent = true
+position = Vector2( -31, -51 )
+texture = ExtResource( 8 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 32, 96, 48, 48 )
+
+[node name="Bg2" type="Sprite" parent="GameScenario/EldralisHouse"]
+show_behind_parent = true
+position = Vector2( 29, 5 )
+texture = ExtResource( 8 )
+region_enabled = true
+region_rect = Rect2( 32, 96, 48, 48 )
+
+[node name="ColorRect" type="ColorRect" parent="GameScenario/EldralisHouse"]
+show_behind_parent = true
+margin_left = -30.0
+margin_top = -83.0
+margin_right = 45.0
+margin_bottom = 21.0
+color = Color( 0.0627451, 0.184314, 0.223529, 0.647059 )
+
+[node name="EldralisTree" type="Sprite" parent="GameScenario"]
+modulate = Color( 0.545098, 1, 0.882353, 1 )
+position = Vector2( -57, -395 )
+texture = ExtResource( 9 )
+
+[node name="EldralisTree2" type="Sprite" parent="GameScenario"]
+modulate = Color( 0.545098, 1, 0.882353, 1 )
+position = Vector2( 164, -432 )
+texture = ExtResource( 9 )
+
+[node name="EldralisTree3" type="Sprite" parent="GameScenario"]
+modulate = Color( 0.545098, 1, 0.882353, 1 )
+position = Vector2( -272, -440 )
+texture = ExtResource( 9 )
+
+[node name="TileMapEldralisWoods" parent="GameScenario" instance=ExtResource( 1 )]
+tile_data = PoolIntArray( -1376283, 3, 0, -1376282, 3, 3, -1376281, 3, 2, -1376280, 3, 3, -1376279, 3, 1, -1376278, 3, 1, -1376277, 3, 3, -1376276, 3, 2, -1376275, 3, 3, -1376274, 3, 1, -1376273, 3, 3, -1376272, 3, 3, -1376271, 3, 1, -1376270, 3, 3, -1376269, 3, 2, -1376268, 3, 3, -1376267, 3, 3, -1376266, 3, 2, -1376265, 3, 1, -1376264, 3, 1, -1376263, 3, 1, -1376262, 3, 2, -1376261, 3, 3, -1376260, 3, 3, -1376259, 3, 1, -1376258, 3, 1, -1376257, 3, 4, -1310747, 0, 0, -1310746, 0, 3, -1310745, 0, 2, -1310744, 0, 2, -1310743, 0, 2, -1310742, 0, 2, -1310741, 0, 2, -1310740, 0, 2, -1310739, 0, 393217, -1310738, 0, 3, -1310737, 0, 2, -1310736, 0, 393217, -1310735, 0, 3, -1310734, 0, 393217, -1310733, 0, 1, -1310732, 0, 3, -1310731, 0, 393217, -1310730, 0, 393217, -1310729, 0, 3, -1310728, 0, 1, -1310727, 0, 393217, -1310726, 0, 393217, -1310725, 0, 393217, -1310724, 0, 3, -1310723, 0, 393217, -1310722, 0, 2, -1310721, 0, 2, -1376256, 0, 393217, -1376255, 0, 393217, -1376254, 0, 393217, -1376253, 0, 3, -1376252, 0, 3, -1376251, 0, 2, -1376250, 0, 3, -1376249, 0, 393217, -1376248, 0, 393217, -1376247, 0, 393217, -1376246, 0, 1, -1376245, 0, 2, -1376244, 0, 3, -1376243, 0, 1, -1376242, 0, 3, -1376241, 0, 393217, -1376240, 0, 393217, -1376239, 0, 2, -1376238, 0, 393217, -1376237, 0, 3, -1376236, 0, 1, -1376235, 0, 2, -1376234, 0, 4, -1245211, 0, 196608, -1245210, 0, 262145, -1245209, 0, 196611, -1245208, 0, 262145, -1245207, 0, 196609, -1245206, 0, 196611, -1245205, 0, 196609, -1245204, 0, 196611, -1245203, 0, 196611, -1245202, 0, 196611, -1245201, 0, 262145, -1245200, 0, 262145, -1245199, 0, 262145, -1245198, 0, 196610, -1245197, 0, 196610, -1245196, 0, 196611, -1245195, 0, 196611, -1245194, 0, 196610, -1245193, 0, 196609, -1245192, 0, 196610, -1245191, 0, 196610, -1245190, 0, 196609, -1245189, 0, 196610, -1245188, 0, 196611, -1245187, 0, 196609, -1245186, 0, 196610, -1245185, 0, 196609, -1310720, 0, 196610, -1310719, 0, 196611, -1310718, 0, 262145, -1310717, 0, 196611, -1310716, 0, 196610, -1310715, 0, 196609, -1310714, 0, 196610, -1310713, 0, 196611, -1310712, 0, 196610, -1310711, 0, 196611, -1310710, 0, 196610, -1310709, 0, 196610, -1310708, 0, 262145, -1310707, 0, 262145, -1310706, 0, 196611, -1310705, 0, 262145, -1310704, 0, 196610, -1310703, 0, 196610, -1310702, 0, 196609, -1310701, 0, 262145, -1310700, 0, 196609, -1310699, 0, 196611, -1310698, 0, 196612 )
+
+[node name="TopTileMapEldralisWoods2" parent="GameScenario" instance=ExtResource( 1 )]
+tile_data = PoolIntArray( -1376257, 3, 0, -1441792, 3, 2, -1441791, 3, 1, -1441790, 3, 3, -1441789, 3, 1, -1441788, 3, 1, -1441787, 3, 3, -1441786, 3, 3, -1441785, 3, 1, -1441784, 3, 1, -1441783, 3, 1, -1441782, 3, 2, -1441781, 3, 3, -1441780, 3, 1, -1441779, 3, 3, -1441778, 3, 2, -1441777, 3, 2, -1441776, 3, 3, -1441775, 3, 1, -1441774, 3, 2, -1441773, 3, 3, -1441772, 3, 1, -1441771, 3, 1, -1441770, 3, 4 )
+
+[node name="RoomChanger" parent="GameScenario" instance=ExtResource( 16 )]
+position = Vector2( -386, -336 )
+scale = Vector2( -1, 1 )
+direction = 2
+identifier = "dl"
+id_destination = "dr"
+path_destination = "res://stages/oota/grey_woods/eldralis0.tscn"
+offset_area = -86
+
+[node name="RoomChanger2" parent="GameScenario" instance=ExtResource( 16 )]
+position = Vector2( 296, -336 )
+identifier = "dr"
+id_destination = "dl"
+path_destination = "res://stages/oota/the_core/connection_l.tscn"
+offset_area = -85
+
+[node name="PlayableCharacter" parent="GameScenario" instance=ExtResource( 2 )]
+position = Vector2( 280, -336 )
+
+[node name="Herb3" type="Sprite" parent="GameScenario"]
+position = Vector2( 207, -360 )
+texture = ExtResource( 7 )
+hframes = 6
+vframes = 9
+frame = 53
+region_rect = Rect2( 128, 160, 64, 32 )
+
+[node name="TorchFloor" parent="GameScenario" instance=ExtResource( 13 )]
+position = Vector2( 139, -376 )
+
+[node name="TorchFloor2" parent="GameScenario" instance=ExtResource( 13 )]
+position = Vector2( -56, -376 )
+
+[node name="TorchFloor3" parent="GameScenario" instance=ExtResource( 13 )]
+position = Vector2( -270, -375 )
+
+[node name="XandriaHouseDoor" parent="GameScenario" instance=ExtResource( 14 )]
+position = Vector2( 26, -336 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScenario/XandriaHouseDoor"]
+position = Vector2( 0, -6 )
+shape = SubResource( 1 )
+
+[connection signal="interact_requested" from="GameScenario/XandriaHouseDoor" to="." method="_on_XandriaHouseDoor_interact_requested"]

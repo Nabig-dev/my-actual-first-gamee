@@ -2,10 +2,8 @@ tool
 extends BitmapFont
 class_name TextureFont, "res://addons/texture_fonts/Assets/TextureFont.svg"
 
-
 var _texture_mappings: Array
 var _font_settings
-
 
 const default_texture_mappings: = {
 	rect_size = Vector2(14, 14), 
@@ -21,7 +19,6 @@ const default_texture_mappings: = {
 func _init():
 	_font_settings = load("res://addons/texture_fonts/Classes/TextureFontSettings.gd").new()
 
-
 func get_class():
 	return "TextureFont"
 
@@ -36,10 +33,8 @@ func add_texture(texture: Texture) -> void :
 	
 	self.texture_mappings.append(mapping)
 
-
 func remove_texture(index: int) -> void :
 	self.texture_mappings.remove(index)
-
 
 func build_font():
 	var height = self.height
@@ -111,7 +106,6 @@ func build_font():
 	
 	emit_signal("changed")
 
-
 func _get_property_list():
 	
 	var props = [
@@ -129,14 +123,12 @@ func _get_property_list():
 	
 	return props
 
-
 func _get(property: String):
 	match property:
 		"texture_mappings":
 			return _texture_mappings
 		"font_settings":
 			return _font_settings
-
 
 func _set(property: String, val):
 	match property:

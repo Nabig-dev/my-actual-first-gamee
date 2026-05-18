@@ -2,73 +2,6 @@ tool
 class_name ClassType
 extends Reference
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 enum Source{
 	NONE, 
 	ENGINE, 
@@ -119,10 +52,6 @@ func _init(p_input = null, p_generate_deep_map: bool = true, p_duplicate_maps: b
 				_connect_script_updates()
 	return
 
-
-
-
-
 func to_string():
 	if name:
 		return name
@@ -133,55 +62,29 @@ func to_string():
 		return named_path
 	return ""
 
-
-
-
-
-
-
-
-
-
-
-
-
 func get_script_classes() -> Dictionary:
 	_fetch_script_map()
 	return _script_map
-
-
-
-
 
 func get_path_map() -> Dictionary:
 	_fetch_script_map()
 	return _path_map
 
-
-
 func get_deep_type_map() -> Dictionary:
 	_fetch_deep_type_map()
 	return _deep_type_map
-
-
 
 func get_deep_path_map() -> Dictionary:
 	_fetch_deep_type_map()
 	return _deep_path_map
 
-
-
 func refresh_script_classes() -> void :
 	_script_map = _get_script_map()
 	_build_path_map()
 
-
-
 func refresh_deep_type_map() -> void :
 	_deep_type_map = _get_deep_type_map()
 	_build_deep_path_map()
-
-
 
 func is_type(p_other) -> bool:
 	match _source:
@@ -206,8 +109,6 @@ func is_type(p_other) -> bool:
 					return static_is_type(res, other.res, _get_map())
 	return static_is_type(res, p_other, _get_map())
 
-
-
 func instance() -> Object:
 	if _source == Source.ENGINE:
 		return ClassDB.instance(name)
@@ -217,8 +118,6 @@ func instance() -> Object:
 		if res is PackedScene:
 			return res.instance()
 	return null
-
-
 
 func get_engine_class() -> String:
 	if Source.ENGINE == _source:
@@ -230,8 +129,6 @@ func get_engine_class() -> String:
 			var state: = (res as PackedScene).get_state()
 			return state.get_node_type(0)
 	return ""
-
-
 
 func get_script_class() -> String:
 	match _source:
@@ -251,47 +148,29 @@ func get_script_class() -> String:
 		script = script.get_base_script()
 	return ""
 
-
-
 func get_type_class() -> String:
 	var ret: = get_script_class()
 	if not ret:
 		ret = get_engine_class()
 	return ret
 
-
-
 func class_exists() -> bool:
 	return _source != Source.NONE
-
-
-
-
 
 func path_exists() -> bool:
 	return ResourceLoader.exists(path)
 
-
-
 func is_valid() -> bool:
 	return class_exists() or path_exists()
-
-
 
 func is_non_class_res() -> bool:
 	return path_exists() and not class_exists()
 
-
-
 func as_script() -> Script:
 	return res as Script
 
-
-
 func as_scene() -> PackedScene:
 	return res as PackedScene
-
-
 
 func get_engine_parent() -> Reference:
 	var ret: = _new()
@@ -300,8 +179,6 @@ func get_engine_parent() -> Reference:
 	elif _source == Source.ENGINE:
 		ret.name = ClassDB.get_parent_class(name)
 	return ret
-
-
 
 func get_script_parent() -> Reference:
 	var ret: = _new()
@@ -321,8 +198,6 @@ func get_script_parent() -> Reference:
 
 	return ret
 
-
-
 func get_scene_parent() -> Reference:
 	var ret: = _new()
 	match _source:
@@ -333,8 +208,6 @@ func get_scene_parent() -> Reference:
 	ret.res = scene
 	return ret
 
-
-
 func get_type_parent() -> Reference:
 	var ret = get_scene_parent()
 	if ret.is_valid():
@@ -343,24 +216,6 @@ func get_type_parent() -> Reference:
 	if ret.is_valid():
 		return ret
 	return get_engine_parent()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 func become_parent() -> bool:
 	if not res:
@@ -380,9 +235,6 @@ func become_parent() -> bool:
 			return true
 	return false
 
-
-
-
 func get_type_script() -> Script:
 	var scene: = res as PackedScene
 	var script: Script = null
@@ -392,9 +244,6 @@ func get_type_script() -> Script:
 		script = res as Script
 	return script
 
-
-
-
 func can_instance() -> bool:
 	if _source == Source.ENGINE:
 		return ClassDB.can_instance(name)
@@ -403,13 +252,9 @@ func can_instance() -> bool:
 		return script.can_instance()
 	return false
 
-
 func is_object_instance_of(p_object) -> bool:
 	var ct = from_object(p_object)
 	return is_type(ct)
-
-
-
 
 func get_inheritors_list() -> PoolStringArray:
 	var class_list = get_class_list()
@@ -418,8 +263,6 @@ func get_inheritors_list() -> PoolStringArray:
 		if a_class != name and static_is_type(a_class, name, _get_map()):
 			ret.append(a_class)
 	return ret
-
-
 
 func get_deep_inheritors_list() -> PoolStringArray:
 	_fetch_deep_type_map()
@@ -430,18 +273,12 @@ func get_deep_inheritors_list() -> PoolStringArray:
 			ret.append(a_class)
 	return ret
 
-
-
 func get_engine_class_list() -> PoolStringArray:
 	return ClassDB.get_class_list()
-
-
 
 func get_script_class_list() -> PoolStringArray:
 	_fetch_script_map()
 	return PoolStringArray(_script_map.keys())
-
-
 
 func get_class_list() -> PoolStringArray:
 	var class_list: = PoolStringArray()
@@ -449,15 +286,11 @@ func get_class_list() -> PoolStringArray:
 	class_list.append_array(get_script_class_list())
 	return class_list
 
-
-
 func get_deep_class_list() -> PoolStringArray:
 	_fetch_deep_type_map()
 	var class_list: = PoolStringArray(_deep_type_map.keys())
 	class_list.append_array(PoolStringArray(get_engine_class_list()))
 	return class_list
-
-
 
 func _get_map() -> Dictionary:
 	var map: = {}
@@ -470,17 +303,11 @@ func _get_map() -> Dictionary:
 		map = _script_map
 	return map
 
-
-
 static func static_get_engine_class_list() -> PoolStringArray:
 	return ClassDB.get_class_list()
 
-
-
 static func static_get_script_class_list() -> PoolStringArray:
 	return PoolStringArray(_get_script_map().keys())
-
-
 
 static func static_get_class_list() -> PoolStringArray:
 	var class_list: = PoolStringArray()
@@ -488,15 +315,11 @@ static func static_get_class_list() -> PoolStringArray:
 	class_list.append_array(static_get_script_class_list())
 	return class_list
 
-
-
 static func static_get_deep_class_list() -> PoolStringArray:
 	var _deep_type_map = _get_deep_type_map()
 	var class_list: = PoolStringArray(_deep_type_map.keys())
 	class_list.append_array(static_get_engine_class_list())
 	return class_list
-
-
 
 static func static_is_object_instance_of(p_object, p_type, p_map: Dictionary = {}) -> bool:
 	if not p_object or typeof(p_object) != TYPE_OBJECT:
@@ -511,13 +334,6 @@ static func static_is_object_instance_of(p_object, p_type, p_map: Dictionary = {
 	if script:
 		return static_is_type(script, p_type, map)
 	return static_is_type(p_object.get_class(), p_type, map)
-
-
-
-
-
-
-
 
 static func static_is_type(p_type, p_other, p_map: Dictionary = {}) -> bool:
 	if not p_type:
@@ -589,28 +405,20 @@ static func static_is_type(p_type, p_other, p_map: Dictionary = {}) -> bool:
 							return _script_is_script(p_type, p_other)
 	return false
 
-
-
 static func from_name(p_name: String) -> Reference:
 	var ret: = _new()
 	ret._init_from_name(p_name)
 	return ret
-
-
 
 static func from_path(p_path: String) -> Reference:
 	var ret: = _new()
 	ret._init_from_path(p_path)
 	return ret
 
-
-
 static func from_object(p_object: Object) -> Reference:
 	var ret: = _new()
 	ret._init_from_object(p_object)
 	return ret
-
-
 
 static func from_type_dict(p_data: Dictionary) -> Reference:
 	var ret: = _new()
@@ -621,15 +429,11 @@ static func from_type_dict(p_data: Dictionary) -> Reference:
 			ret._init_from_path(p_data.path)
 	return ret
 
-
-
 static func namify_path(p_path: String) -> String:
 	var p: = p_path.get_file().get_basename()
 	while p != p.get_basename():
 		p = p.get_basename()
 	return p.capitalize().replace(" ", "")
-
-
 
 func _init_from_name(p_name: String) -> void :
 	name = p_name
@@ -657,8 +461,6 @@ func _init_from_name(p_name: String) -> void :
 	_source = Source.NONE
 	_connect_script_updates()
 
-
-
 func _init_from_path(p_path: String) -> void :
 	path = p_path
 	res = load(path) if ResourceLoader.exists(path) else null
@@ -676,18 +478,6 @@ func _init_from_path(p_path: String) -> void :
 	name = ""
 	_source = Source.NONE
 	_connect_script_updates()
-
-
-
-
-
-
-
-
-
-
-
-
 
 func _init_from_object(p_object: Object) -> void :
 	var initialized: bool = false
@@ -719,7 +509,6 @@ func _init_from_object(p_object: Object) -> void :
 		initialized = true
 	_connect_script_updates()
 
-
 func _connect_script_updates() -> void :
 	if Engine.editor_hint and not _is_filesystem_connected:
 		var ep: EditorPlugin = EditorPlugin.new()
@@ -730,28 +519,20 @@ func _connect_script_updates() -> void :
 		ep.free()
 		_is_filesystem_connected = true
 
-
-
 func _fetch_script_map() -> void :
 	if _script_map_dirty:
 		_script_map = _get_script_map()
 		_build_path_map()
 		_script_map_dirty = false
 
-
-
 func _build_path_map() -> void :
 	_path_map = _get_path_map(_script_map)
-
-
 
 static func _get_path_map(p_script_map: Dictionary) -> Dictionary:
 	var _path_map = {}
 	for a_name in p_script_map:
 		_path_map[p_script_map[a_name].path] = a_name
 	return _path_map
-
-
 
 static func _get_script_map() -> Dictionary:
 	var script_classes: Array = ProjectSettings.get_setting("_global_script_classes") as Array if ProjectSettings.has_setting("_global_script_classes") else []
@@ -760,26 +541,19 @@ static func _get_script_map() -> Dictionary:
 		script_map[a_class["class"]] = a_class
 	return script_map
 
-
-
 func _fetch_deep_type_map() -> void :
 	if _deep_type_map.empty():
 		_deep_type_map = _get_deep_type_map()
 		_build_deep_path_map()
 
-
-
 func _build_deep_path_map() -> void :
 	_deep_path_map = _get_deep_path_map(_deep_type_map)
-
 
 func _get_deep_path_map(p_deep_type_map: Dictionary) -> Dictionary:
 	var _deep_path_map = {}
 	for a_name in p_deep_type_map:
 		_deep_path_map[p_deep_type_map[a_name].path] = a_name
 	return _deep_path_map
-
-
 
 static func _get_deep_type_map() -> Dictionary:
 	var _script_map = _get_script_map()
@@ -842,22 +616,14 @@ static func _get_deep_type_map() -> Dictionary:
 
 	return data
 
-
-
 static func _get_script() -> Script:
 	return load("res://addons/godot-next/references/class_type.gd") as Script
-
-
 
 static func _new() -> Reference:
 	return (_get_script()).new() as Reference
 
-
-
 static func _script_is_engine(p_script: Script, p_class: String) -> bool:
 	return ClassDB.is_parent_class(p_script.get_instance_base_type(), p_class)
-
-
 
 static func _script_is_script(p_script: Script, p_other: Script) -> bool:
 	var script = p_script
@@ -867,8 +633,6 @@ static func _script_is_script(p_script: Script, p_other: Script) -> bool:
 		script = script.get_base_script()
 	return false
 
-
-
 static func _script_is_scene(p_script: Script, p_scene: PackedScene) -> bool:
 	var state: = p_scene.get_state()
 	for prop_index in range(state.get_node_property_count(0)):
@@ -877,12 +641,8 @@ static func _script_is_scene(p_script: Script, p_scene: PackedScene) -> bool:
 			return _script_is_script(p_script, script)
 	return false
 
-
-
 static func _scene_is_engine(p_scene: PackedScene, p_class: String) -> bool:
 	return ClassDB.is_parent_class(p_scene.get_state().get_node_type(0), p_class)
-
-
 
 static func _scene_is_script(p_scene: PackedScene, p_script: Script) -> bool:
 	if not p_scene or not p_script:
@@ -891,8 +651,6 @@ static func _scene_is_script(p_scene: PackedScene, p_script: Script) -> bool:
 	if not script:
 		return false
 	return _script_is_script(script, p_script)
-
-
 
 static func _scene_is_scene(p_scene: PackedScene, p_other: PackedScene) -> bool:
 	if not p_scene or not p_other:
@@ -908,12 +666,10 @@ static func _scene_is_scene(p_scene: PackedScene, p_other: PackedScene) -> bool:
 		scene = base
 	return false
 
-
 static func _convert_name_to_res(p_name: String, p_map: Dictionary = {}) -> Resource:
 	if not p_name or ClassDB.class_exists(p_name) or p_map.empty() or not p_map.has(p_name):
 		return null
 	return load(p_map[p_name].path)
-
 
 static func _convert_name_to_variant(p_name: String, p_map: Dictionary = {}):
 	var res = _convert_name_to_res(p_name, p_map)
@@ -922,8 +678,6 @@ static func _convert_name_to_variant(p_name: String, p_map: Dictionary = {}):
 	if ClassDB.class_exists(p_name):
 		return p_name
 	return null
-
-
 
 static func _scene_get_root_script(p_scene: PackedScene) -> Script:
 	var state: = p_scene.get_state()
@@ -941,39 +695,28 @@ static func _scene_get_root_script(p_scene: PackedScene) -> Script:
 			state = null
 	return null
 
-
-
 static func _scene_get_root_scene(p_scene: PackedScene) -> PackedScene:
 	if not p_scene:
 		return null
 	var state: = p_scene.get_state()
 	return state.get_node_instance(0)
 
-
-
 func set_name(p_value: String) -> void :
 	_init_from_name(p_value)
-
 
 func get_name() -> String:
 	return name
 
-
-
 func set_path(p_value: String) -> void :
 	_init_from_path(p_value)
 
-
 func get_path() -> String:
 	return path
-
-
 
 func set_res(p_value: Resource) -> void :
 	if not p_value:
 		self.name = ""
 	_init_from_object(p_value)
-
 
 func get_res() -> Resource:
 	return res

@@ -1,9 +1,5 @@
 extends Control
 
-
-
-
-
 var _can_change_tabs: bool = true
 
 var _tabs_nodes: Array
@@ -93,7 +89,6 @@ func _ready() -> void :
 		$Margin / TabContainer / GAMEPAD / ScrollContainer / Margin / VBox / BtnGmpdMapping.visible = false
 		
 
-
 		
 		$Margin / TabContainer / GAMEPAD / ScrollContainer / Margin / VBox / BtnCustomIconsBtns.visible = false
 		
@@ -119,12 +114,11 @@ func _ready() -> void :
 	
 	
 
-
 	
 	
-	SliderSfx.value = Config.get_value("audio", "sfx", 1.0) * 100
+	SliderSfx.value = Config.get_value("audio", "sound_effect_player", 1.0) * 100
 	$Margin / TabContainer / AUDIO / ScrollContainer / Margin / VBox / HBox_sfx / LblNum.text = String(SliderSfx.value).pad_zeros(0)
-	SliderSfx.connect("value_changed", self, "_on_AudioHSlider_value_changed", ["sfx"])
+	SliderSfx.connect("value_changed", self, "_on_AudioHSlider_value_changed", ["sound_effect_player"])
 	
 	SliderBgm.value = Config.get_value("audio", "bgm", 1.0) * 100
 	$Margin / TabContainer / AUDIO / ScrollContainer / Margin / VBox / HBox_bgm / LblNum.text = String(SliderBgm.value).pad_zeros(0)
@@ -163,8 +157,6 @@ func _select_new_tab(direction: String) -> void :
 	)
 	NodeTabContainer.current_tab = new_tab
 
-
-
 func _on_TabContainer_tab_changed(tab: int) -> void :
 	
 	var selected_tab_node: Tabs = NodeTabContainer.get_children()[tab]
@@ -200,12 +192,9 @@ func _on_AudioHSlider_value_changed(value: float, key: String) -> void :
 	get_node("Margin/TabContainer/AUDIO/ScrollContainer/Margin/VBox/HBox_%s/LblNum" % [key]).text = String(int(value)).pad_zeros(0)
 	Audio.play_sfx("ui_changed_value")
 
-
 func _on_Btn_remap_started() -> void :
 	_can_change_tabs = false
 	$ColorRect.visible = true
-
-
 
 func _on_Btn_remap_closed() -> void :
 	
@@ -217,9 +206,6 @@ func _on_Btn_remap_closed() -> void :
 	
 	
 	_ui_btns_have_conflict()
-
-
-
 
 func _ui_btns_have_conflict() -> bool:
 	var code_accept_gamepad = Config.get_value("gamepad", "ui_accept", 0)
@@ -260,15 +246,11 @@ func _ui_btns_have_conflict() -> bool:
 	else:
 		return false
 
-
-
-
 func _on_BtnMainMenu_pressed() -> void :
 	if _ui_btns_have_conflict() == true:
 		return
 	Audio.play_sfx("ui_cancel")
 	SceneChanger.change_scene("res://src/screens/main_menu.tscn")
-
 
 func _on_BtnCustomIconsBtns_pressed() -> void :
 	if _ui_btns_have_conflict() == true:
@@ -281,7 +263,6 @@ func _on_BtnGmpdMapping_pressed() -> void :
 		return
 	Audio.play_sfx("ui_success")
 	SceneChanger.change_scene("res://src/screens/calibrate_gamepad.tscn")
-
 
 func _on_BtnResetGamepadConf_pressed() -> void :
 	Notification.show_notif(tr("CONF_BY_DEFAULT_DONE"))
@@ -350,22 +331,6 @@ func _on_BtnResetKeyboardConf_pressed() -> void :
 	
 	
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 func _on_BtnVisualMode_value_changed(_btn_name, _is_bool, value, _section, _key) -> void :
 	
 	if Features.has("pc") == false:
@@ -376,14 +341,11 @@ func _on_BtnVisualMode_value_changed(_btn_name, _is_bool, value, _section, _key)
 	else:
 		$Margin / TabContainer / VIDEO / ScrollContainer / Margin / VBox / BtnResolution.visible = true
 
-
 func _on_BtnEditTouchButtons_pressed() -> void :
 	if _ui_btns_have_conflict() == true:
 		return
 	Audio.play_sfx("ui_success")
 	SceneChanger.change_scene("res://src/ui_elements/virtual_gamepad.tscn")
-
-
 
 func _on_GamepadConnection(connected: bool) -> void :
 	var vpad_visible: bool = Config.get_value(
@@ -394,22 +356,14 @@ func _on_GamepadConnection(connected: bool) -> void :
 			3, not connected
 		)
 
-
 func _on_BtnDifficultyOptions_pressed() -> void :
 	if _ui_btns_have_conflict() == true:
 		return
 	Audio.play_sfx("ui_accept")
 	SceneChanger.change_scene("res://src/screens/dificulty_options.tscn")
 
-
 func _on_BtnLang_value_changed(_btn_name, _is_bool, value, _section, _key) -> void :
 	
-
-
-
-
-
-
 
 	if value in ["es", "en", "pt_BR"]:
 		get_node("%LblLangNotice").visible = false
@@ -418,31 +372,19 @@ func _on_BtnLang_value_changed(_btn_name, _is_bool, value, _section, _key) -> vo
 		get_node("%LblLangNotice").visible = true
 		get_node("%HSeparatorLang").visible = true
 
-
-
-
-
-
-
-
-
-
 func _on_BtnCloseFanmadeLangNotif_pressed() -> void :
 	get_node("%PopupAboutFanmadeTranslation").hide()
-
 
 func _on_PopupAboutFanmadeTranslation_popup_hide() -> void :
 	get_node("%BtnLang").grab_focus()
 	Audio.play_sfx("ui_cancel")
 	_can_change_tabs = true
 
-
 func _on_BtnKnowMoreAboutFanmadeTranslation_pressed() -> void :
 	Audio.play_sfx("ui_accept")
 	OS.shell_open(
 		"https://dannygaray60.itch.io/toziuha-night-order-of-the-alchemists/devlog/526277/fan-translations-open-for-toziuha-night-oota"
 	)
-
 
 func _on_BtnChangeScheme_pressed() -> void :
 	Audio.play_sfx("ui_accept")

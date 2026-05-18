@@ -17,7 +17,6 @@ func _ready() -> void :
 		$VBoxContainer / Button.grab_focus()
 		return
 
-
 	
 	$VBoxContainer / Button.disabled = true
 	

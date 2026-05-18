@@ -1,8 +1,5 @@
 extends Control
 
-
-
-
 onready var ButtonListVerticalScroll: = $ButtonListVerticalScroll
 
 var _playstore_loggedin: bool

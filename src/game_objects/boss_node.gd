@@ -1,11 +1,7 @@
 extends Node
 
-
-
-
 signal defeated_with_no_damage
 signal death_animation_ended
-
 
 export var boss_ide: String
 
@@ -17,7 +13,6 @@ export var song_fadein: float = 0.0
 
 export var open_doors_on_defeat: bool = true
 export var stop_music_on_defeat: bool = true
-
 
 var _defeated_with_no_damage: bool = true
 
@@ -51,16 +46,6 @@ func _ready() -> void :
 	VarsGlobal.GameInterface.ControMiniMap.visible = false
 	
 
-
-
-
-
-
-
-
-
-
-
 func start_battle() -> void :
 	
 	VarsGlobal.GameInterface.can_pause = true
@@ -71,7 +56,7 @@ func start_battle() -> void :
 		Audio.play_music(battle_song, "high", song_fadein)
 	
 	VarsGlobal.GameInterface.get_node("%BossBar").start_bar(
-		get_node(hurtbox_node).data_enemy["hp"]
+		get_node(hurtbox_node).data_enemy["health_points"]
 	)
 
 	VarsGlobal.GameScenario.boss_battle_active = true
@@ -87,12 +72,6 @@ func show_title_boss() -> void :
 	var boss_name: String = tr(CSVDBLoader.get_db("enemies")[boss_ide]["name"])
 	
 	
-
-
-
-
-
-
 
 	
 	VarsGlobal.GameInterface.show_boss_title(
@@ -116,7 +95,6 @@ func _on_enemy_damaged() -> void :
 	VarsGlobal.GameInterface.get_node("%BossBar").set_value(
 		get_node(hurtbox_node).hp_now
 	)
-
 
 func _on_enemy_defeated() -> void :
 	
@@ -162,10 +140,8 @@ func _on_enemy_defeated() -> void :
 func _on_Player_damaged() -> void :
 	_defeated_with_no_damage = false
 
-
 func _on_BossNode_death_animation_ended() -> void :
 	VarsGlobal.GameScenario.emit_signal("boss_death_animation_ended")
-
 
 func _on_BossNode_tree_exiting() -> void :
 	VarsGlobal.GameInterface.enabled_quicksave = true

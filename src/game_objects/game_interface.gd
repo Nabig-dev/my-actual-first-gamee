@@ -1,8 +1,5 @@
 extends Control
 
-
-
-
 signal dialog_started(dialog_name)
 signal dialog_ended(dialog_name)
 signal quick_text_ended(txt)
@@ -30,13 +27,6 @@ var NegativeStatusIndication = preload("res://src/ui_elements/negative_status_in
 
 var LevelUPNotif = preload("res://src/ui_elements/level_up_notif_full.tscn")
 
-
-
-
-
-
-
-
 export var area_title: String
 
 export var enabled_quicksave: bool = true
@@ -44,16 +34,13 @@ export var enabled_quicksave: bool = true
 export (Array, NodePath) var minimap_objects
 export (Array, Color) var minimap_color_objects
 
-
 export var dialogs_change_music: bool = true
-
 
 export var reparent_scenario: bool = true
 
 export var can_pause: bool = true setget _can_pause_enabled
 
 export var can_use_carpatitia: bool = true
-
 
 var selectable_type_circuits: Array = ["ALLOY", "ACTION", "ABILITY", "SUBWEAPON"]
 
@@ -65,7 +52,6 @@ var gamedata_ec_types: Array = [
 ]
 var selected_type_circuit: int = 0
 
-
 var selectable_type_equips: Array = [
 	"ACCESORY", "EQUIP_TOP", "EQUIP_MID", "EQUIP_BOTTOM"
 ]
@@ -75,12 +61,10 @@ var dialog_active: bool
 
 var show_title: bool
 
-
 var first_entry_area: bool
 
 var changing_set: bool
 var changing_subweapon: bool
-
 
 var screen_scaling: bool
 
@@ -165,9 +149,9 @@ func _ready() -> void :
 	
 	
 	
-	SliderSfx.value = Config.get_value("audio", "sfx", 1.0) * 100
+	SliderSfx.value = Config.get_value("audio", "sound_effect_player", 1.0) * 100
 	$CtrlPause / Equip / VBoxContainer / EquipTabContainer / OPTIONS / ScrollContainer / MarginContainer / VBxOptionsBtn / HBox_sfx / LblNum.text = String(SliderSfx.value).pad_zeros(0)
-	SliderSfx.connect("value_changed", self, "_on_AudioHSlider_value_changed", ["sfx"])
+	SliderSfx.connect("value_changed", self, "_on_AudioHSlider_value_changed", ["sound_effect_player"])
 	
 	SliderBgm.value = Config.get_value("audio", "bgm", 1.0) * 100
 	$CtrlPause / Equip / VBoxContainer / EquipTabContainer / OPTIONS / ScrollContainer / MarginContainer / VBxOptionsBtn / HBox_bgm / LblNum.text = String(SliderBgm.value).pad_zeros(0)
@@ -294,20 +278,10 @@ func _ready() -> void :
 	
 	
 
-
 	
 	hide_blackrect()
 
-
-
-
-
-
 	
-
-
-
-
 
 func _notification(what: int) -> void :
 	if (
@@ -316,7 +290,6 @@ func _notification(what: int) -> void :
 		and Features.has("debug") == false
 	):
 		pause_game(0)
-
 
 func _process(_delta: float) -> void :
 	
@@ -339,13 +312,6 @@ func _process(_delta: float) -> void :
 	
 	
 	
-
-
-
-
-
-
-
 
 	
 	
@@ -403,12 +369,6 @@ func _process(_delta: float) -> void :
 			update_sets_labels()
 			update_set_info_quick()
 			emit_signal("set_changed")
-
-
-
-
-
-
 
 				
 
@@ -513,10 +473,6 @@ func _process(_delta: float) -> void :
 			"EQUIP":
 				
 
-
-
-
-
 				if Input.is_action_just_pressed("ui_left"):
 					update_equip_buttons(
 						FuncsArrays.get_new_position_on_array(
@@ -539,9 +495,6 @@ func _process(_delta: float) -> void :
 			_select_new_tab(get_node("%EquipTabContainer"), "prev")
 		if Input.is_action_just_pressed("ui_focus_next"):
 			_select_new_tab(get_node("%EquipTabContainer"), "next")
-
-
-
 
 func check_if_can_use_carpatitia_death() -> void :
 	
@@ -590,7 +543,6 @@ func start_timers_negative_status() -> void :
 		if TimerRemoveInjury.is_stopped() == true:
 			TimerRemoveInjury.start()
 
-
 func load_map_stage(nocache: bool = false) -> void :
 	
 	for n in Node2DMap.get_children():
@@ -607,8 +559,6 @@ func load_map_stage(nocache: bool = false) -> void :
 		yield(get_tree(), "idle_frame")
 		Node2DMap.set_initial_data()
 	
-
-
 
 func pause_game(what_show: int = 0) -> void :
 	
@@ -725,8 +675,6 @@ func switch_subweapon(dir: String = "next") -> void :
 	
 	
 
-
-
 	
 	index_select = FuncsArrays.get_new_position_on_array(
 		subweapons, index_select, dir
@@ -750,12 +698,9 @@ func update_hud_switch_subweapon_icon() -> void :
 	else:
 		get_node("%CurrentSubweaponSprite").frame = current_subweapon
 
-
 func update_vhs_setting() -> void :
 
-
 	get_node("%CRTVHSAdd").visible = ScreenFilter.vhs_add
-
 
 func update_sets_labels() -> void :
 	var set_now: int = VarsGlobal.game_data["player_current_set"]
@@ -784,9 +729,6 @@ func update_sets_labels() -> void :
 		"D":
 			get_node("%LightSet").modulate = Color("f9f9de00")
 		
-
-
-
 
 func update_stats_pause() -> void :
 	
@@ -818,9 +760,8 @@ func update_stats_pause() -> void :
 	]
 	
 
-
 	get_node("%LblLVL").text = "LVL %02d" % [
-		VarsGlobal.game_data["lvl"]
+		VarsGlobal.game_data["current_level"]
 	]
 	
 	
@@ -831,10 +772,6 @@ func update_stats_pause() -> void :
 	get_node("%LblExpNow").text = str(VarsGlobal.game_data["exp"])
 	get_node("%LblExpToNext").text = str(VarsGlobal.get_exp_next())
 	
-
-
-
-
 
 	get_node("%LblStatsTIME").text = "%s: %s:%s:%s" % [
 		tr("TIME"), 
@@ -870,7 +807,6 @@ func update_stats_pause() -> void :
 
 	get_node("%LblNegativeStatus").text = "( ! ) %s." % [label_text]
 
-
 func update_ui_circuit() -> void :
 	get_node("%LblTypeCircuit").text = tr(selectable_type_circuits[selected_type_circuit])
 	get_node("%UICircuit").circuit_mode = selected_type_circuit - 1
@@ -888,9 +824,6 @@ func update_attrb_elemental_icons(attrbs: Array) -> void :
 		else:
 			attrbs_elemental_icons[i].visible = false
 		i += 1
-
-
-
 
 func update_alchemy_buttons() -> void :
 	var VBxAlchemyBtns = get_node("%VBxAlchemyBtns")
@@ -938,7 +871,6 @@ func update_alchemy_buttons() -> void :
 				BtnAlchemyInstance.text = "=> " + BtnAlchemyInstance.text
 			
 			TimerRefreshAlchemyBtns.start()
-
 
 func update_equip_buttons(type_select: int) -> void :
 	selected_type_equip = type_select
@@ -1008,7 +940,6 @@ func update_equip_buttons(type_select: int) -> void :
 					BtnEquipInstance.text = "=> " + BtnEquipInstance.text
 					BtnEquipInstance.grab_focus()
 
-
 func update_inventory_grid() -> void :
 	
 	var grid_container = get_node("%InventoryGridContainer")
@@ -1044,7 +975,6 @@ func update_inventory_grid() -> void :
 		get_node("%InventoryItemQuantity").text = ""
 	else:
 		get_node("%BtnUseItemInventory").disabled = false
-
 
 func update_inventory_data(item_ide: int) -> void :
 	var item_string = GVar.INVENTORY_ITEM.keys()[item_ide]
@@ -1174,18 +1104,15 @@ func update_set_info_quick() -> void :
 	] == - 1:
 		ec_alloy_string = "- - -"
 
-
 	get_node("%LblSetInfo").text = "%s\n%s" % [
 		ec_alloy_string, 
 		ec_action_string
 	]
 
-
 func update_stamina_stats() -> void :
 	TimerStartRecoverStamina.stop()
 	TimerRecoverStamina.stop()
 	TimerStartRecoverStamina.start()
-
 
 func refresh_minimap_config() -> void :
 	ControMiniMap.visible = Config.get_value("gameplay", "show_minimap", true)
@@ -1196,8 +1123,6 @@ func set_visible_hud_elements(val: bool = true) -> void :
 
 func set_visible_vgamepad(val: bool = true) -> void :
 	$VirtualGamepad.visible = val
-
-
 
 func hide_blackrect() -> void :
 	
@@ -1214,11 +1139,9 @@ func show_notif_item_obtained(txt: String = "Test") -> void :
 	Notif.text = txt
 	get_node("%VBxQuickNotif").add_child(Notif)
 
-
 func show_levelup_message(txt: String) -> void :
 	get_node("%LevelUpMessage").show_title(txt)
 	update_hud_values(false)
-
 
 func start_dialog(timeline: String) -> void :
 	var new_dialog = Dialogic.start(timeline)
@@ -1235,9 +1158,9 @@ func show_levelup_reached() -> void :
 	call_deferred("add_child", ObjInstance)
 	
 
-func show_flash(anim: String = "flash", clr: Color = Color("c6c6c6")) -> void :
+func show_flash(animation_player: String = "flash", clr: Color = Color("c6c6c6")) -> void :
 	$Flash.color = clr
-	get_node("%AnimationPlayerFlash").play(anim)
+	get_node("%AnimationPlayerFlash").play(animation_player)
 
 func show_circuit_desc(circuit: int, type: int) -> void :
 	var TutoScr = TutoScreen.instance()
@@ -1245,7 +1168,6 @@ func show_circuit_desc(circuit: int, type: int) -> void :
 	TutoScr.connect("started", self, "_on_DialogStart", ["tuto_circuit"])
 	TutoScr.connect("ended", self, "_on_DialogEnd", ["tuto_circuit"])
 	TutoScr.start_circuit_message(circuit, type)
-
 
 func show_tuto_screen(what: int, chang_hud_v: bool = true) -> void :
 	var TutoScr = TutoScreen.instance()
@@ -1284,7 +1206,6 @@ func get_paper(paperid: int) -> void :
 		]
 	)
 
-
 func _select_new_tab(TabCont: TabContainer, direction: String) -> void :
 	var _tabs = TabCont.get_children()
 	yield(get_tree(), "idle_frame")
@@ -1292,7 +1213,6 @@ func _select_new_tab(TabCont: TabContainer, direction: String) -> void :
 	TabCont.set_current_tab(
 		FuncsArrays.get_new_position_on_array(_tabs, TabCont.current_tab, direction)
 	)
-
 
 func _reparent_node() -> void :
 	
@@ -1309,7 +1229,6 @@ func _reparent_node() -> void :
 		
 		if VarsGlobal.Player != null and VarsGlobal.Player.has_signal("stats_changed"):
 			VarsGlobal.Player.connect("stats_changed", self, "update_hud_values")
-
 
 func _on_gamepad_connection_changed(connected: bool) -> void :
 	if connected == false:
@@ -1335,8 +1254,6 @@ func _on_DialogStart(_timeline_name: String) -> void :
 	get_tree().paused = true
 	emit_signal("dialog_started", _timeline_name)
 
-
-
 func _on_DialogEnd(_timeline_name: String, chang_hud_v: bool = true) -> void :
 	dialog_active = false
 	
@@ -1355,7 +1272,6 @@ func _on_DialogEnd(_timeline_name: String, chang_hud_v: bool = true) -> void :
 func _on_DialogSignal(signal_name: String, dialog_name: String) -> void :
 	emit_signal("dialog_signal_emitted", dialog_name, signal_name)
 
-
 func _on_MainViewport_size_changed() -> void :
 	
 	
@@ -1364,7 +1280,6 @@ func _on_MainViewport_size_changed() -> void :
 		ViewPortGameScenario.size = new_size
 		ViewPortGameScenario.set_size_override(true, Vector2(341, 192))
 		ViewPortGameScenario.set_size_override_stretch(true)
-
 
 func _on_TimerRecoverStamina_timeout() -> void :
 	
@@ -1395,7 +1310,6 @@ func _on_TimerRecoverStamina_timeout() -> void :
 	
 	if VarsGlobal.game_data["player_sp_now"] == VarsGlobal.game_data["player_sp_max"]:
 		TimerRecoverStamina.stop()
-
 
 func _on_TimerRecoverMana_timeout() -> void :
 	
@@ -1428,7 +1342,6 @@ func _on_TimerRecoverMana_timeout() -> void :
 	if VarsGlobal.game_data["player_mp_now"] == VarsGlobal.game_data["player_mp_max"]:
 		TimerRecoverMana.stop()
 
-
 func _on_TimerReduceHPByPoison_timeout() -> void :
 	
 	if VarsGlobal.game_data["player_hp_now"] <= 1:
@@ -1450,7 +1363,6 @@ func _on_TimerReduceHPByPoison_timeout() -> void :
 	if VarsGlobal.game_data["player_poisoned"] == false:
 		TimerReduceHPByPoison.stop()
 
-
 func _on_TimerReduceMPByCurse_timeout() -> void :
 	
 	var reduce_mp = int(VarsGlobal.game_data["player_mp_max"] * 0.03)
@@ -1464,7 +1376,6 @@ func _on_TimerReduceMPByCurse_timeout() -> void :
 	if VarsGlobal.game_data["player_cursed"] == false:
 		TimerReduceMPByCurse.stop()
 
-
 func _on_TimerStartHPTween_timeout() -> void :
 	
 	TweenHPBar.interpolate_property(
@@ -1473,12 +1384,10 @@ func _on_TimerStartHPTween_timeout() -> void :
 	)
 	TweenHPBar.start()
 
-
 func _on_TimerStartRecoverStamina_timeout() -> void :
 	
 	if SPBar.value < SPBar.max_value:
 		TimerRecoverStamina.start()
-
 
 func _on_BtnPrevCircuitType_pressed() -> void :
 	selected_type_circuit = FuncsArrays.get_new_position_on_array(
@@ -1501,7 +1410,6 @@ func _on_BtnNextCircuitType_pressed() -> void :
 	get_node("%LblTypeCircuit").text = tr(selectable_type_circuits[selected_type_circuit])
 	update_ui_circuit()
 	update_alchemy_buttons()
-
 
 func _on_BtnAlchemy_focus_entered(type: int, item: int) -> void :
 	Audio.play_sfx("ui_changed_value")
@@ -1866,12 +1774,10 @@ func _on_MapTabContainer_tab_changed(_tab: int) -> void :
 		get_node("%HBxMapActionsButtons").visible = false
 		get_node("%HBxMapActionsButtons2").visible = true
 
-
 func _on_TimerRefreshAlchemyBtns_timeout() -> void :
 	if get_node("%EquipTabContainer").get_current_tab_control().name == "ALCHEMY":
 		yield(get_tree(), "idle_frame")
 		get_node("%ScrollContainerAlchemyBtns").ensure_control_visible(get_focus_owner())
-
 
 func _on_BtnUseItemInventory_pressed() -> void :
 	
@@ -2029,7 +1935,6 @@ func _on_BtnUseItemInventory_pressed() -> void :
 	
 	update_inventory_data(focus_owner.item)
 
-
 func _on_BtnExit_pressed(quicksave: bool) -> void :
 	
 	Audio.play_sfx("ui_cancel")
@@ -2063,11 +1968,8 @@ func _on_BtnExit_pressed(quicksave: bool) -> void :
 	emit_signal("game_exited")
 	SceneChanger.change_scene("res://src/screens/main_menu.tscn")
 
-
 func _on_BtnReturn_pressed() -> void :
 	pause_game( - 1)
-
-
 
 func _on_BtnCenterMap_pressed() -> void :
 	Audio.play_sfx("ui_center_map")
@@ -2126,7 +2028,6 @@ func _on_BtnDeleteMarker_pressed() -> void :
 	
 	get_node("%PopupMarkerMenu").hide()
 
-
 func _on_Tween_tween_completed(object: Object, key: NodePath) -> void :
 	
 	
@@ -2153,7 +2054,6 @@ func _on_DramaticTitle_ended() -> void :
 	can_pause = true
 	get_tree().paused = false
 
-
 func _on_Player_dead() -> void :
 	get_tree().call_group("dialogic_dialognode", "queue_free")
 	Engine.time_scale = 0.6
@@ -2175,8 +2075,6 @@ func _on_Player_dead() -> void :
 	
 	
 	
-
-
 
 func _on_AnimationPlayerDeath_animation_finished(
 	_anim_name: String, use_carpatitia: bool = false
@@ -2266,10 +2164,8 @@ func _on_ButtonSwitchSet_set_changed(_current_set: int) -> void :
 
 	update_hud_values(false)
 
-
 func _on_BtnEquipType_pressed(type_select: int) -> void :
 	update_equip_buttons(type_select)
-
 
 func _on_BtnEquipItem_focus_entered(item_id: int) -> void :
 	Audio.play_sfx("ui_changed_value")
@@ -2282,7 +2178,7 @@ func _on_BtnEquipItem_focus_entered(item_id: int) -> void :
 		get_node("%SpriteItemEquipIcon").visible = true
 		get_node("%SpriteItemEquipIcon").frame = item_id
 	
-	for stat in ["atk", "def", "int"]:
+	for stat in ["attack_power", "defense_rating", "int"]:
 		
 		var equiped_item: int = VarsGlobal.game_data["player_equip_" + str(selected_type_equip)][
 			VarsGlobal.game_data["player_current_set"]
@@ -2351,7 +2247,6 @@ func _on_BtnEquipItem_focus_entered(item_id: int) -> void :
 				get_node("%BuffIcon_" + stat).frame = 2
 				get_node("%LblEquipStat_" + stat).text = ""
 
-
 func _on_BtnEquipCircuit_pressed() -> void :
 	var btn_focused = get_focus_owner()
 
@@ -2395,7 +2290,6 @@ func _on_BtnEquipCircuit_pressed() -> void :
 		emit_signal("set_changed")
 	
 
-
 func _on_BtnEquipItem_pressed() -> void :
 	
 	var btn_focused = get_focus_owner()
@@ -2427,12 +2321,10 @@ func _on_BtnEquipItem_pressed() -> void :
 	focused_button.grab_focus()
 	self.focus_mode = Control.FOCUS_NONE
 
-
 func _on_LowHP_BloodLayoutAnim() -> void :
 	if VarsGlobal.game_data["player_hp_now"] > 0:
 		Audio.play_sfx("heartbeat")
 		Gamepad.start_vibration(0, 0.4, 0.1, 0.3)
-
 
 func _on_ThermalBar_started(_type: String) -> void :
 	pass
@@ -2494,20 +2386,15 @@ func _on_ThermalBar_stopped() -> void :
 	get_node("%ThermalBarUnderWater").visible = false
 	get_node("%ThermalBarUnderWater/Icon").visible = false
 
-
 func _on_QuickMenu_set_changed() -> void :
 	emit_signal("set_changed")
-
 
 func _on_quick_text_ended(node_text: String) -> void :
 	emit_signal("quick_text_ended", node_text)
 
-
 func _can_pause_enabled(can_p: bool) -> void :
 	can_pause = can_p
 	set_visible_hud_elements(can_pause)
-
-
 
 func _on_SwipeDetector_swipe_updated(partial_gesture) -> void :
 
@@ -2527,7 +2414,6 @@ func _on_SwipeDetector_swipe_updated(partial_gesture) -> void :
 						Node2DMap.move(Vector2.RIGHT)
 						Node2DMap.move(Vector2.RIGHT)
 
-
 func _on_BtnContinueFromDeath_pressed() -> void :
 	
 	_on_AnimationPlayerDeath_animation_finished("", false)
@@ -2535,12 +2421,8 @@ func _on_BtnContinueFromDeath_pressed() -> void :
 func _on_BtnUseCarpatitiaDeath_pressed() -> void :
 	_on_AnimationPlayerDeath_animation_finished("", true)
 
-
-
 func _on_PopupMarkerMenu_visibility_changed() -> void :
 	get_node("%DpadHelperMoveMap").visible = not get_node("%PopupMarkerMenu").visible
-
-
 
 func _on_TimerRemovePoison_timeout() -> void :
 	VarsGlobal.game_data["player_poisoned"] = false

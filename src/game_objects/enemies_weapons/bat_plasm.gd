@@ -6,7 +6,6 @@ var speed: float = 220
 var extra_speed: float = 1
 var velocity: Vector2
 
-
 func _ready():
 	Audio.play_sfx("shoot_projectile_light")
 	$AnimationPlayer.play("show")

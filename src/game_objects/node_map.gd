@@ -1,6 +1,5 @@
 extends Node2D
 
-
 export var pointer: NodePath
 
 export var max_scale: Vector2 = Vector2(1, 1)
@@ -11,7 +10,6 @@ var Pointer: Object
 var ConfigMap = preload("res://addons/json_config_file/json_conf.gd").new()
 
 var _data_ini_loaded: bool
-
 
 var _tilemap_current_room: TileMap
 var _tilemap_bg: TileMap
@@ -27,11 +25,6 @@ onready var TimerMove = $TimerMove
 func _notification(what: int) -> void :
 	if what == NOTIFICATION_EXIT_TREE:
 		ConfigMap.queue_free()
-
-
-
-
-
 
 func _ready() -> void :
 	
@@ -54,7 +47,6 @@ func set_initial_data() -> void :
 	yield(get_tree(), "idle_frame")
 	update_discovered_rooms()
 	update_markers_tiles()
-
 
 func update_markers_tiles() -> void :
 	for m_key in VarsGlobal.game_data["map_markers"].keys():
@@ -100,15 +92,11 @@ func update_tilemaps_childrens() -> void :
 				if child.type == child.TYPES.CURRENT_POS:
 					_tilemap_current_pos = child
 
-
-
 func erase_invalid_childrens() -> void :
 	for child in _tilemaps_childrens:
 		if is_instance_valid(child) == false or child == null:
 			_tilemaps_childrens.erase(child)
 	yield(get_tree(), "idle_frame")
-
-
 
 func update_discovered_rooms() -> void :
 	if (
@@ -131,7 +119,6 @@ func update_discovered_rooms() -> void :
 				_tilemap_walls.set_cell(tile[0], tile[1], - 1)
 				_tilemap_entries.set_cell(tile[0], tile[1], - 1)
 				_tilemap_custom_marks.set_cell(tile[0], tile[1], - 1)
-
 
 func update_current_room() -> void :
 	if (
@@ -178,7 +165,6 @@ func update_current_room() -> void :
 				)
 				add_tile_to_gamedata("visited_tiles", [tile_x, tile_y])
 
-
 func get_current_pos_room() -> int:
 	
 	var current_tile_pos: int = - 1
@@ -191,11 +177,9 @@ func get_current_pos_room() -> int:
 		)
 	return current_tile_pos
 
-
 func add_tile_to_gamedata(data_key: String, tile: Array) -> void :
 	if VarsGlobal.game_data[data_key].has(tile) == false:
 		VarsGlobal.game_data[data_key].append(tile)
-
 
 func add_visible_room_to_gamedata(room_name: String) -> void :
 
@@ -272,7 +256,6 @@ func center() -> void :
 				t.map_to_world(current_room_center) * Vector2( - 1, - 1)
 			) - Pointer.rect_pivot_offset
 
-
 func get_pointed_tile() -> Array:
 	erase_invalid_childrens()
 	if (
@@ -291,7 +274,6 @@ func get_pointed_tile() -> Array:
 	var tile_vector = _tilemap_bg.world_to_map(position_pointer)
 
 	return [int(tile_vector.x), int(tile_vector.y)]
-
 
 func add_mark(ide: int, tile: Array, savetogamedata: bool = true) -> void :
 	erase_invalid_childrens()
@@ -312,7 +294,6 @@ func add_mark(ide: int, tile: Array, savetogamedata: bool = true) -> void :
 		
 		yield(get_tree(), "idle_frame")
 		VarsGlobal.game_data["map_markers"][ide].append(tile)
-
 
 func get_mark_idx(tile: Array) -> int:
 	return _tilemap_marks.get_cell(tile[0], tile[1])
@@ -342,7 +323,6 @@ func move(move_vec: Vector2) -> void :
 	
 	if Audio.sfx_is_playing("ui_move_map") == false:
 		Audio.play_sfx("ui_move_map")
-
 
 func _erase_tile_from_gamedata(t: Array) -> void :
 	for t_ide in VarsGlobal.game_data["map_markers"]:

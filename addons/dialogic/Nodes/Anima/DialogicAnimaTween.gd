@@ -11,7 +11,6 @@ enum PLAY_MODE{
 	BACKWARDS
 }
 
-
 var _fake_property: Dictionary = {}
 var _callbacks: = {}
 
@@ -81,29 +80,11 @@ func finished_once(node, animation, duration):
 	else:
 		emit_signal("finished_animation")
 
-
-
-
-
-
-
-
-
 func add_relative_frames(data: Dictionary, property: String, frames: Array) -> float:
 	return _add_frames(data, property, frames, true)
 
-
-
-
-
-
-
-
-
-
 func add_frames(data: Dictionary, property: String, frames: Array) -> float:
 	return _add_frames(data, property, frames)
-
 
 func _add_frames(data: Dictionary, property: String, frames: Array, relative: bool = false) -> float:
 	var duration: float = data.duration if data.has("duration") else 0.0
@@ -161,7 +142,6 @@ func _add_frames(data: Dictionary, property: String, frames: Array, relative: bo
 
 	return _wait_time
 
-
 func add_animation_data(animation_data: Dictionary, play_mode: int = PLAY_MODE.NORMAL) -> void :
 	_animation_data.push_back(animation_data)
 
@@ -187,7 +167,6 @@ func add_animation_data(animation_data: Dictionary, play_mode: int = PLAY_MODE.N
 		Tween.EASE_IN_OUT, 
 		animation_data._wait_time
 	)
-
 
 func _on_tween_step_with_easing(object: Object, key: NodePath, _time: float, elapsed: float):
 	var index: = _get_animation_data_index(key)
@@ -352,12 +331,6 @@ func _on_animation_without_key(index: int, elapsed: float) -> void :
 	if is_instance_valid(node):
 		node[property_data.property_name] = value
 
-
-
-
-
-
-
 func _maybe_adjust_modulate_value(animation_data: Dictionary, value):
 	var property = animation_data.property
 	var node = animation_data.node
@@ -390,20 +363,9 @@ func _on_tween_started(_ignore, key) -> void :
 	
 	var animation_data = _animation_data[index]
 
-
-
-
 	var node = animation_data.node
 	var should_restore_visibility: = false
 	var should_restore_modulate: = false
-
-
-
-
-
-
-
-
 
 	if should_restore_modulate:
 		var old_modulate = node.get_meta("_old_modulate")
@@ -425,13 +387,6 @@ func _on_tween_started(_ignore, key) -> void :
 			fn = animation_data.on_started
 
 		fn.call_funcv(args)
-
-
-
-
-
-
-
 
 enum EASING{
 	LINEAR, 

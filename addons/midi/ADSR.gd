@@ -9,7 +9,6 @@ extends AudioStreamPlayer
 class_name AudioStreamPlayerADSR
 const gap_second: float = 1024.0 / 44100.0
 
-
 var channel_number: int = - 1
 
 var key_number: int = - 1
@@ -40,17 +39,13 @@ var linked_base_pitch: float = 0.0
 
 var polyphony_count: float = 1.0
 
-
 var current_volume_db: float = 0.0
 
 var auto_release_mode: bool = false
 
-
 var force_update: bool = false
 
-
 var is_check_using_linked: bool
-
 
 onready var ads_state: Array = [
 	Bank.VolumeState.new(0.0, 0.0), 

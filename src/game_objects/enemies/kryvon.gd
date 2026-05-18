@@ -1,8 +1,5 @@
 extends KinematicBody2D
 
-
-
-
 var velocity: = Vector2()
 
 var gravity: int = 500
@@ -101,22 +98,13 @@ func _on_HurtboxEnemy_damaged() -> void :
 	if Enemy.state in ["idle", "walk"]:
 		Enemy.change_direction("to_player")
 
-
 func _on_AreaPlayerFront_object_entered(_Obj) -> void :
 	if Enemy.state in ["walk", "idle"]:
 		make_attack()
 
-
 func _on_HurtboxEnemy_defeated() -> void :
 	$GhostTrail.start_trail()
 
-
 func _on_DetectNoFloor_object_exited(_Obj) -> void :
 	pass
-
-
-
-
-
-
 

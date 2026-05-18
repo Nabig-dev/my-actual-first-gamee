@@ -27,7 +27,6 @@ func _ready():
 	nodes["Previous"].connect("pressed", self, "open_previous_page")
 	
 
-
 func load_page(page):
 	if current_page:
 		previous_pages.push_back(current_page)
@@ -37,7 +36,6 @@ func load_page(page):
 	nodes["DocsViewer"].load_page(current_page)
 	nodes["Next"].disabled = true
 
-
 func open_previous_page():
 	if len(previous_pages):
 		next_pages.push_front(current_page)
@@ -45,7 +43,6 @@ func open_previous_page():
 		nodes["DocsViewer"].load_page(current_page)
 		nodes["Previous"].disabled = len(previous_pages) == 0
 		nodes["Next"].disabled = false
-
 
 func open_next_page():
 	if len(next_pages):
@@ -55,10 +52,8 @@ func open_next_page():
 		nodes["Next"].disabled = len(next_pages) == 0
 		nodes["Previous"].disabled = false
 
-
 func toggle_editing():
 	nodes["DocsViewer"].toggle_editing()
-
 
 func _on_DocsViewer_open_non_html_link(link, section):
 	

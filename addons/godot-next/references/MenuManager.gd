@@ -1,34 +1,6 @@
 class_name MenuManager
 extends Reference
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 var _amount: int
 var _reset_on_last: bool
 var _current: int

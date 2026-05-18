@@ -12,7 +12,6 @@ func load_data(data: Dictionary):
 		event_data["time_flash"] = 0.5
 	input_time.value = event_data["time_flash"]
 
-
 func _on_time_changed(time: float):
 	event_data["time_flash"] = time
 	data_changed()

@@ -1,18 +1,13 @@
 tool 
 extends "res://addons/dialogic/Editor/Events/Parts/EventPart.gd"
 
-
-
-
 onready var picker_menu = $MenuButton
-
 
 func _ready():
 	picker_menu.connect("about_to_show", self, "_on_PickerMenu_about_to_show")
 	picker_menu.get_popup().connect("index_pressed", self, "_on_PickerMenu_selected")
 	find_parent("TimelineEditor").connect("timeline_loaded", self, "update")
 	picker_menu.custom_icon = load("res://addons/dialogic/Images/Event Icons/label.svg")
-
 
 func load_data(data: Dictionary):
 	
@@ -31,10 +26,8 @@ func update():
 		else:
 			picker_menu.text = "Label not found"
 
-
 func get_preview():
 	return ""
-
 
 func _on_PickerMenu_about_to_show():
 	picker_menu.get_popup().clear()

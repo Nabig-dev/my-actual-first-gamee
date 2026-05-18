@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-
 var velocity: = Vector2()
 
 var gravity: int = 250
@@ -17,8 +16,6 @@ onready var RayCastNearPlayerBack = $Sprite / RayCastNearPlayerBack
 
 onready var TimerWalkToIdle = $TimerWalkToIdle
 onready var TimerIdleToWalk = $TimerIdleToWalk
-
-
 
 func _ready() -> void :
 	randomize()
@@ -52,7 +49,6 @@ func _stop_dash() -> void :
 
 func _whoosh_sfx() -> void :
 	Audio.play_sfx("woosh_knife")
-
 
 func _on_HurtboxEnemy_damaged() -> void :
 	if (
@@ -88,7 +84,6 @@ func _on_TimerIdleToWalk_timeout() -> void :
 	
 	if Enemy.state != "attack":
 		Enemy.change_state("walk")
-
 
 func _on_AreaDetectPlayerForPunch_body_entered(_body: Node) -> void :
 	Enemy.change_state("attack")

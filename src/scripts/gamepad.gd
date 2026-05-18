@@ -19,9 +19,6 @@ const INPUT_WHITELIST: = [
 	"Switch", "Joy-Con (L)", "Joy-Con (R)"
 ]
 
-
-
-
 func _ready() -> void :
 	
 	refresh_connected_devices()
@@ -140,7 +137,6 @@ func refresh_mapping_controller() -> void :
 		Input.add_joy_mapping(
 			Config.get_value("controller", "mapping_string", ""), true
 		)
-
 
 func _process(_delta: float) -> void :
 	

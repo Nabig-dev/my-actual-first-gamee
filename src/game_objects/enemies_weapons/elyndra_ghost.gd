@@ -30,7 +30,6 @@ func _on_TimerUpdateChase_timeout() -> void :
 func _on_TimerAutoDestroy_timeout() -> void :
 	_on_HurtboxEnemy_defeated()
 
-
 func _on_HurtboxEnemy_defeated() -> void :
 	set_physics_process(false)
 	velocity = Vector2.ZERO

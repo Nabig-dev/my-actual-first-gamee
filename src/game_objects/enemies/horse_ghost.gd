@@ -70,7 +70,6 @@ func _on_AnimationPlayer_animation_finished(anim_name: String) -> void :
 		Enemy.change_direction("inverse")
 		Enemy.change_state("run")
 
-
 func _on_AnimationPlayer_animation_started(anim_name: String) -> void :
 	if anim_name == "run":
 		speed = lerp(speed, 400, 0.3)
@@ -84,6 +83,5 @@ func _on_EnemyBase_enemy_defeated(_NodeEnemy) -> void :
 	Audio.stop_sfx("ghost_galloping")
 
 func _on_VisibilityNotifier2D_screen_entered() -> void :
-
 
 	pass

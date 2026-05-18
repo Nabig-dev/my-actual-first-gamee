@@ -1,17 +1,13 @@
 tool 
 
-
-
 extends Node2D
 
 signal absorbed
 signal absorbed_anim_end
 
-
 export (GVar.EC_MODE) var circuit_mode = GVar.EC_MODE.ACTION setget _update_mode
 export (GVar.EC_ACTION) var action = GVar.EC_ACTION.NONE setget _update_action_icon
 export (GVar.EC_ABILITY) var ability = GVar.EC_ABILITY.NONE setget _update_ability_icon
-
 
 var subweapon = GVar.EC_SUBWEAPON.NONE setget _update_subweapon_icon
 
@@ -34,10 +30,6 @@ onready var TimerStartAbsorb = $TimerStartAbsorb
 onready var TimerAbsorb = $TimerAbsorb
 onready var TimerVibration = $TimerVibration
 
-
-
-
-
 func _ready() -> void :
 	if Engine.is_editor_hint() == true:
 		return
@@ -56,19 +48,7 @@ func set_speed_anim(spe: float = 0.5) -> void :
 	$AnimationPlayer.playback_speed = spe
 	speed_anim = spe
 
-
-
-
-
-
-
-
-
-
 	
-
-
-
 
 func start_vibration() -> void :
 	_on_TimerVibration_timeout()
@@ -145,7 +125,6 @@ func _update_subweapon_icon(ico: int = subweapon) -> void :
 	
 	$Icons / Subweapon.frame = ico
 
-
 func _update_mode(mod: int = circuit_mode) -> void :
 	circuit_mode = mod
 	
@@ -172,7 +151,6 @@ func _update_mode(mod: int = circuit_mode) -> void :
 			_update_color("565656")
 			_set_outline_color("000000")
 
-
 func _update_color(modu: Color) -> void :
 	
 	custom_color = modu
@@ -187,7 +165,6 @@ func _update_color(modu: Color) -> void :
 	if get_node_or_null("Light2D") != null:
 		$Light2D.color = modu
 
-
 func _set_outline_color(mod: Color) -> void :
 	if get_node_or_null("Icons") != null:
 		for i in $Icons.get_children():
@@ -198,7 +175,6 @@ func _hide_icons() -> void :
 	if get_node_or_null("Icons") != null:
 		for i in $Icons.get_children():
 			i.visible = false
-
 
 func _on_AreaDetectPlayer_body_entered(body: Node) -> void :
 	if "near_circuit" in body and is_for_ui == false:
@@ -213,7 +189,6 @@ func _on_AreaDetectPlayer_body_exited(body: Node) -> void :
 			_on_absorb_Circuit_Canceled()
 		body.near_circuit = false
 		entered_player = false
-
 
 func _on_TimerConnectPlayerSignals_timeout() -> void :
 	if (
@@ -252,11 +227,6 @@ func _on_absorb_Circuit_Canceled() -> void :
 		$TweenIconScale.stop_all()
 		$TweenIconScale.reset_all()
 
-
-
-
-
-
 func _on_TimerAbsorb_timeout() -> void :
 	
 	if _absorbing == false:
@@ -284,14 +254,6 @@ func _on_TimerAbsorb_timeout() -> void :
 		return
 		
 
-
-
-
-
-
-
-
-
 	
 	
 	ElementalCircuits.obtain(circuit_mode, _get_selected_circuit())
@@ -304,16 +266,9 @@ func _on_TimerAbsorb_timeout() -> void :
 
 	
 
-
-
-
-
-
-
 func _on_ElementalCircuit_tree_exiting() -> void :
 	if Engine.is_editor_hint() == false:
 		Audio.stop_sfx("ec_absorbing")
-
 
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void :
 	
@@ -325,15 +280,12 @@ func _on_AnimationPlayer_animation_finished(anim_name: String) -> void :
 		if delete_if_absorbed_anim_ends == true:
 			queue_free()
 
-
 func _on_TimerVibration_timeout() -> void :
 	Gamepad.start_vibration(0, 0.9, 1.0, 0.8)
-
 
 func _on_TimerStartAbsorb_timeout() -> void :
 	if Input.is_action_pressed("ui_up"):
 			_on_absorb_Circuit_Started()
-
 
 func _on_ElementalCircuit_absorbed() -> void :
 	Input.action_release("ui_up")

@@ -2,11 +2,7 @@ extends VBoxContainer
 
 export var input_enabled: bool = true
 
-
-
 var item_current_id: String
-
-
 
 export (Array, Array, String) var items
 

@@ -1,10 +1,6 @@
 tool 
 
-
-
-
 extends Node
-
 
 var ElectroSphaera = preload("res://src/game_objects/elemental_circuits/electro_sphaera.tscn")
 
@@ -21,14 +17,10 @@ var LuxPilar = preload("res://src/game_objects/elemental_circuits/lux_pilar.tscn
 var AquaFluere = preload("res://src/game_objects/elemental_circuits/aqua_fluere.tscn")
 var Congelatio = preload("res://src/game_objects/elemental_circuits/congelatio.tscn")
 
-
 var SubweaponAxe = preload("res://src/game_objects/weapons/player_axe.tscn")
 var SubweaponShuriken = preload("res://src/game_objects/weapons/player_shuriken.tscn")
 
 var SubweaponTornado = preload("res://src/game_objects/weapons/player_tornado.tscn")
-
-
-
 
 func load_subweapon(subweapon: int) -> Object:
 	var subweapon_instance: Object = null
@@ -37,25 +29,11 @@ func load_subweapon(subweapon: int) -> Object:
 		_:
 			subweapon_instance = SubweaponAxe.instance()
 
-
-
-
-
-
-
-
-
-
-
 	
 	return subweapon_instance
 
-
 func get_mode_string(mode: int) -> String:
 	return GVar.EC_MODE.keys()[mode + 1]
-
-
-
 
 func get_circuit_string(mode: int, circuit: int, real_name: bool = false) -> String:
 	
@@ -77,7 +55,6 @@ func get_circuit_string(mode: int, circuit: int, real_name: bool = false) -> Str
 	
 	return returned_circuit
 
-
 func spawn_action_circuit(
 	action_circuit: int, glob_position: Vector2
 ) -> void :
@@ -97,8 +74,6 @@ func spawn_action_circuit(
 			if sphaeras.size() < 2:
 				instance_ec = ElectroSphaera.instance()
 
-
-
 		GVar.EC_ACTION.PYRO_PROIECTUM:
 			instance_ec = PyroBall.instance()
 			instance_ec.dir = VarsGlobal.Player.facing
@@ -108,7 +83,6 @@ func spawn_action_circuit(
 		GVar.EC_ACTION.RUBRUS_DRACO:
 			instance_ec = RubrusDraco.instance()
 			instance_ec.dir = VarsGlobal.Player.facing
-
 
 		GVar.EC_ACTION.SANGRI_IMPALIA:
 			instance_ec = SangriImpalia.instance()
@@ -153,17 +127,6 @@ func spawn_action_circuit(
 				instance_ec.add_to_group("voltusas")
 			
 
-
-
-
-
-
-
-
-
-
-
-
 		GVar.EC_ACTION.FERRUM_ASCIA:
 			instance_ec = SubweaponAxe.instance()
 			instance_ec.dir = VarsGlobal.game_data["player_facing"]
@@ -174,7 +137,7 @@ func spawn_action_circuit(
 	
 	var max_spawn: int = 1
 	
-	if VarsGlobal.game_data["lvl"] >= 30:
+	if VarsGlobal.game_data["current_level"] >= 30:
 		max_spawn = 2
 	
 	if (
@@ -202,7 +165,6 @@ func spawn_action_circuit(
 	
 	NodeToSpawn.add_child(instance_ec)
 
-
 func get_attrbs_physical(_circuit: int) -> int:
 	return 0
 
@@ -217,8 +179,6 @@ func get_attrbs_elemental(circuit: int) -> Array:
 
 	return attr_list
 
-
-
 func get_circuit_action_time(circuit: int) -> int:
 	var time_act: int = (
 		
@@ -227,7 +187,6 @@ func get_circuit_action_time(circuit: int) -> int:
 		]["time"]
 	)
 	return time_act
-
 
 func get_circuit_mp_cost(mode: int, circuit: int) -> int:
 	var mp_cost: int = 0
@@ -243,7 +202,6 @@ func get_circuit_mp_cost(mode: int, circuit: int) -> int:
 			]["mp_cost"]
 	
 	return mp_cost
-
 
 func subweapon_requeriment_is_ok(subweapon_circuit: int) -> bool:
 	
@@ -265,7 +223,6 @@ func subweapon_requeriment_is_ok(subweapon_circuit: int) -> bool:
 	
 	return false
 
-
 func action_circuit_requeriment_is_ok(action_circuit: int) -> bool:
 	
 	
@@ -285,27 +242,6 @@ func action_circuit_requeriment_is_ok(action_circuit: int) -> bool:
 	
 	
 	match action_circuit:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 		_:
 			requeriment_ok = true
@@ -335,7 +271,6 @@ func apply_mana_cost(circuit_mode: int, circuit: int) -> void :
 	if VarsGlobal.GameInterface != null:
 		VarsGlobal.GameInterface.update_hud_values()
 
-
 func was_obtained(circuit_mode: int, circuit: int) -> bool:
 	var is_obtained: bool = false
 	
@@ -361,8 +296,6 @@ func obtain(circuit_mode: int, circuit: int, allow_duplicate: bool = true) -> vo
 		GVar.EC_MODE.ABILITY:
 			VarsGlobal.game_data["player_ec_ability"].append(circuit)
 			
-
-
 
 		GVar.EC_MODE.SUBWEAPON:
 			VarsGlobal.game_data["player_ec_subweapon"].append(circuit)

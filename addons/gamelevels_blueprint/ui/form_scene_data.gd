@@ -2,13 +2,7 @@ tool
 
 extends Popup
 
-
-
 var _room_panel_to_edit: Object
-
-
-
-
 
 func show_form() -> void :
 	popup_centered()
@@ -16,7 +10,6 @@ func show_form() -> void :
 func hide_form() -> void :
 	_room_panel_to_edit = null
 	visible = false
-
 
 func set_data(room_panel: Object) -> void :
 	_room_panel_to_edit = room_panel
@@ -32,17 +25,11 @@ func set_data(room_panel: Object) -> void :
 		else:
 			icn_check.pressed = false
 
-
-
-
-
-
 func _get_color_checkbox(clr: Color) -> Object:
 	for c in $Panel / Margin / VBx / HBxColors / Colors.get_children():
 		if c.color == clr:
 			return c
 	return null
-
 
 func _get_pressed_color_checkbox() -> Object:
 	for c in $Panel / Margin / VBx / HBxColors / Colors.get_children():
@@ -57,26 +44,21 @@ func _on_FormSceneData_pressed() -> void :
 	
 	hide_form()
 
-
 func _on_BtnExplore_pressed() -> void :
 	if _room_panel_to_edit != null:
 		$FileDialog.set_current_path(_room_panel_to_edit.file_path)
 	$FileDialog.popup()
 
-
 func _on_FileDialog_file_selected(path: String) -> void :
 	$Panel / Margin / VBx / HBxFilePath / HBx / TxtFilePath.text = path
 
-
 func _on_BtnClose_pressed() -> void :
 	hide_form()
-
 
 func _on_BtnDelete_pressed() -> void :
 	if _room_panel_to_edit != null:
 		_room_panel_to_edit.queue_free()
 	hide_form()
-
 
 func _on_BtnSave_pressed() -> void :
 	if _room_panel_to_edit != null:

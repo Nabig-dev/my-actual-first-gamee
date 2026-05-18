@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/carpatitia_endgame_use.wav-34551b352aa8b1209db33ec4e5a69d90.sample"
+
+[deps]
+
+source_file="res://assets/sfx/carpatitia_endgame_use.wav"
+dest_files=[ "res://.import/carpatitia_endgame_use.wav-34551b352aa8b1209db33ec4e5a69d90.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

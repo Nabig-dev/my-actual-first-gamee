@@ -6,7 +6,7 @@ func show_icon(type: String, idframe: int) -> void :
 	$SpriteTreasure.visible = false
 	$SpriteKey.visible = false
 	match type:
-		"inv":
+		"inventory_manager":
 			$SpriteInv.visible = true
 			$SpriteInv.frame = idframe
 		"equip":

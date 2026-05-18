@@ -31,9 +31,7 @@ onready var SwitchSprite = $Platform / Switch
 onready var GearLight = $Platform / Gear1Light
 onready var VisibilityNotify = $Platform / VisibilityNotifier2D
 
-
 onready var TimerReachedLimit = $TimerReachedLimit
-
 
 func _ready() -> void :
 	GearLight.visible = false
@@ -60,7 +58,6 @@ func _ready() -> void :
 				ChainNode.get_point_position(p_idx)
 			)
 		_usable = true
-
 
 func _physics_process(delta: float) -> void :
 
@@ -113,7 +110,6 @@ func _physics_process(delta: float) -> void :
 		max_speed = 0
 		if active == true:
 			active = false
-
 
 func start_speed() -> void :
 	
@@ -178,17 +174,13 @@ func _on_AreaDetectPlayer_area_exited(_area: Area2D) -> void :
 	_player_entered = false
 	HelperIconBtn.visible = false
 
-
-
 func _on_VisibilityNotifier2D_screen_exited() -> void :
 	if _usable == true and active == true:
 		dir = dir * - 1
 
-
 func _on_VisibilityNotifier2D_screen_entered() -> void :
 	if _usable == true and active == true:
 		stop_speed()
-
 
 func _on_TimerCheckPlayerPosition_timeout() -> void :
 	if _usable == true:

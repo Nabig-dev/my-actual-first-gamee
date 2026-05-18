@@ -2,7 +2,6 @@ extends CPUParticles2D
 
 export var pre_emit: bool = true
 
-
 var _emitting: bool
 var _visible: bool
 

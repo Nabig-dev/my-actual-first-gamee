@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-
 var velocity: = Vector2()
 
 var gravity: int = 350
@@ -22,7 +21,6 @@ onready var GhostTrail = $GhostTrail
 
 func _ready() -> void :
 	Enemy.change_state("idle", true)
-
 
 func _physics_process(delta) -> void :
 	
@@ -63,7 +61,6 @@ func _on_TimerCheckPlayerDir_timeout() -> void :
 	if Enemy.state in ["idle", "walk", "pre_fly"]:
 		Enemy.change_direction("to_player")
 
-
 func _on_TimerPatrol_timeout() -> void :
 	
 	if (
@@ -78,7 +75,6 @@ func _on_TimerPatrol_timeout() -> void :
 	
 	if Enemy.state in ["pre_fly", "fly"]:
 		return
-
 
 	if Enemy.state in ["idle", "walk"] and Area2DCastPlayerInRange.is_colliding():
 		Enemy.change_direction("to_player")
@@ -101,14 +97,10 @@ func _on_TimerPatrol_timeout() -> void :
 		Enemy.change_state("idle")
 	
 
-
-
-
 func _on_Area2DCastPlayerInRange_object_entered(_Obj) -> void :
 	if Enemy.state in ["idle", "walk"]:
 		Enemy.change_state("attack")
 		velocity.x = 0
-
 
 func _on_Area2DCastPlayerFly_object_entered(_Obj) -> void :
 	if Enemy.state in ["idle", "walk"]:
@@ -116,13 +108,9 @@ func _on_Area2DCastPlayerFly_object_entered(_Obj) -> void :
 		Enemy.change_state("pre_fly")
 		velocity.x = 0
 
-
 func _on_Area2DCastNoFloor_object_exited(_Obj) -> void :
 
-
-
 	pass
-
 
 func _on_EnemyBase_state_changed(state) -> void :
 	CollisionStand.set_deferred("disabled", true)
@@ -135,7 +123,6 @@ func _on_EnemyBase_state_changed(state) -> void :
 
 	if state != "attack":
 		$Sprite / HitboxEnemy / CollisionShape2DWeapon.set_deferred("disabled", true)
-
 
 func _on_HurtboxEnemy_damaged() -> void :
 	if Enemy.state in ["idle"] and Enemy.state != "fly":

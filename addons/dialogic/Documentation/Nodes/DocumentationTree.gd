@@ -3,20 +3,11 @@ extends Tree
 
 var documentation_tree
 
-
 signal _page_selected(path)
-
-
-
-
 
 func select_item(path):
 	
 	pass
-
-
-
-
 
 func _ready():
 	connect("item_selected", self, "_on_item_selected")

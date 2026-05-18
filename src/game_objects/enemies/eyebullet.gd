@@ -1,8 +1,5 @@
 extends KinematicBody2D
 
-
-
-
 var Shoot = preload("res://src/game_objects/enemies_weapons/eyebullet_bullet.tscn")
 
 export var move: bool = true
@@ -13,7 +10,6 @@ var speed: float = 50.0
 var velocity: Vector2
 
 var initial_position: Vector2
-
 
 var dir_y: int = 1
 
@@ -78,10 +74,8 @@ func _on_TimerMove_timeout() -> void :
 	if Enemy.state == "idle" and rotation_degrees == 0:
 		Enemy.change_direction("to_player")
 
-
 func _on_HurtboxEnemy_defeated() -> void :
 	$Tween.stop_all()
-
 
 func _on_AreaSeePlayer_object_entered(_Obj) -> void :
 	if AnimShoot.is_playing() == false:

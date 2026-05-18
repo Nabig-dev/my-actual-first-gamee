@@ -1,11 +1,6 @@
 class_name Vec3
 extends Resource
 
-
-
-
-
-
 const ZERO = Vector3(0, 0, 0)
 const ONE = Vector3(1, 1, 1)
 const RIGHT = Vector3(1, 0, 0)
@@ -72,7 +67,6 @@ const W_NORM = Vector3( - 1, 0, 0)
 const NW_NORM = Vector3( - 0.7071067811865476, 0, - 0.7071067811865476)
 const N_NORM = Vector3(0, 0, - 1)
 const NE_NORM = Vector3(0.7071067811865476, 0, - 0.7071067811865476)
-
 
 const SEE = Vector3(0.9238795325112867, 0, 0.3826834323650898)
 const SSE = Vector3(0.3826834323650898, 0, 0.9238795325112867)

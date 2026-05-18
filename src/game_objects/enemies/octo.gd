@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-
 var velocity: = Vector2()
 
 var speed: int = 50
@@ -33,7 +32,6 @@ func swim() -> void :
 		velocity.y = - 50
 	else:
 		velocity.y = - 20
-
 
 func _on_HurtboxEnemy_damaged() -> void :
 	if Enemy.state != "dead":

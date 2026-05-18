@@ -4,10 +4,6 @@
 
 class_name SMF
 
-
-
-
-
 const control_number_bank_select_msb: int = 0
 const control_number_modulation: int = 1
 const control_number_breath_controller: int = 2
@@ -68,7 +64,6 @@ const control_number_tkool_loop_point: int = 111
 const control_number_all_sound_off: int = 120
 const control_number_all_note_off: int = 123
 
-
 const rpn_control_number_pitch_bend_sensitivity: int = 0
 const rpn_control_number_channel_fine_tune: int = 1
 const rpn_control_number_channel_cource_tune: int = 2
@@ -86,7 +81,6 @@ const rpn_control_number_3D_referance_distance_raito: int = 6
 const rpn_control_number_3D_pan_spread_angle: int = 7
 const rpn_control_number_3D_roll_angle: int = 8
 
-
 const manufacture_id_universal_nopn_realtime_sys_ex: int = 126
 const manufacture_id_universal_realtime_sys_ex: int = 127
 const manufacture_id_kawai_musical_instruments_mfg_co_ltd: int = 64
@@ -96,9 +90,6 @@ const manufacture_id_yamaha_corporation: int = 67
 const manufacture_id_casio_computer_co_ltd: int = 68
 const manufacture_id_kamiya_studio_co_ltd: int = 70
 const manufacture_id_akai_electric_co_ltd: int = 71
-
-
-
 
 enum MIDIEventType{
 	note_off = 128, 
@@ -137,8 +128,6 @@ enum MIDISystemEventType{
 
 	unknown = 65535, 
 }
-
-
 
 class MIDIChunkData:
 	var id: String
@@ -248,9 +237,6 @@ class MIDIEventSystemEvent extends MIDIEvent:
 	func _init(_args: Dictionary = {}):
 		self.type = MIDIEventType.system_event
 		self.args = _args
-
-
-
 
 var last_event_type: int = 0
 
@@ -567,9 +553,6 @@ func _read_string(stream: StreamPeerBuffer, size: int) -> String:
 	
 
 	return stream.get_partial_data(size)[1].get_string_from_ascii()
-
-
-
 
 func write(smf: SMF, running_status: bool = false):
 	

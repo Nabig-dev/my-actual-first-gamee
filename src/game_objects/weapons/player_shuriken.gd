@@ -44,15 +44,12 @@ func _weapon_impact() -> void :
 func _on_VisibilityEnabler2D_screen_exited() -> void :
 	queue_free()
 
-
 func _on_AreaDetectSolid_body_entered(_body: Node) -> void :
 	Audio.play_sfx("impact_shuriken")
 	VarsGlobal.GameScenario.show_hit_lines(
 		"hit_low", 1, global_position
 	)
 	_weapon_impact()
-
-
 
 func _on_HitboxWeapon_area_entered(_area: Area2D) -> void :
 	

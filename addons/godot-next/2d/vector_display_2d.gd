@@ -2,13 +2,11 @@ tool
 class_name VectorDisplay2D
 extends Node
 
-
 export (String) var variable_name = ""
 export (bool) var relative = true
 
 var _old_variable_name = null
 var _storage: Node2D
-
 
 func _process(delta):
 	if Engine.is_editor_hint():
@@ -46,7 +44,6 @@ func _process(delta):
 			for item in variable:
 				if item is Vector2:
 					_add_position_child(item)
-
 
 func _add_position_child(vector):
 	var node = Position2D.new()

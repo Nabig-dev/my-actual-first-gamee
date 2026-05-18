@@ -28,7 +28,6 @@ onready var no_history_warning = $MarginContainer / VBoxContainer / no_history_w
 func init(config):
 	_config = config
 
-
 func reload():
 	if _history:
 		return
@@ -46,10 +45,8 @@ func reload():
 	else:
 		grid.get_parent().show()
 
-
 func _create_node_list_entry(entry: Dictionary, index: int):
 	_add_to_node_list(entry, _create_nodes(entry, index))
-
 
 func _create_nodes(entry: Dictionary, index: int) -> Dictionary:
 	var source_path = SourcePathField.instance()
@@ -83,20 +80,18 @@ func _create_nodes(entry: Dictionary, index: int) -> Dictionary:
 		"actions_node": actions, 
 	}
 
-
 func _add_to_node_list(entry: Dictionary, node: Dictionary):
 	if not _history_nodes.has(entry.source_file):
 		_history_nodes[entry.source_file] = []
 	_history_nodes[entry.source_file].push_front(node)
 	_history_nodes_list.push_front(node)
 
-
 func add_entry(file_settings: Dictionary):
 	if not _history:
 		reload()
 
-	var dt = OS.get_datetime()
-	file_settings["import_date"] = "%04d-%02d-%02d %02d:%02d:%02d" % [dt.year, dt.month, dt.day, dt.hour, dt.minute, dt.second]
+	var delta_time = OS.get_datetime()
+	file_settings["import_date"] = "%04d-%02d-%02d %02d:%02d:%02d" % [delta_time.year, delta_time.month, delta_time.day, delta_time.hour, delta_time.minute, delta_time.second]
 
 	if _import_requested_for != - 1:
 		_remove_item(_import_requested_for)
@@ -115,7 +110,6 @@ func add_entry(file_settings: Dictionary):
 	grid.get_parent().show()
 	_is_busy = false
 
-
 func _on_entry_reimport_clicked(entry_index: int):
 	if _is_busy:
 		return
@@ -123,12 +117,10 @@ func _on_entry_reimport_clicked(entry_index: int):
 	_import_requested_for = entry_index
 	emit_signal("request_import", _history[entry_index])
 
-
 func _on_entry_edit_clicked(entry_index: int):
 	if _is_busy:
 		return
 	emit_signal("request_edit", _history[entry_index])
-
 
 func _on_entry_remove_clicked(entry_index: int):
 	if _is_busy:
@@ -144,13 +136,9 @@ func _on_entry_remove_clicked(entry_index: int):
 
 	_is_busy = false
 
-
 func _remove_item(entry_index: int):
 	var entry = _history[entry_index]
 	_remove_entries(entry.source_file, entry_index)
-
-
-
 
 func _remove_entries(source_file_path: String, entry_index: int = - 1):
 	var files_entries = _history_nodes[source_file_path]
@@ -173,7 +161,6 @@ func _remove_entries(source_file_path: String, entry_index: int = - 1):
 
 	_history_nodes[source_file_path] = []
 
-
 func _remove_from_history(entry_index: int):
 	var _already_adjusted = []
 	
@@ -190,20 +177,17 @@ func _remove_from_history(entry_index: int):
 
 	_history.remove(entry_index)
 
-
 func _free_entry_nodes(entry_history_node: Dictionary):
 	entry_history_node.source_path_node.queue_free()
 	entry_history_node.output_path_node.queue_free()
 	entry_history_node.import_date_node.queue_free()
 	entry_history_node.actions_node.queue_free()
 
-
 func _on_SortOptions_item_selected(index):
 	if index == _sort_by:
 		return
 
 	_trigger_sort(index)
-
 
 func _trigger_sort(sort_type: int = _sort_by):
 	if sort_type == SORT_BY_DATE:
@@ -213,14 +197,11 @@ func _trigger_sort(sort_type: int = _sort_by):
 	_reorganise_nodes()
 	_sort_by = sort_type
 
-
 func _sort_by_date(a, b):
 	return a.timestamp < b.timestamp
 
-
 func _sort_by_path(a, b):
 	return a.source_file > b.source_file
-
 
 func _reorganise_nodes():
 	for entry in _history_nodes_list:

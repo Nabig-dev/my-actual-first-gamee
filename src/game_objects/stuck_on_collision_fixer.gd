@@ -1,11 +1,5 @@
 extends Node2D
 
-
-
-
-
-
-
 onready var Coll = $Area2DCast / Collision
 onready var AreaCast = $Area2DCast
 
@@ -40,7 +34,6 @@ func _onCollisionItemRectChanged() -> void :
 func _on_TimerCheck_timeout() -> void :
 	if AreaCast.is_colliding() == true:
 		_fix()
-
 
 func _on_Area2DCast_object_entered(_Obj) -> void :
 	_fix()

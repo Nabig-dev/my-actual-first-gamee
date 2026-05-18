@@ -1,9 +1,6 @@
 tool 
 extends HBoxContainer
 
-
-
-
 export (String) var event_name: String = "Event name"
 export (Dictionary) var event_data: Dictionary = {"event_id": "dialogic_000"}
 export (Color) var event_color: Color = Color(0.6, 0.6, 0.6, 1)
@@ -20,8 +17,6 @@ export (int, "Main", "Logic", "Timeline", "Audio/Visual", "Godot") var event_cat
 export (int) var sorting_index = - 1
 signal option_action(action_name)
 
-
-
 onready var panel = $PanelContainer
 onready var selected_style = $PanelContainer / SelectedStyle
 onready var warning = $PanelContainer / MarginContainer / VBoxContainer / Header / CenterContainer / IconPanel / Warning
@@ -36,34 +31,22 @@ onready var help_button = $PanelContainer / MarginContainer / VBoxContainer / He
 var header_node
 var body_node
 
-
 var editor_reference
-
 
 var indent_size = 45
 var current_indent_level = 1
 
-
-
 var ignore_save = false
-
-
-
-
 
 func visual_select():
 	selected_style.show()
-
 
 func visual_deselect():
 	if selected_style:
 		selected_style.hide()
 
-
-
 func load_data(data):
 	event_data = data
-
 
 func focus():
 	if get_header():
@@ -74,24 +57,19 @@ func focus():
 func get_body():
 	return body_node
 
-
 func get_header():
 	return header_node
-
 
 func set_warning(text):
 	warning.show()
 	warning.hint_tooltip = text
 
-
 func remove_warning(text = ""):
 	if warning.hint_tooltip == text or text == "":
 		warning.hide()
 
-
 func set_preview(text: String):
 	expand_control.set_preview(text)
-
 
 func set_indent(indent: int):
 	indent_node.rect_min_size = Vector2(indent_size * indent, 0)
@@ -99,14 +77,8 @@ func set_indent(indent: int):
 	current_indent_level = indent
 	update()
 
-
 func set_expanded(expanded: bool):
 	expand_control.set_expanded(expanded)
-
-
-
-
-
 
 func _set_event_icon(icon: Texture):
 	icon_texture.texture = icon
@@ -135,17 +107,13 @@ func _set_event_name(text: String):
 		if t_label:
 			t_label.queue_free()
 
-
-
 func _set_header(scene: PackedScene):
 	header_node = _set_content(header_content_container, scene)
-
 
 func _set_body(scene: PackedScene):
 	body_node = _set_content(body_content_container, scene)
 	
 	expand_control.set_enabled(body_node != null)
-
 
 func _setup_event():
 	if event_icon != null:
@@ -160,7 +128,6 @@ func _setup_event():
 	if event_color != null:
 		$PanelContainer / MarginContainer / VBoxContainer / Header / CenterContainer / IconPanel.set("self_modulate", event_color)
 
-
 func _set_content(container: Control, scene: PackedScene):
 	for c in container.get_children():
 		container.remove_child(c)
@@ -172,7 +139,6 @@ func _set_content(container: Control, scene: PackedScene):
 		return node
 	return null
 
-
 func _on_ExpandControl_state_changed(expanded: bool):
 	if expanded:
 		if body_node:
@@ -181,7 +147,6 @@ func _on_ExpandControl_state_changed(expanded: bool):
 		if body_node:
 			body_container.hide()
 			expand_control.set_preview(body_node.get_preview())
-
 
 func _on_OptionsControl_action(index):
 	if index == 0:
@@ -195,7 +160,6 @@ func _on_OptionsControl_action(index):
 	elif index == 5:
 		emit_signal("option_action", "remove")
 
-
 func _on_Indent_visibility_changed():
 	if not indent_node:
 		return
@@ -204,7 +168,6 @@ func _on_Indent_visibility_changed():
 			remove_warning(editor_reference.dialogicTranslator.translate("This event needs a question event around it!"))
 		else:
 			set_warning(editor_reference.dialogicTranslator.translate("This event needs a question event around it!"))
-
 
 func _on_gui_input(event):
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == 1:
@@ -217,16 +180,12 @@ func _on_gui_input(event):
 			$PopupMenu.rect_global_position = get_global_mouse_position()
 			var popup = $PopupMenu.popup()
 
-
-
 func _on_Header_data_changed(new_event_data):
 	event_data = new_event_data
 	
 	
 	if get_body():
 		get_body().load_data(event_data)
-
-
 
 func _on_Body_data_changed(new_event_data):
 	event_data = new_event_data
@@ -247,10 +206,6 @@ func _request_selection():
 		
 		
 		timeline_editor.select_item(self)
-
-
-
-
 
 func _ready():
 	

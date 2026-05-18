@@ -2,16 +2,10 @@ tool
 class_name Variant
 extends Reference
 
-
-
-
-
 static func var_to_string(p_value) -> String:
 	if typeof(p_value) == TYPE_OBJECT and p_value.has_method("_to_string"):
 		return p_value._to_string() as String
 	return var2str(p_value)
-
-
 
 static func get_type(p_value) -> String:
 	match typeof(p_value):

@@ -1,0 +1,204 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://src/game_objects/game_scenario.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/game_objects/tilemaps/highwall_ruins.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/game_objects/characters/playable_character.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game_objects/game_interface.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/game_objects/camera_limit.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/game_objects/ea_barrier.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/game_objects/statue_save.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/game_objects/tilemaps/background/tilemap_walls_32px.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/sprites/bg_decoration/table_store.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/props/pipe_long.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/bg_decoration/village_a_interior.png" type="Texture" id=12]
+[ext_resource path="res://src/game_objects/room_changer.tscn" type="PackedScene" id=13]
+
+[node name="Node" type="Node"]
+
+[node name="GameInterface" parent="." instance=ExtResource( 4 )]
+
+[node name="GameScenario" parent="." instance=ExtResource( 1 )]
+music = "stralsund_ruins"
+low_music_mode = true
+
+[node name="RoomChanger" parent="GameScenario" instance=ExtResource( 13 )]
+position = Vector2( 136, -304 )
+rotation = -1.5708
+direction = 3
+identifier = "du"
+id_destination = "dd"
+path_destination = "res://stages/oota/highwall/stralsund3.tscn"
+offset_area = -68
+
+[node name="RoomChanger2" parent="GameScenario" instance=ExtResource( 13 )]
+position = Vector2( 210, -112 )
+rotation = 1.5708
+direction = 1
+identifier = "dd"
+id_destination = "du"
+path_destination = "res://stages/oota/highwall/stralsund5.tscn"
+
+[node name="PlayableCharacter" parent="GameScenario" instance=ExtResource( 3 )]
+position = Vector2( 56, -144 )
+
+[node name="TableStore" type="Sprite" parent="GameScenario"]
+modulate = Color( 0.470588, 0.443137, 0.545098, 1 )
+position = Vector2( 36, -312 )
+texture = ExtResource( 10 )
+
+[node name="TableStore2" type="Sprite" parent="GameScenario/TableStore"]
+position = Vector2( 0, 32 )
+texture = ExtResource( 10 )
+
+[node name="TableStore3" type="Sprite" parent="GameScenario/TableStore"]
+position = Vector2( 0, 64 )
+texture = ExtResource( 10 )
+
+[node name="TableStore4" type="Sprite" parent="GameScenario/TableStore"]
+position = Vector2( 0, 96 )
+texture = ExtResource( 10 )
+
+[node name="TableStore5" type="Sprite" parent="GameScenario/TableStore"]
+position = Vector2( 144, 0 )
+texture = ExtResource( 10 )
+
+[node name="TableStore6" type="Sprite" parent="GameScenario/TableStore"]
+position = Vector2( 144, 32 )
+texture = ExtResource( 10 )
+
+[node name="TableStore7" type="Sprite" parent="GameScenario/TableStore"]
+position = Vector2( 144, 64 )
+texture = ExtResource( 10 )
+
+[node name="TableStore8" type="Sprite" parent="GameScenario/TableStore"]
+position = Vector2( 144, 96 )
+texture = ExtResource( 10 )
+
+[node name="TableStore3" type="Sprite" parent="GameScenario"]
+modulate = Color( 0.470588, 0.443137, 0.545098, 1 )
+position = Vector2( 324, -363 )
+texture = ExtResource( 10 )
+
+[node name="TableStore2" type="Sprite" parent="GameScenario/TableStore3"]
+position = Vector2( 0, 32 )
+texture = ExtResource( 10 )
+
+[node name="TableStore3" type="Sprite" parent="GameScenario/TableStore3"]
+position = Vector2( 0, 64 )
+texture = ExtResource( 10 )
+
+[node name="TableStore4" type="Sprite" parent="GameScenario/TableStore3"]
+position = Vector2( 0, 96 )
+texture = ExtResource( 10 )
+
+[node name="TableStore5" type="Sprite" parent="GameScenario/TableStore3"]
+position = Vector2( 144, 0 )
+texture = ExtResource( 10 )
+
+[node name="TableStore6" type="Sprite" parent="GameScenario/TableStore3"]
+position = Vector2( 144, 32 )
+texture = ExtResource( 10 )
+
+[node name="TableStore7" type="Sprite" parent="GameScenario/TableStore3"]
+position = Vector2( 144, 64 )
+texture = ExtResource( 10 )
+
+[node name="TableStore8" type="Sprite" parent="GameScenario/TableStore3"]
+position = Vector2( 144, 96 )
+texture = ExtResource( 10 )
+
+[node name="TableStore2" type="Sprite" parent="GameScenario"]
+modulate = Color( 0.470588, 0.443137, 0.545098, 1 )
+position = Vector2( 36, -187 )
+texture = ExtResource( 10 )
+
+[node name="TableStore2" type="Sprite" parent="GameScenario/TableStore2"]
+position = Vector2( 0, 32 )
+texture = ExtResource( 10 )
+
+[node name="TableStore3" type="Sprite" parent="GameScenario/TableStore2"]
+position = Vector2( 0, 64 )
+texture = ExtResource( 10 )
+
+[node name="TableStore4" type="Sprite" parent="GameScenario/TableStore2"]
+position = Vector2( 0, 96 )
+texture = ExtResource( 10 )
+
+[node name="TableStore5" type="Sprite" parent="GameScenario/TableStore2"]
+position = Vector2( 144, 0 )
+texture = ExtResource( 10 )
+
+[node name="TableStore6" type="Sprite" parent="GameScenario/TableStore2"]
+position = Vector2( 144, 32 )
+texture = ExtResource( 10 )
+
+[node name="TableStore7" type="Sprite" parent="GameScenario/TableStore2"]
+position = Vector2( 144, 64 )
+texture = ExtResource( 10 )
+
+[node name="TableStore8" type="Sprite" parent="GameScenario/TableStore2"]
+position = Vector2( 144, 96 )
+texture = ExtResource( 10 )
+
+[node name="VillageAInterior" type="Sprite" parent="GameScenario"]
+modulate = Color( 0.623529, 0.454902, 0.447059, 1 )
+position = Vector2( 56, -192 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 288, 704, 160, 96 )
+
+[node name="VillageAInterior2" type="Sprite" parent="GameScenario"]
+modulate = Color( 0.623529, 0.454902, 0.447059, 1 )
+position = Vector2( 216, -192 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 288, 704, 160, 96 )
+
+[node name="TileMapWalls" parent="GameScenario" instance=ExtResource( 9 )]
+tile_data = PoolIntArray( -589816, 0, 0, -589815, 0, 4, -524281, 0, 0, -524280, 0, 131079, -524279, 0, 131077, -524278, 0, 131078, -524277, 0, 4, -458745, 0, 131072, -458744, 0, 65539, -458743, 0, 65539, -458742, 0, 131075, -458741, 0, 196612, -393209, 0, 65536, -393208, 0, 196611, -393207, 0, 131073, -393206, 0, 196610, -393205, 0, 65540, -327673, 0, 262144, -327672, 0, 262147, -327671, 0, 262147, -327670, 0, 6, -327669, 0, 262148 )
+
+[node name="PipeSmall12" type="Sprite" parent="GameScenario"]
+position = Vector2( 132, -304 )
+texture = ExtResource( 11 )
+flip_v = true
+
+[node name="PipeSmall13" type="Sprite" parent="GameScenario"]
+position = Vector2( 184, -328 )
+texture = ExtResource( 11 )
+flip_v = true
+
+[node name="PipeSmall14" type="Sprite" parent="GameScenario"]
+position = Vector2( 74, -152 )
+texture = ExtResource( 11 )
+
+[node name="PipeSmall15" type="Sprite" parent="GameScenario"]
+modulate = Color( 1, 0.705882, 0.364706, 1 )
+position = Vector2( 176, -108 )
+texture = ExtResource( 11 )
+
+[node name="PipeSmall16" type="Sprite" parent="GameScenario"]
+position = Vector2( 262, -256 )
+texture = ExtResource( 11 )
+flip_v = true
+
+[node name="PipeSmall17" type="Sprite" parent="GameScenario"]
+position = Vector2( 0, -264 )
+texture = ExtResource( 11 )
+flip_v = true
+
+[node name="StralsundRuinsTileMap" parent="GameScenario" instance=ExtResource( 2 )]
+tile_data = PoolIntArray( -1703926, 0, 0, -1703925, 0, 4, -1703924, 0, 1, -1703923, 0, 2, -1703922, 0, 2, -1703921, 0, 1, -1703920, 0, 2, -1703919, 0, 1, -1703918, 0, 2, -1703917, 0, 1, -1703916, 0, 3, -1703915, 0, 3, -1703914, 0, 4, -1638390, 0, 65536, -1638389, 0, 65540, -1638388, 0, 65539, -1638387, 0, 131075, -1638386, 0, 131075, -1638385, 0, 65538, -1638384, 0, 65539, -1638383, 0, 65539, -1638382, 0, 65538, -1638381, 0, 131075, -1638380, 0, 65538, -1638379, 0, 65538, -1638378, 0, 131076, -1572854, 0, 65536, -1572853, 0, 65540, -1572852, 0, 65539, -1572851, 0, 65538, -1572850, 0, 131075, -1572849, 0, 131073, -1572848, 0, 65538, -1572847, 0, 65538, -1572846, 0, 65538, -1572845, 0, 65537, -1572844, 0, 131075, -1572843, 0, 131075, -1572842, 0, 131076, -1507318, 0, 65536, -1507317, 0, 65540, -1507316, 0, 131078, -1507315, 0, 131075, -1507314, 0, 131075, -1507313, 0, 65537, -1507312, 0, 131073, -1507311, 0, 65537, -1507310, 0, 65539, -1507309, 0, 65539, -1507308, 0, 65538, -1507307, 0, 65539, -1507306, 0, 131076, -1441782, 0, 65536, -1441781, 0, 131075, -1441780, 0, 65539, -1441779, 0, 65537, -1441778, 0, 65538, -1441777, 0, 65539, -1441776, 0, 131075, -1441775, 0, 65539, -1441774, 0, 131075, -1441773, 0, 131073, -1441772, 0, 131075, -1441771, 0, 65537, -1441770, 0, 65540, -1310723, 0, 0, -1310722, 0, 1, -1310721, 0, 2, -1376256, 0, 1, -1376255, 0, 3, -1376254, 0, 3, -1376253, 0, 1, -1376252, 0, 3, -1376251, 0, 2, -1376250, 0, 4, -1376246, 0, 65536, -1376245, 0, 65539, -1376244, 0, 65539, -1376243, 0, 131077, -1376242, 0, 196609, -1376241, 0, 196609, -1376240, 0, 196609, -1376239, 0, 196609, -1376238, 0, 196609, -1376237, 0, 196609, -1376236, 0, 196609, -1376235, 0, 196609, -1376234, 0, 196612, -1245187, 0, 65536, -1245186, 0, 65538, -1245185, 0, 65539, -1310720, 0, 65537, -1310719, 0, 65539, -1310718, 0, 65539, -1310717, 0, 65538, -1310716, 0, 65539, -1310715, 0, 131075, -1310714, 0, 131076, -1310710, 0, 131072, -1310709, 0, 131075, -1310708, 0, 65539, -1310707, 0, 131076, -1179651, 0, 131072, -1179650, 0, 65539, -1179649, 0, 65538, -1245184, 0, 131073, -1245183, 0, 65539, -1245182, 0, 131075, -1245181, 0, 65539, -1245180, 0, 131073, -1245179, 0, 131075, -1245178, 0, 131076, -1245174, 0, 65536, -1245173, 0, 65538, -1245172, 0, 65538, -1245171, 0, 131076, -1114115, 0, 65536, -1114114, 0, 65539, -1114113, 0, 65538, -1179648, 0, 131075, -1179647, 0, 65539, -1179646, 0, 65539, -1179645, 0, 131077, -1179644, 0, 196609, -1179643, 0, 196609, -1179642, 0, 196612, -1179638, 0, 65536, -1179637, 0, 65538, -1179636, 0, 65538, -1179635, 0, 65540, -1048579, 0, 131072, -1048578, 0, 65537, -1048577, 0, 65537, -1114112, 0, 131075, -1114111, 0, 65538, -1114110, 0, 131077, -1114109, 0, 196612, -1114102, 0, 196608, -1114101, 0, 131078, -1114100, 0, 131077, -1114099, 0, 196612, -983043, 0, 131072, -983042, 0, 131075, -983041, 0, 131075, -1048576, 0, 131077, -1048575, 0, 196609, -1048574, 0, 196612, -1048565, 0, 131072, -1048564, 0, 65540, -1048561, 1, 1, -1048560, 1, 1, -1048559, 1, 1, -1048558, 2, 0, -917507, 0, 131072, -917506, 0, 131075, -917505, 0, 131073, -983040, 0, 65540, -983029, 0, 65536, -983028, 0, 131076, -983025, 0, 0, -983024, 0, 1, -983023, 0, 2, -983020, 1, 1, -983019, 1, 1, -983018, 1, 1, -983017, 1, 1, -983016, 1, 1, -983015, 1, 1, -851971, 0, 65536, -851970, 0, 65539, -851969, 0, 65539, -917504, 0, 65540, -917493, 0, 196608, -917492, 0, 196612, -917489, 0, 131072, -917488, 0, 131075, -917487, 0, 65539, -917484, 0, 3, -917483, 0, 3, -917482, 0, 2, -917481, 0, 3, -917480, 0, 4, -786435, 0, 65536, -786434, 0, 131075, -786433, 0, 65538, -851968, 0, 131076, -851953, 0, 65536, -851952, 0, 131075, -851951, 0, 131075, -851950, 0, 65539, -851949, 0, 65539, -851948, 0, 131075, -851947, 0, 131075, -851946, 0, 131075, -851945, 0, 65539, -851944, 0, 131076, -720899, 0, 65536, -720898, 0, 131075, -720897, 0, 65539, -786432, 0, 131076, -786417, 0, 131072, -786416, 0, 131075, -786415, 0, 131075, -786414, 0, 131075, -786413, 0, 65538, -786412, 0, 131073, -786411, 0, 131075, -786410, 0, 65539, -786409, 0, 65539, -786408, 0, 131076, -655363, 0, 65536, -655362, 0, 65539, -655361, 0, 131075, -720896, 0, 65540, -720881, 0, 131072, -720880, 0, 65537, -720879, 0, 131075, -720878, 0, 65538, -720877, 0, 131075, -720876, 0, 131075, -720875, 0, 131075, -720874, 0, 65539, -720873, 0, 65538, -720872, 0, 65540, -589827, 0, 131072, -589826, 0, 131073, -589825, 0, 65538, -655360, 0, 65540, -655359, 1, 0, -655358, 1, 1, -655357, 1, 2, -655356, 1, 2, -655355, 1, 3, -655354, 1, 3, -655353, 1, 1, -655352, 1, 2, -655351, 1, 2, -655350, 1, 3, -655349, 1, 4, -655346, 1, 3, -655345, 0, 131072, -655344, 0, 65539, -655343, 0, 65537, -655342, 0, 65539, -655341, 0, 65539, -655340, 0, 65538, -655339, 0, 65538, -655338, 0, 65539, -655337, 0, 131075, -655336, 0, 131076, -524291, 0, 65536, -524290, 0, 131075, -524289, 0, 131075, -589824, 0, 196613, -589823, 0, 1, -589822, 0, 2, -589821, 0, 1, -589820, 0, 2, -589819, 0, 2, -589818, 0, 1, -589817, 0, 2, -589816, 0, 2, -589815, 0, 1, -589814, 0, 2, -589813, 0, 4, -589810, 0, 0, -589809, 0, 196614, -589808, 0, 131075, -589807, 0, 65539, -589806, 0, 65539, -589805, 0, 131075, -589804, 0, 65539, -589803, 0, 65538, -589802, 0, 65539, -589801, 0, 65538, -589800, 0, 131076, -458755, 0, 131072, -458754, 0, 131075, -458753, 0, 131075, -524288, 0, 65538, -524287, 0, 65538, -524286, 0, 65539, -524285, 0, 131075, -524284, 0, 131075, -524283, 0, 65538, -524282, 0, 131075, -524281, 0, 131075, -524280, 0, 131075, -524279, 0, 131075, -524278, 0, 65538, -524277, 0, 65540, -524274, 0, 131072, -524273, 0, 131073, -524272, 0, 65538, -524271, 0, 131075, -524270, 0, 65538, -524269, 0, 65537, -524268, 0, 65539, -524267, 0, 65538, -524266, 0, 131075, -524265, 0, 65538, -524264, 0, 131076, -393219, 0, 196608, -393218, 0, 196609, -393217, 0, 196609, -458752, 0, 196609, -458751, 0, 196609, -458750, 0, 196609, -458749, 0, 196609, -458748, 0, 196609, -458747, 0, 196609, -458746, 0, 196609, -458745, 0, 196609, -458744, 0, 196609, -458743, 0, 196609, -458742, 0, 196609, -458741, 0, 196612, -458738, 0, 196608, -458737, 0, 196609, -458736, 0, 196609, -458735, 0, 196609, -458734, 0, 196609, -458733, 0, 196609, -458732, 0, 196609, -458731, 0, 196609, -458730, 0, 196609, -458729, 0, 196609, -458728, 0, 196612 )
+
+[node name="OnewayStralsundRuinsTileMap2" parent="GameScenario" instance=ExtResource( 2 )]
+collision_layer = 4
+tile_data = PoolIntArray( -917498, 11, 0, -917497, 10, 0, -917496, 10, 0, -917495, 11, 0, -786426, 12, 0, -786423, 12, 0, -720890, 12, 0, -720887, 12, 0, -655354, 12, 0, -655351, 12, 0, -655348, 10, 0, -655347, 10, 0 )
+
+[node name="CameraLimit" parent="GameScenario" instance=ExtResource( 5 )]
+margin_top = -304.0
+margin_bottom = -112.0
+
+[node name="StatueSave" parent="GameScenario" instance=ExtResource( 7 )]
+position = Vector2( 56, -144 )
+
+[node name="EABarrier" parent="GameScenario" instance=ExtResource( 6 )]
+position = Vector2( 256, -240 )

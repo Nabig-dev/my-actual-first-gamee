@@ -1,7 +1,5 @@
 extends RigidBody2D
 
-
-
 var dir: int = 1
 
 func _ready() -> void :
@@ -17,7 +15,6 @@ func _ready() -> void :
 	$HitboxWeapon.scale.x = dir
 
 	apply_impulse(Vector2.ZERO, Vector2(37.5 * dir, 0))
-
 
 func _on_Tornado_body_entered(_body: Node) -> void :
 

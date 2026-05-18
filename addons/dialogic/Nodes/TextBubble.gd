@@ -5,7 +5,6 @@ var text_speed: = 0.02
 var theme_text_speed = text_speed
 var theme_text_max_height = 0
 
-
 var commands = []
 
 var regex = RegEx.new()
@@ -22,10 +21,6 @@ var _theme
 signal text_completed()
 signal letter_written(lastLetter)
 signal signal_request(arg)
-
-
-
-
 
 func update_name(name: String, color: Color = Color.white, autocolor: bool = false) -> void :
 	var name_is_hidden = _theme.get_value("name", "is_hidden", false)
@@ -128,8 +123,6 @@ func update_sizing():
 		text_label.fit_content_height = true
 		text_label.size_flags_vertical = 0
 
-
-
 func handle_command(command: Array):
 	if (command[1] == "speed"):
 		text_speed = float(command[2]) * 0.01
@@ -157,11 +150,9 @@ func skip():
 	text_label.visible_characters = - 1
 	_handle_text_completed()
 
-
 func reset():
 	name_label.text = ""
 	name_label.visible = false
-
 
 func load_theme(theme: ConfigFile):
 	
@@ -286,11 +277,6 @@ func load_theme(theme: ConfigFile):
 	
 	_theme = theme
 
-
-
-
-
-
 func _on_writing_timer_timeout():
 	if _finished == false:
 		text_label.visible_characters += 1
@@ -307,7 +293,6 @@ func _on_writing_timer_timeout():
 	else:
 		$WritingTimer.stop()
 
-
 func start_text_timer():
 	if text_speed == 0:
 		text_label.visible_characters = - 1
@@ -316,12 +301,10 @@ func start_text_timer():
 		$WritingTimer.start(text_speed)
 		_finished = false
 
-
 func _handle_text_completed():
 	$WritingTimer.stop()
 	_finished = true
 	emit_signal("text_completed")
-
 
 func align_name_label():
 	var name_padding = _theme.get_value("name", "name_padding", Vector2(10, 0))
@@ -334,11 +317,6 @@ func align_name_label():
 		name_label.rect_global_position.x = rect_global_position.x + (rect_size.x / 2) - (label_size / 2) + horizontal_offset
 	elif name_label_position == 2:
 		name_label.rect_global_position.x = rect_global_position.x + rect_size.x - label_size + horizontal_offset
-
-
-
-
-
 
 func _ready():
 	reset()

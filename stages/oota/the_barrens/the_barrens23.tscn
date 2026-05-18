@@ -1,0 +1,201 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://src/game_objects/camera_limit.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/game_objects/characters/playable_character.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/game_objects/grid_window_size.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game_objects/game_scenario.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/game_objects/tilemaps/the_barrens_tilemap.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/game_objects/game_interface.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/game_objects/backgrounds/the_barrens_desert_bg.tscn" type="PackedScene" id=7]
+[ext_resource path="res://addons/nklbdev.parallax/Parallax.gd" type="Script" id=8]
+[ext_resource path="res://src/game_objects/room_changer.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/sprites/bg_decoration/palmtree_a.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/bg_decoration/desert_rock_c.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/bg_decoration/desert_rock_a.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/bg_decoration/palmtree_b.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/bg_decoration/desert_rock_b.png" type="Texture" id=14]
+[ext_resource path="res://src/game_objects/tilemaps/background/tilemap_walls.tscn" type="PackedScene" id=15]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4, 104 )
+
+[node name="Node" type="Node"]
+
+[node name="GameInterface" parent="." instance=ExtResource( 6 )]
+
+[node name="GameScenario" parent="." instance=ExtResource( 4 )]
+
+[node name="AridiahDesertParallaxBackground" parent="GameScenario" instance=ExtResource( 7 )]
+
+[node name="CameraLimit" parent="GameScenario" instance=ExtResource( 1 )]
+margin_top = -157.0
+margin_right = 640.0
+margin_bottom = 35.0
+
+[node name="GridWindowSize" parent="GameScenario/CameraLimit" instance=ExtResource( 3 )]
+margin_right = 682.0
+margin_bottom = 192.0
+horizontal = 2
+
+[node name="RoomChanger" parent="GameScenario" instance=ExtResource( 9 )]
+position = Vector2( 96, 56 )
+rotation = 1.5708
+direction = 1
+identifier = "ddl"
+id_destination = "du"
+
+[node name="CollisionShape2D" parent="GameScenario/RoomChanger" index="0"]
+shape = SubResource( 1 )
+
+[node name="PlayerPosition" parent="GameScenario/RoomChanger" index="1"]
+position = Vector2( -52, 0 )
+
+[node name="RoomChanger2" parent="GameScenario" instance=ExtResource( 9 )]
+position = Vector2( 512, 56 )
+rotation = 1.5708
+direction = 1
+identifier = "ddr"
+id_destination = "du"
+path_destination = "res://stages/oota/the_barrens/aridiah22.tscn"
+
+[node name="CollisionShape2D" parent="GameScenario/RoomChanger2" index="0"]
+modulate = Color( 0, 1, 0.0627451, 1 )
+shape = SubResource( 1 )
+
+[node name="PlayerPosition" parent="GameScenario/RoomChanger2" index="1"]
+position = Vector2( -52, 0 )
+
+[node name="PlayableCharacter" parent="GameScenario" instance=ExtResource( 2 )]
+position = Vector2( 512, 4 )
+
+[node name="BG" type="Node2D" parent="GameScenario"]
+
+[node name="Parallax3" type="Node2D" parent="GameScenario/BG"]
+visible = false
+position = Vector2( 127.043, 0 )
+script = ExtResource( 8 )
+enabled_in_editor = true
+motion_scale = Vector2( 0.4, 0 )
+
+[node name="AridiahTileMap2" parent="GameScenario/BG/Parallax3" instance=ExtResource( 5 )]
+modulate = Color( 0.733333, 0.470588, 0.176471, 1 )
+position = Vector2( -93, 28 )
+collision_layer = 0
+collision_mask = 0
+tile_data = PoolIntArray( -196608, 2, 0, -196606, 0, 1, -196605, 0, 1, -196604, 536870913, 0, -196600, 1, 0, -196599, 536870912, 1, -196598, 536870914, 0, -196594, 1, 0, -196593, 0, 1, -196592, 0, 393217, -196591, 536870914, 0, -65542, 0, 0, -65541, 0, 1, -65540, 0, 393217, -65539, 0, 1, -65538, 0, 393217, -65537, 0, 1, -131070, 0, 65537, -131069, 0, 65537, -131067, 0, 393217, -131066, 0, 393217, -131065, 0, 1, -131063, 0, 65537, -131060, 0, 393217, -131059, 0, 1, -131057, 0, 65537, -131056, 0, 65537, -131053, 0, 1, -131052, 0, 1, -131051, 0, 1, -131050, 0, 1, -131049, 0, 1, -131048, 0, 1, -131047, 0, 393217, -131046, 0, 1, -131045, 0, 393217, -131044, 0, 393217, -131043, 0, 1, -131042, 0, 1, -131041, 0, 2, -6, 0, 65536, -5, 0, 65537, -4, 0, 65537, -3, 0, 65537, -2, 0, 65537, -1, 0, 65537, -65536, 0, 65537, -65535, 0, 65537, -65534, 0, 65537, -65533, 0, 65537, -65532, 0, 65537, -65531, 0, 65537, -65530, 0, 65537, -65529, 0, 65537, -65528, 0, 65537, -65527, 0, 65537, -65526, 0, 65537, -65525, 0, 65537, -65524, 0, 65537, -65523, 0, 65537, -65522, 0, 65537, -65521, 0, 65537, -65520, 0, 65537, -65519, 0, 65537, -65518, 0, 65537, -65517, 0, 65537, -65516, 0, 65537, -65515, 0, 65537, -65514, 0, 65537, -65513, 0, 65537, -65512, 0, 65537, -65511, 0, 65537, -65510, 0, 65537, -65509, 0, 65537, -65508, 0, 65537, -65507, 0, 65537, -65506, 0, 65537, -65505, 0, 65538, 65530, 0, 131072, 65531, 0, 262145, 65532, 0, 262145, 65533, 0, 262145, 65534, 0, 262145, 65535, 0, 262145, 0, 0, 131073, 1, 0, 262145, 2, 0, 262145, 3, 0, 262145, 4, 0, 262145, 5, 0, 262145, 6, 0, 262146, 7, 0, 65537, 8, 0, 65537, 9, 0, 65537, 10, 0, 65537, 11, 0, 65537, 12, 0, 65537, 13, 0, 65537, 14, 0, 65537, 15, 0, 262144, 16, 0, 131073, 17, 0, 131073, 18, 0, 262145, 19, 0, 262145, 20, 0, 131073, 21, 0, 262145, 22, 0, 131073, 23, 0, 131073, 24, 0, 131073, 25, 0, 262145, 26, 0, 262145, 27, 0, 262145, 28, 0, 131073, 29, 0, 262145, 30, 0, 131073, 31, 0, 131074, 65542, 0, 131072, 65543, 0, 262145, 65544, 0, 131073, 65545, 0, 131073, 65546, 0, 262145, 65547, 0, 131073, 65548, 0, 131073, 65549, 0, 131073, 65550, 0, 131073, 65551, 0, 131074 )
+
+[node name="Parallax" type="Node2D" parent="GameScenario/BG"]
+visible = false
+position = Vector2( 79.4021, 0 )
+script = ExtResource( 8 )
+enabled_in_editor = true
+motion_scale = Vector2( 0.25, 0 )
+
+[node name="PalmtreeA" type="Sprite" parent="GameScenario/BG/Parallax"]
+modulate = Color( 1, 0.968627, 0.176471, 1 )
+position = Vector2( 47.7066, -84 )
+texture = ExtResource( 10 )
+
+[node name="PalmtreeA2" type="Sprite" parent="GameScenario/BG/Parallax"]
+modulate = Color( 1, 0.968627, 0.176471, 1 )
+position = Vector2( 157.707, -58 )
+texture = ExtResource( 10 )
+
+[node name="PalmtreeA3" type="Sprite" parent="GameScenario/BG/Parallax"]
+modulate = Color( 1, 0.968627, 0.176471, 1 )
+position = Vector2( 347.707, -57 )
+texture = ExtResource( 10 )
+flip_h = true
+
+[node name="PalmtreeB" type="Sprite" parent="GameScenario/BG/Parallax"]
+modulate = Color( 1, 0.968627, 0.176471, 1 )
+position = Vector2( 439.296, -64 )
+texture = ExtResource( 13 )
+
+[node name="PalmtreeB2" type="Sprite" parent="GameScenario/BG/Parallax"]
+modulate = Color( 1, 0.968627, 0.176471, 1 )
+position = Vector2( 250.752, -64 )
+texture = ExtResource( 13 )
+flip_h = true
+
+[node name="Parallax2" type="Node2D" parent="GameScenario/BG"]
+modulate = Color( 0.905882, 1, 0.243137, 1 )
+position = Vector2( 31.7608, 0 )
+script = ExtResource( 8 )
+enabled_in_editor = true
+motion_scale = Vector2( 0.1, 0 )
+
+[node name="DesertRockC" type="Sprite" parent="GameScenario/BG/Parallax2"]
+position = Vector2( 387.17, -19 )
+texture = ExtResource( 11 )
+
+[node name="DesertRockC2" type="Sprite" parent="GameScenario/BG/Parallax2"]
+position = Vector2( 347.17, -11 )
+texture = ExtResource( 11 )
+
+[node name="DesertRockC3" type="Sprite" parent="GameScenario/BG/Parallax2"]
+position = Vector2( 549.764, -17 )
+texture = ExtResource( 11 )
+
+[node name="DesertRockC4" type="Sprite" parent="GameScenario/BG/Parallax2"]
+position = Vector2( 493.764, -11 )
+texture = ExtResource( 11 )
+
+[node name="DesertRockC5" type="Sprite" parent="GameScenario/BG/Parallax2"]
+position = Vector2( 472.558, -11 )
+texture = ExtResource( 11 )
+
+[node name="DesertRockC6" type="Sprite" parent="GameScenario/BG/Parallax2"]
+position = Vector2( 432.558, -11 )
+texture = ExtResource( 11 )
+
+[node name="DesertRockC7" type="Sprite" parent="GameScenario/BG/Parallax2"]
+position = Vector2( 292.828, -24 )
+texture = ExtResource( 11 )
+
+[node name="DesertRockC8" type="Sprite" parent="GameScenario/BG/Parallax2"]
+position = Vector2( 45.5993, -33 )
+texture = ExtResource( 11 )
+flip_h = true
+
+[node name="DesertRockC9" type="Sprite" parent="GameScenario/BG/Parallax2"]
+position = Vector2( 105.637, -17 )
+texture = ExtResource( 11 )
+
+[node name="DesertRockC10" type="Sprite" parent="GameScenario/BG/Parallax2"]
+position = Vector2( 208.267, -19 )
+texture = ExtResource( 11 )
+
+[node name="Top" type="Node2D" parent="GameScenario/BG"]
+
+[node name="DesertRockC" type="Sprite" parent="GameScenario/BG/Top"]
+position = Vector2( 160, -28 )
+texture = ExtResource( 11 )
+
+[node name="DesertRockA" type="Sprite" parent="GameScenario/BG/Top"]
+position = Vector2( 432, -12 )
+texture = ExtResource( 12 )
+
+[node name="DesertRockB" type="Sprite" parent="GameScenario/BG/Top"]
+position = Vector2( 552, -12 )
+texture = ExtResource( 14 )
+
+[node name="DesertRockB2" type="Sprite" parent="GameScenario/BG/Top"]
+position = Vector2( 288, -20 )
+texture = ExtResource( 14 )
+
+[node name="TileMapWalls" parent="GameScenario" instance=ExtResource( 15 )]
+tile_data = PoolIntArray( -1245165, 11, 1, -1179640, 11, 1, -1179639, 11, 1, -1179638, 11, 1, -1179637, 11, 1, -1179636, 11, 1, -1179635, 11, 1, -1179634, 11, 1, -1179633, 11, 1, -1179632, 11, 1, -1179631, 11, 1, -1179630, 11, 1, -1179629, 11, 1, -1179628, 11, 1, -1179627, 11, 2, -1114100, 11, 1, -1114097, 11, 131072, -1114096, 11, 131074, -1114092, 11, 131072, -1114091, 11, 131074, -1048565, 11, 1, 2, 11, 1, 3, 11, 1, 4, 11, 1, 5, 11, 1, 6, 11, 1, 7, 11, 1, 8, 11, 2, 28, 11, 0, 29, 11, 1, 30, 11, 1, 31, 11, 1, 32, 11, 1, 33, 11, 1, 34, 11, 1, 35, 11, 1, 36, 11, 1, 37, 11, 1, 38, 11, 1, 39, 11, 1, 40, 11, 1, 41, 11, 1, 42, 11, 1, 65539, 11, 65536, 65540, 11, 65537, 65541, 11, 65537, 65542, 11, 65537, 65543, 11, 65537, 65544, 11, 65539, 65545, 11, 2, 65563, 11, 0, 65564, 11, 65540, 65565, 11, 65537, 65566, 11, 65537, 65567, 11, 65537, 65568, 11, 65537, 65569, 11, 65537, 65570, 11, 65537, 65571, 11, 65537, 65572, 11, 3, 65573, 11, 131073, 65574, 11, 131073, 65575, 11, 131073, 65576, 11, 131074, 131074, 11, 0, 131075, 11, 65540, 131076, 11, 65537, 131077, 11, 65537, 131078, 11, 65537, 131079, 11, 65537, 131080, 11, 65537, 131081, 11, 1, 131082, 11, 1, 131094, 11, 1, 131095, 11, 1, 131096, 11, 1, 131097, 11, 1, 131098, 11, 1, 131099, 11, 65540, 131100, 11, 65537, 131101, 11, 65537, 131102, 11, 65537, 131103, 11, 65537, 131104, 11, 65537, 131105, 11, 65537, 131106, 11, 65537, 131107, 11, 65537, 131108, 11, 65538, 196610, 11, 65536, 196611, 11, 65537, 196612, 11, 65537, 196613, 11, 65537, 196614, 11, 65537, 196615, 11, 65537, 196616, 11, 65537, 196617, 11, 65538, 196631, 11, 65536, 196632, 11, 65537, 196633, 11, 65537, 196634, 11, 65537, 196635, 11, 65537, 196636, 11, 65537, 196637, 11, 65537, 196638, 11, 65537, 196639, 11, 65537, 196640, 11, 65537, 196641, 11, 65537, 196642, 11, 65537, 196643, 11, 65537, 196644, 11, 1, 196645, 11, 1, 196646, 11, 1, 196647, 11, 1, 196648, 11, 1, 262144, 11, 0, 262145, 11, 1, 262146, 11, 65540, 262147, 11, 65537, 262148, 11, 65537, 262149, 11, 65537, 262150, 11, 65537, 262151, 11, 65537, 262152, 11, 65537, 262153, 11, 65539, 262154, 11, 1, 262155, 11, 1, 262156, 11, 1, 262157, 11, 1, 262158, 11, 2, 262167, 11, 65536, 262168, 11, 65537, 262169, 11, 65537, 262170, 11, 65537, 262171, 11, 65537, 262172, 11, 65537, 262173, 11, 65537, 262174, 11, 65537, 262175, 11, 65537, 262176, 11, 65537, 262177, 11, 65537, 262178, 11, 65537, 262179, 11, 65537, 262180, 11, 65538, 327680, 11, 131072, 327681, 11, 131073, 327682, 11, 131073, 327683, 11, 131073, 327684, 11, 131073, 327685, 11, 131073, 327686, 11, 131073, 327687, 11, 131073, 327688, 11, 131073, 327689, 11, 131073, 327690, 11, 131073, 327691, 11, 131073, 327692, 11, 131073, 327693, 11, 131073, 327694, 11, 131074, 327700, 11, 1, 327701, 11, 1, 327702, 11, 1, 327703, 11, 1, 327704, 11, 131073, 327705, 11, 131073, 327706, 11, 131073, 327707, 11, 131073, 327708, 11, 131073, 327709, 11, 131073, 327710, 11, 131073, 327711, 11, 131073, 327712, 11, 131073, 327713, 11, 131073, 327714, 11, 131073, 327715, 11, 131073, 327716, 11, 1, 327717, 11, 1, 327718, 11, 1, 327719, 11, 1 )
+
+[node name="OnewayAridiahTileMap2" parent="GameScenario" instance=ExtResource( 5 )]
+show_collision = true
+collision_layer = 4
+tile_data = PoolIntArray( 1, 4, 0, 2, 4, 1, 3, 4, 1, 4, 4, 2, 14, 4, 0, 15, 4, 1, 16, 4, 1, 17, 4, 2 )
+
+[node name="AridiahTileMap" parent="GameScenario" instance=ExtResource( 5 )]
+position = Vector2( 0, 8 )
+show_collision = true
+tile_data = PoolIntArray( -655353, 0, 0, -655352, 0, 393217, -655351, 0, 393217, -655350, 0, 2, -524292, 0, 0, -524291, 0, 393217, -524290, 0, 1, -524289, 0, 1, -589824, 0, 393217, -589823, 0, 1, -589822, 0, 393217, -589821, 0, 393217, -589820, 0, 1, -589819, 0, 1, -589818, 0, 1, -589817, 0, 393218, -589816, 0, 65537, -589815, 0, 65537, -589814, 0, 393216, -589813, 0, 1, -589812, 0, 1, -589811, 0, 393217, -589810, 0, 393217, -589809, 0, 393217, -589808, 0, 393217, -589807, 0, 393217, -589806, 0, 393217, -589805, 0, 1, -589804, 0, 393217, -589803, 0, 1, -589802, 0, 393217, -589801, 0, 393217, -589800, 0, 2, -458756, 0, 327682, -458755, 0, 65537, -458754, 0, 65537, -458753, 0, 65537, -524288, 0, 262144, -524287, 0, 262145, -524286, 0, 262145, -524285, 0, 131073, -524284, 0, 262145, -524283, 0, 131073, -524282, 0, 131073, -524281, 0, 131073, -524280, 0, 262145, -524279, 0, 262145, -524278, 0, 131073, -524277, 0, 262145, -524276, 0, 262145, -524275, 0, 262145, -524274, 0, 262145, -524273, 0, 262145, -524272, 0, 262145, -524271, 0, 131073, -524270, 0, 131073, -524269, 0, 262146, -524268, 0, 65537, -524267, 0, 65537, -524266, 0, 65537, -524265, 0, 65537, -524264, 0, 327680, -393220, 0, 65536, -393219, 0, 65537, -393218, 0, 65537, -393217, 0, 65537, -458752, 0, 65538, -458733, 0, 327682, -458732, 0, 65537, -458731, 0, 65537, -458730, 0, 65537, -458729, 0, 65537, -458728, 0, 327680, -327684, 0, 327682, -327683, 0, 65537, -327682, 0, 65537, -327681, 0, 65537, -393216, 0, 327680, -393197, 0, 65536, -393196, 0, 65537, -393195, 0, 65537, -393194, 0, 65537, -393193, 0, 262144, -393192, 0, 131074, -262148, 0, 65536, -262147, 0, 65537, -262146, 0, 65537, -262145, 0, 65537, -327680, 0, 327680, -327661, 0, 65536, -327660, 0, 65537, -327659, 0, 65537, -327658, 0, 65537, -327657, 0, 65538, -196612, 0, 327682, -196611, 0, 65537, -196610, 0, 65537, -196609, 0, 65537, -262144, 0, 65538, -262125, 0, 327682, -262124, 0, 65537, -262123, 0, 65537, -262122, 0, 65537, -262121, 0, 65538, -131076, 0, 327682, -131075, 0, 65537, -131074, 0, 65537, -131073, 0, 65537, -196608, 0, 327680, -196589, 0, 65536, -196588, 0, 65537, -196587, 0, 65537, -196586, 0, 65537, -196585, 0, 65538, -65540, 0, 327682, -65539, 0, 65537, -65538, 0, 65537, -65537, 0, 65537, -131072, 0, 65538, -131053, 0, 327682, -131052, 0, 65537, -131051, 0, 65537, -131050, 0, 65537, -131049, 0, 327680, -4, 0, 327682, -3, 0, 65537, -2, 0, 65537, -1, 0, 65537, -65536, 0, 393216, -65535, 0, 2, -65532, 0, 0, -65531, 0, 393217, -65530, 0, 1, -65529, 0, 393217, -65528, 0, 1, -65527, 0, 1, -65526, 0, 1, -65525, 0, 1, -65524, 0, 1, -65523, 0, 1, -65522, 0, 2, -65519, 0, 0, -65518, 0, 1, -65517, 0, 393218, -65516, 0, 65537, -65515, 0, 65537, -65514, 0, 65537, -65513, 0, 65538, 65532, 0, 65536, 65533, 0, 65537, 65534, 0, 65537, 65535, 0, 65537, 0, 0, 65537, 1, 0, 327680, 4, 0, 327682, 5, 0, 65537, 6, 0, 65537, 7, 0, 65537, 8, 0, 65537, 9, 0, 65537, 10, 0, 65537, 11, 0, 65537, 12, 0, 65537, 13, 0, 65537, 14, 0, 65538, 17, 0, 65536, 18, 0, 65537, 19, 0, 65537, 20, 0, 65537, 21, 0, 65537, 22, 0, 65537, 23, 0, 327680, 131068, 0, 131072, 131069, 0, 131073, 131070, 0, 131073, 131071, 0, 262145, 65536, 0, 131073, 65537, 0, 131074, 65540, 0, 131072, 65541, 0, 131073, 65542, 0, 262145, 65543, 0, 262145, 65544, 0, 131073, 65545, 0, 262145, 65546, 0, 131073, 65547, 0, 131073, 65548, 0, 131073, 65549, 0, 262145, 65550, 0, 131074, 65553, 0, 131072, 65554, 0, 262145, 65555, 0, 131073, 65556, 0, 131073, 65557, 0, 262145, 65558, 0, 262145, 65559, 0, 131074 )
+
+[editable path="GameScenario/RoomChanger"]
+[editable path="GameScenario/RoomChanger2"]

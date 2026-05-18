@@ -1,13 +1,9 @@
 extends StaticBody2D
 
-
-
 var Rocks = preload("res://src/game_objects/vfx/rock_particles.tscn")
 
 export var identifier: String
 export var max_hits: int = 3
-
-
 
 onready var HurtBox = $HurtboxEnemySimple
 

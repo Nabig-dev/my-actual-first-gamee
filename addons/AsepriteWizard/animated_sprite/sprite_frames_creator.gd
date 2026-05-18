@@ -12,12 +12,10 @@ enum {
 var _config
 var _file_system: EditorFileSystem
 
-
 func init(config, editor_file_system: EditorFileSystem = null):
 	_config = config
 	_file_system = editor_file_system
 	_aseprite.init(config)
-
 
 func _initial_checks(source: String, options: Dictionary) -> int:
 	if not _aseprite.test_command():
@@ -31,7 +29,6 @@ func _initial_checks(source: String, options: Dictionary) -> int:
 		return result_code.ERR_OUTPUT_FOLDER_NOT_FOUND
 
 	return result_code.SUCCESS
-
 
 func create_animations(sprite: Node, options: Dictionary) -> void :
 	var input_check = _initial_checks(options.source, options)
@@ -47,7 +44,6 @@ func create_animations(sprite: Node, options: Dictionary) -> void :
 
 	if result != result_code.SUCCESS:
 		printerr(result_code.get_error_message(result))
-
 
 func _create_animations_from_file(animated_sprite: Node, options: Dictionary) -> int:
 	var output = _export_aseprite_file(options)
@@ -66,13 +62,11 @@ func _create_animations_from_file(animated_sprite: Node, options: Dictionary) ->
 
 	animated_sprite.frames = sprite_frames_result.content
 
-
 	if _config.should_remove_source_files():
 		var dir = Directory.new()
 		dir.remove(output.content.data_file)
 
 	return result_code.SUCCESS
-
 
 func _export_aseprite_file(options: Dictionary) -> Dictionary:
 	var output
@@ -87,7 +81,6 @@ func _export_aseprite_file(options: Dictionary) -> Dictionary:
 
 	return result_code.result(output)
 
-
 func create_and_save_resources(source_file: String, options: Dictionary) -> int:
 	var resources = yield(create_resources(source_file, options), "completed")
 
@@ -95,7 +88,6 @@ func create_and_save_resources(source_file: String, options: Dictionary) -> int:
 		return _save_resources(resources.content)
 
 	return resources.code
-
 
 func create_resources(source_file: String, options = {}) -> Dictionary:
 	var input_check = _initial_checks(source_file, options)
@@ -121,14 +113,12 @@ func create_resources(source_file: String, options = {}) -> Dictionary:
 
 	return result
 
-
 func _remove_source_files(source_files: Array):
 	var dir = Directory.new()
 	for s in source_files:
 		dir.remove(s.data_file)
 
 	yield(_scan_filesystem(), "completed")
-
 
 func _create_aseprite_output_files(source_file: String, options: Dictionary):
 	match options.get("export_mode", FILE_EXPORT_MODE):
@@ -143,7 +133,6 @@ func _create_aseprite_output_files(source_file: String, options: Dictionary):
 			return result_code.result(output)
 		_:
 			return result_code.error(result_code.ERR_UNKNOWN_EXPORT_MODE)
-
 
 func _create_sprite_frames_from_source(source_files: Array, options: Dictionary) -> Dictionary:
 	var should_remove_source = _config.should_remove_source_files()
@@ -166,7 +155,6 @@ func _create_sprite_frames_from_source(source_files: Array, options: Dictionary)
 
 	return result_code.result(resources)
 
-
 func _create_sprite_frames(data, options) -> Dictionary:
 	var aseprite_resources = _load_aseprite_resources(data)
 	if not aseprite_resources.is_ok:
@@ -179,7 +167,6 @@ func _create_sprite_frames(data, options) -> Dictionary:
 			options
 		)
 	)
-
 
 func _load_aseprite_resources(aseprite_data: Dictionary):
 	var content_result = _load_json_content(aseprite_data.data_file)
@@ -194,7 +181,6 @@ func _load_aseprite_resources(aseprite_data: Dictionary):
 		"texture": texture
 	})
 
-
 func _load_json_content(source_file: String) -> Dictionary:
 	var file = File.new()
 	var err = file.open(source_file, File.READ)
@@ -208,7 +194,6 @@ func _load_json_content(source_file: String) -> Dictionary:
 
 	return result_code.result(content)
 
-
 func _save_resources(resources: Array) -> int:
 	for resource in resources:
 		var code = _save_resource(resource.resource, resource.data_file)
@@ -216,13 +201,11 @@ func _save_resources(resources: Array) -> int:
 			return code
 	return OK
 
-
 func _save_resource(resource, source_path: String) -> int:
 	var save_path = "%s.%s" % [source_path.get_basename(), "res"]
 	var code = ResourceSaver.save(save_path, resource, ResourceSaver.FLAG_REPLACE_SUBRESOURCE_PATHS)
 	resource.take_over_path(save_path)
 	return code
-
 
 func _create_sprite_frames_with_animations(content, texture, options) -> SpriteFrames:
 	var frame_cache = {}
@@ -243,7 +226,6 @@ func _create_sprite_frames_with_animations(content, texture, options) -> SpriteF
 		_add_animation_frames(sprite_frames, "default", frames, texture, frame_rect)
 
 	return sprite_frames
-
 
 func _add_animation_frames(
 	sprite_frames: SpriteFrames, 
@@ -278,7 +260,6 @@ func _add_animation_frames(
 		is_loopable = false
 		repetition = repeat
 
-
 	for i in range(repetition):
 		for frame in frames:
 			_add_to_sprite_frames(sprite_frames, animation_name, texture, frame, min_duration, frame_cache, frame_rect)
@@ -296,10 +277,8 @@ func _add_animation_frames(
 	sprite_frames.set_animation_loop(animation_name, is_loopable)
 	sprite_frames.set_animation_speed(animation_name, fps)
 
-
 func _calculate_fps(min_duration: int) -> float:
 	return ceil(1000.0 / min_duration)
-
 
 func _get_min_duration(frames) -> int:
 	var min_duration = 100000
@@ -308,10 +287,8 @@ func _get_min_duration(frames) -> int:
 			min_duration = frame.duration
 	return min_duration
 
-
 func _parse_texture_path(path):
 	return ResourceLoader.load(path, "Image", true)
-
 
 func _add_to_sprite_frames(
 	sprite_frames, 
@@ -327,7 +304,6 @@ func _add_to_sprite_frames(
 	var number_of_sprites = ceil(frame.duration / min_duration)
 	for _i in range(number_of_sprites):
 		sprite_frames.add_frame(animation_name, atlas)
-
 
 func _create_atlastexture_from_frame(
 	image, 
@@ -360,27 +336,21 @@ func _create_atlastexture_from_frame(
 
 	return atlas_texture
 
-
 func _scan_filesystem():
 	_file_system.scan()
 	yield(_file_system, "filesystem_changed")
 
-
 func list_layers(file: String, only_visibles = false) -> Array:
 	return _aseprite.list_layers(file, only_visibles)
-
 
 func list_slices(file: String) -> Array:
 	return _aseprite.list_slices(file)
 
-
 func _get_file_basename(file_path: String) -> String:
 	return file_path.get_file().trim_suffix(".%s" % file_path.get_extension())
 
-
 func _loop_config_prefix() -> String:
 	return _config.get_animation_loop_exception_prefix()
-
 
 func _is_loop_config_enabled() -> String:
 	return _config.is_default_animation_loop_enabled()

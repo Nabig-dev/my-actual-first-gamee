@@ -22,7 +22,6 @@ func _ready() -> void :
 func _on_TimerActive_timeout() -> void :
 	queue_free()
 
-
 func _on_TimerSpawn_timeout() -> void :
 	position_spawn.x += 16 * dir
 	var ObjInstance = Lance.instance()

@@ -4,11 +4,9 @@
 \
 "\n\tSound Bank by あるる（きのもと 結衣） @arlez80\n\n\tMIT License\n"
 
-
 const drum_track_bank: int = 128
 
 class_name Bank
-
 
 class Instrument:
 	var array_base_pitch: Array
@@ -32,7 +30,6 @@ class Instrument:
 	
 	
 
-
 class VolumeState:
 	var time: float = 0.0
 	var volume_db: float = 0.0
@@ -40,7 +37,6 @@ class VolumeState:
 	func _init(_time: float = 0.0, _volume_db: float = 0.0):
 		self.time = _time
 		self.volume_db = _volume_db
-
 
 class Preset:
 	var name: String = ""
@@ -52,7 +48,6 @@ class Preset:
 		for i in range(128):
 			self.instruments.append(null)
 
-
 class TempSoundFontBag:
 	var preset: Preset
 	var coarse_tune: int
@@ -61,11 +56,9 @@ class TempSoundFontBag:
 	var instrument: TempSoundFontInstrument
 	var pan: float = 0.5
 
-
 class TempSoundFontInstrument:
 	var name: String = ""
 	var bags: Array = Array()
-
 
 class TempSoundFontRange:
 	var low: int
@@ -81,7 +74,6 @@ class TempSoundFontRange:
 		new.high = self.high
 
 		return new
-
 
 class TempSoundFontInstrumentBag:
 	var sample: SoundFont.SoundFontSampleHeader
@@ -119,7 +111,6 @@ class TempSoundFontInstrumentBag:
 
 		return new
 
-
 class TempSoundFontInstrumentBagADSR:
 	var attack_vol_env_time: float = 0.001
 	var decay_vol_env_time: float = 0.001
@@ -134,7 +125,6 @@ class TempSoundFontInstrumentBagADSR:
 		new.release_vol_env_time = self.release_vol_env_time
 
 		return new
-
 
 export (Dictionary) var presets: Dictionary = Dictionary()
 

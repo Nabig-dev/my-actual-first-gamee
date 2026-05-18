@@ -2,10 +2,6 @@ tool
 
 extends Label
 
-
-
-
-
 var mode: int = 0
 
 var nodename: String

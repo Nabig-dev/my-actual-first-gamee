@@ -1,0 +1,344 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://src/game_objects/game_scenario.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/game_objects/game_interface.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/game_objects/characters/playable_character.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game_objects/camera_limit.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/game_objects/tilemaps/solid/tilemap_building_32px.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/images/shadow_gradient_0.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/bg_decoration/tavern.png" type="Texture" id=7]
+[ext_resource path="res://src/game_objects/destructibles/torch_roof.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/images/shadow_gradient_1.png" type="Texture" id=9]
+[ext_resource path="res://src/game_objects/door_interior.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/game_objects/room_changer.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/sprites/npc/darryl_eating.png" type="Texture" id=12]
+[ext_resource path="res://src/game_objects/npc/npc.tscn" type="PackedScene" id=13]
+[ext_resource path="res://stages/oota/the_core/restaurant.gd" type="Script" id=14]
+[ext_resource path="res://src/game_objects/interactable_area2d_indicator.tscn" type="PackedScene" id=15]
+[ext_resource path="res://src/game_objects/key_object.tscn" type="PackedScene" id=16]
+[ext_resource path="res://src/game_objects/tilemaps/dungeon_forgotten_tilemap.tscn" type="PackedScene" id=17]
+[ext_resource path="res://assets/sprites/misc/npc_train_b.png" type="Texture" id=18]
+[ext_resource path="res://src/game_objects/store_interface.tscn" type="PackedScene" id=19]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 12 )
+region = Rect2( 0, 0, 80, 80 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 12 )
+region = Rect2( 80, 0, 80, 80 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 10, 104 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 20, 10 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 20, 10 )
+
+[node name="Node" type="Node"]
+script = ExtResource( 14 )
+
+[node name="GameInterface" parent="." instance=ExtResource( 2 )]
+area_title = "RESTAURANT"
+enabled_quicksave = false
+dialogs_change_music = false
+
+[node name="GameScenario" parent="." instance=ExtResource( 1 )]
+music = "rest_town"
+low_music_mode = true
+
+[node name="Tavern" type="Sprite" parent="GameScenario"]
+position = Vector2( 19, -92 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 448, 576, 256, 160 )
+
+[node name="Tavern2" type="Sprite" parent="GameScenario"]
+position = Vector2( 275, -92 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 448, 576, 256, 160 )
+
+[node name="Roof" type="Sprite" parent="GameScenario"]
+position = Vector2( -32, -220 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 896, 0, 64, 96 )
+
+[node name="Roof2" type="Sprite" parent="GameScenario"]
+position = Vector2( 32, -220 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 960, 0, 64, 96 )
+
+[node name="Roof3" type="Sprite" parent="GameScenario"]
+position = Vector2( 95, -220 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 960, 0, 64, 96 )
+
+[node name="Roof4" type="Sprite" parent="GameScenario"]
+position = Vector2( 159, -220 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 960, 0, 64, 96 )
+
+[node name="Roof5" type="Sprite" parent="GameScenario"]
+position = Vector2( 223, -220 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 960, 0, 64, 96 )
+
+[node name="Roof6" type="Sprite" parent="GameScenario"]
+position = Vector2( 287, -220 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 960, 0, 64, 96 )
+
+[node name="Roof7" type="Sprite" parent="GameScenario"]
+position = Vector2( 351, -220 )
+texture = ExtResource( 7 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 896, 0, 64, 96 )
+
+[node name="Tavern4" type="Sprite" parent="GameScenario"]
+position = Vector2( 307, -72 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 864, 192, 64, 96 )
+
+[node name="Tavern5" type="Sprite" parent="GameScenario"]
+position = Vector2( 186, -72 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 928, 208, 32, 80 )
+
+[node name="ShadowDeco" type="Sprite" parent="GameScenario"]
+position = Vector2( 220, -111 )
+scale = Vector2( 0.16, 0.34 )
+texture = ExtResource( 6 )
+
+[node name="ShadowDeco2" type="Sprite" parent="GameScenario"]
+position = Vector2( 141, -109.5 )
+scale = Vector2( 0.3, 0.21 )
+texture = ExtResource( 6 )
+
+[node name="ShadowDeco3" type="Sprite" parent="GameScenario"]
+position = Vector2( 48, -119 )
+scale = Vector2( 0.16, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="WallDeco" type="Sprite" parent="GameScenario"]
+modulate = Color( 0.933333, 0.882353, 0.721569, 1 )
+position = Vector2( 220, -123 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 928, 544, 32, 32 )
+
+[node name="WallDeco2" type="Sprite" parent="GameScenario"]
+modulate = Color( 0.933333, 0.882353, 0.721569, 1 )
+position = Vector2( 141, -123 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 960, 544, 32, 32 )
+
+[node name="WallDeco3" type="Sprite" parent="GameScenario"]
+position = Vector2( 48, -131 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 1024, 544, 32, 64 )
+
+[node name="ShadowGradient1" type="Sprite" parent="GameScenario"]
+position = Vector2( 7.00001, -120 )
+scale = Vector2( 0.68, 2.08 )
+texture = ExtResource( 9 )
+
+[node name="ShadowGradient0" type="Sprite" parent="GameScenario"]
+position = Vector2( 128, -50.5 )
+scale = Vector2( 5.28, 0.59 )
+texture = ExtResource( 6 )
+flip_v = true
+
+[node name="ShadowGradient" type="Sprite" parent="GameScenario"]
+position = Vector2( 128, -168 )
+scale = Vector2( 5.28, 0.96 )
+texture = ExtResource( 6 )
+
+[node name="NPCWaitress" parent="GameScenario" instance=ExtResource( 13 )]
+position = Vector2( 303, -32 )
+character = "Waitress"
+
+[node name="Table" type="Sprite" parent="GameScenario"]
+position = Vector2( 280, -56 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 640, 240, 160, 48 )
+
+[node name="TileMapBuilding" parent="GameScenario" instance=ExtResource( 5 )]
+modulate = Color( 0.65098, 0.92549, 1, 1 )
+show_collision = true
+tile_data = PoolIntArray( -524291, 0, 0, -524290, 0, 1, -524289, 0, 1, -589824, 0, 1, -589823, 0, 262147, -589822, 2, 0, -589821, 2, 1, -589820, 2, 2, -589819, 2, 1, -589818, 2, 2, -589817, 2, 1, -589816, 2, 2, -589815, 2, 2, -589814, 2, 1, -589813, 2, 1, -589812, 2, 3, -458755, 0, 65536, -458754, 0, 65538, -458753, 0, 65537, -524288, 0, 65539, -524287, 2, 0, -524286, 2, 131074, -524285, 2, 131073, -524284, 2, 131074, -524283, 2, 131073, -524282, 2, 131074, -524281, 2, 131073, -524280, 2, 131073, -524279, 2, 131074, -524278, 2, 131074, -524277, 2, 196610, -524276, 2, 65539, -393220, 0, 0, -393219, 0, 65537, -393218, 0, 65537, -393217, 0, 65537, -458752, 0, 65539, -458741, 2, 65536, -458740, 2, 65539, -327684, 0, 65536, -327683, 0, 65538, -327682, 0, 65538, -327681, 0, 65537, -393216, 0, 65539, -393205, 2, 65536, -393204, 2, 65539, -262148, 0, 131072, -262147, 0, 131073, -262146, 0, 131074, -262145, 0, 131074, -327680, 0, 131075, -327669, 2, 65536, -327668, 2, 65539, -262133, 2, 65536, -262132, 2, 65539, -196597, 2, 65536, -196596, 2, 65539, -65539, 2, 0, -65538, 2, 2, -65537, 2, 2, -131072, 2, 2, -131071, 8, 0, -131061, 2, 65536, -131060, 2, 65539, -3, 2, 65536, -2, 2, 65538, -1, 2, 65537, -65536, 2, 65537, -65534, 2, 1, -65533, 2, 1, -65532, 2, 1, -65531, 2, 1, -65530, 2, 1, -65529, 2, 1, -65528, 2, 2, -65527, 2, 2, -65526, 2, 2, -65525, 2, 196611, -65524, 2, 196608, -65523, 2, 2, -65522, 2, 3, 65533, 2, 131072, 65534, 2, 131074, 65535, 2, 131073, 0, 2, 131073, 1, 2, 131073, 2, 2, 131074, 3, 2, 131073, 4, 2, 131074, 5, 2, 131074, 6, 2, 131074, 7, 2, 131073, 8, 2, 131073, 9, 2, 131073, 10, 2, 131074, 11, 2, 131074, 12, 2, 131074, 13, 2, 131074, 14, 2, 131075 )
+
+[node name="FloorDeco" type="Sprite" parent="GameScenario"]
+position = Vector2( 343, -45 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 896, 512, 32, 32 )
+
+[node name="FloorDeco3" type="Sprite" parent="GameScenario"]
+position = Vector2( 164, -46 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 896, 480, 96, 32 )
+
+[node name="FloorDeco4" type="Sprite" parent="GameScenario"]
+position = Vector2( 89, -48 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 1056, 352, 32, 32 )
+
+[node name="darryl" type="AnimatedSprite" parent="GameScenario"]
+position = Vector2( 86, -72 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="TableFood" type="Sprite" parent="GameScenario"]
+position = Vector2( 86, -48 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 1024, 384, 64, 32 )
+
+[node name="TableFoodDecoTop" type="Sprite" parent="GameScenario"]
+position = Vector2( 64, -64 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 976, 592, 16, 16 )
+
+[node name="TableFoodDecoTop2" type="Sprite" parent="GameScenario"]
+position = Vector2( 64, -72 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 976, 592, 16, 16 )
+
+[node name="TableFoodDecoTop3" type="Sprite" parent="GameScenario"]
+position = Vector2( 105, -64 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 944, 576, 16, 16 )
+
+[node name="TableFoodDecoTop4" type="Sprite" parent="GameScenario"]
+position = Vector2( 80, -64 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 992, 592, 16, 16 )
+
+[node name="TableFoodDecoTop5" type="Sprite" parent="GameScenario"]
+position = Vector2( 80, -68 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 992, 592, 16, 16 )
+
+[node name="TableFoodDecoTop6" type="Sprite" parent="GameScenario"]
+position = Vector2( 94, -64 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 928, 576, 16, 16 )
+
+[node name="FloorDeco2" type="Sprite" parent="GameScenario"]
+position = Vector2( 121, -45 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 896, 544, 32, 32 )
+
+[node name="TorchRoof" parent="GameScenario" instance=ExtResource( 8 )]
+position = Vector2( 98, -146 )
+
+[node name="TorchRoof2" parent="GameScenario" instance=ExtResource( 8 )]
+position = Vector2( 179, -146 )
+
+[node name="TorchRoof3" parent="GameScenario" instance=ExtResource( 8 )]
+position = Vector2( 259, -146 )
+
+[node name="CameraLimit" parent="GameScenario" instance=ExtResource( 4 )]
+margin_top = -192.0
+margin_bottom = 0.0
+
+[node name="DoorInterior" parent="GameScenario" instance=ExtResource( 10 )]
+position = Vector2( 0, -60 )
+spawn_position_name = "PositionRestaurant"
+
+[node name="RoomChanger" parent="GameScenario" instance=ExtResource( 11 )]
+position = Vector2( 0, -60 )
+scale = Vector2( -1, 1 )
+direction = 2
+path_destination = "res://stages/oota/the_core/amerithia_central_back.tscn"
+
+[node name="PlayableCharacter" parent="GameScenario" instance=ExtResource( 3 )]
+position = Vector2( 24, -60 )
+
+[node name="Area2DDetect" type="Area2D" parent="GameScenario"]
+position = Vector2( 236, -76 )
+collision_layer = 8
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScenario/Area2DDetect"]
+position = Vector2( 0, -52 )
+shape = SubResource( 4 )
+
+[node name="InteractDirian" parent="GameScenario" instance=ExtResource( 15 )]
+position = Vector2( 85, -28 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScenario/InteractDirian"]
+position = Vector2( -1, -7 )
+shape = SubResource( 5 )
+
+[node name="InteractWaitress" parent="GameScenario" instance=ExtResource( 15 )]
+position = Vector2( 303, -28 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScenario/InteractWaitress"]
+position = Vector2( -1, -7 )
+shape = SubResource( 6 )
+
+[node name="KeyObject" parent="GameScenario" instance=ExtResource( 16 )]
+position = Vector2( 259, -55 )
+mode = 1
+item = 4
+
+[node name="DungeonForgottenTileMap" parent="GameScenario" instance=ExtResource( 17 )]
+visible = false
+tile_data = PoolIntArray( -1048555, 0, 3, -983019, 0, 65539, -917483, 0, 65539, -851947, 0, 65539, -786411, 0, 65539, -720875, 0, 65539, -655339, 0, 65539, -589803, 0, 65539, -524267, 0, 65539, -458731, 0, 65539, -393195, 0, 65539, -327659, 0, 65539, -262123, 0, 65539, -196587, 0, 65539, -131051, 0, 65539, -65515, 0, 131075 )
+
+[node name="NpcTrain" type="Sprite" parent="GameScenario"]
+position = Vector2( 133, -54 )
+texture = ExtResource( 18 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 48, 48 )
+
+[node name="NpcTrain3" type="Sprite" parent="GameScenario"]
+position = Vector2( 188, -53 )
+texture = ExtResource( 18 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 80, 0, 32, 48 )
+
+[node name="DungeonForgottenTileMap2" parent="GameScenario" instance=ExtResource( 17 )]
+visible = false
+tile_data = PoolIntArray( -720895, 0, 5, -720894, 0, 6, -720893, 0, 6, -720892, 0, 6, -720891, 0, 6, -720890, 0, 6, -720889, 0, 6, -720888, 0, 6, -720887, 0, 6, -720886, 0, 6, -720885, 0, 6, -720884, 0, 6, -720883, 0, 6, -720882, 0, 6, -720881, 0, 6, -720880, 0, 6, -720879, 0, 6, -720878, 0, 6, -720877, 0, 6, -720876, 0, 6, -720875, 0, 6, -720874, 0, 7 )
+
+[node name="StoreInterface" parent="." instance=ExtResource( 19 )]
+
+[connection signal="area_entered" from="GameScenario/Area2DDetect" to="." method="_on_Area2DDetect_area_entered" flags=6]
+[connection signal="interact_requested" from="GameScenario/InteractDirian" to="." method="_on_InteractDirian_interact_requested"]
+[connection signal="interact_requested" from="GameScenario/InteractWaitress" to="." method="_on_InteractWaitress_interact_requested"]
+[connection signal="closed" from="StoreInterface" to="." method="_on_StoreInterface_closed"]

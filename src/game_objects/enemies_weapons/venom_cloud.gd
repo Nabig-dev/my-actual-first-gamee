@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-
 var velocity: = Vector2()
 
 var gravity: int = 50
@@ -30,17 +29,14 @@ func _on_TimerStart_timeout() -> void :
 	$HitboxEnemy / CollisionShape2D.disabled = false
 	$HurtboxEnemySimple / CollisionShape2D.disabled = false
 
-
 func _on_TimerActive_timeout() -> void :
 	$HitboxEnemy / CollisionShape2D.set_deferred("disabled", true)
 	$HurtboxEnemySimple / CollisionShape2D.set_deferred("disabled", true)
 	$CPUParticles2D.emitting = false
 	$TimerEnd.start(3)
 
-
 func _on_TimerEnd_timeout() -> void :
 	queue_free()
-
 
 func _on_HurtboxEnemySimple_defeated() -> void :
 	_on_TimerActive_timeout()

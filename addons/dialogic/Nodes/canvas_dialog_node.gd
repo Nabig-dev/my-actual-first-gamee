@@ -1,10 +1,5 @@
 extends CanvasLayer
 
-
-
-
-
-
 signal event_start(type, event)
 signal event_end(type)
 
@@ -19,7 +14,6 @@ signal auto_advance_toggled(toggle_value)
 
 var _dialog_node_scene = load("res://addons/dialogic/Nodes/DialogNode.tscn")
 var dialog_node = null
-
 
 func set_dialog_node_scene(scene) -> void :
 	_dialog_node_scene = scene
@@ -53,7 +47,6 @@ func _enter_tree() -> void :
 func dialog_finished():
 	queue_free()
 
-
 func _ready() -> void :
 	
 	var config = DialogicResources.get_settings_config()
@@ -61,34 +54,26 @@ func _ready() -> void :
 	
 	
 
-
 func _on_event_start(type, event) -> void :
 	emit_signal("event_start", type, event)
-
 
 func _on_event_end(type) -> void :
 	emit_signal("event_end", type)
 
-
 func _on_timeline_changed(old_timeline_name, new_timeline_name) -> void :
 	emit_signal("timeline_changed", old_timeline_name, new_timeline_name)
-
 
 func _on_timeline_start(timeline_name) -> void :
 	emit_signal("timeline_start", timeline_name)
 
-
 func _on_timeline_end(timeline_name) -> void :
 	emit_signal("timeline_end", timeline_name)
-
 
 func _on_text_complete(text_event) -> void :
 	emit_signal("text_complete", text_event)
 
-
 func _on_dialogic_signal(value) -> void :
 	emit_signal("dialogic_signal", value)
-
 
 func _on_letter_displayed(last_letter):
 	emit_signal("letter_displayed", last_letter)

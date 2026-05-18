@@ -1,11 +1,6 @@
 class_name Vec2
 extends Resource
 
-
-
-
-
-
 const ZERO = Vector2(0, 0)
 const ONE = Vector2(1, 1)
 const RIGHT = Vector2(1, 0)
@@ -72,7 +67,6 @@ const W_NORM = Vector2( - 1, 0)
 const NW_NORM = Vector2( - 0.7071067811865476, - 0.7071067811865476)
 const N_NORM = Vector2(0, - 1)
 const NE_NORM = Vector2(0.7071067811865476, - 0.7071067811865476)
-
 
 const SEE = Vector2(0.9238795325112867, 0.3826834323650898)
 const SSE = Vector2(0.3826834323650898, 0.9238795325112867)

@@ -2,7 +2,6 @@ extends Node
 
 signal command_executed(command_name)
 
-
 var _commands_list: = [
 	["hadouken", "down_left_whip"], 
 	["hadouken", "down_right_whip"], 
@@ -16,11 +15,7 @@ var _commands_list: = [
 
 var command_executing: bool
 
-
-
 var _commands: String
-
-
 
 onready var TimerPressed = $Timer
 
@@ -37,7 +32,6 @@ func _physics_process(_delta: float) -> void :
 
 	if Input.is_action_just_pressed("attack"):
 		_add_command("whip")
-
 
 	
 	if Input.is_action_just_pressed("jump"):

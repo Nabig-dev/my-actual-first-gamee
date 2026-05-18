@@ -9,7 +9,6 @@ var image_label
 func _ready():
 	$ButtonDelete.icon = get_icon("Remove", "EditorIcons")
 
-
 func _on_ButtonDelete_pressed():
 	if $NameEdit.text == "Default":
 		$PathEdit.text = ""
@@ -17,18 +16,15 @@ func _on_ButtonDelete_pressed():
 	else:
 		queue_free()
 
-
 func _on_ButtonSelect_pressed():
 	editor_reference.godot_dialog("*.png, *.svg, *.tscn")
 	editor_reference.godot_dialog_connect(self, "_on_file_selected")
-
 
 func _on_file_selected(path, target):
 	update_preview(path)
 	$PathEdit.text = path
 	if $NameEdit.text == "":
 		$NameEdit.text = DialogicResources.get_filename_from_path(path)
-
 
 func _on_focus_entered():
 	if $PathEdit.text == "":
@@ -37,7 +33,6 @@ func _on_focus_entered():
 		image_node2.texture = null
 	else:
 		update_preview($PathEdit.text)
-
 
 func update_preview(path):
 	image_label.text = editor_reference.dialogicTranslator.translate("Preview of") + " \"" + $NameEdit.text + "\""

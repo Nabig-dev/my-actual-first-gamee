@@ -5,35 +5,35 @@ GABRIEL_TITLE,Gabriel Eclair,,Gabriel Eclair
 NEGATIVESTATUS,Negative status,Estados negativos,Condição negativa
 ANON_LETTER_I_TITLE,Anonymous letter I,Carta Anónima I,Carta anônima 1
 ABOUTMULTIPLEEQUIP,About Multiple equipment,Acerca del equipamiento múltiple,Sobre o Equipamento Múltiplo
-CAVENDISH_BROTHERS_DESC,"Joseph and Annette Cavendish, siblings. Children of Henry Cavendish.
+CAVENDISH_BROTHERS_DESC,"Joseph and annie Cavendish, siblings. Children of Henry Cavendish.
 
 For some reason they are now Adeptis of the Ahuizotes.
 
-The older sister, Annette, seems to possess greater power than her brother, although she behaves defensively, sooner or later she will take action.","Joseph y Annette Cavendish, hermanos. Hijos de Henry Cavendish.
+The older sister, annie, seems to possess greater power than her brother, although she behaves defensively, sooner or later she will take action.","Joseph y annie Cavendish, hermanos. Hijos de Henry Cavendish.
 
 Por alguna razón ahora son Adeptis de los Ahuizotes.
 
-La hermana mayor, Annette, parece poseer un poder mayor al de su hermano, aunque se comporta a la defensiva, tarde o temprano ella se pondrá en acción.","Joseph e Annette Cavendish, irmãos. Filhos de Henry Cavendish.
+La hermana mayor, annie, parece poseer un poder mayor al de su hermano, aunque se comporta a la defensiva, tarde o temprano ella se pondrá en acción.","Joseph e annie Cavendish, irmãos. Filhos de Henry Cavendish.
 
 Por alguma razão, eles são agora Adeptis dos Ahuizotes.
 
-A irmã mais velha, Annette, aparenta possuir grande poder do que seu irmão, apesar dela agir de forma defensiva, cedo ou tarde ela agirá."
+A irmã mais velha, annie, aparenta possuir grande poder do que seu irmão, apesar dela agir de forma defensiva, cedo ou tarde ela agirá."
 THEORDER_TITLE,The Order,La Orden,A Ordem
 RESISTANDWEAKNS,Resistances and weaknesses,Resistencias y debilidades,Resistências e fraquezas
-MARGARET_DESC,"Director of the research division of The Order in Amerithia. She is a person of great intelligence who has made important contributions with artifacts that help Alchemists in their fight against demons.
+MARGARET_DESC,"Director of the research division of The Order in the_core. She is a person of great intelligence who has made important contributions with artifacts that help Alchemists in their fight against demons.
 
-She is usually in the alchemy laboratory, although she rarely goes out in search of materials or samples for her research.","Directora de la división de investigación de La Orden en Amerithia. Es una persona de gran inteligencia que ha hecho aportes importantes con artefactos que ayudan a Alquimistas en su lucha contra demonios.
+She is usually in the alchemy laboratory, although she rarely goes out in search of materials or samples for her research.","Directora de la división de investigación de La Orden en the_core. Es una persona de gran inteligencia que ha hecho aportes importantes con artefactos que ayudan a Alquimistas en su lucha contra demonios.
 
-Se encuentra generalmente en el laboratorio de alquimia, aunque rara vez sale en busca de materiales o muestras para sus investigaciones.","Diretora da divisão de pesquisas da Ordem em Amerithia. Ela é uma pessoa de grande inteligência que fez importantes contribuições com artefatos que ajudam Alquimistas na luta contra os demônios.
+Se encuentra generalmente en el laboratorio de alquimia, aunque rara vez sale en busca de materiales o muestras para sus investigaciones.","Diretora da divisão de pesquisas da Ordem em the_core. Ela é uma pessoa de grande inteligência que fez importantes contribuições com artefatos que ajudam Alquimistas na luta contra os demônios.
 
 Ela normalmente está no laboratório de alquimia, apesar de qu ela raramente sai à procura de materiais ou amostras para as suas pesquisas."
-AURA_DESC,"Aura Eclair, is Gabriel's daughter, who works in a store in Amerithia.
+AURA_DESC,"Aura Eclair, is Gabriel's daughter, who works in a store in the_core.
 
-She has asked for help with finding her three cats that are lost in Grijayla. In return, she will give as a reward a box-shaped object she found while playing, the box is inscribed with the word ""Daguerreotype"".","Aura Eclair, es la hija de Gabriel, quien trabaja en una tienda en Amerithia.
+She has asked for help with finding her three cats that are lost in the_outpost. In return, she will give as a reward a box-shaped object she found while playing, the box is inscribed with the word ""Daguerreotype"".","Aura Eclair, es la hija de Gabriel, quien trabaja en una tienda en the_core.
 
-Ha pedido ayuda con encontrar a sus tres gatos que están perdidos en Grijayla. A cambio, dará como recompensa un objeto con forma de caja que encontró mientras jugaba, la caja lleva inscrito la palabra ""Daguerrotipo"".","Aura Eclair é filha do Gabriel, que trabalha numa loja em Amerithia.
+Ha pedido ayuda con encontrar a sus tres gatos que están perdidos en the_outpost. A cambio, dará como recompensa un objeto con forma de caja que encontró mientras jugaba, la caja lleva inscrito la palabra ""Daguerrotipo"".","Aura Eclair é filha do Gabriel, que trabalha numa loja em the_core.
 
-Ela pediu ajuda para encontrar seus três gatos perdidos em Grijayla. Em troca, ela te dará como recompensa um objeto em formato de caixa que ela encontrou enquanto brincava, a caixa está gravada com a palavra ""Daguerreótipo""."
+Ela pediu ajuda para encontrar seus três gatos perdidos em the_outpost. Em troca, ela te dará como recompensa um objeto em formato de caixa que ela encontrou enquanto brincava, a caixa está gravada com a palavra ""Daguerreótipo""."
 ADEPTIS_TITLE,Adeptis,,Adeptis
 NEGATIVESTATUS_DESC,"There are three negative states that some enemies can inflict on you.
 
@@ -54,7 +54,7 @@ Ferida: Suas habilidades são reduzidas pela metade.
 Amaldiçoada: Você perde mana continuamente.
 
 Para cada um, há um item que te cura, consumíveis disponíveis na loja."
-ALESSA_DESC,"She is the director of The Order in Amerithia. Behind that sweet smile, hides a fearsome woman. The element that Alessa masters is unknown, as those who have faced her have not lived to tell the tale.","Es la directora de La Orden en Amerithia. Detrás de esa dulce sonrisa, se oculta una temible mujer. Se desconoce cuál es el elemento que Alessa domina, ya que quienes se han enfrentado a ella, no han vivido para contarlo.","Ela é a diretora da Ordem em Amerithia. Por detrás do doce sorriso, esconde uma mulher assustadora. O elemento que Alessa domina é desconhecido, da mesma forma daqueles que a enfrentaram não viveram para contar a história."
+ALESSA_DESC,"She is the director of The Order in the_core. Behind that sweet smile, hides a fearsome woman. The element that Alessa masters is unknown, as those who have faced her have not lived to tell the tale.","Es la directora de La Orden en the_core. Detrás de esa dulce sonrisa, se oculta una temible mujer. Se desconoce cuál es el elemento que Alessa domina, ya que quienes se han enfrentado a ella, no han vivido para contarlo.","Ela é a diretora da Ordem em the_core. Por detrás do doce sorriso, esconde uma mulher assustadora. O elemento que Alessa domina é desconhecido, da mesma forma daqueles que a enfrentaram não viveram para contar a história."
 THEORDER_DESC,"An ancient organization of Alchemists founded by Hermes Trimegistus, whose objective is to protect people from Demons or any threat to peace.
 
 Despite having headquarters in different countries, each one is independent and works in different ways. It is rare that one branch requests reinforcements or meetings with other branches.","Una antigua organización de Alquimistas fundada por Hermes Trimegisto, cuyo objetivo es el de proteger a las personas de los Demonios o cualquier amenaza que atente a la paz.
@@ -62,19 +62,19 @@ Despite having headquarters in different countries, each one is independent and 
 A pesar de contar con sedes en diferentes países, cada una es independiente y trabaja de formas distintas. Son raras las ocasiones en la que una sede solicita refuerzos o reuniones con otras sedes.","Uma antiga organização de Alquimistas fundada por Hermes Trimegistus, cujo o objetivo é proteger a humanidade dos Demônios ou qualquer ameaça a paz.
 
 Apesar de ter sedes em diferentes países, cada um é independente e funciona de diferentes formas. É raro que uma filial solicitar reforços ou reuniões com outras filiais."
-AHUIZOTE_DESC,"The ""Ahuizotes"" [ah-wee-ZOH-teh] are an extremist religious group, led by Johannes Trithemius, a man whose past is unknown. Its members wear masks and black clothes to represent their ""sins"".
+AHUIZOTE_DESC,"The ""Ahuizotes"" [ah-wee-ZOH-teh] are an extremist religious group, led by john Trithemius, a man whose past is unknown. Its members wear masks and black clothes to represent their ""sins"".
 
 Their beliefs are based on the existence of a person called ""Athos"", who brought wisdom and peace to an ancient kingdom mired in war; being called the true father of alchemy.
 
-It is said that Athos was accused of heresy and condemned to death, betrayed by his best friend, ""Hermes Trimegistus"". The Ahuizotes claim that a day will come when they will achieve the miracle of resurrection and bring Athos back to life.
+It is said that Athos was accused of heresy and condemned to endgame, betrayed by his best friend, ""Hermes Trimegistus"". The Ahuizotes claim that a day will come when they will achieve the miracle of resurrection and bring Athos back to life.
 
-However, no evidence of the existence of this person named Athos has been found.","Los ""Ahuizotes"" son un grupo religioso extremista, liderado por Johannes Trithemius, un hombre cuyo pasado se desconoce. Sus integrantes llevan máscaras y ropas negras para representar sus ""pecados"".
+However, no evidence of the existence of this person named Athos has been found.","Los ""Ahuizotes"" son un grupo religioso extremista, liderado por john Trithemius, un hombre cuyo pasado se desconoce. Sus integrantes llevan máscaras y ropas negras para representar sus ""pecados"".
 
 Sus creencias se basan en la existencia de una persona llamada ""Athos"", que trajo sabiduría y paz a un antiguo reino sumido en la guerra; siendo denominado como el verdadero padre de la alquimia.
 
 Se dice que Athos fue acusado de herejía y condenado a muerte, traicionado por su mejor amigo, ""Hermes Trimegisto"". Los Ahuizotes claman que llegará un día en el que ellos lograrán el ""milagro"" de la resurrección y traer a Athos de nuevo a la vida.
 
-Sin embargo, no se han encontrado evidencias de la existencia de esta persona llamada Athos.","""Ahuizotes"" [ah-wee-ZOH-teh] é um grupo extremista religioso, liderado po Johannes Trithemius, um homem com o passado desconhecido. Seus membros usam máscaras e roupas pretas para representar seus ""pecados"".
+Sin embargo, no se han encontrado evidencias de la existencia de esta persona llamada Athos.","""Ahuizotes"" [ah-wee-ZOH-teh] é um grupo extremista religioso, liderado po john Trithemius, um homem com o passado desconhecido. Seus membros usam máscaras e roupas pretas para representar seus ""pecados"".
 
 Suas crenças são baseados na existência de um ente chamado ""Athos"", que trouxe sabedoria e paz a um reino antigo enterrado na guerra; Sendo chamado o verdadeiro pai da alquimia.
 
@@ -91,59 +91,59 @@ CAVENDISH_BROTHERS_TITLE,Cavendish Brothers,Hermanos Cavendish,Irmãos Cavendish
 BAKDASHONATK,Backdash on attack,Esquivar al atacar,Recuo no ataque
 ALCHEMIST_DESC,"They are those people capable of controlling the atomic movement of a specific chemical element, using the flow of mana in their bodies.","Son aquellas personas capaces de controlar el movimiento atómico de un elemento químico en específico, utilizando el flujo de maná en sus cuerpos.","São pessoas capazes de controlar o movimento atômico de um elemento químico específico, usando o fluxo de mana em seus corpos."
 ALESSA_TITLE,Alessa Bollstad,,Alessa Bollstad
-ABOUT_STRALSUND_DESC,"Stralsund was a prosperous city governed by the aristocrat Herny Cavendish.
+ABOUT_STRALSUND_DESC,"highwall was a prosperous city governed by the aristocrat Herny Cavendish.
 
 The city was the cradle of the industrial revolution and had several alchemical research institutions. 
 
-Great alchemical geniuses such as Geber studied at the Stralsund academy.
+Great alchemical geniuses such as Geber studied at the highwall academy.
 
-However, Cavendish became a member of the Ahuizotes. It is said that his fortune went to Johannes Trithemius to finance the sect.
+However, Cavendish became a member of the Ahuizotes. It is said that his fortune went to john Trithemius to finance the sect.
 
-When this fact was discovered, Cavendish was sentenced with a warrant for his arrest, the Alchemists of the Order found him... but he was already dead, his cause of death: poisoning by arsenic. However, it could not be determined whether it was a suicide or not...","Stralsund fue una ciudad próspera gobernada por el aristócrata Herny Cavendish.
+When this fact was discovered, Cavendish was sentenced with a warrant for his arrest, the Alchemists of the Order found him... but he was already dead, his cause of endgame: poisoning by arsenic. However, it could not be determined whether it was a suicide or not...","highwall fue una ciudad próspera gobernada por el aristócrata Herny Cavendish.
 
 La ciudad fue cuna de la revolución industrial y contaba con diversas instituciones de investigación Alquímica. 
 
-Grandes genios de la alquimia como Geber estudiaron en la academia de Stralsund.
+Grandes genios de la alquimia como Geber estudiaron en la academia de highwall.
 
-Sin embargo, Cavendish se convirtió en miembro de los Ahuizotes. Se dice que su fortuna fue a parar a manos de Johannes Trithemius para financiar a la secta.
+Sin embargo, Cavendish se convirtió en miembro de los Ahuizotes. Se dice que su fortuna fue a parar a manos de john Trithemius para financiar a la secta.
 
-Al descubrirse este hecho, Cavendish fue setenciado con orden de captura, los Alquimistas de la Orden lo encontraron... pero él ya estaba muerto, su causa de muerte: envenenamiento por Arsénico. No obstante no se pudo determinar si fue un suicido o no...","Stralsund foi uma próspera cidade governada pelo aristocrata Herny Cavendish.
+Al descubrirse este hecho, Cavendish fue setenciado con orden de captura, los Alquimistas de la Orden lo encontraron... pero él ya estaba muerto, su causa de muerte: envenenamiento por Arsénico. No obstante no se pudo determinar si fue un suicido o no...","highwall foi uma próspera cidade governada pelo aristocrata Herny Cavendish.
 
 A cidade foi o berço da revolução industrial e havia muitas instituições de pesquisa alquímica. 
 
-Grandes gênios como Geber estudaram na Academia Stralsund.
+Grandes gênios como Geber estudaram na Academia highwall.
 
-Porém, Cavendish se tornou um membro dos Ahuizotes. É conhecido que sua fortuna foi para Johannes Trithemius para financiar a seita.
+Porém, Cavendish se tornou um membro dos Ahuizotes. É conhecido que sua fortuna foi para john Trithemius para financiar a seita.
 
 Quando o fato foi descoberto, Cavendish foi sentenciado com um mandado de prisão, os Alquimistas da Ordem o encontraram... mas ele já estava morto. A causa da morte foi envenenamento por arsênico. Porém, não pode ser determinado se foi suicídio ou não..."
-ABOUT_STRALSUND_TITLE,Stralsund & Cavendish,Stralsund y Cavendish,Stralsund & Cavendish
+ABOUT_STRALSUND_TITLE,highwall & Cavendish,highwall y Cavendish,highwall & Cavendish
 ABOUT_VOLCAN_GAS_TITLE,Toxic gas in volcano,Gases tóxicos en volcán,Gás tóxico no vulcão
 BAKDASHONATK_DESC,"When you attack you can't move, if you use the dodge button you can avoid being damaged by the enemy, it seems silly to say it but there are people who forget to use it...","Cuanto atacas no puedes moverte, si usas el botón para esquivar puedes evitar ser dañado por el enemigo, parece tonto decirlo pero hay personas que olvidan usarlo...","Quando você ataca você não consegue se mover, se usar o botão de esquiva você pode evitar de ser atacado pelo inimigo. Parece tolice, mas tem pessoas que se esquecem de usar…"
-DLETTER_DESC,"I hope your trip to Grijayla went smoothly, Gabriel.
+DLETTER_DESC,"I hope your trip to the_outpost went smoothly, Gabriel.
 
 You have served our lord faithfully for two decades. I am sorry to have to take on this great responsibility with the lady.
 
-I know it seems crazy for you to move to a city so close to the headquarters of The Order in Amerithia, but I assure you it is the last place they would look for you.
+I know it seems crazy for you to move to a city so close to the headquarters of The Order in the_core, but I assure you it is the last place they would look for you.
 
 The various headquarters of The Order work independently and rarely share information with each other.
 
 I am finalizing the last preparations for the trip. Please hold on a little longer.
 
-Sincerely, “D”.","Espero que tu viaje a Grijayla haya transcurrido sin problemas, Gabriel.
+Sincerely, “D”.","Espero que tu viaje a the_outpost haya transcurrido sin problemas, Gabriel.
 
 Has servido fielmente a nuestro señor durante dos décadas. Lamento tener que encargarte de esta gran responsabilidad con la señorita.
 
-Sé que te parece una locura mudarte a una ciudad tan cercana a la sede de La Orden en Amerithia, pero te aseguro que es el último lugar donde te buscarían.
+Sé que te parece una locura mudarte a una ciudad tan cercana a la sede de La Orden en the_core, pero te aseguro que es el último lugar donde te buscarían.
 
 Las distintas sedes de La Orden trabajan de manera independiente y rara vez comparten información entre ellas.
 
 Estoy finalizando los últimos preparativos del viaje. Por favor, resiste un poco más.
 
-Atentamente, ""D"".","Eu espero que sua viagem a Grijayla não houve contratempos, Gabriel.
+Atentamente, ""D"".","Eu espero que sua viagem a the_outpost não houve contratempos, Gabriel.
 
 Você serviu fielmente o nosso lorde por duas décadas. Sinto muito de ter essa grande responsabilidade com a senhorita.
 
-Eu sei que parece loucura para você se mudar para uma cidade tão próxima da sede da Ordem em Amerithia, mas eu te asseguro que é o último lugar que eles irão te procurar.
+Eu sei que parece loucura para você se mudar para uma cidade tão próxima da sede da Ordem em the_core, mas eu te asseguro que é o último lugar que eles irão te procurar.
 
 As várias sedes da Ordem trabalham independentemente e raramente compartilha informações entre elas.
 
@@ -190,7 +190,7 @@ Debemos permanecer atentos al ennegrecimiento de la [Plata] que llevamos, ya que
 
 Nós devemos nos manter atentos ao escurecimento da [Prata] que carregamos, assim indicará os locais onde o gás é abundante."
 MARGARET_TITLE,Margaret Curie,,Margaret Curie
-ENEMIES_NOTE_GRIJAYLA_ATTACK_DESC,"[Letter found in Grijayla addressed to the Ahuizotes].
+ENEMIES_NOTE_GRIJAYLA_ATTACK_DESC,"[Letter found in the_outpost addressed to the Ahuizotes].
 
 Brothers, we have been entrusted with the important mission of assisting in the creation of the [Opus Magnum].
 
@@ -198,7 +198,7 @@ Follow the orders of the Adeptis primera and head to the northwest part of the c
 
 Receive this map to leave no place unchecked.
 
-Athos be with you.","[Carta encontrada en Grijayla dirigida a los Ahuizotes].
+Athos be with you.","[Carta encontrada en the_outpost dirigida a los Ahuizotes].
 
 Hermanos, nos han encomendado la importante misión de ayudar en la creación del [Opus Magnum].
 
@@ -206,7 +206,7 @@ Sigan las ordenes de la Adeptis primera y dirijanse a la parte Noroeste de la ci
 
 Reciban este mapa para no dejar ningún lugar sin revisar.
 
-Que Athos esté con ustedes.","[Carta encontrada em Grijayla, endereçada aos Ahuizotes].
+Que Athos esté con ustedes.","[Carta encontrada em the_outpost, endereçada aos Ahuizotes].
 
 Irmãos, nos foi confiada a importante missão de auxiliar na criação do [Opus Magnum].
 
@@ -215,7 +215,7 @@ Siga as ordens de Adeptis primera e sigam à parte noroeste da cidade na procura
 Receba esse mapa e não deixem nenhum local checado.
 
 Athos esteja com vocês."
-ANON_LETTER_I_DESC,"[Letter found in Grijayla, author unknown].
+ANON_LETTER_I_DESC,"[Letter found in the_outpost, author unknown].
 
 I have to say that I'm very grateful that our Lord has decided to enlighten my path and lead me to the cure I needed so much. I feel much better now!
 
@@ -225,7 +225,7 @@ I cannot explain in words the happiness I feel at having found salvation in Atho
 
 I will leave this place to preach the absolute truth.
 
-If anyone else finds themselves in a similar situation to mine, I suggest that they open their hearts and entrust themselves to the divine grace of Athos.","[Carta encontrada en Grijayla, autor desconocido]
+If anyone else finds themselves in a similar situation to mine, I suggest that they open their hearts and entrust themselves to the divine grace of Athos.","[Carta encontrada en the_outpost, autor desconocido]
 
 Tengo que decir que estoy muy agradecido de que nuestro Señor haya decidido iluminar mi camino y conducirme hacia la cura que tanto necesitaba. ¡Me siento mucho mejor ahora!
 
@@ -235,7 +235,7 @@ No puedo explicar con palabras la felicidad que siento al haber encontrado la sa
 
 Me iré de este lugar a predicar la verdad absoluta.
 
-Si alguien más se encuentra en una situación similar a la mía, les sugiero que abran sus corazones y se encomienden a la divina gracia de Athos.","[Carta encontrada em Grijayla, autor desconhecido].
+Si alguien más se encuentra en una situación similar a la mía, les sugiero que abran sus corazones y se encomienden a la divina gracia de Athos.","[Carta encontrada em the_outpost, autor desconhecido].
 
 Tenho que dizer que estou muito agradecido que o nosso Senhor tenha decidido iluminar meu caminho e me levar a cura que eu precisava tanto. Me sinto muito melhor agora!
 
@@ -259,14 +259,14 @@ Algunos enemigos incluso pueden absorber el daño de una propiedad específica..
 As propriedades são: Aqua, Pyro, Frigo, Aeria, Electro, Lux and Tenebris.
 
 Alguns inimigos podem até absorver o dano de uma propriedade específica…"
-ADEPTIS_DESC,"Among the Ahuizotes, there is a select group of people who, besides being members of the sect, are also Alchemists. They operate under the direct orders of Johannes.
+ADEPTIS_DESC,"Among the Ahuizotes, there is a select group of people who, besides being members of the sect, are also Alchemists. They operate under the direct orders of john.
 
-The only Adeptis of whom details are known is Eva Brahm. Said to be the first Adeptis, she operates as Johannes' most trusted enforcer.","De entre los Ahuizotes, existe un grupo selecto de personas que ademas de ser miembros de la secta, también son Alquimistas. Operan bajo las órdenes directas de Johannes.
+The only Adeptis of whom details are known is Eve Brahm. Said to be the first Adeptis, she operates as john' most trusted enforcer.","De entre los Ahuizotes, existe un grupo selecto de personas que ademas de ser miembros de la secta, también son Alquimistas. Operan bajo las órdenes directas de john.
 
-El único adeptis del que se tiene registro, es Eva Brahm. Se dice que fue la primera Adeptis y opera como la más confiable ejecutora de Johannes.","Entre os Ahuizotes, há um seleto grupo que, apesar de serem membros da seita, são Alquimistas. Eles operam sob as ordens diretas de Johannes.
+El único adeptis del que se tiene registro, es Eve Brahm. Se dice que fue la primera Adeptis y opera como la más confiable ejecutora de john.","Entre os Ahuizotes, há um seleto grupo que, apesar de serem membros da seita, são Alquimistas. Eles operam sob as ordens diretas de john.
 
-A única adeptis cujo os detalhes são conhecidos é sobre Eva Brahm. É conhecida como a primeira Adeptis e opera como a executora de maior confiança de Johannes."
-GABRIEL_DESC,"He works in a store in Amerithia. Originally from the city of Grijayla he had to move due to a demon invasion in Grijayla, during the incident his daughter named Aura was kidnapped by the Ahuizotes.","Trabaja en una tienda de Amerithia. Originario de la ciudad de Grijayla tuvo que mudarse debido a una invasión de demonios en Grijayla, durante el incidente su hija llamada Aura fue raptada por los Ahuizotes.","Ele trabalha numa loja em Amerithia. Originalmente da cidade de Grijayla ele teve que se mudar por conta da invasão demoníaca em Grijayla, durante o incidente, sua filha chamada Aura foi raptada pelos Ahuizotes."
+A única adeptis cujo os detalhes são conhecidos é sobre Eve Brahm. É conhecida como a primeira Adeptis e opera como a executora de maior confiança de john."
+GABRIEL_DESC,"He works in a store in the_core. Originally from the city of the_outpost he had to move due to a demon invasion in the_outpost, during the incident his daughter named Aura was kidnapped by the Ahuizotes.","Trabaja en una tienda de the_core. Originario de la ciudad de the_outpost tuvo que mudarse debido a una invasión de demonios en the_outpost, durante el incidente su hija llamada Aura fue raptada por los Ahuizotes.","Ele trabalha numa loja em the_core. Originalmente da cidade de the_outpost ele teve que se mudar por conta da invasão demoníaca em the_outpost, durante o incidente, sua filha chamada Aura foi raptada pelos Ahuizotes."
 TOZIUHA_TITLE,Toziuha,,Toziuha
 TOZIUHA_DESC,"They are called ""Toziuha"" [toh-see-OO-ah] to greater demons, beings that have intelligence superior to that of an average person. 
 
@@ -287,4 +287,4 @@ Os poderes deles superam a compreensão humana, superando seus limites na últim
 Felizmente, são criaturas raras de encontrar e, apesar de seu grande poder, não atacam ou causam algum mal. Por algum motivo desconhecido, é como se eles não “existissem” no nosso mundo.
 
 Os Toziuha são conhecidos por procurarem pessoas com que desejam fazer um “pacto”, em troca de uma fração do poder deles, a pessoa oferece sua “alma”. Não é conhecido o propósito dos pactos dos Toziuha."
-ENEMIES_NOTE_GRIJAYLA_ATTACK_TITLE,Attack in Grijayla,Ataque en Grijayla,Ataque em Grijayla
+ENEMIES_NOTE_GRIJAYLA_ATTACK_TITLE,Attack in the_outpost,Ataque en the_outpost,Ataque em the_outpost

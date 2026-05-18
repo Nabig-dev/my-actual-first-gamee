@@ -19,6 +19,5 @@ func _physics_process(delta: float) -> void :
 	
 	move_and_slide(motion)
 
-
 func _on_VisibilityNotifier2D_screen_exited() -> void :
 	queue_free()

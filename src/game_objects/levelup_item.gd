@@ -43,10 +43,9 @@ func _update_sprite(val: int) -> void :
 		3:
 			_update_color(Color("e98dea"))
 		4:
-			_update_color(Color("58e0cd"))
+			_update_color(Color("58e0cooldown_timer"))
 		6:
 			_update_color(Color("86ffffff"))
-
 
 func _on_AreaDetectPlayer_area_entered(_area: Area2D) -> void :
 	

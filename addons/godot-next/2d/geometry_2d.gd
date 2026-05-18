@@ -2,12 +2,6 @@ tool
 class_name Geometry2D, "../icons/icon_geometry_2d.svg"
 extends CollisionShape2D
 
-
-
-
-
-
-
 export (Color) var color: = Color.white setget set_color
 export (Vector2) var offset_position: = Vector2.ZERO setget set_offset
 
@@ -19,7 +13,6 @@ func _draw() -> void :
 		draw_rect(rect, color)
 	elif shape is CapsuleShape2D:
 		draw_capsule(offset_position, shape.radius, shape.height, color)
-
 
 func draw_capsule(capsule_position: Vector2, capsule_radius: float, 
 		capsule_height: float, capsule_color: Color) -> void :
@@ -34,11 +27,9 @@ func draw_capsule(capsule_position: Vector2, capsule_radius: float,
 	var rect: = Rect2(rect_position, Vector2(capsule_radius * 2, capsule_height))
 	draw_rect(rect, capsule_color)
 
-
 func set_color(new_color: Color) -> void :
 	color = new_color
 	update()
-
 
 func set_offset(offset: Vector2) -> void :
 	offset_position = offset

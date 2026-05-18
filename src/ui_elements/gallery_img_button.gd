@@ -12,15 +12,11 @@ func _ready() -> void :
 func set_texture(textur: Texture) -> void :
 	texture_normal = textur
 
-
 func _on_GalleryImgButton_focus_entered() -> void :
 	modulate.a = 1
 
-
 func _on_GalleryImgButton_focus_exited() -> void :
 	modulate.a = 0.6
-
-
 
 func _on_GalleryImgButton_button_up() -> void :
 	if has_focus() == true:

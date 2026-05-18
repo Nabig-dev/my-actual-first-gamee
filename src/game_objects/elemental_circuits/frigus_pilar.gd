@@ -31,7 +31,6 @@ func _on_TimerSpawnPilar_timeout() -> void :
 		TimerSpawnPilar.stop()
 		TimerFree.start()
 
-
 func _on_TimerFree_timeout() -> void :
 	ElementalCircuit.AnimPlayer.playback_speed = 0.5
 	ElementalCircuit.AnimPlayer.play("absorbed")

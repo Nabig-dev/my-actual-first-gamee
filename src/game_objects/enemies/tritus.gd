@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-
 var velocity: = Vector2()
 
 var speed: int = 40
@@ -38,7 +37,6 @@ func _on_HurtboxEnemy_damaged() -> void :
 	if Enemy.state in ["swim", "chase"]:
 		Enemy.change_direction("to_player")
 
-
 func _on_Area2DDetectPlayer_area_entered(_area: Area2D) -> void :
 	if Enemy.state in ["swim"]:
 		Enemy.change_state("chase")
@@ -46,7 +44,6 @@ func _on_Area2DDetectPlayer_area_entered(_area: Area2D) -> void :
 func _on_Area2DDetectPlayer_area_exited(_area: Area2D) -> void :
 	if Enemy.state in ["chase"]:
 		Enemy.change_state("swim")
-
 
 func _on_VisibilityEnabler2D_screen_entered() -> void :
 	Enemy.change_direction("to_player")

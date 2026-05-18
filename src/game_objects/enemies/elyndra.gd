@@ -103,11 +103,9 @@ func _on_TimerMakeAttack_timeout() -> void :
 		rand_range(2.5, 4.0)
 	)
 
-
 func _on_HurtboxEnemy_damaged() -> void :
 	if Enemy.state == "idle":
 		push_body()
-
 
 func _on_EnemyBase_state_changed(state) -> void :
 	if state == "idle":
@@ -115,7 +113,6 @@ func _on_EnemyBase_state_changed(state) -> void :
 	elif state == "dead":
 		GhostTrail.stop_trail()
 		$GhostTrail2.stop_trail()
-
 
 func _on_TimerUpdateChasePos_timeout() -> void :
 	_target_position = global_position.direction_to(

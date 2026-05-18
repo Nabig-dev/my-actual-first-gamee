@@ -2,18 +2,11 @@ tool
 class_name DiscreteGradientTexture
 extends ImageTexture
 
-
-
-
-
-
-
 export var resolution: int = 256 setget _update_resolution
 export var gradient: Gradient = Gradient.new() setget _update_gradient
 
 func _ready() -> void :
 	_update_texture()
-
 
 func _update_texture() -> void :
 	var image: = Image.new()
@@ -46,11 +39,9 @@ func _update_texture() -> void :
 	image.unlock()
 	self.create_from_image(image, 0)
 
-
 func _update_gradient(g: Gradient) -> void :
 	gradient = g
 	_update_texture()
-
 
 func _update_resolution(r: int) -> void :
 	resolution = r

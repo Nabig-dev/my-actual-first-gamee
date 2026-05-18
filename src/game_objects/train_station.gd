@@ -10,7 +10,6 @@ var map_interface_path: String = "res://stages/%s/map_full_travel.tscn" % [
 	VarsGlobal.selected_stage
 ]
 
-
 var go_to_train_event: bool
 
 var MapTravelInterface: CanvasLayer
@@ -38,7 +37,6 @@ func _update_active(act: bool) -> void :
 	$Door.visible = not active
 	$InteractableArea2DIndicator / CollisionShape2D.disabled = not active
 
-
 func _on_InteractableArea2DIndicator_interact_requested() -> void :
 	if opened_menu == true or VarsGlobal.Player.enabled_input == false:
 		return
@@ -55,7 +53,7 @@ func _on_InteractableArea2DIndicator_interact_requested() -> void :
 	if go_to_train_event == true:
 		VarsGlobal.add_flag("train_event")
 		VarsGlobal.Player._change_sprite_facing(1)
-		SceneChanger.change_scene("res://stages/oota/amerithia/train_event_1.tscn")
+		SceneChanger.change_scene("res://stages/oota/the_core/train_event_1.tscn")
 	else:
 		MapTravelInterface.open()
 

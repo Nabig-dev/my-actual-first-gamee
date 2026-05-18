@@ -50,7 +50,7 @@
 			"character": "character-1702344268.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Xandria, qué gusto verte."
+			"text": "nabig, qué gusto verte."
 		},
 		{
 			"character": "character-1649630816.json",
@@ -153,7 +153,7 @@
 			"character": "character-1702344268.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Ah, Xandria. Permíteme presentarte a [color=yellow]Isabel Nochari[/color]. Ella es la jefa de la comunidad que habita estas isletas."
+			"text": "Ah, nabig. Permíteme presentarte a [color=yellow]Isabel Nochari[/color]. Ella es la jefa de la comunidad que habita estas isletas."
 		},
 		{
 			"animation": "[Default]",
@@ -227,7 +227,7 @@
 			"character": "character-1702344268.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Nuestros investigadores han descubierto que uno de los adeptis que están bajo las órdenes de Johannes, es nativo de este lugar."
+			"text": "Nuestros investigadores han descubierto que uno de los adeptis que están bajo las órdenes de john, es nativo de este lugar."
 		},
 		{
 			"character": "character-1702344268.json",
@@ -441,7 +441,7 @@
 			"character": "character-1702344268.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "¿Xandria? ¿qué pasa?"
+			"text": "¿nabig? ¿qué pasa?"
 		},
 		{
 			"character": "character-1649630816.json",

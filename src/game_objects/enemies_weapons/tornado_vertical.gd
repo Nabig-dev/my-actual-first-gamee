@@ -11,7 +11,6 @@ onready var FogParallax = $FogParallax
 func _ready() -> void :
 	$AnimationPlayer.play("pre-show")
 
-
 func _physics_process(delta: float):
 	FogParallax.dir = get_dir()
 	if active == true:
@@ -36,7 +35,6 @@ func _show_anim_finished() -> void :
 
 func _on_TimerEnd_timeout() -> void :
 	dissapear()
-
 
 func _on_AnimationPlayer_animation_started(anim_name: String) -> void :
 	if anim_name == "show":

@@ -12,7 +12,6 @@ func set_texture(new_texture):
 func get_texture():
 	return scaled_texture
 
-
 export var rect_size: Vector2
 export var rect_gap: Vector2
 export var texture_offset: Vector2
@@ -37,9 +36,7 @@ func set_chars(new_chars):
 func get_chars():
 	return chars
 
-
 var char_codes: Array
-
 
 func get_scaled_texture() -> Texture:
 	if scale == 1:
@@ -61,14 +58,12 @@ func get_scaled_texture() -> Texture:
 	
 	return tex
 
-
 func get_char_width(char_code: int) -> int:
 	if char_codes.find(char_code) == - 1:
 		return - 1
 	
 	var rect = get_char_rect(char_code)
 	return rect.size.x
-
 
 func get_char_pos(char_code: int):
 	for i in char_codes.size():
@@ -80,7 +75,6 @@ func get_char_pos(char_code: int):
 			return Vector2(pos, i)
 	
 	return null
-
 
 func _get_char_rect_unscaled(char_code: int):
 	var pos: Vector2 = get_char_pos(char_code)
@@ -98,7 +92,6 @@ func _get_char_rect_unscaled(char_code: int):
 	
 	return rect
 
-
 func get_char_rect(char_code: int):
 	var rect = _get_char_rect_unscaled(char_code)
 	if rect == null:
@@ -108,7 +101,6 @@ func get_char_rect(char_code: int):
 	rect.size *= scale
 	
 	return rect
-
 
 func get_cropped_char_rect(char_code: int):
 	var rect = _get_char_rect_unscaled(char_code)
@@ -136,8 +128,6 @@ func get_cropped_char_rect(char_code: int):
 	
 	return rect
 
-
-
 func _scan_empty_pixels(from_x: int, to_x: int, from_y: int, to_y: int) -> int:
 	var img_data: = source_texture.get_data()
 	img_data.lock()
@@ -157,11 +147,9 @@ func _scan_empty_pixels(from_x: int, to_x: int, from_y: int, to_y: int) -> int:
 	
 	return c
 
-
 func get_local_position(position: Vector2) -> Vector2:
 	var pos = ((position - texture_offset * scale) / ((rect_size + rect_gap) * scale)).floor()
 	return pos
-
 
 func get_char_at_position(position: Vector2) -> String:
 	var tex_size = scaled_texture.get_size()

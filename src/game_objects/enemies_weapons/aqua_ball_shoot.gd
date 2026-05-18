@@ -27,6 +27,5 @@ func _physics_process(delta: float) -> void :
 		set_physics_process(false)
 		Audio.play_sfx("water_splash_move")
 
-
 func _on_TimerQueue_timeout() -> void :
 	queue_free()

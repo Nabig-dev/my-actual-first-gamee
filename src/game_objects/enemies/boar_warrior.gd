@@ -2,7 +2,6 @@ extends KinematicBody2D
 
 var Spear = preload("res://src/game_objects/enemies_weapons/axe_boar.tscn")
 
-
 var velocity: = Vector2()
 
 var gravity: int = 300
@@ -51,11 +50,7 @@ func spawn_spear() -> void :
 	SpearInstance.global_position = Position2DSpear.global_position
 	SpearInstance.dir = Enemy.facing
 
-
-
-
 	VarsGlobal.GameScenario.add_child(SpearInstance)
-
 
 func _on_SpearThrowed() -> void :
 	if AreaPlayerRange.is_colliding() and VisibleBody.is_on_screen():
@@ -65,7 +60,6 @@ func _on_SpearThrowed() -> void :
 	else:
 		Enemy.change_state("walk")
 
-
 func _on_AreaPlayerRange_object_entered(_Obj) -> void :
 	if (
 		VisibleBody.is_on_screen() == true
@@ -73,7 +67,6 @@ func _on_AreaPlayerRange_object_entered(_Obj) -> void :
 	):
 		Enemy.change_direction("to_player")
 		Enemy.change_state("throw")
-
 
 func _on_VisibilityNotifierCameraArea_screen_entered() -> void :
 	if Enemy.state in ["idle", "walk", "walk-inverse"]:
@@ -85,21 +78,17 @@ func _on_VisibilityNotifierCameraArea_screen_exited() -> void :
 	if Enemy.state in ["walk", "walk-inverse"]:
 		Enemy.change_state("idle")
 
-
 func _on_HurtboxEnemy_damaged() -> void :
 	if Enemy.state in ["idle", "walk", "walk-inverse"]:
 		Enemy.change_direction("to_player")
-
 
 func _on_AreaPlayerRange_object_exited(_Obj) -> void :
 	if Enemy.state in ["idle", "walk", "walk-inverse"]:
 		Enemy.change_direction("to_player")
 
-
 func _on_AreaBack_object_entered(_Obj) -> void :
 	if Enemy.state in ["idle", "walk", "walk-inverse"]:
 		Enemy.change_direction("to_player")
-
 
 func _on_TimerEndWalkInverse_timeout() -> void :
 	if Enemy.state != "walk-inverse":
@@ -109,7 +98,6 @@ func _on_TimerEndWalkInverse_timeout() -> void :
 		Enemy.change_state("throw")
 	else:
 		Enemy.change_state("walk")
-
 
 func _on_DetectNoFloor_object_exited(_Obj) -> void :
 	if is_on_floor() == false:

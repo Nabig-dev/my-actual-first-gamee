@@ -108,7 +108,6 @@ func _process(_delta: float) -> void :
 	elif Input.is_action_just_pressed("ui_right") and get_node("%ButtonNext").disabled == false:
 			_on_ButtonTuto_pressed("next")
 
-
 func _on_ButtonTuto_pressed(opt: String) -> void :
 	
 	if opt != "none":

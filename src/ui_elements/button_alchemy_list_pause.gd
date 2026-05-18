@@ -1,8 +1,6 @@
 extends Button
 
-
 var ide: int = 0
-
 
 var type: int = 0
 

@@ -1,8 +1,5 @@
 extends KinematicBody2D
 
-
-
-
 var velocity: = Vector2()
 
 var gravity: int = 350
@@ -45,7 +42,6 @@ func _on_TimerToRevive_timeout() -> void :
 		Enemy.change_direction("to_player")
 		Enemy.change_state("revive", true)
 
-
 func _on_HurtboxEnemy_defeated() -> void :
 	randomize()
 	$TimerToRevive.start(
@@ -58,7 +54,6 @@ func _on_EnemyBase_state_changed(state) -> void :
 		$HurtboxEnemy.set_enabled_hurtbox(true)
 		$HitboxEnemy.set_deferred("monitorable", true)
 
-
 func _on_HurtboxEnemy_defeated_by_weakness() -> void :
 	_can_revive = false
 	$HurtboxEnemy.add_to_death_count_on_defeat = true
@@ -70,7 +65,6 @@ func _on_HurtboxEnemy_damaged() -> void :
 	if AreaNoFloor.is_colliding() == true and Enemy.state != "dead":
 		velocity.x = 0
 		Enemy.change_direction("to_player")
-
 
 func _on_AreaDetectPlayerExited_area_exited(_area: Area2D) -> void :
 	_on_HurtboxEnemy_damaged()

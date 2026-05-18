@@ -52,17 +52,14 @@ func _on_CreditsScroll_focus_exited() -> void :
 	get_node("%CreditsPanelContainer").visible = false
 	get_node("%HBxHelpers").visible = false
 
-
 func _on_BtnExit_pressed() -> void :
 	Audio.play_sfx("ui_cancel")
 	SceneChanger.change_scene("res://src/screens/main_menu.tscn")
-
 
 func _on_BtnSeeSocialLinks_pressed() -> void :
 	Audio.play_sfx("ui_accept")
 	get_node("%PopupSocial").show()
 	get_node("%PopupSocial/SocialButtons/HbxMain/Btnweb").grab_focus()
-
 
 func _on_BtnClosePopup_pressed() -> void :
 	Audio.play_sfx("ui_cancel")

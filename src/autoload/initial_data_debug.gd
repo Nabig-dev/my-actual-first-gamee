@@ -1,6 +1,5 @@
 extends Node
 
-
 func debug_data() -> void :
 	
 	VarsGlobal.game_data["player_atk"] = 19
@@ -19,9 +18,6 @@ func debug_data() -> void :
 	VarsGlobal.game_data["player_equip_items"].append(GVar.EQUIPMENT.BATTLE_CLOTHES)
 	VarsGlobal.game_data["player_equip_items"].append(GVar.EQUIPMENT.BATTLE_BOOTS)
 	
-
-
-
 
 	ElementalCircuits.obtain(
 		GVar.EC_MODE.ACTION, GVar.EC_ACTION.PYRO_PROIECTUM
@@ -55,14 +51,9 @@ func debug_data() -> void :
 		GVar.EC_MODE.ABILITY, GVar.EC_ABILITY.DODGE
 	)
 
-
-
-
 	ElementalCircuits.obtain(
 		GVar.EC_MODE.ABILITY, GVar.EC_ABILITY.AERIAL_DASH
 	)
-
-
 
 	ElementalCircuits.obtain(
 		GVar.EC_MODE.ABILITY, GVar.EC_ABILITY.MULTIPLE_EQUIPMENT
@@ -79,9 +70,6 @@ func debug_data() -> void :
 	ElementalCircuits.obtain(
 		GVar.EC_MODE.ABILITY, GVar.EC_ABILITY.AMPHIBIOUS_BREATHING
 	)
-
-
-
 
 	ElementalCircuits.obtain(
 		GVar.EC_MODE.ACTION, GVar.EC_ACTION.CONGELATIO
@@ -109,12 +97,6 @@ func debug_data() -> void :
 	
 	
 
-
-
-
-
-
-
 	ElementalCircuits.obtain(
 		GVar.EC_MODE.ACTION, GVar.EC_ACTION.ELECTRO_SPHAERA
 	)
@@ -128,8 +110,6 @@ func debug_data() -> void :
 		GVar.EC_MODE.ACTION, GVar.EC_ACTION.DISSOLVIO_RADIUM
 	)
 
-
-
 	ElementalCircuits.obtain(
 		GVar.EC_MODE.ACTION, GVar.EC_ACTION.LUX_PILAR
 	)
@@ -138,26 +118,6 @@ func debug_data() -> void :
 	)
 
 	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 func _ready() -> void :
 	if Features.has("debug") == true:

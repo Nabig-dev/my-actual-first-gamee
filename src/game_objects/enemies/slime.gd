@@ -1,12 +1,9 @@
 extends KinematicBody2D
 
-
-
 export var appear_anim: bool
 
 onready var Enemy = $EnemyBase
 onready var RayCast2DNoFloor = $Sprite / RayCast2DNoFloor
-
 
 var velocity: = Vector2()
 
@@ -34,7 +31,6 @@ func _physics_process(delta) -> void :
 	
 	if (is_on_floor() and Enemy.state == "walk") and (is_on_wall() or RayCast2DNoFloor.is_colliding() == false):
 		Enemy.change_direction("inverse")
-
 
 func _on_HurtboxEnemy_damaged() -> void :
 	if Enemy.state in ["idle", "walk"]:

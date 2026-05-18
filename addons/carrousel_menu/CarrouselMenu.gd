@@ -1,8 +1,5 @@
 extends Node2D
 
-
-
-
 signal selected_item(item_index)
 
 signal focused_to(item_index)
@@ -141,12 +138,10 @@ func _process(_delta: float) -> void :
 	elif Input.is_action_just_pressed(key_select) and key_select.empty() == false:
 		emit_signal("selected_item", selected_index)
 
-
 func focus_item_first_time(idx: int) -> void :
 	selected_index = idx
 	_update_positions()
 	emit_signal("focused_to", selected_index)
-
 
 func move_to(dir: String) -> void :
 	if _moving_anim == true or _items_list.size() <= 1:
@@ -267,7 +262,6 @@ func _tween_modulate(obj: Node2D, new_color: Color, duration: float = animation_
 		obj, "modulate", new_color, duration
 	)
 
-
 func _tween_item_position_y(obj: Node2D, new_val_y: float, duration: float = animation_duration) -> void :
 	var Tw: = create_tween()
 	Tw.tween_property(
@@ -283,11 +277,6 @@ func _tween_position_main_x(obj: Node2D, new_val_x: float) -> void :
 	yield(TweenMove, "finished")
 	_moving_anim = false
 	emit_signal("_move_ended")
-
-
-
-
-
 
 func _get_new_position_on_array(
 		arr: Array, current_pos: = 0, direction: = ""

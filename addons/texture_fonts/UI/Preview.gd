@@ -7,11 +7,9 @@ onready var colorpicker: = $HeadingBox / ColorPickerButton
 func set_font(new_font: BitmapFont):
 	text_edit.set("custom_fonts/font", new_font)
 
-
 func set_preview_text(new_text):
 	if new_text == null: new_text == ""
 	text_edit.text = new_text
-
 
 func set_preview_color(color: Color):
 	colorpicker.color = color
@@ -23,8 +21,6 @@ func set_preview_color(color: Color):
 	
 	text_edit.set("custom_colors/caret_color", color.inverted())
 
-
 func set_preview_scale(scale):
 	text_edit.rect_scale = Vector2(scale, scale)
-
 

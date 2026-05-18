@@ -5,7 +5,7 @@ class_name PlayableCharacter, "res://assets/icons/position-stick-man.svg"
 signal character_added
 
 var CharInstance = null
-var CharXandria = preload("res://src/game_objects/characters/xandria.tscn")
+var CharXandria = preload("res://src/game_objects/characters/nabig.tscn")
 var CharSmolXandria = preload("res://src/game_objects/characters/smol_xandria.tscn")
 
 export var can_move: bool = true

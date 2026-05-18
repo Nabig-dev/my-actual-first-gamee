@@ -30,7 +30,6 @@ func _on_ButtonItem_focus_entered() -> void :
 	
 	Audio.play_sfx("ui_changed_value")
 
-
 func _on_ButtonItem_focus_exited() -> void :
 	get_node("%InventoryItems").modulate.a = 0.5
 	get_node("%BgUnfocused").visible = true

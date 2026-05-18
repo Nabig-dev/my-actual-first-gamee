@@ -17,7 +17,6 @@ func _on_HurtboxDestruct_area_entered(_area: Area2D) -> void :
 	Hurtbox.set_deferred("monitorable", false)
 	Anim.play("destroyed")
 
-
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void :
 	if anim_name == "destroyed":
 		queue_free()
