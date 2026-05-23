@@ -5,10 +5,10 @@ type="Translation"
 
 [deps]
 
-files=[ "res://localization/alloys.es.translation", "res://localization/alloys.en.translation", "res://localization/alloys.pt_BR.translation" ]
+files=[ "res://localization/alloys.en.translation", "res://localization/alloys.es.translation", "res://localization/alloys.pt_BR.translation" ]
 
 source_file="res://localization/alloys.csv"
-dest_files=[ "res://localization/alloys.es.translation", "res://localization/alloys.en.translation", "res://localization/alloys.pt_BR.translation" ]
+dest_files=[ "res://localization/alloys.en.translation", "res://localization/alloys.es.translation", "res://localization/alloys.pt_BR.translation" ]
 
 [params]
 
